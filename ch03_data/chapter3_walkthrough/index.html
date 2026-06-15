@@ -1,0 +1,1615 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://tjphoton.github.io/building-pharma-decision-systems/ch03_data/chapter3_walkthrough/">
+      
+      
+        <link rel="prev" href="../ch03_appendix/">
+      
+      
+        <link rel="next" href="../exercise_solutions/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Walkthrough Notebook - Building Pharmaceutical Decision Systems</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-3-walkthrough-a-synthetic-lab-for-real-pharma-questions" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Building Pharmaceutical Decision Systems" class="md-header__button md-logo" aria-label="Building Pharmaceutical Decision Systems" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Building Pharmaceutical Decision Systems
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Walkthrough Notebook
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/tjphoton/building-pharma-decision-systems" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Building Pharmaceutical Decision Systems" class="md-nav__button md-logo" aria-label="Building Pharmaceutical Decision Systems" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Building Pharmaceutical Decision Systems
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/tjphoton/building-pharma-decision-systems" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch01_intro/ch01_introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 2
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 2
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch02_ecosystem/ch02_ecosystem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch02_ecosystem/ch02_appendix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 3
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 3
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch03_data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch03_appendix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Walkthrough Notebook
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Walkthrough Notebook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-generate-the-data-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Generate the data package
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-the-false-december-decline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. The false December decline
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-five-sources-five-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Five sources, five questions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Five sources, five questions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#351-pharmacy-claims-how-many-fills-did-pat02034-actually-complete" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5.1 Pharmacy claims: how many fills did PAT02034 actually complete?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#352-formulary-and-access-what-rules-applied-to-pat02034-in-july" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5.2 Formulary and access: what rules applied to PAT02034 in July?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#353-ehr-what-does-the-chart-add-that-claims-cannot-see" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5.3 EHR: what does the chart add that claims cannot see?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#354-crm-and-digital-find-the-patient-this-call-was-about" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5.4 CRM and digital: find the patient this call was about
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#355-medicare-part-d-highest-volume-roventra-prescribers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5.5 Medicare Part D: highest-volume Roventra prescribers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-two-planted-traps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Two planted traps
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-quality-gate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Quality gate
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-laboratory-results-to-patient-groups" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Laboratory results to patient groups
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exercise_solutions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercise Solutions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="chapter-3-walkthrough-a-synthetic-lab-for-real-pharma-questions">Chapter 3 Walkthrough: A Synthetic Lab for Real Pharma Questions</h1>
+<p>It is your first Monday on the Roventra brand analytics team, and the brand director wants to know why December claims are down by a third. You will confirm the number, almost send it, and then discover that <em>nothing went wrong in December</em>. The claims simply had not arrived yet.</p>
+<p>This notebook replays the chapter as a single executable story. Run the cells in order with the default generated data (<code>seed=20260609</code>) and your outputs will match the book exactly.</p>
+<p><strong>Learning contract:</strong> by the end of this notebook you will have:
+- stopped a false trend report with a maturity rule
+- reconstructed PAT02034's treatment attempt across three patient-linked sources
+- derived completed fills from raw pharmacy transactions
+- selected the payer rule active on an event date
+- run a quality gate and built A1C patient groups</p>
+<pre><code class="language-python">from pathlib import Path
+import sys
+import pandas as pd
+
+ROOT   = Path(&quot;.&quot;).resolve().parent
+DATA   = ROOT / &quot;ch03_data&quot; / &quot;output_data&quot; / &quot;generated_data&quot;
+SCRIPTS = ROOT / &quot;ch03_data&quot; / &quot;scripts&quot;
+sys.path.insert(0, str(SCRIPTS))
+
+pd.set_option(&quot;display.max_columns&quot;, None)
+pd.set_option(&quot;display.width&quot;, 120)
+pd.set_option(&quot;display.float_format&quot;, &quot;{:.2f}&quot;.format)
+print(&quot;Setup complete. DATA =&quot;, DATA)
+</code></pre>
+<pre><code>Setup complete. DATA = /Users/qiu/Projects/hands-on-pharma-decision-science/ch03_data/output_data/generated_data
+</code></pre>
+<h2 id="1-generate-the-data-package">1. Generate the data package</h2>
+<p>One command builds everything. Run it from the project root if you have not already:</p>
+<pre><code class="language-bash">uv run python ch03_data/scripts/generate_all_synthetic_data.py
+</code></pre>
+<p>If counts match those in the book, reproducibility is confirmed.</p>
+<p><strong>Listing 3.1: Verify the generated package contract</strong></p>
+<pre><code class="language-python">import json
+
+with open(DATA / &quot;manifest.json&quot;) as f:
+    manifest = json.load(f)
+
+print(&quot;schema_version :&quot;, manifest[&quot;schema_version&quot;])
+print(&quot;seed           :&quot;, manifest[&quot;run_config&quot;][&quot;seed&quot;])
+rx_range = manifest[&quot;table_contracts&quot;][&quot;claims_pharmacy/pharmacy_claims.csv&quot;][&quot;date_ranges&quot;][&quot;fill_date&quot;]
+print(&quot;pharmacy fills :&quot;, rx_range[&quot;min&quot;], &quot;to&quot;, rx_range[&quot;max&quot;])
+</code></pre>
+<pre><code>schema_version : 2026-06-11
+seed           : 20260609
+pharmacy fills : 2024-01-01 to 2025-01-31
+</code></pre>
+<p><strong>What to notice:</strong> <code>schema_version</code> ties this package to a specific generator release. <code>seed</code> guarantees exact reproducibility. <code>pharmacy fills</code> is the as-of cutoff: every trend read must respect this date.</p>
+<h2 id="2-the-false-december-decline">2. The false December decline</h2>
+<p>Before touring individual sources, reproduce the chapter opening trap. It is January 5, 2025.</p>
+<p><strong>Listing 3.2: Measure claim completeness at an as-of date</strong></p>
+<pre><code class="language-python">import pandas as pd
+
+mc = pd.read_csv(
+    DATA / &quot;claims_medical&quot; / &quot;medical_claims.csv&quot;,
+    parse_dates=[&quot;claim_date&quot;, &quot;claim_received_date&quot;],
+)
+mc = mc[~mc.is_duplicate &amp; mc.claim_date.dt.year.eq(2024)]
+month = mc.claim_date.dt.to_period(&quot;M&quot;).astype(str).rename(&quot;service_month&quot;)
+
+snapshot = month[mc.claim_received_date.le(&quot;2025-01-05&quot;)].value_counts().sort_index()
+mature   = month.value_counts().sort_index()
+view = pd.DataFrame({&quot;snapshot_jan05&quot;: snapshot, &quot;eventually&quot;: mature})
+view[&quot;completeness_%&quot;] = (100 * view.snapshot_jan05 / view.eventually).round(1)
+view.tail(4)
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>snapshot_jan05</th>
+      <th>eventually</th>
+      <th>completeness_%</th>
+    </tr>
+    <tr>
+      <th>service_month</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2024-09</th>
+      <td>3697</td>
+      <td>3697</td>
+      <td>100.00</td>
+    </tr>
+    <tr>
+      <th>2024-10</th>
+      <td>3956</td>
+      <td>3999</td>
+      <td>98.90</td>
+    </tr>
+    <tr>
+      <th>2024-11</th>
+      <td>3670</td>
+      <td>3870</td>
+      <td>94.80</td>
+    </tr>
+    <tr>
+      <th>2024-12</th>
+      <td>2701</td>
+      <td>3990</td>
+      <td>67.70</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p><strong>Conclusion:</strong> at the January 5 snapshot, December reads 32.3% low. The <code>eventually</code> column shows the full picture: 3,990 claims arrive, in line with every other month. The correction is a maturity rule -- exclude immature months or mark them incomplete before sharing any trend.</p>
+<h2 id="3-five-sources-five-questions">3. Five sources, five questions</h2>
+<p>Meet <strong>PAT02034</strong>: a generated female patient, 50-64 years old, in New Jersey, managed by HCP0280 (Endocrinology, ACC089) under commercial payer PAY002.</p>
+<pre><code class="language-python">patients = pd.read_csv(DATA / &quot;reference&quot; / &quot;patients.csv&quot;)
+patients.head(3)
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>patient_id</th>
+      <th>account_id</th>
+      <th>hcp_id</th>
+      <th>payer_id</th>
+      <th>state</th>
+      <th>region</th>
+      <th>age_band</th>
+      <th>sex</th>
+      <th>condition_bucket</th>
+      <th>coverage_start</th>
+      <th>coverage_end</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>PAT00001</td>
+      <td>ACC250</td>
+      <td>HCP0496</td>
+      <td>PAY002</td>
+      <td>NJ</td>
+      <td>Northeast</td>
+      <td>50-64</td>
+      <td>F</td>
+      <td>Rheumatology</td>
+      <td>2023-01-13</td>
+      <td>2025-10-18</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>PAT00002</td>
+      <td>ACC042</td>
+      <td>HCP0162</td>
+      <td>PAY007</td>
+      <td>WA</td>
+      <td>West</td>
+      <td>50-64</td>
+      <td>F</td>
+      <td>Cardiology</td>
+      <td>2023-12-19</td>
+      <td>2025-09-04</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>PAT00003</td>
+      <td>ACC089</td>
+      <td>HCP0245</td>
+      <td>PAY001</td>
+      <td>NY</td>
+      <td>Northeast</td>
+      <td>65+</td>
+      <td>F</td>
+      <td>Launch condition</td>
+      <td>2023-02-28</td>
+      <td>2025-02-21</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p><strong>Listing 3.3: Build PAT02034's event ledger</strong></p>
+<pre><code class="language-python">import pandas as pd
+
+ehr = pd.read_csv(DATA / &quot;ehr&quot; / &quot;ehr_events.csv&quot;)
+sp = pd.read_csv(DATA / &quot;specialty_pharmacy&quot; / &quot;specialty_pharmacy_events.csv&quot;)
+rx = pd.read_csv(DATA / &quot;claims_pharmacy&quot; / &quot;pharmacy_claims.csv&quot;, dtype={&quot;ndc&quot;: str})
+
+ehr_rows = (ehr.loc[ehr.patient_id.eq(&quot;PAT02034&quot;)]
+    .assign(source=&quot;EHR&quot;, event=lambda d: d[&quot;event_type&quot;], status=lambda d: d[&quot;event_type&quot;])
+    [[&quot;event_date&quot;, &quot;source&quot;, &quot;event&quot;, &quot;status&quot;]])
+sp_row = sp.loc[sp.patient_id.eq(&quot;PAT02034&quot;)].iloc[0]
+sp_rows = pd.DataFrame([
+    {&quot;event_date&quot;: sp_row[&quot;referral_date&quot;], &quot;source&quot;: &quot;SP&quot;, &quot;event&quot;: &quot;Referral&quot;, &quot;status&quot;: &quot;Open&quot;},
+    {&quot;event_date&quot;: sp_row[&quot;auth_decision_date&quot;], &quot;source&quot;: &quot;SP&quot;, &quot;event&quot;: &quot;Authorization&quot;, &quot;status&quot;: sp_row[&quot;auth_status&quot;]},
+    {&quot;event_date&quot;: sp_row[&quot;ship_date&quot;], &quot;source&quot;: &quot;SP&quot;, &quot;event&quot;: &quot;Shipment&quot;, &quot;status&quot;: sp_row[&quot;delivery_status&quot;]},
+])
+rx_rows = (rx.loc[rx.patient_id.eq(&quot;PAT02034&quot;) &amp; rx.ndc.eq(&quot;90000-1001-11&quot;)]
+    .rename(columns={&quot;fill_date&quot;: &quot;event_date&quot;})
+    .assign(source=&quot;Pharmacy&quot;, event=lambda d: d[&quot;reject_reason&quot;].fillna(&quot;&quot;).where(d.status.eq(&quot;Rejected&quot;), &quot;Fill transaction&quot;))
+    [[&quot;event_date&quot;, &quot;source&quot;, &quot;event&quot;, &quot;status&quot;]])
+ledger = pd.concat([ehr_rows, sp_rows, rx_rows], ignore_index=True).sort_values(&quot;event_date&quot;).reset_index(drop=True)
+print(ledger.to_string(index=False))
+</code></pre>
+<pre><code>event_date   source                                                  event    status
+2024-03-07      EHR                                              Encounter Encounter
+2024-06-12      EHR                                              Encounter Encounter
+2024-06-13      EHR                                                    Lab       Lab
+2024-06-13       SP                                               Referral      Open
+2024-06-18       SP                                          Authorization  Approved
+2024-06-22      EHR                                                    Lab       Lab
+2024-07-02 Pharmacy New-to-market review; exception documentation required  Rejected
+2024-07-09 Pharmacy                                       Fill transaction      Paid
+2024-07-10       SP                                               Shipment   Shipped
+2024-08-09 Pharmacy                                       Fill transaction      Paid
+2024-08-10 Pharmacy                                       Fill transaction  Reversed
+2024-08-15 Pharmacy                                       Fill transaction      Paid
+2024-09-09 Pharmacy                                       Fill transaction      Paid
+2024-10-09 Pharmacy                                       Fill transaction      Paid
+2024-12-27      EHR                                              Encounter Encounter
+2024-12-30      EHR                                                    Lab       Lab
+2025-01-01      EHR                                                    Lab       Lab
+</code></pre>
+<p><strong>What to notice:</strong> the July 2 pharmacy row names the new-to-market exception barrier. The July 9 paid resubmission and July 10 shipment complete the access path introduced in Chapter 2.</p>
+<h3 id="351-pharmacy-claims-how-many-fills-did-pat02034-actually-complete">3.5.1 Pharmacy claims: how many fills did PAT02034 actually complete?</h3>
+<pre><code class="language-python">ndc = pd.read_csv(DATA / &quot;reference&quot; / &quot;ndc_codes.csv&quot;, dtype={&quot;NDC&quot;: str})
+name_map = dict(zip(ndc[&quot;NDC&quot;], ndc[&quot;CUI_L1_NAME&quot;]))
+pat = rx.loc[rx.patient_id.eq(&quot;PAT02034&quot;) &amp; rx.ndc.eq(&quot;90000-1001-11&quot;)].copy()
+pat[&quot;product_name&quot;] = pat[&quot;product_name&quot;].fillna(pat[&quot;ndc&quot;].map(name_map))
+cols = [&quot;rx_claim_id&quot;, &quot;fill_date&quot;, &quot;product_name&quot;, &quot;status&quot;, &quot;transaction_group_id&quot;, &quot;reject_reason&quot;, &quot;patient_pay&quot;]
+print(pat[cols].to_string(index=False))
+</code></pre>
+<pre><code>rx_claim_id  fill_date product_name   status transaction_group_id                                          reject_reason  patient_pay
+  RX0005501 2024-07-02     Roventra Rejected           RXG0004885 New-to-market review; exception documentation required         0.00
+  RX0005502 2024-07-09     Roventra     Paid           RXG0004885                                                    NaN        49.43
+  RX0005503 2024-08-09     Roventra     Paid           RXG0004886                                                    NaN        58.18
+  RX0005504 2024-08-10     Roventra Reversed           RXG0004886                                                    NaN       -58.18
+  RX0005505 2024-08-15     Roventra     Paid           RXG0004886                                                    NaN        58.18
+  RX0005506 2024-09-09     Roventra     Paid           RXG0004887                                                    NaN        72.14
+  RX0005507 2024-10-09     Roventra     Paid           RXG0004888                                                    NaN        66.20
+</code></pre>
+<p><strong>Listing 3.4: Derive completed fills from transaction groups</strong></p>
+<pre><code class="language-python">pat_rx = rx.loc[rx.patient_id.eq(&quot;PAT02034&quot;) &amp; rx.ndc.eq(&quot;90000-1001-11&quot;)].copy()
+chains = (pat_rx.sort_values([&quot;fill_date&quot;, &quot;rx_claim_id&quot;])
+    .groupby(&quot;transaction_group_id&quot;, sort=False)
+    .agg(first_date=(&quot;fill_date&quot;, &quot;first&quot;), statuses=(&quot;status&quot;, &quot; -&gt; &quot;.join), net_patient_pay=(&quot;patient_pay&quot;, &quot;sum&quot;))
+    .reset_index(drop=True))
+chains[&quot;completed_fill&quot;] = chains.statuses.str.endswith(&quot;Paid&quot;) &amp; chains.net_patient_pay.gt(0)
+print(chains.to_string(index=False))
+print(f&quot;completed_fills={int(chains.completed_fill.sum())}&quot;)
+</code></pre>
+<pre><code>first_date                 statuses  net_patient_pay  completed_fill
+2024-07-02         Rejected -&gt; Paid            49.43            True
+2024-08-09 Paid -&gt; Reversed -&gt; Paid            58.18            True
+2024-09-09                     Paid            72.14            True
+2024-10-09                     Paid            66.20            True
+completed_fills=4
+</code></pre>
+<p><strong>Conclusion:</strong> 7 transactions form 4 groups, and every group ends in a paid status with positive net patient payment. Count completed groups, not rows or paid statuses.</p>
+<h3 id="352-formulary-and-access-what-rules-applied-to-pat02034-in-july">3.5.2 Formulary and access: what rules applied to PAT02034 in July?</h3>
+<pre><code class="language-python">patients = pd.read_csv(DATA / &quot;reference&quot; / &quot;patients.csv&quot;)
+fs = pd.read_csv(DATA / &quot;formulary&quot; / &quot;formulary_status.csv&quot;)
+fh = pd.read_csv(DATA / &quot;formulary&quot; / &quot;formulary_history.csv&quot;)
+
+payer = patients.loc[patients.patient_id.eq(&quot;PAT02034&quot;), &quot;payer_id&quot;].iloc[0]
+cols  = [&quot;plan_id&quot;, &quot;plan_name&quot;, &quot;tier&quot;, &quot;prior_authorization&quot;,
+         &quot;step_therapy&quot;, &quot;quantity_limit&quot;, &quot;specialty_pharmacy&quot;]
+status  = fs.loc[fs.plan_id.eq(payer) &amp; fs.product_name.eq(&quot;Roventra&quot;), cols]
+changes = fh.loc[fh.plan_id.eq(payer) &amp; fh.product_name.eq(&quot;Roventra&quot;)]
+print(status.to_string(index=False))
+print(f&quot;Roventra change events for {payer}: {len(changes)}&quot;)
+</code></pre>
+<pre><code>plan_id               plan_name      tier prior_authorization step_therapy quantity_limit specialty_pharmacy
+ PAY002 South Commercial Plan 2 Specialty                 Yes          Yes            Yes                Yes
+Roventra change events for PAY002: 0
+</code></pre>
+<p><strong>Conclusion:</strong> PAY002 requires prior authorization, specialty-pharmacy routing, step therapy, and a quantity limit for Roventra. The rejected claim carries the event-specific new-to-market exception reason; the current status table carries the ongoing restrictions.</p>
+<p><strong>Listing 3.5: Join a claim to the payer rule active on its date</strong></p>
+<pre><code class="language-python">fh_dates = pd.read_csv(DATA / &quot;formulary&quot; / &quot;formulary_history.csv&quot;,
+                       parse_dates=[&quot;effective_date&quot;])
+
+pay001_hist = fh_dates.loc[fh_dates.plan_id.eq(&quot;PAY001&quot;) &amp; fh_dates.product_name.eq(&quot;Roventra&quot;)].sort_values(&quot;effective_date&quot;)
+print(&quot;PAY001 Roventra change history:&quot;)
+print(pay001_hist[[&quot;effective_date&quot;,&quot;prior_tier&quot;,&quot;new_tier&quot;]].to_string(index=False))
+print()
+
+initial_tier = pay001_hist.iloc[0][&quot;prior_tier&quot;]
+initial_pa   = pay001_hist.iloc[0][&quot;prior_prior_authorization&quot;]
+states = [{&quot;effective_date&quot;: pd.Timestamp(&quot;2024-01-01&quot;),
+           &quot;tier&quot;: initial_tier, &quot;prior_authorization&quot;: initial_pa}]
+for _, row in pay001_hist.iterrows():
+    states.append({&quot;effective_date&quot;: row[&quot;effective_date&quot;],
+                   &quot;tier&quot;: row[&quot;new_tier&quot;], &quot;prior_authorization&quot;: row[&quot;new_prior_authorization&quot;]})
+state_df = pd.DataFrame(states)
+
+def rule_on(event_date: str) -&gt; dict:
+    dt = pd.Timestamp(event_date)
+    return state_df.loc[state_df.effective_date.le(dt)].iloc[-1].to_dict()
+
+for date in [&quot;2024-02-15&quot;, &quot;2024-06-01&quot;]:
+    r = rule_on(date)
+    print(f&quot;{date}: tier={r['tier']}, PA={r['prior_authorization']}&quot;)
+</code></pre>
+<pre><code>PAY001 Roventra change history:
+effective_date prior_tier new_tier
+    2024-04-01     Tier 3   Tier 1
+
+2024-02-15: tier=Tier 3, PA=Yes
+2024-06-01: tier=Tier 1, PA=Yes
+</code></pre>
+<p><strong>Key lesson:</strong> reading only the current formulary status treats every historical claim as if the product were always at Tier 1. The as-of join is always required for event-date accuracy.</p>
+<h3 id="353-ehr-what-does-the-chart-add-that-claims-cannot-see">3.5.3 EHR: what does the chart add that claims cannot see?</h3>
+<pre><code class="language-python">ehr = pd.read_csv(DATA / &quot;ehr&quot; / &quot;ehr_events.csv&quot;)
+cols = [&quot;event_date&quot;, &quot;event_type&quot;, &quot;event_name&quot;, &quot;lab_value&quot;,
+        &quot;lab_abnormal_flag&quot;, &quot;problem_list_codes&quot;, &quot;medication_orders&quot;]
+ehr.loc[ehr.patient_id.eq(&quot;PAT02034&quot;), cols].sort_values(&quot;event_date&quot;)
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>event_date</th>
+      <th>event_type</th>
+      <th>event_name</th>
+      <th>lab_value</th>
+      <th>lab_abnormal_flag</th>
+      <th>problem_list_codes</th>
+      <th>medication_orders</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>15245</th>
+      <td>2024-03-07</td>
+      <td>Encounter</td>
+      <td>Office visit</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>E11.40|E11.9</td>
+      <td>Metformin 1000 mg oral BID</td>
+    </tr>
+    <tr>
+      <th>15246</th>
+      <td>2024-06-12</td>
+      <td>Encounter</td>
+      <td>Specialist visit</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>E11.40|E11.65</td>
+      <td>Roventra 10 mg oral daily</td>
+    </tr>
+    <tr>
+      <th>15247</th>
+      <td>2024-06-13</td>
+      <td>Lab</td>
+      <td>A1C</td>
+      <td>10.60</td>
+      <td>H</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>15248</th>
+      <td>2024-06-22</td>
+      <td>Lab</td>
+      <td>A1C</td>
+      <td>8.90</td>
+      <td>H</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>15249</th>
+      <td>2024-12-27</td>
+      <td>Encounter</td>
+      <td>Care coordination</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>E11.40|E11.65</td>
+      <td>Roventra 20 mg oral daily|Atorvastatin 40 mg o...</td>
+    </tr>
+    <tr>
+      <th>15250</th>
+      <td>2024-12-30</td>
+      <td>Lab</td>
+      <td>LDL</td>
+      <td>170.00</td>
+      <td>H</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>15251</th>
+      <td>2025-01-01</td>
+      <td>Lab</td>
+      <td>A1C</td>
+      <td>8.40</td>
+      <td>H</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p><strong>Conclusion:</strong> the clinical spine behind the claims. Diabetes appears in March, Roventra orders in June, first paid fill in July. An EHR medication order records treatment intent; pharmacy claims record observed dispensing.</p>
+<h3 id="354-crm-and-digital-find-the-patient-this-call-was-about">3.5.4 CRM and digital: find the patient this call was about</h3>
+<pre><code class="language-python">crm = pd.read_csv(DATA / &quot;crm_veeva&quot; / &quot;crm_interactions.csv&quot;)
+print(list(crm.columns))
+print()
+cols = [&quot;interaction_date&quot;, &quot;channel&quot;, &quot;message_topic&quot;, &quot;hcp_id&quot;, &quot;account_id&quot;]
+crm.loc[crm.hcp_id.eq(&quot;HCP0280&quot;) &amp; crm.product_name.eq(&quot;Roventra&quot;), cols].sort_values(&quot;interaction_date&quot;)
+</code></pre>
+<pre><code>['crm_interaction_id', 'interaction_date', 'rep_id', 'hcp_id', 'account_id', 'territory', 'product_name', 'channel', 'message_topic', 'outcome', 'duration_min', 'sample_drops', 'consent_status', 'next_action']
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>interaction_date</th>
+      <th>channel</th>
+      <th>message_topic</th>
+      <th>hcp_id</th>
+      <th>account_id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1179</th>
+      <td>2024-09-18</td>
+      <td>Email</td>
+      <td>Competitive differentiation</td>
+      <td>HCP0280</td>
+      <td>ACC089</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p><strong>Conclusion:</strong> there is no <code>patient_id</code> in this table. The CRM table is keyed to HCPs and accounts; patient-level attribution is outside its permitted grain. PAT02034's prescriber HCP0280 appears in CRM, but the interaction cannot be placed on PAT02034's timeline. This is both a privacy boundary and an analytical one.</p>
+<h3 id="355-medicare-part-d-highest-volume-roventra-prescribers">3.5.5 Medicare Part D: highest-volume Roventra prescribers</h3>
+<pre><code class="language-python">partd = pd.read_csv(DATA / &quot;cms_part_d&quot; / &quot;prescriber_summary.csv&quot;)
+cols  = [&quot;prscrbr_npi&quot;, &quot;prscrbr_type&quot;, &quot;prscrbr_city&quot;, &quot;prscrbr_state_abrvtn&quot;,
+         &quot;tot_clms&quot;, &quot;tot_benes&quot;, &quot;tot_drug_cst&quot;]
+(
+    partd.loc[partd.drug_name.eq(&quot;Roventra&quot;), cols]
+    .sort_values([&quot;tot_clms&quot;, &quot;tot_benes&quot;], ascending=[False, False])
+    .head(5)
+)
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>prscrbr_npi</th>
+      <th>prscrbr_type</th>
+      <th>prscrbr_city</th>
+      <th>prscrbr_state_abrvtn</th>
+      <th>tot_clms</th>
+      <th>tot_benes</th>
+      <th>tot_drug_cst</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>640</th>
+      <td>HCP0404</td>
+      <td>Pulmonology</td>
+      <td>NJ City</td>
+      <td>NJ</td>
+      <td>300</td>
+      <td>256</td>
+      <td>273837.90</td>
+    </tr>
+    <tr>
+      <th>535</th>
+      <td>HCP0337</td>
+      <td>Pulmonology</td>
+      <td>MI City</td>
+      <td>MI</td>
+      <td>298</td>
+      <td>144</td>
+      <td>94005.46</td>
+    </tr>
+    <tr>
+      <th>65</th>
+      <td>HCP0044</td>
+      <td>Endocrinology</td>
+      <td>TX City</td>
+      <td>TX</td>
+      <td>298</td>
+      <td>110</td>
+      <td>91179.53</td>
+    </tr>
+    <tr>
+      <th>961</th>
+      <td>HCP0619</td>
+      <td>Oncology/Hematology</td>
+      <td>NY City</td>
+      <td>NY</td>
+      <td>296</td>
+      <td>247</td>
+      <td>69255.49</td>
+    </tr>
+    <tr>
+      <th>233</th>
+      <td>HCP0150</td>
+      <td>Rheumatology</td>
+      <td>IL City</td>
+      <td>IL</td>
+      <td>294</td>
+      <td>243</td>
+      <td>70603.33</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p><strong>Conclusion:</strong> useful for ranking and benchmarking by specialty and geography. Absent: patient journeys, switching, payer, eligibility window, dates inside the year, or reason for the volume.</p>
+<h2 id="4-two-planted-traps">4. Two planted traps</h2>
+<p>See §3.7 of the chapter. The maturity trap was shown in section 2 above.</p>
+<p><strong>Listing 3.6: Detect duplicate medical claims</strong></p>
+<pre><code class="language-python">mc_dup = pd.read_csv(DATA / &quot;claims_medical&quot; / &quot;medical_claims.csv&quot;)
+keys = [&quot;patient_id&quot;, &quot;claim_date&quot;, &quot;icd10_code&quot;, &quot;procedure_code&quot;, &quot;hcp_id&quot;, &quot;paid_amount&quot;]
+detected = mc_dup.duplicated(subset=keys, keep=&quot;first&quot;).sum()
+flagged   = mc_dup.is_duplicate.sum()
+print(f&quot;rows={len(mc_dup):,}  detected_by_keys={detected:,}  answer_key={flagged:,}&quot;)
+print(f&quot;naive count overstates utilization by {100*flagged/(len(mc_dup)-flagged):.2f}%&quot;)
+</code></pre>
+<pre><code>rows=51,083  detected_by_keys=1,002  answer_key=1,002
+naive count overstates utilization by 2.00%
+</code></pre>
+<p><strong>Listing 3.7: Restore missing product names from the NDC crosswalk</strong></p>
+<pre><code class="language-python">rx_all = pd.read_csv(DATA / &quot;claims_pharmacy&quot; / &quot;pharmacy_claims.csv&quot;, dtype={&quot;ndc&quot;: str})
+ndc_df = pd.read_csv(DATA / &quot;reference&quot; / &quot;ndc_codes.csv&quot;, dtype={&quot;NDC&quot;: str})
+crosswalk = ndc_df.set_index(&quot;NDC&quot;)[&quot;CUI_L1_NAME&quot;]
+
+paid = rx_all.loc[rx_all.status.eq(&quot;Paid&quot;)].copy()
+naive = paid.loc[paid.product_name.fillna(&quot;&quot;).str.strip().ne(&quot;&quot;)].groupby(&quot;product_name&quot;).size()
+
+paid[&quot;product_name&quot;] = paid[&quot;product_name&quot;].fillna(&quot;&quot;).str.strip()
+paid[&quot;product_name&quot;] = paid[&quot;product_name&quot;].mask(
+    paid[&quot;product_name&quot;].eq(&quot;&quot;), paid[&quot;ndc&quot;].map(crosswalk)
+)
+recovered = paid.groupby(&quot;product_name&quot;).size()
+
+result = pd.DataFrame({
+    &quot;paid_fills_naive&quot;:     naive.reindex(recovered.index, fill_value=0).astype(int),
+    &quot;paid_fills_recovered&quot;: recovered.astype(int),
+})
+result[&quot;understated_pct&quot;] = (100 * (1 - result.paid_fills_naive / result.paid_fills_recovered)).round(2)
+result.sort_values(&quot;paid_fills_recovered&quot;, ascending=False)
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>paid_fills_naive</th>
+      <th>paid_fills_recovered</th>
+      <th>understated_pct</th>
+    </tr>
+    <tr>
+      <th>product_name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Roventra</th>
+      <td>15566</td>
+      <td>16361</td>
+      <td>4.86</td>
+    </tr>
+    <tr>
+      <th>Vexpro</th>
+      <td>10105</td>
+      <td>10608</td>
+      <td>4.74</td>
+    </tr>
+    <tr>
+      <th>Nexoral</th>
+      <td>9920</td>
+      <td>10448</td>
+      <td>5.05</td>
+    </tr>
+    <tr>
+      <th>Supportive Med</th>
+      <td>9816</td>
+      <td>10318</td>
+      <td>4.87</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p><strong>Conclusion:</strong> every brand was silently undercounted by ~5%. The naive table looks complete. The rule: recover what the reference can, keep the remainder visible as unmapped.</p>
+<h2 id="5-quality-gate">5. Quality gate</h2>
+<pre><code class="language-python">import sys
+sys.path.insert(0, str(SCRIPTS))
+from data_quality import run_data_quality
+
+_, summary = run_data_quality(DATA)
+summary
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>metric</th>
+      <th>value</th>
+      <th>unit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Duplicate medical claims</td>
+      <td>1.96</td>
+      <td>%</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Median claim receipt lag</td>
+      <td>12.00</td>
+      <td>days</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Missing product mappings</td>
+      <td>4.92</td>
+      <td>%</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Taxonomy conflicts or gaps</td>
+      <td>3.15</td>
+      <td>%</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Eligible observation window</td>
+      <td>51.45</td>
+      <td>%</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p><strong>Conclusion:</strong> duplicates, mapping gaps, and taxonomy conflicts are defect checks. The observation-window result is an eligibility count whose value changes with the study window.</p>
+<h2 id="6-laboratory-results-to-patient-groups">6. Laboratory results to patient groups</h2>
+<p><strong>Listing 3.8: Build A1C patient groups without dropping no-result patients</strong></p>
+<pre><code class="language-python">ehr_all = pd.read_csv(DATA / &quot;ehr&quot; / &quot;ehr_events.csv&quot;, parse_dates=[&quot;event_date&quot;])
+patients_all = pd.read_csv(DATA / &quot;reference&quot; / &quot;patients.csv&quot;)
+a1c = ehr_all.loc[ehr_all.event_name.eq(&quot;A1C&quot;)].copy()
+a1c[&quot;lab_value&quot;] = pd.to_numeric(a1c[&quot;lab_value&quot;], errors=&quot;coerce&quot;)
+latest = (a1c.dropna(subset=[&quot;patient_id&quot;, &quot;event_date&quot;, &quot;lab_value&quot;])
+    .sort_values([&quot;patient_id&quot;, &quot;event_date&quot;, &quot;lab_value&quot;])
+    .groupby(&quot;patient_id&quot;, as_index=False).tail(1)[[&quot;patient_id&quot;, &quot;lab_value&quot;]])
+latest[&quot;a1c_class&quot;] = pd.cut(latest.lab_value, [-float(&quot;inf&quot;), 5.7, 6.5, float(&quot;inf&quot;)], labels=[&quot;normal&quot;, &quot;prediabetes&quot;, &quot;diabetes&quot;], right=False).astype(&quot;string&quot;)
+cohort = patients_all[[&quot;patient_id&quot;]].merge(latest, on=&quot;patient_id&quot;, how=&quot;left&quot;)
+cohort[&quot;a1c_class&quot;] = cohort[&quot;a1c_class&quot;].fillna(&quot;no_result&quot;)
+summary = cohort.groupby(&quot;a1c_class&quot;, sort=False).size().rename(&quot;patient_count&quot;).reset_index()
+summary[&quot;pct&quot;] = (100 * summary.patient_count / len(patients_all)).round(2)
+print(summary.sort_values(&quot;patient_count&quot;, ascending=False).to_string(index=False))
+</code></pre>
+<pre><code>  a1c_class  patient_count   pct
+   diabetes           8699 43.50
+  no_result           5576 27.88
+     normal           3108 15.54
+prediabetes           2617 13.08
+</code></pre>
+<p><strong>Three conclusions:</strong></p>
+<ol>
+<li>
+<p><strong>The denominator lesson.</strong> 43.5% of <em>all</em> patients are in the diabetes band, but 27.9% have no result. Restrict to tested patients and "diabetes" jumps to 60.3% -- a different answer to a different question.</p>
+</li>
+<li>
+<p><strong>Missingness has structure.</strong> PSA is 92.8% missing because the generator orders it only for male oncology patients. Who gets tested is informative.</p>
+</li>
+<li>
+<p><strong>Prevalence is a scenario assumption.</strong> This synthetic population is enriched for the launch condition. Chapter 4 calibrates against real prevalence anchors.</p>
+</li>
+</ol>
+<p><strong>Chapter summary:</strong> see the 8-question checklist at the end of §3.10 of the chapter manuscript.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.indexes", "navigation.top", "toc.integrate", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
