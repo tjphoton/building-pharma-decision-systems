@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="700" viewBox="0 0 1600 700" role="img">
+<title>Four defects change four answers</title>
+<defs>
+<marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 z" fill="#344054"/></marker>
+<filter id="shadow" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-opacity="0.12"/></filter>
+</defs>
+<rect width="1600" height="700" fill="#FFFFFF"/>
+<text text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="36" font-weight="700" fill="#172033"><tspan x="800.0" y="66.0">Four defects change four answers</tspan></text>
+<rect x="70" y="135" width="650" height="205" rx="14" fill="#FFFFFF" stroke="#344054" stroke-width="2.5" filter="url(#shadow)"/>
+<text text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="25" font-weight="normal" fill="#172033"><tspan x="395.0" y="240.5"></tspan></text>
+<text text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" font-weight="700" fill="#5F6B7A"><tspan x="98.0" y="173.0">DUPLICATES</tspan></text>
+<text text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="36" font-weight="700" fill="#A44A3F"><tspan x="98.0" y="235.0">+2.0%</tspan></text>
+<text text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="20" font-weight="700" fill="#172033"><tspan x="275.0" y="231.0">1,002 phantom encounters</tspan></text>
+<path d="M98.0,270.0 L692.0,270.0" fill="none" stroke="#DCE3EA" stroke-width="3"/>
+<circle cx="118.0" cy="302.0" r="16.0" fill="#4C7A43"/><polyline points="111.3,302.0 117.3,307.0 124.7,298.6" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<text text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="19" font-weight="700" fill="#4C7A43"><tspan x="148.0" y="309.0">Match claim keys</tspan></text>
+<rect x="820" y="135" width="650" height="205" rx="14" fill="#FFFFFF" stroke="#344054" stroke-width="2.5" filter="url(#shadow)"/>
+<text text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="25" font-weight="normal" fill="#172033"><tspan x="1145.0" y="240.5"></tspan></text>
+<text text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" font-weight="700" fill="#5F6B7A"><tspan x="848.0" y="173.0">RECEIPT LAG</tspan></text>
+<text text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="36" font-weight="700" fill="#A44A3F"><tspan x="848.0" y="235.0">-32.3%</tspan></text>
+<text text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="20" font-weight="700" fill="#172033"><tspan x="1025.0" y="231.0">December at Jan 05</tspan></text>
+<path d="M848.0,270.0 L1442.0,270.0" fill="none" stroke="#DCE3EA" stroke-width="3"/>
+<circle cx="868.0" cy="302.0" r="16.0" fill="#4C7A43"/><polyline points="861.3,302.0 867.3,307.0 874.7,298.6" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<text text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="19" font-weight="700" fill="#4C7A43"><tspan x="898.0" y="309.0">Apply a maturity rule</tspan></text>
+<rect x="70" y="405" width="650" height="205" rx="14" fill="#FFFFFF" stroke="#344054" stroke-width="2.5" filter="url(#shadow)"/>
+<text text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="25" font-weight="normal" fill="#172033"><tspan x="395.0" y="510.5"></tspan></text>
+<text text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" font-weight="700" fill="#5F6B7A"><tspan x="98.0" y="443.0">MAPPING GAPS</tspan></text>
+<text text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="36" font-weight="700" fill="#A44A3F"><tspan x="98.0" y="505.0">-4.9%</tspan></text>
+<text text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="20" font-weight="700" fill="#172033"><tspan x="275.0" y="501.0">Paid fills by brand</tspan></text>
+<path d="M98.0,540.0 L692.0,540.0" fill="none" stroke="#DCE3EA" stroke-width="3"/>
+<circle cx="118.0" cy="572.0" r="16.0" fill="#4C7A43"/><polyline points="111.3,572.0 117.3,577.0 124.7,568.6" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<text text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="19" font-weight="700" fill="#4C7A43"><tspan x="148.0" y="579.0">Recover names by NDC</tspan></text>
+<rect x="820" y="405" width="650" height="205" rx="14" fill="#FFFFFF" stroke="#344054" stroke-width="2.5" filter="url(#shadow)"/>
+<text text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="25" font-weight="normal" fill="#172033"><tspan x="1145.0" y="510.5"></tspan></text>
+<text text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" font-weight="700" fill="#5F6B7A"><tspan x="848.0" y="443.0">TAXONOMY</tspan></text>
+<text text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="36" font-weight="700" fill="#A44A3F"><tspan x="848.0" y="505.0">3.15%</tspan></text>
+<text text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="20" font-weight="700" fill="#172033"><tspan x="1025.0" y="501.0">HCPs need review</tspan></text>
+<path d="M848.0,540.0 L1442.0,540.0" fill="none" stroke="#DCE3EA" stroke-width="3"/>
+<circle cx="868.0" cy="572.0" r="16.0" fill="#4C7A43"/><polyline points="861.3,572.0 867.3,577.0 874.7,568.6" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<text text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="19" font-weight="700" fill="#4C7A43"><tspan x="898.0" y="579.0">Use one governed map</tspan></text>
+</svg>

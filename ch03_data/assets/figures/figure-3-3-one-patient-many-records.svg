@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="880" viewBox="0 0 1600 880" role="img">
+<title>One treatment attempt across 4 sources</title>
+<defs>
+<marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 z" fill="#344054"/></marker>
+<filter id="shadow" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-opacity="0.12"/></filter>
+</defs>
+<rect width="1600" height="880" fill="#FFFFFF"/>
+<text text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="36" font-weight="700" fill="#172033"><tspan x="800.0" y="66.0">One treatment attempt across 4 sources</tspan></text>
+<text text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="14" font-weight="700" fill="#A44A3F"><tspan x="30.0" y="179.0">MEDICAL CLAIMS</tspan></text>
+<path d="M240.0,195.0 L1530.0,195.0" fill="none" stroke="#C9D2DC" stroke-width="3"/>
+<text text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="14" font-weight="700" fill="#4F86A6"><tspan x="30.0" y="334.0">EHR</tspan></text>
+<path d="M240.0,350.0 L1530.0,350.0" fill="none" stroke="#C9D2DC" stroke-width="3"/>
+<text text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="14" font-weight="700" fill="#A66E12"><tspan x="30.0" y="489.0">SPECIALTY PHARMACY</tspan></text>
+<path d="M240.0,505.0 L1530.0,505.0" fill="none" stroke="#C9D2DC" stroke-width="3"/>
+<text text-anchor="start" font-family="DejaVu Sans, Arial, sans-serif" font-size="14" font-weight="700" fill="#4C7A43"><tspan x="30.0" y="644.0">PHARMACY CLAIMS</tspan></text>
+<path d="M240.0,660.0 L1530.0,660.0" fill="none" stroke="#C9D2DC" stroke-width="3"/>
+<circle cx="618.5" cy="195" r="8" fill="#FFFFFF" stroke="#A44A3F" stroke-width="4"/>
+<text text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="13" font-weight="700" fill="#A44A3F"><tspan x="618.5" y="149.0">May 28</tspan><tspan x="618.5" y="165.0">Professional</tspan><tspan x="618.5" y="181.0">Denied  E11.9</tspan></text>
+<circle cx="813.3" cy="195" r="8" fill="#FFFFFF" stroke="#4C7A43" stroke-width="4"/>
+<text text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="13" font-weight="700" fill="#4C7A43"><tspan x="813.3" y="217.0">Institutional</tspan><tspan x="813.3" y="233.0">Paid  E11.9</tspan><tspan x="813.3" y="249.0">Jul 20</tspan></text>
+<circle cx="317.2" cy="350" r="8" fill="#FFFFFF" stroke="#4F86A6" stroke-width="4"/>
+<text text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="13" font-weight="700" fill="#4F86A6"><tspan x="317.2" y="320.0">Mar 07</tspan><tspan x="317.2" y="336.0">Office visit</tspan></text>
+<circle cx="673.7" cy="350" r="8" fill="#FFFFFF" stroke="#4F86A6" stroke-width="4"/>
+<text text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="13" font-weight="700" fill="#4F86A6"><tspan x="673.7" y="372.0">Specialist visit</tspan><tspan x="673.7" y="388.0">Roventra ordered</tspan><tspan x="673.7" y="404.0">Jun 12</tspan></text>
+<circle cx="692.1" cy="350" r="8" fill="#FFFFFF" stroke="#4F86A6" stroke-width="4"/>
+<text text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="13" font-weight="700" fill="#4F86A6"><tspan x="692.1" y="320.0">Jun 13–22</tspan><tspan x="692.1" y="336.0">A1C 10.6 → 8.9</tspan></text>
+<circle cx="1401.4" cy="350" r="8" fill="#FFFFFF" stroke="#4F86A6" stroke-width="4"/>
+<text text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="13" font-weight="700" fill="#4F86A6"><tspan x="1401.4" y="372.0">Dose update</tspan><tspan x="1401.4" y="388.0">Dec 27</tspan></text>
+<circle cx="1419.7" cy="350" r="8" fill="#FFFFFF" stroke="#4F86A6" stroke-width="4"/>
+<text text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="13" font-weight="700" fill="#4F86A6"><tspan x="1419.7" y="320.0">Jan 01</tspan><tspan x="1419.7" y="336.0">A1C 8.4</tspan></text>
+<circle cx="677.4" cy="505" r="8" fill="#FFFFFF" stroke="#A66E12" stroke-width="4"/>
+<text text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="13" font-weight="700" fill="#A66E12"><tspan x="677.4" y="475.0">Jun 13</tspan><tspan x="677.4" y="491.0">Referral open</tspan></text>
+<circle cx="695.7" cy="505" r="8" fill="#FFFFFF" stroke="#A66E12" stroke-width="4"/>
+<text text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="13" font-weight="700" fill="#A66E12"><tspan x="695.7" y="527.0">Exception approved</tspan><tspan x="695.7" y="543.0">Jun 18</tspan></text>
+<circle cx="776.6" cy="505" r="8" fill="#FFFFFF" stroke="#A66E12" stroke-width="4"/>
+<text text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="13" font-weight="700" fill="#A66E12"><tspan x="776.6" y="475.0">Jul 10</tspan><tspan x="776.6" y="491.0">Shipped</tspan></text>
+<circle cx="758.2" cy="660" r="8" fill="#FFFFFF" stroke="#A44A3F" stroke-width="4"/>
+<text text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="13" font-weight="700" fill="#A44A3F"><tspan x="758.2" y="630.0">Jul 02–09</tspan><tspan x="758.2" y="646.0">Rejected → Paid</tspan></text>
+<circle cx="897.9" cy="660" r="8" fill="#FFFFFF" stroke="#4C7A43" stroke-width="4"/>
+<text text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="13" font-weight="700" fill="#4C7A43"><tspan x="897.9" y="682.0">Paid → Rev → Paid</tspan><tspan x="897.9" y="698.0">Aug 09–15</tspan></text>
+<circle cx="1000.8" cy="660" r="8" fill="#FFFFFF" stroke="#4C7A43" stroke-width="4"/>
+<text text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="13" font-weight="700" fill="#4C7A43"><tspan x="1000.8" y="630.0">Sep 09</tspan><tspan x="1000.8" y="646.0">Paid</tspan></text>
+<circle cx="1111.0" cy="660" r="8" fill="#FFFFFF" stroke="#4C7A43" stroke-width="4"/>
+<text text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="13" font-weight="700" fill="#4C7A43"><tspan x="1111.0" y="682.0">Paid</tspan><tspan x="1111.0" y="698.0">Oct 09</tspan></text>
+<path d="M240.0,790.0 L1530.0,790.0" fill="none" stroke="#5F6B7A" stroke-width="3"/>
+<path d="M295.1,784.0 L295.1,796.0" fill="none" stroke="#5F6B7A" stroke-width="3"/>
+<text text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="14" font-weight="normal" fill="#5F6B7A"><tspan x="295.1" y="820.0">Mar 2024</tspan></text>
+<path d="M519.3,784.0 L519.3,796.0" fill="none" stroke="#5F6B7A" stroke-width="3"/>
+<text text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="14" font-weight="normal" fill="#5F6B7A"><tspan x="519.3" y="820.0">May 2024</tspan></text>
+<path d="M743.5,784.0 L743.5,796.0" fill="none" stroke="#5F6B7A" stroke-width="3"/>
+<text text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="14" font-weight="normal" fill="#5F6B7A"><tspan x="743.5" y="820.0">Jul 2024</tspan></text>
+<path d="M971.4,784.0 L971.4,796.0" fill="none" stroke="#5F6B7A" stroke-width="3"/>
+<text text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="14" font-weight="normal" fill="#5F6B7A"><tspan x="971.4" y="820.0">Sep 2024</tspan></text>
+<path d="M1195.6,784.0 L1195.6,796.0" fill="none" stroke="#5F6B7A" stroke-width="3"/>
+<text text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="14" font-weight="normal" fill="#5F6B7A"><tspan x="1195.6" y="820.0">Nov 2024</tspan></text>
+<path d="M1419.7,784.0 L1419.7,796.0" fill="none" stroke="#5F6B7A" stroke-width="3"/>
+<text text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="14" font-weight="normal" fill="#5F6B7A"><tspan x="1419.7" y="820.0">Jan 2025</tspan></text>
+</svg>

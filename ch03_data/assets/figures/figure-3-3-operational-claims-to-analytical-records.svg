@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="590" viewBox="0 0 1600 590" role="img">
+<title>7 transactions become 4 fills</title>
+<defs>
+<marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 z" fill="#344054"/></marker>
+<filter id="shadow" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-opacity="0.12"/></filter>
+</defs>
+<rect width="1600" height="590" fill="#FFFFFF"/>
+<text text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="36" font-weight="700" fill="#172033"><tspan x="800.0" y="66.0">7 transactions become 4 fills</tspan></text>
+<rect x="70" y="150" width="185" height="105" rx="10" fill="#F6D2CC" stroke="#A44A3F" stroke-width="2.5" filter="url(#shadow)"/>
+<text text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="700" fill="#172033"><tspan x="162.5" y="184.4">Jul 02</tspan><tspan x="162.5" y="204.4">Rejected</tspan><tspan x="162.5" y="224.4">$0.00</tspan></text>
+<path d="M255.0,202.5 L271.0,202.5" fill="none" stroke="#344054" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="273" y="150" width="185" height="105" rx="10" fill="#DCEFD6" stroke="#4C7A43" stroke-width="2.5" filter="url(#shadow)"/>
+<text text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="700" fill="#172033"><tspan x="365.5" y="184.4">Jul 09</tspan><tspan x="365.5" y="204.4">Paid</tspan><tspan x="365.5" y="224.4">$49.43</tspan></text>
+<path d="M458.0,202.5 L474.0,202.5" fill="none" stroke="#344054" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="476" y="150" width="185" height="105" rx="10" fill="#DCEFD6" stroke="#4C7A43" stroke-width="2.5" filter="url(#shadow)"/>
+<text text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="700" fill="#172033"><tspan x="568.5" y="184.4">Aug 09</tspan><tspan x="568.5" y="204.4">Paid</tspan><tspan x="568.5" y="224.4">$58.18</tspan></text>
+<path d="M661.0,202.5 L677.0,202.5" fill="none" stroke="#344054" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="679" y="150" width="185" height="105" rx="10" fill="#F6D2CC" stroke="#A44A3F" stroke-width="2.5" filter="url(#shadow)"/>
+<text text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="700" fill="#172033"><tspan x="771.5" y="184.4">Aug 10</tspan><tspan x="771.5" y="204.4">Reversed</tspan><tspan x="771.5" y="224.4">$-58.18</tspan></text>
+<path d="M864.0,202.5 L880.0,202.5" fill="none" stroke="#344054" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="882" y="150" width="185" height="105" rx="10" fill="#DCEFD6" stroke="#4C7A43" stroke-width="2.5" filter="url(#shadow)"/>
+<text text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="700" fill="#172033"><tspan x="974.5" y="184.4">Aug 15</tspan><tspan x="974.5" y="204.4">Paid</tspan><tspan x="974.5" y="224.4">$58.18</tspan></text>
+<path d="M1067.0,202.5 L1083.0,202.5" fill="none" stroke="#344054" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="1085" y="150" width="185" height="105" rx="10" fill="#DCEFD6" stroke="#4C7A43" stroke-width="2.5" filter="url(#shadow)"/>
+<text text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="700" fill="#172033"><tspan x="1177.5" y="184.4">Sep 09</tspan><tspan x="1177.5" y="204.4">Paid</tspan><tspan x="1177.5" y="224.4">$72.14</tspan></text>
+<path d="M1270.0,202.5 L1286.0,202.5" fill="none" stroke="#344054" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="1288" y="150" width="185" height="105" rx="10" fill="#DCEFD6" stroke="#4C7A43" stroke-width="2.5" filter="url(#shadow)"/>
+<text text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="700" fill="#172033"><tspan x="1380.5" y="184.4">Oct 09</tspan><tspan x="1380.5" y="204.4">Paid</tspan><tspan x="1380.5" y="224.4">$66.20</tspan></text>
+<path d="M70.0,315.0 L458.0,315.0" fill="none" stroke="#4C7A43" stroke-width="3"/>
+<path d="M70.0,315.0 L70.0,303.0" fill="none" stroke="#4C7A43" stroke-width="3"/>
+<path d="M458.0,315.0 L458.0,303.0" fill="none" stroke="#4C7A43" stroke-width="3"/>
+<text text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" font-weight="700" fill="#4C7A43"><tspan x="264.0" y="343.0">Fill 1</tspan></text>
+<path d="M476.0,315.0 L1067.0,315.0" fill="none" stroke="#4C7A43" stroke-width="3"/>
+<path d="M476.0,315.0 L476.0,303.0" fill="none" stroke="#4C7A43" stroke-width="3"/>
+<path d="M1067.0,315.0 L1067.0,303.0" fill="none" stroke="#4C7A43" stroke-width="3"/>
+<text text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" font-weight="700" fill="#4C7A43"><tspan x="771.5" y="343.0">Fill 2</tspan></text>
+<path d="M1085.0,315.0 L1270.0,315.0" fill="none" stroke="#4C7A43" stroke-width="3"/>
+<path d="M1085.0,315.0 L1085.0,303.0" fill="none" stroke="#4C7A43" stroke-width="3"/>
+<path d="M1270.0,315.0 L1270.0,303.0" fill="none" stroke="#4C7A43" stroke-width="3"/>
+<text text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" font-weight="700" fill="#4C7A43"><tspan x="1177.5" y="343.0">Fill 3</tspan></text>
+<path d="M1288.0,315.0 L1473.0,315.0" fill="none" stroke="#4C7A43" stroke-width="3"/>
+<path d="M1288.0,315.0 L1288.0,303.0" fill="none" stroke="#4C7A43" stroke-width="3"/>
+<path d="M1473.0,315.0 L1473.0,303.0" fill="none" stroke="#4C7A43" stroke-width="3"/>
+<text text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" font-weight="700" fill="#4C7A43"><tspan x="1380.5" y="343.0">Fill 4</tspan></text>
+<rect x="405" y="400" width="790" height="105" rx="14" fill="#DCEFD6" stroke="#4C7A43" stroke-width="2.5" filter="url(#shadow)"/>
+<text text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="22" font-weight="700" fill="#172033"><tspan x="800.0" y="455.1">7 transaction rows  |  5 paid statuses  |  4 completed groups</tspan></text>
+<path d="M771.5,350.0 L771.5,395.0" fill="none" stroke="#4C7A43" stroke-width="3" marker-end="url(#arrow)"/>
+</svg>
