@@ -988,61 +988,61 @@
 - derived completed fills from raw pharmacy transactions
 - selected the payer rule active on an event date
 - run a quality gate and built A1C patient groups</p>
-<pre><code class="language-python">from pathlib import Path
-import sys
-import pandas as pd
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
-ROOT   = Path(&quot;.&quot;).resolve().parent
-DATA   = ROOT / &quot;ch03_data&quot; / &quot;output_data&quot; / &quot;generated_data&quot;
-SCRIPTS = ROOT / &quot;ch03_data&quot; / &quot;scripts&quot;
-sys.path.insert(0, str(SCRIPTS))
+<span class="n">ROOT</span>   <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span><span class="o">.</span><span class="n">parent</span>
+<span class="n">DATA</span>   <span class="o">=</span> <span class="n">ROOT</span> <span class="o">/</span> <span class="s2">&quot;ch03_data&quot;</span> <span class="o">/</span> <span class="s2">&quot;output_data&quot;</span> <span class="o">/</span> <span class="s2">&quot;generated_data&quot;</span>
+<span class="n">SCRIPTS</span> <span class="o">=</span> <span class="n">ROOT</span> <span class="o">/</span> <span class="s2">&quot;ch03_data&quot;</span> <span class="o">/</span> <span class="s2">&quot;scripts&quot;</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">SCRIPTS</span><span class="p">))</span>
 
-pd.set_option(&quot;display.max_columns&quot;, None)
-pd.set_option(&quot;display.width&quot;, 120)
-pd.set_option(&quot;display.float_format&quot;, &quot;{:.2f}&quot;.format)
-print(&quot;Setup complete. DATA =&quot;, DATA)
-</code></pre>
-<pre><code>Setup complete. DATA = /Users/qiu/Projects/hands-on-pharma-decision-science/ch03_data/output_data/generated_data
-</code></pre>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&quot;display.max_columns&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&quot;display.width&quot;</span><span class="p">,</span> <span class="mi">120</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&quot;display.float_format&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Setup complete. DATA =&quot;</span><span class="p">,</span> <span class="n">DATA</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Setup complete. DATA = /Users/qiu/Projects/hands-on-pharma-decision-science/ch03_data/output_data/generated_data
+</code></pre></div>
 <h2 id="1-generate-the-data-package">1. Generate the data package</h2>
 <p>One command builds everything. Run it from the project root if you have not already:</p>
-<pre><code class="language-bash">uv run python ch03_data/scripts/generate_all_synthetic_data.py
-</code></pre>
+<div class="highlight"><pre><span></span><code>uv<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>ch03_data/scripts/generate_all_synthetic_data.py
+</code></pre></div>
 <p>If counts match those in the book, reproducibility is confirmed.</p>
 <p><strong>Listing 3.1: Verify the generated package contract</strong></p>
-<pre><code class="language-python">import json
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
 
-with open(DATA / &quot;manifest.json&quot;) as f:
-    manifest = json.load(f)
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">&quot;manifest.json&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">manifest</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 
-print(&quot;schema_version :&quot;, manifest[&quot;schema_version&quot;])
-print(&quot;seed           :&quot;, manifest[&quot;run_config&quot;][&quot;seed&quot;])
-rx_range = manifest[&quot;table_contracts&quot;][&quot;claims_pharmacy/pharmacy_claims.csv&quot;][&quot;date_ranges&quot;][&quot;fill_date&quot;]
-print(&quot;pharmacy fills :&quot;, rx_range[&quot;min&quot;], &quot;to&quot;, rx_range[&quot;max&quot;])
-</code></pre>
-<pre><code>schema_version : 2026-06-11
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;schema_version :&quot;</span><span class="p">,</span> <span class="n">manifest</span><span class="p">[</span><span class="s2">&quot;schema_version&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;seed           :&quot;</span><span class="p">,</span> <span class="n">manifest</span><span class="p">[</span><span class="s2">&quot;run_config&quot;</span><span class="p">][</span><span class="s2">&quot;seed&quot;</span><span class="p">])</span>
+<span class="n">rx_range</span> <span class="o">=</span> <span class="n">manifest</span><span class="p">[</span><span class="s2">&quot;table_contracts&quot;</span><span class="p">][</span><span class="s2">&quot;claims_pharmacy/pharmacy_claims.csv&quot;</span><span class="p">][</span><span class="s2">&quot;date_ranges&quot;</span><span class="p">][</span><span class="s2">&quot;fill_date&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;pharmacy fills :&quot;</span><span class="p">,</span> <span class="n">rx_range</span><span class="p">[</span><span class="s2">&quot;min&quot;</span><span class="p">],</span> <span class="s2">&quot;to&quot;</span><span class="p">,</span> <span class="n">rx_range</span><span class="p">[</span><span class="s2">&quot;max&quot;</span><span class="p">])</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>schema_version : 2026-06-11
 seed           : 20260609
 pharmacy fills : 2024-01-01 to 2025-01-31
-</code></pre>
+</code></pre></div>
 <p><strong>What to notice:</strong> <code>schema_version</code> ties this package to a specific generator release. <code>seed</code> guarantees exact reproducibility. <code>pharmacy fills</code> is the as-of cutoff: every trend read must respect this date.</p>
 <h2 id="2-the-false-december-decline">2. The false December decline</h2>
 <p>Before touring individual sources, reproduce the chapter opening trap. It is January 5, 2025.</p>
 <p><strong>Listing 3.2: Measure claim completeness at an as-of date</strong></p>
-<pre><code class="language-python">import pandas as pd
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
-mc = pd.read_csv(
-    DATA / &quot;claims_medical&quot; / &quot;medical_claims.csv&quot;,
-    parse_dates=[&quot;claim_date&quot;, &quot;claim_received_date&quot;],
-)
-mc = mc[~mc.is_duplicate &amp; mc.claim_date.dt.year.eq(2024)]
-month = mc.claim_date.dt.to_period(&quot;M&quot;).astype(str).rename(&quot;service_month&quot;)
+<span class="n">mc</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+    <span class="n">DATA</span> <span class="o">/</span> <span class="s2">&quot;claims_medical&quot;</span> <span class="o">/</span> <span class="s2">&quot;medical_claims.csv&quot;</span><span class="p">,</span>
+    <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;claim_date&quot;</span><span class="p">,</span> <span class="s2">&quot;claim_received_date&quot;</span><span class="p">],</span>
+<span class="p">)</span>
+<span class="n">mc</span> <span class="o">=</span> <span class="n">mc</span><span class="p">[</span><span class="o">~</span><span class="n">mc</span><span class="o">.</span><span class="n">is_duplicate</span> <span class="o">&amp;</span> <span class="n">mc</span><span class="o">.</span><span class="n">claim_date</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="mi">2024</span><span class="p">)]</span>
+<span class="n">month</span> <span class="o">=</span> <span class="n">mc</span><span class="o">.</span><span class="n">claim_date</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">to_period</span><span class="p">(</span><span class="s2">&quot;M&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s2">&quot;service_month&quot;</span><span class="p">)</span>
 
-snapshot = month[mc.claim_received_date.le(&quot;2025-01-05&quot;)].value_counts().sort_index()
-mature   = month.value_counts().sort_index()
-view = pd.DataFrame({&quot;snapshot_jan05&quot;: snapshot, &quot;eventually&quot;: mature})
-view[&quot;completeness_%&quot;] = (100 * view.snapshot_jan05 / view.eventually).round(1)
-view.tail(4)
-</code></pre>
+<span class="n">snapshot</span> <span class="o">=</span> <span class="n">month</span><span class="p">[</span><span class="n">mc</span><span class="o">.</span><span class="n">claim_received_date</span><span class="o">.</span><span class="n">le</span><span class="p">(</span><span class="s2">&quot;2025-01-05&quot;</span><span class="p">)]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+<span class="n">mature</span>   <span class="o">=</span> <span class="n">month</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+<span class="n">view</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;snapshot_jan05&quot;</span><span class="p">:</span> <span class="n">snapshot</span><span class="p">,</span> <span class="s2">&quot;eventually&quot;</span><span class="p">:</span> <span class="n">mature</span><span class="p">})</span>
+<span class="n">view</span><span class="p">[</span><span class="s2">&quot;completeness_%&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">100</span> <span class="o">*</span> <span class="n">view</span><span class="o">.</span><span class="n">snapshot_jan05</span> <span class="o">/</span> <span class="n">view</span><span class="o">.</span><span class="n">eventually</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">view</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</code></pre></div>
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1104,9 +1104,9 @@ view.tail(4)
 <p><strong>Conclusion:</strong> at the January 5 snapshot, December reads 32.3% low. The <code>eventually</code> column shows the full picture: 3,990 claims arrive, in line with every other month. The correction is a maturity rule -- exclude immature months or mark them incomplete before sharing any trend.</p>
 <h2 id="3-five-sources-five-questions">3. Five sources, five questions</h2>
 <p>Meet <strong>PAT02034</strong>: a generated female patient, 50-64 years old, in New Jersey, managed by HCP0280 (Endocrinology, ACC089) under commercial payer PAY002.</p>
-<pre><code class="language-python">patients = pd.read_csv(DATA / &quot;reference&quot; / &quot;patients.csv&quot;)
-patients.head(3)
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">patients</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">&quot;reference&quot;</span> <span class="o">/</span> <span class="s2">&quot;patients.csv&quot;</span><span class="p">)</span>
+<span class="n">patients</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</code></pre></div>
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1186,29 +1186,29 @@ patients.head(3)
 </div>
 
 <p><strong>Listing 3.3: Build PAT02034's event ledger</strong></p>
-<pre><code class="language-python">import pandas as pd
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
-ehr = pd.read_csv(DATA / &quot;ehr&quot; / &quot;ehr_events.csv&quot;)
-sp = pd.read_csv(DATA / &quot;specialty_pharmacy&quot; / &quot;specialty_pharmacy_events.csv&quot;)
-rx = pd.read_csv(DATA / &quot;claims_pharmacy&quot; / &quot;pharmacy_claims.csv&quot;, dtype={&quot;ndc&quot;: str})
+<span class="n">ehr</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">&quot;ehr&quot;</span> <span class="o">/</span> <span class="s2">&quot;ehr_events.csv&quot;</span><span class="p">)</span>
+<span class="n">sp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">&quot;specialty_pharmacy&quot;</span> <span class="o">/</span> <span class="s2">&quot;specialty_pharmacy_events.csv&quot;</span><span class="p">)</span>
+<span class="n">rx</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">&quot;claims_pharmacy&quot;</span> <span class="o">/</span> <span class="s2">&quot;pharmacy_claims.csv&quot;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;ndc&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">})</span>
 
-ehr_rows = (ehr.loc[ehr.patient_id.eq(&quot;PAT02034&quot;)]
-    .assign(source=&quot;EHR&quot;, event=lambda d: d[&quot;event_type&quot;], status=lambda d: d[&quot;event_type&quot;])
-    [[&quot;event_date&quot;, &quot;source&quot;, &quot;event&quot;, &quot;status&quot;]])
-sp_row = sp.loc[sp.patient_id.eq(&quot;PAT02034&quot;)].iloc[0]
-sp_rows = pd.DataFrame([
-    {&quot;event_date&quot;: sp_row[&quot;referral_date&quot;], &quot;source&quot;: &quot;SP&quot;, &quot;event&quot;: &quot;Referral&quot;, &quot;status&quot;: &quot;Open&quot;},
-    {&quot;event_date&quot;: sp_row[&quot;auth_decision_date&quot;], &quot;source&quot;: &quot;SP&quot;, &quot;event&quot;: &quot;Authorization&quot;, &quot;status&quot;: sp_row[&quot;auth_status&quot;]},
-    {&quot;event_date&quot;: sp_row[&quot;ship_date&quot;], &quot;source&quot;: &quot;SP&quot;, &quot;event&quot;: &quot;Shipment&quot;, &quot;status&quot;: sp_row[&quot;delivery_status&quot;]},
-])
-rx_rows = (rx.loc[rx.patient_id.eq(&quot;PAT02034&quot;) &amp; rx.ndc.eq(&quot;90000-1001-11&quot;)]
-    .rename(columns={&quot;fill_date&quot;: &quot;event_date&quot;})
-    .assign(source=&quot;Pharmacy&quot;, event=lambda d: d[&quot;reject_reason&quot;].fillna(&quot;&quot;).where(d.status.eq(&quot;Rejected&quot;), &quot;Fill transaction&quot;))
-    [[&quot;event_date&quot;, &quot;source&quot;, &quot;event&quot;, &quot;status&quot;]])
-ledger = pd.concat([ehr_rows, sp_rows, rx_rows], ignore_index=True).sort_values(&quot;event_date&quot;).reset_index(drop=True)
-print(ledger.to_string(index=False))
-</code></pre>
-<pre><code>event_date   source                                                  event    status
+<span class="n">ehr_rows</span> <span class="o">=</span> <span class="p">(</span><span class="n">ehr</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">ehr</span><span class="o">.</span><span class="n">patient_id</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s2">&quot;PAT02034&quot;</span><span class="p">)]</span>
+    <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s2">&quot;EHR&quot;</span><span class="p">,</span> <span class="n">event</span><span class="o">=</span><span class="k">lambda</span> <span class="n">d</span><span class="p">:</span> <span class="n">d</span><span class="p">[</span><span class="s2">&quot;event_type&quot;</span><span class="p">],</span> <span class="n">status</span><span class="o">=</span><span class="k">lambda</span> <span class="n">d</span><span class="p">:</span> <span class="n">d</span><span class="p">[</span><span class="s2">&quot;event_type&quot;</span><span class="p">])</span>
+    <span class="p">[[</span><span class="s2">&quot;event_date&quot;</span><span class="p">,</span> <span class="s2">&quot;source&quot;</span><span class="p">,</span> <span class="s2">&quot;event&quot;</span><span class="p">,</span> <span class="s2">&quot;status&quot;</span><span class="p">]])</span>
+<span class="n">sp_row</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sp</span><span class="o">.</span><span class="n">patient_id</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s2">&quot;PAT02034&quot;</span><span class="p">)]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">sp_rows</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span>
+    <span class="p">{</span><span class="s2">&quot;event_date&quot;</span><span class="p">:</span> <span class="n">sp_row</span><span class="p">[</span><span class="s2">&quot;referral_date&quot;</span><span class="p">],</span> <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;SP&quot;</span><span class="p">,</span> <span class="s2">&quot;event&quot;</span><span class="p">:</span> <span class="s2">&quot;Referral&quot;</span><span class="p">,</span> <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="s2">&quot;Open&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;event_date&quot;</span><span class="p">:</span> <span class="n">sp_row</span><span class="p">[</span><span class="s2">&quot;auth_decision_date&quot;</span><span class="p">],</span> <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;SP&quot;</span><span class="p">,</span> <span class="s2">&quot;event&quot;</span><span class="p">:</span> <span class="s2">&quot;Authorization&quot;</span><span class="p">,</span> <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="n">sp_row</span><span class="p">[</span><span class="s2">&quot;auth_status&quot;</span><span class="p">]},</span>
+    <span class="p">{</span><span class="s2">&quot;event_date&quot;</span><span class="p">:</span> <span class="n">sp_row</span><span class="p">[</span><span class="s2">&quot;ship_date&quot;</span><span class="p">],</span> <span class="s2">&quot;source&quot;</span><span class="p">:</span> <span class="s2">&quot;SP&quot;</span><span class="p">,</span> <span class="s2">&quot;event&quot;</span><span class="p">:</span> <span class="s2">&quot;Shipment&quot;</span><span class="p">,</span> <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="n">sp_row</span><span class="p">[</span><span class="s2">&quot;delivery_status&quot;</span><span class="p">]},</span>
+<span class="p">])</span>
+<span class="n">rx_rows</span> <span class="o">=</span> <span class="p">(</span><span class="n">rx</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">rx</span><span class="o">.</span><span class="n">patient_id</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s2">&quot;PAT02034&quot;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">rx</span><span class="o">.</span><span class="n">ndc</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s2">&quot;90000-1001-11&quot;</span><span class="p">)]</span>
+    <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;fill_date&quot;</span><span class="p">:</span> <span class="s2">&quot;event_date&quot;</span><span class="p">})</span>
+    <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s2">&quot;Pharmacy&quot;</span><span class="p">,</span> <span class="n">event</span><span class="o">=</span><span class="k">lambda</span> <span class="n">d</span><span class="p">:</span> <span class="n">d</span><span class="p">[</span><span class="s2">&quot;reject_reason&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s2">&quot;Rejected&quot;</span><span class="p">),</span> <span class="s2">&quot;Fill transaction&quot;</span><span class="p">))</span>
+    <span class="p">[[</span><span class="s2">&quot;event_date&quot;</span><span class="p">,</span> <span class="s2">&quot;source&quot;</span><span class="p">,</span> <span class="s2">&quot;event&quot;</span><span class="p">,</span> <span class="s2">&quot;status&quot;</span><span class="p">]])</span>
+<span class="n">ledger</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">ehr_rows</span><span class="p">,</span> <span class="n">sp_rows</span><span class="p">,</span> <span class="n">rx_rows</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;event_date&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ledger</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>event_date   source                                                  event    status
 2024-03-07      EHR                                              Encounter Encounter
 2024-06-12      EHR                                              Encounter Encounter
 2024-06-13      EHR                                                    Lab       Lab
@@ -1226,17 +1226,17 @@ print(ledger.to_string(index=False))
 2024-12-27      EHR                                              Encounter Encounter
 2024-12-30      EHR                                                    Lab       Lab
 2025-01-01      EHR                                                    Lab       Lab
-</code></pre>
+</code></pre></div>
 <p><strong>What to notice:</strong> the July 2 pharmacy row names the new-to-market exception barrier. The July 9 paid resubmission and July 10 shipment complete the access path introduced in Chapter 2.</p>
 <h3 id="351-pharmacy-claims-how-many-fills-did-pat02034-actually-complete">3.5.1 Pharmacy claims: how many fills did PAT02034 actually complete?</h3>
-<pre><code class="language-python">ndc = pd.read_csv(DATA / &quot;reference&quot; / &quot;ndc_codes.csv&quot;, dtype={&quot;NDC&quot;: str})
-name_map = dict(zip(ndc[&quot;NDC&quot;], ndc[&quot;CUI_L1_NAME&quot;]))
-pat = rx.loc[rx.patient_id.eq(&quot;PAT02034&quot;) &amp; rx.ndc.eq(&quot;90000-1001-11&quot;)].copy()
-pat[&quot;product_name&quot;] = pat[&quot;product_name&quot;].fillna(pat[&quot;ndc&quot;].map(name_map))
-cols = [&quot;rx_claim_id&quot;, &quot;fill_date&quot;, &quot;product_name&quot;, &quot;status&quot;, &quot;transaction_group_id&quot;, &quot;reject_reason&quot;, &quot;patient_pay&quot;]
-print(pat[cols].to_string(index=False))
-</code></pre>
-<pre><code>rx_claim_id  fill_date product_name   status transaction_group_id                                          reject_reason  patient_pay
+<div class="highlight"><pre><span></span><code><span class="n">ndc</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">&quot;reference&quot;</span> <span class="o">/</span> <span class="s2">&quot;ndc_codes.csv&quot;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;NDC&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">})</span>
+<span class="n">name_map</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">ndc</span><span class="p">[</span><span class="s2">&quot;NDC&quot;</span><span class="p">],</span> <span class="n">ndc</span><span class="p">[</span><span class="s2">&quot;CUI_L1_NAME&quot;</span><span class="p">]))</span>
+<span class="n">pat</span> <span class="o">=</span> <span class="n">rx</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">rx</span><span class="o">.</span><span class="n">patient_id</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s2">&quot;PAT02034&quot;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">rx</span><span class="o">.</span><span class="n">ndc</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s2">&quot;90000-1001-11&quot;</span><span class="p">)]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">pat</span><span class="p">[</span><span class="s2">&quot;product_name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pat</span><span class="p">[</span><span class="s2">&quot;product_name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">pat</span><span class="p">[</span><span class="s2">&quot;ndc&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">name_map</span><span class="p">))</span>
+<span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;rx_claim_id&quot;</span><span class="p">,</span> <span class="s2">&quot;fill_date&quot;</span><span class="p">,</span> <span class="s2">&quot;product_name&quot;</span><span class="p">,</span> <span class="s2">&quot;status&quot;</span><span class="p">,</span> <span class="s2">&quot;transaction_group_id&quot;</span><span class="p">,</span> <span class="s2">&quot;reject_reason&quot;</span><span class="p">,</span> <span class="s2">&quot;patient_pay&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pat</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>rx_claim_id  fill_date product_name   status transaction_group_id                                          reject_reason  patient_pay
   RX0005501 2024-07-02     Roventra Rejected           RXG0004885 New-to-market review; exception documentation required         0.00
   RX0005502 2024-07-09     Roventra     Paid           RXG0004885                                                    NaN        49.43
   RX0005503 2024-08-09     Roventra     Paid           RXG0004886                                                    NaN        58.18
@@ -1244,83 +1244,83 @@ print(pat[cols].to_string(index=False))
   RX0005505 2024-08-15     Roventra     Paid           RXG0004886                                                    NaN        58.18
   RX0005506 2024-09-09     Roventra     Paid           RXG0004887                                                    NaN        72.14
   RX0005507 2024-10-09     Roventra     Paid           RXG0004888                                                    NaN        66.20
-</code></pre>
+</code></pre></div>
 <p><strong>Listing 3.4: Derive completed fills from transaction groups</strong></p>
-<pre><code class="language-python">pat_rx = rx.loc[rx.patient_id.eq(&quot;PAT02034&quot;) &amp; rx.ndc.eq(&quot;90000-1001-11&quot;)].copy()
-chains = (pat_rx.sort_values([&quot;fill_date&quot;, &quot;rx_claim_id&quot;])
-    .groupby(&quot;transaction_group_id&quot;, sort=False)
-    .agg(first_date=(&quot;fill_date&quot;, &quot;first&quot;), statuses=(&quot;status&quot;, &quot; -&gt; &quot;.join), net_patient_pay=(&quot;patient_pay&quot;, &quot;sum&quot;))
-    .reset_index(drop=True))
-chains[&quot;completed_fill&quot;] = chains.statuses.str.endswith(&quot;Paid&quot;) &amp; chains.net_patient_pay.gt(0)
-print(chains.to_string(index=False))
-print(f&quot;completed_fills={int(chains.completed_fill.sum())}&quot;)
-</code></pre>
-<pre><code>first_date                 statuses  net_patient_pay  completed_fill
+<div class="highlight"><pre><span></span><code><span class="n">pat_rx</span> <span class="o">=</span> <span class="n">rx</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">rx</span><span class="o">.</span><span class="n">patient_id</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s2">&quot;PAT02034&quot;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">rx</span><span class="o">.</span><span class="n">ndc</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s2">&quot;90000-1001-11&quot;</span><span class="p">)]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">chains</span> <span class="o">=</span> <span class="p">(</span><span class="n">pat_rx</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s2">&quot;fill_date&quot;</span><span class="p">,</span> <span class="s2">&quot;rx_claim_id&quot;</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;transaction_group_id&quot;</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">first_date</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;fill_date&quot;</span><span class="p">,</span> <span class="s2">&quot;first&quot;</span><span class="p">),</span> <span class="n">statuses</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;status&quot;</span><span class="p">,</span> <span class="s2">&quot; -&gt; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">),</span> <span class="n">net_patient_pay</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;patient_pay&quot;</span><span class="p">,</span> <span class="s2">&quot;sum&quot;</span><span class="p">))</span>
+    <span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<span class="n">chains</span><span class="p">[</span><span class="s2">&quot;completed_fill&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">chains</span><span class="o">.</span><span class="n">statuses</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;Paid&quot;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">chains</span><span class="o">.</span><span class="n">net_patient_pay</span><span class="o">.</span><span class="n">gt</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">chains</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;completed_fills=</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">chains</span><span class="o">.</span><span class="n">completed_fill</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>first_date                 statuses  net_patient_pay  completed_fill
 2024-07-02         Rejected -&gt; Paid            49.43            True
 2024-08-09 Paid -&gt; Reversed -&gt; Paid            58.18            True
 2024-09-09                     Paid            72.14            True
 2024-10-09                     Paid            66.20            True
 completed_fills=4
-</code></pre>
+</code></pre></div>
 <p><strong>Conclusion:</strong> 7 transactions form 4 groups, and every group ends in a paid status with positive net patient payment. Count completed groups, not rows or paid statuses.</p>
 <h3 id="352-formulary-and-access-what-rules-applied-to-pat02034-in-july">3.5.2 Formulary and access: what rules applied to PAT02034 in July?</h3>
-<pre><code class="language-python">patients = pd.read_csv(DATA / &quot;reference&quot; / &quot;patients.csv&quot;)
-fs = pd.read_csv(DATA / &quot;formulary&quot; / &quot;formulary_status.csv&quot;)
-fh = pd.read_csv(DATA / &quot;formulary&quot; / &quot;formulary_history.csv&quot;)
+<div class="highlight"><pre><span></span><code><span class="n">patients</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">&quot;reference&quot;</span> <span class="o">/</span> <span class="s2">&quot;patients.csv&quot;</span><span class="p">)</span>
+<span class="n">fs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">&quot;formulary&quot;</span> <span class="o">/</span> <span class="s2">&quot;formulary_status.csv&quot;</span><span class="p">)</span>
+<span class="n">fh</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">&quot;formulary&quot;</span> <span class="o">/</span> <span class="s2">&quot;formulary_history.csv&quot;</span><span class="p">)</span>
 
-payer = patients.loc[patients.patient_id.eq(&quot;PAT02034&quot;), &quot;payer_id&quot;].iloc[0]
-cols  = [&quot;plan_id&quot;, &quot;plan_name&quot;, &quot;tier&quot;, &quot;prior_authorization&quot;,
-         &quot;step_therapy&quot;, &quot;quantity_limit&quot;, &quot;specialty_pharmacy&quot;]
-status  = fs.loc[fs.plan_id.eq(payer) &amp; fs.product_name.eq(&quot;Roventra&quot;), cols]
-changes = fh.loc[fh.plan_id.eq(payer) &amp; fh.product_name.eq(&quot;Roventra&quot;)]
-print(status.to_string(index=False))
-print(f&quot;Roventra change events for {payer}: {len(changes)}&quot;)
-</code></pre>
-<pre><code>plan_id               plan_name      tier prior_authorization step_therapy quantity_limit specialty_pharmacy
+<span class="n">payer</span> <span class="o">=</span> <span class="n">patients</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">patients</span><span class="o">.</span><span class="n">patient_id</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s2">&quot;PAT02034&quot;</span><span class="p">),</span> <span class="s2">&quot;payer_id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">cols</span>  <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;plan_id&quot;</span><span class="p">,</span> <span class="s2">&quot;plan_name&quot;</span><span class="p">,</span> <span class="s2">&quot;tier&quot;</span><span class="p">,</span> <span class="s2">&quot;prior_authorization&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;step_therapy&quot;</span><span class="p">,</span> <span class="s2">&quot;quantity_limit&quot;</span><span class="p">,</span> <span class="s2">&quot;specialty_pharmacy&quot;</span><span class="p">]</span>
+<span class="n">status</span>  <span class="o">=</span> <span class="n">fs</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">fs</span><span class="o">.</span><span class="n">plan_id</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="n">payer</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">fs</span><span class="o">.</span><span class="n">product_name</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s2">&quot;Roventra&quot;</span><span class="p">),</span> <span class="n">cols</span><span class="p">]</span>
+<span class="n">changes</span> <span class="o">=</span> <span class="n">fh</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">fh</span><span class="o">.</span><span class="n">plan_id</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="n">payer</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">fh</span><span class="o">.</span><span class="n">product_name</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s2">&quot;Roventra&quot;</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">status</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Roventra change events for </span><span class="si">{</span><span class="n">payer</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">changes</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>plan_id               plan_name      tier prior_authorization step_therapy quantity_limit specialty_pharmacy
  PAY002 South Commercial Plan 2 Specialty                 Yes          Yes            Yes                Yes
 Roventra change events for PAY002: 0
-</code></pre>
+</code></pre></div>
 <p><strong>Conclusion:</strong> PAY002 requires prior authorization, specialty-pharmacy routing, step therapy, and a quantity limit for Roventra. The rejected claim carries the event-specific new-to-market exception reason; the current status table carries the ongoing restrictions.</p>
 <p><strong>Listing 3.5: Join a claim to the payer rule active on its date</strong></p>
-<pre><code class="language-python">fh_dates = pd.read_csv(DATA / &quot;formulary&quot; / &quot;formulary_history.csv&quot;,
-                       parse_dates=[&quot;effective_date&quot;])
+<div class="highlight"><pre><span></span><code><span class="n">fh_dates</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">&quot;formulary&quot;</span> <span class="o">/</span> <span class="s2">&quot;formulary_history.csv&quot;</span><span class="p">,</span>
+                       <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;effective_date&quot;</span><span class="p">])</span>
 
-pay001_hist = fh_dates.loc[fh_dates.plan_id.eq(&quot;PAY001&quot;) &amp; fh_dates.product_name.eq(&quot;Roventra&quot;)].sort_values(&quot;effective_date&quot;)
-print(&quot;PAY001 Roventra change history:&quot;)
-print(pay001_hist[[&quot;effective_date&quot;,&quot;prior_tier&quot;,&quot;new_tier&quot;]].to_string(index=False))
-print()
+<span class="n">pay001_hist</span> <span class="o">=</span> <span class="n">fh_dates</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">fh_dates</span><span class="o">.</span><span class="n">plan_id</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s2">&quot;PAY001&quot;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">fh_dates</span><span class="o">.</span><span class="n">product_name</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s2">&quot;Roventra&quot;</span><span class="p">)]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;effective_date&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;PAY001 Roventra change history:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pay001_hist</span><span class="p">[[</span><span class="s2">&quot;effective_date&quot;</span><span class="p">,</span><span class="s2">&quot;prior_tier&quot;</span><span class="p">,</span><span class="s2">&quot;new_tier&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">()</span>
 
-initial_tier = pay001_hist.iloc[0][&quot;prior_tier&quot;]
-initial_pa   = pay001_hist.iloc[0][&quot;prior_prior_authorization&quot;]
-states = [{&quot;effective_date&quot;: pd.Timestamp(&quot;2024-01-01&quot;),
-           &quot;tier&quot;: initial_tier, &quot;prior_authorization&quot;: initial_pa}]
-for _, row in pay001_hist.iterrows():
-    states.append({&quot;effective_date&quot;: row[&quot;effective_date&quot;],
-                   &quot;tier&quot;: row[&quot;new_tier&quot;], &quot;prior_authorization&quot;: row[&quot;new_prior_authorization&quot;]})
-state_df = pd.DataFrame(states)
+<span class="n">initial_tier</span> <span class="o">=</span> <span class="n">pay001_hist</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;prior_tier&quot;</span><span class="p">]</span>
+<span class="n">initial_pa</span>   <span class="o">=</span> <span class="n">pay001_hist</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;prior_prior_authorization&quot;</span><span class="p">]</span>
+<span class="n">states</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;effective_date&quot;</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;2024-01-01&quot;</span><span class="p">),</span>
+           <span class="s2">&quot;tier&quot;</span><span class="p">:</span> <span class="n">initial_tier</span><span class="p">,</span> <span class="s2">&quot;prior_authorization&quot;</span><span class="p">:</span> <span class="n">initial_pa</span><span class="p">}]</span>
+<span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">pay001_hist</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="n">states</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;effective_date&quot;</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;effective_date&quot;</span><span class="p">],</span>
+                   <span class="s2">&quot;tier&quot;</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;new_tier&quot;</span><span class="p">],</span> <span class="s2">&quot;prior_authorization&quot;</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;new_prior_authorization&quot;</span><span class="p">]})</span>
+<span class="n">state_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">states</span><span class="p">)</span>
 
-def rule_on(event_date: str) -&gt; dict:
-    dt = pd.Timestamp(event_date)
-    return state_df.loc[state_df.effective_date.le(dt)].iloc[-1].to_dict()
+<span class="k">def</span><span class="w"> </span><span class="nf">rule_on</span><span class="p">(</span><span class="n">event_date</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="n">dt</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="n">event_date</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">state_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">state_df</span><span class="o">.</span><span class="n">effective_date</span><span class="o">.</span><span class="n">le</span><span class="p">(</span><span class="n">dt</span><span class="p">)]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
 
-for date in [&quot;2024-02-15&quot;, &quot;2024-06-01&quot;]:
-    r = rule_on(date)
-    print(f&quot;{date}: tier={r['tier']}, PA={r['prior_authorization']}&quot;)
-</code></pre>
-<pre><code>PAY001 Roventra change history:
+<span class="k">for</span> <span class="n">date</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;2024-02-15&quot;</span><span class="p">,</span> <span class="s2">&quot;2024-06-01&quot;</span><span class="p">]:</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">rule_on</span><span class="p">(</span><span class="n">date</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">date</span><span class="si">}</span><span class="s2">: tier=</span><span class="si">{</span><span class="n">r</span><span class="p">[</span><span class="s1">&#39;tier&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">, PA=</span><span class="si">{</span><span class="n">r</span><span class="p">[</span><span class="s1">&#39;prior_authorization&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>PAY001 Roventra change history:
 effective_date prior_tier new_tier
     2024-04-01     Tier 3   Tier 1
 
 2024-02-15: tier=Tier 3, PA=Yes
 2024-06-01: tier=Tier 1, PA=Yes
-</code></pre>
+</code></pre></div>
 <p><strong>Key lesson:</strong> reading only the current formulary status treats every historical claim as if the product were always at Tier 1. The as-of join is always required for event-date accuracy.</p>
 <h3 id="353-ehr-what-does-the-chart-add-that-claims-cannot-see">3.5.3 EHR: what does the chart add that claims cannot see?</h3>
-<pre><code class="language-python">ehr = pd.read_csv(DATA / &quot;ehr&quot; / &quot;ehr_events.csv&quot;)
-cols = [&quot;event_date&quot;, &quot;event_type&quot;, &quot;event_name&quot;, &quot;lab_value&quot;,
-        &quot;lab_abnormal_flag&quot;, &quot;problem_list_codes&quot;, &quot;medication_orders&quot;]
-ehr.loc[ehr.patient_id.eq(&quot;PAT02034&quot;), cols].sort_values(&quot;event_date&quot;)
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">ehr</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">&quot;ehr&quot;</span> <span class="o">/</span> <span class="s2">&quot;ehr_events.csv&quot;</span><span class="p">)</span>
+<span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;event_date&quot;</span><span class="p">,</span> <span class="s2">&quot;event_type&quot;</span><span class="p">,</span> <span class="s2">&quot;event_name&quot;</span><span class="p">,</span> <span class="s2">&quot;lab_value&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;lab_abnormal_flag&quot;</span><span class="p">,</span> <span class="s2">&quot;problem_list_codes&quot;</span><span class="p">,</span> <span class="s2">&quot;medication_orders&quot;</span><span class="p">]</span>
+<span class="n">ehr</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">ehr</span><span class="o">.</span><span class="n">patient_id</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s2">&quot;PAT02034&quot;</span><span class="p">),</span> <span class="n">cols</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;event_date&quot;</span><span class="p">)</span>
+</code></pre></div>
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1425,14 +1425,14 @@ ehr.loc[ehr.patient_id.eq(&quot;PAT02034&quot;), cols].sort_values(&quot;event_d
 
 <p><strong>Conclusion:</strong> the clinical spine behind the claims. Diabetes appears in March, Roventra orders in June, first paid fill in July. An EHR medication order records treatment intent; pharmacy claims record observed dispensing.</p>
 <h3 id="354-crm-and-digital-find-the-patient-this-call-was-about">3.5.4 CRM and digital: find the patient this call was about</h3>
-<pre><code class="language-python">crm = pd.read_csv(DATA / &quot;crm_veeva&quot; / &quot;crm_interactions.csv&quot;)
-print(list(crm.columns))
-print()
-cols = [&quot;interaction_date&quot;, &quot;channel&quot;, &quot;message_topic&quot;, &quot;hcp_id&quot;, &quot;account_id&quot;]
-crm.loc[crm.hcp_id.eq(&quot;HCP0280&quot;) &amp; crm.product_name.eq(&quot;Roventra&quot;), cols].sort_values(&quot;interaction_date&quot;)
-</code></pre>
-<pre><code>['crm_interaction_id', 'interaction_date', 'rep_id', 'hcp_id', 'account_id', 'territory', 'product_name', 'channel', 'message_topic', 'outcome', 'duration_min', 'sample_drops', 'consent_status', 'next_action']
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">crm</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">&quot;crm_veeva&quot;</span> <span class="o">/</span> <span class="s2">&quot;crm_interactions.csv&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">crm</span><span class="o">.</span><span class="n">columns</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;interaction_date&quot;</span><span class="p">,</span> <span class="s2">&quot;channel&quot;</span><span class="p">,</span> <span class="s2">&quot;message_topic&quot;</span><span class="p">,</span> <span class="s2">&quot;hcp_id&quot;</span><span class="p">,</span> <span class="s2">&quot;account_id&quot;</span><span class="p">]</span>
+<span class="n">crm</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">crm</span><span class="o">.</span><span class="n">hcp_id</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s2">&quot;HCP0280&quot;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">crm</span><span class="o">.</span><span class="n">product_name</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s2">&quot;Roventra&quot;</span><span class="p">),</span> <span class="n">cols</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;interaction_date&quot;</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>[&#39;crm_interaction_id&#39;, &#39;interaction_date&#39;, &#39;rep_id&#39;, &#39;hcp_id&#39;, &#39;account_id&#39;, &#39;territory&#39;, &#39;product_name&#39;, &#39;channel&#39;, &#39;message_topic&#39;, &#39;outcome&#39;, &#39;duration_min&#39;, &#39;sample_drops&#39;, &#39;consent_status&#39;, &#39;next_action&#39;]
+</code></pre></div>
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1473,15 +1473,15 @@ crm.loc[crm.hcp_id.eq(&quot;HCP0280&quot;) &amp; crm.product_name.eq(&quot;Roven
 
 <p><strong>Conclusion:</strong> there is no <code>patient_id</code> in this table. The CRM table is keyed to HCPs and accounts; patient-level attribution is outside its permitted grain. PAT02034's prescriber HCP0280 appears in CRM, but the interaction cannot be placed on PAT02034's timeline. This is both a privacy boundary and an analytical one.</p>
 <h3 id="355-medicare-part-d-highest-volume-roventra-prescribers">3.5.5 Medicare Part D: highest-volume Roventra prescribers</h3>
-<pre><code class="language-python">partd = pd.read_csv(DATA / &quot;cms_part_d&quot; / &quot;prescriber_summary.csv&quot;)
-cols  = [&quot;prscrbr_npi&quot;, &quot;prscrbr_type&quot;, &quot;prscrbr_city&quot;, &quot;prscrbr_state_abrvtn&quot;,
-         &quot;tot_clms&quot;, &quot;tot_benes&quot;, &quot;tot_drug_cst&quot;]
-(
-    partd.loc[partd.drug_name.eq(&quot;Roventra&quot;), cols]
-    .sort_values([&quot;tot_clms&quot;, &quot;tot_benes&quot;], ascending=[False, False])
-    .head(5)
-)
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="n">partd</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">&quot;cms_part_d&quot;</span> <span class="o">/</span> <span class="s2">&quot;prescriber_summary.csv&quot;</span><span class="p">)</span>
+<span class="n">cols</span>  <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;prscrbr_npi&quot;</span><span class="p">,</span> <span class="s2">&quot;prscrbr_type&quot;</span><span class="p">,</span> <span class="s2">&quot;prscrbr_city&quot;</span><span class="p">,</span> <span class="s2">&quot;prscrbr_state_abrvtn&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;tot_clms&quot;</span><span class="p">,</span> <span class="s2">&quot;tot_benes&quot;</span><span class="p">,</span> <span class="s2">&quot;tot_drug_cst&quot;</span><span class="p">]</span>
+<span class="p">(</span>
+    <span class="n">partd</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">partd</span><span class="o">.</span><span class="n">drug_name</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s2">&quot;Roventra&quot;</span><span class="p">),</span> <span class="n">cols</span><span class="p">]</span>
+    <span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s2">&quot;tot_clms&quot;</span><span class="p">,</span> <span class="s2">&quot;tot_benes&quot;</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="p">[</span><span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="p">)</span>
+</code></pre></div>
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1568,37 +1568,37 @@ cols  = [&quot;prscrbr_npi&quot;, &quot;prscrbr_type&quot;, &quot;prscrbr_city&q
 <h2 id="4-two-planted-traps">4. Two planted traps</h2>
 <p>See §3.7 of the chapter. The maturity trap was shown in section 2 above.</p>
 <p><strong>Listing 3.6: Detect duplicate medical claims</strong></p>
-<pre><code class="language-python">mc_dup = pd.read_csv(DATA / &quot;claims_medical&quot; / &quot;medical_claims.csv&quot;)
-keys = [&quot;patient_id&quot;, &quot;claim_date&quot;, &quot;icd10_code&quot;, &quot;procedure_code&quot;, &quot;hcp_id&quot;, &quot;paid_amount&quot;]
-detected = mc_dup.duplicated(subset=keys, keep=&quot;first&quot;).sum()
-flagged   = mc_dup.is_duplicate.sum()
-print(f&quot;rows={len(mc_dup):,}  detected_by_keys={detected:,}  answer_key={flagged:,}&quot;)
-print(f&quot;naive count overstates utilization by {100*flagged/(len(mc_dup)-flagged):.2f}%&quot;)
-</code></pre>
-<pre><code>rows=51,083  detected_by_keys=1,002  answer_key=1,002
+<div class="highlight"><pre><span></span><code><span class="n">mc_dup</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">&quot;claims_medical&quot;</span> <span class="o">/</span> <span class="s2">&quot;medical_claims.csv&quot;</span><span class="p">)</span>
+<span class="n">keys</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;patient_id&quot;</span><span class="p">,</span> <span class="s2">&quot;claim_date&quot;</span><span class="p">,</span> <span class="s2">&quot;icd10_code&quot;</span><span class="p">,</span> <span class="s2">&quot;procedure_code&quot;</span><span class="p">,</span> <span class="s2">&quot;hcp_id&quot;</span><span class="p">,</span> <span class="s2">&quot;paid_amount&quot;</span><span class="p">]</span>
+<span class="n">detected</span> <span class="o">=</span> <span class="n">mc_dup</span><span class="o">.</span><span class="n">duplicated</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="n">keys</span><span class="p">,</span> <span class="n">keep</span><span class="o">=</span><span class="s2">&quot;first&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">flagged</span>   <span class="o">=</span> <span class="n">mc_dup</span><span class="o">.</span><span class="n">is_duplicate</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;rows=</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">mc_dup</span><span class="p">)</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">  detected_by_keys=</span><span class="si">{</span><span class="n">detected</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">  answer_key=</span><span class="si">{</span><span class="n">flagged</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;naive count overstates utilization by </span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="n">flagged</span><span class="o">/</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">mc_dup</span><span class="p">)</span><span class="o">-</span><span class="n">flagged</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>rows=51,083  detected_by_keys=1,002  answer_key=1,002
 naive count overstates utilization by 2.00%
-</code></pre>
+</code></pre></div>
 <p><strong>Listing 3.7: Restore missing product names from the NDC crosswalk</strong></p>
-<pre><code class="language-python">rx_all = pd.read_csv(DATA / &quot;claims_pharmacy&quot; / &quot;pharmacy_claims.csv&quot;, dtype={&quot;ndc&quot;: str})
-ndc_df = pd.read_csv(DATA / &quot;reference&quot; / &quot;ndc_codes.csv&quot;, dtype={&quot;NDC&quot;: str})
-crosswalk = ndc_df.set_index(&quot;NDC&quot;)[&quot;CUI_L1_NAME&quot;]
+<div class="highlight"><pre><span></span><code><span class="n">rx_all</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">&quot;claims_pharmacy&quot;</span> <span class="o">/</span> <span class="s2">&quot;pharmacy_claims.csv&quot;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;ndc&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">})</span>
+<span class="n">ndc_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">&quot;reference&quot;</span> <span class="o">/</span> <span class="s2">&quot;ndc_codes.csv&quot;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;NDC&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">})</span>
+<span class="n">crosswalk</span> <span class="o">=</span> <span class="n">ndc_df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;NDC&quot;</span><span class="p">)[</span><span class="s2">&quot;CUI_L1_NAME&quot;</span><span class="p">]</span>
 
-paid = rx_all.loc[rx_all.status.eq(&quot;Paid&quot;)].copy()
-naive = paid.loc[paid.product_name.fillna(&quot;&quot;).str.strip().ne(&quot;&quot;)].groupby(&quot;product_name&quot;).size()
+<span class="n">paid</span> <span class="o">=</span> <span class="n">rx_all</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">rx_all</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s2">&quot;Paid&quot;</span><span class="p">)]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">naive</span> <span class="o">=</span> <span class="n">paid</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">paid</span><span class="o">.</span><span class="n">product_name</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">ne</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;product_name&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
 
-paid[&quot;product_name&quot;] = paid[&quot;product_name&quot;].fillna(&quot;&quot;).str.strip()
-paid[&quot;product_name&quot;] = paid[&quot;product_name&quot;].mask(
-    paid[&quot;product_name&quot;].eq(&quot;&quot;), paid[&quot;ndc&quot;].map(crosswalk)
-)
-recovered = paid.groupby(&quot;product_name&quot;).size()
+<span class="n">paid</span><span class="p">[</span><span class="s2">&quot;product_name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">paid</span><span class="p">[</span><span class="s2">&quot;product_name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<span class="n">paid</span><span class="p">[</span><span class="s2">&quot;product_name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">paid</span><span class="p">[</span><span class="s2">&quot;product_name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mask</span><span class="p">(</span>
+    <span class="n">paid</span><span class="p">[</span><span class="s2">&quot;product_name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">),</span> <span class="n">paid</span><span class="p">[</span><span class="s2">&quot;ndc&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">crosswalk</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">recovered</span> <span class="o">=</span> <span class="n">paid</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;product_name&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
 
-result = pd.DataFrame({
-    &quot;paid_fills_naive&quot;:     naive.reindex(recovered.index, fill_value=0).astype(int),
-    &quot;paid_fills_recovered&quot;: recovered.astype(int),
-})
-result[&quot;understated_pct&quot;] = (100 * (1 - result.paid_fills_naive / result.paid_fills_recovered)).round(2)
-result.sort_values(&quot;paid_fills_recovered&quot;, ascending=False)
-</code></pre>
+<span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">&quot;paid_fills_naive&quot;</span><span class="p">:</span>     <span class="n">naive</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">recovered</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">),</span>
+    <span class="s2">&quot;paid_fills_recovered&quot;</span><span class="p">:</span> <span class="n">recovered</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">),</span>
+<span class="p">})</span>
+<span class="n">result</span><span class="p">[</span><span class="s2">&quot;understated_pct&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">100</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">result</span><span class="o">.</span><span class="n">paid_fills_naive</span> <span class="o">/</span> <span class="n">result</span><span class="o">.</span><span class="n">paid_fills_recovered</span><span class="p">))</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">result</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;paid_fills_recovered&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</code></pre></div>
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1659,13 +1659,13 @@ result.sort_values(&quot;paid_fills_recovered&quot;, ascending=False)
 
 <p><strong>Conclusion:</strong> every brand was silently undercounted by ~5%. The naive table looks complete. The rule: recover what the reference can, keep the remainder visible as unmapped.</p>
 <h2 id="5-quality-gate">5. Quality gate</h2>
-<pre><code class="language-python">import sys
-sys.path.insert(0, str(SCRIPTS))
-from data_quality import run_data_quality
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">SCRIPTS</span><span class="p">))</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">data_quality</span><span class="w"> </span><span class="kn">import</span> <span class="n">run_data_quality</span>
 
-_, summary = run_data_quality(DATA)
-summary
-</code></pre>
+<span class="n">_</span><span class="p">,</span> <span class="n">summary</span> <span class="o">=</span> <span class="n">run_data_quality</span><span class="p">(</span><span class="n">DATA</span><span class="p">)</span>
+<span class="n">summary</span>
+</code></pre></div>
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1727,26 +1727,26 @@ summary
 <p><strong>Conclusion:</strong> duplicates, mapping gaps, and taxonomy conflicts are defect checks. The observation-window result is an eligibility count whose value changes with the study window.</p>
 <h2 id="6-laboratory-results-to-patient-groups">6. Laboratory results to patient groups</h2>
 <p><strong>Listing 3.8: Build A1C patient groups without dropping no-result patients</strong></p>
-<pre><code class="language-python">ehr_all = pd.read_csv(DATA / &quot;ehr&quot; / &quot;ehr_events.csv&quot;, parse_dates=[&quot;event_date&quot;])
-patients_all = pd.read_csv(DATA / &quot;reference&quot; / &quot;patients.csv&quot;)
-a1c = ehr_all.loc[ehr_all.event_name.eq(&quot;A1C&quot;)].copy()
-a1c[&quot;lab_value&quot;] = pd.to_numeric(a1c[&quot;lab_value&quot;], errors=&quot;coerce&quot;)
-latest = (a1c.dropna(subset=[&quot;patient_id&quot;, &quot;event_date&quot;, &quot;lab_value&quot;])
-    .sort_values([&quot;patient_id&quot;, &quot;event_date&quot;, &quot;lab_value&quot;])
-    .groupby(&quot;patient_id&quot;, as_index=False).tail(1)[[&quot;patient_id&quot;, &quot;lab_value&quot;]])
-latest[&quot;a1c_class&quot;] = pd.cut(latest.lab_value, [-float(&quot;inf&quot;), 5.7, 6.5, float(&quot;inf&quot;)], labels=[&quot;normal&quot;, &quot;prediabetes&quot;, &quot;diabetes&quot;], right=False).astype(&quot;string&quot;)
-cohort = patients_all[[&quot;patient_id&quot;]].merge(latest, on=&quot;patient_id&quot;, how=&quot;left&quot;)
-cohort[&quot;a1c_class&quot;] = cohort[&quot;a1c_class&quot;].fillna(&quot;no_result&quot;)
-summary = cohort.groupby(&quot;a1c_class&quot;, sort=False).size().rename(&quot;patient_count&quot;).reset_index()
-summary[&quot;pct&quot;] = (100 * summary.patient_count / len(patients_all)).round(2)
-print(summary.sort_values(&quot;patient_count&quot;, ascending=False).to_string(index=False))
-</code></pre>
-<pre><code>  a1c_class  patient_count   pct
+<div class="highlight"><pre><span></span><code><span class="n">ehr_all</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">&quot;ehr&quot;</span> <span class="o">/</span> <span class="s2">&quot;ehr_events.csv&quot;</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;event_date&quot;</span><span class="p">])</span>
+<span class="n">patients_all</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">&quot;reference&quot;</span> <span class="o">/</span> <span class="s2">&quot;patients.csv&quot;</span><span class="p">)</span>
+<span class="n">a1c</span> <span class="o">=</span> <span class="n">ehr_all</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">ehr_all</span><span class="o">.</span><span class="n">event_name</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s2">&quot;A1C&quot;</span><span class="p">)]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">a1c</span><span class="p">[</span><span class="s2">&quot;lab_value&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">a1c</span><span class="p">[</span><span class="s2">&quot;lab_value&quot;</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s2">&quot;coerce&quot;</span><span class="p">)</span>
+<span class="n">latest</span> <span class="o">=</span> <span class="p">(</span><span class="n">a1c</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;patient_id&quot;</span><span class="p">,</span> <span class="s2">&quot;event_date&quot;</span><span class="p">,</span> <span class="s2">&quot;lab_value&quot;</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s2">&quot;patient_id&quot;</span><span class="p">,</span> <span class="s2">&quot;event_date&quot;</span><span class="p">,</span> <span class="s2">&quot;lab_value&quot;</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;patient_id&quot;</span><span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">1</span><span class="p">)[[</span><span class="s2">&quot;patient_id&quot;</span><span class="p">,</span> <span class="s2">&quot;lab_value&quot;</span><span class="p">]])</span>
+<span class="n">latest</span><span class="p">[</span><span class="s2">&quot;a1c_class&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">latest</span><span class="o">.</span><span class="n">lab_value</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="nb">float</span><span class="p">(</span><span class="s2">&quot;inf&quot;</span><span class="p">),</span> <span class="mf">5.7</span><span class="p">,</span> <span class="mf">6.5</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;inf&quot;</span><span class="p">)],</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;normal&quot;</span><span class="p">,</span> <span class="s2">&quot;prediabetes&quot;</span><span class="p">,</span> <span class="s2">&quot;diabetes&quot;</span><span class="p">],</span> <span class="n">right</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;string&quot;</span><span class="p">)</span>
+<span class="n">cohort</span> <span class="o">=</span> <span class="n">patients_all</span><span class="p">[[</span><span class="s2">&quot;patient_id&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">latest</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">&quot;patient_id&quot;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)</span>
+<span class="n">cohort</span><span class="p">[</span><span class="s2">&quot;a1c_class&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cohort</span><span class="p">[</span><span class="s2">&quot;a1c_class&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s2">&quot;no_result&quot;</span><span class="p">)</span>
+<span class="n">summary</span> <span class="o">=</span> <span class="n">cohort</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;a1c_class&quot;</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s2">&quot;patient_count&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">summary</span><span class="p">[</span><span class="s2">&quot;pct&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">100</span> <span class="o">*</span> <span class="n">summary</span><span class="o">.</span><span class="n">patient_count</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">patients_all</span><span class="p">))</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">summary</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;patient_count&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>  a1c_class  patient_count   pct
    diabetes           8699 43.50
   no_result           5576 27.88
      normal           3108 15.54
 prediabetes           2617 13.08
-</code></pre>
+</code></pre></div>
 <p><strong>Three conclusions:</strong></p>
 <ol>
 <li>

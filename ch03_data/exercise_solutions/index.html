@@ -791,61 +791,61 @@
 
 <h1 id="chapter-3-exercise-solutions">Chapter 3 Exercise Solutions</h1>
 <p>Worked answers to the 3 exercises in Section 3.11. Each answer ends with the judgment call that matters on real data.</p>
-<pre><code class="language-python">from pathlib import Path
-import pandas as pd
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
-ROOT = Path.cwd()
-if ROOT.name == &quot;ch03_data&quot;:
-    DATA = ROOT / &quot;output_data&quot; / &quot;generated_data&quot;
-else:
-    DATA = ROOT / &quot;ch03_data&quot; / &quot;output_data&quot; / &quot;generated_data&quot;
-print(DATA.resolve())
-</code></pre>
-<pre><code>/Users/qiu/Projects/hands-on-pharma-decision-science/ch03_data/output_data/generated_data
-</code></pre>
+<span class="n">ROOT</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span>
+<span class="k">if</span> <span class="n">ROOT</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;ch03_data&quot;</span><span class="p">:</span>
+    <span class="n">DATA</span> <span class="o">=</span> <span class="n">ROOT</span> <span class="o">/</span> <span class="s2">&quot;output_data&quot;</span> <span class="o">/</span> <span class="s2">&quot;generated_data&quot;</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">DATA</span> <span class="o">=</span> <span class="n">ROOT</span> <span class="o">/</span> <span class="s2">&quot;ch03_data&quot;</span> <span class="o">/</span> <span class="s2">&quot;output_data&quot;</span> <span class="o">/</span> <span class="s2">&quot;generated_data&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">DATA</span><span class="o">.</span><span class="n">resolve</span><span class="p">())</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>/Users/qiu/Projects/hands-on-pharma-decision-science/ch03_data/output_data/generated_data
+</code></pre></div>
 <h2 id="exercise-1-beat-the-answer-key">Exercise 1: Beat the answer key</h2>
 <p>Drop <code>paid_amount</code> from the duplicate key and measure the over-match.</p>
-<pre><code class="language-python">mc = pd.read_csv(DATA / &quot;claims_medical&quot; / &quot;medical_claims.csv&quot;)
-full_key = [&quot;patient_id&quot;, &quot;claim_date&quot;, &quot;icd10_code&quot;, &quot;procedure_code&quot;, &quot;hcp_id&quot;, &quot;paid_amount&quot;]
-short_key = full_key[:-1]
-full_count = int(mc.duplicated(full_key, keep=&quot;first&quot;).sum())
-short_count = int(mc.duplicated(short_key, keep=&quot;first&quot;).sum())
-print(f&quot;full_key_duplicates={full_count:,}&quot;)
-print(f&quot;short_key_duplicates={short_count:,}&quot;)
-print(f&quot;false_duplicates_after_dropping_paid_amount={short_count-full_count:,}&quot;)
-</code></pre>
-<pre><code>full_key_duplicates=1,002
+<div class="highlight"><pre><span></span><code><span class="n">mc</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">&quot;claims_medical&quot;</span> <span class="o">/</span> <span class="s2">&quot;medical_claims.csv&quot;</span><span class="p">)</span>
+<span class="n">full_key</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;patient_id&quot;</span><span class="p">,</span> <span class="s2">&quot;claim_date&quot;</span><span class="p">,</span> <span class="s2">&quot;icd10_code&quot;</span><span class="p">,</span> <span class="s2">&quot;procedure_code&quot;</span><span class="p">,</span> <span class="s2">&quot;hcp_id&quot;</span><span class="p">,</span> <span class="s2">&quot;paid_amount&quot;</span><span class="p">]</span>
+<span class="n">short_key</span> <span class="o">=</span> <span class="n">full_key</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">full_count</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">mc</span><span class="o">.</span><span class="n">duplicated</span><span class="p">(</span><span class="n">full_key</span><span class="p">,</span> <span class="n">keep</span><span class="o">=</span><span class="s2">&quot;first&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+<span class="n">short_count</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">mc</span><span class="o">.</span><span class="n">duplicated</span><span class="p">(</span><span class="n">short_key</span><span class="p">,</span> <span class="n">keep</span><span class="o">=</span><span class="s2">&quot;first&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;full_key_duplicates=</span><span class="si">{</span><span class="n">full_count</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;short_key_duplicates=</span><span class="si">{</span><span class="n">short_count</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;false_duplicates_after_dropping_paid_amount=</span><span class="si">{</span><span class="n">short_count</span><span class="o">-</span><span class="n">full_count</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>full_key_duplicates=1,002
 short_key_duplicates=1,011
 false_duplicates_after_dropping_paid_amount=9
-</code></pre>
+</code></pre></div>
 <p><strong>Methods note:</strong> the shorter key flags 9 legitimate same-day records as duplicates. In production, inspect over-matched pairs and document why each field belongs in the key. A duplicate rule is a business definition, not a pandas default.</p>
 <h2 id="exercise-2-did-the-access-change-move-utilization">Exercise 2: Did the access change move utilization?</h2>
 <p>Compare PAY001 Roventra rejection rates before and after the April 1 tier change.</p>
-<pre><code class="language-python">rx = pd.read_csv(DATA / &quot;claims_pharmacy&quot; / &quot;pharmacy_claims.csv&quot;, dtype={&quot;ndc&quot;: str}, parse_dates=[&quot;fill_date&quot;])
-rows = rx.loc[rx.payer_id.eq(&quot;PAY001&quot;) &amp; rx.ndc.eq(&quot;90000-1001-11&quot;) &amp; rx.status.isin([&quot;Rejected&quot;, &quot;Paid&quot;])].copy()
-rows[&quot;period&quot;] = pd.cut(rows.fill_date, pd.to_datetime([&quot;2023-12-31&quot;, &quot;2024-03-31&quot;, &quot;2024-09-30&quot;]), labels=[&quot;Q1&quot;, &quot;Q2-Q3&quot;])
-result = rows.groupby(&quot;period&quot;, observed=True).status.agg(transactions=&quot;size&quot;, rejected=lambda s: s.eq(&quot;Rejected&quot;).sum())
-result[&quot;rejection_rate_pct&quot;] = (100 * result.rejected / result.transactions).round(1)
-print(result.to_string())
-</code></pre>
-<pre><code>        transactions  rejected  rejection_rate_pct
+<div class="highlight"><pre><span></span><code><span class="n">rx</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">&quot;claims_pharmacy&quot;</span> <span class="o">/</span> <span class="s2">&quot;pharmacy_claims.csv&quot;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;ndc&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">},</span> <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;fill_date&quot;</span><span class="p">])</span>
+<span class="n">rows</span> <span class="o">=</span> <span class="n">rx</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">rx</span><span class="o">.</span><span class="n">payer_id</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s2">&quot;PAY001&quot;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">rx</span><span class="o">.</span><span class="n">ndc</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s2">&quot;90000-1001-11&quot;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">rx</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s2">&quot;Rejected&quot;</span><span class="p">,</span> <span class="s2">&quot;Paid&quot;</span><span class="p">])]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">rows</span><span class="p">[</span><span class="s2">&quot;period&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">rows</span><span class="o">.</span><span class="n">fill_date</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">([</span><span class="s2">&quot;2023-12-31&quot;</span><span class="p">,</span> <span class="s2">&quot;2024-03-31&quot;</span><span class="p">,</span> <span class="s2">&quot;2024-09-30&quot;</span><span class="p">]),</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Q1&quot;</span><span class="p">,</span> <span class="s2">&quot;Q2-Q3&quot;</span><span class="p">])</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">rows</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;period&quot;</span><span class="p">,</span> <span class="n">observed</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">transactions</span><span class="o">=</span><span class="s2">&quot;size&quot;</span><span class="p">,</span> <span class="n">rejected</span><span class="o">=</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">s</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s2">&quot;Rejected&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+<span class="n">result</span><span class="p">[</span><span class="s2">&quot;rejection_rate_pct&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">100</span> <span class="o">*</span> <span class="n">result</span><span class="o">.</span><span class="n">rejected</span> <span class="o">/</span> <span class="n">result</span><span class="o">.</span><span class="n">transactions</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>        transactions  rejected  rejection_rate_pct
 period                                            
 Q1               187        53                28.3
 Q2-Q3           1441       193                13.4
-</code></pre>
+</code></pre></div>
 <p><strong>Methods note:</strong> the rejection rate falls from 28.3% in Q1 to 13.4% in Q2-Q3, but this comparison does not establish an effect. Patient mix, seasonality, launch learning, other payer rules, and changing transaction volume could explain the difference. A causal claim needs a prespecified comparison design.</p>
 <h2 id="exercise-3-interrogate-psa-missingness">Exercise 3: Interrogate PSA missingness</h2>
 <p>Measure PSA testing by condition bucket and sex.</p>
-<pre><code class="language-python">patients = pd.read_csv(DATA / &quot;reference&quot; / &quot;patients.csv&quot;)
-ehr = pd.read_csv(DATA / &quot;ehr&quot; / &quot;ehr_events.csv&quot;)
-psa_patients = set(ehr.loc[ehr.event_name.eq(&quot;PSA&quot;), &quot;patient_id&quot;])
-patients[&quot;psa_tested&quot;] = patients.patient_id.isin(psa_patients)
-result = (patients.groupby([&quot;condition_bucket&quot;, &quot;sex&quot;]).psa_tested
-    .agg(tested=&quot;sum&quot;, patients=&quot;size&quot;))
-result[&quot;testing_rate_pct&quot;] = (100 * result.tested / result.patients).round(1)
-print(result.to_string())
-</code></pre>
-<pre><code>                      tested  patients  testing_rate_pct
+<div class="highlight"><pre><span></span><code><span class="n">patients</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">&quot;reference&quot;</span> <span class="o">/</span> <span class="s2">&quot;patients.csv&quot;</span><span class="p">)</span>
+<span class="n">ehr</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">&quot;ehr&quot;</span> <span class="o">/</span> <span class="s2">&quot;ehr_events.csv&quot;</span><span class="p">)</span>
+<span class="n">psa_patients</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">ehr</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">ehr</span><span class="o">.</span><span class="n">event_name</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s2">&quot;PSA&quot;</span><span class="p">),</span> <span class="s2">&quot;patient_id&quot;</span><span class="p">])</span>
+<span class="n">patients</span><span class="p">[</span><span class="s2">&quot;psa_tested&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">patients</span><span class="o">.</span><span class="n">patient_id</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">psa_patients</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="p">(</span><span class="n">patients</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;condition_bucket&quot;</span><span class="p">,</span> <span class="s2">&quot;sex&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">psa_tested</span>
+    <span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">tested</span><span class="o">=</span><span class="s2">&quot;sum&quot;</span><span class="p">,</span> <span class="n">patients</span><span class="o">=</span><span class="s2">&quot;size&quot;</span><span class="p">))</span>
+<span class="n">result</span><span class="p">[</span><span class="s2">&quot;testing_rate_pct&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">100</span> <span class="o">*</span> <span class="n">result</span><span class="o">.</span><span class="n">tested</span> <span class="o">/</span> <span class="n">result</span><span class="o">.</span><span class="n">patients</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>                      tested  patients  testing_rate_pct
 condition_bucket sex                                    
 Cardiology       F         0      1531               0.0
                  M         0      1611               0.0
@@ -857,7 +857,7 @@ Other            F         0      1512               0.0
                  M         0      1494               0.0
 Rheumatology     F         0       772               0.0
                  M         0       801               0.0
-</code></pre>
+</code></pre></div>
 <p><strong>Methods note:</strong> testing occurs only among male patients in the oncology bucket, and about 90% of that group is tested. On real data, this pattern would rule out a missing-at-random assumption. The model should represent testing eligibility and the test-ordering process before using the result value.</p>
 
 
