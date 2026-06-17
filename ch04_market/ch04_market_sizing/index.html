@@ -1346,9 +1346,9 @@ naive extrapolation:        106,175,244
 external prevalence anchor:  29,216,614
 </code></pre></div>
 <p>The panel share is useful for composition, not prevalence. The national scale comes from the diagnosed-diabetes prevalence in <a href="https://www.cdc.gov/nchs/products/databriefs/db516.htm">NCHS Data Brief 516</a> (11.3% of U.S. adults age 20 and older, August 2021 through August 2023) and the 2024 Census <a href="https://www.census.gov/data/tables/time-series/demo/popest/2020s-national-detail.html">adult population</a> of 258,554,106:</p>
-<p>$$
+<div class="arithmatex">\[
 0.113 \times 258{,}554{,}106 = 29{,}216{,}614
-$$</p>
+\]</div>
 <p><img alt="Horizontal bars show the national diagnosed target allocated across 4 regions, with each region labeled by observed diagnosed panel patients and weight per patient." src="../assets/figures/figure_4_4_national_anchor.svg" /></p>
 <p><em>Figure 4.4. The external 29.2 million diagnosed-patient anchor is allocated by region, then returned to observed panel patients as weights. Synthetic analysis with public anchors.</em></p>
 <p>The panel can still describe who its patients are. It just cannot say how common the disease is. To carry the national total back to the panel without giving every patient the same weight, allocate the national target across regions by population share, then weight each observed diagnosed patient so its region sums to that target:</p>
@@ -1479,11 +1479,11 @@ not yet arrived:               2,703,444
 <div class="highlight"><pre><span></span><code>contaminated (drug class)      n1=8213 n2=13633 m=6943  Chapman=16,127  CI=[16,022, 16,231]
 condition-specific (Roventra)  n1=8213 n2=6401 m=5541  Chapman=9,488  CI=[9,435, 9,540]
 </code></pre></div>
-<p>The contaminated pairing estimates 16,127 patients, far above the truth. The flaw is in the second source. Nexoral and Vexpro are established competitors that are also dispensed for other conditions, so a pharmacy source built from the whole class captures patients who do not have the launch condition. Capture-recapture assumes both sources sample the same population; the drug class breaks that assumption. Roventra is specific to the launch condition, so the condition-specific pairing keeps both sources on the same population and lands at 9,488. The Chapman estimator adds one to each count before dividing, which corrects the small-sample bias in the raw Lincoln-Petersen ratio $N \approx n_1 n_2 / m_2$:</p>
-<p>$$
+<p>The contaminated pairing estimates 16,127 patients, far above the truth. The flaw is in the second source. Nexoral and Vexpro are established competitors that are also dispensed for other conditions, so a pharmacy source built from the whole class captures patients who do not have the launch condition. Capture-recapture assumes both sources sample the same population; the drug class breaks that assumption. Roventra is specific to the launch condition, so the condition-specific pairing keeps both sources on the same population and lands at 9,488. The Chapman estimator adds one to each count before dividing, which corrects the small-sample bias in the raw Lincoln-Petersen ratio <span class="arithmatex">\(N \approx n_1 n_2 / m_2\)</span>:</p>
+<div class="arithmatex">\[
 \hat{N} = \frac{(n_1+1)(n_2+1)}{m_2+1} - 1
 = \frac{(8{,}213+1)(6{,}401+1)}{5{,}541+1} - 1 = 9{,}488
-$$</p>
+\]</div>
 <p>Now open the answer key and grade the clean estimate:</p>
 <div class="highlight"><pre><span></span><code><span class="n">truth</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">true_condition</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
 <span class="n">n1</span><span class="p">,</span> <span class="n">n2</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n_hat</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">chapman</span><span class="p">(</span><span class="n">paid_dx</span><span class="p">,</span> <span class="nb">set</span><span class="p">(</span><span class="n">paid_rx</span><span class="p">[</span><span class="n">paid_rx</span><span class="o">.</span><span class="n">drug_name</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="n">PRODUCT</span><span class="p">)]</span><span class="o">.</span><span class="n">patient_id</span><span class="p">))</span>
@@ -1828,6 +1828,10 @@ Pennsylvania Care 169 18         2            2
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>
