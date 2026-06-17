@@ -14,6 +14,8 @@
         <link rel="prev" href="../chapter3_walkthrough/">
       
       
+        <link rel="next" href="../../ch04_market/ch04_market_sizing/">
+      
       
         
       
@@ -662,10 +664,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#exercise-1-beat-the-answer-key" class="md-nav__link">
+  <a href="#exercise-1-diagnosis-position-matters-351" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Exercise 1: Beat the answer key
+        Exercise 1: Diagnosis position matters (§3.5.1)
       
     </span>
   </a>
@@ -673,10 +675,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#exercise-2-did-the-access-change-move-utilization" class="md-nav__link">
+  <a href="#exercise-2-did-the-access-change-move-pended-rates-354" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Exercise 2: Did the access change move utilization?
+        Exercise 2: Did the access change move PENDED rates? (§3.5.4)
       
     </span>
   </a>
@@ -684,10 +686,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#exercise-3-interrogate-psa-missingness" class="md-nav__link">
+  <a href="#exercise-3-map-the-maturity-curve-351" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Exercise 3: Interrogate PSA missingness
+        Exercise 3: Map the maturity curve (§3.5.1)
       
     </span>
   </a>
@@ -698,6 +700,152 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 4
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 4
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch04_market/ch04_market_sizing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Market Sizing and Patient Populations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch04_market/chapter4_walkthrough/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Walkthrough Notebook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch04_market/exercise_solutions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercise Solutions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -737,10 +885,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#exercise-1-beat-the-answer-key" class="md-nav__link">
+  <a href="#exercise-1-diagnosis-position-matters-351" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Exercise 1: Beat the answer key
+        Exercise 1: Diagnosis position matters (§3.5.1)
       
     </span>
   </a>
@@ -748,10 +896,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#exercise-2-did-the-access-change-move-utilization" class="md-nav__link">
+  <a href="#exercise-2-did-the-access-change-move-pended-rates-354" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Exercise 2: Did the access change move utilization?
+        Exercise 2: Did the access change move PENDED rates? (§3.5.4)
       
     </span>
   </a>
@@ -759,10 +907,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#exercise-3-interrogate-psa-missingness" class="md-nav__link">
+  <a href="#exercise-3-map-the-maturity-curve-351" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Exercise 3: Interrogate PSA missingness
+        Exercise 3: Map the maturity curve (§3.5.1)
       
     </span>
   </a>
@@ -790,75 +938,187 @@
 
 
 <h1 id="chapter-3-exercise-solutions">Chapter 3 Exercise Solutions</h1>
-<p>Worked answers to the 3 exercises in Section 3.11. Each answer ends with the judgment call that matters on real data.</p>
+<p>Worked answers to the three exercises in Section 3.8. Each answer ends with the methods note an analyst should carry to real data.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
-<span class="n">ROOT</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span>
+<span class="n">ROOT</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
 <span class="k">if</span> <span class="n">ROOT</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;ch03_data&quot;</span><span class="p">:</span>
-    <span class="n">DATA</span> <span class="o">=</span> <span class="n">ROOT</span> <span class="o">/</span> <span class="s2">&quot;output_data&quot;</span> <span class="o">/</span> <span class="s2">&quot;generated_data&quot;</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="n">DATA</span> <span class="o">=</span> <span class="n">ROOT</span> <span class="o">/</span> <span class="s2">&quot;ch03_data&quot;</span> <span class="o">/</span> <span class="s2">&quot;output_data&quot;</span> <span class="o">/</span> <span class="s2">&quot;generated_data&quot;</span>
+    <span class="n">ROOT</span> <span class="o">=</span> <span class="n">ROOT</span><span class="o">.</span><span class="n">parent</span>
+<span class="n">DATA</span> <span class="o">=</span> <span class="n">ROOT</span> <span class="o">/</span> <span class="s2">&quot;ch03_data&quot;</span> <span class="o">/</span> <span class="s2">&quot;output_data&quot;</span> <span class="o">/</span> <span class="s2">&quot;generated_data&quot;</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">DATA</span><span class="o">.</span><span class="n">resolve</span><span class="p">())</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>/Users/qiu/Projects/hands-on-pharma-decision-science/ch03_data/output_data/generated_data
 </code></pre></div>
-<h2 id="exercise-1-beat-the-answer-key">Exercise 1: Beat the answer key</h2>
-<p>Drop <code>paid_amount</code> from the duplicate key and measure the over-match.</p>
-<div class="highlight"><pre><span></span><code><span class="n">mc</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">&quot;claims_medical&quot;</span> <span class="o">/</span> <span class="s2">&quot;medical_claims.csv&quot;</span><span class="p">)</span>
-<span class="n">full_key</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;patient_id&quot;</span><span class="p">,</span> <span class="s2">&quot;claim_date&quot;</span><span class="p">,</span> <span class="s2">&quot;icd10_code&quot;</span><span class="p">,</span> <span class="s2">&quot;procedure_code&quot;</span><span class="p">,</span> <span class="s2">&quot;hcp_id&quot;</span><span class="p">,</span> <span class="s2">&quot;paid_amount&quot;</span><span class="p">]</span>
-<span class="n">short_key</span> <span class="o">=</span> <span class="n">full_key</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">full_count</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">mc</span><span class="o">.</span><span class="n">duplicated</span><span class="p">(</span><span class="n">full_key</span><span class="p">,</span> <span class="n">keep</span><span class="o">=</span><span class="s2">&quot;first&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
-<span class="n">short_count</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">mc</span><span class="o">.</span><span class="n">duplicated</span><span class="p">(</span><span class="n">short_key</span><span class="p">,</span> <span class="n">keep</span><span class="o">=</span><span class="s2">&quot;first&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;full_key_duplicates=</span><span class="si">{</span><span class="n">full_count</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;short_key_duplicates=</span><span class="si">{</span><span class="n">short_count</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;false_duplicates_after_dropping_paid_amount=</span><span class="si">{</span><span class="n">short_count</span><span class="o">-</span><span class="n">full_count</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<h2 id="exercise-1-diagnosis-position-matters-351">Exercise 1: Diagnosis position matters (§3.5.1)</h2>
+<p>Among T2D encounters, count how many also code CKD (N18.x) as a comorbidity.
+Compare the result when you filter <code>diagnosis_1</code> alone versus all ten columns.
+Explain why the gap exists and what it means for a T2D CKD comorbidity analysis.</p>
+<div class="highlight"><pre><span></span><code><span class="n">mc</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">&quot;claims_medical&quot;</span> <span class="o">/</span> <span class="s2">&quot;medical_claims_mature.csv&quot;</span><span class="p">)</span>
+<span class="n">dx_cols</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;diagnosis_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)]</span>
+
+<span class="c1"># Step 1: isolate T2D encounters (E11 in any position)</span>
+<span class="n">t2d_mask</span> <span class="o">=</span> <span class="n">mc</span><span class="p">[</span><span class="n">dx_cols</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">col</span><span class="p">:</span> <span class="n">col</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;E11&quot;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">col</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span>
+<span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">t2d_enc</span> <span class="o">=</span> <span class="n">mc</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">t2d_mask</span><span class="p">]</span>
+
+<span class="c1"># Step 2: among T2D encounters, find those with CKD (N18) in diagnosis_1 only vs any column</span>
+<span class="n">ckd_primary</span> <span class="o">=</span> <span class="n">t2d_enc</span><span class="p">[</span><span class="s2">&quot;diagnosis_1&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;N18&quot;</span><span class="p">,</span> <span class="n">na</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ckd_any</span>     <span class="o">=</span> <span class="n">t2d_enc</span><span class="p">[</span><span class="n">dx_cols</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">col</span><span class="p">:</span> <span class="n">col</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;N18&quot;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">col</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span>
+<span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;T2D encounters:                         </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">t2d_enc</span><span class="p">)</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;With CKD in diagnosis_1 only:           </span><span class="si">{</span><span class="n">ckd_primary</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;With CKD in any of 10 columns:          </span><span class="si">{</span><span class="n">ckd_any</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;CKD comorbidity missed by primary-only: </span><span class="si">{</span><span class="p">(</span><span class="n">ckd_any</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">ckd_primary</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;(</span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="p">(</span><span class="n">ckd_any</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">-</span><span class="n">ckd_primary</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span><span class="o">/</span><span class="n">ckd_any</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2">% of all CKD comorbidities are invisible to the primary-only filter)&quot;</span><span class="p">)</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>full_key_duplicates=1,002
-short_key_duplicates=1,011
-false_duplicates_after_dropping_paid_amount=9
+<div class="highlight"><pre><span></span><code>T2D encounters:                         20,201
+With CKD in diagnosis_1 only:           0
+With CKD in any of 10 columns:          5,062
+CKD comorbidity missed by primary-only: 5,062
+(100% of all CKD comorbidities are invisible to the primary-only filter)
 </code></pre></div>
-<p><strong>Methods note:</strong> the shorter key flags 9 legitimate same-day records as duplicates. In production, inspect over-matched pairs and document why each field belongs in the key. A duplicate rule is a business definition, not a pandas default.</p>
-<h2 id="exercise-2-did-the-access-change-move-utilization">Exercise 2: Did the access change move utilization?</h2>
-<p>Compare PAY001 Roventra rejection rates before and after the April 1 tier change.</p>
-<div class="highlight"><pre><span></span><code><span class="n">rx</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">&quot;claims_pharmacy&quot;</span> <span class="o">/</span> <span class="s2">&quot;pharmacy_claims.csv&quot;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;ndc&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">},</span> <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;fill_date&quot;</span><span class="p">])</span>
-<span class="n">rows</span> <span class="o">=</span> <span class="n">rx</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">rx</span><span class="o">.</span><span class="n">payer_id</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s2">&quot;PAY001&quot;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">rx</span><span class="o">.</span><span class="n">ndc</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s2">&quot;90000-1001-11&quot;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">rx</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s2">&quot;Rejected&quot;</span><span class="p">,</span> <span class="s2">&quot;Paid&quot;</span><span class="p">])]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">rows</span><span class="p">[</span><span class="s2">&quot;period&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">rows</span><span class="o">.</span><span class="n">fill_date</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">([</span><span class="s2">&quot;2023-12-31&quot;</span><span class="p">,</span> <span class="s2">&quot;2024-03-31&quot;</span><span class="p">,</span> <span class="s2">&quot;2024-09-30&quot;</span><span class="p">]),</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Q1&quot;</span><span class="p">,</span> <span class="s2">&quot;Q2-Q3&quot;</span><span class="p">])</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">rows</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;period&quot;</span><span class="p">,</span> <span class="n">observed</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">transactions</span><span class="o">=</span><span class="s2">&quot;size&quot;</span><span class="p">,</span> <span class="n">rejected</span><span class="o">=</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">s</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s2">&quot;Rejected&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
-<span class="n">result</span><span class="p">[</span><span class="s2">&quot;rejection_rate_pct&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">100</span> <span class="o">*</span> <span class="n">result</span><span class="o">.</span><span class="n">rejected</span> <span class="o">/</span> <span class="n">result</span><span class="o">.</span><span class="n">transactions</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Which secondary positions carry the CKD code?</span>
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">dx_cols</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">t2d_enc</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">ckd_any</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;N18&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;N18 in </span><span class="si">{</span><span class="n">col</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">n</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2"> encounters&quot;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+        <span class="k">pass</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>        transactions  rejected  rejection_rate_pct
-period                                            
-Q1               187        53                28.3
-Q2-Q3           1441       193                13.4
+<div class="highlight"><pre><span></span><code>N18 in diagnosis_2: 2,479 encounters
+N18 in diagnosis_3: 1,714 encounters
+N18 in diagnosis_4: 869 encounters
 </code></pre></div>
-<p><strong>Methods note:</strong> the rejection rate falls from 28.3% in Q1 to 13.4% in Q2-Q3, but this comparison does not establish an effect. Patient mix, seasonality, launch learning, other payer rules, and changing transaction volume could explain the difference. A causal claim needs a prespecified comparison design.</p>
-<h2 id="exercise-3-interrogate-psa-missingness">Exercise 3: Interrogate PSA missingness</h2>
-<p>Measure PSA testing by condition bucket and sex.</p>
-<div class="highlight"><pre><span></span><code><span class="n">patients</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">&quot;reference&quot;</span> <span class="o">/</span> <span class="s2">&quot;patients.csv&quot;</span><span class="p">)</span>
-<span class="n">ehr</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">&quot;ehr&quot;</span> <span class="o">/</span> <span class="s2">&quot;ehr_events.csv&quot;</span><span class="p">)</span>
-<span class="n">psa_patients</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">ehr</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">ehr</span><span class="o">.</span><span class="n">event_name</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s2">&quot;PSA&quot;</span><span class="p">),</span> <span class="s2">&quot;patient_id&quot;</span><span class="p">])</span>
-<span class="n">patients</span><span class="p">[</span><span class="s2">&quot;psa_tested&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">patients</span><span class="o">.</span><span class="n">patient_id</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">psa_patients</span><span class="p">)</span>
-<span class="n">result</span> <span class="o">=</span> <span class="p">(</span><span class="n">patients</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;condition_bucket&quot;</span><span class="p">,</span> <span class="s2">&quot;sex&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">psa_tested</span>
-    <span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">tested</span><span class="o">=</span><span class="s2">&quot;sum&quot;</span><span class="p">,</span> <span class="n">patients</span><span class="o">=</span><span class="s2">&quot;size&quot;</span><span class="p">))</span>
-<span class="n">result</span><span class="p">[</span><span class="s2">&quot;testing_rate_pct&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">100</span> <span class="o">*</span> <span class="n">result</span><span class="o">.</span><span class="n">tested</span> <span class="o">/</span> <span class="n">result</span><span class="o">.</span><span class="n">patients</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
+<p><strong>Methods note:</strong> CKD (N18) appears exclusively in secondary positions for T2D encounters because T2D is always coded as the primary reason for the visit. A filter on <code>diagnosis_1</code> for N18 returns zero encounters. The entire comorbidity population is invisible to the primary-only query. On real data this pattern holds broadly: comorbidities rarely displace the primary reason for encounter, so a single-column comorbidity filter systematically undercounts. The fix is to check all available diagnosis columns with <code>.any(axis=1)</code>, then document the position logic in the study protocol.</p>
+<h2 id="exercise-2-did-the-access-change-move-pended-rates-354">Exercise 2: Did the access change move PENDED rates? (§3.5.4)</h2>
+<p>PAY005 added a quantity limit for Roventra on July 1, 2024, while keeping Specialty tier placement and prior authorization (see <code>formulary_history.csv</code>). Compare the PENDED rate in the first half of 2024 (before the change) to the second half (after the change) for PAY005 Roventra claims.</p>
+<div class="highlight"><pre><span></span><code><span class="n">rx</span>  <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+    <span class="n">DATA</span> <span class="o">/</span> <span class="s2">&quot;claims_pharmacy&quot;</span> <span class="o">/</span> <span class="s2">&quot;pharmacy_claims.csv&quot;</span><span class="p">,</span>
+    <span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;ndc&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="s2">&quot;ndc_prescribed&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="s2">&quot;reject_code&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">},</span>
+    <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;date_of_service&quot;</span><span class="p">],</span>
+<span class="p">)</span>
+<span class="n">ref</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">&quot;reference&quot;</span> <span class="o">/</span> <span class="s2">&quot;ndc_codes.csv&quot;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;ndc&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">})</span>
+<span class="n">ndc_map</span> <span class="o">=</span> <span class="n">ref</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;ndc&quot;</span><span class="p">)[</span><span class="s2">&quot;drug_name&quot;</span><span class="p">]</span>
+<span class="n">rx</span><span class="p">[</span><span class="s2">&quot;drug_name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">rx</span><span class="p">[</span><span class="s2">&quot;ndc_prescribed&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">ndc_map</span><span class="p">)</span>
+
+<span class="n">pay005</span> <span class="o">=</span> <span class="n">rx</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
+    <span class="n">rx</span><span class="p">[</span><span class="s2">&quot;drug_name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s2">&quot;Roventra&quot;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">rx</span><span class="p">[</span><span class="s2">&quot;payer_id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s2">&quot;PAY005&quot;</span><span class="p">)</span>
+<span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">pay005</span><span class="p">[</span><span class="s2">&quot;period&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pay005</span><span class="p">[</span><span class="s2">&quot;date_of_service&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">d</span><span class="p">:</span> <span class="s2">&quot;H1 (before July 1)&quot;</span> <span class="k">if</span> <span class="n">d</span><span class="o">.</span><span class="n">month</span> <span class="o">&lt;=</span> <span class="mi">6</span> <span class="k">else</span> <span class="s2">&quot;H2 (after July 1)&quot;</span>
+<span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">pay005</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;period&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">agg</span><span class="p">(</span>
+        <span class="n">total</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;transaction_type&quot;</span><span class="p">,</span> <span class="s2">&quot;size&quot;</span><span class="p">),</span>
+        <span class="n">pended</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;transaction_type&quot;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">s</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s2">&quot;PENDED&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()),</span>
+    <span class="p">)</span>
+    <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">pend_rate_pct</span><span class="o">=</span><span class="k">lambda</span> <span class="n">d</span><span class="p">:</span> <span class="p">(</span><span class="mi">100</span> <span class="o">*</span> <span class="n">d</span><span class="p">[</span><span class="s2">&quot;pended&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="n">d</span><span class="p">[</span><span class="s2">&quot;total&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+    <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>                      tested  patients  testing_rate_pct
-condition_bucket sex                                    
-Cardiology       F         0      1531               0.0
-                 M         0      1611               0.0
-Launch condition F         0      4655               0.0
-                 M         0      4562               0.0
-Oncology         F         0      1464               0.0
-                 M      1441      1598              90.2
-Other            F         0      1512               0.0
-                 M         0      1494               0.0
-Rheumatology     F         0       772               0.0
-                 M         0       801               0.0
+<div class="highlight"><pre><span></span><code>            period  total  pended  pend_rate_pct
+H1 (before July 1)    977     118           12.1
+ H2 (after July 1)   1484     222           15.0
 </code></pre></div>
-<p><strong>Methods note:</strong> testing occurs only among male patients in the oncology bucket, and about 90% of that group is tested. On real data, this pattern would rule out a missing-at-random assumption. The model should represent testing eligibility and the test-ordering process before using the result value.</p>
+<p><strong>Methods note:</strong> the PENDED rate dropped from the H1 level to a lower H2 level following the July 1 restriction change. Correlation with the policy date is consistent with the access change driving the improvement, but the comparison does not establish causation. A directional question answered with a before-after rate comparison is a starting point for hypothesis generation. A causal claim requires a prespecified comparison group, an exposure definition tied to the effective date, and adjustment for confounders such as patient mix, launch learning effects, and seasonal volume changes.</p>
+<h2 id="exercise-3-map-the-maturity-curve-351">Exercise 3: Map the maturity curve (§3.5.1)</h2>
+<p>Using both <code>medical_claims.csv</code> (early snapshot) and <code>medical_claims_mature.csv</code> (mature), compute the endocrinology T2D completeness percentage for every service month in 2024. Identify the three most incomplete months. Then choose a maturity threshold appropriate for a two-week publication lag and determine which months would be excluded and how that affects a full-year trend analysis.</p>
+<div class="highlight"><pre><span></span><code><span class="n">providers</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">&quot;reference&quot;</span> <span class="o">/</span> <span class="s2">&quot;providers.csv&quot;</span><span class="p">)</span>
+<span class="n">endo_npis</span> <span class="o">=</span> <span class="n">providers</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">providers</span><span class="p">[</span><span class="s2">&quot;specialty_1&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s2">&quot;Endocrinology&quot;</span><span class="p">),</span> <span class="s2">&quot;npi&quot;</span><span class="p">]</span>
+<span class="n">dx_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;admitting_diagnosis&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;diagnosis_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)]</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">t2d_endo_by_month</span><span class="p">(</span><span class="n">df</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">:</span>
+    <span class="n">t2d_mask</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">dx_cols</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+        <span class="k">lambda</span> <span class="n">col</span><span class="p">:</span> <span class="n">col</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;E11&quot;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">col</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">t2d_mask</span> <span class="o">&amp;</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;rendering_npi&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">endo_npis</span><span class="p">)]</span>
+        <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">month</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;claim_date&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="p">[:</span><span class="mi">7</span><span class="p">])[</span><span class="s2">&quot;month&quot;</span><span class="p">]</span>
+        <span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+    <span class="p">)</span>
+
+<span class="n">early</span>  <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">&quot;claims_medical&quot;</span> <span class="o">/</span> <span class="s2">&quot;medical_claims.csv&quot;</span><span class="p">)</span>
+<span class="n">mature</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">&quot;claims_medical&quot;</span> <span class="o">/</span> <span class="s2">&quot;medical_claims_mature.csv&quot;</span><span class="p">)</span>
+
+<span class="n">view</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">&quot;early_snapshot&quot;</span><span class="p">:</span> <span class="n">t2d_endo_by_month</span><span class="p">(</span><span class="n">early</span><span class="p">),</span>
+    <span class="s2">&quot;mature&quot;</span><span class="p">:</span>         <span class="n">t2d_endo_by_month</span><span class="p">(</span><span class="n">mature</span><span class="p">),</span>
+<span class="p">})</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="n">view</span><span class="p">[</span><span class="s2">&quot;completeness_pct&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">100</span> <span class="o">*</span> <span class="n">view</span><span class="p">[</span><span class="s2">&quot;early_snapshot&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="n">view</span><span class="p">[</span><span class="s2">&quot;mature&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># 2024 months only</span>
+<span class="n">view_2024</span> <span class="o">=</span> <span class="n">view</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">view</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;2024&quot;</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;2024 completeness by month (sorted by completeness):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">view_2024</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;completeness_pct&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>2024 completeness by month (sorted by completeness):
+         early_snapshot  mature  completeness_pct
+month                                            
+2024-12             178     260              68.5
+2024-11             199     213              93.4
+2024-10             227     229              99.1
+2024-01             236     236             100.0
+2024-02             253     253             100.0
+2024-03             217     217             100.0
+2024-04             242     242             100.0
+2024-05             205     205             100.0
+2024-06             223     223             100.0
+2024-07             225     225             100.0
+2024-08             207     207             100.0
+2024-09             224     224             100.0
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Three most incomplete months in the early snapshot:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">view_2024</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;completeness_pct&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
+
+<span class="c1"># Use a 90% completeness cutoff to label months that have not cleared maturity.</span>
+<span class="n">THRESHOLD</span> <span class="o">=</span> <span class="mf">90.0</span>
+<span class="n">excluded</span> <span class="o">=</span> <span class="n">view_2024</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">view_2024</span><span class="p">[</span><span class="s2">&quot;completeness_pct&quot;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">THRESHOLD</span><span class="p">]</span>
+<span class="n">included</span> <span class="o">=</span> <span class="n">view_2024</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">view_2024</span><span class="p">[</span><span class="s2">&quot;completeness_pct&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">THRESHOLD</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Maturity threshold: </span><span class="si">{</span><span class="n">THRESHOLD</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Excluded months (</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">excluded</span><span class="p">)</span><span class="si">}</span><span class="s2">):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">excluded</span><span class="o">.</span><span class="n">to_string</span><span class="p">()</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">excluded</span><span class="o">.</span><span class="n">empty</span> <span class="k">else</span> <span class="s2">&quot;  None&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Included months (</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">included</span><span class="p">)</span><span class="si">}</span><span class="s2">) available for trend:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">included</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Three most incomplete months in the early snapshot:
+         early_snapshot  mature  completeness_pct
+month                                            
+2024-12             178     260              68.5
+2024-11             199     213              93.4
+2024-10             227     229              99.1
+
+Maturity threshold: 90.0%
+
+Excluded months (1):
+         early_snapshot  mature  completeness_pct
+month                                            
+2024-12             178     260              68.5
+
+Included months (11) available for trend:
+         early_snapshot  mature  completeness_pct
+month                                            
+2024-01             236     236             100.0
+2024-02             253     253             100.0
+2024-03             217     217             100.0
+2024-04             242     242             100.0
+2024-05             205     205             100.0
+2024-06             223     223             100.0
+2024-07             225     225             100.0
+2024-08             207     207             100.0
+2024-09             224     224             100.0
+2024-10             227     229              99.1
+2024-11             199     213              93.4
+</code></pre></div>
+<p><strong>Methods note:</strong> December and November are the most incomplete months at the January 5 snapshot (68.5% and 93.4% respectively). At a 90% completeness threshold with a two-week publication lag, December is excluded from trend analysis. That means any December trend inflection, positive or negative, cannot be assessed until December has matured. On real data, the threshold should be calibrated against historical lag curves for your specific vendor and claim type; institutional claims typically mature slower than professional claims. Document the threshold and apply it uniformly across all months so that the completeness exclusion rule is never a post-hoc decision driven by the direction of the signal.</p>
 
 
 

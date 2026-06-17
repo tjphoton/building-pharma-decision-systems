@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#appendix-3a-field-reference" class="md-skip">
+        <a href="#appendix-3a-common-data-sources-and-synthetic-data-field-reference" class="md-skip">
           Skip to content
         </a>
       
@@ -642,6 +642,152 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 4
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 4
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch04_market/ch04_market_sizing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Market Sizing and Patient Populations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch04_market/chapter4_walkthrough/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Walkthrough Notebook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch04_market/exercise_solutions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercise Solutions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -680,412 +826,261 @@
   
 
 
-<h1 id="appendix-3a-field-reference">Appendix 3A: Field Reference</h1>
-<p>Nothing below needs to be read linearly. Each table maps a source, record type, or field group to its analytical uses and main caution.</p>
-<p><em>Table 3A.1. Common data sources for pharmaceutical decision science.</em></p>
+<h1 id="appendix-3a-common-data-sources-and-synthetic-data-field-reference">Appendix 3A: Common Data Sources and Synthetic Data Field Reference</h1>
+<p>Nothing below needs to be read linearly. Each table maps a source or field group to its analytical uses.</p>
+<hr />
+<p><em>Table 3A.1. Common pharmaceutical data sources and analytical uses.</em></p>
 <table>
 <thead>
 <tr>
-<th>Data source</th>
-<th>Common vendor sources</th>
-<th>Internal sources</th>
-<th>Public or open alternatives</th>
-<th>Typical use</th>
+<th>Data category</th>
+<th>Analytical use</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Medical and pharmacy claims</td>
-<td><a href="https://www.iqvia.com/locations/united-states/solutions/life-sciences/data-insights">IQVIA</a>, <a href="https://www.komodohealth.com/product/healthcare-map/">Komodo Health</a>, <a href="https://www.iconplc.com/solutions/real-world-intelligence/symphony-health">Symphony Health</a></td>
-<td>Adjudicated claims received through company agreements</td>
-<td><a href="https://data.cms.gov/collection/synthetic-medicare-enrollment-fee-for-service-claims-and-prescription-drug-event">CMS synthetic claims</a>, <a href="https://data.cms.gov/provider-summary-by-type-of-service/medicare-part-d-prescribers/medicare-part-d-prescribers-by-provider-and-drug">CMS Part D Prescribers</a>, <a href="https://data.medicaid.gov/">Medicaid drug utilization</a></td>
-<td>Market sizing, treatment patterns, patient journeys, HCP opportunity</td>
+<td>Medical claims</td>
+<td>Disease prevalence, diagnosed populations, utilization, sites of care, comorbidities, provider volume, market sizing (Chapter 4); patient journeys (Chapter 5)</td>
+</tr>
+<tr>
+<td>Pharmacy claims</td>
+<td>Treatment adoption, refills, persistence, switching, rejection analysis, prescriber activity, market share (Chapter 5)</td>
+</tr>
+<tr>
+<td>Coverage and eligibility</td>
+<td>Denominators, observation windows, lookback periods, treatment gaps, incidence cohorts (Chapters 4 and 5)</td>
 </tr>
 <tr>
 <td>EHR and clinical data</td>
-<td><a href="https://www.iqvia.com/solutions/real-world-evidence/real-world-data-and-insights">IQVIA</a> and licensed health-system feeds</td>
-<td>Clinical research or approved health-system data</td>
-<td><a href="https://synthetichealth.github.io/Synthea/">Synthea</a>, <a href="https://ohdsi.github.io/Eunomia/">OHDSI Eunomia</a>, <a href="https://physionet.org/content/mimic-iv-demo/">MIMIC-IV Demo</a></td>
-<td>Disease status, biomarkers, treatment context, cohort design</td>
-</tr>
-<tr>
-<td>CRM and field activity</td>
-<td><a href="https://www.veeva.com/products/crm-suite/crm/">Veeva Vault CRM</a></td>
-<td>Calls, meetings, messages, territories, account plans</td>
-<td>None at customer level; this book uses synthetic interaction records</td>
-<td>Contact history, field execution, targeting, next best action</td>
-</tr>
-<tr>
-<td>HCP digital engagement</td>
-<td><a href="https://www.veeva.com/products/crm-suite/">Veeva</a>, <a href="https://www.doximity.com/marketing-solutions">Doximity</a>, <a href="https://www.medscapeglobal.com/">Medscape</a></td>
-<td>Approved email, HCP web, webinar, and content-interaction records</td>
-<td>None at customer level; this book uses synthetic engagement events</td>
-<td>HCP engagement, content response, channel preference, omnichannel sequencing</td>
-</tr>
-<tr>
-<td>Consumer media and digital marketing</td>
-<td>Media agencies; TV and streaming measurement; <a href="https://business.google.com/en-all/google-ads/">Google Ads</a>, <a href="https://www.facebook.com/business/ads">Meta</a>, <a href="https://ads.tiktok.com/business/en-US">TikTok</a></td>
-<td>Campaign plans, spend, impressions, reach, clicks, conversions</td>
-<td>Public ad libraries, search trends, synthetic campaign data</td>
-<td>Awareness, patient education, campaign measurement, media mix modeling</td>
+<td>Biomarkers, disease stage, cohort design, prior and concomitant therapy</td>
 </tr>
 <tr>
 <td>Formulary and access</td>
-<td>Licensed formulary and payer-policy feeds</td>
-<td>Market-access research and contracting records</td>
-<td><a href="https://data.cms.gov/provider-summary-by-type-of-service/medicare-part-d-prescribers/monthly-prescription-drug-plan-formulary-and-pharmacy-network-information">CMS Part D formulary data</a></td>
-<td>Coverage, restrictions, access barriers, reachable opportunity</td>
+<td>Coverage barriers, restriction burden, historical access assignment, reachable opportunity (Chapters 4 and 6)</td>
 </tr>
 <tr>
-<td>Patient services and specialty pharmacy</td>
-<td>Hub and specialty-pharmacy vendors</td>
-<td>Patient-support program records</td>
-<td>None complete; this book uses synthetic case events</td>
-<td>Authorization, fulfillment, affordability, abandonment</td>
+<td>Patient services / specialty pharmacy</td>
+<td>Fulfillment pathway, authorization delays, abandonment analysis, support demand (Chapter 5)</td>
+</tr>
+<tr>
+<td>CRM and field activity</td>
+<td>Call patterns, reach, frequency, channel mix, targeting, next-best-action (Chapter 7)</td>
+</tr>
+<tr>
+<td>HCP digital engagement</td>
+<td>Content response, channel preference, engagement scoring, omnichannel sequencing (Chapter 7)</td>
 </tr>
 <tr>
 <td>Provider and account reference</td>
-<td><a href="https://www.iqvia.com/solutions/commercialization/data-and-information-management/onekey">IQVIA OneKey</a>, <a href="https://www.veeva.com/products/opendata/">Veeva OpenData</a></td>
-<td>Customer masters, affiliations, territories, hierarchies</td>
-<td><a href="https://download.cms.gov/nppes/NPI_Files.html">NPPES</a></td>
-<td>Specialty, location, affiliation, territory alignment</td>
+<td>Provider matching, specialty segmentation, targeting, territory alignment, referral networks (Chapters 4 and 7)</td>
 </tr>
 <tr>
-<td>Product and competitive reference</td>
-<td>Licensed product and market-intelligence feeds</td>
-<td>Product masters, competitive intelligence</td>
-<td><a href="https://open.fda.gov/apis/drug/">openFDA</a>, <a href="https://clinicaltrials.gov/data-api/api">ClinicalTrials.gov</a></td>
-<td>Product dictionaries, label context, competitive development</td>
+<td>Product and code reference</td>
+<td>Product mapping, treatment baskets, competitive groupings, quality checks (Chapters 4 and 5)</td>
 </tr>
 <tr>
-<td>Sales, finance, and supply</td>
-<td><a href="https://www.iqvia.com/locations/united-states/solutions/life-sciences/data-insights">IQVIA sales and prescription products</a></td>
-<td>ERP, shipments, chargebacks, inventory, finance</td>
-<td>CMS and Medicaid utilization aggregates as benchmarks</td>
-<td>Demand, revenue, inventory, forecast performance</td>
+<td>Public reference (CMS)</td>
+<td>Provider volume benchmarking, market sizing, specialty segmentation, competitive context (Chapter 4)</td>
+</tr>
+<tr>
+<td>Sales and supply</td>
+<td>Demand analysis, revenue tracking, forecast performance</td>
 </tr>
 </tbody>
 </table>
 <hr />
-<p><em>Table 3A.2. Claims components and their analytical uses.</em></p>
+<p><em>Table 3A.2. Generated data file field reference.</em></p>
+<p>Each sub-table lists one group of output files: the folder, the grain of one record, and every field it contains.</p>
+<p><strong>Table 3A.2.1 — Reference tables</strong> (<code>reference/</code>)</p>
 <table>
 <thead>
 <tr>
-<th>Record component</th>
-<th>What one record represents</th>
-<th>Important fields</th>
-<th>Later analytical uses</th>
-<th>Main caution</th>
+<th>File</th>
+<th>Grain</th>
+<th>Fields</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Medical claim</td>
-<td>A billed encounter or service</td>
-<td>Patient, dates, diagnoses, procedures, HCP, account, payer, setting, status, amounts</td>
-<td>Disease prevalence, diagnosed populations, utilization, sites of care, provider volume, account opportunity, comorbidities, costs, market sizing</td>
-<td>One episode can create several claims; billing codes do not fully describe clinical intent</td>
+<td><code>patients.csv</code></td>
+<td>One patient</td>
+<td><code>patient_id</code>, <code>state</code>, <code>region</code>, <code>age_band</code>, <code>sex</code>, <code>true_launch_condition</code></td>
 </tr>
 <tr>
-<td>Pharmacy transaction</td>
-<td>A submitted prescription transaction</td>
-<td>Patient, NDC, fill date, status, quantity, days supply, prescriber, payer, patient pay</td>
-<td>Treatment adoption, refills, persistence, switching, abandonment, rejection analysis, access friction, prescriber activity, market share</td>
-<td>Rejections and reversals are not completed fills; dispensing does not prove ingestion</td>
+<td><code>patient_enrollments.csv</code></td>
+<td>One eligibility period per patient</td>
+<td><code>patient_id</code>, <code>eligibility_start_date</code>, <code>eligibility_end_date</code>, <code>payer_id</code>, <code>payer_type</code>, <code>has_medical_coverage</code>, <code>has_pharmacy_coverage</code>, <code>product_type</code></td>
 </tr>
 <tr>
-<td>Coverage period</td>
-<td>A window when a patient is observable</td>
-<td>Patient, payer, start date, end date</td>
-<td>Denominators, eligibility, lookback periods, incidence cohorts, treatment gaps, persistence</td>
-<td>Loss of observation mimics treatment discontinuation</td>
+<td><code>providers.csv</code></td>
+<td>One prescriber or facility</td>
+<td><code>npi</code>, <code>specialty_1</code>, <code>specialty_2</code>, <code>provider_state</code>, <code>provider_type</code>, <code>credential</code>, <code>primary_facility_npi</code></td>
 </tr>
 <tr>
-<td>Provider reference</td>
-<td>One HCP and attributes</td>
-<td>Specialty, taxonomy, location, account affiliation</td>
-<td>Provider matching, specialty segmentation, referral networks, targeting, alignment</td>
-<td>Affiliations, locations, and specialties go stale</td>
+<td><code>hcp_targets.csv</code></td>
+<td>One HCP in the internal commercial universe (~42 % of all providers)</td>
+<td><code>npi</code>, <code>account_id</code>, <code>territory</code>, <code>state</code>, <code>region</code>, <code>specialty_1</code></td>
 </tr>
 <tr>
-<td>Account reference</td>
-<td>One healthcare organization</td>
-<td>Type, location, sales region, capacity</td>
-<td>Account opportunity, provider aggregation, call planning, workload design</td>
-<td>Account definitions vary by business purpose</td>
+<td><code>accounts.csv</code></td>
+<td>One healthcare account (hospital, group practice, clinic)</td>
+<td><code>account_id</code>, <code>account_name</code>, <code>account_type</code>, <code>city</code>, <code>state</code>, <code>region</code>, <code>territory</code>, <code>capacity</code></td>
 </tr>
 <tr>
-<td>Payer reference</td>
+<td><code>payers.csv</code></td>
 <td>One payer or plan</td>
-<td>Payer type, plan, geography</td>
-<td>Payer mix, access segmentation, utilization comparison</td>
-<td>Operational benefit designs need extra mappings</td>
+<td><code>payer_id</code>, <code>payer_name</code>, <code>payer_type</code>, <code>region</code></td>
 </tr>
 <tr>
-<td>Code dictionary</td>
-<td>One diagnosis, procedure, or product code</td>
-<td>Code, description, product, ingredient</td>
-<td>Disease definitions, product mapping, treatment baskets, quality checks</td>
-<td>Codes, mappings, and packages change over time</td>
+<td><code>ndc_codes.csv</code></td>
+<td>One product NDC code</td>
+<td><code>ndc</code>, <code>brand_generic</code>, <code>drug_name</code>, <code>ingredient</code></td>
 </tr>
 </tbody>
 </table>
-<p><em>Table 3A.3. Formulary fields and their analytical uses.</em></p>
+<p><strong>Table 3A.2.2 — Medical claims</strong> (<code>claims_medical/</code>)</p>
+<p>Two files with identical columns: <code>medical_claims.csv</code> (early snapshot — claims received within five days of month close) and <code>medical_claims_mature.csv</code> (full snapshot — all encounters regardless of lag). Use the mature file for most analyses; use the early file only to illustrate claim maturity.</p>
 <table>
 <thead>
 <tr>
-<th>Field group</th>
-<th>Important fields</th>
-<th>What it describes</th>
-<th>Later analytical uses</th>
-<th>Main caution</th>
+<th>File</th>
+<th>Grain</th>
+<th>Fields</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Plan and product</td>
-<td><code>plan_id</code>, <code>plan_name</code>, <code>product_name</code></td>
-<td>The payer-product combination</td>
-<td>Payer comparison, product access, competitive positioning</td>
-<td>Plan IDs may need mapping to parent organizations</td>
+<td><code>medical_claims[_mature].csv</code></td>
+<td>One billed encounter</td>
+<td><code>encounter_id</code>, <code>patient_id</code>, <code>claim_type</code>, <code>claim_date</code>, <code>admitting_diagnosis</code> (inpatient-only, ~1% populated), <code>diagnosis_1</code>–<code>diagnosis_10</code>, <code>icd_procedure_1</code>–<code>icd_procedure_3</code>, <code>patient_gender</code>, <code>patient_state</code>, <code>coverage_type</code>, <code>rendering_npi</code>, <code>attending_npi</code>, <code>referring_npi</code>, <code>facility_npi</code>, <code>payer_id</code></td>
 </tr>
 <tr>
-<td>Coverage level</td>
-<td><code>tier</code>, <code>prior_tier</code>, <code>new_tier</code></td>
-<td>Patient cost-sharing position</td>
-<td>Access scoring, tier movement, reachable opportunity</td>
-<td>Tier labels are not comparable across all plans</td>
-</tr>
-<tr>
-<td>Utilization management</td>
-<td>Prior-authorization and step-therapy fields</td>
-<td>Requirements before coverage</td>
-<td>Restriction burden, rejection analysis, support demand</td>
-<td>Published rules miss operational exceptions</td>
-</tr>
-<tr>
-<td>Specialty distribution</td>
-<td><code>specialty_pharmacy</code></td>
-<td>Whether dispensing is restricted to SP</td>
-<td>Fulfillment pathways, channel planning, abandonment</td>
-<td>Requirements vary by product and benefit</td>
-</tr>
-<tr>
-<td>Time</td>
-<td>Effective dates and quarter</td>
-<td>When a policy applies</td>
-<td>Historical joins, pre-post comparisons</td>
-<td>Current status must not be applied to earlier events</td>
-</tr>
-<tr>
-<td>Change classification</td>
-<td><code>change_type</code></td>
-<td>Whether tier or restrictions changed</td>
-<td>Event studies, access monitoring</td>
-<td>A change event alone proves no effect</td>
+<td><code>service_lines.csv</code></td>
+<td>One procedure line within an encounter</td>
+<td><code>encounter_id</code>, <code>patient_id</code>, <code>line_number</code>, <code>service_from</code>, <code>service_to</code>, <code>procedure_code</code>, <code>place_of_service</code>, <code>line_diagnosis_1</code>, <code>line_diagnosis_2</code>, <code>units</code>, <code>line_charge</code></td>
 </tr>
 </tbody>
 </table>
-<p><em>Table 3A.4. EHR record components and their analytical uses.</em></p>
+<p><strong>Table 3A.2.3 — Pharmacy and lab claims</strong> (<code>claims_pharmacy/</code>, <code>claims_lab/</code>)</p>
 <table>
 <thead>
 <tr>
-<th>EHR record component</th>
-<th>Important fields</th>
-<th>What it contributes</th>
-<th>Later analytical uses</th>
-<th>Main caution</th>
+<th>File</th>
+<th>Grain</th>
+<th>Fields</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Encounter</td>
-<td>Patient, date, visit type, note type</td>
-<td>Clinical setting and timing</td>
-<td>Visit patterns, cohort entry, follow-up</td>
-<td>Documentation can be incomplete</td>
+<td><code>pharmacy_claims.csv</code></td>
+<td>One pharmacy transaction</td>
+<td><code>claim_id</code>, <code>patient_id</code>, <code>patient_state</code>, <code>prescriber_npi</code>, <code>primary_care_npi</code>, <code>date_of_service</code>, <code>rx_written_date</code>, <code>transaction_type</code>, <code>ndc</code>, <code>ndc_prescribed</code>, <code>refills_authorized</code>, <code>diagnosis_code</code>, <code>qty_prescribed</code>, <code>qty_dispensed</code>, <code>fill_number</code>, <code>days_supply</code>, <code>patient_pay</code>, <code>plan_pay</code>, <code>reject_code</code>, <code>payer_id</code></td>
 </tr>
 <tr>
-<td>Problem list</td>
-<td>Active diagnosis codes</td>
-<td>Documented current conditions</td>
-<td>Comorbidity extraction, eligibility filters</td>
-<td>Often stale or incomplete</td>
-</tr>
-<tr>
-<td>Medication order</td>
-<td>Product, dose, route, frequency</td>
-<td>Documented treatment intent</td>
-<td>Prior/concomitant therapy, treatment context</td>
-<td>An order is not a dispense</td>
-</tr>
-<tr>
-<td>Laboratory result</td>
-<td>Test, value, unit, reference range, date</td>
-<td>Clinical measurement</td>
-<td>Biomarker cohorts, disease status, eligibility</td>
-<td>Interpretation depends on timing, units, and rules</td>
-</tr>
-<tr>
-<td>Abnormal flag</td>
-<td><code>H</code>/<code>L</code> range indicator</td>
-<td>Crude comparison with reference range</td>
-<td>Screening, data-quality checks</td>
-<td>Never determines eligibility by itself</td>
+<td><code>lab_results.csv</code></td>
+<td>One lab test result</td>
+<td><code>lab_id</code>, <code>patient_id</code>, <code>service_date</code>, <code>loinc_code</code>, <code>test_name</code>, <code>result</code>, <code>result_unit</code>, <code>ref_low</code>, <code>ref_high</code>, <code>abnormal_flag</code>, <code>ordering_npi</code>, <code>diagnosis_1</code></td>
 </tr>
 </tbody>
 </table>
-<p><em>Table 3A.5. CRM, field activity, and HCP digital engagement records.</em></p>
+<p><strong>Table 3A.2.4 — Formulary</strong> (<code>formulary/</code>)</p>
 <table>
 <thead>
 <tr>
-<th>Record type</th>
-<th>Important fields</th>
-<th>What it describes</th>
-<th>Later analytical uses</th>
-<th>Main caution</th>
+<th>File</th>
+<th>Grain</th>
+<th>Fields</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>CRM interaction</td>
-<td>Rep, HCP, account, date, product, channel</td>
-<td>Recorded field activity</td>
-<td>Call patterns, reach, frequency, targeting, channel mix</td>
-<td>A logged activity does not prove effective contact</td>
+<td><code>formulary_status.csv</code></td>
+<td>One plan-product current policy</td>
+<td><code>formulary_id</code>, <code>plan_id</code>, <code>plan_name</code>, <code>product_name</code>, <code>tier</code>, <code>prior_authorization</code>, <code>step_therapy</code>, <code>quantity_limit</code>, <code>specialty_pharmacy</code>, <code>effective_start</code>, <code>effective_end</code></td>
 </tr>
 <tr>
-<td>Message and outcome</td>
-<td><code>message_topic</code>, <code>outcome</code>, <code>next_action</code></td>
-<td>Recorded content and follow-up</td>
-<td>Content sequencing, barrier analysis, next best action</td>
-<td>Outcomes are subjective operational labels</td>
-</tr>
-<tr>
-<td>Consent status</td>
-<td>Consent or opt-out indicator</td>
-<td>Whether a channel is permitted</td>
-<td>Channel eligibility and governance</td>
-<td>Varies by channel and jurisdiction</td>
-</tr>
-<tr>
-<td>Sample activity</td>
-<td>Channel, <code>sample_drops</code></td>
-<td>Recorded sample units</td>
-<td>Sample utilization, follow-up planning</td>
-<td>Samples do not prove treatment initiation</td>
-</tr>
-<tr>
-<td>Digital engagement</td>
-<td>Channel, content, open, click, attendance</td>
-<td>Observable digital response</td>
-<td>Channel preference, engagement scoring, sequencing</td>
-<td>Engagement does not prove prescribing intent</td>
-</tr>
-<tr>
-<td>Field alignment</td>
-<td>Region, rep, accounts, HCPs, targets</td>
-<td>Assigned workload and coverage</td>
-<td>Capacity planning, workload audit, allocation</td>
-<td>Alignments change; they need effective dates</td>
+<td><code>formulary_history.csv</code></td>
+<td>One plan-product policy-change event</td>
+<td><code>history_id</code>, <code>plan_id</code>, <code>plan_name</code>, <code>product_name</code>, <code>quarter</code>, <code>effective_date</code>, <code>prior_tier</code>, <code>new_tier</code>, <code>prior_prior_authorization</code>, <code>new_prior_authorization</code>, <code>prior_step_therapy</code>, <code>new_step_therapy</code>, <code>prior_quantity_limit</code>, <code>new_quantity_limit</code>, <code>prior_specialty_pharmacy</code>, <code>new_specialty_pharmacy</code>, <code>change_type</code></td>
 </tr>
 </tbody>
 </table>
-<p><em>Table 3A.6. Specialty-pharmacy case-summary fields and uses.</em></p>
+<p><strong>Table 3A.2.5 — Specialty pharmacy</strong> (<code>specialty_pharmacy/</code>)</p>
 <table>
 <thead>
 <tr>
-<th>Field group</th>
-<th>Important fields</th>
-<th>What it describes</th>
-<th>Later analytical uses</th>
-<th>Main caution</th>
+<th>File</th>
+<th>Grain</th>
+<th>Fields</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Case identity</td>
-<td><code>sp_event_id</code>, <code>patient_id</code>, <code>product_ndc</code></td>
-<td>One synthetic referral case for one patient-product attempt</td>
-<td>Fulfillment pathway audit, cross-table trace</td>
-<td>This table is a case summary, not a log of every operational touch</td>
-</tr>
-<tr>
-<td>Referral timing</td>
-<td><code>referral_date</code>, <code>auth_decision_date</code>, <code>ship_date</code></td>
-<td>Key dated milestones in the case</td>
-<td>Delay analysis, approval timing, shipment lag</td>
-<td>Missing dates can reflect status, not data loss</td>
-</tr>
-<tr>
-<td>Authorization state</td>
-<td><code>auth_status</code>, <code>delivery_status</code></td>
-<td>Whether the case was approved, denied, pending, shipped, or abandoned</td>
-<td>Rejection analysis, support burden, abandonment</td>
-<td>Status combinations must be interpreted with the table grain in mind</td>
-</tr>
-<tr>
-<td>Patient-support detail</td>
-<td><code>copay_assistance</code>, <code>abandonment_reason</code>, <code>channel</code></td>
-<td>Affordability and operational context</td>
-<td>Support design, abandonment review, channel mix</td>
-<td>One field never captures the whole reason a case stalled</td>
-</tr>
-<tr>
-<td>Source linkage</td>
-<td><code>patient_id</code>, product NDC</td>
-<td>Join back to claims, EHR, and reference tables</td>
-<td>Treatment-attempt tracing, case follow-up</td>
-<td>A shipped case is not the same thing as a paid pharmacy claim</td>
+<td><code>sp_events.csv</code></td>
+<td>One hub referral case</td>
+<td><code>event_id</code>, <code>patient_id</code>, <code>prescriber_npi</code>, <code>product_ndc</code>, <code>referral_date</code>, <code>hub_status</code>, <code>status_date</code>, <code>ship_date</code>, <code>days_supply</code>, <code>dispense_status</code>, <code>copay_assistance</code>, <code>discontinue_reason</code></td>
 </tr>
 </tbody>
 </table>
-<p><em>Table 3A.7. Medicare Part D prescriber-summary fields and uses.</em></p>
+<p><strong>Table 3A.2.6 — CRM and field activity</strong> (<code>crm_veeva/</code>)</p>
 <table>
 <thead>
 <tr>
-<th>Field group</th>
-<th>Important fields</th>
-<th>Analytical use</th>
-<th>Main caution</th>
+<th>File</th>
+<th>Grain</th>
+<th>Fields</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Prescriber</td>
-<td>NPI, name, specialty, state</td>
-<td>Provider matching, specialty segmentation, geography</td>
-<td>Synthetic HCP identifiers are not real NPIs</td>
+<td><code>crm_interactions.csv</code></td>
+<td>One recorded field interaction</td>
+<td><code>interaction_id</code>, <code>interaction_date</code>, <code>rep_id</code>, <code>hcp_npi</code>, <code>account_id</code>, <code>territory</code>, <code>product_name</code>, <code>channel</code>, <code>detail_topic</code>, <code>call_outcome</code>, <code>duration_min</code>, <code>sample_qty</code>, <code>consent_status</code></td>
 </tr>
 <tr>
-<td>Product</td>
-<td>Drug name, generic name, class</td>
-<td>Product grouping, competitive comparison</td>
-<td>Names need normalization across years and sources</td>
+<td><code>territory_alignment.csv</code></td>
+<td>One territory assignment</td>
+<td><code>territory</code>, <code>rep_id</code>, <code>region</code>, <code>n_accounts_aligned</code>, <code>n_hcps_aligned</code>, <code>target_calls_per_month</code>, <code>target_coverage_pct</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Table 3A.2.7 — Digital engagement</strong> (<code>digital_engagement/</code>)</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Grain</th>
+<th>Fields</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>digital_engagement.csv</code></td>
+<td>One digital engagement event</td>
+<td><code>digital_event_id</code>, <code>event_date</code>, <code>hcp_npi</code>, <code>account_id</code>, <code>territory</code>, <code>product_name</code>, <code>channel</code>, <code>content_topic</code>, <code>open_flag</code>, <code>click_flag</code>, <code>webinar_attended</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Table 3A.2.8 — Public-proxy datasets</strong> (<code>open_payments/</code>, <code>cms_part_d/</code>)</p>
+<p>These files mirror the structure of public CMS datasets but contain synthetic values. Do not combine them with the official public extracts.</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Grain</th>
+<th>Fields</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>open_payments.csv</code></td>
+<td>One payment record to an HCP or institution</td>
+<td><code>npi</code>, <code>company_name</code>, <code>payment_year</code>, <code>payment_category</code>, <code>payment_amount</code>, <code>is_kol</code></td>
 </tr>
 <tr>
-<td>Utilization</td>
-<td>Total claims, beneficiaries, days supply</td>
-<td>Prescriber volume, reach, intensity</td>
-<td>Aggregates contain no patient sequences</td>
-</tr>
-<tr>
-<td>Cost</td>
-<td>Total drug cost</td>
-<td>Cost benchmarking, market description</td>
-<td>Cost is not company revenue or net price</td>
-</tr>
-<tr>
-<td>Time</td>
-<td>Calendar year</td>
-<td>Annual trends</td>
-<td>Annual files cannot support monthly timing</td>
-</tr>
-<tr>
-<td>Source</td>
-<td>Synthetic vs. official extract</td>
-<td>Provenance and interpretation</td>
-<td>The two must never be presented as equivalent</td>
+<td><code>prescriber_summary.csv</code></td>
+<td>One prescriber-drug annual summary (Part D style)</td>
+<td><code>prscrbr_npi</code>, <code>prscrbr_last_org_name</code>, <code>prscrbr_first_name</code>, <code>prscrbr_city</code>, <code>prscrbr_state_abrvtn</code>, <code>prscrbr_type</code>, <code>drug_name</code>, <code>generic_name</code>, <code>drug_class</code>, <code>tot_clms</code>, <code>tot_benes</code>, <code>tot_day_suply</code>, <code>tot_drug_cst</code>, <code>year</code></td>
 </tr>
 </tbody>
 </table>

@@ -1,0 +1,1319 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://tjphoton.github.io/building-pharma-decision-systems/ch03_data/scripts/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Chapter 3 Synthetic Data Scripts - Building Pharmaceutical Decision Systems</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-3-synthetic-data-scripts" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Building Pharmaceutical Decision Systems" class="md-header__button md-logo" aria-label="Building Pharmaceutical Decision Systems" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Building Pharmaceutical Decision Systems
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter 3 Synthetic Data Scripts
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/tjphoton/building-pharma-decision-systems" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Building Pharmaceutical Decision Systems" class="md-nav__button md-logo" aria-label="Building Pharmaceutical Decision Systems" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Building Pharmaceutical Decision Systems
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/tjphoton/building-pharma-decision-systems" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 1
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 1
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch01_intro/ch01_introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A Medicine, a Market, and the Decisions Between Them
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 2
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 2
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch02_ecosystem/ch02_ecosystem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Commercialization Operating System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch02_ecosystem/ch02_appendix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 2 Appendix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 3
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 3
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch03_data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A Synthetic Lab for Real Pharma Questions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch03_appendix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 3 Appendix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter3_walkthrough/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Walkthrough Notebook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exercise_solutions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercise Solutions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 4
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 4
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch04_market/ch04_market_sizing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Market Sizing and Patient Populations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch04_market/chapter4_walkthrough/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Walkthrough Notebook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch04_market/exercise_solutions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercise Solutions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setup
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generate-the-full-data-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Generate the Full Data Package
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-line-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command-Line Options
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Command-Line Options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#supply-custom-code-dictionaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Supply custom code dictionaries
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#script-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Script Guide
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-can-be-configured" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Can Be Configured
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-quality-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data-Quality Analysis
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#defect-impact-demonstrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Defect Impact Demonstrations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-reference-downloads" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public Reference Downloads
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ehr-phenotyping-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EHR Phenotyping Analysis
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rebuild-the-chapter-figures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rebuild the Chapter Figures
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="chapter-3-synthetic-data-scripts">Chapter 3 Synthetic Data Scripts</h1>
+<p>These scripts generate the fictional healthcare and business records used in
+Chapter 3 and later chapters. Run commands from the repository root.</p>
+<p>The folder roles are:</p>
+<ul>
+<li><code>ch03_data/scripts/</code>: commands readers run.</li>
+<li><code>ch03_data/generation_modules/</code>: import-only implementation modules.</li>
+<li><code>ch03_data/output_data/generated_data/</code>: synthetic datasets created by the generator.</li>
+<li><code>ch03_data/output_data/public_reference/</code>: downloaded or locally proxied public datasets.</li>
+<li><code>ch03_data/output_data/analysis_results/</code>: outputs from data-quality and analysis scripts.</li>
+</ul>
+<h2 id="setup">Setup</h2>
+<p>From the project root, where <code>pyproject.toml</code> is located, run:</p>
+<div class="highlight"><pre><span></span><code>uv<span class="w"> </span>sync
+</code></pre></div>
+<p>This creates a shared <code>.venv/</code> environment at the project root. Do not create
+separate environments inside <code>ch03_data/</code> or <code>ch03_data/scripts/</code>.</p>
+<p>With standard Python:</p>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
+<span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip
+python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>pandas<span class="w"> </span>matplotlib
+</code></pre></div>
+<p>On Windows, activate the environment with:</p>
+<div class="highlight"><pre><span></span><code><span class="p">.</span><span class="n">venv</span><span class="p">\</span><span class="n">Scripts</span><span class="p">\</span><span class="n">activate</span>
+</code></pre></div>
+<p>The generator uses only the Python standard library. Pandas and Matplotlib are
+required by the data-quality, phenotyping, and public-data helper scripts. In
+the main documented path below, use <code>uv run python ...</code> for all chapter
+commands unless you have already activated <code>.venv/</code>.</p>
+<h2 id="generate-the-full-data-package">Generate the Full Data Package</h2>
+<p>With <code>uv</code>:</p>
+<div class="highlight"><pre><span></span><code>uv<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>ch03_data/scripts/generate_all_synthetic_data.py
+</code></pre></div>
+<p>With an activated standard Python environment:</p>
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>ch03_data/scripts/generate_all_synthetic_data.py
+</code></pre></div>
+<p>The default run creates 20,000 fictional patients and writes the data to
+<code>ch03_data/output_data/generated_data/</code>.</p>
+<h2 id="command-line-options">Command-Line Options</h2>
+<div class="highlight"><pre><span></span><code>--patients          Number of fictional patients. Default: 20000.
+--seed              Random seed used for reproducibility. Default: 20260609.
+--output-dir        Output directory. Default: ch03_data/output_data/generated_data/.
+--diagnosis-dict    Optional diagnosis-code CSV. Built-in codes are used when omitted.
+--drug-dict         Optional drug-code CSV. Built-in codes are used when omitted.
+</code></pre></div>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code>uv<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>ch03_data/scripts/generate_all_synthetic_data.py<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--patients<span class="w"> </span><span class="m">5000</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--seed<span class="w"> </span><span class="m">42</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--output-dir<span class="w"> </span>ch03_data/output_data/generated_data_demo
+</code></pre></div>
+<p>Use the same seed and options to reproduce the same records.</p>
+<h3 id="supply-custom-code-dictionaries">Supply custom code dictionaries</h3>
+<p>Diagnosis and drug dictionaries are optional because they map generated events
+to clinical and product concepts that may come from external reference files.
+Other values, such as message topics and fictional company names, are scenario
+assumptions and remain defined in the modules.</p>
+<p>To use custom dictionaries:</p>
+<div class="highlight"><pre><span></span><code>uv<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>ch03_data/scripts/generate_all_synthetic_data.py<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--diagnosis-dict<span class="w"> </span>path/to/diagnosis_codes.csv<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--drug-dict<span class="w"> </span>path/to/ndc_codes.csv
+</code></pre></div>
+<p>The diagnosis file must contain a code column named <code>CODE</code>, <code>code</code>, or <code>Code</code>.
+An optional description can be provided in <code>CODE_DESCRIPTION</code>, <code>DESCRIPTION</code>,
+or <code>description</code>. <code>CODE_ORIG</code> is also supported.</p>
+<p>The drug file must contain at least two usable rows and an NDC column named
+<code>NDC</code>, <code>ndc</code>, or <code>Ndc</code>. The first row is treated as the launch product, and the
+remaining rows are treated as comparators.
+Supported optional fields include <code>BRAND_GENERIC</code>, <code>CUI_L1_NAME</code>, <code>BRAND</code>,
+<code>CUI_L2_NAME_ARRAY</code>, <code>INGREDIENT_NAME_ARRAY</code>, and <code>ALL_INGREDIENTS</code>.</p>
+<p>The loader reads up to 40 usable rows from each file. An omitted option uses
+the built-in dictionary. An explicitly supplied file that is missing or does
+not meet these requirements stops the run with an error. The selected
+dictionaries are written to
+<code>ch03_data/output_data/generated_data/reference/</code> so the generated events remain interpretable. The
+package manifest records whether each dictionary was built in or supplied from
+an external path, along with the run seed, requested patient count, schema
+version, row counts, date ranges, and table contracts for the generated files.</p>
+<h2 id="script-guide">Script Guide</h2>
+<table>
+<thead>
+<tr>
+<th>Script</th>
+<th>Purpose</th>
+<th>Direct command-line options</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>generate_all_synthetic_data.py</code></td>
+<td>Runs the complete generation pipeline and writes all datasets</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>generation_modules/entities.py</code></td>
+<td>Creates patients, providers, accounts, payers, products, and reference dictionaries</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>generation_modules/scenario.py</code></td>
+<td>Creates the shared Roventra treatment-attempt path that links EHR, specialty-pharmacy, and pharmacy events</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>generation_modules/claims.py</code></td>
+<td>Creates medical and pharmacy claims</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>generation_modules/ehr.py</code></td>
+<td>Creates encounters, diagnoses, laboratory results, problem lists, and medication orders</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>generation_modules/crm.py</code></td>
+<td>Creates field interactions, sales-region alignment, and HCP digital engagement</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>generation_modules/specialty_pharmacy.py</code></td>
+<td>Creates specialty-pharmacy referrals, authorization decisions, and shipments</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>generation_modules/formulary.py</code></td>
+<td>Creates access rules, formulary status, and formulary history</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>generation_modules/open_payments.py</code></td>
+<td>Creates synthetic Open Payments-style records</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>generation_modules/cms_partd.py</code></td>
+<td>Creates synthetic Medicare Part D prescriber summaries</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>generation_modules/data_noise.py</code></td>
+<td>Adds controlled claim lag, duplicates, and missing product mappings</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>data_quality.py</code></td>
+<td>Runs data-quality checks against the generated records</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>build_main_figures.py</code></td>
+<td>Builds the main Chapter 3 manuscript figures from the current generated package</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>defect_impact_demo.py</code></td>
+<td>Quantifies each planted defect's before/after impact and writes supporting detail tables</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>lab_phenotyping.py</code></td>
+<td>Builds laboratory phenotypes and creates the A1C distribution notebook figure</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>plot_claim_lag.py</code></td>
+<td>Creates the medical-claim receipt-lag distribution chart for notebook or appendix use</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>build_conceptual_figures.py</code></td>
+<td>Legacy conceptual-figure builder kept for editable diagram experiments</td>
+<td>No</td>
+</tr>
+<tr>
+<td><code>download_public_data.py</code></td>
+<td>Downloads selected public reference data and writes provenance-rich public-reference contracts</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<p>The modules under <code>ch03_data/generation_modules/</code> are called by
+<code>generate_all_synthetic_data.py</code>. They are Python functions, not separate
+command-line programs.</p>
+<p>Two executed companion notebooks live next to the chapter text in
+<code>ch03_data/</code>: <code>chapter3_walkthrough.ipynb</code> (the chapter as one executable
+story) and <code>exercise_solutions.ipynb</code> (worked answers to the chapter
+exercises). Re-execute them after regenerating the data so embedded outputs
+stay current.</p>
+<h2 id="what-can-be-configured">What Can Be Configured</h2>
+<p>The supported command-line settings are patient count, random seed, output
+directory, and optional diagnosis and drug dictionaries. When the dictionary
+options are omitted, the generator uses built-in synthetic codes. Account and
+provider counts scale automatically with the patient count.</p>
+<p>Most domain assumptions are currently constants inside the modules. Examples
+include claims per patient, treatment probabilities, event dates, formulary
+change rates, duplicate rates, and missing product-mapping rates. Change these
+values in the relevant module when an exercise requires a different scenario:</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Location</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Regions, specialties, channels, products, and entity scaling</td>
+<td><code>generation_modules/entities.py</code></td>
+</tr>
+<tr>
+<td>Claims per patient and prescription patterns</td>
+<td><code>generation_modules/claims.py</code></td>
+</tr>
+<tr>
+<td>Claim duplicate and missing-mapping rates</td>
+<td><code>generation_modules/data_noise.py</code></td>
+</tr>
+<tr>
+<td>Shared launch-treatment scenario, access friction, and fulfillment outcomes</td>
+<td><code>generation_modules/scenario.py</code></td>
+</tr>
+<tr>
+<td>EHR event and laboratory distributions</td>
+<td><code>generation_modules/ehr.py</code></td>
+</tr>
+<tr>
+<td>Field and digital interaction patterns</td>
+<td><code>generation_modules/crm.py</code></td>
+</tr>
+<tr>
+<td>Specialty-pharmacy pathway probabilities</td>
+<td><code>generation_modules/specialty_pharmacy.py</code></td>
+</tr>
+<tr>
+<td>Coverage rules and formulary-change rates</td>
+<td><code>generation_modules/formulary.py</code></td>
+</tr>
+<tr>
+<td>Open Payments assumptions</td>
+<td><code>generation_modules/open_payments.py</code></td>
+</tr>
+<tr>
+<td>Medicare Part D prescribing distributions</td>
+<td><code>generation_modules/cms_partd.py</code></td>
+</tr>
+</tbody>
+</table>
+<p>These internal assumptions are not command-line options. Keep changes small,
+document them, and use a fixed seed when comparing scenarios.</p>
+<h2 id="data-quality-analysis">Data-Quality Analysis</h2>
+<p>Run:</p>
+<div class="highlight"><pre><span></span><code>uv<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>ch03_data/scripts/data_quality.py
+</code></pre></div>
+<p>The script checks medical-claim duplicate flags and receipt lag, pharmacy
+product mappings, provider taxonomy consistency, and patient coverage for a
+prespecified observation window. It writes detailed CSV files and a headline
+summary under
+<code>ch03_data/output_data/analysis_results/data_quality/</code>.</p>
+<p>The main functions are <code>medical_claim_duplicate_audit</code>,
+<code>claim_lag_analysis</code>, <code>product_mapping_audit</code>, <code>provider_taxonomy_audit</code>,
+<code>coverage_observation_audit</code>, and <code>run_data_quality</code>. The specialty-to-taxonomy
+map is imported from <code>generation_modules.entities</code> so the audit can never
+drift from the generation rules.</p>
+<h2 id="defect-impact-demonstrations">Defect Impact Demonstrations</h2>
+<p>Run:</p>
+<div class="highlight"><pre><span></span><code>uv<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>ch03_data/scripts/defect_impact_demo.py
+</code></pre></div>
+<p>The script runs before/after comparisons for the claim-maturity false decline
+and brand-count recovery from the NDC reference. It writes detail CSVs to
+<code>ch03_data/output_data/analysis_results/defect_impact/</code>.</p>
+<h2 id="public-reference-downloads">Public Reference Downloads</h2>
+<p>Run the live API path with:</p>
+<div class="highlight"><pre><span></span><code>uv<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>ch03_data/scripts/download_public_data.py
+</code></pre></div>
+<p>Run the offline contract-compatible path with:</p>
+<div class="highlight"><pre><span></span><code>uv<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>ch03_data/scripts/download_public_data.py<span class="w"> </span>--dry-run
+</code></pre></div>
+<p>Both modes now write the same top-level schemas for <code>cms_partd.csv</code> and
+<code>open_payments.csv</code>, including provenance columns such as <code>data_source</code>,
+<code>source_url</code>, <code>extract_year</code>, <code>source_mode</code>, <code>schema_version</code>, and
+<code>retrieved_at_utc</code>. The prevalence anchor file
+<code>nhanes_prevalence.csv</code> also carries row-level source metadata.</p>
+<h2 id="ehr-phenotyping-analysis">EHR Phenotyping Analysis</h2>
+<p>Run:</p>
+<div class="highlight"><pre><span></span><code>uv<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>ch03_data/scripts/lab_phenotyping.py
+</code></pre></div>
+<p>The script keeps the latest A1C, PSA, and PD-L1 result per patient, applies
+prespecified analytical bands, and joins the classes back to the full patient
+table. Patients without a result remain in the cohort with the class
+<code>no_result</code>. It writes the patient-level cohort, a summary CSV, and
+<code>a1c_patient_group_distribution.png</code> under
+<code>ch03_data/output_data/analysis_results/lab_phenotyping/</code>.</p>
+<p>The main functions are <code>classify_by_a1c</code>, <code>classify_by_psa</code>,
+<code>classify_by_pdl1</code>, <code>build_lab_phenotype_cohort</code>,
+<code>lab_phenotype_summary</code>, and <code>run_phenotyping</code>.</p>
+<p>The script also exports the publication figure as SVG and PNG under
+<code>ch03_data/assets/figures/</code>.</p>
+<h2 id="rebuild-the-chapter-figures">Rebuild the Chapter Figures</h2>
+<p>The main manuscript figures are rebuilt from the current generated package.</p>
+<div class="highlight"><pre><span></span><code>uv<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>ch03_data/scripts/build_main_figures.py
+</code></pre></div>
+<p>The script writes SVG and PNG files under <code>ch03_data/assets/figures/</code>. Figures
+3.1 and 3.3 read values from the generated records, so regenerate data before
+rebuilding figures when the seed, patient count, or generator assumptions
+change.</p>
+<p>The older scripts <code>defect_impact_demo.py</code>, <code>plot_claim_lag.py</code>, and
+<code>lab_phenotyping.py</code> still produce supporting analysis outputs used by the
+notebook and appendix material.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.indexes", "navigation.top", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
