@@ -746,7 +746,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 3 Appendix - Common Data Sources and Synthetic Data Field Reference
+    Chapter 3 Appendix: Common Data Sources and Synthetic Data Field Reference
   
 
     
@@ -922,7 +922,7 @@
   <span class="md-ellipsis">
     
   
-    Chapter 4 Appendix - Advanced Methods for Market Sizing and Patient Finding
+    Chapter 4 Appendix: Advanced Methods for Market Sizing and Patient Finding
   
 
     
@@ -972,6 +972,152 @@
   
     <li class="md-nav__item">
       <a href="../../ch04_market/exercise_solutions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercise Solutions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 5
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 5
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch05_journey/ch05_patient_journey/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Building the Patient Journey: Treatment Patterns, Lines of Therapy, and Persistence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch05_journey/chapter5_walkthrough.ipynb" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Walkthrough Notebook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch05_journey/exercise_solutions.ipynb" class="md-nav__link">
         
   
   
@@ -1210,8 +1356,10 @@
 <h2 id="32-synthetic-data-design-and-generation">3.2 Synthetic Data: Design and Generation</h2>
 <p>Real patient-level pharma data is licensed, confidential, and restricted to controlled analytical environments. Dates, locations, rare conditions, and provider relationships can potentially re-identify individuals even after names are removed.</p>
 <p>The synthetic datasets in this book replace that licensed data with a transparent, rule-based simulation. Claim rates, treatment probabilities, event timing, access friction, and lab result distributions are codified and inspectable. The generated data reproduce structures and data-quality issues that appear in real pharma data.</p>
-<p>The full file inventory and field reference are in <a href="../ch03_appendix/">Appendix 3A</a>.</p>
-<p>Executable scripts are in <code>ch03_data/scripts/</code>. Run the code in this chapter in order, or open <a href="../chapter3_walkthrough.ipynb"><code>chapter3_walkthrough.ipynb</code></a> to execute it as a notebook.</p>
+<blockquote>
+<p><strong>Note:</strong> In production, vendor data usually lives in a cloud warehouse or database such as Snowflake, GCP BigQuery, or AWS Redshift, and analysts query it with SQL. For this book, we flatten the package into CSV files so the examples run locally on a laptop without warehouse credentials, network access, or privacy-controlled infrastructure. The data are synthetic and created for teaching, not for operational use.</p>
+</blockquote>
+<p>The full file inventory and field reference are in <a href="../ch03_appendix/">Appendix 3A</a>. Executable scripts are in <code>ch03_data/scripts/</code>. Run the code in this chapter in order, or open <a href="../chapter3_walkthrough.ipynb"><code>chapter3_walkthrough.ipynb</code></a> to execute it as a notebook.</p>
 <p>Set up the environment once from the project root:</p>
 <div class="highlight"><pre><span></span><code>uv<span class="w"> </span>sync
 </code></pre></div>
