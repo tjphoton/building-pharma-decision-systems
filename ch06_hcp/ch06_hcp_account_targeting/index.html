@@ -1,0 +1,2368 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://tjphoton.github.io/building-pharma-decision-systems/ch06_hcp/ch06_hcp_account_targeting/">
+      
+      
+        <link rel="prev" href="../../ch05_journey/exercise_solutions.ipynb">
+      
+      
+        <link rel="next" href="../chapter6_walkthrough.ipynb">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>HCP and Account Targeting: From Opportunity to Field Action - Building Pharmaceutical Decision Systems</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-6-hcp-and-account-targeting-from-opportunity-to-field-action" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Building Pharmaceutical Decision Systems" class="md-header__button md-logo" aria-label="Building Pharmaceutical Decision Systems" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Building Pharmaceutical Decision Systems
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              HCP and Account Targeting: From Opportunity to Field Action
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/tjphoton/building-pharma-decision-systems" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Building Pharmaceutical Decision Systems" class="md-nav__button md-logo" aria-label="Building Pharmaceutical Decision Systems" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Building Pharmaceutical Decision Systems
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/tjphoton/building-pharma-decision-systems" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 1
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 1
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch01_intro/ch01_introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A Medicine, a Market, and the Decisions Between Them
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 2
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 2
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch02_ecosystem/ch02_ecosystem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Commercialization Operating System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch02_ecosystem/ch02_appendix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 2 Appendix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 3
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 3
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch03_data/ch03_data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A Synthetic Lab for Real Pharma Questions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch03_data/ch03_appendix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 3 Appendix: Common Data Sources and Synthetic Data Field Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch03_data/chapter3_walkthrough/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Walkthrough Notebook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch03_data/exercise_solutions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercise Solutions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 4
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 4
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch04_market/ch04_market_sizing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Market Sizing and Patient Populations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch04_market/appendix_4a_advanced_methods/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 4 Appendix: Advanced Methods for Market Sizing and Patient Finding
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch04_market/chapter4_walkthrough/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Walkthrough Notebook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch04_market/exercise_solutions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercise Solutions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 5
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 5
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch05_journey/ch05_patient_journey/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Building the Patient Journey: Treatment Patterns, Lines of Therapy, and Persistence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch05_journey/chapter5_walkthrough.ipynb" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Walkthrough Notebook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch05_journey/exercise_solutions.ipynb" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercise Solutions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 6
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 6
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HCP and Account Targeting: From Opportunity to Field Action
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HCP and Account Targeting: From Opportunity to Field Action
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#61-define-the-targeting-decision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 Define the Targeting Decision
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#62-build-the-hcp-evidence-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 Build the HCP Evidence Layer
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.2 Build the HCP Evidence Layer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#621-attribute-the-patient-to-an-hcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2.1 Attribute the patient to an HCP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#622-see-why-volume-alone-fails" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2.2 See why volume alone fails
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#63-use-volume-deciles-as-a-diagnostic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 Use Volume Deciles as a Diagnostic
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#64-aggregate-hcp-evidence-to-the-account" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4 Aggregate HCP Evidence to the Account
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.4 Aggregate HCP Evidence to the Account">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#641-state-the-policy-before-ranking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4.1 State the policy before ranking
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#642-read-the-account-action-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4.2 Read the account action map
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#65-see-what-each-gate-removes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5 See What Each Gate Removes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#66-select-the-hcp-inside-the-account" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.6 Select the HCP Inside the Account
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#67-turn-actions-into-a-bounded-call-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.7 Turn Actions into a Bounded Call Plan
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.7 Turn Actions into a Bounded Call Plan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#671-check-territory-allocation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.7.1 Check territory allocation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#68-modern-extensions-and-their-data-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.8 Modern Extensions and Their Data Requirements
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.8 Modern Extensions and Their Data Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#681-propensity-to-start-roventra" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.8.1 Propensity to start Roventra
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#682-account-and-referral-networks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.8.2 Account and referral networks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#683-external-hcp-evidence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.8.3 External HCP evidence
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#684-optimization-under-capacity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.8.4 Optimization under capacity
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#69-convert-the-results-into-commercial-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.9 Convert the Results into Commercial Value
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#610-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.10 Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#611-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.11 Exercises
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter6_walkthrough.ipynb" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Walkthrough Notebook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exercise_solutions.ipynb" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercise Solutions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#61-define-the-targeting-decision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 Define the Targeting Decision
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#62-build-the-hcp-evidence-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 Build the HCP Evidence Layer
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.2 Build the HCP Evidence Layer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#621-attribute-the-patient-to-an-hcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2.1 Attribute the patient to an HCP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#622-see-why-volume-alone-fails" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2.2 See why volume alone fails
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#63-use-volume-deciles-as-a-diagnostic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 Use Volume Deciles as a Diagnostic
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#64-aggregate-hcp-evidence-to-the-account" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4 Aggregate HCP Evidence to the Account
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.4 Aggregate HCP Evidence to the Account">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#641-state-the-policy-before-ranking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4.1 State the policy before ranking
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#642-read-the-account-action-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4.2 Read the account action map
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#65-see-what-each-gate-removes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5 See What Each Gate Removes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#66-select-the-hcp-inside-the-account" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.6 Select the HCP Inside the Account
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#67-turn-actions-into-a-bounded-call-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.7 Turn Actions into a Bounded Call Plan
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.7 Turn Actions into a Bounded Call Plan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#671-check-territory-allocation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.7.1 Check territory allocation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#68-modern-extensions-and-their-data-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.8 Modern Extensions and Their Data Requirements
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.8 Modern Extensions and Their Data Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#681-propensity-to-start-roventra" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.8.1 Propensity to start Roventra
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#682-account-and-referral-networks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.8.2 Account and referral networks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#683-external-hcp-evidence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.8.3 External HCP evidence
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#684-optimization-under-capacity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.8.4 Optimization under capacity
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#69-convert-the-results-into-commercial-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.9 Convert the Results into Commercial Value
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#610-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.10 Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#611-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.11 Exercises
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="chapter-6-hcp-and-account-targeting-from-opportunity-to-field-action">Chapter 6: HCP and Account Targeting: From Opportunity to Field Action</h1>
+<p>The Chapter 5 journey cohort contains 6,393 patients. Maya, a fictional launch analytics lead, can attribute 2,749 of them to 281 healthcare professionals (HCPs) and 165 accounts. Those HCPs belong to the synthetic field roster, the internal list used for field planning. Her first volume sort produces an immediate list: take the 30 HCPs with the largest attributed cohorts and call them first.</p>
+<p>That list sends 10 of the 30 selections to HCPs whose latest customer relationship management (CRM) consent is <code>Opt-out</code>. The field team cannot execute one-third of the list through the planned channel. The ranking also collapses untreated opportunity, established Roventra use, and unresolved pharmacy transactions into one recommendation. Those situations require different work.</p>
+<p>The commercial questions are concrete:</p>
+<ul>
+<li>Where is the largest observed patient opportunity?</li>
+<li>Which accounts support a near-term field action?</li>
+<li>Which HCP should receive that action inside each account?</li>
+<li>Which accounts need access review, a contact hold, maintenance, or monitoring?</li>
+<li>Does the call plan allocate field capacity in proportion to actionable opportunity?</li>
+</ul>
+<p>The answers determine which accounts enter the near-term plan, which HCP contacts are suppressed, where access evidence needs review, and how field capacity is distributed. A weak list can waste call capacity, over-contact recent customers, and send an adoption message into an unresolved access problem.</p>
+<p>By the end of the chapter, you will build a transparent targeting package from the Chapter 3 source tables and the Chapter 5 journey artifact. The package contains HCP features, volume deciles, account actions, HCP actions, a bounded call plan, a territory allocation check, and the rule specification needed for review. The code uses synthetic data. The workflow is designed so a stakeholder can trace every recommendation back to its evidence and rule.</p>
+<p>Run the chapter workflow from the repository root:</p>
+<div class="highlight"><pre><span></span><code>uv<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>ch06_hcp/scripts/run_analysis.py
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Target-roster patients: 2,749
+Target HCPs with attributed patients: 281
+Accounts with attributed patients: 165
+
+Account actions:
+account_action
+Maintain             51
+Monitor              51
+Increase priority    43
+Hold contact         18
+Access review         2
+
+Planned HCPs: 69
+Recommended calls: 82
+
+Wrote Chapter 6 outputs to ch06_hcp/assets/generated_outputs
+</code></pre></div>
+<h2 id="61-define-the-targeting-decision">6.1 Define the Targeting Decision</h2>
+<p>This chapter uses 2 decision grains. An HCP row identifies the person who could receive an engagement. An account row identifies the practice setting that shapes ownership, capacity, current adoption, and the work around that HCP. The call plan joins both grains because a valid HCP action can still depend on account conditions.</p>
+<p>The workflow starts with patient evidence and account context, then applies evidence, permission, and capacity gates before assigning an HCP action and a bounded call plan.</p>
+<p><img alt="Flow from patient opportunity through account context, action gates, HCP action, and call plan, with a review loop back to the evidence." src="../assets/figures/figure_6_1_targeting_workflow.svg" /></p>
+<p><em>Figure 6.1. Targeting converts observed opportunity into a permitted and capacity-aware action. Synthetic workflow.</em></p>
+<p>The analysis date is December 31, 2024. Patient journeys and CRM history are both cut off on that date. A January contact cannot change a December target list. This as-of-date rule keeps the evidence reproducible and prevents future information from entering the plan.</p>
+<p>The word <em>target</em> means an HCP or account selected for a defined commercial action under the current evidence and policy. The label authorizes a commercial planning step; clinical appropriateness for a patient remains a clinician-patient decision.</p>
+<p><em>Table 6.1. Each target action has a distinct business use.</em></p>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Meaning in this chapter</th>
+<th>Commercial use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Increase priority</td>
+<td>The account has sufficient opportunity, current contact permission, available capacity, limited recent saturation, and Roventra share below the roster benchmark</td>
+<td>Add near-term field activity</td>
+</tr>
+<tr>
+<td>Maintain</td>
+<td>The account is actionable, but current adoption or recent engagement supports steady coverage</td>
+<td>Preserve an established relationship without adding intensity</td>
+</tr>
+<tr>
+<td>Access review</td>
+<td>At least 2 untreated patients have unresolved transaction signals</td>
+<td>Send the evidence to the team that can examine access or fulfillment friction</td>
+</tr>
+<tr>
+<td>Hold contact</td>
+<td>The account has opportunity, but no HCP has current permission for the planned contact</td>
+<td>Suppress the proposed contact until permission changes</td>
+</tr>
+<tr>
+<td>Monitor</td>
+<td>The evidence or opportunity is below the chapter threshold</td>
+<td>Refresh the evidence before assigning field work</td>
+</tr>
+</tbody>
+</table>
+<h2 id="62-build-the-hcp-evidence-layer">6.2 Build the HCP Evidence Layer</h2>
+<p>The evidence layer joins the Chapter 5 index date and treatment state to the rendering HCP on the Chapter 3 diagnosis encounter, then attaches account assignment from the field roster and engagement and consent from CRM.</p>
+<p>All input records in this workflow are synthetic. The Chapter 6 CSV files are derived analytical outputs.</p>
+<p><strong>Listing 6.1</strong>: Load the source tables used by the targeting workflow.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+<span class="n">ROOT</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span>
+<span class="n">SCRIPT_DIR</span> <span class="o">=</span> <span class="n">ROOT</span> <span class="o">/</span> <span class="s2">&quot;ch06_hcp&quot;</span> <span class="o">/</span> <span class="s2">&quot;scripts&quot;</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">SCRIPT_DIR</span><span class="p">))</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">run_analysis</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_inputs</span>
+
+<span class="n">inputs</span> <span class="o">=</span> <span class="n">load_inputs</span><span class="p">(</span><span class="n">ROOT</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">frame</span> <span class="ow">in</span> <span class="n">inputs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">:</span><span class="s2">15s</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span><span class="si">:</span><span class="s2">&gt;7,</span><span class="si">}</span><span class="s2"> rows&quot;</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>journeys          6,393 rows
+medical_claims   49,882 rows
+hcp_roster          281 rows
+providers           666 rows
+accounts            250 rows
+crm               3,359 rows
+</code></pre></div>
+<h3 id="621-attribute-the-patient-to-an-hcp">6.2.1 Attribute the patient to an HCP</h3>
+<p>The first qualifying diagnosis date defines the patient index in Chapter 5. We use the rendering NPI on that same encounter as the attribution HCP. If several qualifying encounters occur on the index date, the deterministic rule keeps the first encounter ID. A real implementation should define a clinical hierarchy for ties, such as specialist over generalist or attending over rendering provider, and then test the result under alternatives.</p>
+<p><strong>Listing 6.2</strong>: Build the HCP evidence table.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">targeting</span><span class="w"> </span><span class="kn">import</span> <span class="n">build_hcp_features</span>
+
+<span class="n">hcp_features</span><span class="p">,</span> <span class="n">patient_hcp</span> <span class="o">=</span> <span class="n">build_hcp_features</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+<span class="n">coverage</span> <span class="o">=</span> <span class="n">patient_hcp</span><span class="o">.</span><span class="n">patient_id</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span> <span class="o">/</span> <span class="n">inputs</span><span class="p">[</span><span class="s2">&quot;journeys&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">patient_id</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Attributed target-roster patients: </span><span class="si">{</span><span class="n">patient_hcp</span><span class="o">.</span><span class="n">patient_id</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Journey cohort patients:           </span><span class="si">{</span><span class="n">inputs</span><span class="p">[</span><span class="s1">&#39;journeys&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">patient_id</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Target-roster coverage:            </span><span class="si">{</span><span class="n">coverage</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;HCPs with attributed patients:     </span><span class="si">{</span><span class="n">hcp_features</span><span class="o">.</span><span class="n">npi</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Attributed target-roster patients: 2,749
+Journey cohort patients:           6,393
+Target-roster coverage:            43.0%
+HCPs with attributed patients:     281
+</code></pre></div>
+<p>The 43.0% coverage is 2,749 attributed patients divided by 6,393 journey patients. Describe the HCP table as the target-roster subset and keep that denominator with every market-level interpretation.</p>
+<p>One HCP feature row contains the following evidence:</p>
+<p><em>Table 6.2. HCP features keep opportunity, engagement, and permission separate.</em></p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Definition</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cohort patients</td>
+<td>Patients whose diagnosis index is attributed to the HCP</td>
+<td>Observed patient-flow volume</td>
+</tr>
+<tr>
+<td>Roventra starts</td>
+<td>Attributed patients whose first observed treatment is Roventra</td>
+<td>Current launch adoption signal</td>
+</tr>
+<tr>
+<td>Competitor starts</td>
+<td>Attributed patients whose first observed treatment is Nexoral or Vexpro</td>
+<td>Competitive treatment signal</td>
+</tr>
+<tr>
+<td>Untreated patients</td>
+<td>Attributed patients with no observed treatment through follow-up</td>
+<td>Unresolved treatment opportunity signal</td>
+</tr>
+<tr>
+<td>Opportunity patients</td>
+<td>Competitor starts plus untreated patients</td>
+<td>Triage quantity for account review</td>
+</tr>
+<tr>
+<td>Access-signal patients</td>
+<td>Untreated patients with a pended pharmacy transaction</td>
+<td>Trigger for a separate access review when repeated</td>
+</tr>
+<tr>
+<td>Recent contacts</td>
+<td>CRM interactions in the 90 days through December 31, 2024</td>
+<td>Engagement saturation check</td>
+</tr>
+<tr>
+<td>Contact permitted</td>
+<td>Latest CRM consent equals <code>Allowed</code></td>
+<td>Contact gate for the planned channel</td>
+</tr>
+</tbody>
+</table>
+<p>Use the opportunity count only for account triage. Clinical appropriateness, prescribing intent, and the reason a patient remained untreated sit outside the claims evidence.</p>
+<h3 id="622-see-why-volume-alone-fails">6.2.2 See why volume alone fails</h3>
+<p>The 15 highest-volume HCPs make the problem visible. Four have an <code>Opt-out</code> status in the latest CRM record, including 3 of the top 5. The gold portion of each bar shows patients who were untreated or started a competitor. That portion varies even among HCPs with similar total volume.</p>
+<p><img alt="Horizontal bars for the 15 highest-volume HCPs showing attributed cohort and opportunity patients, with orange X markers for Opt-out consent." src="../assets/figures/figure_6_2_volume_trap.svg" /></p>
+<p><em>Figure 6.2. A volume ranking mixes contactable and unavailable HCPs and hides differences in the type of opportunity. Synthetic data.</em></p>
+<p>The top-30 list quantifies the business failure.</p>
+<div class="highlight"><pre><span></span><code><span class="n">naive</span> <span class="o">=</span> <span class="n">hcp_features</span><span class="o">.</span><span class="n">nlargest</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="s2">&quot;cohort_patients&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Selected HCPs:      </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">naive</span><span class="p">)</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Contact permitted:  </span><span class="si">{</span><span class="n">naive</span><span class="o">.</span><span class="n">contact_permitted</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Opted out:          </span><span class="si">{</span><span class="p">(</span><span class="o">~</span><span class="n">naive</span><span class="o">.</span><span class="n">contact_permitted</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Recent contacts:    </span><span class="si">{</span><span class="n">naive</span><span class="o">.</span><span class="n">recent_contacts</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Selected HCPs:      30
+Contact permitted:  20
+Opted out:          10
+Recent contacts:    32
+</code></pre></div>
+<p>The list loses 10 selections at the permission check. Listing 6.6 builds the gated plan later in the chapter.</p>
+<h2 id="63-use-volume-deciles-as-a-diagnostic">6.3 Use Volume Deciles as a Diagnostic</h2>
+<p>Volume deciles divide the 281 HCPs into 10 nearly equal groups after sorting on attributed cohort size. Decile 10 contains the highest-volume HCPs. Each decile contains 28 or 29 HCPs, so the patient totals rise sharply even though the HCP counts stay almost constant.</p>
+<p><strong>Listing 6.3</strong>: Create HCP volume deciles.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">targeting</span><span class="w"> </span><span class="kn">import</span> <span class="n">build_decile_summary</span>
+
+<span class="n">hcp_deciles</span><span class="p">,</span> <span class="n">decile_summary</span> <span class="o">=</span> <span class="n">build_decile_summary</span><span class="p">(</span><span class="n">hcp_features</span><span class="p">)</span>
+<span class="n">view</span> <span class="o">=</span> <span class="n">decile_summary</span><span class="p">[</span>
+    <span class="p">[</span>
+        <span class="s2">&quot;volume_decile&quot;</span><span class="p">,</span> <span class="s2">&quot;hcps&quot;</span><span class="p">,</span> <span class="s2">&quot;cohort_patients&quot;</span><span class="p">,</span> <span class="s2">&quot;opportunity_patients&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;permitted_hcps&quot;</span><span class="p">,</span> <span class="s2">&quot;contactable_share&quot;</span>
+    <span class="p">]</span>
+<span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">view</span><span class="p">[</span><span class="s2">&quot;contactable_share&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">view</span><span class="p">[</span><span class="s2">&quot;contactable_share&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">view</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code> volume_decile  hcps  cohort_patients  opportunity_patients  permitted_hcps contactable_share
+             1    29               80                    41              19             65.5%
+             2    28              124                    64              18             64.3%
+             3    28              156                    74              22             78.6%
+             4    28              176                    85              19             67.9%
+             5    28              210                    84              19             67.9%
+             6    28              236                   109              20             71.4%
+             7    28              284                   136              20             71.4%
+             8    28              340                   158              21             75.0%
+             9    28              428                   199              19             67.9%
+            10    28              715                   347              18             64.3%
+</code></pre></div>
+<p>Decile 10 contains 715 attributed patients and 347 opportunity patients. Its contactable share is 18 permitted HCPs divided by 28 HCPs, or 64.3%. Decile 8 has less patient volume but a 75.0% contactable share, based on 21 of 28 HCPs. The decile table therefore answers 2 separate questions: where patient volume concentrates and whether the planned channel can reach the HCPs in that tier.</p>
+<p><img alt="Two-panel chart showing cohort and opportunity patients by HCP volume decile, followed by the share of HCPs with current contact permission." src="../assets/figures/figure_6_3_decile_diagnostic.svg" /></p>
+<p><em>Figure 6.3. Patient volume increases by decile, while current contact permission remains uneven. Synthetic data.</em></p>
+<p>Use deciles to diagnose coverage, set service tiers, and review how activity is distributed. The final action still needs account context, current permission, recent engagement, and capacity.</p>
+<h2 id="64-aggregate-hcp-evidence-to-the-account">6.4 Aggregate HCP Evidence to the Account</h2>
+<p>An account may contain several HCPs and holds practical constraints outside the individual HCP row. Territory assignment establishes field ownership, capacity limits near-term activity, and another permitted HCP can keep the account actionable when 1 HCP has opted out.</p>
+<p>The account table sums patient evidence across target-roster HCPs and retains HCP counts, recent contacts, territory, and capacity. Roventra share uses Roventra starts divided by treated patients. Across this target-roster cohort, 1,452 of 1,788 treated patients started Roventra, which gives an 81.2% benchmark.</p>
+<h3 id="641-state-the-policy-before-ranking">6.4.1 State the policy before ranking</h3>
+<p>The chapter uses scenario policy inputs chosen for a transparent teaching example. A production team would validate each threshold against data stability, field capacity, governance, and local business rules.</p>
+<p><em>Table 6.3. The account policy applies gates before priority.</em></p>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Chapter rule</th>
+<th>Decision effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Evidence floor</td>
+<td>At least 10 attributed cohort patients</td>
+<td>Monitor accounts with unstable small counts</td>
+</tr>
+<tr>
+<td>Opportunity floor</td>
+<td>At least 5 competitor-start or untreated patients</td>
+<td>Keep field review tied to a material signal</td>
+</tr>
+<tr>
+<td>Access review</td>
+<td>After the evidence and opportunity floors, at least 2 untreated patients with pended transactions</td>
+<td>Route the account for access investigation</td>
+</tr>
+<tr>
+<td>Permission</td>
+<td>At least 1 HCP with current <code>Allowed</code> consent</td>
+<td>Hold the proposed contact when no permitted HCP exists</td>
+</tr>
+<tr>
+<td>Ownership and capacity</td>
+<td>Valid territory and capacity above 0</td>
+<td>Require an owner and room to act</td>
+</tr>
+<tr>
+<td>Saturation</td>
+<td>At least 2 recent contacts per target HCP</td>
+<td>Keep the current activity level</td>
+</tr>
+<tr>
+<td>Adoption gap</td>
+<td>Roventra share below 81.2%</td>
+<td>Increase priority after every gate passes</td>
+</tr>
+</tbody>
+</table>
+<p>The access signal provides routing evidence. A pended transaction can arise from documentation, benefit verification, pharmacy processing, or another administrative step. Chapter 7 adds formulary and payer evidence before anyone assigns a cause.</p>
+<p><strong>Listing 6.4</strong>: Apply the account policy.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">targeting</span><span class="w"> </span><span class="kn">import</span> <span class="n">build_account_features</span><span class="p">,</span> <span class="n">apply_account_policy</span>
+
+<span class="n">account_features</span> <span class="o">=</span> <span class="n">build_account_features</span><span class="p">(</span><span class="n">hcp_features</span><span class="p">,</span> <span class="n">inputs</span><span class="p">[</span><span class="s2">&quot;accounts&quot;</span><span class="p">])</span>
+<span class="n">account_targets</span> <span class="o">=</span> <span class="n">apply_account_policy</span><span class="p">(</span><span class="n">account_features</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span>
+    <span class="s2">&quot;Roventra starts / treated:&quot;</span><span class="p">,</span>
+    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">account_features</span><span class="o">.</span><span class="n">roventra_starts</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2"> / &quot;</span>
+    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">account_features</span><span class="o">.</span><span class="n">treated_patients</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">counts</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">account_targets</span><span class="o">.</span><span class="n">account_action</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">rename_axis</span><span class="p">(</span><span class="s2">&quot;account_action&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;accounts&quot;</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">counts</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Roventra starts / treated: 1,452 / 1,788
+   account_action  accounts
+         Maintain        51
+          Monitor        51
+Increase priority        43
+     Hold contact        18
+    Access review         2
+</code></pre></div>
+<p>The result is a 5-queue worklist: 43 <code>Increase priority</code>, 51 <code>Maintain</code>, 2 <code>Access review</code>, 18 <code>Hold contact</code>, and 51 <code>Monitor</code>.</p>
+<h3 id="642-read-the-account-action-map">6.4.2 Read the account action map</h3>
+<p>The map uses Roventra share on the horizontal axis, opportunity patients on the vertical axis, point size for attributed cohort size, and marker color and shape for the policy action. The vertical line marks the 81.2% roster benchmark.</p>
+<p><img alt="Scatter plot of account Roventra share against opportunity patients, sized by cohort and marked by account action." src="../assets/figures/figure_6_4_account_action_map.svg" /></p>
+<p><em>Figure 6.4. Accounts with similar opportunity can receive different actions because permission, transaction signals, saturation, and adoption also affect the decision. Synthetic data.</em></p>
+<p>Table 6.4 maps similar opportunity counts to different actions. Florida Care 064 enters field priority, repeated pended transactions route Florida Care 147 to access review, and the absence of a permitted HCP places Illinois Care 121 on hold.</p>
+<p><em>Table 6.4. The same opportunity measure can lead to different work.</em></p>
+<table>
+<thead>
+<tr>
+<th>Account</th>
+<th style="text-align: right;">Cohort</th>
+<th style="text-align: right;">Opportunity</th>
+<th style="text-align: right;">Roventra starts / treated</th>
+<th style="text-align: right;">Contactable HCPs</th>
+<th style="text-align: right;">Access-signal patients</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Florida Care 064</td>
+<td style="text-align: right;">36</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">15 / 19 (78.9%)</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td>Increase priority</td>
+</tr>
+<tr>
+<td>Arizona Care 155</td>
+<td style="text-align: right;">38</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">20 / 28 (71.4%)</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td>Increase priority</td>
+</tr>
+<tr>
+<td>Florida Care 147</td>
+<td style="text-align: right;">29</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">16 / 20 (80.0%)</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td>Access review</td>
+</tr>
+<tr>
+<td>Illinois Care 121</td>
+<td style="text-align: right;">34</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">14 / 19 (73.7%)</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td>Hold contact</td>
+</tr>
+</tbody>
+</table>
+<h2 id="65-see-what-each-gate-removes">6.5 See What Each Gate Removes</h2>
+<p>The gate summary applies each rule in sequence. It starts with the 165 accounts that have at least 1 attributed target-roster patient. The evidence floor retains 129. The opportunity floor retains 114. The access rule routes 2 more accounts away from standard field priority. Contact permission removes 18 accounts, leaving 94. Every remaining account has a valid territory and positive capacity in this synthetic package.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">targeting</span><span class="w"> </span><span class="kn">import</span> <span class="n">build_gate_summary</span>
+
+<span class="n">gate_summary</span> <span class="o">=</span> <span class="n">build_gate_summary</span><span class="p">(</span><span class="n">account_targets</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">gate_summary</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>                 stage  accounts
+Target-roster accounts       165
+        Evidence floor       129
+     Opportunity floor       114
+ No access-review flag       112
+    Contact permission        94
+Ownership and capacity        94
+</code></pre></div>
+<p><img alt="Horizontal stage bars showing 165 target-roster accounts reduced to 94 after evidence, opportunity, access, permission, ownership, and capacity gates." src="../assets/figures/figure_6_5_gate_attrition.svg" /></p>
+<p><em>Figure 6.5. Permission is the largest operational reduction after the evidence floor: 18 accounts leave the field-action path at that gate. Synthetic data.</em></p>
+<p>The sequential gates assign 36 accounts below the evidence floor and 15 below the opportunity floor to monitoring. The remaining queues contain 2 access reviews, 18 contact holds, and 94 fully eligible accounts.</p>
+<h2 id="66-select-the-hcp-inside-the-account">6.6 Select the HCP Inside the Account</h2>
+<p>The account action sets the context, and the HCP rule then checks that person's current permission and recent contact history. This sequence keeps HCP recommendations consistent with account ownership while excluding opted-out HCPs from the call plan.</p>
+<p><em>Table 6.5. HCP rules resolve the action within the account.</em></p>
+<table>
+<thead>
+<tr>
+<th>Account action</th>
+<th>HCP condition</th>
+<th>HCP action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Any</td>
+<td>Latest consent is <code>Opt-out</code> or missing</td>
+<td>Hold contact</td>
+</tr>
+<tr>
+<td>Access review</td>
+<td>Contact permitted</td>
+<td>Access follow-up</td>
+</tr>
+<tr>
+<td>Increase priority</td>
+<td>Contact permitted and fewer than 2 recent contacts</td>
+<td>Prioritize</td>
+</tr>
+<tr>
+<td>Maintain</td>
+<td>Contact permitted and no recent contact</td>
+<td>Maintain</td>
+</tr>
+<tr>
+<td>Remaining cases</td>
+<td>Default</td>
+<td>Monitor</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Listing 6.5</strong>: Resolve HCP actions inside the account decision.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">targeting</span><span class="w"> </span><span class="kn">import</span> <span class="n">build_hcp_actions</span>
+
+<span class="n">hcp_targets</span> <span class="o">=</span> <span class="n">build_hcp_actions</span><span class="p">(</span><span class="n">hcp_deciles</span><span class="p">,</span> <span class="n">account_targets</span><span class="p">)</span>
+<span class="n">action_counts</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">hcp_targets</span><span class="o">.</span><span class="n">hcp_action</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">rename_axis</span><span class="p">(</span><span class="s2">&quot;hcp_action&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;hcps&quot;</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">action_counts</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>      hcp_action  hcps
+         Monitor   111
+    Hold contact    86
+      Prioritize    56
+        Maintain    27
+Access follow-up     1
+</code></pre></div>
+<p>Account-level permission remains broader because an account can contain both permitted and opted-out HCPs.</p>
+<h2 id="67-turn-actions-into-a-bounded-call-plan">6.7 Turn Actions into a Bounded Call Plan</h2>
+<p>The call plan converts priority into activity. Priority accounts receive between 1 and 3 suggested contacts, bounded by account capacity and scaled at roughly 1 contact per 8 opportunity patients. Maintenance is limited to 1 contact when the recent-contact rate is below 1 per target HCP. Within each account, allocation starts with permitted HCPs that combine high opportunity with limited recent contact.</p>
+<p><strong>Listing 6.6</strong>: Build the HCP call plan and territory summary.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">targeting</span><span class="w"> </span><span class="kn">import</span> <span class="n">build_call_plan</span><span class="p">,</span> <span class="n">build_territory_summary</span>
+
+<span class="n">call_plan</span> <span class="o">=</span> <span class="n">build_call_plan</span><span class="p">(</span><span class="n">account_targets</span><span class="p">,</span> <span class="n">hcp_targets</span><span class="p">)</span>
+<span class="n">territory</span> <span class="o">=</span> <span class="n">build_territory_summary</span><span class="p">(</span><span class="n">account_targets</span><span class="p">,</span> <span class="n">call_plan</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Planned HCPs: </span><span class="si">{</span><span class="n">call_plan</span><span class="o">.</span><span class="n">npi</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Recommended calls: </span><span class="si">{</span><span class="n">call_plan</span><span class="o">.</span><span class="n">recommended_calls</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">call_plan</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Planned HCPs: 69
+Recommended calls: 82
+territory account_id          account_name        npi     specialty    account_action hcp_action  recommended_calls  hcp_opportunity_patients  recent_contacts                                                                reason
+      T01     ACC064      Florida Care 064 9000000555      Oncology Increase priority Prioritize                  1                        21                1 Contactable opportunity and Roventra share below the cohort benchmark
+      T01     ACC224     Michigan Care 224 9000000217 Endocrinology Increase priority Prioritize                  2                        15                1 Contactable opportunity and Roventra share below the cohort benchmark
+      T01     ACC056 Pennsylvania Care 056 9000000136  Primary Care Increase priority Prioritize                  2                         7                1 Contactable opportunity and Roventra share below the cohort benchmark
+      T01     ACC024      Arizona Care 024 9000000432      Oncology Increase priority Prioritize                  1                         6                0 Contactable opportunity and Roventra share below the cohort benchmark
+      T01     ACC176      Arizona Care 176 9000000446  Primary Care Increase priority Prioritize                  1                         5                1 Contactable opportunity and Roventra share below the cohort benchmark
+</code></pre></div>
+<p>The call count is a planning scenario. Account capacity in the synthetic reference table sets the upper bound. A production plan would also use cycle length, representative capacity, channel availability, local access rules, and approved frequency policy.</p>
+<p>Now compare equal-sized lists.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">targeting</span><span class="w"> </span><span class="kn">import</span> <span class="n">compare_naive_and_gated</span>
+
+<span class="n">comparison</span> <span class="o">=</span> <span class="n">compare_naive_and_gated</span><span class="p">(</span><span class="n">hcp_targets</span><span class="p">,</span> <span class="n">call_plan</span><span class="p">,</span> <span class="n">top_n</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">comparison</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>                    plan  selected_hcps  contact_permitted  opted_out  opportunity_patients  recent_contacts
+Top 30 by patient volume             30                 20         10                   361               32
+    Gated near-term plan             30                 30          0                   267               14
+</code></pre></div>
+<p>The gated list accepts lower total patient volume in exchange for executable contact permission and lower recent saturation. The table exposes that tradeoff directly.</p>
+<h3 id="671-check-territory-allocation">6.7.1 Check territory allocation</h3>
+<p>The territory table compares each territory's share of 928 field-eligible opportunity patients with its share of 82 recommended contacts. T01 and T06 each hold 170 field-eligible opportunity patients. T03 holds 112 of 928, or 12.1%, and receives 5 of 82 contacts, or 6.1%. That gap should trigger review before the plan is released.</p>
+<p><img alt="Paired dots compare each territory's share of actionable opportunity with its share of recommended calls." src="../assets/figures/figure_6_6_territory_allocation.svg" /></p>
+<p><em>Figure 6.6. The allocation is broadly aligned, while T03 and T04 show the largest directional gaps. Synthetic data.</em></p>
+<p><em>Table 6.6. Territory allocation makes under- and over-allocation visible.</em></p>
+<table>
+<thead>
+<tr>
+<th>Territory</th>
+<th style="text-align: right;">Actionable opportunity</th>
+<th style="text-align: right;">Recommended calls</th>
+<th style="text-align: right;">Opportunity share</th>
+<th style="text-align: right;">Call share</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>T01</td>
+<td style="text-align: right;">170</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">18.3%</td>
+<td style="text-align: right;">15.9%</td>
+</tr>
+<tr>
+<td>T06</td>
+<td style="text-align: right;">170</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">18.3%</td>
+<td style="text-align: right;">19.5%</td>
+</tr>
+<tr>
+<td>T07</td>
+<td style="text-align: right;">124</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">13.4%</td>
+<td style="text-align: right;">14.6%</td>
+</tr>
+<tr>
+<td>T03</td>
+<td style="text-align: right;">112</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">12.1%</td>
+<td style="text-align: right;">6.1%</td>
+</tr>
+<tr>
+<td>T02</td>
+<td style="text-align: right;">98</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">10.6%</td>
+<td style="text-align: right;">12.2%</td>
+</tr>
+<tr>
+<td>T05</td>
+<td style="text-align: right;">94</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">10.1%</td>
+<td style="text-align: right;">13.4%</td>
+</tr>
+<tr>
+<td>T08</td>
+<td style="text-align: right;">91</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">9.8%</td>
+<td style="text-align: right;">7.3%</td>
+</tr>
+<tr>
+<td>T04</td>
+<td style="text-align: right;">69</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">7.4%</td>
+<td style="text-align: right;">11.0%</td>
+</tr>
+</tbody>
+</table>
+<p>Maya takes the territory gaps and HCP rows to field leadership for local review. A valid override records the account or HCP, original action, replacement action, reason, owner, approval date, and expiration date. Quiet spreadsheet edits destroy the audit trail and make later measurement unreliable.</p>
+<h2 id="68-modern-extensions-and-their-data-requirements">6.8 Modern Extensions and Their Data Requirements</h2>
+<p>The transparent policy now gives Maya a benchmark for 4 advanced methods. Each extension needs a defined decision, stronger data, and an evaluation against the current artifact.</p>
+<h3 id="681-propensity-to-start-roventra">6.8.1 Propensity to start Roventra</h3>
+<p>The current file supports contemporaneous association only. A future-adoption model needs a historical feature cutoff and a later outcome window. For example, features through September 30 could predict whether a previously non-adopting HCP has a first observed Roventra start from October 1 through December 31. Using current adoption with current patient mix and engagement would leak the outcome into the predictors.</p>
+<p>The production evaluation should use a later time period, calibration by score band, lift within the eligible universe, and an execution test against the transparent policy. The model ranks HCPs only after consent, ownership, and actionability gates pass.</p>
+<h3 id="682-account-and-referral-networks">6.8.2 Account and referral networks</h3>
+<p>The supplied data link HCPs to accounts, which supports a co-practice network. A referral network requires observed referral events or clinically defensible patient transitions between HCPs. Degree and betweenness centrality can describe position in the co-practice graph; causal influence requires a separate design.</p>
+<h3 id="683-external-hcp-evidence">6.8.3 External HCP evidence</h3>
+<p>CMS Open Payments can show disclosed financial relationships between manufacturers and covered recipients. Payment amount alone is a weak basis for a key opinion leader score. A governed KOL workflow would combine reviewed scientific activity, trial participation, publications, congress roles, peer nominations, specialty relevance, and compliance review. Keep that external evidence in a separate, purpose-bound process.</p>
+<h3 id="684-optimization-under-capacity">6.8.4 Optimization under capacity</h3>
+<p>Once the team can estimate incremental response, the call plan can become an optimization problem. The objective should use expected incremental value, contact cost, territory capacity, frequency limits, consent, and fairness or coverage constraints. Historical volume remains 1 feature in that objective.</p>
+<h2 id="69-convert-the-results-into-commercial-value">6.9 Convert the Results into Commercial Value</h2>
+<p>The opening questions now have bounded answers. The largest observed opportunity sits disproportionately in the highest volume tier: decile 10 contains 347 of the 1,297 opportunity patients across all deciles. Current permission covers 18 of the 28 HCPs in that tier. Account gates convert 165 observed accounts into 94 field-eligible accounts. The final policy assigns 43 accounts to increased priority, 51 to maintenance, 2 to access review, 18 to contact hold, and 51 to monitoring. The call plan allocates 82 contacts across 69 HCPs.</p>
+<p><em>Table 6.7. Each analytical result answers a commercial question and names the next action.</em></p>
+<table>
+<thead>
+<tr>
+<th>Commercial question</th>
+<th>Chapter answer</th>
+<th>Business action</th>
+<th>Boundary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Where is patient opportunity concentrated?</td>
+<td>Decile 10 contains 347 opportunity patients among 28 HCPs</td>
+<td>Protect capacity for high-volume tiers while reviewing lower tiers with better contactability</td>
+<td>Attribution uses the diagnosis HCP and a 43.0% target-roster subset</td>
+</tr>
+<tr>
+<td>Which accounts support near-term field action?</td>
+<td>94 of 165 accounts pass every sequential gate</td>
+<td>Release only these accounts into standard field planning</td>
+<td>Thresholds are scenario policy inputs</td>
+</tr>
+<tr>
+<td>Which accounts need different ownership?</td>
+<td>2 require access review, 18 require a contact hold, and 51 remain under monitoring</td>
+<td>Route each queue to the responsible function</td>
+<td>The cause remains unresolved until access evidence is reviewed</td>
+</tr>
+<tr>
+<td>Which HCPs enter the call plan?</td>
+<td>69 permitted HCPs receive 82 recommended contacts</td>
+<td>Publish the HCP-level plan with reason and account context</td>
+<td>Local review can produce documented overrides</td>
+</tr>
+<tr>
+<td>Does activity follow opportunity?</td>
+<td>T03 has 12.1% of actionable opportunity and 6.1% of planned contacts</td>
+<td>Review territory capacity and the HCP-level allocation in T03</td>
+<td>Incremental response requires a controlled measurement design</td>
+</tr>
+</tbody>
+</table>
+<p><code>run_analysis.py</code> writes the reusable targeting evidence package. Every exported row carries the analysis date, while <code>manifest.json</code> records source hashes, date ranges, the upstream synthetic seed, scenario assumptions, schemas, row counts, and output hashes. The account and HCP tables preserve the evidence, gate results, action, reason, territory, and capacity-aware recommendation needed for review. This package supports field planning now and provides a baseline for Chapter 7, where formulary position and payer controls can refine the access-review queue.</p>
+<h2 id="610-summary">6.10 Summary</h2>
+<p>The chapter started with a top-30 volume list that included 10 opted-out HCPs. The corrected workflow attributed patient evidence to the field roster, measured volume and opportunity separately, aggregated the evidence to accounts, applied action gates, selected permitted HCPs, and checked territory allocation.</p>
+<ul>
+<li>HCP volume deciles describe concentration. Final action also requires account context, permission, recency, and capacity.</li>
+<li>Account context carries ownership, capacity, adoption, and repeated transaction signals.</li>
+<li>Evidence, opportunity, access review, permission, ownership, and capacity are explicit gates.</li>
+<li>HCP actions inherit account context and then apply person-level permission and recency.</li>
+<li>The call plan is a bounded scenario that can be audited and overridden with a recorded reason.</li>
+<li>Advanced models need temporal outcomes, leakage controls, calibration, and comparison with the transparent policy.</li>
+</ul>
+<p>Use the following rule when reviewing a target: <strong>show the opportunity, pass the gates, name the action, assign the owner, bound the activity, and record the reason.</strong></p>
+<h2 id="611-exercises">6.11 Exercises</h2>
+<ol>
+<li><strong>Change the evidence floor.</strong> Rebuild the account actions with a minimum of 5, 10, and 15 attributed patients. Compare action counts and identify 1 account whose recommendation changes. State which threshold you would take to field leadership and what stability evidence you would request. See Section 6.4.</li>
+<li><strong>Audit the volume trap.</strong> Select the 30 highest-volume HCPs and compare them with the 30 planned HCPs that have the largest opportunity counts. Report permission, recent contacts, opportunity patients, and account actions for both lists. Explain which list is executable and what information remains missing. See Sections 6.2 and 6.7.</li>
+<li><strong>Rebalance 1 territory.</strong> Hold the total at 82 contacts and move contacts toward T03 until its call share is within 2 percentage points of its actionable-opportunity share. Respect HCP permission and account capacity. Record which territory gives up activity and the business tradeoff. See Section 6.7.</li>
+</ol>
+<p><a href="../chapter6_walkthrough.ipynb"><code>chapter6_walkthrough.ipynb</code></a> runs the chapter as one executable workflow. <a href="../exercise_solutions.ipynb"><code>exercise_solutions.ipynb</code></a> contains worked solutions and ends each exercise with the judgment required for real data.</p>
+<p>Chapter 7 adds competitive and market-access evidence to explain which observed adoption gaps are commercially addressable and which are constrained by payer policy.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.indexes", "navigation.top", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
