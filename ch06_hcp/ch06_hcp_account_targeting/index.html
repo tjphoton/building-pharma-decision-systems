@@ -14,8 +14,6 @@
         <link rel="prev" href="../../ch05_journey/exercise_solutions.ipynb">
       
       
-        <link rel="next" href="../chapter6_walkthrough.ipynb">
-      
       
         
       
@@ -74,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#chapter-6-hcp-and-account-targeting-from-opportunity-to-field-action" class="md-skip">
+        <a href="#chapter-6-hcp-and-account-targeting" class="md-skip">
           Skip to content
         </a>
       
@@ -1076,10 +1074,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#61-define-the-targeting-decision" class="md-nav__link">
+  <a href="#61-generate-supplemental-datasets" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6.1 Define the Targeting Decision
+        6.1 Generate Supplemental Datasets
       
     </span>
   </a>
@@ -1087,22 +1085,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#62-build-the-hcp-evidence-layer" class="md-nav__link">
+  <a href="#62-assign-patient-to-an-hcp" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6.2 Build the HCP Evidence Layer
+        6.2 Assign Patient to an HCP
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="6.2 Build the HCP Evidence Layer">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#63-build-the-hcp-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 Build the HCP Table
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.3 Build the HCP Table">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#621-attribute-the-patient-to-an-hcp" class="md-nav__link">
+  <a href="#631-hcp-signals" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6.2.1 Attribute the patient to an HCP
+        6.3.1 HCP signals
       
     </span>
   </a>
@@ -1110,10 +1119,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#622-see-why-volume-alone-fails" class="md-nav__link">
+  <a href="#632-cumulative-capture-curve" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6.2.2 See why volume alone fails
+        6.3.2 Cumulative capture curve
       
     </span>
   </a>
@@ -1126,33 +1135,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#63-use-volume-deciles-as-a-diagnostic" class="md-nav__link">
+  <a href="#64-map-referral-graph" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6.3 Use Volume Deciles as a Diagnostic
+        6.4 Map Referral Graph
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#64-aggregate-hcp-evidence-to-the-account" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6.4 Aggregate HCP Evidence to the Account
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="6.4 Aggregate HCP Evidence to the Account">
+    <nav class="md-nav" aria-label="6.4 Map Referral Graph">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#641-state-the-policy-before-ranking" class="md-nav__link">
+  <a href="#641-node-edge-and-graph" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6.4.1 State the policy before ranking
+        6.4.1 Node, edge, and graph
       
     </span>
   </a>
@@ -1160,10 +1158,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#642-read-the-account-action-map" class="md-nav__link">
+  <a href="#642-disease-pathway" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6.4.2 Read the account action map
+        6.4.2 Disease pathway
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#643-validate-stable-top-pathways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4.3 Validate stable top pathways
       
     </span>
   </a>
@@ -1176,10 +1185,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#65-see-what-each-gate-removes" class="md-nav__link">
+  <a href="#65-build-a-kol-profile" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6.5 See What Each Gate Removes
+        6.5 Build a KOL Profile
       
     </span>
   </a>
@@ -1187,10 +1196,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#66-select-the-hcp-inside-the-account" class="md-nav__link">
+  <a href="#66-fit-hcp-engagement-archetypes-with-k-means" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6.6 Select the HCP Inside the Account
+        6.6 Fit HCP Engagement Archetypes with K-Means
       
     </span>
   </a>
@@ -1198,99 +1207,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#67-turn-actions-into-a-bounded-call-plan" class="md-nav__link">
+  <a href="#67-apply-the-account-action-policy" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6.7 Turn Actions into a Bounded Call Plan
+        6.7 Apply the Account Action Policy
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="6.7 Turn Actions into a Bounded Call Plan">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#671-check-territory-allocation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6.7.1 Check territory allocation
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#68-modern-extensions-and-their-data-requirements" class="md-nav__link">
+  <a href="#68-select-hcps-and-build-the-4-week-call-plan" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6.8 Modern Extensions and Their Data Requirements
+        6.8 Select HCPs and Build the 4-Week Call Plan
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="6.8 Modern Extensions and Their Data Requirements">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#681-propensity-to-start-roventra" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6.8.1 Propensity to start Roventra
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#682-account-and-referral-networks" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6.8.2 Account and referral networks
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#683-external-hcp-evidence" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6.8.3 External HCP evidence
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#684-optimization-under-capacity" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6.8.4 Optimization under capacity
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#69-convert-the-results-into-commercial-value" class="md-nav__link">
+  <a href="#69-validate-monitor-and-refresh" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6.9 Convert the Results into Commercial Value
+        6.9 Validate, Monitor, and Refresh
       
     </span>
   </a>
@@ -1316,6 +1258,45 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="6.11 Exercises">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercise-1-change-the-referral-window" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise 1: Change the Referral Window
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercise-2-refit-k-means" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise 2: Refit K-Means
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercise-3-review-a-kol-candidate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise 3: Review a KOL Candidate
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1418,10 +1399,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#61-define-the-targeting-decision" class="md-nav__link">
+  <a href="#61-generate-supplemental-datasets" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6.1 Define the Targeting Decision
+        6.1 Generate Supplemental Datasets
       
     </span>
   </a>
@@ -1429,22 +1410,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#62-build-the-hcp-evidence-layer" class="md-nav__link">
+  <a href="#62-assign-patient-to-an-hcp" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6.2 Build the HCP Evidence Layer
+        6.2 Assign Patient to an HCP
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="6.2 Build the HCP Evidence Layer">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#63-build-the-hcp-table" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 Build the HCP Table
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.3 Build the HCP Table">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#621-attribute-the-patient-to-an-hcp" class="md-nav__link">
+  <a href="#631-hcp-signals" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6.2.1 Attribute the patient to an HCP
+        6.3.1 HCP signals
       
     </span>
   </a>
@@ -1452,10 +1444,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#622-see-why-volume-alone-fails" class="md-nav__link">
+  <a href="#632-cumulative-capture-curve" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6.2.2 See why volume alone fails
+        6.3.2 Cumulative capture curve
       
     </span>
   </a>
@@ -1468,33 +1460,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#63-use-volume-deciles-as-a-diagnostic" class="md-nav__link">
+  <a href="#64-map-referral-graph" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6.3 Use Volume Deciles as a Diagnostic
+        6.4 Map Referral Graph
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#64-aggregate-hcp-evidence-to-the-account" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6.4 Aggregate HCP Evidence to the Account
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="6.4 Aggregate HCP Evidence to the Account">
+    <nav class="md-nav" aria-label="6.4 Map Referral Graph">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#641-state-the-policy-before-ranking" class="md-nav__link">
+  <a href="#641-node-edge-and-graph" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6.4.1 State the policy before ranking
+        6.4.1 Node, edge, and graph
       
     </span>
   </a>
@@ -1502,10 +1483,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#642-read-the-account-action-map" class="md-nav__link">
+  <a href="#642-disease-pathway" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6.4.2 Read the account action map
+        6.4.2 Disease pathway
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#643-validate-stable-top-pathways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4.3 Validate stable top pathways
       
     </span>
   </a>
@@ -1518,10 +1510,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#65-see-what-each-gate-removes" class="md-nav__link">
+  <a href="#65-build-a-kol-profile" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6.5 See What Each Gate Removes
+        6.5 Build a KOL Profile
       
     </span>
   </a>
@@ -1529,10 +1521,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#66-select-the-hcp-inside-the-account" class="md-nav__link">
+  <a href="#66-fit-hcp-engagement-archetypes-with-k-means" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6.6 Select the HCP Inside the Account
+        6.6 Fit HCP Engagement Archetypes with K-Means
       
     </span>
   </a>
@@ -1540,99 +1532,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#67-turn-actions-into-a-bounded-call-plan" class="md-nav__link">
+  <a href="#67-apply-the-account-action-policy" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6.7 Turn Actions into a Bounded Call Plan
+        6.7 Apply the Account Action Policy
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="6.7 Turn Actions into a Bounded Call Plan">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#671-check-territory-allocation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6.7.1 Check territory allocation
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#68-modern-extensions-and-their-data-requirements" class="md-nav__link">
+  <a href="#68-select-hcps-and-build-the-4-week-call-plan" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6.8 Modern Extensions and Their Data Requirements
+        6.8 Select HCPs and Build the 4-Week Call Plan
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="6.8 Modern Extensions and Their Data Requirements">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#681-propensity-to-start-roventra" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6.8.1 Propensity to start Roventra
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#682-account-and-referral-networks" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6.8.2 Account and referral networks
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#683-external-hcp-evidence" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6.8.3 External HCP evidence
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#684-optimization-under-capacity" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6.8.4 Optimization under capacity
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#69-convert-the-results-into-commercial-value" class="md-nav__link">
+  <a href="#69-validate-monitor-and-refresh" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6.9 Convert the Results into Commercial Value
+        6.9 Validate, Monitor, and Refresh
       
     </span>
   </a>
@@ -1659,6 +1584,45 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="6.11 Exercises">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exercise-1-change-the-referral-window" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise 1: Change the Referral Window
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercise-2-refit-k-means" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise 2: Refit K-Means
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exercise-3-review-a-kol-candidate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise 3: Review a KOL Candidate
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1681,626 +1645,698 @@
   
 
 
-<h1 id="chapter-6-hcp-and-account-targeting-from-opportunity-to-field-action">Chapter 6: HCP and Account Targeting: From Opportunity to Field Action</h1>
-<p>The Chapter 5 journey cohort contains 6,393 patients. Maya, a fictional launch analytics lead, can attribute 2,749 of them to 281 healthcare professionals (HCPs) and 165 accounts. Those HCPs belong to the synthetic field roster, the internal list used for field planning. Her first volume sort produces an immediate list: take the 30 HCPs with the largest attributed cohorts and call them first.</p>
-<p>That list sends 10 of the 30 selections to HCPs whose latest customer relationship management (CRM) consent is <code>Opt-out</code>. The field team cannot execute one-third of the list through the planned channel. The ranking also collapses untreated opportunity, established Roventra use, and unresolved pharmacy transactions into one recommendation. Those situations require different work.</p>
-<p>The commercial questions are concrete:</p>
-<ul>
-<li>Where is the largest observed patient opportunity?</li>
-<li>Which accounts support a near-term field action?</li>
-<li>Which HCP should receive that action inside each account?</li>
-<li>Which accounts need access review, a contact hold, maintenance, or monitoring?</li>
-<li>Does the call plan allocate field capacity in proportion to actionable opportunity?</li>
-</ul>
-<p>The answers determine which accounts enter the near-term plan, which HCP contacts are suppressed, where access evidence needs review, and how field capacity is distributed. A weak list can waste call capacity, over-contact recent customers, and send an adoption message into an unresolved access problem.</p>
-<p>By the end of the chapter, you will build a transparent targeting package from the Chapter 3 source tables and the Chapter 5 journey artifact. The package contains HCP features, volume deciles, account actions, HCP actions, a bounded call plan, a territory allocation check, and the rule specification needed for review. The code uses synthetic data. The workflow is designed so a stakeholder can trace every recommendation back to its evidence and rule.</p>
-<p>Run the chapter workflow from the repository root:</p>
-<div class="highlight"><pre><span></span><code>uv<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>ch06_hcp/scripts/run_analysis.py
+<h1 id="chapter-6-hcp-and-account-targeting">Chapter 6: HCP and Account Targeting</h1>
+<p>Chapter 5 produced patient journeys for patients with a qualifying Type 2 diabetes diagnosis. The field team now needs to convert that evidence into a 4-week HCP and account plan. The source roster contains 281 HCPs. A usable plan must take into account eligibility, current contact permission, account context, and where limited field capacity should go.</p>
+<p>The chapter works through 6 planning questions:</p>
+<ol>
+<li>Which HCPs and accounts can the field team actually work in this cycle? We start with the roster, then apply territory, account, and permission rules to define the usable target list.</li>
+<li>When a patient appears in the journey data, which HCP should that patient count toward? We need one declared attribution rule so the same patient does not drift across multiple HCPs.</li>
+<li>Which referral patterns matter for planning? This shows whether an account stands alone or sits inside a referral path that affects diagnosis, treatment flow, or follow-up.</li>
+<li>Which HCPs show enough scientific activity to justify medical-affairs review? Here we look for scientific signals such as publications, congress activity, and peer connections, not commercial value.</li>
+<li>Do the eligible HCPs fall into a small number of usable engagement patterns? If they do, those patterns can shape message choice, channel choice, and contact timing.</li>
+<li>After those rules are applied, which accounts and HCPs make the 4-week call plan?</li>
+</ol>
+<p>By the end of the chapter, you will produce 4 concrete outputs. The first is an HCP-account evidence table that shows attributed patients, account affiliation, permission status, and the rule-based action. The second is a referral summary that shows which local specialty pathways matter for planning. The third is a medical-affairs review table that records the scientific signals behind each proposed KOL role. The fourth is a validated k-means segmentation table that assigns each eligible HCP to an engagement segment. You will then use those outputs to build a 4-week call plan that fits the account rules, HCP rules, and territory capacity.</p>
+<blockquote>
+<p><strong>Note:</strong> All products, patients, HCPs, accounts, payments, scientific activities, referrals, and events in this chapter are fictional and synthetic.</p>
+</blockquote>
+<h2 id="61-generate-supplemental-datasets">6.1 Generate Supplemental Datasets</h2>
+<p>Chapter 6 uses the same identifiers and source tables from Chapters 3. A chapter specific generator writes supplemental output data under <code>ch06_hcp/data/generated/</code>.</p>
+<p>Run the following command from the repository root:</p>
+<div class="highlight"><pre><span></span><code>uv<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>ch06_hcp/scripts/generate_ch06_data.py
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>Target-roster patients: 2,749
-Target HCPs with attributed patients: 281
-Accounts with attributed patients: 165
-
-Account actions:
-account_action
-Maintain             51
-Monitor              51
-Increase priority    43
-Hold contact         18
-Access review         2
-
-Planned HCPs: 69
-Recommended calls: 82
-
-Wrote Chapter 6 outputs to ch06_hcp/assets/generated_outputs
+<div class="highlight"><pre><span></span><code>Chapter 6 supplemental data
+  hcp_account_affiliations: 281 rows
+  contact_permissions: 281 rows
+  attribution_events: 16,242 rows
+  current_treatment_state: 6,393 rows
+  referral_episodes: 1,663 rows
+  scientific_profiles: 281 rows
+  scientific_evidence: 2,026 rows
+  scientific_collaborations: 724 rows
+  medical_reviews: 160 rows
+  engagement_signals: 281 rows
+  transparency_review: 237 rows
+  territory_capacity: 8 rows
+Wrote Chapter 6-only data to ch06_hcp/data/generated
 </code></pre></div>
-<h2 id="61-define-the-targeting-decision">6.1 Define the Targeting Decision</h2>
-<p>This chapter uses 2 decision grains. An HCP row identifies the person who could receive an engagement. An account row identifies the practice setting that shapes ownership, capacity, current adoption, and the work around that HCP. The call plan joins both grains because a valid HCP action can still depend on account conditions.</p>
-<p>The workflow starts with patient evidence and account context, then applies evidence, permission, and capacity gates before assigning an HCP action and a bounded call plan.</p>
-<p><img alt="Flow from patient opportunity through account context, action gates, HCP action, and call plan, with a review loop back to the evidence." src="../assets/figures/figure_6_1_targeting_workflow.svg" /></p>
-<p><em>Figure 6.1. Targeting converts observed opportunity into a permitted and capacity-aware action. Synthetic workflow.</em></p>
-<p>The analysis date is December 31, 2024. Patient journeys and CRM history are both cut off on that date. A January contact cannot change a December target list. This as-of-date rule keeps the evidence reproducible and prevents future information from entering the plan.</p>
-<p>The word <em>target</em> means an HCP or account selected for a defined commercial action under the current evidence and policy. The label authorizes a commercial planning step; clinical appropriateness for a patient remains a clinician-patient decision.</p>
-<p><em>Table 6.1. Each target action has a distinct business use.</em></p>
-<table>
-<thead>
-<tr>
-<th>Action</th>
-<th>Meaning in this chapter</th>
-<th>Commercial use</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Increase priority</td>
-<td>The account has sufficient opportunity, current contact permission, available capacity, limited recent saturation, and Roventra share below the roster benchmark</td>
-<td>Add near-term field activity</td>
-</tr>
-<tr>
-<td>Maintain</td>
-<td>The account is actionable, but current adoption or recent engagement supports steady coverage</td>
-<td>Preserve an established relationship without adding intensity</td>
-</tr>
-<tr>
-<td>Access review</td>
-<td>At least 2 untreated patients have unresolved transaction signals</td>
-<td>Send the evidence to the team that can examine access or fulfillment friction</td>
-</tr>
-<tr>
-<td>Hold contact</td>
-<td>The account has opportunity, but no HCP has current permission for the planned contact</td>
-<td>Suppress the proposed contact until permission changes</td>
-</tr>
-<tr>
-<td>Monitor</td>
-<td>The evidence or opportunity is below the chapter threshold</td>
-<td>Refresh the evidence before assigning field work</td>
-</tr>
-</tbody>
-</table>
-<h2 id="62-build-the-hcp-evidence-layer">6.2 Build the HCP Evidence Layer</h2>
-<p>The evidence layer joins the Chapter 5 index date and treatment state to the rendering HCP on the Chapter 3 diagnosis encounter, then attaches account assignment from the field roster and engagement and consent from CRM.</p>
-<p>All input records in this workflow are synthetic. The Chapter 6 CSV files are derived analytical outputs.</p>
-<p><strong>Listing 6.1</strong>: Load the source tables used by the targeting workflow.</p>
+<p>The generator creates effective-dated affiliations, field-promotion permission, longitudinal HCP events, current treatment state, T2D referral episodes, scientific evidence, medical review, engagement evidence, payment transparency, and territory capacity.</p>
+<p><strong>Listing 6.1</strong>: Load the complete evidence package</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 
-<span class="n">ROOT</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="n">ROOT</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
 <span class="n">SCRIPT_DIR</span> <span class="o">=</span> <span class="n">ROOT</span> <span class="o">/</span> <span class="s2">&quot;ch06_hcp&quot;</span> <span class="o">/</span> <span class="s2">&quot;scripts&quot;</span>
 <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">SCRIPT_DIR</span><span class="p">))</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">run_analysis</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_inputs</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">run_analysis</span><span class="w"> </span><span class="kn">import</span> <span class="n">run_analysis</span>
 
-<span class="n">inputs</span> <span class="o">=</span> <span class="n">load_inputs</span><span class="p">(</span><span class="n">ROOT</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">frame</span> <span class="ow">in</span> <span class="n">inputs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">:</span><span class="s2">15s</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span><span class="si">:</span><span class="s2">&gt;7,</span><span class="si">}</span><span class="s2"> rows&quot;</span><span class="p">)</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">run_analysis</span><span class="p">(</span><span class="n">ROOT</span><span class="p">)</span>
+<span class="n">headline</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">({</span>
+    <span class="s2">&quot;Journey patients&quot;</span><span class="p">:</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;attribution_comparison&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">patient_id</span><span class="o">.</span><span class="n">nunique</span><span class="p">(),</span>
+    <span class="s2">&quot;Eligible-roster patients&quot;</span><span class="p">:</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;patient_hcp&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">patient_id</span><span class="o">.</span><span class="n">nunique</span><span class="p">(),</span>
+    <span class="s2">&quot;Eligible HCPs&quot;</span><span class="p">:</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;hcp_features&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">npi</span><span class="o">.</span><span class="n">nunique</span><span class="p">(),</span>
+    <span class="s2">&quot;Eligible accounts&quot;</span><span class="p">:</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;account_targets&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">account_id</span><span class="o">.</span><span class="n">nunique</span><span class="p">(),</span>
+<span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">headline</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>journeys          6,393 rows
-medical_claims   49,882 rows
-hcp_roster          281 rows
-providers           666 rows
-accounts            250 rows
-crm               3,359 rows
+<div class="highlight"><pre><span></span><code>Journey patients            6393
+Eligible-roster patients    1556
+Eligible HCPs                158
+Eligible accounts            114
 </code></pre></div>
-<h3 id="621-attribute-the-patient-to-an-hcp">6.2.1 Attribute the patient to an HCP</h3>
-<p>The first qualifying diagnosis date defines the patient index in Chapter 5. We use the rendering NPI on that same encounter as the attribution HCP. If several qualifying encounters occur on the index date, the deterministic rule keeps the first encounter ID. A real implementation should define a clinical hierarchy for ties, such as specialist over generalist or attending over rendering provider, and then test the result under alternatives.</p>
-<p><strong>Listing 6.2</strong>: Build the HCP evidence table.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">targeting</span><span class="w"> </span><span class="kn">import</span> <span class="n">build_hcp_features</span>
-
-<span class="n">hcp_features</span><span class="p">,</span> <span class="n">patient_hcp</span> <span class="o">=</span> <span class="n">build_hcp_features</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
-<span class="n">coverage</span> <span class="o">=</span> <span class="n">patient_hcp</span><span class="o">.</span><span class="n">patient_id</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span> <span class="o">/</span> <span class="n">inputs</span><span class="p">[</span><span class="s2">&quot;journeys&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">patient_id</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Attributed target-roster patients: </span><span class="si">{</span><span class="n">patient_hcp</span><span class="o">.</span><span class="n">patient_id</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Journey cohort patients:           </span><span class="si">{</span><span class="n">inputs</span><span class="p">[</span><span class="s1">&#39;journeys&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">patient_id</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Target-roster coverage:            </span><span class="si">{</span><span class="n">coverage</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;HCPs with attributed patients:     </span><span class="si">{</span><span class="n">hcp_features</span><span class="o">.</span><span class="n">npi</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>Attributed target-roster patients: 2,749
-Journey cohort patients:           6,393
-Target-roster coverage:            43.0%
-HCPs with attributed patients:     281
-</code></pre></div>
-<p>The 43.0% coverage is 2,749 attributed patients divided by 6,393 journey patients. Describe the HCP table as the target-roster subset and keep that denominator with every market-level interpretation.</p>
-<p>One HCP feature row contains the following evidence:</p>
-<p><em>Table 6.2. HCP features keep opportunity, engagement, and permission separate.</em></p>
+<p>The target universe uses relevant specialty, assigned geography, and an active HCP-account affiliation as of December 31, 2024. 1,556 of 6,393 journey patients is eligible after the selected HCP is joined to that universe.</p>
+<h2 id="62-assign-patient-to-an-hcp">6.2 Assign Patient to an HCP</h2>
+<p>The target list needs one HCP owner per patient. A patient can see the diagnosing HCP, a frequently visited HCP, and a later specialist during the observation window. That choice is not trivial, so we compare 3 rules:</p>
 <table>
 <thead>
 <tr>
-<th>Field</th>
+<th>Rule</th>
 <th>Definition</th>
-<th>Use</th>
+<th>Business meaning</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Cohort patients</td>
-<td>Patients whose diagnosis index is attributed to the HCP</td>
-<td>Observed patient-flow volume</td>
+<td>Index HCP</td>
+<td>Rendering HCP on the diagnosis index date</td>
+<td>Owner of the qualifying diagnosis event</td>
 </tr>
 <tr>
-<td>Roventra starts</td>
-<td>Attributed patients whose first observed treatment is Roventra</td>
-<td>Current launch adoption signal</td>
+<td>Plurality HCP</td>
+<td>Most frequent relevant HCP within 180 days of index</td>
+<td>Longitudinal manager around diagnosis</td>
 </tr>
 <tr>
-<td>Competitor starts</td>
-<td>Attributed patients whose first observed treatment is Nexoral or Vexpro</td>
-<td>Competitive treatment signal</td>
-</tr>
-<tr>
-<td>Untreated patients</td>
-<td>Attributed patients with no observed treatment through follow-up</td>
-<td>Unresolved treatment opportunity signal</td>
-</tr>
-<tr>
-<td>Opportunity patients</td>
-<td>Competitor starts plus untreated patients</td>
-<td>Triage quantity for account review</td>
-</tr>
-<tr>
-<td>Access-signal patients</td>
-<td>Untreated patients with a pended pharmacy transaction</td>
-<td>Trigger for a separate access review when repeated</td>
-</tr>
-<tr>
-<td>Recent contacts</td>
-<td>CRM interactions in the 90 days through December 31, 2024</td>
-<td>Engagement saturation check</td>
-</tr>
-<tr>
-<td>Contact permitted</td>
-<td>Latest CRM consent equals <code>Allowed</code></td>
-<td>Contact gate for the planned channel</td>
+<td>Latest HCP</td>
+<td>Latest relevant HCP through the cutoff</td>
+<td>Most recent observed treating relationship</td>
 </tr>
 </tbody>
 </table>
-<p>Use the opportunity count only for account triage. Clinical appropriateness, prescribing intent, and the reason a patient remained untreated sit outside the claims evidence.</p>
-<h3 id="622-see-why-volume-alone-fails">6.2.2 See why volume alone fails</h3>
-<p>The 15 highest-volume HCPs make the problem visible. Four have an <code>Opt-out</code> status in the latest CRM record, including 3 of the top 5. The gold portion of each bar shows patients who were untreated or started a competitor. That portion varies even among HCPs with similar total volume.</p>
-<p><img alt="Horizontal bars for the 15 highest-volume HCPs showing attributed cohort and opportunity patients, with orange X markers for Opt-out consent." src="../assets/figures/figure_6_2_volume_trap.svg" /></p>
-<p><em>Figure 6.2. A volume ranking mixes contactable and unavailable HCPs and hides differences in the type of opportunity. Synthetic data.</em></p>
-<p>The top-30 list quantifies the business failure.</p>
-<div class="highlight"><pre><span></span><code><span class="n">naive</span> <span class="o">=</span> <span class="n">hcp_features</span><span class="o">.</span><span class="n">nlargest</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="s2">&quot;cohort_patients&quot;</span><span class="p">)</span>
+<p>The chapter uses the index HCP as its primary rule because the field question starts with the diagnosis event that put the patient into the Chapter 5 patient journey cohort. The plurality rule answers a different question. It shifts ownership toward the HCP who handled the most qualifying visits around diagnosis. The latest rule shifts ownership toward the most recent observed relationship before the cutoff.</p>
+<p>A sensitivity study runs patient ownership under these three rules and checking how much HCP volume and HCP eligibility move. If we switch from the index rule to the plurality rule, 1,986 patients move to a different HCP and 133 HCPs cross the 5-patient floor used later in the chapter. If we switch from the index rule to the latest rule, 2,264 patients move and 146 HCPs cross that same floor. We keep the index rule because it matches the opening business question.</p>
+<p><strong>Listing 6.2</strong>: Measure attribution agreement</p>
+<div class="highlight"><pre><span></span><code><span class="n">agreement</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;attribution_summary&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">agreement</span><span class="p">[</span><span class="s2">&quot;agreement_rate&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">agreement</span><span class="p">[</span><span class="s2">&quot;agreement_rate&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">value</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">value</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">agreement</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>        comparison  patients_with_both  same_hcp agreement_rate
+Index vs plurality                6393      4407          68.9%
+   Index vs latest                6393      4129          64.6%
+       All 3 rules                6393      4052          63.4%
+</code></pre></div>
+<p>The index rule agrees with plurality for 68.9% of patients and with latest for 64.6%. The disagreement is large enough to change HCP counts, threshold status, and downstream planning. A field plan should therefore specify the attribution rule with it.</p>
+<p>PAT02034 remains with HCP0280 under all 3 rules.</p>
+<div class="highlight"><pre><span></span><code><span class="n">trace</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;attribution_comparison&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">query</span><span class="p">(</span>
+    <span class="s2">&quot;patient_id == &#39;PAT02034&#39;&quot;</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">trace</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>patient_id  index_npi plurality_npi latest_npi  all_rules_agree
+  PAT02034 9000000280    9000000280 9000000280             True
+</code></pre></div>
+<h2 id="63-build-the-hcp-table">6.3 Build the HCP Table</h2>
+<p>The 158 eligible HCPs are not equally worth pursuing. Some hold many patients but few are currently in a position where a field conversation might change anything. Others have limited volume but nearly all of it is actionable. And for some HCPs, contacting them at all is off the table because they have opted out of field promotion.</p>
+<h3 id="631-hcp-signals">6.3.1 HCP signals</h3>
+<p>To sort through this, the chapter builds a row-per-HCP evidence table with three signals: how much of the HCP's attributed patient book is actionable, how much of that book is already on Roventra, and whether field promotion is currently permitted.</p>
+<p>(1) Signal One: what makes a patient "actionable." Two patient groups are most relevant to a field conversation:</p>
+<ul>
+<li>Competitor-treated patients: currently on a product other than Roventra. These patients represent a treatment review opportunity.</li>
+<li>Mature untreated patients: have been in the cohort for at least 60 days but have not yet started any treatment. The 60-day threshold filters out patients who are too recently diagnosed for their clinical picture to be clear.</li>
+</ul>
+<p>These two groups combine into a single per-HCP count called review opportunity</p>
+<p>(2) Signal Two: how adopted Roventra already is. Review opportunity tells you where the potential lies; the current Roventra share tells you the starting point. An HCP with a low share and high review opportunity looks different from one with a high share and little room left to grow.</p>
+<p>(3) Signal Three: whether the field can contact the HCP at all. An HCP opts out of field promotion may still remains reachable through other channels.</p>
+<p><strong>Listing 6.3</strong>: Inspect the highest-volume HCP evidence</p>
+<div class="highlight"><pre><span></span><code><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;npi&quot;</span><span class="p">,</span> <span class="s2">&quot;account_id&quot;</span><span class="p">,</span> <span class="s2">&quot;cohort_patients&quot;</span><span class="p">,</span> <span class="s2">&quot;treated_patients&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;roventra_starts&quot;</span><span class="p">,</span> <span class="s2">&quot;competitor_treated&quot;</span><span class="p">,</span> <span class="s2">&quot;untreated_mature&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;review_opportunity&quot;</span><span class="p">,</span> <span class="s2">&quot;contact_permission_status&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+<span class="n">top_hcps</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;hcp_features&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span>
+    <span class="p">[</span><span class="s2">&quot;cohort_patients&quot;</span><span class="p">,</span> <span class="s2">&quot;npi&quot;</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="p">[</span><span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">]</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">top_hcps</span><span class="p">[</span><span class="n">columns</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>       npi account_id  cohort_patients  treated_patients  roventra_starts  competitor_treated  untreated_mature  review_opportunity contact_permission_status
+9000000430     ACC189               36                 9                5                   4                25                  29                   Allowed
+9000000469     ACC121               34                10                4                   6                21                  27                   Opt-out
+9000000162     ACC062               33                13               10                   3                19                  22                   Opt-out
+9000000447     ACC216               32                12                4                   8                17                  25                   Opt-out
+9000000026     ACC226               28                11                9                   2                15                  17                   Allowed
+9000000537     ACC079               28                 6                3                   3                18                  21                   Opt-out
+</code></pre></div>
+<p>The top HCP by volume (36 attributed patients) has 29 in review opportunity and is Allowed for field promotion. The next two HCPs have nearly as much volume but are Opt-out, which means their review opportunity cannot be worked through the field channel in this cycle. Volume alone does not determine where the field should spend time.</p>
+<p><img alt="Top 20 HCPs ranked by review opportunity. Blue bars show review opportunity for Allowed HCPs, red bars for Opt-out HCPs, gray for Unknown. Light blue shows remaining attributed patients." src="../assets/figures/figure_6_4_volume_diagnostic.svg" /></p>
+<p><em>Figure 6.4. Review opportunity ranked highest to lowest, colored by contact permission. An HCP near the top with a red bar holds substantial opportunity but cannot be worked through the field channel in this cycle. Synthetic data.</em></p>
+<p>Out of the 158 eligible HCPs, the concentration analysis focuses on 112 HCPs with <code>Allowed</code> field-promotion status.</p>
+<h3 id="632-cumulative-capture-curve">6.3.2  Cumulative capture curve</h3>
+<p>Figure 6.4 shows individual opportunity and permission at the HCP level. Cumulative capture curve in figure 6.5 answers the planning question that follows: if the field can only reach a subset of the 112 contactable HCPs this cycle, how much of the total contactable opportunity does that cover?</p>
+<p>The chart ranks the 112 contactable HCPs from highest to lowest review opportunity. It then adds them one decile at a time, first the top ~10% HCPs, then the next ~10%, and so on. After each decile asks: what percentage of the combined review opportunity across all 112 HCPs is now covered?</p>
+<p>The dashed diagonal reference line is the baseline you would see if every HCP held an identical share of review opportunity: calling the top 10% of HCPs would capture exactly 10% of opportunity, calling 30% would give 30%, and so on. In that world, it would not matter which HCPs you called first. The actual curve rises steeply above the diagonal because opportunity is concentrated: calling the top 30% of contactable HCPs (about 34 physicians) covers 54% of the total contactable review opportunity. This skew makes a prioritized plan significantly more efficient.</p>
+<p><strong>Listing 6.4</strong>: Measure opportunity concentration among contactable HCPs</p>
+<div class="highlight"><pre><span></span><code><span class="n">deciles</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;decile_summary&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">deciles</span><span class="p">[</span><span class="s2">&quot;cumulative_hcp_share&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">deciles</span><span class="p">[</span><span class="s2">&quot;cumulative_hcp_share&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">value</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">value</span><span class="si">:</span><span class="s2">.0%</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="p">)</span>
+<span class="n">deciles</span><span class="p">[</span><span class="s2">&quot;cumulative_opportunity_share&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">deciles</span><span class="p">[</span><span class="s2">&quot;cumulative_opportunity_share&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">value</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">value</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">deciles</span><span class="p">[[</span>
+    <span class="s2">&quot;opportunity_decile&quot;</span><span class="p">,</span> <span class="s2">&quot;hcps&quot;</span><span class="p">,</span> <span class="s2">&quot;review_opportunity&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;cumulative_hcp_share&quot;</span><span class="p">,</span> <span class="s2">&quot;cumulative_opportunity_share&quot;</span><span class="p">,</span>
+<span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code> opportunity_decile  hcps  review_opportunity cumulative_hcp_share cumulative_opportunity_share
+                  1    12                 214                  11%                        26.7%
+                  2    11                 120                  21%                        41.6%
+                  3    11                 100                  30%                        54.0%
+                  4    11                  83                  40%                        64.4%
+                  5    11                  68                  50%                        72.9%
+</code></pre></div>
+<p><img alt="Line chart starting at the origin showing cumulative review opportunity captured as contactable HCP share increases, ranked by review opportunity, with a dashed diagonal reference line." src="../assets/figures/figure_6_5_cumulative_capture.svg" /></p>
+<p><em>Figure 6.5. The curve starts at (0%, 0%) and rises steeply. The top 30% of contactable HCPs by review opportunity account for 54% of total contactable opportunity. The dashed diagonal shows what equal distribution would look like. Synthetic data.</em></p>
+<h2 id="64-map-referral-graph">6.4 Map Referral Graph</h2>
+<p>The HCP evidence table tells you how much opportunity each individual physician holds. It does not tell you how patients arrive at that physician or who influences the diagnosis and treatment decision before they get there. Referral graph analysis answers that question by tracing repeated patient flows through the market.</p>
+<h3 id="641-node-edge-and-graph">6.4.1 Node, edge, and graph</h3>
+<p>Medical claims records identify a source HCP (the referring physician) and a destination HCP (the receiving physician) for each patient transition. Those pairs, along with specialty, account, and visit dates, are the raw material for the graph.</p>
+<p>The analysis treats each distinct source–destination pair as a directed edge. The edge weight is the number of unique T2D patients who traveled that path. Edges with fewer than 3 unique patients are dropped because a single- or two-patient transfer is too idiosyncratic to represent a stable referral relationship.</p>
+<p><img alt="Schematic referral graph illustrating directed edges, patient counts, and betweenness centrality." src="../assets/figures/figure_6_6_referral_schematic.svg" /></p>
+<p><em>Figure 6.6. Conceptual illustration of the referral graph structure used in this chapter. Nodes A–C are Primary Care physicians (blue), node D is the Endocrinologist hub (gold), and nodes E–F are Cardiologists (green). Arrow width reflects patient count on each edge. Node D has the highest betweenness centrality because it bridges multiple upstream sources to downstream specialists.</em></p>
+<p>One useful graph metric is betweenness centrality: the HCP with the highest betweenness is the one whose removal would most disrupt patient flow across the network, because they sit on many paths that connect otherwise separate parts of the graph. In this market, that physician is HCP 0631. Listing 6.5 shows all edges connected to that HCP.</p>
+<p><strong>Listing 6.5</strong>: Inspect edges for the highest-betweenness HCP</p>
+<div class="highlight"><pre><span></span><code><span class="n">center</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;referral_metrics&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;npi&quot;</span><span class="p">]</span>  <span class="c1"># highest betweenness</span>
+<span class="n">ego_edges</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;referral_edges&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
+    <span class="n">results</span><span class="p">[</span><span class="s2">&quot;referral_edges&quot;</span><span class="p">][</span><span class="s2">&quot;source_npi&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="n">center</span><span class="p">)</span>
+    <span class="o">|</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;referral_edges&quot;</span><span class="p">][</span><span class="s2">&quot;destination_npi&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="n">center</span><span class="p">)</span>
+<span class="p">]</span><span class="o">.</span><span class="n">nlargest</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;unique_patients&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ego_edges</span><span class="p">[[</span>
+    <span class="s2">&quot;source_npi&quot;</span><span class="p">,</span> <span class="s2">&quot;destination_npi&quot;</span><span class="p">,</span> <span class="s2">&quot;unique_patients&quot;</span><span class="p">,</span> <span class="s2">&quot;median_transition_days&quot;</span><span class="p">,</span>
+<span class="p">]]</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>source_npi destination_npi  unique_patients  median_transition_days
+9000000602      9000000631               18                    30.5
+9000000470      9000000631               16                    47.0
+9000000451      9000000631               13                    41.0
+9000000631      9000000430               11                    30.0
+9000000244      9000000631               10                    33.5
+9000000631      9000000522               10                    20.0
+9000000020      9000000631                7                    37.0
+9000000147      9000000631                4                    31.5
+9000000565      9000000631                4                    38.5
+</code></pre></div>
+<p>Seven primary-care physicians send patients to HCP 0631, and HCP 0631 refers out to two specialists — HCPs 0430 and 0522. This pattern of aggregating from many upstream sources and distributing to downstream specialists is exactly what betweenness centrality captures. Figure 6.7 shows the same structure as a directed network, with node labels as the last four NPI digits and edge labels as unique patient counts.</p>
+<p><img alt="Directed account-centered referral network with patient counts on each edge." src="../assets/figures/figure_6_7_referral_network.svg" /></p>
+<p><em>Figure 6.7. The ego network shows the highest-betweenness HCP and the ten strongest referral edges connected to that physician. Patient count labels each edge. Synthetic data.</em></p>
+<h3 id="642-disease-pathway">6.4.2 Disease pathway</h3>
+<p>Listing 6.6 aggregates the validated referral episodes by specialty pair to show where T2D patient volume actually flows in this market.</p>
+<p><strong>Listing 6.6</strong>: Aggregate referral flow by specialty pair</p>
+<div class="highlight"><pre><span></span><code><span class="n">episodes</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;referral_episodes&quot;</span><span class="p">]</span>
+<span class="n">flow</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">episodes</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;source_specialty&quot;</span><span class="p">,</span> <span class="s2">&quot;destination_specialty&quot;</span><span class="p">])[</span><span class="s2">&quot;patient_id&quot;</span><span class="p">]</span>
+    <span class="o">.</span><span class="n">nunique</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="p">)</span>
+<span class="n">flow</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;source_specialty&quot;</span><span class="p">,</span> <span class="s2">&quot;destination_specialty&quot;</span><span class="p">,</span> <span class="s2">&quot;unique_patients&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">flow</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>source_specialty destination_specialty  unique_patients
+    Primary Care         Endocrinology             1347
+   Endocrinology           Cardiology              316
+</code></pre></div>
+<p>The dominant flow is Primary Care to Endocrinology, carrying 1,347 unique patients. A secondary stream continues from Endocrinology to Cardiology, carrying 316 patients with comorbid cardiovascular disease. Both pathways are large enough to be structurally meaningful for pathway education and continuity review.</p>
+<h3 id="643-validate-stable-top-pathways">6.4.3 Validate stable top pathways</h3>
+<p>Knowing which HCPs receive the most referrals is not the same as knowing which positions in the ranking are reliable. A high volume rank can reflect a single very active referrer rather than a broad, stable pattern, and a top-20 ranking in the observed data could shift if slightly different patients were in the dataset. The validation addresses both concerns.</p>
+<p>Two signals capture ranking quality. The first is volume: how many unique T2D patients passed through that HCP across all referral episodes. The second is breadth: how many distinct source HCPs sent patients to them. An HCP with high volume but breadth of 1 receives all their referrals from a single physician, a relationship that is not a market-wide pathway. Breadth of 8 or more, by contrast, signals that many independent physicians are routing patients to the same destination.</p>
+<p>The stability test then runs two complementary checks. The transition-window sweep refits the full graph under three window definitions, 30, 45, and 60 days, and compares the top-20 ranking across all three. An HCP that holds its position under all three windows is robust. The patient-level bootstrap draws 80 resamples from the referral episode table, each the same size as the original but drawn with replacement, so some patients appear twice and others not at all. The graph is refit on each resample and the top-20 ranking is recorded. An HCP that lands in the top 20 in 95% or more of those runs holds its position regardless of which specific patients happened to be in the data.</p>
+<p><strong>Listing 6.7</strong>: Review stable pathway HCPs</p>
+<div class="highlight"><pre><span></span><code><span class="n">referral</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;referral_metrics&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span>
+    <span class="n">results</span><span class="p">[</span><span class="s2">&quot;referral_stability&quot;</span><span class="p">][[</span><span class="s2">&quot;npi&quot;</span><span class="p">,</span> <span class="s2">&quot;bootstrap_top20_frequency&quot;</span><span class="p">]],</span>
+    <span class="n">on</span><span class="o">=</span><span class="s2">&quot;npi&quot;</span><span class="p">,</span>
+<span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s2">&quot;bootstrap_top20_frequency&quot;</span><span class="p">,</span> <span class="s2">&quot;pathway_patient_volume&quot;</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="p">[</span><span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">])</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Selected HCPs:      </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">naive</span><span class="p">)</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Contact permitted:  </span><span class="si">{</span><span class="n">naive</span><span class="o">.</span><span class="n">contact_permitted</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Opted out:          </span><span class="si">{</span><span class="p">(</span><span class="o">~</span><span class="n">naive</span><span class="o">.</span><span class="n">contact_permitted</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Recent contacts:    </span><span class="si">{</span><span class="n">naive</span><span class="o">.</span><span class="n">recent_contacts</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>Selected HCPs:      30
-Contact permitted:  20
-Opted out:          10
-Recent contacts:    32
-</code></pre></div>
-<p>The list loses 10 selections at the permission check. Listing 6.6 builds the gated plan later in the chapter.</p>
-<h2 id="63-use-volume-deciles-as-a-diagnostic">6.3 Use Volume Deciles as a Diagnostic</h2>
-<p>Volume deciles divide the 281 HCPs into 10 nearly equal groups after sorting on attributed cohort size. Decile 10 contains the highest-volume HCPs. Each decile contains 28 or 29 HCPs, so the patient totals rise sharply even though the HCP counts stay almost constant.</p>
-<p><strong>Listing 6.3</strong>: Create HCP volume deciles.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">targeting</span><span class="w"> </span><span class="kn">import</span> <span class="n">build_decile_summary</span>
+<span class="n">referral</span><span class="p">[</span><span class="s2">&quot;bootstrap_top20_frequency&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">referral</span><span class="p">[</span><span class="s2">&quot;bootstrap_top20_frequency&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">value</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">value</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;npi&quot;</span><span class="p">,</span> <span class="s2">&quot;specialty&quot;</span><span class="p">,</span> <span class="s2">&quot;pathway_patient_volume&quot;</span><span class="p">,</span> <span class="s2">&quot;pathway_breadth&quot;</span><span class="p">,</span> <span class="s2">&quot;bootstrap_top20_frequency&quot;</span><span class="p">]</span>
 
-<span class="n">hcp_deciles</span><span class="p">,</span> <span class="n">decile_summary</span> <span class="o">=</span> <span class="n">build_decile_summary</span><span class="p">(</span><span class="n">hcp_features</span><span class="p">)</span>
-<span class="n">view</span> <span class="o">=</span> <span class="n">decile_summary</span><span class="p">[</span>
-    <span class="p">[</span>
-        <span class="s2">&quot;volume_decile&quot;</span><span class="p">,</span> <span class="s2">&quot;hcps&quot;</span><span class="p">,</span> <span class="s2">&quot;cohort_patients&quot;</span><span class="p">,</span> <span class="s2">&quot;opportunity_patients&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;permitted_hcps&quot;</span><span class="p">,</span> <span class="s2">&quot;contactable_share&quot;</span>
-    <span class="p">]</span>
-<span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">view</span><span class="p">[</span><span class="s2">&quot;contactable_share&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">view</span><span class="p">[</span><span class="s2">&quot;contactable_share&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">view</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="n">stable</span>   <span class="o">=</span> <span class="n">referral</span><span class="p">[</span><span class="n">referral</span><span class="p">[</span><span class="s2">&quot;bootstrap_top20_frequency&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s2">&quot;%&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">90</span><span class="p">]</span>
+<span class="n">unstable</span> <span class="o">=</span> <span class="n">referral</span><span class="p">[</span><span class="n">referral</span><span class="p">[</span><span class="s2">&quot;bootstrap_top20_frequency&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s2">&quot;%&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span> <span class="o">&lt;</span>  <span class="mi">90</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--- Stable (≥ 90% bootstrap frequency) ---&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stable</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">--- Below threshold (&lt; 90%) ---&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">unstable</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code> volume_decile  hcps  cohort_patients  opportunity_patients  permitted_hcps contactable_share
-             1    29               80                    41              19             65.5%
-             2    28              124                    64              18             64.3%
-             3    28              156                    74              22             78.6%
-             4    28              176                    85              19             67.9%
-             5    28              210                    84              19             67.9%
-             6    28              236                   109              20             71.4%
-             7    28              284                   136              20             71.4%
-             8    28              340                   158              21             75.0%
-             9    28              428                   199              19             67.9%
-            10    28              715                   347              18             64.3%
+<div class="highlight"><pre><span></span><code>--- Stable (≥ 90% bootstrap frequency) ---
+       npi     specialty  pathway_patient_volume  pathway_breadth bootstrap_top20_frequency
+9000000631 Endocrinology                      93                9                    100.0%
+9000000127 Endocrinology                      87                9                    100.0%
+9000000045 Endocrinology                      87                8                    100.0%
+9000000462 Endocrinology                      86                8                    100.0%
+9000000650 Endocrinology                      68               10                    100.0%
+9000000471 Endocrinology                      63                7                    100.0%
+9000000215 Endocrinology                      59                7                    100.0%
+9000000028 Endocrinology                      59                5                    100.0%
+9000000364 Endocrinology                      57                6                    100.0%
+9000000567 Endocrinology                      54                9                     96.2%
+9000000115 Endocrinology                      48                7                     95.0%
+
+--- Below threshold (&lt; 90%) ---
+       npi     specialty  pathway_patient_volume  pathway_breadth bootstrap_top20_frequency
+9000000636 Endocrinology                      46                6                     87.5%
+9000000647 Endocrinology                      42                5                     87.5%
+9000000409 Endocrinology                      39                3                     83.8%
+9000000218 Endocrinology                      40                5                     73.8%
+9000000469 Endocrinology                      45                8                     70.0%
+9000000170 Endocrinology                      42                6                     67.5%
+9000000550 Endocrinology                      40                5                     66.2%
+9000000204 Endocrinology                      40                6                     61.3%
+9000000545 Endocrinology                      37                4                     47.5%
 </code></pre></div>
-<p>Decile 10 contains 715 attributed patients and 347 opportunity patients. Its contactable share is 18 permitted HCPs divided by 28 HCPs, or 64.3%. Decile 8 has less patient volume but a 75.0% contactable share, based on 21 of 28 HCPs. The decile table therefore answers 2 separate questions: where patient volume concentrates and whether the planned channel can reach the HCPs in that tier.</p>
-<p><img alt="Two-panel chart showing cohort and opportunity patients by HCP volume decile, followed by the share of HCPs with current contact permission." src="../assets/figures/figure_6_3_decile_diagnostic.svg" /></p>
-<p><em>Figure 6.3. Patient volume increases by decile, while current contact permission remains uneven. Synthetic data.</em></p>
-<p>Use deciles to diagnose coverage, set service tiers, and review how activity is distributed. The final action still needs account context, current permission, recent engagement, and capacity.</p>
-<h2 id="64-aggregate-hcp-evidence-to-the-account">6.4 Aggregate HCP Evidence to the Account</h2>
-<p>An account may contain several HCPs and holds practical constraints outside the individual HCP row. Territory assignment establishes field ownership, capacity limits near-term activity, and another permitted HCP can keep the account actionable when 1 HCP has opted out.</p>
-<p>The account table sums patient evidence across target-roster HCPs and retains HCP counts, recent contacts, territory, and capacity. Roventra share uses Roventra starts divided by treated patients. Across this target-roster cohort, 1,452 of 1,788 treated patients started Roventra, which gives an 81.2% benchmark.</p>
-<h3 id="641-state-the-policy-before-ranking">6.4.1 State the policy before ranking</h3>
-<p>The chapter uses scenario policy inputs chosen for a transparent teaching example. A production team would validate each threshold against data stability, field capacity, governance, and local business rules.</p>
-<p><em>Table 6.3. The account policy applies gates before priority.</em></p>
+<p>Eleven HCPs clear the 90% threshold, all Endocrinologists. Pathway stability is a separate signal from commercial review opportunity. An HCP can be a critical referral node while having low review opportunity, or vice versa, and both signals should be included in the final account plan.</p>
+<h2 id="65-build-a-kol-profile">6.5 Build a KOL Profile</h2>
+<p>The referral analysis identifies where patients flow through the market. A separate question is which physicians shape how T2D is understood and treated — through research, congress leadership, peer teaching, or clinical practice. These are Key Opinion Leaders, and identifying them belongs to medical affairs, not to the commercial field team.</p>
+<p>The distinction matters. A KOL identification process that uses commercial patient volume or field-contact history to select candidates creates a conflict of interest. This section builds a scientific evidence profile entirely from public and professional signals, then proposes a scientific role for each candidate. Commercial information enters only afterward, as a transparency check — not as an input to the scientific score.</p>
+<p><strong>What the scientific profile measures.</strong> The profile is built across four domains, each normalized within specialty and career stage so that a junior researcher publishing prolifically in T2D is evaluated against peers at a similar career point, not against a senior endocrinologist with thirty years of output:</p>
+<ol>
+<li><strong>Research contribution</strong>: publication roles, T2D disease relevance, identity-match confidence, and recency. A lead or corresponding author role on a highly relevant, recent paper scores higher than a middle-author credit on a weakly related paper from a decade ago.</li>
+<li><strong>Scientific leadership</strong>: conference speaking, guideline authorship, and editorial positions. This domain captures influence over how the field is organized, not just what it produces.</li>
+<li><strong>Practice expertise</strong>: patient volume and specialization signals that indicate deep clinical experience in T2D management, distinct from academic publication activity.</li>
+<li><strong>Peer connection</strong>: scientific collaboration network position. An HCP who co-publishes with many other researchers connects scientific communities; one who is isolated may have high personal output but limited reach.</li>
+</ol>
+<p><strong>How scientific roles are assigned.</strong> Different roles require different combinations of these domains. An evidence-generation collaborator needs strong research output and clinical grounding to run trials. A national scientific leader needs leadership signals and research credibility. A regional educator needs peer connection and practice depth to teach effectively through local networks. The role-fit formula makes each combination explicit:</p>
 <table>
 <thead>
 <tr>
-<th>Step</th>
-<th>Chapter rule</th>
-<th>Decision effect</th>
+<th>Proposed role</th>
+<th>Role-fit formula</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Evidence floor</td>
-<td>At least 10 attributed cohort patients</td>
-<td>Monitor accounts with unstable small counts</td>
+<td>Evidence-generation collaborator</td>
+<td>65% research + 35% practice expertise</td>
 </tr>
 <tr>
-<td>Opportunity floor</td>
-<td>At least 5 competitor-start or untreated patients</td>
-<td>Keep field review tied to a material signal</td>
+<td>National scientific leader</td>
+<td>55% leadership + 45% research</td>
+</tr>
+<tr>
+<td>Regional scientific educator</td>
+<td>55% peer connection + 45% practice expertise</td>
+</tr>
+<tr>
+<td>Local practice expert</td>
+<td>70% practice expertise + 30% peer connection</td>
+</tr>
+</tbody>
+</table>
+<p>Each HCP is evaluated against every role formula; the highest-scoring role with a fit score of 65 or above becomes the proposed role and triggers a candidate flag. The score is role-specific: it answers "how well does this HCP fit the evidence-generation collaborator role?" not "how influential is this HCP overall?" There is no universal influence rank.</p>
+<p><strong>Listing 6.8</strong>: Inspect scientific role candidates</p>
+<div class="highlight"><pre><span></span><code><span class="n">kol</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;kol_profiles&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
+    <span class="n">results</span><span class="p">[</span><span class="s2">&quot;kol_profiles&quot;</span><span class="p">][</span><span class="s2">&quot;kol_candidate&quot;</span><span class="p">]</span>
+<span class="p">]</span>
+<span class="n">columns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;npi&quot;</span><span class="p">,</span> <span class="s2">&quot;specialty_1&quot;</span><span class="p">,</span> <span class="s2">&quot;research_percentile&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;leadership_percentile&quot;</span><span class="p">,</span> <span class="s2">&quot;practice_expertise_percentile&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;peer_connection_percentile&quot;</span><span class="p">,</span> <span class="s2">&quot;proposed_role&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;role_fit_score&quot;</span><span class="p">,</span> <span class="s2">&quot;evidence_confidence&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">kol</span><span class="p">[</span><span class="n">columns</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>       npi   specialty_1  research_percentile  leadership_percentile  practice_expertise_percentile  peer_connection_percentile                    proposed_role  role_fit_score evidence_confidence
+9000000105    Cardiology                100.0              80.000000                      25.000000                   55.000000       National scientific leader            89.0                High
+9000000206 Endocrinology                100.0               8.333333                      34.782609                   15.384615 Evidence-generation collaborator            77.2                High
+9000000211 Endocrinology                100.0              36.363636                      80.000000                   70.833333 Evidence-generation collaborator            93.0                High
+9000000237  Primary Care                100.0              75.000000                      77.777778                   91.666667 Evidence-generation collaborator            92.2                High
+9000000363 Endocrinology                100.0             100.000000                     100.000000                   66.666667 Evidence-generation collaborator           100.0                High
+9000000441  Primary Care                100.0              84.615385                      77.777778                   26.190476 Evidence-generation collaborator            92.2                High
+9000000512    Cardiology                100.0              31.250000                      94.444444                   92.500000 Evidence-generation collaborator            98.1                High
+9000000562    Cardiology                100.0              40.000000                      89.473684                   75.000000 Evidence-generation collaborator            96.3                High
+</code></pre></div>
+<p>Notice that these candidates arrive at similar role-fit scores through very different domain profiles. HCP0206 has a 100th-percentile research score but only an 8th-percentile leadership score — they are a prolific researcher with limited conference presence. HCP0363 scores at the 100th percentile in every domain. Figure 6.9 makes these profile differences visible by showing each candidate within the two dimensions most relevant to their proposed role.</p>
+<p><img alt="Four scatter plots, one per proposed scientific role, showing candidate positions on that role's two primary evidence dimensions. Gray dots show candidates from other roles for context." src="../assets/figures/figure_6_9_kol_evidence_matrix.svg" /></p>
+<p><em>Figure 6.9. Each panel focuses on one proposed role and plots the two dimensions that dominate its fit formula. Gray dots are candidates assigned to other roles. The same candidate can look strong or weak depending on which role lens is applied. Synthetic data.</em></p>
+<p>The four role lists have different sizes because the evidence threshold is applied independently to each role formula. An HCP who does not meet the 65-point threshold for evidence-generation collaborator might exceed it for local practice expert.</p>
+<div class="highlight"><pre><span></span><code><span class="n">role_counts</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">results</span><span class="p">[</span><span class="s2">&quot;kol_profiles&quot;</span><span class="p">]</span>
+    <span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;kol_profiles&quot;</span><span class="p">][</span><span class="s2">&quot;kol_candidate&quot;</span><span class="p">],</span> <span class="s2">&quot;proposed_role&quot;</span><span class="p">]</span>
+    <span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">role_counts</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>proposed_role
+Evidence-generation collaborator    12
+       National scientific leader    5
+    Regional scientific educator     4
+           Local practice expert     4
+</code></pre></div>
+<p>The peer-connection domain is built from a scientific collaboration network. The raw source for each candidate's peer-connection score is the <code>scientific_collaborations</code> table — it lists co-authorship links and allows a reviewer to trace exactly which co-publications drove the score. The collaboration data gives the score a traceable definition rather than a single unexplained percentile.</p>
+<p><strong>Validating the scientific assignments.</strong> A proposed role and a role-fit score are a model output. They must be reviewed by medical-affairs professionals before any outreach decision. Two independent synthetic reviewers assessed 65 candidates in the T2D scientific universe.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;kol_validation&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>        validation_measure     value
+       Reviewed candidates 65.000000
+  Proposed role match rate  0.415385
+Reviewer confirmation rate  0.700000
+   Reviewer decision kappa  0.378865
+</code></pre></div>
+<p>The role match rate of 41.5% and reviewer kappa of 0.38 are not failures — they are the expected result when a model proposes a specific role for a large candidate pool without case-by-case reviewer input. The reviewers confirm 70% of individual candidates (not role assignments), which shows the scientific universe is reasonable but that role assignment within it requires human judgment. The artifact stores proposed role, role-fit evidence, evidence confidence, model version, review status, reviewer ID, and refresh date so that reviewer decisions are auditable and tied to a specific model version.</p>
+<p><strong>Separating scientific influence from commercial action.</strong> Once the scientific candidate list is finalized, Open Payments data is checked for each candidate. The transparency review records disclosed payment amount, category, payment record count, year, and a company-policy review status. Payment information is displayed in the artifact for transparency and compliance review; it never raises a scientific percentile, role-fit score, commercial priority, or speaker eligibility score.</p>
+<p>Figure 6.10 shows that the same HCP can appear in both the scientific candidate table and the commercial HCP table, but those are two separate rows in two separate output files with two separate decision owners. A medical-affairs scientific leader and a commercial field representative are making different decisions about the same physician.</p>
+<p><img alt="Stacked bar chart crossing scientific role with commercial HCP action." src="../assets/figures/figure_6_10_decision_boundaries.svg" /></p>
+<p><em>Figure 6.10. Each bar shows HCPs in one scientific-role category, stacked by their commercial action. An HCP appearing in both the scientific and commercial tables has two distinct decision rows — one owned by medical affairs, one by commercial. Synthetic data.</em></p>
+<h2 id="66-fit-hcp-engagement-archetypes-with-k-means">6.6 Fit HCP Engagement Archetypes with K-Means</h2>
+<p>The HCP evidence table tells you <em>how much</em> opportunity each physician holds. The referral map tells you <em>where</em> patients move. Neither tells you <em>how</em> to engage a given HCP — what message channel they respond to, whether they need detailed scientific evidence or peer practice context, and whether access barriers are a factor in their HCP–patient relationship.</p>
+<p>Segmentation answers that question by grouping HCPs who share a similar engagement pattern into a small number of named archetypes. The field team then applies a different engagement approach to each archetype rather than treating all HCPs identically.</p>
+<p><strong>Why segmentation comes after the gates.</strong> K-means runs only on HCPs who have already passed the field permission and minimum evidence gates. Segmenting opt-out HCPs, or HCPs with too few attributed patients to have a reliable signal, would produce archetypes based on noise. The segment label shapes how the field engages an eligible HCP; it does not determine whether that HCP is eligible. Permission, account action, and territory capacity remain the controlling gates.</p>
+<p><strong>The four engagement features.</strong> K-means groups HCPs using four observed behavioral signals, each robust-scaled (median and interquartile-range normalized) to prevent any single feature from dominating because of its raw magnitude:</p>
+<ul>
+<li><strong>Evidence-need score</strong>: how often this HCP's engagement history involves requests for clinical data, study summaries, or medical education materials</li>
+<li><strong>Access-resource score</strong>: how often access barriers (prior authorization issues, formulary queries, patient assistance) appear in this HCP's patient interactions</li>
+<li><strong>Digital-response rate</strong>: how reliably this HCP opens and acts on digital communications relative to peers in the same specialty</li>
+<li><strong>Field-response rate</strong>: how reliably this HCP engages during in-person or phone field visits</li>
+</ul>
+<p>Patient opportunity and current Roventra adoption are <em>not</em> features in the clustering model — they are included in the segment profile only for interpretation after the clusters are formed. Mixing outcome metrics into the clustering features would make the model circular: the plan would send more calls to high-opportunity segments by construction, not by evidence of engagement response.</p>
+<p>The algorithm minimizes within-cluster squared distance across these four features:</p>
+<div class="arithmatex">\[
+\sum_{i=1}^{n}
+\left\lVert x_i - \mu_{c(i)} \right\rVert^2
+\]</div>
+<p>Here, <span class="arithmatex">\(x_i\)</span> is the 4-feature vector for HCP <span class="arithmatex">\(i\)</span>, <span class="arithmatex">\(c(i)\)</span> is the assigned cluster, and <span class="arithmatex">\(\mu_{c(i)}\)</span> is the cluster centroid.</p>
+<p><strong>Choosing the number of clusters.</strong> The analysis compares <span class="arithmatex">\(k=3\)</span> through <span class="arithmatex">\(k=6\)</span> and selects based on three criteria: silhouette score (how cleanly each HCP fits its cluster compared to the nearest alternative), seed stability (whether the same cluster structure emerges with a different random seed), and bootstrap assignment stability (whether an HCP's cluster assignment is consistent when the fitting sample is resampled). A cluster must also be operationally large enough to be meaningful — at least 10% of the fitted population or 8 HCPs, whichever is larger. Candidate values within 0.02 of the top composite score are compared on bootstrap stability as a tiebreaker.</p>
+<p><strong>Listing 6.9</strong>: Select the number of clusters</p>
+<div class="highlight"><pre><span></span><code><span class="n">evaluation</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;cluster_evaluation&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">metrics</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;silhouette&quot;</span><span class="p">,</span> <span class="s2">&quot;seed_stability_ari&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;bootstrap_stability_ari&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+<span class="n">evaluation</span><span class="p">[</span><span class="n">metrics</span><span class="p">]</span> <span class="o">=</span> <span class="n">evaluation</span><span class="p">[</span><span class="n">metrics</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">evaluation</span><span class="p">[[</span>
+    <span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="o">*</span><span class="n">metrics</span><span class="p">,</span> <span class="s2">&quot;minimum_cluster_size&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;operational_size_pass&quot;</span><span class="p">,</span> <span class="s2">&quot;selected&quot;</span><span class="p">,</span>
+<span class="p">]]</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code> k  silhouette  seed_stability_ari  bootstrap_stability_ari  minimum_cluster_size  operational_size_pass  selected
+ 3       0.387               1.000                    0.698                    14                   True     False
+ 4       0.427               1.000                    0.858                    10                   True      True
+ 5       0.388               1.000                    0.778                    10                   True     False
+ 6       0.358               0.937                    0.763                     6                  False     False
+</code></pre></div>
+<p>k=4 wins on all criteria: the best silhouette score (0.427), perfect seed stability, the highest bootstrap ARI among operationally valid solutions (0.858), and all clusters above the minimum size. k=6 fails the minimum-size gate — one cluster has only 6 HCPs, which is too small to operationalize as a distinct engagement pattern.</p>
+<p><strong>Listing 6.10</strong>: Inspect the operational segment profiles</p>
+<div class="highlight"><pre><span></span><code><span class="n">profiles</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;segment_profiles&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">features</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;evidence_need_score&quot;</span><span class="p">,</span> <span class="s2">&quot;access_resource_score&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;digital_response_rate&quot;</span><span class="p">,</span> <span class="s2">&quot;field_response_rate&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+<span class="n">profiles</span><span class="p">[</span><span class="n">features</span><span class="p">]</span> <span class="o">=</span> <span class="n">profiles</span><span class="p">[</span><span class="n">features</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">profiles</span><span class="p">[[</span>
+    <span class="s2">&quot;segment_name&quot;</span><span class="p">,</span> <span class="s2">&quot;hcp_count&quot;</span><span class="p">,</span> <span class="o">*</span><span class="n">features</span><span class="p">,</span>
+    <span class="s2">&quot;engagement_pattern&quot;</span><span class="p">,</span>
+<span class="p">]]</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>               segment_name  hcp_count  evidence_need_score  access_resource_score  digital_response_rate  field_response_rate                           engagement_pattern
+C0: Digital evidence seeker         12                 0.81                   0.60                   0.79                 0.20 Approved digital evidence, then field review
+      C1: Field maintenance         12                 0.23                   0.32                   0.09                 0.91                  Maintenance field follow-up
+    C2: Digital maintenance         22                 0.30                   0.32                   0.72                 0.29       Digital maintenance, then field review
+ C3: Field evidence builder         10                 0.74                   0.59                   0.15                 0.82                    Field evidence discussion
+</code></pre></div>
+<p>The four archetypes are genuinely distinct. C0 and C3 both have high evidence need but split on channel: C0 responds to digital materials while C3 requires in-person evidence discussion. C1 and C2 both have low evidence need but also split on channel: C1 responds primarily to field visits while C2 is predominantly digital. This means an HCP with high evidence need who primarily uses digital channels (C0) would get a different engagement sequence than a high-evidence-need HCP who needs field interaction (C3) — even if they have identical review opportunity.</p>
+<p>Figure 6.11 shows the four archetype profiles as small-multiples bar charts — one panel per segment. Figure 6.12 plots the validation metrics across k values so the selection rationale is visible.</p>
+<p><img alt="2×2 small-multiples bar charts showing each engagement archetype's evidence-need, access-need, digital-response, and field-response scores." src="../assets/figures/figure_6_11_segment_profiles.svg" /></p>
+<p><em>Figure 6.11. Each panel is one engagement archetype. The dashed line marks 0.5 (mid-range). C0 and C3 both show high evidence-need bars but diverge on which response channel is tall; C1 and C2 both show low evidence-need bars but split the same way on channel. Synthetic data.</em></p>
+<p><img alt="Line chart comparing silhouette, seed ARI, and bootstrap ARI for candidate cluster counts." src="../assets/figures/figure_6_12_cluster_validation.svg" /></p>
+<p><em>Figure 6.12. k=4 achieves the best silhouette score and the highest bootstrap ARI among solutions that pass the minimum cluster-size gate. Synthetic data.</em></p>
+<p>The deployment file for each HCP keeps the numeric cluster ID, profile name, centroid distance (how far this HCP's features are from the archetype center), assignment stability (bootstrap frequency), model version, and engagement pattern. HCPs who passed the account and HCP gates but fell outside the fitted segmentation population receive <code>Not clustered</code> and a standard field-review pattern — they remain executable but with a generic rather than archetype-specific engagement approach.</p>
+<h2 id="67-apply-the-account-action-policy">6.7 Apply the Account Action Policy</h2>
+<p>The HCP evidence table ranks individual physicians by opportunity and permission. Accounts — the clinics, hospital systems, and practice groups where HCPs work — need their own separate prioritization. An account that employs several high-opportunity HCPs but has no permitted physicians is a different planning problem than an account with one permitted HCP and strong review opportunity.</p>
+<p>The account policy works as a sequential set of gates. Each gate answers one yes/no question. An account that fails a gate receives an action that reflects exactly which constraint applied, not a generic "low priority" label.</p>
+<p><strong>The gate sequence.</strong> The policy uses a prespecified scenario with documented threshold values:</p>
+<table>
+<thead>
+<tr>
+<th>Gate</th>
+<th>Rule</th>
+<th>Scenario value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Evidence</td>
+<td>Minimum attributed patients</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Treated denominator</td>
+<td>Minimum treated patients</td>
+<td>8</td>
+</tr>
+<tr>
+<td>Opportunity</td>
+<td>Minimum mature review opportunity</td>
+<td>5</td>
 </tr>
 <tr>
 <td>Access review</td>
-<td>After the evidence and opportunity floors, at least 2 untreated patients with pended transactions</td>
-<td>Route the account for access investigation</td>
+<td>Unresolved mature access signals</td>
+<td>2</td>
 </tr>
 <tr>
 <td>Permission</td>
-<td>At least 1 HCP with current <code>Allowed</code> consent</td>
-<td>Hold the proposed contact when no permitted HCP exists</td>
+<td>At least one permitted HCP</td>
+<td>Yes</td>
 </tr>
 <tr>
-<td>Ownership and capacity</td>
-<td>Valid territory and capacity above 0</td>
-<td>Require an owner and room to act</td>
+<td>Ownership</td>
+<td>Assigned territory</td>
+<td>Required</td>
 </tr>
 <tr>
-<td>Saturation</td>
-<td>At least 2 recent contacts per target HCP</td>
-<td>Keep the current activity level</td>
-</tr>
-<tr>
-<td>Adoption gap</td>
-<td>Roventra share below 81.2%</td>
-<td>Increase priority after every gate passes</td>
+<td>Capacity</td>
+<td>Territory capacity remaining</td>
+<td>&gt; 0</td>
 </tr>
 </tbody>
 </table>
-<p>The access signal provides routing evidence. A pended transaction can arise from documentation, benefit verification, pharmacy processing, or another administrative step. Chapter 7 adds formulary and payer evidence before anyone assigns a cause.</p>
-<p><strong>Listing 6.4</strong>: Apply the account policy.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">targeting</span><span class="w"> </span><span class="kn">import</span> <span class="n">build_account_features</span><span class="p">,</span> <span class="n">apply_account_policy</span>
-
-<span class="n">account_features</span> <span class="o">=</span> <span class="n">build_account_features</span><span class="p">(</span><span class="n">hcp_features</span><span class="p">,</span> <span class="n">inputs</span><span class="p">[</span><span class="s2">&quot;accounts&quot;</span><span class="p">])</span>
-<span class="n">account_targets</span> <span class="o">=</span> <span class="n">apply_account_policy</span><span class="p">(</span><span class="n">account_features</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span>
-    <span class="s2">&quot;Roventra starts / treated:&quot;</span><span class="p">,</span>
-    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">account_features</span><span class="o">.</span><span class="n">roventra_starts</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2"> / &quot;</span>
-    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">account_features</span><span class="o">.</span><span class="n">treated_patients</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
-<span class="p">)</span>
-<span class="n">counts</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="n">account_targets</span><span class="o">.</span><span class="n">account_action</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
-    <span class="o">.</span><span class="n">rename_axis</span><span class="p">(</span><span class="s2">&quot;account_action&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;accounts&quot;</span><span class="p">)</span>
-<span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">counts</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>Roventra starts / treated: 1,452 / 1,788
-   account_action  accounts
-         Maintain        51
-          Monitor        51
-Increase priority        43
-     Hold contact        18
-    Access review         2
-</code></pre></div>
-<p>The result is a 5-queue worklist: 43 <code>Increase priority</code>, 51 <code>Maintain</code>, 2 <code>Access review</code>, 18 <code>Hold contact</code>, and 51 <code>Monitor</code>.</p>
-<h3 id="642-read-the-account-action-map">6.4.2 Read the account action map</h3>
-<p>The map uses Roventra share on the horizontal axis, opportunity patients on the vertical axis, point size for attributed cohort size, and marker color and shape for the policy action. The vertical line marks the 81.2% roster benchmark.</p>
-<p><img alt="Scatter plot of account Roventra share against opportunity patients, sized by cohort and marked by account action." src="../assets/figures/figure_6_4_account_action_map.svg" /></p>
-<p><em>Figure 6.4. Accounts with similar opportunity can receive different actions because permission, transaction signals, saturation, and adoption also affect the decision. Synthetic data.</em></p>
-<p>Table 6.4 maps similar opportunity counts to different actions. Florida Care 064 enters field priority, repeated pended transactions route Florida Care 147 to access review, and the absence of a permitted HCP places Illinois Care 121 on hold.</p>
-<p><em>Table 6.4. The same opportunity measure can lead to different work.</em></p>
-<table>
-<thead>
-<tr>
-<th>Account</th>
-<th style="text-align: right;">Cohort</th>
-<th style="text-align: right;">Opportunity</th>
-<th style="text-align: right;">Roventra starts / treated</th>
-<th style="text-align: right;">Contactable HCPs</th>
-<th style="text-align: right;">Access-signal patients</th>
-<th>Action</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Florida Care 064</td>
-<td style="text-align: right;">36</td>
-<td style="text-align: right;">21</td>
-<td style="text-align: right;">15 / 19 (78.9%)</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td>Increase priority</td>
-</tr>
-<tr>
-<td>Arizona Care 155</td>
-<td style="text-align: right;">38</td>
-<td style="text-align: right;">18</td>
-<td style="text-align: right;">20 / 28 (71.4%)</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td>Increase priority</td>
-</tr>
-<tr>
-<td>Florida Care 147</td>
-<td style="text-align: right;">29</td>
-<td style="text-align: right;">13</td>
-<td style="text-align: right;">16 / 20 (80.0%)</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">2</td>
-<td>Access review</td>
-</tr>
-<tr>
-<td>Illinois Care 121</td>
-<td style="text-align: right;">34</td>
-<td style="text-align: right;">20</td>
-<td style="text-align: right;">14 / 19 (73.7%)</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td>Hold contact</td>
-</tr>
-</tbody>
-</table>
-<h2 id="65-see-what-each-gate-removes">6.5 See What Each Gate Removes</h2>
-<p>The gate summary applies each rule in sequence. It starts with the 165 accounts that have at least 1 attributed target-roster patient. The evidence floor retains 129. The opportunity floor retains 114. The access rule routes 2 more accounts away from standard field priority. Contact permission removes 18 accounts, leaving 94. Every remaining account has a valid territory and positive capacity in this synthetic package.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">targeting</span><span class="w"> </span><span class="kn">import</span> <span class="n">build_gate_summary</span>
-
-<span class="n">gate_summary</span> <span class="o">=</span> <span class="n">build_gate_summary</span><span class="p">(</span><span class="n">account_targets</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">gate_summary</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>                 stage  accounts
-Target-roster accounts       165
-        Evidence floor       129
-     Opportunity floor       114
- No access-review flag       112
-    Contact permission        94
-Ownership and capacity        94
-</code></pre></div>
-<p><img alt="Horizontal stage bars showing 165 target-roster accounts reduced to 94 after evidence, opportunity, access, permission, ownership, and capacity gates." src="../assets/figures/figure_6_5_gate_attrition.svg" /></p>
-<p><em>Figure 6.5. Permission is the largest operational reduction after the evidence floor: 18 accounts leave the field-action path at that gate. Synthetic data.</em></p>
-<p>The sequential gates assign 36 accounts below the evidence floor and 15 below the opportunity floor to monitoring. The remaining queues contain 2 access reviews, 18 contact holds, and 94 fully eligible accounts.</p>
-<h2 id="66-select-the-hcp-inside-the-account">6.6 Select the HCP Inside the Account</h2>
-<p>The account action sets the context, and the HCP rule then checks that person's current permission and recent contact history. This sequence keeps HCP recommendations consistent with account ownership while excluding opted-out HCPs from the call plan.</p>
-<p><em>Table 6.5. HCP rules resolve the action within the account.</em></p>
-<table>
-<thead>
-<tr>
-<th>Account action</th>
-<th>HCP condition</th>
-<th>HCP action</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Any</td>
-<td>Latest consent is <code>Opt-out</code> or missing</td>
-<td>Hold contact</td>
-</tr>
-<tr>
-<td>Access review</td>
-<td>Contact permitted</td>
-<td>Access follow-up</td>
-</tr>
-<tr>
-<td>Increase priority</td>
-<td>Contact permitted and fewer than 2 recent contacts</td>
-<td>Prioritize</td>
-</tr>
-<tr>
-<td>Maintain</td>
-<td>Contact permitted and no recent contact</td>
-<td>Maintain</td>
-</tr>
-<tr>
-<td>Remaining cases</td>
-<td>Default</td>
-<td>Monitor</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Listing 6.5</strong>: Resolve HCP actions inside the account decision.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">targeting</span><span class="w"> </span><span class="kn">import</span> <span class="n">build_hcp_actions</span>
-
-<span class="n">hcp_targets</span> <span class="o">=</span> <span class="n">build_hcp_actions</span><span class="p">(</span><span class="n">hcp_deciles</span><span class="p">,</span> <span class="n">account_targets</span><span class="p">)</span>
-<span class="n">action_counts</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="n">hcp_targets</span><span class="o">.</span><span class="n">hcp_action</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
-    <span class="o">.</span><span class="n">rename_axis</span><span class="p">(</span><span class="s2">&quot;hcp_action&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;hcps&quot;</span><span class="p">)</span>
-<span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">action_counts</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>      hcp_action  hcps
-         Monitor   111
-    Hold contact    86
-      Prioritize    56
-        Maintain    27
-Access follow-up     1
-</code></pre></div>
-<p>Account-level permission remains broader because an account can contain both permitted and opted-out HCPs.</p>
-<h2 id="67-turn-actions-into-a-bounded-call-plan">6.7 Turn Actions into a Bounded Call Plan</h2>
-<p>The call plan converts priority into activity. Priority accounts receive between 1 and 3 suggested contacts, bounded by account capacity and scaled at roughly 1 contact per 8 opportunity patients. Maintenance is limited to 1 contact when the recent-contact rate is below 1 per target HCP. Within each account, allocation starts with permitted HCPs that combine high opportunity with limited recent contact.</p>
-<p><strong>Listing 6.6</strong>: Build the HCP call plan and territory summary.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">targeting</span><span class="w"> </span><span class="kn">import</span> <span class="n">build_call_plan</span><span class="p">,</span> <span class="n">build_territory_summary</span>
-
-<span class="n">call_plan</span> <span class="o">=</span> <span class="n">build_call_plan</span><span class="p">(</span><span class="n">account_targets</span><span class="p">,</span> <span class="n">hcp_targets</span><span class="p">)</span>
-<span class="n">territory</span> <span class="o">=</span> <span class="n">build_territory_summary</span><span class="p">(</span><span class="n">account_targets</span><span class="p">,</span> <span class="n">call_plan</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Planned HCPs: </span><span class="si">{</span><span class="n">call_plan</span><span class="o">.</span><span class="n">npi</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Recommended calls: </span><span class="si">{</span><span class="n">call_plan</span><span class="o">.</span><span class="n">recommended_calls</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">call_plan</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>Planned HCPs: 69
-Recommended calls: 82
-territory account_id          account_name        npi     specialty    account_action hcp_action  recommended_calls  hcp_opportunity_patients  recent_contacts                                                                reason
-      T01     ACC064      Florida Care 064 9000000555      Oncology Increase priority Prioritize                  1                        21                1 Contactable opportunity and Roventra share below the cohort benchmark
-      T01     ACC224     Michigan Care 224 9000000217 Endocrinology Increase priority Prioritize                  2                        15                1 Contactable opportunity and Roventra share below the cohort benchmark
-      T01     ACC056 Pennsylvania Care 056 9000000136  Primary Care Increase priority Prioritize                  2                         7                1 Contactable opportunity and Roventra share below the cohort benchmark
-      T01     ACC024      Arizona Care 024 9000000432      Oncology Increase priority Prioritize                  1                         6                0 Contactable opportunity and Roventra share below the cohort benchmark
-      T01     ACC176      Arizona Care 176 9000000446  Primary Care Increase priority Prioritize                  1                         5                1 Contactable opportunity and Roventra share below the cohort benchmark
-</code></pre></div>
-<p>The call count is a planning scenario. Account capacity in the synthetic reference table sets the upper bound. A production plan would also use cycle length, representative capacity, channel availability, local access rules, and approved frequency policy.</p>
-<p>Now compare equal-sized lists.</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">targeting</span><span class="w"> </span><span class="kn">import</span> <span class="n">compare_naive_and_gated</span>
-
-<span class="n">comparison</span> <span class="o">=</span> <span class="n">compare_naive_and_gated</span><span class="p">(</span><span class="n">hcp_targets</span><span class="p">,</span> <span class="n">call_plan</span><span class="p">,</span> <span class="n">top_n</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">comparison</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>                    plan  selected_hcps  contact_permitted  opted_out  opportunity_patients  recent_contacts
-Top 30 by patient volume             30                 20         10                   361               32
-    Gated near-term plan             30                 30          0                   267               14
-</code></pre></div>
-<p>The gated list accepts lower total patient volume in exchange for executable contact permission and lower recent saturation. The table exposes that tradeoff directly.</p>
-<h3 id="671-check-territory-allocation">6.7.1 Check territory allocation</h3>
-<p>The territory table compares each territory's share of 928 field-eligible opportunity patients with its share of 82 recommended contacts. T01 and T06 each hold 170 field-eligible opportunity patients. T03 holds 112 of 928, or 12.1%, and receives 5 of 82 contacts, or 6.1%. That gap should trigger review before the plan is released.</p>
-<p><img alt="Paired dots compare each territory's share of actionable opportunity with its share of recommended calls." src="../assets/figures/figure_6_6_territory_allocation.svg" /></p>
-<p><em>Figure 6.6. The allocation is broadly aligned, while T03 and T04 show the largest directional gaps. Synthetic data.</em></p>
-<p><em>Table 6.6. Territory allocation makes under- and over-allocation visible.</em></p>
-<table>
-<thead>
-<tr>
-<th>Territory</th>
-<th style="text-align: right;">Actionable opportunity</th>
-<th style="text-align: right;">Recommended calls</th>
-<th style="text-align: right;">Opportunity share</th>
-<th style="text-align: right;">Call share</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>T01</td>
-<td style="text-align: right;">170</td>
-<td style="text-align: right;">13</td>
-<td style="text-align: right;">18.3%</td>
-<td style="text-align: right;">15.9%</td>
-</tr>
-<tr>
-<td>T06</td>
-<td style="text-align: right;">170</td>
-<td style="text-align: right;">16</td>
-<td style="text-align: right;">18.3%</td>
-<td style="text-align: right;">19.5%</td>
-</tr>
-<tr>
-<td>T07</td>
-<td style="text-align: right;">124</td>
-<td style="text-align: right;">12</td>
-<td style="text-align: right;">13.4%</td>
-<td style="text-align: right;">14.6%</td>
-</tr>
-<tr>
-<td>T03</td>
-<td style="text-align: right;">112</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">12.1%</td>
-<td style="text-align: right;">6.1%</td>
-</tr>
-<tr>
-<td>T02</td>
-<td style="text-align: right;">98</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">10.6%</td>
-<td style="text-align: right;">12.2%</td>
-</tr>
-<tr>
-<td>T05</td>
-<td style="text-align: right;">94</td>
-<td style="text-align: right;">11</td>
-<td style="text-align: right;">10.1%</td>
-<td style="text-align: right;">13.4%</td>
-</tr>
-<tr>
-<td>T08</td>
-<td style="text-align: right;">91</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">9.8%</td>
-<td style="text-align: right;">7.3%</td>
-</tr>
-<tr>
-<td>T04</td>
-<td style="text-align: right;">69</td>
-<td style="text-align: right;">9</td>
-<td style="text-align: right;">7.4%</td>
-<td style="text-align: right;">11.0%</td>
-</tr>
-</tbody>
-</table>
-<p>Maya takes the territory gaps and HCP rows to field leadership for local review. A valid override records the account or HCP, original action, replacement action, reason, owner, approval date, and expiration date. Quiet spreadsheet edits destroy the audit trail and make later measurement unreliable.</p>
-<h2 id="68-modern-extensions-and-their-data-requirements">6.8 Modern Extensions and Their Data Requirements</h2>
-<p>The transparent policy now gives Maya a benchmark for 4 advanced methods. Each extension needs a defined decision, stronger data, and an evaluation against the current artifact.</p>
-<h3 id="681-propensity-to-start-roventra">6.8.1 Propensity to start Roventra</h3>
-<p>The current file supports contemporaneous association only. A future-adoption model needs a historical feature cutoff and a later outcome window. For example, features through September 30 could predict whether a previously non-adopting HCP has a first observed Roventra start from October 1 through December 31. Using current adoption with current patient mix and engagement would leak the outcome into the predictors.</p>
-<p>The production evaluation should use a later time period, calibration by score band, lift within the eligible universe, and an execution test against the transparent policy. The model ranks HCPs only after consent, ownership, and actionability gates pass.</p>
-<h3 id="682-account-and-referral-networks">6.8.2 Account and referral networks</h3>
-<p>The supplied data link HCPs to accounts, which supports a co-practice network. A referral network requires observed referral events or clinically defensible patient transitions between HCPs. Degree and betweenness centrality can describe position in the co-practice graph; causal influence requires a separate design.</p>
-<h3 id="683-external-hcp-evidence">6.8.3 External HCP evidence</h3>
-<p>CMS Open Payments can show disclosed financial relationships between manufacturers and covered recipients. Payment amount alone is a weak basis for a key opinion leader score. A governed KOL workflow would combine reviewed scientific activity, trial participation, publications, congress roles, peer nominations, specialty relevance, and compliance review. Keep that external evidence in a separate, purpose-bound process.</p>
-<h3 id="684-optimization-under-capacity">6.8.4 Optimization under capacity</h3>
-<p>Once the team can estimate incremental response, the call plan can become an optimization problem. The objective should use expected incremental value, contact cost, territory capacity, frequency limits, consent, and fairness or coverage constraints. Historical volume remains 1 feature in that objective.</p>
-<h2 id="69-convert-the-results-into-commercial-value">6.9 Convert the Results into Commercial Value</h2>
-<p>The opening questions now have bounded answers. The largest observed opportunity sits disproportionately in the highest volume tier: decile 10 contains 347 of the 1,297 opportunity patients across all deciles. Current permission covers 18 of the 28 HCPs in that tier. Account gates convert 165 observed accounts into 94 field-eligible accounts. The final policy assigns 43 accounts to increased priority, 51 to maintenance, 2 to access review, 18 to contact hold, and 51 to monitoring. The call plan allocates 82 contacts across 69 HCPs.</p>
-<p><em>Table 6.7. Each analytical result answers a commercial question and names the next action.</em></p>
-<table>
-<thead>
-<tr>
-<th>Commercial question</th>
-<th>Chapter answer</th>
-<th>Business action</th>
-<th>Boundary</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Where is patient opportunity concentrated?</td>
-<td>Decile 10 contains 347 opportunity patients among 28 HCPs</td>
-<td>Protect capacity for high-volume tiers while reviewing lower tiers with better contactability</td>
-<td>Attribution uses the diagnosis HCP and a 43.0% target-roster subset</td>
-</tr>
-<tr>
-<td>Which accounts support near-term field action?</td>
-<td>94 of 165 accounts pass every sequential gate</td>
-<td>Release only these accounts into standard field planning</td>
-<td>Thresholds are scenario policy inputs</td>
-</tr>
-<tr>
-<td>Which accounts need different ownership?</td>
-<td>2 require access review, 18 require a contact hold, and 51 remain under monitoring</td>
-<td>Route each queue to the responsible function</td>
-<td>The cause remains unresolved until access evidence is reviewed</td>
-</tr>
-<tr>
-<td>Which HCPs enter the call plan?</td>
-<td>69 permitted HCPs receive 82 recommended contacts</td>
-<td>Publish the HCP-level plan with reason and account context</td>
-<td>Local review can produce documented overrides</td>
-</tr>
-<tr>
-<td>Does activity follow opportunity?</td>
-<td>T03 has 12.1% of actionable opportunity and 6.1% of planned contacts</td>
-<td>Review territory capacity and the HCP-level allocation in T03</td>
-<td>Incremental response requires a controlled measurement design</td>
-</tr>
-</tbody>
-</table>
-<p><code>run_analysis.py</code> writes the reusable targeting evidence package. Every exported row carries the analysis date, while <code>manifest.json</code> records source hashes, date ranges, the upstream synthetic seed, scenario assumptions, schemas, row counts, and output hashes. The account and HCP tables preserve the evidence, gate results, action, reason, territory, and capacity-aware recommendation needed for review. This package supports field planning now and provides a baseline for Chapter 7, where formulary position and payer controls can refine the access-review queue.</p>
-<h2 id="610-summary">6.10 Summary</h2>
-<p>The chapter started with a top-30 volume list that included 10 opted-out HCPs. The corrected workflow attributed patient evidence to the field roster, measured volume and opportunity separately, aggregated the evidence to accounts, applied action gates, selected permitted HCPs, and checked territory allocation.</p>
-<ul>
-<li>HCP volume deciles describe concentration. Final action also requires account context, permission, recency, and capacity.</li>
-<li>Account context carries ownership, capacity, adoption, and repeated transaction signals.</li>
-<li>Evidence, opportunity, access review, permission, ownership, and capacity are explicit gates.</li>
-<li>HCP actions inherit account context and then apply person-level permission and recency.</li>
-<li>The call plan is a bounded scenario that can be audited and overridden with a recorded reason.</li>
-<li>Advanced models need temporal outcomes, leakage controls, calibration, and comparison with the transparent policy.</li>
-</ul>
-<p>Use the following rule when reviewing a target: <strong>show the opportunity, pass the gates, name the action, assign the owner, bound the activity, and record the reason.</strong></p>
-<h2 id="611-exercises">6.11 Exercises</h2>
+<p>An account passes all gates and receives <code>Increase priority</code> only if it clears every row. If it fails at any gate, it receives an action that names the gate that applied.</p>
+<p>The <strong>65% adoption threshold</strong> deserves special attention. It is a scenario assumption — it defines the boundary above which Roventra penetration is considered adequate and a full priority call is not needed. This threshold must have a documented market rationale before a production plan is released. It is stored explicitly in the output so that the business review can see and challenge it.</p>
+<p>The action order is applied top to bottom; earlier gates take precedence:</p>
 <ol>
-<li><strong>Change the evidence floor.</strong> Rebuild the account actions with a minimum of 5, 10, and 15 attributed patients. Compare action counts and identify 1 account whose recommendation changes. State which threshold you would take to field leadership and what stability evidence you would request. See Section 6.4.</li>
-<li><strong>Audit the volume trap.</strong> Select the 30 highest-volume HCPs and compare them with the 30 planned HCPs that have the largest opportunity counts. Report permission, recent contacts, opportunity patients, and account actions for both lists. Explain which list is executable and what information remains missing. See Sections 6.2 and 6.7.</li>
-<li><strong>Rebalance 1 territory.</strong> Hold the total at 82 contacts and move contacts toward T03 until its call share is within 2 percentage points of its actionable-opportunity share. Respect HCP permission and account capacity. Record which territory gives up activity and the business tradeoff. See Section 6.7.</li>
+<li><code>Monitor</code> — evidence below floor or treated denominator too small</li>
+<li><code>Access review</code> — unresolved access signals above trigger</li>
+<li><code>Hold contact</code> — no permitted HCP in this account</li>
+<li><code>Maintain</code> — account is eligible but recently contacted enough to be considered saturated</li>
+<li><code>Increase priority</code> — all gates pass and adoption below threshold</li>
+<li><code>Maintain</code> — all gates pass but adoption is above threshold</li>
 </ol>
-<p><a href="../chapter6_walkthrough.ipynb"><code>chapter6_walkthrough.ipynb</code></a> runs the chapter as one executable workflow. <a href="../exercise_solutions.ipynb"><code>exercise_solutions.ipynb</code></a> contains worked solutions and ends each exercise with the judgment required for real data.</p>
-<p>Chapter 7 adds competitive and market-access evidence to explain which observed adoption gaps are commercially addressable and which are constrained by payer policy.</p>
+<p><strong>Listing 6.11</strong>: Count account actions</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;account_targets&quot;</span><span class="p">][</span><span class="s2">&quot;account_action&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>account_action
+Monitor              86
+Hold contact         12
+Increase priority     9
+Maintain              6
+Access review         1
+</code></pre></div>
+<p>Most accounts (86 of 114) land in <code>Monitor</code> — they do not yet have enough patient evidence or treated denominator to support a priority field action this cycle. Twelve are held because no HCP in the account currently has field permission. Only 9 reach <code>Increase priority</code>, which is the operational action driving call-plan entries.</p>
+<p>Figure 6.13 shows each account as a point, with Roventra share on the X axis, review opportunity on the Y axis, point color for the assigned action, and point size proportional to cohort patients. The threshold lines cut the space into regions — accounts above the opportunity floor and below the adoption threshold are where the priority action applies. The gates, however, mean that even an account that <em>looks</em> like it belongs in the priority region by these two metrics alone may not reach priority if another gate (denominator, permission, capacity) applies first.</p>
+<p><img alt="Scatter plot with priority accounts shown as large labeled dots in the foreground and non-priority accounts as small faded dots, with a shaded priority zone." src="../assets/figures/figure_6_13_account_actions.svg" /></p>
+<p><em>Figure 6.13. Priority accounts (large green dots, labeled by account ID) are the focal point. Non-priority accounts recede into the background. The shaded region is the priority zone; accounts that fall inside it but remain non-priority failed an earlier gate — denominator, permission, or access routing. Synthetic data.</em></p>
+<p><strong>How four accounts resolve differently.</strong> The four accounts below have similar surface-level evidence but receive different actions because different gates apply:</p>
+<div class="highlight"><pre><span></span><code><span class="n">traces</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;account_targets&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;account_id&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
+    <span class="p">[</span><span class="s2">&quot;ACC155&quot;</span><span class="p">,</span> <span class="s2">&quot;ACC002&quot;</span><span class="p">,</span> <span class="s2">&quot;ACC121&quot;</span><span class="p">,</span> <span class="s2">&quot;ACC231&quot;</span><span class="p">],</span>
+    <span class="p">[</span>
+        <span class="s2">&quot;account_action&quot;</span><span class="p">,</span> <span class="s2">&quot;reason_code&quot;</span><span class="p">,</span> <span class="s2">&quot;cohort_patients&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;treated_patients&quot;</span><span class="p">,</span> <span class="s2">&quot;review_opportunity&quot;</span><span class="p">,</span> <span class="s2">&quot;roventra_share&quot;</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">traces</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>               account_action                        reason_code  cohort_patients  treated_patients  review_opportunity  roventra_share
+account_id
+ACC155      Increase priority      PRIORITIZE_REVIEW_OPPORTUNITY               38                15                  34        0.200000
+ACC002          Access review                ROUTE_ACCESS_REVIEW               14                 6                  12        0.333333
+ACC121           Hold contact                 HOLD_NO_PERMISSION               34                10                  27        0.400000
+ACC231                Monitor  MONITOR_SMALL_TREATED_DENOMINATOR               25                 7                  21        0.571429
+</code></pre></div>
+<p>ACC155 clears every gate — enough patients, permitted HCPs, solid review opportunity, and adoption well below 65%. It gets the priority call. ACC002 has active unresolved access signals, so it goes to the access-review queue before commercial action is considered. ACC121 has material opportunity (27 patients) but every HCP in that account has opted out — no permitted HCP means the account is held entirely. ACC231 looks like it has good opportunity (21 patients) but only 7 treated — below the 8-patient treated-denominator floor — so it <code>Monitor</code>s regardless of other signals. The reason code on every row names exactly which gate produced the action.</p>
+<p>Figure 6.14 shows the gate attrition waterfall: how many accounts pass or fail at each sequential gate, and how many remain after all gates are applied.</p>
+<p><img alt="Horizontal gate chart showing accounts remaining after evidence, treated denominator, opportunity, access, permission, ownership, and capacity gates." src="../assets/figures/figure_6_14_gate_attrition.svg" /></p>
+<p><em>Figure 6.14. The treated-denominator gate is the largest single filter in this scenario. After all gates, 15 accounts are field eligible. Synthetic data.</em></p>
+<p><strong>Stress-testing the policy.</strong> The adoption threshold and the opportunity floor are the two parameters most likely to be challenged in a business review. The sensitivity analysis reruns the policy across a grid of alternative values to show how the priority account count changes.</p>
+<p><strong>Listing 6.12</strong>: Stress-test the policy</p>
+<div class="highlight"><pre><span></span><code><span class="n">sensitivity</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;policy_sensitivity&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">query</span><span class="p">(</span>
+    <span class="s2">&quot;minimum_account_patients == 10&quot;</span>
+<span class="p">)</span>
+<span class="n">table</span> <span class="o">=</span> <span class="n">sensitivity</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span>
+    <span class="n">index</span><span class="o">=</span><span class="s2">&quot;adoption_threshold&quot;</span><span class="p">,</span>
+    <span class="n">columns</span><span class="o">=</span><span class="s2">&quot;minimum_opportunity_patients&quot;</span><span class="p">,</span>
+    <span class="n">values</span><span class="o">=</span><span class="s2">&quot;priority_accounts&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">table</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>minimum_opportunity_patients  4   8   12
+adoption_threshold
+0.45                           5   5   5
+0.60                           9   9   9
+0.75                          10  10   9
+</code></pre></div>
+<p>The opportunity floor barely moves the count in this range — shifting from 4 to 12 minimum opportunity patients changes at most one account. The adoption threshold is what actually moves the priority list: tightening it from 60% to 45% cuts the count from 9 to 5; loosening it to 75% adds one more. This means the adoption threshold assumption belongs in the business review conversation, not buried in the code.</p>
+<h2 id="68-select-hcps-and-build-the-4-week-call-plan">6.8 Select HCPs and Build the 4-Week Call Plan</h2>
+<p>The account policy produced a set of <code>Increase priority</code> accounts and identified which gates blocked the others. The final step converts that account-level result into an HCP-level, territory-reconciled, executable call plan.</p>
+<p>This step is distinct from account prioritization. An account can receive <code>Increase priority</code> but still have no HCPs who pass the HCP-level rules — because the only permitted HCP already reached the contact cap, or because territory capacity is exhausted. The call plan makes this explicit rather than assuming that account eligibility automatically translates to HCP actions.</p>
+<p><strong>The call scenario.</strong> The plan covers January 1 through January 28, 2025, with these constraints:</p>
+<ul>
+<li>Maximum 2 calls per HCP in the cycle</li>
+<li>Account capacity from the account evidence table</li>
+<li>Territory capacity from the scenario table (each territory has a ceiling on total calls this cycle)</li>
+<li>Engagement archetype applied after eligibility — the segment shapes the call pattern, not whether the call happens</li>
+</ul>
+<p>For priority accounts, the formula for suggested call count is:</p>
+<div class="arithmatex">\[
+\max\left(1,
+\left\lceil
+\frac{\text{account review opportunity}}{8}
+\right\rceil
+\right)
+\]</div>
+<p>The denominator of 8 is a scenario parameter: it represents the approximate number of review-opportunity patients that justify one field call. An account with 24 review-opportunity patients suggests 3 calls; an account with 4 suggests 1 call (the floor). This allocation is then capped at the HCP's 2-call maximum and the territory's remaining capacity.</p>
+<p><strong>Listing 6.13</strong>: Produce the executable field plan</p>
+<div class="highlight"><pre><span></span><code><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;territory&quot;</span><span class="p">,</span> <span class="s2">&quot;account_id&quot;</span><span class="p">,</span> <span class="s2">&quot;npi&quot;</span><span class="p">,</span> <span class="s2">&quot;hcp_action&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;segment_name&quot;</span><span class="p">,</span> <span class="s2">&quot;recommended_calls&quot;</span><span class="p">,</span> <span class="s2">&quot;reason_code&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;call_plan&quot;</span><span class="p">][</span><span class="n">columns</span><span class="p">]</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>territory account_id        npi hcp_action               segment_name  recommended_calls                   reason_code
+      T01     ACC056 9000000136 Prioritize      C1: Field maintenance                  2 PRIORITIZE_REVIEW_OPPORTUNITY
+      T04     ACC219 9000000460 Prioritize    C2: Digital maintenance                  2 PRIORITIZE_REVIEW_OPPORTUNITY
+      T04     ACC155 9000000389 Prioritize C3: Field evidence builder                  2 PRIORITIZE_REVIEW_OPPORTUNITY
+      T05     ACC124 9000000035 Prioritize    C2: Digital maintenance                  2 PRIORITIZE_REVIEW_OPPORTUNITY
+      T06     ACC189 9000000430 Prioritize C3: Field evidence builder                  2 PRIORITIZE_REVIEW_OPPORTUNITY
+      T06     ACC109 9000000164 Prioritize      C1: Field maintenance                  2 PRIORITIZE_REVIEW_OPPORTUNITY
+      T06     ACC005 9000000498 Prioritize    C2: Digital maintenance                  2 PRIORITIZE_REVIEW_OPPORTUNITY
+      T06     ACC005 9000000051 Prioritize    C2: Digital maintenance                  1 PRIORITIZE_REVIEW_OPPORTUNITY
+      T07     ACC190 9000000366 Prioritize              Not clustered                  2 PRIORITIZE_REVIEW_OPPORTUNITY
+      T08     ACC159 9000000444 Prioritize      C1: Field maintenance                  2 PRIORITIZE_REVIEW_OPPORTUNITY
+</code></pre></div>
+<p>The plan yields 10 HCPs and 19 calls. Each row carries the territory, account, HCP, engagement segment, recommended call count, and reason code. HCP 0366 passed all commercial gates but fell outside the fitted segmentation population — it receives <code>Not clustered</code> and a standard field-review pattern and remains fully executable.</p>
+<p>Notice that ACC005 in T06 has two HCPs in the plan (0498 and 0051). The account's review opportunity was large enough to support two field conversations, and two distinct eligible, permitted HCPs were available.</p>
+<p><strong>Why a volume-only ranking would produce a different and riskier plan.</strong> The most common alternative to a gated plan is simply sorting HCPs by patient count and taking the top 30. That approach produces this result:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;plan_comparison&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>                    plan  selected_hcps  contact_permitted  held_or_unknown  review_opportunity  recent_contacts
+Top 30 by patient volume             30                 18               12                 484               44
+ Gated 4-week field plan             10                 10                0                 132                6
+</code></pre></div>
+<p>The top-30 volume list includes 12 HCPs who are either opted out or have unknown permission status. A field representative acting on that list would spend time on non-permitted contacts — a compliance risk — and would carry no documented reason for why these contacts were selected. The gated plan contains only currently permitted HCPs, each with an auditable reason code and a documented gate that determined the action.</p>
+<p><strong>Overrides.</strong> Local field knowledge sometimes justifies departing from the plan output — an HCP who recently moved to a new account, a patient who was misattributed, or a relationship context the data does not capture. The override template records the original action, the override action, the reason, the approver, the approval date, and the expiration date. The original policy result remains in the audit trail. Overrides change the execution, not the evidence.</p>
+<p><img alt="Dumbbell chart comparing each territory's actionable opportunity share (blue) and planned call share (green), with red connecting lines flagging zero-call territories." src="../assets/figures/figure_6_15_territory_allocation.svg" /></p>
+<p><em>Figure 6.15. Each territory has two dots connected by a line. Where the dots align, opportunity and calls are balanced. Where the line is long and red, the territory holds meaningful opportunity but receives no calls — no HCP passed the HCP-level gates after the account policy ran. Synthetic data.</em></p>
+<p>Figure 6.15 shows where account-level eligibility and HCP-level execution diverge by territory. T03 holds a meaningful share of actionable opportunity but receives no calls this cycle because no T03 HCP has current field permission. Field leadership can see this gap explicitly: they can inspect T03, add a permitted HCP in the next refresh, document an override if an exception applies, or accept the gap with a recorded reason. What they cannot do — with a gated plan — is accidentally work non-permitted contacts while thinking they are running a compliant plan.</p>
+<h2 id="69-validate-monitor-and-refresh">6.9 Validate, Monitor, and Refresh</h2>
+<p>Producing the plan is one step. Knowing how to challenge it, monitor it over time, and refresh it when the underlying evidence changes is equally important. This section describes what each artifact is designed to answer and what to watch for when things go wrong.</p>
+<p><strong>What each artifact is designed to answer.</strong> The analysis produces six separate output files, each owned by a different decision maker:</p>
+<table>
+<thead>
+<tr>
+<th>Artifact</th>
+<th>Decision owner</th>
+<th>Main validation question</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HCP-account evidence</td>
+<td>Commercial analytics</td>
+<td>Are coverage and attribution stable? Does the data cutoff date match expectations?</td>
+</tr>
+<tr>
+<td>Referral context</td>
+<td>Account and pathway planning</td>
+<td>Do the top-20 pathway HCPs hold across transition-window alternatives? Are bootstrap ranks stable?</td>
+</tr>
+<tr>
+<td>KOL evidence profile</td>
+<td>Medical affairs</td>
+<td>Are proposed roles supported by the source evidence? Do reviewers agree? Are payment flags visible?</td>
+</tr>
+<tr>
+<td>K-means archetypes</td>
+<td>Commercial analytics and field leadership</td>
+<td>Are cluster sizes operationally workable? Does the assignment hold under resampling? Has the centroid drifted since last cycle?</td>
+</tr>
+<tr>
+<td>Account actions</td>
+<td>Commercial leadership</td>
+<td>Do gate outcomes reconcile with expected market structure? Does the threshold sensitivity suggest the current value is defensible?</td>
+</tr>
+<tr>
+<td>Call plan</td>
+<td>Field leadership</td>
+<td>Are all selected HCPs currently permitted? Are territory capacities respected? Is unused capacity explained?</td>
+</tr>
+</tbody>
+</table>
+<p>Every output row carries the December 31, 2024 analysis date. The manifest records input source hashes and the Chapter 6 random seed so that a future run can determine whether changed outputs reflect changed data or a code difference.</p>
+<p><strong>Decision boundaries that must be explicit.</strong> The analysis applies evidence from multiple sources to different decision types. These boundaries should be documented in any production deployment:</p>
+<ul>
+<li>Referral evidence informs pathway context and medical education planning — it does not score commercial HCP priority</li>
+<li>KOL evidence supports medical-affairs role review — it does not feed HCP commercial targeting</li>
+<li>Open Payments data supports transparency review — payment disclosure never raises a scientific score, commercial priority, or speaker eligibility</li>
+<li>K-means segments shape engagement pattern after eligibility — the segment does not determine whether an HCP is targeted</li>
+<li>The account policy gate sequence controls commercial field eligibility — no gate can be bypassed without a documented override</li>
+</ul>
+<p><strong>What to monitor between cycles.</strong> A plan that looked right at the last refresh may drift as patient panels change, HCPs move accounts, or permission records update. Key signals to track:</p>
+<ul>
+<li><strong>Coverage stability</strong>: is the fraction of journey patients attributable to eligible HCPs holding steady? A sharp drop may indicate a data pipeline issue or a roster change.</li>
+<li><strong>Attribution rank movement</strong>: how many HCPs moved more than two volume deciles between cycles? Large rank movement should be investigated before the plan is released.</li>
+<li><strong>Referral top-20 stability</strong>: do the same HCPs appear in the top-20 pathway ranking as last cycle? High turnover suggests the referral signal is noisy or the patient population has changed.</li>
+<li><strong>KOL reviewer agreement</strong>: has the reviewer-decision kappa improved or degraded since the last evidence refresh?</li>
+<li><strong>Cluster size and centroid drift</strong>: have any clusters shrunk below the minimum operational size? Has the centroid of a cluster moved enough to suggest HCP behavior is changing?</li>
+<li><strong>Override rate and expiration</strong>: are overrides accumulating without expiration? A high override rate may indicate the policy threshold assumptions need updating.</li>
+<li><strong>Call execution and unused capacity</strong>: which territories consistently underuse their capacity? The T03 gap from Section 6.8 should appear here and carry a recorded reason.</li>
+</ul>
+<p>Chapter 8 will use the engagement plan produced here to sequence omnichannel interactions. Chapter 10 will introduce counterfactual measurement to assess whether the plan produced incremental outcomes. In this chapter, the response signals in the engagement-pattern profiles are observed correlations, not causal estimates.</p>
+<h2 id="610-summary">6.10 Summary</h2>
+<p>The chapter began with a simple-sounding request: take 281 roster HCPs, a set of patient journeys from Chapter 5, and produce a ranked field plan. The final 4-week call plan contains 10 HCPs and 19 calls. Most of the chapter is the explanation of why 271 HCPs are not in that plan and what conditions would change their status.</p>
+<p><strong>Why the gap is so large.</strong> The roster contains 281 HCPs, but only 158 are eligible after universe rules (specialty, geography, active affiliation) are applied. Of those 158, only 112 have Allowed field-promotion status. Of those 112, accounts with thin patient evidence or small treated denominators are held. Of those remaining, some have no review opportunity that meets the floor. Of those remaining, some territories are already at capacity. The 10 HCPs and 19 calls are what remain after each constraint is visible and documented.</p>
+<p>This is the correct picture. A plan that skipped those constraints would be larger — and would contain non-permitted HCPs, accounts with inadequate evidence, and calls that cannot be reconciled with territory capacity.</p>
+<p><strong>What the chapter established.</strong> Each section made a distinct decision and left an artifact:</p>
+<ul>
+<li>Universe definition (Section 6.1): which HCPs are in scope at all</li>
+<li>Attribution rule (Section 6.2): one declared rule so patients don't drift between HCPs across runs</li>
+<li>HCP evidence table (Section 6.3): opportunity, adoption share, and permission per eligible HCP</li>
+<li>Referral pathways (Section 6.4): which disease-specific patient flows are stable enough to inform pathway planning</li>
+<li>KOL evidence (Section 6.5): scientific evidence for medical-affairs review, separated from commercial targeting</li>
+<li>Engagement archetypes (Section 6.6): how to engage eligible HCPs after they pass the gates</li>
+<li>Account policy (Section 6.7): which accounts get which action, with gate-level reason codes</li>
+<li>Call plan (Section 6.8): executable HCP rows reconciled to account capacity, HCP caps, and territory capacity</li>
+<li>Validation (Section 6.9): how to monitor each artifact and what to do when it drifts</li>
+</ul>
+<blockquote>
+<p><strong>Chapter 6 action rule:</strong> Define the eligible universe and the evidence cutoff before ranking anything. Keep referral context, scientific influence, engagement segmentation, and commercial eligibility as separate decisions with separate owners. Release a field action only when patient evidence, account gate, HCP permission, engagement pattern, and cycle capacity all reconcile in one auditable row with a documented reason code.</p>
+</blockquote>
+<h2 id="611-exercises">6.11 Exercises</h2>
+<h3 id="exercise-1-change-the-referral-window">Exercise 1: Change the Referral Window</h3>
+<p>Use Section 6.4. Rebuild the referral network with a 45-day maximum transition. Compare the top 20 HCPs with the 60-day result. Explain which pathway HCPs remain stable and which decision would change.</p>
+<p>Keep the solution under 20 lines of pandas and Python.</p>
+<h3 id="exercise-2-refit-k-means">Exercise 2: Refit K-Means</h3>
+<p>Use Section 6.6. Remove <code>access_resource_score</code> or fit <span class="arithmatex">\(k=3\)</span>. Compare silhouette, bootstrap ARI, minimum size, and centroid profiles with the selected model. Defend whether the alternative remains useful for an engagement decision.</p>
+<p>Keep the solution under 20 lines of pandas and Python.</p>
+<h3 id="exercise-3-review-a-kol-candidate">Exercise 3: Review a KOL Candidate</h3>
+<p>Use Section 6.5. Select one scientific candidate and inspect the 4 evidence domains, role-fit score, transparency record, and medical-review status. State the scientific role decision, commercial action, and speaker-program boundary separately.</p>
+<p>End with one judgment question: which additional real-world source would you require before acting?</p>
+<p>The executed <a href="chapter6_walkthrough.ipynb">Chapter 6 walkthrough notebook</a> reproduces the chapter. Worked answers appear in <a href="exercise_solutions.ipynb">the exercise solutions notebook</a>. Chapter 7 adds payer and access evidence to the account decision.</p>
 
 
 
