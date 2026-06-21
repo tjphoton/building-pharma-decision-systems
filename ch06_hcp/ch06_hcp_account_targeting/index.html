@@ -1158,10 +1158,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#642-disease-pathway" class="md-nav__link">
+  <a href="#642-disease-referal-pathway" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6.4.2 Disease pathway
+        6.4.2 Disease referal pathway
       
     </span>
   </a>
@@ -1185,10 +1185,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#65-build-a-kol-profile" class="md-nav__link">
+  <a href="#65-build-a-kol-scientific-profile" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6.5 Build a KOL Profile
+        6.5 Build a KOL Scientific Profile
       
     </span>
   </a>
@@ -1483,10 +1483,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#642-disease-pathway" class="md-nav__link">
+  <a href="#642-disease-referal-pathway" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6.4.2 Disease pathway
+        6.4.2 Disease referal pathway
       
     </span>
   </a>
@@ -1510,10 +1510,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#65-build-a-kol-profile" class="md-nav__link">
+  <a href="#65-build-a-kol-scientific-profile" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6.5 Build a KOL Profile
+        6.5 Build a KOL Scientific Profile
       
     </span>
   </a>
@@ -1674,7 +1674,7 @@
   scientific_profiles: 281 rows
   scientific_evidence: 2,026 rows
   scientific_collaborations: 724 rows
-  medical_reviews: 160 rows
+  medical_reviews: 430 rows
   engagement_signals: 281 rows
   transparency_review: 237 rows
   territory_capacity: 8 rows
@@ -1853,7 +1853,7 @@ Index vs plurality                6393      4407          68.9%
 <p>Seven primary-care physicians send patients to HCP 0631, and HCP 0631 refers out to two specialists — HCPs 0430 and 0522. This pattern of aggregating from many upstream sources and distributing to downstream specialists is exactly what betweenness centrality captures. Figure 6.7 shows the same structure as a directed network, with node labels as the last four NPI digits and edge labels as unique patient counts.</p>
 <p><img alt="Directed account-centered referral network with patient counts on each edge." src="../assets/figures/figure_6_7_referral_network.svg" /></p>
 <p><em>Figure 6.7. The ego network shows the highest-betweenness HCP and the ten strongest referral edges connected to that physician. Patient count labels each edge. Synthetic data.</em></p>
-<h3 id="642-disease-pathway">6.4.2 Disease pathway</h3>
+<h3 id="642-disease-referal-pathway">6.4.2 Disease referal pathway</h3>
 <p>Listing 6.6 aggregates the validated referral episodes by specialty pair to show where T2D patient volume actually flows in this market.</p>
 <p><strong>Listing 6.6</strong>: Aggregate referral flow by specialty pair</p>
 <div class="highlight"><pre><span></span><code><span class="n">episodes</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;referral_episodes&quot;</span><span class="p">]</span>
@@ -1921,17 +1921,16 @@ Index vs plurality                6393      4407          68.9%
 9000000545 Endocrinology                      37                4                     47.5%
 </code></pre></div>
 <p>Eleven HCPs clear the 90% threshold, all Endocrinologists. Pathway stability is a separate signal from commercial review opportunity. An HCP can be a critical referral node while having low review opportunity, or vice versa, and both signals should be included in the final account plan.</p>
-<h2 id="65-build-a-kol-profile">6.5 Build a KOL Profile</h2>
-<p>The referral analysis identifies where patients flow through the market. A separate question is which physicians shape how T2D is understood and treated — through research, congress leadership, peer teaching, or clinical practice. These are Key Opinion Leaders, and identifying them belongs to medical affairs, not to the commercial field team.</p>
-<p>The distinction matters. A KOL identification process that uses commercial patient volume or field-contact history to select candidates creates a conflict of interest. This section builds a scientific evidence profile entirely from public and professional signals, then proposes a scientific role for each candidate. Commercial information enters only afterward, as a transparency check — not as an input to the scientific score.</p>
-<p><strong>What the scientific profile measures.</strong> The profile is built across four domains, each normalized within specialty and career stage so that a junior researcher publishing prolifically in T2D is evaluated against peers at a similar career point, not against a senior endocrinologist with thirty years of output:</p>
+<h2 id="65-build-a-kol-scientific-profile">6.5 Build a KOL Scientific Profile</h2>
+<p>The referral analysis identifies where patients flow through the market. A separate question is which physicians shape how T2D is understood and treated, through their research, congress leadership, peer teaching, or clinical practice. These are Key Opinion Leaders (KOLs), and medical affairs identify them.</p>
+<p>This section builds a scientific evidence profile entirely from public and professional signals, then proposes a scientific role for each candidate. The profile is built across four domains, each normalized within specialty and career stage so that a junior researcher publishing prolifically is evaluated against peers at a similar career point, not against a senior endocrinologist with thirty years of tenure:</p>
 <ol>
-<li><strong>Research contribution</strong>: publication roles, T2D disease relevance, identity-match confidence, and recency. A lead or corresponding author role on a highly relevant, recent paper scores higher than a middle-author credit on a weakly related paper from a decade ago.</li>
+<li><strong>Research contribution</strong>: publication roles, disease relevance, identity-match confidence, and recency. A lead or corresponding author role on a highly relevant, recent paper scores higher than a middle-author credit on a weakly related paper from a decade ago.</li>
 <li><strong>Scientific leadership</strong>: conference speaking, guideline authorship, and editorial positions. This domain captures influence over how the field is organized, not just what it produces.</li>
-<li><strong>Practice expertise</strong>: patient volume and specialization signals that indicate deep clinical experience in T2D management, distinct from academic publication activity.</li>
+<li><strong>Practice expertise</strong>: patient volume and specialization signals that indicate deep clinical experience in disease management, distinct from academic publication activity.</li>
 <li><strong>Peer connection</strong>: scientific collaboration network position. An HCP who co-publishes with many other researchers connects scientific communities; one who is isolated may have high personal output but limited reach.</li>
 </ol>
-<p><strong>How scientific roles are assigned.</strong> Different roles require different combinations of these domains. An evidence-generation collaborator needs strong research output and clinical grounding to run trials. A national scientific leader needs leadership signals and research credibility. A regional educator needs peer connection and practice depth to teach effectively through local networks. The role-fit formula makes each combination explicit:</p>
+<p>Different roles require different combinations of these domains. An evidence-generation collaborator needs strong research output and clinical grounding to run trials. A national scientific leader needs leadership signals and research credibility. A regional educator needs peer connection and practice depth to teach effectively through local networks. The role-fit formula makes each combination explicit:</p>
 <table>
 <thead>
 <tr>
@@ -1981,10 +1980,10 @@ Index vs plurality                6393      4407          68.9%
 9000000512    Cardiology                100.0              31.250000                      94.444444                   92.500000 Evidence-generation collaborator            98.1                High
 9000000562    Cardiology                100.0              40.000000                      89.473684                   75.000000 Evidence-generation collaborator            96.3                High
 </code></pre></div>
-<p>Notice that these candidates arrive at similar role-fit scores through very different domain profiles. HCP0206 has a 100th-percentile research score but only an 8th-percentile leadership score — they are a prolific researcher with limited conference presence. HCP0363 scores at the 100th percentile in every domain. Figure 6.9 makes these profile differences visible by showing each candidate within the two dimensions most relevant to their proposed role.</p>
+<p>Notice that these candidates arrive at similar role-fit scores through very different domain profiles. HCP0206 has a 100th-percentile research score but only an 8th-percentile leadership score. They are a prolific researcher with limited conference presence. HCP0363 scores at the 100th percentile in every domain. Figure 6.9 shows each candidate within the two dimensions most relevant to their proposed role.</p>
 <p><img alt="Four scatter plots, one per proposed scientific role, showing candidate positions on that role's two primary evidence dimensions. Gray dots show candidates from other roles for context." src="../assets/figures/figure_6_9_kol_evidence_matrix.svg" /></p>
 <p><em>Figure 6.9. Each panel focuses on one proposed role and plots the two dimensions that dominate its fit formula. Gray dots are candidates assigned to other roles. The same candidate can look strong or weak depending on which role lens is applied. Synthetic data.</em></p>
-<p>The four role lists have different sizes because the evidence threshold is applied independently to each role formula. An HCP who does not meet the 65-point threshold for evidence-generation collaborator might exceed it for local practice expert.</p>
+<p><strong>Listing 6.9</strong>: Count candidates by proposed role</p>
 <div class="highlight"><pre><span></span><code><span class="n">role_counts</span> <span class="o">=</span> <span class="p">(</span>
     <span class="n">results</span><span class="p">[</span><span class="s2">&quot;kol_profiles&quot;</span><span class="p">]</span>
     <span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;kol_profiles&quot;</span><span class="p">][</span><span class="s2">&quot;kol_candidate&quot;</span><span class="p">],</span> <span class="s2">&quot;proposed_role&quot;</span><span class="p">]</span>
@@ -1993,26 +1992,11 @@ Index vs plurality                6393      4407          68.9%
 <span class="nb">print</span><span class="p">(</span><span class="n">role_counts</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>proposed_role
-Evidence-generation collaborator    12
-       National scientific leader    5
-    Regional scientific educator     4
-           Local practice expert     4
+       National scientific leader    27
+           Local practice expert     23
+Evidence-generation collaborator    21
+    Regional scientific educator    12
 </code></pre></div>
-<p>The peer-connection domain is built from a scientific collaboration network. The raw source for each candidate's peer-connection score is the <code>scientific_collaborations</code> table — it lists co-authorship links and allows a reviewer to trace exactly which co-publications drove the score. The collaboration data gives the score a traceable definition rather than a single unexplained percentile.</p>
-<p><strong>Validating the scientific assignments.</strong> A proposed role and a role-fit score are a model output. They must be reviewed by medical-affairs professionals before any outreach decision. Two independent synthetic reviewers assessed 65 candidates in the T2D scientific universe.</p>
-<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;kol_validation&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>        validation_measure     value
-       Reviewed candidates 65.000000
-  Proposed role match rate  0.415385
-Reviewer confirmation rate  0.700000
-   Reviewer decision kappa  0.378865
-</code></pre></div>
-<p>The role match rate of 41.5% and reviewer kappa of 0.38 are not failures — they are the expected result when a model proposes a specific role for a large candidate pool without case-by-case reviewer input. The reviewers confirm 70% of individual candidates (not role assignments), which shows the scientific universe is reasonable but that role assignment within it requires human judgment. The artifact stores proposed role, role-fit evidence, evidence confidence, model version, review status, reviewer ID, and refresh date so that reviewer decisions are auditable and tied to a specific model version.</p>
-<p><strong>Separating scientific influence from commercial action.</strong> Once the scientific candidate list is finalized, Open Payments data is checked for each candidate. The transparency review records disclosed payment amount, category, payment record count, year, and a company-policy review status. Payment information is displayed in the artifact for transparency and compliance review; it never raises a scientific percentile, role-fit score, commercial priority, or speaker eligibility score.</p>
-<p>Figure 6.10 shows that the same HCP can appear in both the scientific candidate table and the commercial HCP table, but those are two separate rows in two separate output files with two separate decision owners. A medical-affairs scientific leader and a commercial field representative are making different decisions about the same physician.</p>
-<p><img alt="Stacked bar chart crossing scientific role with commercial HCP action." src="../assets/figures/figure_6_10_decision_boundaries.svg" /></p>
-<p><em>Figure 6.10. Each bar shows HCPs in one scientific-role category, stacked by their commercial action. An HCP appearing in both the scientific and commercial tables has two distinct decision rows — one owned by medical affairs, one by commercial. Synthetic data.</em></p>
 <h2 id="66-fit-hcp-engagement-archetypes-with-k-means">6.6 Fit HCP Engagement Archetypes with K-Means</h2>
 <p>The HCP evidence table tells you <em>how much</em> opportunity each physician holds. The referral map tells you <em>where</em> patients move. Neither tells you <em>how</em> to engage a given HCP — what message channel they respond to, whether they need detailed scientific evidence or peer practice context, and whether access barriers are a factor in their HCP–patient relationship.</p>
 <p>Segmentation answers that question by grouping HCPs who share a similar engagement pattern into a small number of named archetypes. The field team then applies a different engagement approach to each archetype rather than treating all HCPs identically.</p>
@@ -2032,7 +2016,7 @@ Reviewer confirmation rate  0.700000
 \]</div>
 <p>Here, <span class="arithmatex">\(x_i\)</span> is the 4-feature vector for HCP <span class="arithmatex">\(i\)</span>, <span class="arithmatex">\(c(i)\)</span> is the assigned cluster, and <span class="arithmatex">\(\mu_{c(i)}\)</span> is the cluster centroid.</p>
 <p><strong>Choosing the number of clusters.</strong> The analysis compares <span class="arithmatex">\(k=3\)</span> through <span class="arithmatex">\(k=6\)</span> and selects based on three criteria: silhouette score (how cleanly each HCP fits its cluster compared to the nearest alternative), seed stability (whether the same cluster structure emerges with a different random seed), and bootstrap assignment stability (whether an HCP's cluster assignment is consistent when the fitting sample is resampled). A cluster must also be operationally large enough to be meaningful — at least 10% of the fitted population or 8 HCPs, whichever is larger. Candidate values within 0.02 of the top composite score are compared on bootstrap stability as a tiebreaker.</p>
-<p><strong>Listing 6.9</strong>: Select the number of clusters</p>
+<p><strong>Listing 6.10</strong>: Select the number of clusters</p>
 <div class="highlight"><pre><span></span><code><span class="n">evaluation</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;cluster_evaluation&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="n">metrics</span> <span class="o">=</span> <span class="p">[</span>
     <span class="s2">&quot;silhouette&quot;</span><span class="p">,</span> <span class="s2">&quot;seed_stability_ari&quot;</span><span class="p">,</span>
@@ -2051,7 +2035,7 @@ Reviewer confirmation rate  0.700000
  6       0.358               0.937                    0.763                     6                  False     False
 </code></pre></div>
 <p>k=4 wins on all criteria: the best silhouette score (0.427), perfect seed stability, the highest bootstrap ARI among operationally valid solutions (0.858), and all clusters above the minimum size. k=6 fails the minimum-size gate — one cluster has only 6 HCPs, which is too small to operationalize as a distinct engagement pattern.</p>
-<p><strong>Listing 6.10</strong>: Inspect the operational segment profiles</p>
+<p><strong>Listing 6.11</strong>: Inspect the operational segment profiles</p>
 <div class="highlight"><pre><span></span><code><span class="n">profiles</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;segment_profiles&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="n">features</span> <span class="o">=</span> <span class="p">[</span>
     <span class="s2">&quot;evidence_need_score&quot;</span><span class="p">,</span> <span class="s2">&quot;access_resource_score&quot;</span><span class="p">,</span>
@@ -2070,11 +2054,11 @@ C0: Digital evidence seeker         12                 0.81                   0.
  C3: Field evidence builder         10                 0.74                   0.59                   0.15                 0.82                    Field evidence discussion
 </code></pre></div>
 <p>The four archetypes are genuinely distinct. C0 and C3 both have high evidence need but split on channel: C0 responds to digital materials while C3 requires in-person evidence discussion. C1 and C2 both have low evidence need but also split on channel: C1 responds primarily to field visits while C2 is predominantly digital. This means an HCP with high evidence need who primarily uses digital channels (C0) would get a different engagement sequence than a high-evidence-need HCP who needs field interaction (C3) — even if they have identical review opportunity.</p>
-<p>Figure 6.11 shows the four archetype profiles as small-multiples bar charts — one panel per segment. Figure 6.12 plots the validation metrics across k values so the selection rationale is visible.</p>
-<p><img alt="2×2 small-multiples bar charts showing each engagement archetype's evidence-need, access-need, digital-response, and field-response scores." src="../assets/figures/figure_6_11_segment_profiles.svg" /></p>
-<p><em>Figure 6.11. Each panel is one engagement archetype. The dashed line marks 0.5 (mid-range). C0 and C3 both show high evidence-need bars but diverge on which response channel is tall; C1 and C2 both show low evidence-need bars but split the same way on channel. Synthetic data.</em></p>
-<p><img alt="Line chart comparing silhouette, seed ARI, and bootstrap ARI for candidate cluster counts." src="../assets/figures/figure_6_12_cluster_validation.svg" /></p>
-<p><em>Figure 6.12. k=4 achieves the best silhouette score and the highest bootstrap ARI among solutions that pass the minimum cluster-size gate. Synthetic data.</em></p>
+<p>Figure 6.10 shows the four archetype profiles as small-multiples bar charts — one panel per segment. Figure 6.11 plots the validation metrics across k values so the selection rationale is visible.</p>
+<p><img alt="2×2 small-multiples bar charts showing each engagement archetype's evidence-need, access-need, digital-response, and field-response scores." src="../assets/figures/figure_6_10_segment_profiles.svg" /></p>
+<p><em>Figure 6.10. Each panel is one engagement archetype. The dashed line marks 0.5 (mid-range). C0 and C3 both show high evidence-need bars but diverge on which response channel is tall; C1 and C2 both show low evidence-need bars but split the same way on channel. Synthetic data.</em></p>
+<p><img alt="Line chart comparing silhouette, seed ARI, and bootstrap ARI for candidate cluster counts." src="../assets/figures/figure_6_11_cluster_validation.svg" /></p>
+<p><em>Figure 6.11. k=4 achieves the best silhouette score and the highest bootstrap ARI among solutions that pass the minimum cluster-size gate. Synthetic data.</em></p>
 <p>The deployment file for each HCP keeps the numeric cluster ID, profile name, centroid distance (how far this HCP's features are from the archetype center), assignment stability (bootstrap frequency), model version, and engagement pattern. HCPs who passed the account and HCP gates but fell outside the fitted segmentation population receive <code>Not clustered</code> and a standard field-review pattern — they remain executable but with a generic rather than archetype-specific engagement approach.</p>
 <h2 id="67-apply-the-account-action-policy">6.7 Apply the Account Action Policy</h2>
 <p>The HCP evidence table ranks individual physicians by opportunity and permission. Accounts — the clinics, hospital systems, and practice groups where HCPs work — need their own separate prioritization. An account that employs several high-opportunity HCPs but has no permitted physicians is a different planning problem than an account with one permitted HCP and strong review opportunity.</p>
@@ -2137,7 +2121,7 @@ C0: Digital evidence seeker         12                 0.81                   0.
 <li><code>Increase priority</code> — all gates pass and adoption below threshold</li>
 <li><code>Maintain</code> — all gates pass but adoption is above threshold</li>
 </ol>
-<p><strong>Listing 6.11</strong>: Count account actions</p>
+<p><strong>Listing 6.12</strong>: Count account actions</p>
 <div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;account_targets&quot;</span><span class="p">][</span><span class="s2">&quot;account_action&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>account_action
@@ -2148,9 +2132,9 @@ Maintain              6
 Access review         1
 </code></pre></div>
 <p>Most accounts (86 of 114) land in <code>Monitor</code> — they do not yet have enough patient evidence or treated denominator to support a priority field action this cycle. Twelve are held because no HCP in the account currently has field permission. Only 9 reach <code>Increase priority</code>, which is the operational action driving call-plan entries.</p>
-<p>Figure 6.13 shows each account as a point, with Roventra share on the X axis, review opportunity on the Y axis, point color for the assigned action, and point size proportional to cohort patients. The threshold lines cut the space into regions — accounts above the opportunity floor and below the adoption threshold are where the priority action applies. The gates, however, mean that even an account that <em>looks</em> like it belongs in the priority region by these two metrics alone may not reach priority if another gate (denominator, permission, capacity) applies first.</p>
-<p><img alt="Scatter plot with priority accounts shown as large labeled dots in the foreground and non-priority accounts as small faded dots, with a shaded priority zone." src="../assets/figures/figure_6_13_account_actions.svg" /></p>
-<p><em>Figure 6.13. Priority accounts (large green dots, labeled by account ID) are the focal point. Non-priority accounts recede into the background. The shaded region is the priority zone; accounts that fall inside it but remain non-priority failed an earlier gate — denominator, permission, or access routing. Synthetic data.</em></p>
+<p>Figure 6.12 shows each account as a point, with Roventra share on the X axis, review opportunity on the Y axis, point color for the assigned action, and point size proportional to cohort patients. The threshold lines cut the space into regions — accounts above the opportunity floor and below the adoption threshold are where the priority action applies. The gates, however, mean that even an account that <em>looks</em> like it belongs in the priority region by these two metrics alone may not reach priority if another gate (denominator, permission, capacity) applies first.</p>
+<p><img alt="Scatter plot with priority accounts shown as large labeled dots in the foreground and non-priority accounts as small faded dots, with a shaded priority zone." src="../assets/figures/figure_6_12_account_actions.svg" /></p>
+<p><em>Figure 6.12. Priority accounts (large green dots, labeled by account ID) are the focal point. Non-priority accounts recede into the background. The shaded region is the priority zone; accounts that fall inside it but remain non-priority failed an earlier gate — denominator, permission, or access routing. Synthetic data.</em></p>
 <p><strong>How four accounts resolve differently.</strong> The four accounts below have similar surface-level evidence but receive different actions because different gates apply:</p>
 <div class="highlight"><pre><span></span><code><span class="n">traces</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;account_targets&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;account_id&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
     <span class="p">[</span><span class="s2">&quot;ACC155&quot;</span><span class="p">,</span> <span class="s2">&quot;ACC002&quot;</span><span class="p">,</span> <span class="s2">&quot;ACC121&quot;</span><span class="p">,</span> <span class="s2">&quot;ACC231&quot;</span><span class="p">],</span>
@@ -2169,11 +2153,11 @@ ACC121           Hold contact                 HOLD_NO_PERMISSION               3
 ACC231                Monitor  MONITOR_SMALL_TREATED_DENOMINATOR               25                 7                  21        0.571429
 </code></pre></div>
 <p>ACC155 clears every gate — enough patients, permitted HCPs, solid review opportunity, and adoption well below 65%. It gets the priority call. ACC002 has active unresolved access signals, so it goes to the access-review queue before commercial action is considered. ACC121 has material opportunity (27 patients) but every HCP in that account has opted out — no permitted HCP means the account is held entirely. ACC231 looks like it has good opportunity (21 patients) but only 7 treated — below the 8-patient treated-denominator floor — so it <code>Monitor</code>s regardless of other signals. The reason code on every row names exactly which gate produced the action.</p>
-<p>Figure 6.14 shows the gate attrition waterfall: how many accounts pass or fail at each sequential gate, and how many remain after all gates are applied.</p>
-<p><img alt="Horizontal gate chart showing accounts remaining after evidence, treated denominator, opportunity, access, permission, ownership, and capacity gates." src="../assets/figures/figure_6_14_gate_attrition.svg" /></p>
-<p><em>Figure 6.14. The treated-denominator gate is the largest single filter in this scenario. After all gates, 15 accounts are field eligible. Synthetic data.</em></p>
+<p>Figure 6.13 shows the gate attrition waterfall: how many accounts pass or fail at each sequential gate, and how many remain after all gates are applied.</p>
+<p><img alt="Horizontal gate chart showing accounts remaining after evidence, treated denominator, opportunity, access, permission, ownership, and capacity gates." src="../assets/figures/figure_6_13_gate_attrition.svg" /></p>
+<p><em>Figure 6.13. The treated-denominator gate is the largest single filter in this scenario. After all gates, 15 accounts are field eligible. Synthetic data.</em></p>
 <p><strong>Stress-testing the policy.</strong> The adoption threshold and the opportunity floor are the two parameters most likely to be challenged in a business review. The sensitivity analysis reruns the policy across a grid of alternative values to show how the priority account count changes.</p>
-<p><strong>Listing 6.12</strong>: Stress-test the policy</p>
+<p><strong>Listing 6.13</strong>: Stress-test the policy</p>
 <div class="highlight"><pre><span></span><code><span class="n">sensitivity</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;policy_sensitivity&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">query</span><span class="p">(</span>
     <span class="s2">&quot;minimum_account_patients == 10&quot;</span>
 <span class="p">)</span>
@@ -2210,7 +2194,7 @@ adoption_threshold
 \right)
 \]</div>
 <p>The denominator of 8 is a scenario parameter: it represents the approximate number of review-opportunity patients that justify one field call. An account with 24 review-opportunity patients suggests 3 calls; an account with 4 suggests 1 call (the floor). This allocation is then capped at the HCP's 2-call maximum and the territory's remaining capacity.</p>
-<p><strong>Listing 6.13</strong>: Produce the executable field plan</p>
+<p><strong>Listing 6.14</strong>: Produce the executable field plan</p>
 <div class="highlight"><pre><span></span><code><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span>
     <span class="s2">&quot;territory&quot;</span><span class="p">,</span> <span class="s2">&quot;account_id&quot;</span><span class="p">,</span> <span class="s2">&quot;npi&quot;</span><span class="p">,</span> <span class="s2">&quot;hcp_action&quot;</span><span class="p">,</span>
     <span class="s2">&quot;segment_name&quot;</span><span class="p">,</span> <span class="s2">&quot;recommended_calls&quot;</span><span class="p">,</span> <span class="s2">&quot;reason_code&quot;</span><span class="p">,</span>
@@ -2240,9 +2224,9 @@ Top 30 by patient volume             30                 18               12     
 </code></pre></div>
 <p>The top-30 volume list includes 12 HCPs who are either opted out or have unknown permission status. A field representative acting on that list would spend time on non-permitted contacts — a compliance risk — and would carry no documented reason for why these contacts were selected. The gated plan contains only currently permitted HCPs, each with an auditable reason code and a documented gate that determined the action.</p>
 <p><strong>Overrides.</strong> Local field knowledge sometimes justifies departing from the plan output — an HCP who recently moved to a new account, a patient who was misattributed, or a relationship context the data does not capture. The override template records the original action, the override action, the reason, the approver, the approval date, and the expiration date. The original policy result remains in the audit trail. Overrides change the execution, not the evidence.</p>
-<p><img alt="Dumbbell chart comparing each territory's actionable opportunity share (blue) and planned call share (green), with red connecting lines flagging zero-call territories." src="../assets/figures/figure_6_15_territory_allocation.svg" /></p>
-<p><em>Figure 6.15. Each territory has two dots connected by a line. Where the dots align, opportunity and calls are balanced. Where the line is long and red, the territory holds meaningful opportunity but receives no calls — no HCP passed the HCP-level gates after the account policy ran. Synthetic data.</em></p>
-<p>Figure 6.15 shows where account-level eligibility and HCP-level execution diverge by territory. T03 holds a meaningful share of actionable opportunity but receives no calls this cycle because no T03 HCP has current field permission. Field leadership can see this gap explicitly: they can inspect T03, add a permitted HCP in the next refresh, document an override if an exception applies, or accept the gap with a recorded reason. What they cannot do — with a gated plan — is accidentally work non-permitted contacts while thinking they are running a compliant plan.</p>
+<p><img alt="Dumbbell chart comparing each territory's actionable opportunity share (blue) and planned call share (green), with red connecting lines flagging zero-call territories." src="../assets/figures/figure_6_14_territory_allocation.svg" /></p>
+<p><em>Figure 6.14. Each territory has two dots connected by a line. Where the dots align, opportunity and calls are balanced. Where the line is long and red, the territory holds meaningful opportunity but receives no calls — no HCP passed the HCP-level gates after the account policy ran. Synthetic data.</em></p>
+<p>Figure 6.14 shows where account-level eligibility and HCP-level execution diverge by territory. T03 holds a meaningful share of actionable opportunity but receives no calls this cycle because no T03 HCP has current field permission. Field leadership can see this gap explicitly: they can inspect T03, add a permitted HCP in the next refresh, document an override if an exception applies, or accept the gap with a recorded reason. What they cannot do — with a gated plan — is accidentally work non-permitted contacts while thinking they are running a compliant plan.</p>
 <h2 id="69-validate-monitor-and-refresh">6.9 Validate, Monitor, and Refresh</h2>
 <p>Producing the plan is one step. Knowing how to challenge it, monitor it over time, and refresh it when the underlying evidence changes is equally important. This section describes what each artifact is designed to answer and what to watch for when things go wrong.</p>
 <p><strong>What each artifact is designed to answer.</strong> The analysis produces six separate output files, each owned by a different decision maker:</p>
