@@ -1904,13 +1904,12 @@
 
 
 <h1 id="chapter-5-building-the-patient-journey-treatment-patterns-lines-of-therapy-and-persistence">Chapter 5: Building the Patient Journey: Treatment Patterns, Lines of Therapy, and Persistence</h1>
-<p>Chapter 4 estimated 8.1 million diagnosed, age-eligible, untreated patients and 1.0 million expected Roventra starts under the access and conversion assumptions. The launch team now needs to convert that opportunity into an operating plan. They need to know when treatment starts occur, which products patients start, how often treatment changes, where access delays appear, and how long patients remain on therapy.</p>
-<p>Those answers affect the demand ramp, supply requirements, patient-support staffing, treatment-mix reporting, and the evidence sent to brand, market access, and field teams. A wrong journey rule can change those decisions. In this chapter, a naive line-of-therapy analysis reports 3,193 Roventra line-1 entries. A 180-day washout identifies 395 of them as continuing users, leaving 2,798 newly observed Roventra starts. The naive result overstates new starts by 14.1%.</p>
-<p>By the end of the chapter, you will build a diagnosis-indexed cohort, distinguish treatment fills from access signals, construct and test line-of-therapy rules, estimate time to treatment with censoring and competing events, measure persistence and adherence, and trace access outcomes through the hub. The final artifact is a journey evidence package that connects each commercial result to its cohort, observation window, calculation rule, and data boundary.</p>
+<p>The market-sizing analysis estimated 8.1 million diagnosed, age-eligible, untreated patients and 1.0 million expected Roventra starts under the access and conversion assumptions. The launch team now needs to convert that opportunity into an operating plan: when treatment starts occur, which products patients start, how often treatment changes, where access delays appear, and how long patients remain on therapy.</p>
+<p>Those answers affect the demand ramp, supply requirements, patient-support staffing, treatment-mix reporting, and the evidence sent to brand, market access, and field teams. A wrong journey rule can change those decisions. A naive line-of-therapy analysis reports 3,193 Roventra line-1 entries. A 180-day washout identifies 395 of them as continuing users, leaving 2,798 newly observed Roventra starts. The naive result overstates new starts by 14.1%.</p>
+<p>The work covers building a diagnosis-indexed cohort, distinguishing treatment fills from access signals, constructing and testing line-of-therapy rules, estimating time to treatment with censoring and competing events, measuring persistence and adherence, and tracing access outcomes through the hub. Each commercial result connects to its cohort, observation window, calculation rule, and data boundary.</p>
 <p>Before running any chapter listing, execute <code>uv run python ch05_journey/scripts/run_analysis.py</code> from the repository root. The script writes the journey evidence package to <code>ch05_journey/assets/generated_outputs</code>: cohort attrition, treatment episodes, line-of-therapy records, washout comparisons, initiation and persistence curves, adherence records, hub outcomes, and the rule-sensitivity grid. Every analysis below reads from those files. Run <code>uv run python ch05_journey/scripts/build_figures.py</code> to rebuild the figures, or open <a href="../chapter5_walkthrough.ipynb"><code>chapter5_walkthrough.ipynb</code></a> to execute the chapter as one sequence.</p>
 <h2 id="51-define-the-journey">5.1 Define the Journey</h2>
-<p>Before we measure treatment patterns, we have to define the cohort, the index event, the treatment evidence, and the observation window.</p>
-<p>The cohort follows the new-user design from pharmacoepidemiology (<a href="https://doi.org/10.1093/aje/kwg231">Ray, 2003</a>). We take the first qualifying diagnosis that appears during the patient's observable coverage as the index event, then require 180 covered days before that date so we can look back through the enrollment window for earlier qualifying diagnoses. In this chapter, patient journey and line-of-therapy analyses also require at least 90 observable days after index so treatment patterns have enough time to appear, while time-to-treatment analysis does not have that requirement.</p>
+<p>The cohort follows the new-user design from pharmacoepidemiology (<a href="https://doi.org/10.1093/aje/kwg231">Ray, 2003</a>). The first qualifying diagnosis during the patient's observable coverage becomes the index event. The design requires 180 covered days before that date to look back through the enrollment window for earlier qualifying diagnoses. Patient journey and line-of-therapy analyses also require at least 90 observable days after index. Time-to-treatment analysis does not carry that requirement.</p>
 <blockquote>
 <p><strong>Note 1:</strong> 180 days look back is a common default in claims-based new-user studies, especially for chronic therapies. People also use 90 days when the refill cycle is short, or 365 days when they want a stricter washout and have enough history. 180 days is a middle ground because it is long enough to catch prior basket fills and still leaves enough patients in the cohort.</p>
 <p><strong>Note 2:</strong> 90 observable days works here because you need enough post-index time to see initiation and early treatment patterns, while still keeping a usable cohort size. Some studies use 30, 60, 90, or 180 days depending on the therapy.</p>
@@ -1940,14 +1939,14 @@ Observed qualifying diagnosis      8213 At least one encounter with ICD prefix E
           Sufficient lookback      6562                     At least 180 covered days before index
               Analysis cohort      5637      Lookback plus at least 90 observable days after index
 </code></pre></div>
-<p>The panel in figure 5.1 shows 3 real patients in synthetic dataset. Each has a qualifying diagnosis, but only one has both 180 days of history before index and 90 days of observable time after it. Blue marks qualifying lookback before index, and green marks qualifying follow-up after index. Red marks lookback that is too short, and gold marks follow-up that is too short.</p>
+<p>Figure 5.1 shows 3 patients in the synthetic dataset. Each has a qualifying diagnosis, but only one has both 180 days of history before index and 90 days of observable time after it. Blue marks qualifying lookback before index, and green marks qualifying follow-up after index. Red marks lookback that is too short, and gold marks follow-up that is too short.</p>
 <p><img alt="Three patient coverage timelines show one retained patient, one excluded for short lookback, and one excluded for short follow-up." src="../assets/figures/figure_5_1_cohort_eligibility.svg" /></p>
 <p><em>Figure 5.1. Cohort entry depends on observable time around the diagnosis index.</em></p>
 <h2 id="52-lines-of-therapy-building-the-treatment-sequence">5.2 Lines of Therapy: Building the Treatment Sequence</h2>
-<p>The launch team uses line-of-therapy analysis to report newly observed starts, first-line treatment mix, regimen changes, and movement to later therapy. These results feed uptake reporting, competitive analysis, demand planning, and investigations of switching or discontinuation. Their meaning depends on the rules used to convert pharmacy fills into treatment lines.</p>
+<p>Line-of-therapy analysis reports newly observed starts, first-line treatment mix, regimen changes, and movement to later therapy. These results feed uptake reporting, competitive analysis, demand planning, and investigations of switching or discontinuation. Their meaning depends on the rules used to convert pharmacy fills into treatment lines.</p>
 <p>Roventra line 1 begins with the first qualifying treatment fill after diagnosis. Building the sequence requires explicit rules for prior-treatment washout, the starting-regimen window, refill gaps, additions, switches, restarts, discontinuation, and censoring. This section applies those rules to synthetic claims data and shows how the washout rule changes the reported Roventra new-start count.</p>
 <h3 id="521-the-washout-rule">5.2.1 The washout rule</h3>
-<p>Before sequencing lines, we need to decide which fills count as a true new start and which are continuing therapy. The 180-day washout answers that question: if the patient had a treatment-basket fill in the 180 days before their post-diagnosis fill, they are not a new start.</p>
+<p>The 180-day washout determines which fills count as a true new start: if the patient had a treatment-basket fill in the 180 days before their post-diagnosis fill, they are a continuing user rather than a new start.</p>
 <p>The washout window is anchored to the <strong>first treatment fill</strong>, not the diagnosis date. The section 5.1 lookback (also 180 days) counts back from the diagnosis date to confirm the patient is newly diagnosed within observable history. The washout counts back from the first fill to confirm the patient is newly started on therapy. A patient who began Roventra months before diagnosis will pass the diagnosis lookback but fail the washout: their pre-diagnosis fills land inside the 180-day window before their "first" post-diagnosis refill, revealing the continuation.</p>
 <p>Roventra shows 3,193 line-1 entries without the washout rule, 2,798 with it. The 395 patients in between had a basket fill in the 180 days before their post-diagnosis "first" fill; they are therapy continuing users who got relabeled as a new start.</p>
 <p><img alt="Two patient timelines contrast a relabeled continuation with a true new start under the 180-day washout rule." src="../assets/figures/figure_5_4_washout_relabel.svg" /></p>
@@ -1968,7 +1967,7 @@ Observed qualifying diagnosis      8213 At least one encounter with ICD prefix E
 <p><img alt="Eight schematic timelines show the therapy index, washout, 28-day supply, 30-day regimen window, 60-day allowable gap, addition, switch, restart, censoring, and discontinuation rules." src="../assets/figures/figure_5_2_treatment_sequence_rules.svg" /></p>
 <p><em>Figure 5.3. Line-of-therapy rules depend on the timing of fills, active supply, the regimen window, the allowable gap, and the observation boundary. Conceptual schematic.</em></p>
 <h3 id="523-switch-example">5.2.3 Switch example</h3>
-<p><code>PAT00839</code> is a new-to-therapy patient whose 2nd line is entered by a switch and ends in a discontinuation. The 180-day lookback cohort filter is already satisfied for the LOT analysis. The line logic then begins at the first treatment fill after that diagnosis date.</p>
+<p><code>PAT00839</code> is a new-to-therapy patient whose 2nd line is entered by a switch and ends in a discontinuation. The line logic begins at the first treatment fill after the diagnosis date.</p>
 <p><strong>Listing 5.2: Trace a switch from transactions to lines of therapy</strong></p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">episode_construction</span><span class="w"> </span><span class="kn">import</span> <span class="n">DX_COLS</span><span class="p">,</span> <span class="n">LAUNCH_CONDITION_CODES</span>
@@ -2016,12 +2015,12 @@ lines of therapy:
            1 Nexoral 2024-06-20 2024-07-19           1 Initial therapy       Switch         30
            2  Vexpro 2024-07-24 2024-09-19           2          Switch Discontinued         58
 </code></pre></div>
-<p>The diagnosis index comes from the earliest qualifying diagnosis claim for the launch condition. The therapy index is the first treatment fill on or after that diagnosis date. For PAT00839, diagnosis is on 2024-01-26 and treatment begins on 2024-06-20, 146 days later.</p>
+<p>For PAT00839, diagnosis is on 2024-01-26 and treatment begins on 2024-06-20, 146 days later.</p>
 <p>Nexoral is the 1st line since he passes the washout. The Nexoral supply runs through 2024-07-19. The Vexpro fill arrives 2024-07-24, within the 60-day allowable gap and after the Nexoral supply has ended, so it is a line 2 switch to Vexpro regimen. Two Vexpro fills carry supply to 2024-09-19. His observation window runs to 2024-12-31, more than 60 days past his last supplied day, so the discontinuation rule applies here: line 2 ended on therapy day 58.</p>
 <p><img alt="PAT00839 on a dated timeline showing diagnosis index, therapy index, pharmacy claims, inferred line 1 and line 2 exposure, the switch point, the 60-day gap, discontinuation, and observation end." src="../assets/figures/figure_5_3_switch_example.svg" /></p>
 <p><em>Figure 5.4. PAT00839 shows the switch rule. The diagnosis index anchors the cohort, the first Nexoral fill sets the therapy index, the Vexpro fill creates the switch, and the observation window extends past the 60-day gap so discontinuation is observed. Synthetic data.</em></p>
 <h3 id="524-addition-example">5.2.4 Addition example</h3>
-<p>PAT03874, the first new-to-therapy patient, demonstrated the 2nd line therapy addition rule.</p>
+<p>PAT03874 demonstrates the 2nd-line addition rule.</p>
 <p><strong>Listing 5.3: Trace an addition from transactions to lines of therapy</strong></p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">episode_construction</span><span class="w"> </span><span class="kn">import</span> <span class="n">DX_COLS</span><span class="p">,</span> <span class="n">LAUNCH_CONDITION_CODES</span>
@@ -2068,11 +2067,11 @@ lines of therapy:
            1           Vexpro 2024-07-06 2024-09-03           1 Initial therapy   Addition         60
            2 Nexoral + Vexpro 2024-08-29 2025-01-01           2        Addition   Censored        126
 </code></pre></div>
-<p>The same cohort logic applies here. PAT03874 already met the 180-day lookback requirement before entering the line analysis. PAT03874 starts a 60-day Vexpro fill, and on 2024-08-29, while that supply is still active but after the 30-day regimen window has closed, Nexoral arrives. A new product on a live backbone is an addition: the line advances to <strong>line 2</strong> and the regimen becomes the combination <code>Nexoral + Vexpro</code>. Had the Nexoral fill landed within the first 30 days, it would have joined <strong>line 1</strong> as a combination instead. Whether an addition should advance the line depends on the therapeutic area. Oncology consider as line advance, while some chronic-disease consider it's not. His line 2 is censored because supply runs past the observation boundary.</p>
+<p>PAT03874 starts a 60-day Vexpro fill. On 2024-08-29, while that supply is still active but after the 30-day regimen window has closed, Nexoral arrives. A new product on a live backbone is an addition: the line advances to <strong>line 2</strong> and the regimen becomes the combination <code>Nexoral + Vexpro</code>. Had the Nexoral fill landed within the first 30 days, it would have joined <strong>line 1</strong> as a combination instead. Whether an addition should advance the line depends on the therapeutic area; oncology protocols typically treat it as a line advance, while some chronic-disease protocols do not. His line 2 is censored because supply runs past the observation boundary.</p>
 <p><img alt="PAT03874 on a dated timeline showing diagnosis index, therapy index, pharmacy claims, the 30-day regimen window, inferred line 1 and line 2 exposure, the addition point, censoring, and observation end." src="../assets/figures/figure_5_4_addition_example.svg" /></p>
 <p><em>Figure 5.5. PAT03874 shows the addition rule. The first Vexpro fill sets the therapy index, the 30-day regimen window closes on 2024-08-05, Nexoral arrives later while Vexpro still has active supply, and the line advances to <code>Nexoral + Vexpro</code>. Observation ends before the regimen can be classified as discontinued, so line 2 is censored. Synthetic data.</em></p>
 <h3 id="525-cohort-treatment-pattern">5.2.5 Cohort treatment pattern</h3>
-<p>Run the treatment sequence rules over all 3,415 new-to-therapy patient cohort:</p>
+<p>Run the treatment sequence rules over the 3,415 new-to-therapy patients:</p>
 <p><strong>Listing 5.4: Summarize line-of-therapy patterns and the washout effect</strong></p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
@@ -2109,14 +2108,14 @@ Roventra line entries, with and without the washout rule:
      no washout   Line 1          3193    1.0
 180-day washout   Line 1          2798    1.0
 </code></pre></div>
-<p>Given that the synthetic data's date range is from 2024-01-01 to 2025-01-31, with this limited bounded observation, the LoT depth is shallow: 3,387 of 3,415 treated patients never leave line 1, and 28 reach a second line. Lines advance by switch (24) and addition (4), and 0.1% of first-line regimens are combinations. Restarts are absent because this generator builds tight refill chains. In real data, vacations, hospitalizations, mail-order fills, and incomplete capture make restart logic much more important. Roventra is the most common observed first-line regimen in this synthetic data.</p>
+<p>The synthetic data runs from 2024-01-01 to 2025-01-31. With this bounded observation, line-of-therapy depth is shallow: 3,387 of 3,415 treated patients (99.2%) never leave line 1, and 28 reach a second line. Lines advance by switch (24) and addition (4), and 0.1% of first-line regimens are combinations. Restarts are absent because this generator builds tight refill chains. In real data, vacations, hospitalizations, mail-order fills, and incomplete capture make restart logic much more important. Roventra is the most common observed first-line regimen.</p>
 <p><img alt="Sankey diagram showing first-line regimens on the left and observed outcomes on the right, ordered from most common at the top to least common at the bottom." src="../assets/figures/figure_5_3_pathway_sankey.svg" /></p>
 <p><em>Figure 5.6. The Sankey keeps first-line regimens on the left; still on line 1, discontinued, or advanced to line 2 on the right. Synthetic data.</em></p>
 <h3 id="526-apply-the-treatment-sequence-to-commercial-reporting">5.2.6 Apply the treatment sequence to commercial reporting</h3>
 <p>The 180-day washout identifies 3,415 new-to-therapy patients. Roventra appears in the first-line regimen for 2,798 of them. Without the washout, the analysis reports 3,193 Roventra line-1 entries because it counts 395 continuing users as new starts. The uncorrected count is 14.1% higher than the corrected result.</p>
 <p>That difference affects 3 commercial outputs. The uptake report needs the corrected 2,798 newly observed Roventra starts. The treatment-mix report needs first-line regimens built under the same washout and regimen-window rules. The demand forecast needs new starts separated from continuing refills because the 2 groups create different expectations for launch growth.</p>
-<p>Only 28 of the 3,415 treated patients reach line 2 during the available observation period: 24 through switches and 4 through additions. These counts are sufficient for checking patient traces and validating the sequence rules. They are too small for payer-, account-, or product-level conclusions about later-line behavior.</p>
-<p>First-line product shares can be summarized by payer once minimum cell-size rules are met. Those descriptive differences raise a formulary-position question for Chapter 6. A payer-effect claim would require adjustment for patient mix, channel capture, and benefit design.</p>
+<p>Only 28 of 3,415 treated patients reach line 2 during the available observation period: 24 through switches and 4 through additions. These counts are sufficient for checking patient traces and validating the sequence rules. They are too small for payer-, account-, or product-level conclusions about later-line behavior.</p>
+<p>First-line product shares can be summarized by payer once minimum cell-size rules are met. Those descriptive differences raise a formulary-position question, addressed in the competitive access analysis. A payer-effect claim would require adjustment for patient mix, channel capture, and benefit design.</p>
 <p>The commercial deliverable should include the following fields:</p>
 <ul>
 <li>3,415 newly observed treated patients</li>
@@ -2128,17 +2127,17 @@ Roventra line entries, with and without the washout rule:
 <li>30-day starting-regimen window</li>
 <li>60-day allowable gap</li>
 <li>observation window and data cutoff</li>
-<li>sensitivity results for rules that materially change the output (we do not yet cover this due to space limitations)</li>
+<li>sensitivity results for rules that materially change the output</li>
 </ul>
 <p>The corrected new-start count can enter uptake and demand planning. The later-line results remain method-validation findings until more follow-up produces adequate counts.</p>
-<p>When these results are reported by payer, region, or account band, the deliverable should enforce minimum cell sizes and attach the observation window and rule version. Patient-level histories stay within the validation record. Stakeholder outputs use the approved aggregate grain.</p>
+<p>When results are reported by payer, region, or account band, the deliverable should enforce minimum cell sizes and attach the observation window and rule version. Patient-level histories stay within the validation record. Stakeholder outputs use results at the approved level of aggregation.</p>
 <h2 id="53-time-to-treatment-when-patients-start-therapy">5.3 Time to Treatment: When Patients Start Therapy</h2>
-<p>The launch team needs to know how quickly diagnosed patients become treated patients. That answer feeds demand forecasting, capacity planning, supply planning, and patient-support staffing. It also leads to more useful questions: How long do patients wait? Where does the delay build up? Which HCPs start therapy faster? Does prior authorization add 10 days or 60? Which payer plans create the longest access delay?</p>
-<p>The full path can include symptoms, diagnosis, biomarker testing, a treatment decision, a prescription, prior authorization, and the first treatment fill. A single diagnosis-to-treatment number captures the total delay, but it hides where that delay comes from. Stage-level timings point to the step that a testing program, field reimbursement manager, nurse navigator, HCP education effort, or patient-support program can actually change.</p>
+<p>The Kaplan-Meier median time to treatment for this cohort is 168 days, with cumulative initiation reaching 30.5% at day 90 and 52.9% at day 180. The launch team also needs to know where the delay builds up: How long do patients wait at each step? Which HCPs start therapy faster? Does prior authorization add 10 days or 60? Which payer plans create the longest access delay?</p>
+<p>The full path can include symptoms, diagnosis, biomarker testing, a treatment decision, a prescription, prior authorization, and the first treatment fill. A single diagnosis-to-treatment number captures the total delay, but it hides where that delay comes from. Stage-level timings point to the step that a testing program, field reimbursement manager, nurse navigator, HCP education effort, or patient-support program can address.</p>
 <p><img alt="A patient journey runs from symptoms through diagnosis, testing, prescription, prior authorization, and treatment start, with diagnostic, testing, decision, and access delays marked below." src="../assets/figures/figure_5_7_ttt_stage_clocks.svg" /></p>
 <p><em>Figure 5.7. The total time to treatment contains several operational clocks. This chapter measures diagnosis to treatment start. The other clocks require their own dated events.</em></p>
 <blockquote>
-<p><strong>Note:</strong> The synthetic datasets in this chapter contain diagnosis dates and first treatment dates. To split delay across testing, physician decision, or payer review, we would also need biomarker order dates, result dates, prescription dates, and prior-authorization dates. Those fields are not included in this section.</p>
+<p><strong>Note:</strong> The synthetic datasets here contain diagnosis dates and first treatment dates. To split delay across testing, physician decision, or payer review, biomarker order dates, result dates, prescription dates, and prior-authorization dates are also required. Those fields are not included in this section.</p>
 </blockquote>
 <p><em>Table 5.1. Choose the clock that matches the decision.</em></p>
 <table>
@@ -2190,7 +2189,7 @@ Roventra line entries, with and without the washout rule:
 </tbody>
 </table>
 <h3 id="531-why-naive-average-fails">5.3.1 Why naive average fails</h3>
-<p>All 5 patients in Table 5.2 were diagnosed on January 1. The data close on day 90. Patients A, B, and C start treatment. Patients D and E remain observable through the cutoff without a recorded treatment start. The cutoff can be caused by administrative study completion, end of data availability, or loss of captured coverage.</p>
+<p>All 5 patients in Table 5.2 were diagnosed on January 1. The data close on day 90. Patients A, B, and C start treatment. Patients D and E remain observable through the cutoff without a recorded treatment start. The cutoff may arise from administrative study completion, end of data availability, or loss of captured coverage.</p>
 <p><em>Table 5.2. Each patient is a record with a observed duration and a treatment or censored outcome.</em></p>
 <table>
 <thead>
@@ -2238,8 +2237,8 @@ Roventra line entries, with and without the washout rule:
 <p><img alt="Five patient records end in treatment on days 19, 31, and 59 or censoring on day 90." src="../assets/figures/figure_5_8_patient_records.svg" /></p>
 <p><em>Figure 5.8. Patients D and E contribute untreated follow-up through day 90. Their censoring marks end observation, with no recorded treatment event. Conceptual example.</em></p>
 <h3 id="532-build-kaplan-meier-intuition">5.3.2 Build Kaplan-Meier intuition</h3>
-<p>Start with all 5 patients untreated. Patients A, B, and C start treatment on days 19, 31, and 59. Patients D and E stay in the untreated risk set until day 90, when follow-up ends and we censor them.</p>
-<p><em>Table 5.3. The Kaplan-Meier calculation changes the denominator as patients leave the untreated risk set.</em></p>
+<p>All 5 patients begin untreated. Patients A, B, and C start treatment on days 19, 31, and 59. Patients D and E stay in the untreated risk set until day 90, when follow-up ends and they are censored.</p>
+<p><em>Table 5.3. The Kaplan-Meier calculation changes the risk set as patients leave through treatment or censoring.</em></p>
 <table>
 <thead>
 <tr>
@@ -2301,12 +2300,12 @@ Roventra line entries, with and without the washout rule:
 </tbody>
 </table>
 <p><strong>Note:</strong> In this table, <strong>at risk</strong> means a patient is still being observed, has not started treatment yet, and could still start on that day. The term can feel unintuitive because it comes from survival analysis, where a patient is "at risk" of death or relapse. Here, the event is treatment start. So the at-risk group is just the patients who are still untreated and observable right before that day.</p>
-<p>Patients D and E keep the denominators larger at days 19, 31, and 59 because we have already watched them stay untreated up to those points. The denominator counts only the patients who are still observable and still eligible to start. At day 90, D and E are censored. Since no treatment occurs, the curve stays at <span class="arithmatex">\(2/5\)</span>.</p>
+<p>Patients D and E keep the risk sets larger at days 19, 31, and 59 because they have already been observed to remain untreated up to those points. Each risk set counts only patients who are still observable and eligible to start. At day 90, D and E are censored. Since no treatment occurs, the curve stays at <span class="arithmatex">\(2/5\)</span>.</p>
 <p>The repeated multiplication in Table 5.3 is the Kaplan-Meier estimator (<a href="https://doi.org/10.1080/01621459.1958.10501452">Kaplan and Meier, 1958</a>):</p>
 <div class="arithmatex">\[
 \hat S(t)=\prod_{t_i\leq t}\left(1-\frac{d_i}{n_i}\right)
 \]</div>
-<p>At treatment time <span class="arithmatex">\(t_i\)</span>, <span class="arithmatex">\(n_i\)</span> is the risk set and <span class="arithmatex">\(d_i\)</span> is the number of treatment starts. In this analysis, the statistical term <em>survival function</em> means the probability of remaining untreated. The initiation curve is its complement:</p>
+<p>At treatment time <span class="arithmatex">\(t_i\)</span>, <span class="arithmatex">\(n_i\)</span> is the risk set and <span class="arithmatex">\(d_i\)</span> is the number of treatment starts. Here, the <em>survival function</em> <span class="arithmatex">\(\hat S(t)\)</span> is the probability of remaining untreated. The initiation curve is its complement:</p>
 <div class="arithmatex">\[
 \hat F_{\text{initiation}}(t)=1-\hat S(t)
 \]</div>
@@ -2338,9 +2337,9 @@ Kaplan-Meier median: 59 days
 <p><img alt="Two toy-case curves for the same 5 patients: cumulative treatment initiation rises to 3/5 by day 59, while the Kaplan-Meier untreated curve falls to 2/5 and reaches its median at day 59." src="../assets/figures/figure_5_9_km_estimate.svg" /></p>
 <p><em>Figure 5.9. The 2 panels show the same 5 patient histories from 2 angles. When treatment starts, the Kaplan-Meier curve falls while the cumulative initiation curve rises. Censoring on day 90 leaves both curves flat and ends follow-up.</em></p>
 <h3 id="533-apply-kaplan-meier-to-cohort">5.3.3 Apply Kaplan-Meier to cohort</h3>
-<p>Listing 5.1 identified 6,562 patients with at least 180 days of observable history before their diagnosis index. For time to treatment, 169 of those patients cannot enter the analysis because their diagnosis dates occur after the December 31, 2024 study cutoff. They provide no post-diagnosis time within the study. Removing them creates the 6,393-patient treatment-initiation cohort.</p>
-<p>This cohort does not require 90 days of follow-up after diagnosis. That requirement was used to build the 5,637-patient journey and line-of-therapy cohort in Section 5.1. Applying it here would remove recently diagnosed patients. Kaplan-Meier keeps them and uses the follow-up available for each patient.</p>
-<p>By the end of each patient's available record, 4,110 of the 6,393 patients had an observed treatment start and 2,283 did not. Therefore 35.7% has no observed treatment start. But this is not an estimate of the share who will remain untreated because we don't know what happend afterwards. Kaplan-Meier uses the available follow-up time for all 6,393 patients, just as it did for Patients D and E in the 5-patient example.</p>
+<p>The cohort-building step identified 6,562 patients with at least 180 days of observable history before their diagnosis index. For time to treatment, 169 of those patients cannot enter the analysis because their diagnosis dates occur after the December 31, 2024 study cutoff, leaving no post-diagnosis time within the study. Removing them creates the 6,393-patient treatment-initiation cohort.</p>
+<p>This cohort does not require 90 days of follow-up after diagnosis. That requirement built the 5,637-patient journey and line-of-therapy cohort in section 5.1. Applying it here would remove recently diagnosed patients. Kaplan-Meier retains them and uses the follow-up available for each patient.</p>
+<p>By the end of each patient's available record, 4,110 of the 6,393 patients had an observed treatment start and 2,283 of 6,393 (35.7%) did not. That 35.7% is not an estimate of the share who will remain untreated permanently; it reflects incomplete follow-up. Kaplan-Meier uses the available follow-up for all 6,393 patients, just as it did for Patients D and E in the 5-patient example.</p>
 <p><strong>Listing 5.6: Compare the end-of-study count with the time-to-event result</strong></p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
@@ -2366,15 +2365,15 @@ day 90: 30.5% (95% CI 29.4% to 31.7%); 3,957 at risk
 day 180: 52.9% (95% CI 51.6% to 54.3%); 2,142 at risk
 day 270: 74.3% (95% CI 72.9% to 75.6%); 722 at risk
 </code></pre></div>
-<p>The treated-only median answers a conditional question about the 4,110 observed starters. The Kaplan-Meier median uses the untreated follow-up contributed by all 6,393 patients and estimates when cumulative initiation reaches 50%.</p>
+<p>The treated-only median is a conditional result for the 4,110 observed starters. The Kaplan-Meier median uses untreated follow-up from all 6,393 patients and estimates when cumulative initiation reaches 50%.</p>
 <p><img alt="Kaplan-Meier cumulative treatment initiation reaches 30.5 percent at day 90, 52.9 percent at day 180, and 74.3 percent at day 270, with a confidence band and numbers at risk." src="../assets/figures/figure_5_10_initiation_curve.svg" /></p>
 <p><em>Figure 5.10. Initiation continues to accrue as the untreated risk set becomes smaller. The shaded band is the 95% confidence interval. Synthetic data.</em></p>
 <h3 id="534-aalen-johansen-account-for-death-before-treatment">5.3.4 Aalen-Johansen: account for death before treatment</h3>
-<p>Now change Patient B's outcome in the 5-patient example. Patient B dies on day 31 before starting treatment. Death is a <strong>competing event</strong> because it prevents treatment from occurring later.</p>
+<p>Change Patient B's outcome in the 5-patient example. Patient B dies on day 31 before starting treatment. Death is a <strong>competing event</strong> because it prevents treatment from occurring later.</p>
 <blockquote>
-<p><strong>Note:</strong> The chapter's synthetic cohort does not include death records. In a real study, death dates may come from linked EHR data, mortality registries, obituary-based mortality sources, or other linked records.</p>
+<p><strong>Note:</strong> The synthetic cohort used here does not include death records. In a real study, death dates may come from linked EHR data, mortality registries, obituary-based mortality sources, or other linked records.</p>
 </blockquote>
-<p>Suppose we treat Patient B's death as ordinary censoring. Kaplan-Meier removes Patient B from the risk set on day 31 without recording a treatment event. Patient C then starts treatment on day 59, when 3 patients remain at risk.</p>
+<p>If Patient B's death is treated as ordinary censoring, Kaplan-Meier removes Patient B from the risk set on day 31 without recording a treatment event. Patient C then starts treatment on day 59, when 3 patients remain at risk.</p>
 <p><em>Table 5.4. Kaplan-Meier treats Patient B's death as censoring and continues to estimate treatment initiation among the remaining risk set.</em></p>
 <table>
 <thead>
@@ -2436,9 +2435,9 @@ day 270: 74.3% (95% CI 72.9% to 75.6%); 722 at risk
 </tr>
 </tbody>
 </table>
-<p>Compare Table 5.4 with Table 5.3. Replacing Patient B's treatment with death removes the treatment event on day 31. Kaplan-Meier records only that Patient B left the risk set. Its estimated cumulative treatment initiation reaches <span class="arithmatex">\(7/15\)</span>, or 46.7%, by day 90.</p>
-<p>The 46.7% estimate answers a hypothetical question: what would treatment initiation look like if deaths were removed and the patients who died had the same subsequent initiation pattern as comparable patients who remained observable? It overestimates the real-world probability of treatment in this example because a patient who dies before treatment can never start treatment later.</p>
-<p>Aalen-Johansen records treatment and death as separate outcomes (Aalen and Johansen, 1978). For each outcome, it estimates a <strong>cumulative incidence function (CIF)</strong>, the probability that the outcome has occurred by day <span class="arithmatex">\(t\)</span>, accounting for the other event that could occur first.</p>
+<p>Replacing Patient B's treatment with death removes the treatment event on day 31. Kaplan-Meier records only that Patient B left the risk set. Its estimated cumulative treatment initiation reaches <span class="arithmatex">\(7/15\)</span>, or 46.7%, by day 90.</p>
+<p>The 46.7% estimate answers a hypothetical question: what would treatment initiation look like if deaths were removed and those patients had the same subsequent initiation pattern as comparable survivors? It overestimates the real-world probability of treatment here because a patient who dies before treatment can never start later.</p>
+<p>Aalen-Johansen records treatment and death as separate outcomes (<a href="https://doi.org/10.1080/01621459.1978.10480118">Aalen and Johansen, 1978</a>). For each outcome, it estimates a <strong>cumulative incidence function (CIF)</strong>: the probability that the outcome has occurred by day <span class="arithmatex">\(t\)</span>, accounting for the competing event.</p>
 <p><em>Table 5.5. Aalen-Johansen assigns probability to treatment, death, or remaining untreated and alive.</em></p>
 <table>
 <thead>
@@ -2506,7 +2505,7 @@ day 270: 74.3% (95% CI 72.9% to 75.6%); 722 at risk
 </tr>
 </tbody>
 </table>
-<p>At every row, the 3 state probabilities sum to 100%. By day 90, the estimated probability of treatment is 40%, the probability of death before treatment is 20%, and the probability of remaining untreated and alive is 40%. The treatment cumulative incidence never reaches 50%, so a median treatment-initiation time is not reached in this example.</p>
+<p>At every row, the 3 state probabilities sum to 100%. By day 90, the estimated probability of treatment is 40%, the probability of death before treatment is 20%, and the probability of remaining untreated and alive is 40%. The treatment cumulative incidence does not reach 50%, so no median treatment-initiation time exists in this example.</p>
 <p><strong>Listing 5.7: Calculate the competing-risk probabilities</strong></p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">survival</span><span class="w"> </span><span class="kn">import</span> <span class="n">aalen_johansen_curve</span>
@@ -2525,7 +2524,7 @@ day 270: 74.3% (95% CI 72.9% to 75.6%); 722 at risk
   59        3         0.4                  0.4                   0.2
   90        2         0.4                  0.4                   0.2
 </code></pre></div>
-<p>The numeric pattern leads to the general treatment cumulative incidence formula:</p>
+<p>The numeric pattern in the output generalizes to:</p>
 <div class="arithmatex">\[
 \hat F_{\text{treatment}}(t)
 =\sum_{t_i\leq t}\hat S_{\text{all events}}(t_i^-)
@@ -2534,15 +2533,15 @@ day 270: 74.3% (95% CI 72.9% to 75.6%); 722 at risk
 <p><span class="arithmatex">\(\hat S_{\text{all events}}(t_i^-)\)</span> is the probability still untreated and free of a competing event immediately before day <span class="arithmatex">\(t_i\)</span>. The fraction <span class="arithmatex">\(d_{i,\text{treatment}}/n_i\)</span> assigns part of that available probability to treatment. A parallel calculation assigns probability to death.</p>
 <p><img alt="Aalen-Johansen curves show 40 percent cumulative treatment incidence and 20 percent cumulative death incidence, while the state probabilities retain 40 percent untreated and alive." src="../assets/figures/figure_5_11_competing_risk.svg" /></p>
 <p><em>Figure 5.11. The state-probability panel shows how all 3 patient states continue to sum to 100% while the cumulative incidence curves separate treatment from death.</em></p>
-<p>The event definition must follow the business question. Administrative data cutoff is censoring because treatment could occur later. Death before treatment is a competing event because it makes later treatment impossible. Insurance disenrollment requires a protocol decision: it may be censoring for treatment anywhere in the health system, or the end of eligibility when the estimand is treatment within the captured plan.</p>
+<p>The event definition must follow the business question. Administrative data cutoff is censoring because treatment could occur later. Death before treatment is a competing event because it makes later treatment impossible. Insurance disenrollment requires a protocol decision: censoring for treatment anywhere in the health system, or end of eligibility when the estimand is treatment within the captured plan.</p>
 <h3 id="535-apply-the-initiation-curve-to-commercial-planning">5.3.5 Apply the initiation curve to commercial planning</h3>
-<p>The 6,393-patient cohort provides 4 measured planning points. The Kaplan-Meier median time to treatment is 168 days. Cumulative initiation reaches 30.5% by day 90, 52.9% by day 180, and 74.3% by day 270.</p>
-<p>These estimates describe when treatment starts accumulate after diagnosis. A forecast team can apply them to a separate diagnosis forecast. If the forecast expects <span class="arithmatex">\(N\)</span> comparable diagnoses, the estimated starts by day <span class="arithmatex">\(t\)</span> are:</p>
+<p>Across 6,393 patients, the Kaplan-Meier median time to treatment is 168 days. Cumulative initiation reaches 30.5% by day 90, 52.9% by day 180, and 74.3% by day 270.</p>
+<p>These estimates describe when treatment starts accumulate after diagnosis. A forecast team applies them to a separate diagnosis forecast. If the forecast expects <span class="arithmatex">\(N\)</span> comparable diagnoses, the estimated starts by day <span class="arithmatex">\(t\)</span> are:</p>
 <div class="arithmatex">\[
 \text{Expected starts by day }t
 =N\times\hat F_{\text{initiation}}(t)
 \]</div>
-<p>The diagnosis forecast supplies <span class="arithmatex">\(N\)</span>. The treatment-initiation analysis supplies <span class="arithmatex">\(\hat F_{\text{initiation}}(t)\)</span>. The 2 inputs should remain separate because they come from different evidence.</p>
+<p>The diagnosis forecast supplies <span class="arithmatex">\(N\)</span>. The treatment-initiation analysis supplies <span class="arithmatex">\(\hat F_{\text{initiation}}(t)\)</span>. The 2 inputs come from different evidence and should remain separate.</p>
 <table>
 <thead>
 <tr>
@@ -2585,16 +2584,16 @@ day 270: 74.3% (95% CI 72.9% to 75.6%); 722 at risk
 </tbody>
 </table>
 <p>The first deliverable is a treatment-initiation planning table with the day-90, day-180, day-270, and median estimates. Each estimate should include its confidence interval, number at risk, diagnosis-index definition, data cutoff, censoring rule, and competing-event rule.</p>
-<p>The second deliverable is a data-gap table for the unanswered questions. Testing delay requires test-order and result dates. Treatment-decision delay requires a prescription date. Access delay requires prior-authorization submission and approval dates. These fields determine whether the next analysis can provide insights to testing support, HCP education, reimbursement support, patient services.</p>
+<p>The second deliverable is a data-gap table for the unanswered questions. Testing delay requires test-order and result dates. Treatment-decision delay requires a prescription date. Access delay requires prior-authorization submission and approval dates. These fields determine whether the next analysis can address testing support, HCP education, reimbursement support, and patient services.</p>
 <h2 id="54-staying-on-therapy-persistence-and-adherence">5.4 Staying on Therapy: Persistence and Adherence</h2>
-<p>The launch dashboard shows that patients started Roventra. The next review asks what happened after the first fill. How many patients stayed on the initial regimen through day 90? When did refill gaps begin? Did patients continue treatment after switching products? Do payer-level differences identify a credible access problem or random variation?</p>
+<p>At day 90, 60.6% of patients remain on the initial regimen. The next questions are: when did refill gaps begin, did patients continue treatment after switching products, and do payer-level differences identify a credible access problem or random variation?</p>
 <p>These questions affect refill support, patient-service capacity, HCP follow-up, and market-access investigation. They require 2 related measures. <strong>Persistence</strong> measures the time until a patient leaves the initial regimen. <strong>Adherence</strong>, also called <strong>compliance</strong>, measures the share of observed days with medicine available. A patient can remain on the same regimen for 95 days and still have uncovered days within that period.</p>
-<p><code>PAT00036</code> shows the distinction. The patient started Roventra on 2024-09-28 and completed 4 fills before the 2024-12-31 cutoff. The patient remains persistent through 95 observed days, while 7 uncovered days reduce PDC to 92.6%. MPR reaches 117.9% because it counts all 112 dispensed days, including supply that extends beyond the study cutoff. Figure 5.12 maps that one history to 4 outputs. The definitions follow the ISPOR terminology for medication use (<a href="https://doi.org/10.1111/j.1524-4733.2007.00213.x">Cramer et al., 2008</a>).</p>
+<p><code>PAT00036</code> shows the distinction. The patient started Roventra on 2024-09-28 and completed 4 fills before the 2024-12-31 cutoff. The patient remains persistent through 95 observed days, while 7 uncovered days reduce PDC to 92.6%. MPR reaches 117.9% because it counts all 112 dispensed days, including supply extending beyond the study cutoff. Figure 5.12 maps that one history to 4 outputs. Definitions follow the ISPOR terminology for medication use (<a href="https://doi.org/10.1111/j.1524-4733.2007.00213.x">Cramer et al., 2008</a>).</p>
 <p><img alt="Timeline for PAT00036 showing 4 fills, covered and uncovered days, persistence through the study cutoff, and the resulting PDC and MPR calculations." src="../assets/figures/figure_5_12_patient_medication_use.svg" /></p>
 <p><em>Figure 5.12. Persistence follows elapsed time on the initial regimen, PDC counts covered days within the window, and MPR counts all dispensed supply. Synthetic data.</em></p>
 <h3 id="541-persistence-time-until-departure-from-the-initial-regimen">5.4.1 Persistence: time until departure from the initial regimen</h3>
-<p>For this chapter, persistence starts on the first treatment fill that opens line 1. A switch, addition, restart after the allowable gap, or confirmed discontinuation is an event. Each event means that the initial regimen has ended. If observation ends while the allowable gap is still unresolved, the line is censored on the last day for which persistence can be established.</p>
-<p>The Kaplan-Meier calculation from Section 5.3 applies again with a new event definition. Here, <span class="arithmatex">\(S(t)\)</span> is the estimated probability of remaining on the initial regimen through day <span class="arithmatex">\(t\)</span>.</p>
+<p>Persistence starts on the first treatment fill that opens line 1. A switch, addition, restart after the allowable gap, or confirmed discontinuation is an event marking the end of the initial regimen. If observation ends while the allowable gap is still unresolved, the line is censored on the last day for which persistence can be established.</p>
+<p>The Kaplan-Meier estimator from section 5.3 applies with a new event definition. Here, <span class="arithmatex">\(S(t)\)</span> is the estimated probability of remaining on the initial regimen through day <span class="arithmatex">\(t\)</span>.</p>
 <p><strong>Listing 5.8: Report initial-regimen persistence with its risk set</strong></p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
@@ -2611,8 +2610,8 @@ day 90: 60.6% persistent (95% CI 58.6% to 62.5%); 1,128 at risk
 day 113: 49.9% persistent (95% CI 47.7% to 52.0%); 701 at risk
 day 180: 19.2% persistent (95% CI 16.2% to 22.4%); 50 at risk
 </code></pre></div>
-<p>The median time to departure is 113 days, the first day when estimated persistence reaches 50%. The 180-day estimate comes from a thin tail: only 50 of the original 3,415 patients remain in the risk set. The confidence interval reflects sampling uncertainty among the observed records, while the small risk set also warns the reviewer that the estimate depends heavily on a limited part of the cohort. The 90-day result, based on 1,128 patients at risk, is a stronger headline for this bounded data package.</p>
-<p>Departure from line 1 has several meanings. A switch or addition shows continued treatment in a changed regimen. Confirmed discontinuation shows a gap beyond the 60-day rule. A single persistence curve combines these events because the estimand is time on the initial regimen. A stakeholder asking about time on any therapy needs a multistate analysis that preserves the separate treatment states.</p>
+<p>The median time to departure is 113 days, the first day when estimated persistence reaches 50%. The 180-day estimate comes from a thin tail: only 50 of the original 3,415 patients remain in the risk set. The 90-day result, based on 1,128 patients at risk, is the stronger headline for this bounded data package.</p>
+<p>Departure from line 1 has several meanings: a switch or addition shows continued treatment in a changed regimen, while confirmed discontinuation shows a gap beyond the 60-day rule. A single persistence curve combines these events because the estimand is time on the initial regimen. A stakeholder asking about time on any therapy needs a multistate analysis that preserves the separate treatment states.</p>
 <p><img alt="Kaplan-Meier curve for remaining on the initial regimen, with a 95% confidence interval and annotated risk-set counts at days 60, 90, and 113." src="../assets/figures/figure_5_13_persistence.svg" /></p>
 <p><em>Figure 5.13. Estimated initial-regimen persistence falls from 73.0% at day 60 to 49.9% at day 113. The 701 patients still at risk on day 113 provide less evidence than the 1,776 patients at risk on day 60. Synthetic data.</em></p>
 <h3 id="542-adherence-coverage-during-the-observed-window">5.4.2 Adherence: coverage during the observed window</h3>
@@ -2621,7 +2620,7 @@ day 180: 19.2% persistent (95% CI 16.2% to 22.4%); 50 at risk
 \text{PDC} =
 \frac{\text{covered days}}{\text{observable days}}
 \]</div>
-<p>The numerator counts each calendar day once when qualifying supply is available. The denominator starts on the first treatment fill and continues for up to 365 days, stopping earlier at the patient's follow-up end. This chapter requires at least 90 observable days so that 1 fill cannot dominate a short window.</p>
+<p>The numerator counts each calendar day once when qualifying supply is available. The observable days start on the first treatment fill and continue for up to 365 days, stopping earlier at the patient's follow-up end. At least 90 observable days are required to prevent a single fill from dominating the result.</p>
 <p>For <code>PAT00036</code>, the window runs 95 days from 2024-09-28 through 2024-12-31. Four 28-day fills provide 112 dispensed days. The 2nd fill arrives 2 days early, so its supply starts after the prior fill is exhausted. The last fill contributes only 4 covered days before the study cutoff. The resulting supply covers 88 unique days:</p>
 <div class="arithmatex">\[
 \text{PDC} = \frac{88}{95}=0.926
@@ -2630,7 +2629,7 @@ day 180: 19.2% persistent (95% CI 16.2% to 22.4%); 50 at risk
 <div class="arithmatex">\[
 \text{MPR} = \frac{112}{95}=1.179
 \]</div>
-<p>MPR exceeds 1 because supply extends beyond the window. PDC caps the numerator at the number of eligible calendar days and therefore stays between 0 and 1. Both measures describe claims-based possession. Filling a medicine provides evidence of available supply and cannot confirm ingestion or correct use.</p>
+<p>MPR exceeds 1 because supply extends beyond the window. PDC caps the numerator at the number of eligible calendar days and stays between 0 and 1. Both measures describe claims-based possession: filling a prescription provides evidence of available supply and cannot confirm ingestion or correct use.</p>
 <p><strong>Listing 5.9: Summarize the PDC distribution and compare product scopes</strong></p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
@@ -2658,13 +2657,13 @@ median index-product PDC: 0.395
 PDC at or above 0.80: 15.6%
 higher basket PDC than index-product PDC: 36 patients
 </code></pre></div>
-<p>The PDC cohort contains 2,680 treated patients with at least 90 observable days after initiation. Its median index-product PDC is 0.395, and 15.6% meet the prespecified 0.80 threshold. The threshold is a reporting convention. A clinically meaningful level depends on the disease, product, dosing schedule, and outcome.</p>
+<p>The PDC cohort contains 2,680 treated patients with at least 90 observable days after initiation. Median index-product PDC is 0.395, and 15.6% meet the prespecified 0.80 threshold. The 0.80 threshold is a reporting convention; a clinically meaningful level depends on the disease, product, dosing schedule, and outcome.</p>
 <p><img alt="Histogram of index-product PDC for 2,680 treated patients, with the prespecified 0.80 reporting threshold marked." src="../assets/figures/figure_5_14_pdc_distribution.svg" /></p>
 <p><em>Figure 5.14. Most measured patients fall below the 0.80 index-product PDC threshold. The full distribution shows how far patients are from the threshold and avoids reducing the analysis to one pass rate. Synthetic data.</em></p>
 <h3 id="543-choose-the-product-scope-for-adherence">5.4.3 Choose the product scope for adherence</h3>
-<p>The product basket determines which covered days enter the PDC numerator. <strong>Index-product PDC</strong> counts supply for the product that started line 1. <strong>Market-basket PDC</strong> counts supply for any qualifying treatment for the condition. A patient who receives Roventra for 60 days and then Nexoral for 60 days in a 120-day window has an index-product PDC of <span class="arithmatex">\(60/120=0.50\)</span> and a market-basket PDC of <span class="arithmatex">\(120/120=1.00\)</span>. The 2 results answer different questions: continuity on Roventra and continuity on condition treatment.</p>
-<p>Only 36 patients have higher market-basket PDC than index-product PDC. Section 5.2 found only 28 patients who reached line 2, so the near-equality follows directly from the shallow treatment sequences in this synthetic package. A larger difference in real data would point to switching or add-on treatment and should be reconciled against the line table.</p>
-<p>Table 5.6 summarizes the measurement choices after we have applied each one. The event or numerator defines what counts. The risk set or denominator defines who or which days contribute to the result.</p>
+<p>The product basket determines which covered days enter the PDC numerator. <strong>Index-product PDC</strong> counts supply for the product that started line 1. <strong>Market-basket PDC</strong> counts supply for any qualifying treatment for the condition. A patient who receives Roventra for 60 days and then Nexoral for 60 days in a 120-day window has an index-product PDC of <span class="arithmatex">\(60/120=0.50\)</span> and a market-basket PDC of <span class="arithmatex">\(120/120=1.00\)</span>. Index-product PDC measures continuity on Roventra; market-basket PDC measures continuity on condition treatment.</p>
+<p>Only 36 patients have higher market-basket PDC than index-product PDC. The line-of-therapy analysis found only 28 patients who reached line 2, so the near-equality follows directly from the shallow treatment sequences in this synthetic package. A larger difference in real data would point to switching or add-on treatment and should be reconciled against the line table.</p>
+<p>Table 5.6 summarizes the measurement choices. The event or numerator defines what counts. The risk set or observable days define who or which days contribute.</p>
 <p><em>Table 5.6. Persistence and adherence use different units and answer different medication-use questions.</em></p>
 <table>
 <thead>
@@ -2713,7 +2712,7 @@ higher basket PDC than index-product PDC: 36 patients
 </tbody>
 </table>
 <h3 id="544-compare-payer-rates-with-uncertainty">5.4.4 Compare payer rates with uncertainty</h3>
-<p>The unadjusted payer summaries range from 13.2% to 18.4% at PDC of 0.80 or higher. A ranking alone would place PAY002 first and PAY004 last. Sample size and random variation determine how much weight that ordering deserves, so Listing 5.10 calculates Wilson 95% confidence intervals for each rate.</p>
+<p>The unadjusted payer summaries range from 13.2% to 18.4% at PDC of 0.80 or higher. A ranking alone would place PAY002 first and PAY004 last. Sample size and random variation determine how much weight that ordering deserves. Listing 5.10 calculates Wilson 95% confidence intervals for each rate.</p>
 <p><strong>Listing 5.10: Add uncertainty to the payer adherence comparison</strong></p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">statistics</span><span class="w"> </span><span class="kn">import</span> <span class="n">NormalDist</span>
@@ -2741,11 +2740,11 @@ higher basket PDC than index-product PDC: 36 patients
 </code></pre></div>
 <p><img alt="Dot plot of payer-level adherence rates with Wilson 95% confidence intervals and the overall rate marked by a vertical reference line." src="../assets/figures/figure_5_15_payer_adherence.svg" /></p>
 <p><em>Figure 5.15. The payer confidence intervals overlap substantially, including the intervals for PAY002 and PAY004. The observed ranking provides weak evidence for a payer-specific difference. Synthetic data.</em></p>
-<p>The generator contains no payer-specific adherence mechanism, and the intervals overlap substantially. This package therefore provides no clear evidence of a payer difference.</p>
-<p>In real data, a payer difference would start an investigation while its cause remained unresolved. Formulary restrictions, refill-channel capture, days-supply conventions, case mix, benefit design, and follow-up length can all move the observed rate. Chapter 6 adds access evidence, and Chapter 11 covers adjusted comparisons.</p>
+<p>The generator contains no payer-specific adherence mechanism, and the intervals overlap substantially. This package provides no clear evidence of a payer difference.</p>
+<p>In real data, a payer difference would start an investigation while its cause remained unresolved. Formulary restrictions, refill-channel capture, days-supply conventions, case mix, benefit design, and follow-up length can all move the observed rate. The competitive access analysis adds formulary evidence, and the adjusted comparisons section covers case-mix adjustment.</p>
 <h3 id="545-apply-the-measures-to-commercial-decisions">5.4.5 Apply the measures to commercial decisions</h3>
-<p>The opening questions now have bounded answers. At day 90, 60.6% of patients remain on the initial regimen, leaving about 4 in 10 who have switched, added treatment, restarted, or met the discontinuation rule. Among 2,680 patients with at least 90 observable days, 15.6% have index-product PDC at or above 0.80. Product switching changes PDC for only 36 patients in this synthetic package. Raw payer rates vary by 5.2 percentage points, while overlapping confidence intervals provide weak evidence for a payer-specific effect.</p>
-<p>These findings direct the next work. The day-90 persistence result sets the scale and timing of early departure. The PDC distribution locates refill coverage as a separate problem within the time patients remain under observation. The basket comparison identifies whether switching explains low product-specific coverage. The payer comparison determines whether market access needs a focused evidence review before anyone recommends intervention.</p>
+<p>At day 90, 60.6% of patients remain on the initial regimen, leaving about 4 in 10 who have switched, added treatment, restarted, or met the discontinuation rule. Among 2,680 patients with at least 90 observable days, 15.6% have index-product PDC at or above 0.80. Product switching changes PDC for only 36 patients in this synthetic package. Raw payer rates vary by 5.2 percentage points, and overlapping confidence intervals provide weak evidence for a payer-specific effect.</p>
+<p>The day-90 persistence result sets the scale and timing of early departure. The PDC distribution locates refill coverage as a separate problem within the time patients remain under observation. The basket comparison identifies whether switching explains low product-specific coverage. The payer comparison determines whether market access needs a focused evidence review before recommending intervention.</p>
 <p><em>Table 5.7. Each finding should lead to a bounded commercial action.</em></p>
 <table>
 <thead>
@@ -2795,10 +2794,10 @@ higher basket PDC than index-product PDC: 36 patients
 </tr>
 </tbody>
 </table>
-<p>The stakeholder deliverable should contain the persistence curve with numbers at risk, the PDC distribution, the product-scope comparison, a payer table with uncertainty, and the exact measurement specification. The specification records the index event, product basket, 365-day maximum window, 90-day minimum observable window, refill carryover rule, 0.80 threshold, allowable gap, censoring rule, and data cutoff. With these fields visible, brand, patient services, and market access teams can distinguish a measured signal from a question that still needs data.</p>
-<p>Persistence and adherence describe the treatment patterns observed in the available records. Comparisons among products, payers, or support programs require a separate design that addresses case mix, access differences, and incomplete capture before anyone attributes the difference to an intervention.</p>
+<p>The stakeholder deliverable should contain the persistence curve with numbers at risk, the PDC distribution, the product-scope comparison, a payer table with uncertainty, and the exact measurement specification. The specification records the index event, product basket, 365-day maximum window, 90-day minimum observable window, refill carryover rule, 0.80 threshold, allowable gap, censoring rule, and data cutoff.</p>
+<p>Persistence and adherence describe the treatment patterns observed in the available records. Comparisons among products, payers, or support programs require a separate design that addresses case mix, access differences, and incomplete capture before attributing a difference to an intervention.</p>
 <h2 id="55-the-hub-pathway-where-access-friction-lives">5.5 The Hub Pathway: Where Access Friction Lives</h2>
-<p>For a specialty product, the journey between the prescription decision and the first pharmacy fill runs through a hub: referral, benefits investigation, prior authorization, and shipment, with an abandonment exit at every step. Pharmacy claims capture the fill after these steps. The specialty-pharmacy file shows the intermediate path:</p>
+<p>For a specialty product, the journey between the prescription decision and the first pharmacy fill runs through a hub: referral, benefits investigation, prior authorization, and shipment, with an abandonment exit at every step. Pharmacy claims capture the fill only after these steps complete. The specialty-pharmacy file shows the intermediate path:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
 <span class="n">out</span> <span class="o">=</span> <span class="s2">&quot;ch05_journey/assets/generated_outputs&quot;</span>
@@ -2823,13 +2822,13 @@ Documentation                          218                            5
 Lost follow-up                          26                            0
 Patient decision                        29                            0
 </code></pre></div>
-<p>The funnel includes only referrals between diagnosis index and follow-up end. Among the 2,597 post-index referrals, 70.7% reach shipment with a median of 10 days from referral, and 27.8% abandon. Of the 722 abandoned referrals, 707 later show a Roventra fill and 15 show no further treatment-basket fill before follow-up ends.</p>
+<p>The funnel includes only referrals between diagnosis index and follow-up end. Among the 2,597 post-index referrals, 70.7% reach shipment with a median of 10 days from referral, and 27.8% (722) abandon. Of the 722 abandoned referrals, 707 later show a Roventra fill and 15 show no further treatment-basket fill before follow-up ends.</p>
 <p><img alt="Left panel: post-index hub funnel from 2,597 referrals to 1,958 approvals to 1,836 shipments, with median stage timing. Right panel: 722 abandonments split by reason." src="../assets/figures/figure_5_16_hub_funnel.svg" /></p>
 <p><em>Figure 5.16. The hub converts 7 in 10 post-index referrals. Counts, conversion, and time belong together because a pathway can lose patients through delay as well as explicit abandonment. Synthetic data.</em></p>
-<p>The reasons route the work: cost abandonment points to affordability programs, coverage to market access, and documentation to office support. The abandoned group also shows why a hub status is not always a final patient state. Most abandoned referrals in this synthetic file later show Roventra treatment, so the analyst should report both the hub outcome and the later claim outcome.</p>
+<p>The reasons route the work: cost abandonment points to affordability programs, coverage to market access, and documentation to office support. Most abandoned referrals in this synthetic file later show Roventra treatment, so the deliverable should report both the hub outcome and the later claim outcome.</p>
 <p>The broader journey table contains 52 patients with a pended pharmacy transaction and no observed treatment fill. Market access should reconcile those records against later claims, hub status, and channel coverage before classifying them as unresolved barriers. A missing fill may reflect an unresolved access problem, treatment outside the captured channel, or the end of observable follow-up.</p>
 <h2 id="56-modern-extensions-to-rule-based-patient-journeys">5.6 Modern Extensions to Rule-Based Patient Journeys</h2>
-<p>This synthetic package contains 24 switches and 4 additions. Those records are enough to test the line rules and inspect patient traces. A larger claims or EHR study may support questions about recurring gaps, latent treatment states, common pathway shapes, or future event risk. Table 5.8 maps each question to a method that extends the rule-based foundation.</p>
+<p>The synthetic package contains 24 switches and 4 additions, enough to test the line rules and inspect patient traces. A larger claims or EHR study may support questions about recurring gaps, latent treatment states, common pathway shapes, or future event risk. Table 5.8 maps each question to a method that extends the rule-based foundation.</p>
 <p><em>Table 5.8. Choose an extension for a specific journey question.</em></p>
 <table>
 <thead>
@@ -2904,27 +2903,27 @@ Patient decision                        29                            0
 </tbody>
 </table>
 <p>The business question should determine the extension. Multi-state models fit transition probabilities. Recurrent-event models fit repeated gaps. Sequence analysis and process mining fit pathway structure. Hidden-state models fit noisy or intermittently observed states. Representation models fit prediction, similarity, and segmentation tasks.</p>
-<p>Each method still depends on the cohort, event definitions, observation window, and source coverage established earlier in the chapter. Model evaluation should include temporal validation, calibration, subgroup performance, sensitivity to coding and censoring rules, and a comparison with the rule-based baseline. The commercial deliverable should show how the additional complexity changes a decision. Model scores serve as supporting evidence for that decision.</p>
+<p>Each method depends on the cohort, event definitions, observation window, and source coverage established in earlier sections. Model evaluation should include temporal validation, calibration, subgroup performance, sensitivity to coding and censoring rules, and a comparison with the rule-based baseline. The commercial deliverable should show how the additional complexity changes a decision, with model scores presented as supporting evidence.</p>
 <h2 id="57-summary">5.7 Summary</h2>
-<p>The chapter opened with 3,193 apparent Roventra line-1 entries. A 180-day treatment washout found 395 continuing users among them, leaving 2,798 newly observed Roventra starts. That 14.1% correction changes launch uptake reporting and demonstrates how one journey rule can change a commercial result.</p>
+<p>Starting from 3,193 apparent Roventra line-1 entries, a 180-day treatment washout identified 395 continuing users, leaving 2,798 newly observed Roventra starts. That 14.1% correction changes launch uptake reporting.</p>
 <p>The analysis produced 6 reusable lessons:</p>
 <ul>
 <li>Define the cohort, index date, lookback, follow-up, treatment basket, and data cutoff before constructing a journey.</li>
 <li>Count completed treatment fills as exposure evidence. Preserve pended and reversed transactions as access evidence.</li>
 <li>Version the washout, starting-regimen window, allowable gap, addition, switch, restart, discontinuation, and censoring rules.</li>
 <li>Estimate treatment initiation with methods that retain censored patients and treat death as a competing event when death data are available.</li>
-<li>Use persistence for elapsed time on treatment and adherence for covered days within a fixed window. State the product scope and denominator with every result.</li>
+<li>Use persistence for elapsed time on treatment and PDC for covered days within a fixed window. State the product scope and observable-day base with every result.</li>
 <li>Reconcile hub outcomes with later claims because an operational status may precede treatment observed through another record.</li>
 </ul>
-<p>The reusable artifact is the journey evidence package written by <code>run_analysis.py</code>. Each reported metric should carry its cohort, time origin, event definition, observation window, rule version, denominator or risk set, uncertainty when applicable, and data cutoff. Those fields let a reviewer trace the commercial answer back to the records and rules that produced it.</p>
+<p>The journey evidence package written by <code>run_analysis.py</code> records each reported metric with its cohort, time origin, event definition, observation window, rule version, risk set, uncertainty when applicable, and data cutoff. Those fields let a reviewer trace the commercial answer back to the records and rules that produced it.</p>
 <h2 id="58-exercises">5.8 Exercises</h2>
 <ol>
-<li><strong>Audit a false new start.</strong> Construct line 1 with a 0-day washout and a 180-day washout. Select 1 patient counted only by the 0-day rule, then print the therapy index and all completed treatment-basket fills in the prior 180 days. Explain why the earlier fill changes the commercial classification. See Section 5.2.</li>
-<li><strong>Choose the adherence product scope.</strong> Join index-product and market-basket PDC, identify the patients whose values differ, and inspect the treatment products for the patient with the largest increase. State which PDC belongs in a brand continuity report and which belongs in a condition-treatment continuity report. See Section 5.4.</li>
-<li><strong>Stress-test the data cutoff.</strong> Rebuild the cohort and line-1 results with the study end moved from 2024-12-31 to the raw data edge on 2025-01-31. Compare cohort size, discontinued share, and censored share, then explain why the less mature cutoff changes the result. See Sections 5.1 and 5.4.</li>
+<li><strong>Audit a false new start.</strong> Construct line 1 with a 0-day washout and a 180-day washout. Select 1 patient counted only by the 0-day rule, then print the therapy index and all completed treatment-basket fills in the prior 180 days. Explain why the earlier fill changes the commercial classification. See section 5.2.</li>
+<li><strong>Choose the adherence product scope.</strong> Join index-product and market-basket PDC, identify the patients whose values differ, and inspect the treatment products for the patient with the largest increase. State which PDC belongs in a brand continuity report and which belongs in a condition-treatment continuity report. See section 5.4.</li>
+<li><strong>Stress-test the data cutoff.</strong> Rebuild the cohort and line-1 results with the study end moved from 2024-12-31 to the raw data edge on 2025-01-31. Compare cohort size, discontinued share, and censored share, then explain why the less mature cutoff changes the result. See sections 5.1 and 5.4.</li>
 </ol>
 <p>Worked solutions are in <a href="../exercise_solutions.ipynb"><code>exercise_solutions.ipynb</code></a>. Each solution ends with the judgment the analyst should document for real data.</p>
-<p>Chapter 6 takes the first-line product shares, payer differences, and coverage-related hub outcomes from this evidence package and tests how formulary position shapes the observed market.</p>
+<p>The HCP and account targeting analysis carries the patient and treatment evidence into field planning. It asks where the observed opportunity sits, which customers are actionable, and what the field team should do next.</p>
 
 
 
