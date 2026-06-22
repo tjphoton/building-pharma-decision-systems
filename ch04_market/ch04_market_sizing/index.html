@@ -14,7 +14,7 @@
         <link rel="prev" href="../../ch03_data/exercise_solutions/">
       
       
-        <link rel="next" href="../appendix_4a_advanced_methods/">
+        <link rel="next" href="../chapter4_walkthrough/">
       
       
         
@@ -647,8 +647,6 @@
       
         
       
-        
-      
     
     
     
@@ -800,10 +798,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#45-estimate-the-unobserved-population" class="md-nav__link">
+  <a href="#45-the-unobserved-population" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4.5 Estimate the Unobserved Population
+        4.5 The Unobserved Population
       
     </span>
   </a>
@@ -833,10 +831,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#48-market-sizing-summary" class="md-nav__link">
+  <a href="#48-market-sizing-bridge" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4.8 Market-Sizing Summary
+        4.8 Market-Sizing Bridge
       
     </span>
   </a>
@@ -869,34 +867,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../appendix_4a_advanced_methods/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Chapter 4 Appendix: Advanced Methods for Market Sizing and Patient Finding
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -1055,7 +1025,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ch05_journey/chapter5_walkthrough.ipynb" class="md-nav__link">
+      <a href="../../ch05_journey/chapter5_walkthrough/" class="md-nav__link">
         
   
   
@@ -1083,7 +1053,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ch05_journey/exercise_solutions.ipynb" class="md-nav__link">
+      <a href="../../ch05_journey/exercise_solutions/" class="md-nav__link">
         
   
   
@@ -1201,7 +1171,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ch06_hcp/chapter6_walkthrough.ipynb" class="md-nav__link">
+      <a href="../../ch06_hcp/chapter6_walkthrough/" class="md-nav__link">
         
   
   
@@ -1229,7 +1199,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ch06_hcp/exercise_solutions.ipynb" class="md-nav__link">
+      <a href="../../ch06_hcp/exercise_solutions/" class="md-nav__link">
         
   
   
@@ -1347,7 +1317,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ch07_competitive/chapter7_walkthrough.ipynb" class="md-nav__link">
+      <a href="../../ch07_competitive/chapter7_walkthrough/" class="md-nav__link">
         
   
   
@@ -1375,7 +1345,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ch07_competitive/exercise_solutions.ipynb" class="md-nav__link">
+      <a href="../../ch07_competitive/exercise_solutions/" class="md-nav__link">
         
   
   
@@ -1474,10 +1444,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#45-estimate-the-unobserved-population" class="md-nav__link">
+  <a href="#45-the-unobserved-population" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4.5 Estimate the Unobserved Population
+        4.5 The Unobserved Population
       
     </span>
   </a>
@@ -1507,10 +1477,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#48-market-sizing-summary" class="md-nav__link">
+  <a href="#48-market-sizing-bridge" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4.8 Market-Sizing Summary
+        4.8 Market-Sizing Bridge
       
     </span>
   </a>
@@ -1716,8 +1686,8 @@ strict rule correctly rejected 155 false positive patients.
 at the cost of missed 2050 true patients.
 </code></pre></div>
 <p>The one-diagnosis rule finds 86.6% of true patients (sensitivity) and keeps 98.1% of flagged patients correct (precision, or positive predictive value). Requiring at least two diagnoses removes all 155 false positives but drops 2,050 true patients. One diagnosis gives more coverage; two diagnoses give a smaller, cleaner list at the cost of missed patients.</p>
-<p><img alt="Two dot panels compare true positives, false negatives, false positives, and true negatives for one-claim and two-claim diagnosis rules, with sensitivity and PPV shown below." src="../assets/figures/figure_4_3_phenotype_tradeoff.svg" /></p>
-<p><em>Figure 4.3. Requiring at least two diagnoses removes the 155 false positives but misses 2,050 true patients. Synthetic data.</em></p>
+<p><img alt="Two dot panels compare true positives, false negatives, false positives, and true negatives for one-claim and two-claim diagnosis rules, with sensitivity and PPV shown below." src="../assets/figures/figure_4_2_phenotype_tradeoff.svg" /></p>
+<p><em>Figure 4.2. Requiring at least two diagnoses removes the 155 false positives but misses 2,050 true patients. Synthetic data.</em></p>
 <p>The stricter rule reaches 100% precision here because every false positive patient carries only 1 launch diagnosis, and the two-diagnosis threshold removes them all. That is a property of this synthetic file. In real claims data, some false positives carry 2 or more diagnoses, so the strict rule reduces but does not eliminate false positives while still losing true patients.</p>
 <h2 id="44-national-prevalence-anchor-and-opportunity-funnel">4.4 National Prevalence Anchor and Opportunity Funnel</h2>
 <p>The claims data contains 8,213 diagnosed patients, 41.1% of the 20,000-patient panel. For national scale, the external prevalence source is 11.3% diagnosed diabetes prevalence from <a href="https://www.cdc.gov/nchs/products/databriefs/db516.htm">NCHS Data Brief 516</a>, applied to 258,554,106 U.S. adults age 20 and older from the 2024 Census <a href="https://www.census.gov/data/tables/time-series/demo/popest/2020s-national-detail.html">adult population</a>. The panel over-represents the true population because claims skew toward patients already receiving medical care.</p>
@@ -1803,10 +1773,10 @@ external prevalence anchor:  258,554,106 * 11.3% = 29,216,614
   Reachable (access-adjusted)  4,188,972 
 Expected starts (25% assumed)  1,047,243 
 </code></pre></div>
-<p><img alt="A horizontal funnel declines from 29.2 million diagnosed patients to 1.0 million expected starts, with a marked boundary where weighted counts become expected values." src="../assets/figures/figure_4_5_market_funnel.svg" /></p>
-<p><em>Figure 4.5. The first three stages are calculated counts from the panel and national anchors. The last two are based on access and conversion assumptions. Synthetic analysis with public anchors.</em></p>
+<p><img alt="A horizontal funnel declines from 29.2 million diagnosed patients to 1.0 million expected starts, with a marked boundary where weighted counts become expected values." src="../assets/figures/figure_4_3_market_funnel.svg" /></p>
+<p><em>Figure 4.2. The first three stages are calculated counts from the panel and national anchors. The last two are based on access and conversion assumptions. Synthetic analysis with public anchors.</em></p>
 <p>The age rule keeps 6,998 of 8,213 (85.2%) diagnosed panel patients, scaling to 24.9 million nationally. The untreated share, measured from the panel, is 2,278 of 6,998 (32.6%), producing 8.1 million. Access multiplies each untreated patient by a coverage probability rather than removing patients; the base of 8.1 million stays in the funnel and the access-adjusted reachable total is 4.2 million. The final 25% conversion is a scenario assumption, giving 1.0 million expected starts.</p>
-<h2 id="45-estimate-the-unobserved-population">4.5 Estimate the Unobserved Population</h2>
+<h2 id="45-the-unobserved-population">4.5 The Unobserved Population</h2>
 <p>No claim records PAT00046's launch diagnosis code. Capture-recapture, also called mark-recapture, estimates how many patients like her exist by comparing the overlap between two imperfect sources.</p>
 <p>The method originated in ecology: a researcher captures animals, marks them, and releases them, then later captures a second group and counts how many were marked before. Many re-captures imply a small population; few imply a large one. In claims data, patient identifiers replace paint or tags. Patients appearing in both sources are the recaptured animals.</p>
 <p>Let <span class="arithmatex">\(n_1\)</span> be the number of patients in the medical record diagnosis source, <span class="arithmatex">\(n_2\)</span> the number in the Roventra fill source, and <span class="arithmatex">\(m\)</span> the number in both. The Chapman estimator is
@@ -1845,8 +1815,8 @@ It adds one to each count before dividing, which reduces the small-sample bias i
 <div class="highlight"><pre><span></span><code>n1=8213 n2=6401 m=5541
 Chapman=9,488  CI=[9,438, 9,543]
 </code></pre></div>
-<p><img alt="A large estimated-population circle contains overlapping paid-diagnosis and paid-Roventra sources, their 5,541-patient overlap, and an estimated 415 patients missed by both." src="../assets/figures/figure_4_6_capture_recapture.svg" /></p>
-<p><em>Figure 4.6. The overlap between two sources estimates how many patients both miss. Synthetic data.</em></p>
+<p><img alt="A large estimated-population circle contains overlapping paid-diagnosis and paid-Roventra sources, their 5,541-patient overlap, and an estimated 415 patients missed by both." src="../assets/figures/figure_4_4_capture_recapture.svg" /></p>
+<p><em>Figure 4.4. The overlap between two sources estimates how many patients both miss. Synthetic data.</em></p>
 <p>The estimate is 9,488, compared with the true 9,308 in this synthetic file: 1.9% high, or 180 patients above the true launch condition population. The method assumes that each individual has a similar probability of being observed. In real data, sicker patients are more likely to appear in both medical and pharmacy records, which biases the estimate downward.</p>
 <h2 id="46-patient-finding-from-count-to-list">4.6 Patient Finding: From Count to List</h2>
 <p>Capture-recapture places about 415 launch-condition patients outside both clean sources. A patient-finding model turns that count into a ranked list.</p>
@@ -1900,7 +1870,7 @@ top 10%: 1,177 true (99.9%), lift 9.4x
 top 20%: 1,209 true (51.3%), lift 4.8x
 PAT00046 percentile among undiagnosed: 94.4
 </code></pre></div>
-<p>Among 11,787 undiagnosed patients, 10.6% truly have the condition. The model's top decile is 99.9% true, a 9.4-fold lift, and PAT00046 lands at the 94.4th percentile. The ranked list lets the team start with the highest-scored decile instead of reviewing all 11,787 undiagnosed patients to find 1,250 true cases. This approach is common in rare-disease and under-diagnosis programs. Appendix 4A covers the production extensions: sequence models over claim histories, NLP on clinical notes, and related methods.</p>
+<p>Among 11,787 undiagnosed patients, 10.6% truly have the condition. The model's top decile is 99.9% true, a 9.4-fold lift, and PAT00046 lands at the 94.4th percentile. The ranked list lets the team start with the highest-scored decile instead of reviewing all 11,787 undiagnosed patients to find 1,250 true cases. This approach is common in rare-disease and under-diagnosis programs.</p>
 <blockquote>
 <p><strong>Note:</strong> The synthetic generator plants these signals. Launch-condition patients are more likely to have elevated A1C results, launch-diagnosis coding, and Roventra or competitor fills, while age, region, and sex are only background features. That is why the model can rank the undiagnosed patients well in this teaching file.</p>
 </blockquote>
@@ -1967,7 +1937,7 @@ PAT00046 percentile among undiagnosed: 94.4
   PAT04869 0.921    18-34     South   F              3    10.1                  1
   PAT06198 0.919    35-49     South   F              1    11.4                  1
 </code></pre></div>
-<h2 id="48-market-sizing-summary">4.8 Market-Sizing Summary</h2>
+<h2 id="48-market-sizing-bridge">4.8 Market-Sizing Bridge</h2>
 <p>The table below collects the numbers built in earlier sections and shows where each one comes from.</p>
 <p><em>Table 4.3. The final market-sizing bridge.</em></p>
 <table>
@@ -2022,7 +1992,7 @@ PAT00046 percentile among undiagnosed: 94.4
 <li><strong>Change the access date.</strong> Build an access rule that changes midyear for one payer, then compare the reachable estimate immediately before and after the effective date using the as-of-date join from Listing 4.3. State whether the estimand, the estimator, or both changed. (Hint: the honest answer connects to the competitive access chapter.)</li>
 <li><strong>Break patient finding on purpose.</strong> Retrain the Listing 4.6 model but add a feature that leaks the launch diagnosis (for example, the launch code count). Show what happens to the held-out AUC and to the top-decile precision among undiagnosed patients, and explain why a model that looks better in validation would find nobody new in production. (Hint: leakage rehearses the bias thinking covered in the causal inference chapter.)</li>
 </ol>
-<p>Two companion notebooks ship with this section: <a href="../chapter4_walkthrough.ipynb"><code>chapter4_walkthrough.ipynb</code></a> replays the analysis as one executable story, and <a href="../exercise_solutions.ipynb"><code>exercise_solutions.ipynb</code></a> works the three exercises with discussion. Advanced and emerging methods for market sizing and patient finding are collected in <a href="../appendix_4a_advanced_methods/">Appendix 4A</a>.</p>
+<p>Two companion notebooks ship with this section: <a href="../chapter4_walkthrough.ipynb"><code>chapter4_walkthrough.ipynb</code></a> replays the analysis as one executable story, and <a href="../exercise_solutions.ipynb"><code>exercise_solutions.ipynb</code></a> works the three exercises with discussion.</p>
 <p>The treatment journey chapter follows the untreated patients: what they start, switch, stop, and restart.</p>
 
 

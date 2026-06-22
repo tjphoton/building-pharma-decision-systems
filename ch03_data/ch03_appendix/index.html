@@ -657,8 +657,6 @@
       
         
       
-        
-      
     
     
     
@@ -714,34 +712,6 @@
     
   
     Market Sizing and Patient Populations
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../ch04_market/appendix_4a_advanced_methods/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Chapter 4 Appendix: Advanced Methods for Market Sizing and Patient Finding
   
 
     
@@ -908,7 +878,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ch05_journey/chapter5_walkthrough.ipynb" class="md-nav__link">
+      <a href="../../ch05_journey/chapter5_walkthrough/" class="md-nav__link">
         
   
   
@@ -936,7 +906,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ch05_journey/exercise_solutions.ipynb" class="md-nav__link">
+      <a href="../../ch05_journey/exercise_solutions/" class="md-nav__link">
         
   
   
@@ -1054,7 +1024,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ch06_hcp/chapter6_walkthrough.ipynb" class="md-nav__link">
+      <a href="../../ch06_hcp/chapter6_walkthrough/" class="md-nav__link">
         
   
   
@@ -1082,7 +1052,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ch06_hcp/exercise_solutions.ipynb" class="md-nav__link">
+      <a href="../../ch06_hcp/exercise_solutions/" class="md-nav__link">
         
   
   
@@ -1200,7 +1170,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ch07_competitive/chapter7_walkthrough.ipynb" class="md-nav__link">
+      <a href="../../ch07_competitive/chapter7_walkthrough/" class="md-nav__link">
         
   
   
@@ -1228,7 +1198,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ch07_competitive/exercise_solutions.ipynb" class="md-nav__link">
+      <a href="../../ch07_competitive/exercise_solutions/" class="md-nav__link">
         
   
   
@@ -1295,8 +1265,6 @@
 
 
 <h1 id="appendix-3a-common-data-sources-and-synthetic-data-field-reference">Appendix 3A: Common Data Sources and Synthetic Data Field Reference</h1>
-<p>Nothing below needs to be read linearly. Each table maps a source or field group to its analytical uses.</p>
-<hr />
 <p><em>Table 3A.1. Common pharmaceutical data sources and analytical uses.</em></p>
 <table>
 <thead>
@@ -1308,7 +1276,7 @@
 <tbody>
 <tr>
 <td>Medical claims</td>
-<td>Disease prevalence, diagnosed populations, utilization, sites of care, comorbidities, provider volume, market sizing (Chapter 4); patient journeys (Chapter 5)</td>
+<td>Disease prevalence, diagnosed populations, utilization, sites of care, comorbidities, provider volume, market sizing (Chapter 4); patient journeys (Chapter 5); referral network construction from <code>referring_npi</code> (Chapter 6)</td>
 </tr>
 <tr>
 <td>Pharmacy claims</td>
@@ -1324,7 +1292,7 @@
 </tr>
 <tr>
 <td>Formulary and access</td>
-<td>Coverage barriers, restriction burden, historical access assignment, reachable opportunity (Chapters 4 and 6)</td>
+<td>Coverage barriers, restriction burden, historical access assignment, reachable opportunity (Chapters 4 and 7)</td>
 </tr>
 <tr>
 <td>Patient services / specialty pharmacy</td>
@@ -1332,15 +1300,23 @@
 </tr>
 <tr>
 <td>CRM and field activity</td>
-<td>Call patterns, reach, frequency, channel mix, targeting, next-best-action (Chapter 7)</td>
+<td>Call patterns, reach, frequency, channel mix, targeting, next-best-action (Chapter 6)</td>
 </tr>
 <tr>
 <td>HCP digital engagement</td>
-<td>Content response, channel preference, engagement scoring, omnichannel sequencing (Chapter 7)</td>
+<td>Content response, channel preference, engagement scoring, omnichannel sequencing (Chapter 6)</td>
 </tr>
 <tr>
 <td>Provider and account reference</td>
-<td>Provider matching, specialty segmentation, targeting, territory alignment, referral networks (Chapters 4 and 7)</td>
+<td>Provider matching, specialty segmentation, targeting, territory alignment, referral networks (Chapters 4 and 6)</td>
+</tr>
+<tr>
+<td>HCP social network</td>
+<td>Platform-level influence scoring, HCP-to-HCP engagement graph, social KOL identification (Chapter 6); vendors: Doceree DataIQ, CarePrecise, Swoop/Real Chemistry, OptimizeRx, PulsePoint</td>
+</tr>
+<tr>
+<td>Publication and conference data</td>
+<td>Co-authorship network, h-index proxy, congress prominence, scientific KOL scoring (Chapter 6); sources: OpenAlex, PubMed/NCBI, Alpha Sophia, IQVIA KOL Data</td>
 </tr>
 <tr>
 <td>Product and code reference</td>
@@ -1348,7 +1324,7 @@
 </tr>
 <tr>
 <td>Public reference (CMS)</td>
-<td>Provider volume benchmarking, market sizing, specialty segmentation, competitive context (Chapter 4)</td>
+<td>Provider volume benchmarking, market sizing, specialty segmentation, competitive context (Chapter 4); financial KOL signal via Open Payments (Chapter 6)</td>
 </tr>
 <tr>
 <td>Sales and supply</td>
@@ -1359,7 +1335,7 @@
 <hr />
 <p><em>Table 3A.2. Generated data file field reference.</em></p>
 <p>Each sub-table lists one group of output files: the folder, the grain of one record, and every field it contains.</p>
-<p><strong>Table 3A.2.1 — Reference tables</strong> (<code>reference/</code>)</p>
+<p><strong>Table 3A.2.1: Reference tables</strong> (<code>reference/</code>)</p>
 <table>
 <thead>
 <tr>
@@ -1386,7 +1362,7 @@
 </tr>
 <tr>
 <td><code>hcp_targets.csv</code></td>
-<td>One HCP in the internal commercial universe (~42 % of all providers)</td>
+<td>One HCP in the internal commercial universe (~42% of all providers)</td>
 <td><code>npi</code>, <code>account_id</code>, <code>territory</code>, <code>state</code>, <code>region</code>, <code>specialty_1</code></td>
 </tr>
 <tr>
@@ -1406,8 +1382,8 @@
 </tr>
 </tbody>
 </table>
-<p><strong>Table 3A.2.2 — Medical claims</strong> (<code>claims_medical/</code>)</p>
-<p>Two files with identical columns: <code>medical_claims.csv</code> (early snapshot — claims received within five days of month close) and <code>medical_claims_mature.csv</code> (full snapshot — all encounters regardless of lag). Use the mature file for most analyses; use the early file only to illustrate claim maturity.</p>
+<p><strong>Table 3A.2.2: Medical claims</strong> (<code>claims_medical/</code>)</p>
+<p>Two files with identical columns: <code>medical_claims.csv</code> (early snapshot, claims received within five days of month close) and <code>medical_claims_mature.csv</code> (full snapshot, all encounters regardless of lag). Use the mature file for most analyses; use the early file only to illustrate claim maturity.</p>
 <table>
 <thead>
 <tr>
@@ -1420,7 +1396,7 @@
 <tr>
 <td><code>medical_claims[_mature].csv</code></td>
 <td>One billed encounter</td>
-<td><code>encounter_id</code>, <code>patient_id</code>, <code>claim_type</code>, <code>claim_date</code>, <code>admitting_diagnosis</code> (inpatient-only, ~1% populated), <code>diagnosis_1</code>–<code>diagnosis_10</code>, <code>icd_procedure_1</code>–<code>icd_procedure_3</code>, <code>patient_gender</code>, <code>patient_state</code>, <code>coverage_type</code>, <code>rendering_npi</code>, <code>attending_npi</code>, <code>referring_npi</code>, <code>facility_npi</code>, <code>payer_id</code></td>
+<td><code>encounter_id</code>, <code>patient_id</code>, <code>claim_type</code>, <code>claim_date</code>, <code>admitting_diagnosis</code> (inpatient-only, ~1% populated), <code>diagnosis_1</code>–<code>diagnosis_10</code>, <code>icd_procedure_1</code>–<code>icd_procedure_3</code>, <code>patient_gender</code>, <code>patient_state</code>, <code>coverage_type</code>, <code>rendering_npi</code>, <code>attending_npi</code>, <code>referring_npi</code> (populated on specialist encounters when a primary care provider initiated the referral; ~49% of specialist claims; blank on all Primary Care visits and pharmacy claims), <code>facility_npi</code>, <code>payer_id</code></td>
 </tr>
 <tr>
 <td><code>service_lines.csv</code></td>
@@ -1429,7 +1405,7 @@
 </tr>
 </tbody>
 </table>
-<p><strong>Table 3A.2.3 — Pharmacy and lab claims</strong> (<code>claims_pharmacy/</code>, <code>claims_lab/</code>)</p>
+<p><strong>Table 3A.2.3: Pharmacy and lab claims</strong> (<code>claims_pharmacy/</code>, <code>claims_lab/</code>)</p>
 <table>
 <thead>
 <tr>
@@ -1451,7 +1427,7 @@
 </tr>
 </tbody>
 </table>
-<p><strong>Table 3A.2.4 — Formulary</strong> (<code>formulary/</code>)</p>
+<p><strong>Table 3A.2.4: Formulary</strong> (<code>formulary/</code>)</p>
 <table>
 <thead>
 <tr>
@@ -1473,7 +1449,7 @@
 </tr>
 </tbody>
 </table>
-<p><strong>Table 3A.2.5 — Specialty pharmacy</strong> (<code>specialty_pharmacy/</code>)</p>
+<p><strong>Table 3A.2.5: Specialty pharmacy</strong> (<code>specialty_pharmacy/</code>)</p>
 <table>
 <thead>
 <tr>
@@ -1490,7 +1466,7 @@
 </tr>
 </tbody>
 </table>
-<p><strong>Table 3A.2.6 — CRM and field activity</strong> (<code>crm_veeva/</code>)</p>
+<p><strong>Table 3A.2.6: CRM and field activity</strong> (<code>crm_veeva/</code>)</p>
 <table>
 <thead>
 <tr>
@@ -1512,7 +1488,7 @@
 </tr>
 </tbody>
 </table>
-<p><strong>Table 3A.2.7 — Digital engagement</strong> (<code>digital_engagement/</code>)</p>
+<p><strong>Table 3A.2.7: Digital engagement</strong> (<code>digital_engagement/</code>)</p>
 <table>
 <thead>
 <tr>
@@ -1529,7 +1505,7 @@
 </tr>
 </tbody>
 </table>
-<p><strong>Table 3A.2.8 — Public-proxy datasets</strong> (<code>open_payments/</code>, <code>cms_part_d/</code>)</p>
+<p><strong>Table 3A.2.8: Public-proxy datasets</strong> (<code>open_payments/</code>, <code>cms_part_d/</code>)</p>
 <p>These files mirror the structure of public CMS datasets but contain synthetic values. Do not combine them with the official public extracts.</p>
 <table>
 <thead>
@@ -1549,6 +1525,64 @@
 <td><code>prescriber_summary.csv</code></td>
 <td>One prescriber-drug annual summary (Part D style)</td>
 <td><code>prscrbr_npi</code>, <code>prscrbr_last_org_name</code>, <code>prscrbr_first_name</code>, <code>prscrbr_city</code>, <code>prscrbr_state_abrvtn</code>, <code>prscrbr_type</code>, <code>drug_name</code>, <code>generic_name</code>, <code>drug_class</code>, <code>tot_clms</code>, <code>tot_benes</code>, <code>tot_day_suply</code>, <code>tot_drug_cst</code>, <code>year</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><strong>Table 3A.2.9: KOL and network datasets</strong> (<code>ch06_hcp/data/social/</code>, <code>ch06_hcp/data/publications/</code>)</p>
+<p>These files are used in Chapter 6 for referral network analysis, social influence scoring, and co-authorship network construction. They are synthetic proxies modelled on vendor and public data source schemas described below. They are not part of the core ch03 data generation; run <code>ch06_hcp/scripts/generate_kol_network_data.py</code> to produce them.</p>
+<p><strong>Referral network</strong> is derived from <code>medical_claims_mature.csv</code> directly, with no separate file. Filter rows where <code>referring_npi</code> is non-blank; each row is a directed edge from <code>referring_npi</code> (source, typically Primary Care) to <code>rendering_npi</code> (destination, typically specialist).</p>
+<p><strong>Social network</strong> (<code>ch06_hcp/data/social/</code>): modelled on data formats from Doceree DataIQ, CarePrecise, Swoop/Real Chemistry Healthcare Social Graph, OptimizeRx, and PulsePoint Authenticated NPI identity graph. In production, NPI-to-social-handle mapping is obtained from CarePrecise (minimum order ~$250) or Doceree DataIQ (HIPAA-certified, multi-platform).</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Grain</th>
+<th>Fields</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>social_profiles.csv</code></td>
+<td>One HCP × platform</td>
+<td><code>npi</code>, <code>platform</code>, <code>handle</code>, <code>display_name</code>, <code>verified</code>, <code>follower_count</code>, <code>following_count</code>, <code>bio_specialty_match</code>, <code>account_age_years</code>, <code>post_count_90d</code>, <code>avg_likes_per_post</code>, <code>avg_shares_per_post</code>, <code>engagement_rate</code>, <code>data_source</code>, <code>extract_date</code></td>
+</tr>
+<tr>
+<td><code>social_posts.csv</code></td>
+<td>One social post</td>
+<td><code>post_id</code>, <code>npi</code>, <code>platform</code>, <code>post_date</code>, <code>content_type</code>, <code>topic_tags</code>, <code>likes</code>, <code>shares</code>, <code>comments</code>, <code>impressions</code>, <code>mentions_npi</code></td>
+</tr>
+<tr>
+<td><code>social_interactions.csv</code></td>
+<td>One HCP-to-HCP engagement</td>
+<td><code>interaction_id</code>, <code>from_npi</code>, <code>to_npi</code>, <code>platform</code>, <code>interaction_date</code>, <code>interaction_type</code>, <code>content_topic</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Publication and conference data</strong> (<code>ch06_hcp/data/publications/</code>): modelled on OpenAlex (free REST API and bulk S3 snapshots at openalex.org) and PubMed/NCBI E-utilities (free API). In production, NPI-to-author matching follows the HHS DDOD Use Case 24 strategy: author name search on PubMed or OpenAlex, then institution cross-walk. Commercial KOL databases such as Alpha Sophia and IQVIA KOL Data provide pre-built NPI-to-publication mappings. Congress speaker lists (ASCO, ACC, ADA, ACR, ATS, ENDO, ASH, CHEST) are publicly available on congress websites and can be licensed from IQVIA or scraped and name-matched to NPPES.</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Grain</th>
+<th>Fields</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>publications.csv</code></td>
+<td>One publication or congress abstract</td>
+<td><code>pub_id</code>, <code>title</code>, <code>journal</code>, <code>pub_year</code>, <code>pub_type</code>, <code>doi_synthetic</code>, <code>citation_count</code>, <code>therapeutic_area</code>, <code>conference_flag</code>, <code>data_source</code></td>
+</tr>
+<tr>
+<td><code>pub_authors.csv</code></td>
+<td>One author on one publication</td>
+<td><code>pub_id</code>, <code>npi</code>, <code>author_position</code>, <code>institution</code>, <code>is_corresponding</code></td>
+</tr>
+<tr>
+<td><code>conference_appearances.csv</code></td>
+<td>One HCP role at one congress</td>
+<td><code>appearance_id</code>, <code>npi</code>, <code>conference_name</code>, <code>conf_year</code>, <code>role</code>, <code>presentation_title</code>, <code>session_topic</code>, <code>audience_size_band</code>, <code>data_source</code></td>
 </tr>
 </tbody>
 </table>

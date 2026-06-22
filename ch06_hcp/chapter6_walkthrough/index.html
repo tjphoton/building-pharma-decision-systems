@@ -1,0 +1,2183 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://tjphoton.github.io/building-pharma-decision-systems/ch06_hcp/chapter6_walkthrough/">
+      
+      
+        <link rel="prev" href="../ch06_hcp_account_targeting/">
+      
+      
+        <link rel="next" href="../exercise_solutions/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Walkthrough Notebook - Building Pharmaceutical Decision Systems</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-6-walkthrough-hcp-and-account-targeting" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Building Pharmaceutical Decision Systems" class="md-header__button md-logo" aria-label="Building Pharmaceutical Decision Systems" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Building Pharmaceutical Decision Systems
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Walkthrough Notebook
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/tjphoton/building-pharma-decision-systems" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Building Pharmaceutical Decision Systems" class="md-nav__button md-logo" aria-label="Building Pharmaceutical Decision Systems" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Building Pharmaceutical Decision Systems
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/tjphoton/building-pharma-decision-systems" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 1
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 1
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch01_intro/ch01_introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A Medicine, a Market, and the Decisions Between Them
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 2
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 2
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch02_ecosystem/ch02_ecosystem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Commercialization Operating System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch02_ecosystem/ch02_appendix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 2 Appendix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 3
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 3
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch03_data/ch03_data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A Synthetic Lab for Real Pharma Questions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch03_data/ch03_appendix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 3 Appendix: Common Data Sources and Synthetic Data Field Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch03_data/chapter3_walkthrough/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Walkthrough Notebook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch03_data/exercise_solutions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercise Solutions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 4
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 4
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch04_market/ch04_market_sizing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Market Sizing and Patient Populations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch04_market/chapter4_walkthrough/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Walkthrough Notebook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch04_market/exercise_solutions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercise Solutions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 5
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 5
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch05_journey/ch05_patient_journey/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Building the Patient Journey: Treatment Patterns, Lines of Therapy, and Persistence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch05_journey/chapter5_walkthrough/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Walkthrough Notebook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch05_journey/exercise_solutions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercise Solutions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 6
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 6
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch06_hcp_account_targeting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HCP and Account Targeting: From Opportunity to Field Action
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Walkthrough Notebook
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Walkthrough Notebook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-attribution-sensitivity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Attribution sensitivity
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-hcp-evidence-and-concentration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. HCP evidence and concentration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-referral-pathways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Referral pathways
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-scientific-role-evidence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Scientific role evidence
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-k-means-engagement-archetypes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. K-means engagement archetypes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-account-policy-and-call-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Account policy and call plan
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-territory-and-policy-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Territory and policy review
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-export-the-evidence-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Export the evidence package
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exercise_solutions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercise Solutions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 7
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 7
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch07_competitive/ch07_competitive_intelligence_market_access/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Competitive Intelligence and Market Access
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch07_competitive/chapter7_walkthrough/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Walkthrough Notebook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch07_competitive/exercise_solutions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercise Solutions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-attribution-sensitivity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Attribution sensitivity
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-hcp-evidence-and-concentration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. HCP evidence and concentration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-referral-pathways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Referral pathways
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-scientific-role-evidence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Scientific role evidence
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-k-means-engagement-archetypes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. K-means engagement archetypes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-account-policy-and-call-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Account policy and call plan
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-territory-and-policy-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Territory and policy review
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-export-the-evidence-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Export the evidence package
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="chapter-6-walkthrough-hcp-and-account-targeting">Chapter 6 Walkthrough: HCP and Account Targeting</h1>
+<p>This executed notebook builds the Chapter 6 artifacts at the December 31, 2024 cutoff. Run <code>ch06_hcp/scripts/generate_ch06_data.py</code> before rebuilding the notebook.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">importlib</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span>
+
+<span class="n">ROOT</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
+<span class="k">while</span> <span class="ow">not</span> <span class="p">(</span><span class="n">ROOT</span> <span class="o">/</span> <span class="s2">&quot;ch06_hcp&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">ROOT</span><span class="o">.</span><span class="n">parent</span> <span class="o">==</span> <span class="n">ROOT</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="s2">&quot;Run this notebook inside the repository.&quot;</span><span class="p">)</span>
+    <span class="n">ROOT</span> <span class="o">=</span> <span class="n">ROOT</span><span class="o">.</span><span class="n">parent</span>
+
+<span class="n">SCRIPT_DIR</span> <span class="o">=</span> <span class="n">ROOT</span> <span class="o">/</span> <span class="s2">&quot;ch06_hcp&quot;</span> <span class="o">/</span> <span class="s2">&quot;scripts&quot;</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">SCRIPT_DIR</span><span class="p">))</span>
+
+<span class="n">analysis_module</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="s2">&quot;run_analysis&quot;</span><span class="p">)</span>
+<span class="n">targeting</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="s2">&quot;targeting&quot;</span><span class="p">)</span>
+<span class="n">referral</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="s2">&quot;referral_network&quot;</span><span class="p">)</span>
+<span class="n">segmentation</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="s2">&quot;segmentation&quot;</span><span class="p">)</span>
+
+<span class="n">results</span> <span class="o">=</span> <span class="n">analysis_module</span><span class="o">.</span><span class="n">run_analysis</span><span class="p">(</span><span class="n">ROOT</span><span class="p">)</span>
+
+<span class="n">headline</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">({</span>
+    <span class="s2">&quot;Journey patients&quot;</span><span class="p">:</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;attribution_comparison&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">patient_id</span><span class="o">.</span><span class="n">nunique</span><span class="p">(),</span>
+    <span class="s2">&quot;Eligible-roster patients&quot;</span><span class="p">:</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;patient_hcp&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">patient_id</span><span class="o">.</span><span class="n">nunique</span><span class="p">(),</span>
+    <span class="s2">&quot;Eligible HCPs&quot;</span><span class="p">:</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;hcp_features&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">npi</span><span class="o">.</span><span class="n">nunique</span><span class="p">(),</span>
+    <span class="s2">&quot;Eligible accounts&quot;</span><span class="p">:</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;account_targets&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">account_id</span><span class="o">.</span><span class="n">nunique</span><span class="p">(),</span>
+<span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">headline</span><span class="o">.</span><span class="n">to_frame</span><span class="p">(</span><span class="s2">&quot;count&quot;</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>                          count
+Journey patients           6393
+Eligible-roster patients   1556
+Eligible HCPs               158
+Eligible accounts           114
+</code></pre></div>
+<p>The eligible roster covers 1,556 patients and 158 HCPs across 114 site accounts. The remaining journey patients stay outside this field-planning artifact.</p>
+<h2 id="1-attribution-sensitivity">1. Attribution sensitivity</h2>
+<div class="highlight"><pre><span></span><code><span class="n">agreement</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;attribution_summary&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">agreement</span><span class="p">[</span><span class="s2">&quot;agreement_rate&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">agreement</span><span class="p">[</span><span class="s2">&quot;agreement_rate&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">value</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">value</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">agreement</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="n">results</span><span class="p">[</span><span class="s2">&quot;attribution_comparison&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">query</span><span class="p">(</span>
+        <span class="s2">&quot;patient_id == &#39;PAT02034&#39;&quot;</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>           comparison  patients_with_both  same_hcp agreement_rate
+0  Index vs plurality                6393      4399          68.8%
+1     Index vs latest                6393      4088          63.9%
+2         All 3 rules                6393      4005          62.6%
+    patient_id   index_npi plurality_npi  latest_npi  all_rules_agree
+635   PAT02034  9000000280    9000000280  9000000280             True
+</code></pre></div>
+<p>All 3 attribution rules agree for 63.4% of patients. PAT02034 remains assigned to HCP0280 under every rule.</p>
+<h2 id="2-hcp-evidence-and-concentration">2. HCP evidence and concentration</h2>
+<div class="highlight"><pre><span></span><code><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;npi&quot;</span><span class="p">,</span> <span class="s2">&quot;account_id&quot;</span><span class="p">,</span> <span class="s2">&quot;cohort_patients&quot;</span><span class="p">,</span> <span class="s2">&quot;treated_patients&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;roventra_starts&quot;</span><span class="p">,</span> <span class="s2">&quot;competitor_treated&quot;</span><span class="p">,</span> <span class="s2">&quot;untreated_mature&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;review_opportunity&quot;</span><span class="p">,</span> <span class="s2">&quot;contact_permission_status&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="n">results</span><span class="p">[</span><span class="s2">&quot;hcp_features&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span>
+        <span class="p">[</span><span class="s2">&quot;cohort_patients&quot;</span><span class="p">,</span> <span class="s2">&quot;npi&quot;</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="p">[</span><span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">]</span>
+    <span class="p">)[</span><span class="n">columns</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;decile_summary&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>            npi account_id  cohort_patients  treated_patients  \
+93   9000000430     ACC189               36                 9   
+105  9000000469     ACC121               34                10   
+35   9000000162     ACC062               33                13   
+99   9000000447     ACC216               32                12   
+5    9000000026     ACC226               28                11   
+121  9000000537     ACC079               28                 6   
+49   9000000217     ACC224               27                 8   
+117  9000000516     ACC167               27                 9   
+102  9000000460     ACC219               26                10   
+86   9000000389     ACC155               24                 8
+
+     roventra_starts  competitor_treated  untreated_mature  \
+93                 2                   7                25   
+105                9                   1                21   
+35                 8                   5                19   
+99                 5                   7                17   
+5                  8                   3                15   
+121                2                   4                18   
+49                 4                   4                16   
+117                6                   3                18   
+102                7                   3                15   
+86                 4                   4                15
+
+     review_opportunity contact_permission_status  
+93                   32                   Allowed  
+105                  22                   Opt-out  
+35                   24                   Opt-out  
+99                   24                   Opt-out  
+5                    18                   Allowed  
+121                  22                   Opt-out  
+49                   20                   Allowed  
+117                  21                   Allowed  
+102                  18                   Allowed  
+86                   19                   Allowed  
+   opportunity_decile  hcps  cohort_patients  review_opportunity  \
+0                   1    12              279                 216   
+1                   2    11              157                 123   
+2                   3    11              127                 100   
+3                   4    11              109                  84   
+4                   5    11               83                  68
+
+   cumulative_hcp_share  cumulative_opportunity_share  
+0              0.107143                      0.265683  
+1              0.205357                      0.416974  
+2              0.303571                      0.539975  
+3              0.401786                      0.643296  
+4              0.500000                      0.726937
+</code></pre></div>
+<p>The highest-volume rows include opt-outs. The first 30% of HCPs capture 55.2% of review opportunity.</p>
+<p><img alt="Top 20 HCPs ranked by review opportunity. Blue bars show review opportunity for Allowed HCPs, red bars for Opt-out HCPs, gray for Unknown. Light blue shows remaining attributed patients." src="../assets/figures/figure_6_1_volume_diagnostic.svg" /></p>
+<p><img alt="Line chart starting at the origin showing cumulative review opportunity captured as contactable HCP share increases, ranked by review opportunity, with a dashed diagonal reference line." src="../assets/figures/figure_6_2_cumulative_capture.svg" /></p>
+<h2 id="3-referral-pathways">3. Referral pathways</h2>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;referral_edges&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">stable</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;referral_metrics&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span>
+    <span class="n">results</span><span class="p">[</span><span class="s2">&quot;referral_stability&quot;</span><span class="p">][[</span>
+        <span class="s2">&quot;npi&quot;</span><span class="p">,</span> <span class="s2">&quot;bootstrap_top20_frequency&quot;</span><span class="p">,</span> <span class="s2">&quot;window_rank_range&quot;</span><span class="p">,</span>
+    <span class="p">]],</span>
+    <span class="n">on</span><span class="o">=</span><span class="s2">&quot;npi&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stable</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">15</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>   source_npi destination_npi source_specialty destination_specialty  \
+0  9000000578      9000000258     Primary Care         Endocrinology   
+1  9000000417      9000000164     Primary Care         Endocrinology   
+2  9000000460      9000000567     Primary Care         Endocrinology   
+3  9000000033      9000000302     Primary Care         Endocrinology   
+4  9000000265      9000000409     Primary Care         Endocrinology   
+5  9000000520      9000000127     Primary Care         Endocrinology   
+6  9000000020      9000000409     Primary Care         Endocrinology   
+7  9000000128      9000000567     Primary Care         Endocrinology   
+8  9000000470      9000000217     Primary Care         Endocrinology   
+9  9000000565      9000000217     Primary Care         Endocrinology
+
+  source_account_id destination_account_id   region  unique_patients  \
+0            ACC142                 ACC164  Midwest               22   
+1            ACC126                 ACC109     West               20   
+2            ACC219                 ACC030    South               20   
+3            ACC044                 ACC090    South               19   
+4            ACC148                 ACC164  Midwest               19   
+5            ACC110                 ACC073    South               19   
+6            ACC068                 ACC164  Midwest               18   
+7            ACC160                 ACC030    South               18   
+8            ACC068                 ACC224  Midwest               18   
+9            ACC099                 ACC224  Midwest               18
+
+   referral_episodes  median_transition_days first_referral_date  \
+0                 22                    25.0          2024-01-09   
+1                 20                    40.0          2024-01-22   
+2                 20                    24.5          2024-01-29   
+3                 19                    32.0          2024-02-02   
+4                 19                    27.0          2024-02-13   
+5                 19                    29.0          2024-01-16   
+6                 18                    37.0          2024-02-25   
+7                 18                    31.5          2024-02-24   
+8                 18                    29.0          2024-01-21   
+9                 18                    32.5          2024-02-19
+
+  last_referral_date  path_cost  
+0         2024-10-29   0.045455  
+1         2024-11-28   0.050000  
+2         2024-12-18   0.050000  
+3         2024-12-24   0.052632  
+4         2024-12-23   0.052632  
+5         2024-12-26   0.052632  
+6         2024-11-28   0.055556  
+7         2024-12-26   0.055556  
+8         2024-10-26   0.055556  
+9         2024-12-26   0.055556  
+           npi      specialty account_id     region  unique_sources  \
+0   9000000217  Endocrinology     ACC224    Midwest               6   
+1   9000000567  Endocrinology     ACC030      South               5   
+2   9000000127  Endocrinology     ACC073      South               7   
+3   9000000170  Endocrinology     ACC132  Northeast               8   
+4   9000000204  Endocrinology     ACC153      South               6   
+5   9000000215  Endocrinology     ACC183      South               7   
+6   9000000207  Endocrinology     ACC094  Northeast               4   
+7   9000000258  Endocrinology     ACC164    Midwest               4   
+8   9000000550  Endocrinology     ACC179       West               5   
+9   9000000636  Endocrinology     ACC059  Northeast               7   
+10  9000000115  Endocrinology     ACC225      South               6   
+11  9000000409  Endocrinology     ACC164    Midwest               4   
+12  9000000218  Endocrinology     ACC204    Midwest               5   
+13  9000000363  Endocrinology     ACC022    Midwest               5   
+14  9000000174  Endocrinology     ACC032    Midwest               5
+
+    unique_destinations  patients_received  patients_referred  \
+0                     2                 72                 15   
+1                     2                 66                 14   
+2                     2                 57                 13   
+3                     2                 56                 13   
+4                     2                 55                  9   
+5                     1                 56                  8   
+6                     2                 46                 16   
+7                     2                 49                 12   
+8                     2                 50                  9   
+9                     1                 47                 11   
+10                    2                 44                 12   
+11                    1                 45                  6   
+12                    2                 38                 12   
+13                    2                 39                 11   
+14                    2                 34                 12
+
+    betweenness_centrality  pathway_patient_volume  pathway_breadth  \
+0                 0.000626                      87                8   
+1                 0.000521                      80                7   
+2                 0.000730                      70                9   
+3                 0.000834                      69               10   
+4                 0.000521                      64                8   
+5                 0.000313                      64                8   
+6                 0.000417                      62                6   
+7                 0.000417                      61                6   
+8                 0.000469                      59                7   
+9                 0.000313                      58                8   
+10                0.000573                      56                8   
+11                0.000209                      51                5   
+12                0.000417                      50                7   
+13                0.000521                      50                7   
+14                0.000469                      46                7
+
+    bootstrap_top20_frequency  window_rank_range  
+0                      1.0000                  1  
+1                      1.0000                  1  
+2                      1.0000                  2  
+3                      0.9875                  3  
+4                      1.0000                  2  
+5                      0.9875                  3  
+6                      1.0000                  1  
+7                      1.0000                  4  
+8                      1.0000                  3  
+9                      0.9875                  3  
+10                     0.9625                  7  
+11                     0.9750                  4  
+12                     0.9500                  3  
+13                     0.8750                  3  
+14                     0.8125                  6
+</code></pre></div>
+<p>The referral output is a pathway-context artifact. Stability comes from transition-window comparison and patient-level bootstrap resampling.</p>
+<p><img alt="Schematic referral graph illustrating directed edges, patient counts, and betweenness centrality." src="../assets/figures/figure_6_3_referral_schematic.svg" /></p>
+<p><img alt="Directed account-centered referral network with patient counts on each edge." src="../assets/figures/figure_6_4_referral_network.svg" /></p>
+<h2 id="4-scientific-role-evidence">4. Scientific role evidence</h2>
+<div class="highlight"><pre><span></span><code><span class="n">candidates</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;kol_profiles&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
+    <span class="n">results</span><span class="p">[</span><span class="s2">&quot;kol_profiles&quot;</span><span class="p">][</span><span class="s2">&quot;kol_candidate&quot;</span><span class="p">]</span>
+<span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">candidates</span><span class="p">[[</span>
+    <span class="s2">&quot;npi&quot;</span><span class="p">,</span> <span class="s2">&quot;specialty_1&quot;</span><span class="p">,</span> <span class="s2">&quot;research_percentile&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;leadership_percentile&quot;</span><span class="p">,</span> <span class="s2">&quot;practice_expertise_percentile&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;peer_connection_percentile&quot;</span><span class="p">,</span> <span class="s2">&quot;proposed_role&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;role_fit_score&quot;</span><span class="p">,</span> <span class="s2">&quot;evidence_confidence&quot;</span><span class="p">,</span>
+<span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">15</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;kol_validation&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;kol_transparency_review&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>           npi    specialty_1  research_percentile  leadership_percentile  \
+0   9000000105     Cardiology           100.000000              80.000000   
+1   9000000206  Endocrinology           100.000000               8.333333   
+2   9000000211  Endocrinology           100.000000              36.363636   
+3   9000000237   Primary Care           100.000000              75.000000   
+4   9000000363  Endocrinology           100.000000             100.000000   
+5   9000000441   Primary Care           100.000000              84.615385   
+6   9000000512     Cardiology           100.000000              31.250000   
+7   9000000562     Cardiology           100.000000              40.000000   
+8   9000000633   Primary Care           100.000000              92.592593   
+9   9000000366  Endocrinology            96.153846               4.166667   
+10  9000000277     Cardiology            94.736842              25.000000   
+11  9000000258  Endocrinology            92.307692              41.666667   
+12  9000000446   Primary Care            90.322581              48.148148   
+13  9000000235     Cardiology            89.473684              70.000000   
+14  9000000008     Cardiology            88.888889              25.000000
+
+    practice_expertise_percentile  peer_connection_percentile  \
+0                       25.000000                   55.000000   
+1                       34.782609                   15.384615   
+2                       80.000000                   70.833333   
+3                       77.777778                   91.666667   
+4                      100.000000                   66.666667   
+5                       77.777778                   26.190476   
+6                       94.444444                   92.500000   
+7                       89.473684                   75.000000   
+8                        4.545455                   59.375000   
+9                       39.130435                   15.384615   
+10                      63.157895                   40.909091   
+11                      30.434783                   96.153846   
+12                      63.636364                   28.125000   
+13                      15.789474                   40.909091   
+14                      61.111111                   65.000000
+
+                       proposed_role  role_fit_score evidence_confidence  
+0         National scientific leader            89.0                High  
+1   Evidence-generation collaborator            77.2                High  
+2   Evidence-generation collaborator            93.0                High  
+3   Evidence-generation collaborator            92.2                High  
+4   Evidence-generation collaborator           100.0                High  
+5   Evidence-generation collaborator            92.2                High  
+6   Evidence-generation collaborator            98.1                High  
+7   Evidence-generation collaborator            96.3                High  
+8         National scientific leader            95.9                High  
+9   Evidence-generation collaborator            76.2                High  
+10  Evidence-generation collaborator            83.7                High  
+11  Evidence-generation collaborator            70.7                High  
+12  Evidence-generation collaborator            81.0                High  
+13        National scientific leader            78.8                High  
+14  Evidence-generation collaborator            79.2                High  
+           validation_measure      value
+0              KOL candidates  83.000000
+1         Reviewed candidates  79.000000
+2    Proposed role match rate   0.582278
+3  Reviewer confirmation rate   0.639241
+4     Reviewer decision kappa   0.426150
+          npi                     proposed_role  \
+0  9000000105        National scientific leader   
+1  9000000206  Evidence-generation collaborator   
+2  9000000211  Evidence-generation collaborator   
+3  9000000237  Evidence-generation collaborator   
+4  9000000363  Evidence-generation collaborator
+
+                   review_status_x  total_payment_amount  payment_records  \
+0  Medical-affairs review required              85575.71                7   
+1  Medical-affairs review required                  0.00                0   
+2  Medical-affairs review required                  0.00                0   
+3  Medical-affairs review required                  0.00                0   
+4  Medical-affairs review required                  0.00                0
+
+                                  payment_categories  latest_payment_year  \
+0  Education/Training | Research Grants | Speakin...               2024.0   
+1                                                NaN                  NaN   
+2                                                NaN                  NaN   
+3                                                NaN                  NaN   
+4                                                NaN                  NaN
+
+            review_status_y                                   transparency_use  
+0  Transparency review only  Disclosure context only; excluded from scienti...  
+1                       NaN  Disclosure context only; excluded from scienti...  
+2                       NaN  Disclosure context only; excluded from scienti...  
+3                       NaN  Disclosure context only; excluded from scienti...  
+4                       NaN  Disclosure context only; excluded from scienti...
+</code></pre></div>
+<p>Scientific role fit and payment transparency remain separate. Medical affairs owns the role review.</p>
+<p><img alt="Four scatter plots, one per proposed scientific role, showing candidate positions on that role's two primary evidence dimensions. Gray dots show candidates from other roles for context." src="../assets/figures/figure_6_5_kol_evidence_matrix.svg" /></p>
+<h2 id="5-k-means-engagement-archetypes">5. K-means engagement archetypes</h2>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;cluster_evaluation&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;segment_profiles&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;segment_policy_comparison&quot;</span><span class="p">])</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>   k    inertia  silhouette  minimum_cluster_size  minimum_cluster_share  \
+0  3  55.664499    0.295087                    15               0.267857   
+1  4  43.864938    0.291884                    10               0.178571   
+2  5  34.477920    0.318859                     7               0.125000   
+3  6  29.600367    0.298179                     7               0.125000
+
+   seed_stability_ari  bootstrap_stability_ari  selection_score  \
+0            1.000000                 0.594227         0.793644   
+1            1.000000                 0.555224         0.780690   
+2            1.000000                 0.713949         0.830679   
+3            0.746004                 0.603407         0.718865
+
+   operational_size_pass  selected  
+0                   True      True  
+1                   True     False  
+2                  False     False  
+3                  False     False  
+   cluster_id  hcp_count  cohort_patients  opportunity_rate  roventra_share  \
+0           0         20        12.100000          0.750796        0.425179   
+1           1         15        15.666667          0.757289        0.521323   
+2           2         21        12.619048          0.717230        0.577829
+
+   access_signal_rate  recent_contacts  productive_contact_rate  \
+0            0.004545         1.550000                 0.330476   
+1            0.001852         1.200000                 0.518413   
+2            0.002381         1.095238                 0.434807
+
+   evidence_need_score  access_resource_score  digital_response_rate  \
+0             0.703900               0.563500               0.690550   
+1             0.256400               0.282000               0.524600   
+2             0.583905               0.505333               0.243238
+
+   field_response_rate                 segment_name  \
+0             0.281500  C0: Digital evidence seeker   
+1             0.474467       C1: Balanced follow-up   
+2             0.753571        C2: Field maintenance
+
+                             engagement_pattern  
+0  Approved digital evidence, then field review  
+1                      Standard evidence review  
+2                   Maintenance field follow-up  
+                  segment_name  Access-resource need  Balanced follow-up  \
+0  C0: Digital evidence seeker                     5                   5   
+1       C1: Balanced follow-up                     0                  12   
+2        C2: Field maintenance                     1                   8
+
+   Digital evidence seeker  Established adopter  Field evidence builder  
+0                        9                    1                       0  
+1                        0                    3                       0  
+2                        0                    5                       7
+</code></pre></div>
+<p>The selected 4-cluster solution has silhouette 0.427, seed ARI 1.000, bootstrap ARI 0.858, and minimum cluster size 10.</p>
+<p><img alt="2×2 small-multiples bar charts showing each engagement archetype's evidence-need, access-need, digital-response, and field-response scores." src="../assets/figures/figure_6_6_segment_profiles.svg" /></p>
+<p><img alt="Line chart comparing silhouette, seed ARI, and bootstrap ARI for candidate cluster counts." src="../assets/figures/figure_6_7_cluster_validation.svg" /></p>
+<h2 id="6-account-policy-and-call-plan">6. Account policy and call plan</h2>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;gate_summary&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="n">results</span><span class="p">[</span><span class="s2">&quot;account_targets&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;account_id&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
+        <span class="p">[</span><span class="s2">&quot;ACC155&quot;</span><span class="p">,</span> <span class="s2">&quot;ACC002&quot;</span><span class="p">,</span> <span class="s2">&quot;ACC121&quot;</span><span class="p">,</span> <span class="s2">&quot;ACC231&quot;</span><span class="p">],</span>
+        <span class="p">[</span><span class="s2">&quot;account_action&quot;</span><span class="p">,</span> <span class="s2">&quot;reason_code&quot;</span><span class="p">,</span> <span class="s2">&quot;cohort_patients&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;treated_patients&quot;</span><span class="p">,</span> <span class="s2">&quot;review_opportunity&quot;</span><span class="p">,</span> <span class="s2">&quot;roventra_share&quot;</span><span class="p">],</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;call_plan&quot;</span><span class="p">])</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>                    stage  accounts
+0  Eligible site accounts       114
+1          Evidence floor        70
+2     Treated denominator        20
+3       Opportunity floor        20
+4  No access-review route        20
+5        Field permission        15
+6  Ownership and capacity        15
+               account_action                        reason_code  \
+account_id                                                         
+ACC155      Increase priority      PRIORITIZE_REVIEW_OPPORTUNITY   
+ACC002          Access review                ROUTE_ACCESS_REVIEW   
+ACC121           Hold contact                 HOLD_NO_PERMISSION   
+ACC231                Monitor  MONITOR_SMALL_TREATED_DENOMINATOR
+
+            cohort_patients  treated_patients  review_opportunity  \
+account_id                                                          
+ACC155                   38                15                  31   
+ACC002                   14                 6                  11   
+ACC121                   34                10                  22   
+ACC231                   25                 7                  19
+
+            roventra_share  
+account_id                  
+ACC155            0.400000  
+ACC002            0.500000  
+ACC121            0.900000  
+ACC231            0.857143  
+   cycle_start   cycle_end territory account_id parent_account_id  \
+0   2025-01-01  2025-01-28       T01     ACC224        SYS-MID-09   
+1   2025-01-01  2025-01-28       T01     ACC056        SYS-NOR-09   
+2   2025-01-01  2025-01-28       T03     ACC034        SYS-SOU-11   
+3   2025-01-01  2025-01-28       T04     ACC155        SYS-WES-12   
+4   2025-01-01  2025-01-28       T04     ACC219        SYS-SOU-04   
+5   2025-01-01  2025-01-28       T05     ACC124        SYS-NOR-05   
+6   2025-01-01  2025-01-28       T06     ACC189        SYS-MID-10   
+7   2025-01-01  2025-01-28       T06     ACC109        SYS-WES-02   
+8   2025-01-01  2025-01-28       T06     ACC005        SYS-SOU-06   
+9   2025-01-01  2025-01-28       T06     ACC005        SYS-SOU-06   
+10  2025-01-01  2025-01-28       T07     ACC190        SYS-WES-11
+
+             account_name         npi      specialty     account_action  \
+0       Michigan Care 224  9000000217  Endocrinology  Increase priority   
+1   Pennsylvania Care 056  9000000136   Primary Care  Increase priority   
+2        Florida Care 034  9000000273   Primary Care  Increase priority   
+3        Arizona Care 155  9000000389     Cardiology  Increase priority   
+4        Florida Care 219  9000000460   Primary Care           Maintain   
+5       New York Care 124  9000000035   Primary Care  Increase priority   
+6       Michigan Care 189  9000000430     Cardiology  Increase priority   
+7        Arizona Care 109  9000000164  Endocrinology  Increase priority   
+8        Florida Care 005  9000000498     Cardiology  Increase priority   
+9        Florida Care 005  9000000051     Cardiology  Increase priority   
+10    Washington Care 190  9000000366  Endocrinology  Increase priority
+
+    hcp_action                            engagement_pattern  \
+0   Prioritize                   Maintenance field follow-up   
+1   Prioritize                   Maintenance field follow-up   
+2   Prioritize                                  Field review   
+3   Prioritize                      Standard evidence review   
+4     Maintain  Approved digital evidence, then field review   
+5   Prioritize                      Standard evidence review   
+6   Prioritize                      Standard evidence review   
+7   Prioritize                   Maintenance field follow-up   
+8   Prioritize                   Maintenance field follow-up   
+9   Prioritize  Approved digital evidence, then field review   
+10  Prioritize                                  Field review
+
+                   segment_name  recommended_calls  hcp_review_opportunity  \
+0         C2: Field maintenance                  2                      20   
+1         C2: Field maintenance                  2                      11   
+2                 Not clustered                  2                       6   
+3        C1: Balanced follow-up                  2                      19   
+4   C0: Digital evidence seeker                  1                      18   
+5        C1: Balanced follow-up                  2                       6   
+6        C1: Balanced follow-up                  2                      32   
+7         C2: Field maintenance                  2                      13   
+8         C2: Field maintenance                  2                       7   
+9   C0: Digital evidence seeker                  1                       6   
+10                Not clustered                  2                       5
+
+    recent_contacts permission_status                    reason_code  \
+0                 1           Allowed  PRIORITIZE_REVIEW_OPPORTUNITY   
+1                 1           Allowed  PRIORITIZE_REVIEW_OPPORTUNITY   
+2                 0           Allowed  PRIORITIZE_REVIEW_OPPORTUNITY   
+3                 1           Allowed  PRIORITIZE_REVIEW_OPPORTUNITY   
+4                 0           Allowed           MAINTAIN_ESTABLISHED   
+5                 1           Allowed  PRIORITIZE_REVIEW_OPPORTUNITY   
+6                 0           Allowed  PRIORITIZE_REVIEW_OPPORTUNITY   
+7                 0           Allowed  PRIORITIZE_REVIEW_OPPORTUNITY   
+8                 1           Allowed  PRIORITIZE_REVIEW_OPPORTUNITY   
+9                 0           Allowed  PRIORITIZE_REVIEW_OPPORTUNITY   
+10                1           Allowed  PRIORITIZE_REVIEW_OPPORTUNITY
+
+                                               reason  \
+0   Permitted review opportunity and adoption belo...   
+1   Permitted review opportunity and adoption belo...   
+2   Permitted review opportunity and adoption belo...   
+3   Permitted review opportunity and adoption belo...   
+4   Permitted evidence with adoption at or above t...   
+5   Permitted review opportunity and adoption belo...   
+6   Permitted review opportunity and adoption belo...   
+7   Permitted review opportunity and adoption belo...   
+8   Permitted review opportunity and adoption belo...   
+9   Permitted review opportunity and adoption belo...   
+10  Permitted review opportunity and adoption belo...
+
+    territory_cycle_capacity  
+0                         48  
+1                         48  
+2                         56  
+3                         48  
+4                         48  
+5                         52  
+6                         56  
+7                         56  
+8                         56  
+9                         56  
+10                        48
+</code></pre></div>
+<p>The policy produces 9 priority accounts and a 19-call plan across 10 permitted HCPs. The output retains non-executable monitor, access-review, and hold queues.</p>
+<p><img alt="Scatter plot with priority accounts shown as large labeled dots in the foreground and non-priority accounts as small faded dots, with a shaded priority zone." src="../assets/figures/figure_6_8_account_actions.svg" /></p>
+<p><img alt="Horizontal gate chart showing accounts remaining after evidence, treated denominator, opportunity, access, permission, ownership, and capacity gates." src="../assets/figures/figure_6_9_gate_attrition.svg" /></p>
+<h2 id="7-territory-and-policy-review">7. Territory and policy review</h2>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;plan_comparison&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;territory_summary&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="n">results</span><span class="p">[</span><span class="s2">&quot;policy_sensitivity&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">query</span><span class="p">(</span>
+        <span class="s2">&quot;minimum_account_patients == 10&quot;</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>                       plan  selected_hcps  contact_permitted  \
+0  Top 30 by patient volume             30                 30   
+1   Gated 4-week field plan             11                 11
+
+   held_or_unknown  review_opportunity  recent_contacts  
+0                0                 397               43  
+1                0                 143                6  
+  territory  accounts  priority_accounts  review_opportunity  \
+0       T06        17                  3                 184   
+1       T03        10                  1                 120   
+2       T04         9                  1                  88   
+3       T01        16                  2                 178   
+4       T08        18                  0                 196   
+5       T07        12                  1                 133   
+6       T05        16                  1                 148   
+7       T02        16                  0                 137
+
+   actionable_opportunity  planned_hcps  recommended_calls  available_calls  \
+0                      81             4                  7               56   
+1                      53             1                  2               56   
+2                      49             2                  3               48   
+3                      42             2                  4               48   
+4                      34             0                  0               52   
+5                      16             1                  2               48   
+6                      12             1                  2               52   
+7                       0             0                  0               52
+
+   cycle_capacity  unused_capacity  opportunity_share  call_share  \
+0              56               49           0.282230        0.35   
+1              56               54           0.184669        0.10   
+2              48               45           0.170732        0.15   
+3              48               44           0.146341        0.20   
+4              52               52           0.118467        0.00   
+5              48               46           0.055749        0.10   
+6              52               50           0.041812        0.10   
+7              52               52           0.000000        0.00
+
+   allocation_gap  
+0        0.067770  
+1       -0.084669  
+2       -0.020732  
+3        0.053659  
+4       -0.118467  
+5        0.044251  
+6        0.058188  
+7        0.000000  
+    minimum_account_patients  minimum_opportunity_patients  \
+9                         10                             4   
+10                        10                             4   
+11                        10                             4   
+12                        10                             8   
+13                        10                             8   
+14                        10                             8   
+15                        10                            12   
+16                        10                            12   
+17                        10                            12
+
+    adoption_threshold  priority_accounts  changed_from_default  
+9                 0.45                  4                     5  
+10                0.60                  8                     1  
+11                0.75                 12                     3  
+12                0.45                  4                     6  
+13                0.60                  8                     2  
+14                0.75                 12                     4  
+15                0.45                  4                    10  
+16                0.60                  8                     6  
+17                0.75                 11                     9
+</code></pre></div>
+<p>T03 has actionable opportunity and no executable calls. The gap belongs in field-leadership review and the override record.</p>
+<p><img alt="Dumbbell chart comparing each territory's actionable opportunity share (blue) and planned call share (green), with red connecting lines flagging zero-call territories." src="../assets/figures/figure_6_10_territory_allocation.svg" /></p>
+<h2 id="8-export-the-evidence-package">8. Export the evidence package</h2>
+<div class="highlight"><pre><span></span><code><span class="n">output_dir</span> <span class="o">=</span> <span class="n">ROOT</span> <span class="o">/</span> <span class="s2">&quot;ch06_hcp&quot;</span> <span class="o">/</span> <span class="s2">&quot;assets&quot;</span> <span class="o">/</span> <span class="s2">&quot;generated_outputs&quot;</span>
+<span class="n">analysis_module</span><span class="o">.</span><span class="n">write_outputs</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">output_dir</span><span class="p">,</span> <span class="n">ROOT</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Wrote </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">)</span><span class="si">}</span><span class="s2"> CSV artifacts and manifest.json&quot;</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Wrote 32 CSV artifacts and manifest.json
+</code></pre></div>
+<p>The package carries analysis date, source hashes, rule version, decision boundaries, and output contracts.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.indexes", "navigation.top", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
