@@ -17,6 +17,11 @@ theme:
     - search.suggest
     - search.highlight
 
+extra:
+  analytics:
+    provider: google
+    property: G-75R972HVF8
+
 extra_javascript:
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
