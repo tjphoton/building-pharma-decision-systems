@@ -36,6 +36,10 @@ print(attrition)
 
 The 5,637 patients form the journey and line-of-therapy cohort. The 90-day follow-up requirement gives early treatment patterns enough time to appear.
 
+![Figure 5.1. Cohort entry depends on observable time around the diagnosis index.](assets/figures/figure_5_1_cohort_eligibility.svg)
+
+*Figure 5.1. Cohort entry depends on observable time around the diagnosis index.*
+
 
 ```python
 import subprocess
@@ -87,6 +91,14 @@ Transaction status separates access attempts from completed treatment. The treat
 
 PAT00839 passes the washout, starts Nexoral, then switches to Vexpro after the Nexoral supply ends.
 
+![Figure 5.2. The washout rule. The top panel shows a post-diagnosis fill that looks like a new start only because earlier treatment fills are hidden by a no-washout view. The bottom panel shows a patient with no earlier treatment fills, kept in the cohort.](assets/figures/figure_5_2_washout_relabel.svg)
+
+*Figure 5.2. The washout rule. The top panel shows a post-diagnosis fill that looks like a new start only because earlier treatment fills are hidden by a no-washout view. The bottom panel shows a patient with no earlier treatment fills, kept in the cohort.*
+
+![Figure 5.3. Line-of-therapy rules depend on the timing of fills, active supply, the regimen window, the allowable gap, and the observation boundary. Conceptual schematic.](assets/figures/figure_5_3_treatment_sequence_rules.svg)
+
+*Figure 5.3. Line-of-therapy rules depend on the timing of fills, active supply, the regimen window, the allowable gap, and the observation boundary. Conceptual schematic.*
+
 
 ```python
 out = ROOT / "ch05_journey/assets/generated_outputs"
@@ -119,7 +131,15 @@ print(lines.loc[lines.patient_id.eq("PAT00839"), cols])
                2  Vexpro 2024-07-24 2024-09-19           2          Switch Discontinued         58
 
 
+![Figure 5.4. PAT00839 shows the switch rule. The diagnosis index anchors the cohort, the first Nexoral fill sets the therapy index, the Vexpro fill creates the switch, and the observation window extends past the 60-day gap so discontinuation is observed. Synthetic data.](assets/figures/figure_5_4_switch_example.svg)
+
+*Figure 5.4. PAT00839 shows the switch rule. The diagnosis index anchors the cohort, the first Nexoral fill sets the therapy index, the Vexpro fill creates the switch, and the observation window extends past the 60-day gap so discontinuation is observed. Synthetic data.*
+
 PAT03874 demonstrates the addition rule: Nexoral arrives while Vexpro still has supply, after the regimen window closes, so the line advances to the combination.
+
+![Figure 5.5. PAT03874 shows the addition rule. The first Vexpro fill sets the therapy index, the 30-day regimen window closes on 2024-08-05, Nexoral arrives later while Vexpro still has active supply, and the line advances to Nexoral + Vexpro. Observation ends before the regimen can be classified as discontinued, so line 2 is censored. Synthetic data.](assets/figures/figure_5_5_addition_example.svg)
+
+*Figure 5.5. PAT03874 shows the addition rule. The first Vexpro fill sets the therapy index, the 30-day regimen window closes on 2024-08-05, Nexoral arrives later while Vexpro still has active supply, and the line advances to Nexoral + Vexpro. Observation ends before the regimen can be classified as discontinued, so line 2 is censored. Synthetic data.*
 
 
 ```python
@@ -183,6 +203,10 @@ print(pd.concat([naive, base])[["rule", "position", "line_entries", "share"]]
 Without the washout, Roventra has 3,193 line-1 entries. With it, the count is 2,798. The 395 records in between are continuing users that the no-washout view recounted as new starts.
 
 
+![Figure 5.6. The Sankey keeps first-line regimens on the left; still on line 1, discontinued, or advanced to line 2 on the right. Synthetic data.](assets/figures/figure_5_6_pathway_sankey.svg)
+
+*Figure 5.6. The Sankey keeps first-line regimens on the left; still on line 1, discontinued, or advanced to line 2 on the right. Synthetic data.*
+
 ## 6. Shake the rulers
 
 One rule varies per row; the others hold at base.
@@ -218,6 +242,10 @@ The business questions determine the clock. Diagnosis to treatment start support
 Start with all 5 patients untreated. In this table, **at risk** means a patient is still being observed, has not started treatment yet, and could still start on that day. The **untreated risk set** is the group of patients who meet that condition right before the day's event. Patients A, B, and C start treatment on days 19, 31, and 59. Patients D and E stay in the untreated risk set until day 90, when follow-up ends and we censor them.
 
 
+![Figure 5.7. The total time to treatment contains several operational clocks. This chapter measures diagnosis to treatment start. The other clocks require their own dated events.](assets/figures/figure_5_7_ttt_stage_clocks.svg)
+
+*Figure 5.7. The total time to treatment contains several operational clocks. This chapter measures diagnosis to treatment start. The other clocks require their own dated events.*
+
 
 ```python
 import pandas as pd
@@ -245,9 +273,17 @@ print(toy_curve[["day", "at_risk", "events", "censored", "survival"]]
       90        2       0         2       0.4
 
 
+![Figure 5.8. Patients D and E contribute untreated follow-up through day 90. Their censoring marks end observation, with no recorded treatment event. Conceptual example.](assets/figures/figure_5_8_patient_records.svg)
+
+*Figure 5.8. Patients D and E contribute untreated follow-up through day 90. Their censoring marks end observation, with no recorded treatment event. Conceptual example.*
+
 The median is day 59, the first treatment day when the estimated untreated probability reaches 0.50 or lower. The censored patients enlarge each earlier denominator and leave on day 90 without creating an event.
 
 Now apply the method to the chapter cohort. Listing 5.1 found 6,562 patients with sufficient lookback. Among them, 169 have diagnosis dates after the December 31, 2024 study cutoff and provide no post-diagnosis time within the study. Removing them leaves 6,393 patients for treatment-initiation analysis. We do not require 90 days of follow-up because Kaplan-Meier uses each patient's available observation time.
+
+![Figure 5.9. The 2 panels show the same 5 patient histories from 2 angles. When treatment starts, the Kaplan-Meier curve falls while the cumulative initiation curve rises. Censoring on day 90 leaves both curves flat and ends follow-up.](assets/figures/figure_5_9_km_estimate.svg)
+
+*Figure 5.9. The 2 panels show the same 5 patient histories from 2 angles. When treatment starts, the Kaplan-Meier curve falls while the cumulative initiation curve rises. Censoring on day 90 leaves both curves flat and ends follow-up.*
 
 
 ```python
@@ -284,6 +320,10 @@ The initiation curve provides measured planning rates at specific horizons. A fo
 
 Replace Patient B's day-31 treatment with death. Death prevents a later start, so it is a competing event. The chapter's synthetic cohort does not contain a death-before-treatment record, so this section stays a teaching example. In a real study, death usually comes from linked EHR data, a mortality registry, or another source that records the death date. Standard pharmacy claims alone usually do not carry that field. Aalen-Johansen assigns probability separately to treatment, death, and remaining untreated and alive.
 
+![Figure 5.10. Initiation continues to accrue as the untreated risk set becomes smaller. The shaded band is the 95% confidence interval. Synthetic data.](assets/figures/figure_5_10_initiation_curve.svg)
+
+*Figure 5.10. Initiation continues to accrue as the untreated risk set becomes smaller. The shaded band is the 95% confidence interval. Synthetic data.*
+
 
 ```python
 from survival import aalen_johansen_curve
@@ -311,6 +351,10 @@ By day 90, the competing-risk estimate assigns 40% to treatment, 20% to death be
 Persistence measures time from the first treatment fill until departure from the initial regimen. Adherence, also called compliance, measures the share of observed days with qualifying supply available. PDC counts unique covered days, while MPR counts all dispensed days supply. The product basket determines whether coverage follows the starting product or any treatment for the condition.
 
 The commercial review needs the day-90 persistence estimate, the PDC distribution, the effect of product scope, and payer comparisons with uncertainty.
+
+![Figure 5.11. The state-probability panel shows how all 3 patient states continue to sum to 100% while the cumulative incidence curves separate treatment from death.](assets/figures/figure_5_11_competing_risk.svg)
+
+*Figure 5.11. The state-probability panel shows how all 3 patient states continue to sum to 100% while the cumulative incidence curves separate treatment from death.*
 
 
 ```python
@@ -360,11 +404,27 @@ print(payer[["payer_id", "adherent_pdc_rate", "lower_95", "upper_95"]]
       PAY008             0.1522    0.1177    0.1946
 
 
+![Figure 5.12. Persistence follows elapsed time on the initial regimen, PDC counts covered days within the window, and MPR counts all dispensed supply. Synthetic data.](assets/figures/figure_5_12_patient_medication_use.svg)
+
+*Figure 5.12. Persistence follows elapsed time on the initial regimen, PDC counts covered days within the window, and MPR counts all dispensed supply. Synthetic data.*
+
 At day 90, 60.6% remain on the initial regimen. Among patients with at least 90 observable days, 15.6% have index-product PDC at or above 0.80, and product switching changes PDC for 36 patients. The payer intervals overlap substantially, so the raw ranking provides weak evidence for a payer-specific adherence difference.
 
 ## 9. The post-index hub pathway
 
 Only referrals between diagnosis index and follow-up end belong to this journey. The funnel combines conversion counts with median time from referral.
+
+![Figure 5.13. Estimated initial-regimen persistence falls from 73.0% at day 60 to 49.9% at day 113. The 701 patients still at risk on day 113 provide less evidence than the 1,776 patients at risk on day 60. Synthetic data.](assets/figures/figure_5_13_persistence.svg)
+
+*Figure 5.13. Estimated initial-regimen persistence falls from 73.0% at day 60 to 49.9% at day 113. The 701 patients still at risk on day 113 provide less evidence than the 1,776 patients at risk on day 60. Synthetic data.*
+
+![Figure 5.14. Most measured patients fall below the 0.80 index-product PDC threshold. The full distribution shows how far patients are from the threshold and avoids reducing the analysis to one pass rate. Synthetic data.](assets/figures/figure_5_14_pdc_distribution.svg)
+
+*Figure 5.14. Most measured patients fall below the 0.80 index-product PDC threshold. The full distribution shows how far patients are from the threshold and avoids reducing the analysis to one pass rate. Synthetic data.*
+
+![Figure 5.15. The payer confidence intervals overlap substantially, including the intervals for PAY002 and PAY004. The observed ranking provides weak evidence for a payer-specific difference. Synthetic data.](assets/figures/figure_5_15_payer_adherence.svg)
+
+*Figure 5.15. The payer confidence intervals overlap substantially, including the intervals for PAY002 and PAY004. The observed ranking provides weak evidence for a payer-specific difference. Synthetic data.*
 
 
 ```python
@@ -393,6 +453,10 @@ print(pivot)
     Lost follow-up                       26                                 0
     Patient decision                     29                                 0
 
+
+![Figure 5.16. The hub converts 7 in 10 post-index referrals. Counts, conversion, and time belong together because a pathway can lose patients through delay as well as explicit abandonment. Synthetic data.](assets/figures/figure_5_16_hub_funnel.svg)
+
+*Figure 5.16. The hub converts 7 in 10 post-index referrals. Counts, conversion, and time belong together because a pathway can lose patients through delay as well as explicit abandonment. Synthetic data.*
 
 ## Exercises
 

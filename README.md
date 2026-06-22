@@ -23,26 +23,6 @@ It follows the complete fictional launch of **Roventra**, a once-daily oral medi
 
 ---
 
-## Who This Is For
-
-**Commercial analysts and data scientists** in pharmaceutical companies who need to move from reporting to decision support. The book teaches the judgment layer: when a method is adequate, when it is not, and how to present a finding as a recommendation with a clear owner and measure of success.
-
-**Analytics engineers and BI teams** building commercial data platforms. The chapter on data infrastructure covers claim receipt lag, drug code mapping gaps, and data quality rules that protect downstream analysis.
-
-**Brand teams and commercial leaders** who review analytical recommendations and want to understand what the data can and cannot tell you about market opportunity, customer behavior, and campaign impact.
-
-**Students and independent consultants** entering pharmaceutical commercial analytics. The book assumes no prior pharma experience and defines terms at first use.
-
-### Prerequisites
-
-- Python 3.11 or later
-- Familiarity with pandas and basic data manipulation
-- Basic understanding of statistical concepts (means, distributions, regression)
-
-No pharmaceutical industry background is required. No prior exposure to pharmaceutical data sources, commercial roles, or marketing experience is assumed.
-
----
-
 ## Getting Started
 
 This repository uses [uv](https://docs.astral.sh/uv/) for dependency management.
@@ -98,74 +78,6 @@ The first half covers foundational methods: market sizing, patient journeys, HCP
 | 13 | Resource Allocation and Optimization | In progress | | |
 | 14 | AI Decision Intelligence | In progress | | |
 | 15 | Capstone Case Studies | In progress | | |
-
----
-
-## Navigate by Decision Need
-
-The chapters build on each other, but readers with an immediate decision problem can start with the most relevant section.
-
-| If the immediate need is... | Start with... | Then connect to... |
-| --- | --- | --- |
-| Launch opportunity sizing | Chapters 2, 4, and 7 | Chapters 6 and 13 |
-| Patient journey analysis | Chapters 3 and 5 | Chapters 6, 7, and 10 |
-| Real-world evidence | Chapters 3 and 5 | Chapters 10 and 11 |
-| HCP or account targeting | Chapter 6 | Chapters 7, 8, 9, and 10 |
-| Omnichannel planning | Chapters 8 and 9 | Chapters 10 and 12 |
-| Campaign measurement | Chapters 10 and 11 | Chapters 12 and 13 |
-| Budget allocation | Chapters 12 and 13 | Chapter 14 |
-| Commercial AI and decision engines | Chapter 14 | Chapters 3, 6, 9, 10, 11, and 13 |
-
----
-
-## The Roventra World
-
-All examples run against a single fictional launch. Using a consistent case across 15 chapters means the patient found in the data chapter reappears in the targeting chapter, the payer that denied coverage in the competitive chapter feeds the access analysis in the resource allocation chapter, and the HCP ranked first in targeting becomes the unit of measurement in the incrementality chapter.
-
-| Entity | ID | Role |
-| --- | --- | --- |
-| Roventra | `90000-1001-11` | The launch product: once-daily oral medicine |
-| Nexoral | `90000-1002-11` | Established oral competitor |
-| Vexpro | `90000-1003-11` | Established weekly injectable competitor |
-| Patient | `PAT02034` | The canonical patient traced across all data sources |
-| HCP | `HCP0280` | The prescriber: a targeting priority and measurement unit |
-| Account | `ACC089` | The clinic where field prioritization and call planning occur |
-| Payer | `PAY002` | The organization whose formulary decisions shape patient access |
-
----
-
-## Repository Layout
-
-```
-ch01_intro/          Chapter 1 manuscript
-ch02_ecosystem/      Chapter 2 manuscript and appendix
-ch03_data/           Chapter 3 manuscript, notebook, exercises, appendix
-ch04_market/         Chapter 4 manuscript, notebook, exercises, appendix
-ch05_journey/        Chapter 5 manuscript, notebook, exercises
-ch06_hcp/            Chapter 6 manuscript, notebook, exercises
-ch07_competitive/    Chapter 7 manuscript, notebook, exercises
-tests/               Regression tests for generated data and analysis
-pyproject.toml       Python dependencies (managed by uv)
-```
-
-Generated datasets are not tracked. Each analytical walkthrough notebook regenerates the data it needs.
-
----
-
-## Supporting Material
-
-| Reference | Purpose |
-| --- | --- |
-| [Appendix 2A: Launch Team Role Reference](ch02_ecosystem/ch02_appendix.md) | Cross-functional commercial roles and responsibilities |
-| [Appendix 3A: Data Specifications](ch03_data/ch03_appendix.md) | Synthetic dataset schema, field definitions, and generation rules |
-
----
-
-## About the Author
-
-Xinjie Qiu has spent more than a decade leading data organizations at Havas Health, Real Chemistry and Horizon Next, building marketing data science, advanced analytics, pharmaceutical and healthcare commercial analytics capabilities, and working with brands including Pfizer, Sanofi, Novartis, Amgen, UnitedHealthcare, Google on new product launch, HCP targeting, patient journey analysis, marketing causal inference, and AI-supported decision systems. His background combines a PhD in Physics from the University of Minnesota with oncology research at Memorial Sloan Kettering Cancer Center.
-
-Connect on [LinkedIn](https://www.linkedin.com/in/xinjieqiu).
 
 ---
 
