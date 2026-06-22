@@ -49,8 +49,8 @@ print(f"Only at 45 days: {sorted(top_45 - top_60)}")
 
 ```
 
-    Top-20 overlap: 19/20
-    Only at 45 days: ['9000000258']
+    Top-20 overlap: 18/20
+    Only at 45 days: ['9000000211', '9000000631']
 
 
 **Methods note:** Window sensitivity belongs in the pathway brief. In real data, confirm that the transition window matches the clinical pathway and source latency before changing an account action.
@@ -74,52 +74,13 @@ print(comparison)
 
 ```
 
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>k</th>
-      <th>silhouette</th>
-      <th>minimum_cluster_size</th>
-      <th>seed_stability_ari</th>
-      <th>bootstrap_stability_ari</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>3</td>
-      <td>0.386869</td>
-      <td>14</td>
-      <td>1.0</td>
-      <td>0.697868</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>4</td>
-      <td>0.427099</td>
-      <td>10</td>
-      <td>1.0</td>
-      <td>0.857913</td>
-    </tr>
-  </tbody>
-</table>
-</div>
+       k  silhouette  minimum_cluster_size  seed_stability_ari  \
+    0  3    0.295087                    15                 1.0   
+    1  4    0.291884                    10                 1.0   
+    
+       bootstrap_stability_ari  
+    0                 0.594227  
+    1                 0.555224  
 
 
 **Methods note:** The 3-cluster model has a slightly lower silhouette and materially lower bootstrap stability. A real deployment also needs blinded business review of the centroid profiles.
@@ -143,98 +104,28 @@ print(transparency)
 
 ```
 
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>npi</th>
-      <th>research_percentile</th>
-      <th>leadership_percentile</th>
-      <th>practice_expertise_percentile</th>
-      <th>peer_connection_percentile</th>
-      <th>proposed_role</th>
-      <th>role_fit_score</th>
-      <th>review_status</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>4</th>
-      <td>9000000363</td>
-      <td>100.0</td>
-      <td>100.0</td>
-      <td>100.0</td>
-      <td>66.666667</td>
-      <td>Evidence-generation collaborator</td>
-      <td>100.0</td>
-      <td>Medical-affairs review required</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>npi</th>
-      <th>proposed_role</th>
-      <th>review_status_x</th>
-      <th>total_payment_amount</th>
-      <th>payment_records</th>
-      <th>payment_categories</th>
-      <th>latest_payment_year</th>
-      <th>review_status_y</th>
-      <th>transparency_use</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>4</th>
-      <td>9000000363</td>
-      <td>Evidence-generation collaborator</td>
-      <td>Medical-affairs review required</td>
-      <td>0.0</td>
-      <td>0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Disclosure context only; excluded from scienti...</td>
-    </tr>
-  </tbody>
-</table>
-</div>
+              npi  research_percentile  leadership_percentile  \
+    4  9000000363                100.0                  100.0   
+    
+       practice_expertise_percentile  peer_connection_percentile  \
+    4                          100.0                   66.666667   
+    
+                          proposed_role  role_fit_score  \
+    4  Evidence-generation collaborator           100.0   
+    
+                         review_status  
+    4  Medical-affairs review required  
+              npi                     proposed_role  \
+    4  9000000363  Evidence-generation collaborator   
+    
+                       review_status_x  total_payment_amount  payment_records  \
+    4  Medical-affairs review required                   0.0                0   
+    
+      payment_categories  latest_payment_year review_status_y  \
+    4                NaN                  NaN             NaN   
+    
+                                        transparency_use  
+    4  Disclosure context only; excluded from scienti...  
 
 
 **Judgment:** The scientific role requires medical-affairs confirmation. The commercial action and speaker-program eligibility require their own governed workflows. In real data, request source-level identity-match evidence before acting.

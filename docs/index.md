@@ -85,11 +85,11 @@ The first half covers foundational methods: market sizing, patient journeys, HCP
 | --- | --- | --- | --- | --- |
 | 1 | [A Medicine, a Market, and the Decisions Between Them](ch01_intro/ch01_introduction.md) | Draft completed | | |
 | 2 | [The Commercialization Operating System](ch02_ecosystem/ch02_ecosystem.md) | Draft completed | | |
-| 3 | [A Synthetic Lab for Real Pharma Questions](ch03_data/ch03_data.md) | Draft completed | [Walkthrough](ch03_data/chapter3_walkthrough.ipynb) | [Exercises](ch03_data/exercise_solutions.ipynb) |
-| 4 | [Market Sizing and Patient Populations](ch04_market/ch04_market_sizing.md) | Draft completed | [Walkthrough](ch04_market/chapter4_walkthrough.ipynb) | [Exercises](ch04_market/exercise_solutions.ipynb) |
-| 5 | [Building the Patient Journey](ch05_journey/ch05_patient_journey.md) | Draft completed | [Walkthrough](ch05_journey/chapter5_walkthrough.ipynb) | [Exercises](ch05_journey/exercise_solutions.ipynb) |
-| 6 | [HCP and Account Targeting](ch06_hcp/ch06_hcp_account_targeting.md) | Draft completed | [Walkthrough](ch06_hcp/chapter6_walkthrough.ipynb) | [Exercises](ch06_hcp/exercise_solutions.ipynb) |
-| 7 | [Competitive Intelligence and Market Access](ch07_competitive/ch07_competitive_intelligence_market_access.md) | Draft completed | [Walkthrough](ch07_competitive/chapter7_walkthrough.ipynb) | [Exercises](ch07_competitive/exercise_solutions.ipynb) |
+| 3 | [A Synthetic Lab for Real Pharma Questions](ch03_data/ch03_data.md) | Draft completed | [Walkthrough](ch03_data/chapter3_walkthrough.md) | [Exercises](ch03_data/exercise_solutions.md) |
+| 4 | [Market Sizing and Patient Populations](ch04_market/ch04_market_sizing.md) | Draft completed | [Walkthrough](ch04_market/chapter4_walkthrough.md) | [Exercises](ch04_market/exercise_solutions.md) |
+| 5 | [Building the Patient Journey](ch05_journey/ch05_patient_journey.md) | Draft completed | [Walkthrough](ch05_journey/chapter5_walkthrough.md) | [Exercises](ch05_journey/exercise_solutions.md) |
+| 6 | [HCP and Account Targeting](ch06_hcp/ch06_hcp_account_targeting.md) | Draft completed | [Walkthrough](ch06_hcp/chapter6_walkthrough.md) | [Exercises](ch06_hcp/exercise_solutions.md) |
+| 7 | [Competitive Intelligence and Market Access](ch07_competitive/ch07_competitive_intelligence_market_access.md) | Draft completed | [Walkthrough](ch07_competitive/chapter7_walkthrough.md) | [Exercises](ch07_competitive/exercise_solutions.md) |
 | 8 | Omnichannel Analytics | In progress | | |
 | 9 | Next Best Action | In progress | | |
 | 10 | Experimental Design and Incrementality | In progress | | |
