@@ -1,0 +1,172 @@
+# Building Decision Systems: A Hands-On Playbook for Pharmaceutical Commercial Decision Science
+
+**A practical guide to pharmaceutical commercial analytics, from raw data to defensible action.**
+
+Pharmaceutical companies have no shortage of data. The harder problem is deciding what to do with it. A forecast may size a market, but a launch team still has to decide where to focus. A targeting model may rank physicians, but a field leader still has to decide which accounts deserve attention and why. A campaign report may show a lift in prescriptions, but a brand team still has to judge whether the campaign caused the change.
+
+No single book covers the full path: from commercial data infrastructure through patient journeys, targeting, competitive intelligence, omnichannel measurement, causal inference, and AI-supported decision engines. This is the book I wish I had before I learned these topics the hard way.
+
+It follows the complete fictional launch of **Roventra**, a once-daily oral medicine for a chronic condition, from FDA approval to field execution.
+
+---
+
+## What You Will Build
+
+- A linked synthetic pharmaceutical dataset that mirrors real claims, EHR, payer, CRM, and specialty pharmacy structures
+- Patient population funnels from true prevalence down to eligible, treated patients
+- Lines of therapy with explicit washout, switch, addition, and persistence rules
+- HCP and account targeting with transparent scoring, actionability filters, and field capacity allocation
+- Competitive intelligence: formulary position, payer access barriers, and corrected treatment share
+- Omnichannel engagement plans, next-best-action recommendations, and incrementality tests
+- Causal inference models and marketing mix models for unified measurement
+- A resource allocation optimizer and a governed AI decision engine
+
+---
+
+## Who This Is For
+
+**Commercial analysts and data scientists** in pharmaceutical companies who need to move from reporting to decision support. The book teaches the judgment layer: when a method is adequate, when it is not, and how to present a finding as a recommendation with a clear owner and measure of success.
+
+**Analytics engineers and BI teams** building commercial data platforms. The chapter on data infrastructure covers claim receipt lag, drug code mapping gaps, and data quality rules that protect downstream analysis.
+
+**Brand teams and commercial leaders** who review analytical recommendations and want to understand what the data can and cannot tell you about market opportunity, customer behavior, and campaign impact.
+
+**Students and independent consultants** entering pharmaceutical commercial analytics. The book assumes no prior pharma experience and defines terms at first use.
+
+### Prerequisites
+
+- Python 3.11 or later
+- Familiarity with pandas and basic data manipulation
+- Basic understanding of statistical concepts (means, distributions, regression)
+
+No pharmaceutical industry background is required. No prior exposure to pharmaceutical data sources, commercial roles, or marketing experience is assumed.
+
+---
+
+## Getting Started
+
+This repository uses [uv](https://docs.astral.sh/uv/) for dependency management.
+
+```bash
+# Clone the repository
+git clone https://github.com/tjphoton/building-pharma-decision-systems.git
+cd building-pharma-decision-systems
+
+# Install dependencies
+uv sync
+
+# Launch Jupyter to run chapter notebooks
+uv run jupyter lab
+```
+
+Hands-on analytical chapters from Chapter 3 onward contain two executed notebooks:
+
+- `chapterN_walkthrough.ipynb`: the chapter as one executable story
+- `exercise_solutions.ipynb`: worked answers with analyst judgment notes
+
+Run the notebooks in order within each analytical chapter. Data generation is handled inside each walkthrough; no external data download is required. Chapters 1 and 2 are prose foundations and do not require companion notebooks.
+
+---
+
+## Book Structure
+
+| Part | Focus | Decision capability |
+| --- | --- | --- |
+| Part 1 | Foundations | Frame a commercial problem and judge whether the data fit the decision |
+| Part 2 | Market and customer understanding | Find patient opportunity, explain treatment behavior, and identify actionable customers |
+| Part 3 | Engagement and measurement | Select channels, estimate incremental impact, and compare performance |
+| Part 4 | Decision engines | Allocate resources and build governed recommendation systems |
+
+The first half covers foundational methods: market sizing, patient journeys, HCP and account targeting, and competitive intelligence. The second half adds omnichannel measurement, real-world evidence, causal inference, machine learning for treatment-effect estimation, and fine-tuned language models for AI decision support. Every method, including the advanced ones, is demonstrated with working Python and verified output.
+
+### Chapters
+
+| Chapter | Title | Status | Walkthrough | Exercises |
+| --- | --- | --- | --- | --- |
+| 1 | [A Medicine, a Market, and the Decisions Between Them](ch01_intro/ch01_introduction.md) | Draft completed | | |
+| 2 | [The Commercialization Operating System](ch02_ecosystem/ch02_ecosystem.md) | Draft completed | | |
+| 3 | [A Synthetic Lab for Real Pharma Questions](ch03_data/ch03_data.md) | Draft completed | [Walkthrough](ch03_data/chapter3_walkthrough.ipynb) | [Exercises](ch03_data/exercise_solutions.ipynb) |
+| 4 | [Market Sizing and Patient Populations](ch04_market/ch04_market_sizing.md) | Draft completed | [Walkthrough](ch04_market/chapter4_walkthrough.ipynb) | [Exercises](ch04_market/exercise_solutions.ipynb) |
+| 5 | [Building the Patient Journey](ch05_journey/ch05_patient_journey.md) | Draft completed | [Walkthrough](ch05_journey/chapter5_walkthrough.ipynb) | [Exercises](ch05_journey/exercise_solutions.ipynb) |
+| 6 | [HCP and Account Targeting](ch06_hcp/ch06_hcp_account_targeting.md) | Draft completed | [Walkthrough](ch06_hcp/chapter6_walkthrough.ipynb) | [Exercises](ch06_hcp/exercise_solutions.ipynb) |
+| 7 | [Competitive Intelligence and Market Access](ch07_competitive/ch07_competitive_intelligence_market_access.md) | Draft completed | [Walkthrough](ch07_competitive/chapter7_walkthrough.ipynb) | [Exercises](ch07_competitive/exercise_solutions.ipynb) |
+| 8 | Omnichannel Analytics | In progress | | |
+| 9 | Next Best Action | In progress | | |
+| 10 | Experimental Design and Incrementality | In progress | | |
+| 11 | Real-World Evidence and Causal Inference | In progress | | |
+| 12 | MMM and Unified Measurement | In progress | | |
+| 13 | Resource Allocation and Optimization | In progress | | |
+| 14 | AI Decision Intelligence | In progress | | |
+| 15 | Capstone Case Studies | In progress | | |
+
+---
+
+## Navigate by Decision Need
+
+The chapters build on each other, but readers with an immediate decision problem can start with the most relevant section.
+
+| If the immediate need is... | Start with... | Then connect to... |
+| --- | --- | --- |
+| Launch opportunity sizing | Chapters 2, 4, and 7 | Chapters 6 and 13 |
+| Patient journey analysis | Chapters 3 and 5 | Chapters 6, 7, and 10 |
+| Real-world evidence | Chapters 3 and 5 | Chapters 10 and 11 |
+| HCP or account targeting | Chapter 6 | Chapters 7, 8, 9, and 10 |
+| Omnichannel planning | Chapters 8 and 9 | Chapters 10 and 12 |
+| Campaign measurement | Chapters 10 and 11 | Chapters 12 and 13 |
+| Budget allocation | Chapters 12 and 13 | Chapter 14 |
+| Commercial AI and decision engines | Chapter 14 | Chapters 3, 6, 9, 10, 11, and 13 |
+
+---
+
+## The Roventra World
+
+All examples run against a single fictional launch. Using a consistent case across 15 chapters means the patient found in the data chapter reappears in the targeting chapter, the payer that denied coverage in the competitive chapter feeds the access analysis in the resource allocation chapter, and the HCP ranked first in targeting becomes the unit of measurement in the incrementality chapter.
+
+| Entity | ID | Role |
+| --- | --- | --- |
+| Roventra | `90000-1001-11` | The launch product: once-daily oral medicine |
+| Nexoral | `90000-1002-11` | Established oral competitor |
+| Vexpro | `90000-1003-11` | Established weekly injectable competitor |
+| Patient | `PAT02034` | The canonical patient traced across all data sources |
+| HCP | `HCP0280` | The prescriber: a targeting priority and measurement unit |
+| Account | `ACC089` | The clinic where field prioritization and call planning occur |
+| Payer | `PAY002` | The organization whose formulary decisions shape patient access |
+
+---
+
+## Repository Layout
+
+```
+ch01_intro/          Chapter 1 manuscript
+ch02_ecosystem/      Chapter 2 manuscript and appendix
+ch03_data/           Chapter 3 manuscript, notebook, exercises, appendix
+ch04_market/         Chapter 4 manuscript, notebook, exercises, appendix
+ch05_journey/        Chapter 5 manuscript, notebook, exercises
+ch06_hcp/            Chapter 6 manuscript, notebook, exercises
+ch07_competitive/    Chapter 7 manuscript, notebook, exercises
+tests/               Regression tests for generated data and analysis
+pyproject.toml       Python dependencies (managed by uv)
+```
+
+Generated datasets are not tracked. Each analytical walkthrough notebook regenerates the data it needs.
+
+---
+
+## Supporting Material
+
+| Reference | Purpose |
+| --- | --- |
+| [Appendix 2A: Launch Team Role Reference](ch02_ecosystem/ch02_appendix.md) | Cross-functional commercial roles and responsibilities |
+| [Appendix 3A: Data Specifications](ch03_data/ch03_appendix.md) | Synthetic dataset schema, field definitions, and generation rules |
+
+---
+
+## About the Author
+
+Xinjie Qiu has spent more than a decade leading data organizations at Havas Health, Real Chemistry and Horizon Next, building marketing data science, advanced analytics, pharmaceutical and healthcare commercial analytics capabilities, and working with brands including Pfizer, Sanofi, Novartis, Amgen, UnitedHealthcare, Google on new product launch, HCP targeting, patient journey analysis, marketing causal inference, and AI-supported decision systems. His background combines a PhD in Physics from the University of Minnesota with oncology research at Memorial Sloan Kettering Cancer Center.
+
+Connect on [LinkedIn](https://www.linkedin.com/in/xinjieqiu).
+
+---
+
+*Fictional products, patients, HCPs, accounts, payers, and clinical events are used throughout. No real patient data appears in this repository.*

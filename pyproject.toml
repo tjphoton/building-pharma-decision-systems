@@ -1,0 +1,19 @@
+[project]
+name = "hands-on-pharma-decision-science"
+version = "0.1.0"
+description = "Code and data for the Hands-On Pharma Decision Science book."
+requires-python = ">=3.11"
+dependencies = [
+    "ipykernel>=6.29",
+    "jupyter>=1.1",
+    "kaleido>=0.2.1",
+    "matplotlib>=3.9",
+    "nbclient>=0.10",
+    "nbformat>=5.10",
+    "networkx>=3.6.1",
+    "openpyxl>=3.1.5",
+    "pandas>=2.2",
+    "plotly>=5.20",
+    "pytest>=7.0",
+    "scikit-learn>=1.4",
+]

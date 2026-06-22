@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img">
+<title>One Encounter, Many Service Lines</title>
+<defs>
+<marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 z" fill="#344054"/></marker>
+<filter id="shadow" x="-10%" y="-10%" width="120%" height="130%"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-opacity="0.12"/></filter>
+</defs>
+<rect width="1200" height="630" fill="#FFFFFF"/>
+<text text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="36" font-weight="700" fill="#172033"><tspan x="600.0" y="66.0">One Encounter, Many Service Lines</tspan></text>
+<rect x="80" y="140" width="440" height="350" rx="18" fill="#D8EAF5" stroke="#4F86A6" stroke-width="2.5" filter="url(#shadow)"/>
+<text text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="18" font-weight="normal" fill="#172033"><tspan x="300.0" y="249.7">encounter_id:  ENC0005012</tspan><tspan x="300.0" y="272.2">patient_id:    PAT02034</tspan><tspan x="300.0" y="294.7">claim_date:    2024-10-23</tspan><tspan x="300.0" y="317.2">claim_type:    Professional</tspan><tspan x="300.0" y="339.7">diagnosis_1:   E11.9</tspan><tspan x="300.0" y="362.2">diagnosis_2:   J45.909</tspan><tspan x="300.0" y="384.7">rendering_npi: 9000000280</tspan></text>
+<text x="300" y="128" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="22" font-weight="700" fill="#4F86A6">Medical Claims Header (1 row)</text>
+<text x="584" y="325" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="26" font-weight="700" fill="#4F86A6">1 : M</text>
+<text x="878" y="128" text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="22" font-weight="700" fill="#4F86A6">Service Lines (M rows per encounter)</text>
+<rect x="648" y="195" width="460" height="120" rx="18" fill="#D8EAF5" stroke="#4F86A6" stroke-width="2.5" filter="url(#shadow)"/>
+<text text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="18" font-weight="normal" fill="#172033"><tspan x="878.0" y="223.4">line_number:      1</tspan><tspan x="878.0" y="245.9">procedure_code:   99213</tspan><tspan x="878.0" y="268.4">place_of_service:  11</tspan><tspan x="878.0" y="290.9">line_charge:      $1,027.50</tspan></text>
+<rect x="648" y="351" width="460" height="120" rx="18" fill="#D8EAF5" stroke="#4F86A6" stroke-width="2.5" filter="url(#shadow)"/>
+<text text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="18" font-weight="normal" fill="#172033"><tspan x="878.0" y="379.4">line_number:      2</tspan><tspan x="878.0" y="401.9">procedure_code:   99215</tspan><tspan x="878.0" y="424.4">place_of_service:  11</tspan><tspan x="878.0" y="446.9">line_charge:      $363.92</tspan></text>
+<text text-anchor="middle" font-family="DejaVu Sans, Arial, sans-serif" font-size="38" fill="#5F6B7A"><tspan x="878" y="519">·</tspan><tspan x="878" y="549">·</tspan><tspan x="878" y="579">·</tspan></text>
+</svg>

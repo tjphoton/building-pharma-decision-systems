@@ -1,0 +1,41 @@
+name: Deploy Book to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install MkDocs and Material
+        run: pip install mkdocs mkdocs-material mkdocs-include-markdown-plugin nbconvert
+
+      - name: Convert Jupyter notebooks to Markdown
+        run: |
+          jupyter nbconvert --to markdown docs/ch03_data/chapter3_walkthrough.ipynb --output-dir=docs/ch03_data
+          jupyter nbconvert --to markdown docs/ch03_data/exercise_solutions.ipynb --output-dir=docs/ch03_data
+
+      - name: Build documentation
+        run: mkdocs build
+
+      - name: Deploy to GitHub Pages
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site
