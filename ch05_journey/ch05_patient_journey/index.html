@@ -1929,7 +1929,7 @@ Observed qualifying diagnosis      8213 At least one encounter with ICD prefix E
 <p>The 180-day washout determines which fills count as a true new start: if the patient had a treatment-basket fill in the 180 days before their post-diagnosis fill, they are a continuing user rather than a new start.</p>
 <p>The washout window is anchored to the <strong>first treatment fill</strong>, not the diagnosis date. The section 5.1 lookback (also 180 days) counts back from the diagnosis date to confirm the patient is newly diagnosed within observable history. The washout counts back from the first fill to confirm the patient is newly started on therapy. A patient who began Roventra months before diagnosis will pass the diagnosis lookback but fail the washout: their pre-diagnosis fills land inside the 180-day window before their "first" post-diagnosis refill, revealing the continuation.</p>
 <p>Roventra shows 3,193 line-1 entries without the washout rule, 2,798 with it. The 395 patients in between had a basket fill in the 180 days before their post-diagnosis "first" fill; they are therapy continuing users who got relabeled as a new start.</p>
-<p><img alt="Two patient timelines contrast a relabeled continuation with a true new start under the 180-day washout rule." src="assets/figures/figure_5_2_washout_relabel.svg" /></p>
+<p><img alt="Two patient timelines contrast a relabeled continuation with a true new start under the 180-day washout rule." src="../assets/figures/figure_5_2_washout_relabel.svg" /></p>
 <p><em>Figure 5.2. The washout rule. The top panel shows a post-diagnosis fill that looks like a new start only because earlier treatment fills are hidden by a no-washout view. The bottom panel shows a patient with no earlier treatment fills, keep in the cohort.</em></p>
 <h3 id="522-the-rule-set">5.2.2 The rule set</h3>
 <p>Figure 5.3 illustrates a set of treatment sequence rules.</p>
@@ -1944,7 +1944,7 @@ Observed qualifying diagnosis      8213 At least one encounter with ICD prefix E
 <li>Discontinuation (panel 8): the 60-day gap closes while the patient is still observable and no qualifying refill, switch, addition, or restart appears.</li>
 </ul>
 <p>Each rule is coded in <code>ch05_journey/scripts/lot.py</code>.</p>
-<p><img alt="Eight schematic timelines show the therapy index, washout, 28-day supply, 30-day regimen window, 60-day allowable gap, addition, switch, restart, censoring, and discontinuation rules." src="assets/figures/figure_5_3_treatment_sequence_rules.svg" /></p>
+<p><img alt="Eight schematic timelines show the therapy index, washout, 28-day supply, 30-day regimen window, 60-day allowable gap, addition, switch, restart, censoring, and discontinuation rules." src="../assets/figures/figure_5_3_treatment_sequence_rules.svg" /></p>
 <p><em>Figure 5.3. Line-of-therapy rules depend on the timing of fills, active supply, the regimen window, the allowable gap, and the observation boundary. Conceptual schematic.</em></p>
 <h3 id="523-switch-example">5.2.3 Switch example</h3>
 <p><code>PAT00839</code> is a new-to-therapy patient whose 2nd line is entered by a switch and ends in a discontinuation. The line logic begins at the first treatment fill after the diagnosis date.</p>
@@ -1997,7 +1997,7 @@ lines of therapy:
 </code></pre></div>
 <p>For PAT00839, diagnosis is on 2024-01-26 and treatment begins on 2024-06-20, 146 days later.</p>
 <p>Nexoral is the 1st line since he passes the washout. The Nexoral supply runs through 2024-07-19. The Vexpro fill arrives 2024-07-24, within the 60-day allowable gap and after the Nexoral supply has ended, so it is a line 2 switch to Vexpro regimen. Two Vexpro fills carry supply to 2024-09-19. His observation window runs to 2024-12-31, more than 60 days past his last supplied day, so the discontinuation rule applies here: line 2 ended on therapy day 58.</p>
-<p><img alt="PAT00839 on a dated timeline showing diagnosis index, therapy index, pharmacy claims, inferred line 1 and line 2 exposure, the switch point, the 60-day gap, discontinuation, and observation end." src="assets/figures/figure_5_4_switch_example.svg" /></p>
+<p><img alt="PAT00839 on a dated timeline showing diagnosis index, therapy index, pharmacy claims, inferred line 1 and line 2 exposure, the switch point, the 60-day gap, discontinuation, and observation end." src="../assets/figures/figure_5_4_switch_example.svg" /></p>
 <p><em>Figure 5.4. PAT00839 shows the switch rule. The diagnosis index anchors the cohort, the first Nexoral fill sets the therapy index, the Vexpro fill creates the switch, and the observation window extends past the 60-day gap so discontinuation is observed. Synthetic data.</em></p>
 <h3 id="524-addition-example">5.2.4 Addition example</h3>
 <p>PAT03874 demonstrates the 2nd-line addition rule.</p>
@@ -2048,7 +2048,7 @@ lines of therapy:
            2 Nexoral + Vexpro 2024-08-29 2025-01-01           2        Addition   Censored        126
 </code></pre></div>
 <p>PAT03874 starts a 60-day Vexpro fill. On 2024-08-29, while that supply is still active but after the 30-day regimen window has closed, Nexoral arrives. A new product on a live backbone is an addition: the line advances to <strong>line 2</strong> and the regimen becomes the combination <code>Nexoral + Vexpro</code>. Had the Nexoral fill landed within the first 30 days, it would have joined <strong>line 1</strong> as a combination instead. Whether an addition should advance the line depends on the therapeutic area; oncology protocols typically treat it as a line advance, while some chronic-disease protocols do not. His line 2 is censored because supply runs past the observation boundary.</p>
-<p><img alt="PAT03874 on a dated timeline showing diagnosis index, therapy index, pharmacy claims, the 30-day regimen window, inferred line 1 and line 2 exposure, the addition point, censoring, and observation end." src="assets/figures/figure_5_5_addition_example.svg" /></p>
+<p><img alt="PAT03874 on a dated timeline showing diagnosis index, therapy index, pharmacy claims, the 30-day regimen window, inferred line 1 and line 2 exposure, the addition point, censoring, and observation end." src="../assets/figures/figure_5_5_addition_example.svg" /></p>
 <p><em>Figure 5.5. PAT03874 shows the addition rule. The first Vexpro fill sets the therapy index, the 30-day regimen window closes on 2024-08-05, Nexoral arrives later while Vexpro still has active supply, and the line advances to <code>Nexoral + Vexpro</code>. Observation ends before the regimen can be classified as discontinued, so line 2 is censored. Synthetic data.</em></p>
 <h3 id="525-cohort-treatment-pattern">5.2.5 Cohort treatment pattern</h3>
 <p>Run the treatment sequence rules over the 3,415 new-to-therapy patients:</p>
@@ -2089,7 +2089,7 @@ Roventra line entries, with and without the washout rule:
 180-day washout   Line 1          2798    1.0
 </code></pre></div>
 <p>The synthetic data runs from 2024-01-01 to 2025-01-31. With this bounded observation, line-of-therapy depth is shallow: 3,387 of 3,415 treated patients (99.2%) never leave line 1, and 28 reach a second line. Lines advance by switch (24) and addition (4), and 0.1% of first-line regimens are combinations. Restarts are absent because this generator builds tight refill chains. In real data, vacations, hospitalizations, mail-order fills, and incomplete capture make restart logic much more important. Roventra is the most common observed first-line regimen.</p>
-<p><img alt="Sankey diagram showing first-line regimens on the left and observed outcomes on the right, ordered from most common at the top to least common at the bottom." src="assets/figures/figure_5_6_pathway_sankey.svg" /></p>
+<p><img alt="Sankey diagram showing first-line regimens on the left and observed outcomes on the right, ordered from most common at the top to least common at the bottom." src="../assets/figures/figure_5_6_pathway_sankey.svg" /></p>
 <p><em>Figure 5.6. The Sankey keeps first-line regimens on the left; still on line 1, discontinued, or advanced to line 2 on the right. Synthetic data.</em></p>
 <h3 id="526-treatment-sequence-in-commercial-reporting">5.2.6 Treatment Sequence in Commercial Reporting</h3>
 <p>The 180-day washout identifies 3,415 new-to-therapy patients. Roventra appears in the first-line regimen for 2,798 of them. Without the washout, the analysis reports 3,193 Roventra line-1 entries because it counts 395 continuing users as new starts. The uncorrected count is 14.1% higher than the corrected result.</p>

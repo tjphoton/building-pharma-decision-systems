@@ -1617,9 +1617,9 @@ access signals without treatment:         52
 <p>Transaction status separates access attempts from completed treatment. The treatment-fill and access-signal counts show the size of that distinction.</p>
 <h2 id="4-lines-of-therapy-the-worked-patients">4. Lines of therapy: the worked patients</h2>
 <p>PAT00839 passes the washout, starts Nexoral, then switches to Vexpro after the Nexoral supply ends.</p>
-<p><img alt="Figure 5.2. The washout rule. The top panel shows a post-diagnosis fill that looks like a new start only because earlier treatment fills are hidden by a no-washout view. The bottom panel shows a patient with no earlier treatment fills, kept in the cohort." src="assets/figures/figure_5_2_washout_relabel.svg" /></p>
+<p><img alt="Figure 5.2. The washout rule. The top panel shows a post-diagnosis fill that looks like a new start only because earlier treatment fills are hidden by a no-washout view. The bottom panel shows a patient with no earlier treatment fills, kept in the cohort." src="../assets/figures/figure_5_2_washout_relabel.svg" /></p>
 <p><em>Figure 5.2. The washout rule. The top panel shows a post-diagnosis fill that looks like a new start only because earlier treatment fills are hidden by a no-washout view. The bottom panel shows a patient with no earlier treatment fills, kept in the cohort.</em></p>
-<p><img alt="Figure 5.3. Line-of-therapy rules depend on the timing of fills, active supply, the regimen window, the allowable gap, and the observation boundary. Conceptual schematic." src="assets/figures/figure_5_3_treatment_sequence_rules.svg" /></p>
+<p><img alt="Figure 5.3. Line-of-therapy rules depend on the timing of fills, active supply, the regimen window, the allowable gap, and the observation boundary. Conceptual schematic." src="../assets/figures/figure_5_3_treatment_sequence_rules.svg" /></p>
 <p><em>Figure 5.3. Line-of-therapy rules depend on the timing of fills, active supply, the regimen window, the allowable gap, and the observation boundary. Conceptual schematic.</em></p>
 <div class="highlight"><pre><span></span><code><span class="n">out</span> <span class="o">=</span> <span class="n">ROOT</span> <span class="o">/</span> <span class="s2">&quot;ch05_journey/assets/generated_outputs&quot;</span>
 <span class="n">pharmacy</span> <span class="o">=</span> <span class="n">tables</span><span class="p">[</span><span class="s2">&quot;pharmacy_claims&quot;</span><span class="p">]</span>
@@ -1649,10 +1649,10 @@ lines of therapy:
            1 Nexoral 2024-06-20 2024-07-19           1 Initial therapy       Switch         30
            2  Vexpro 2024-07-24 2024-09-19           2          Switch Discontinued         58
 </code></pre></div>
-<p><img alt="Figure 5.4. PAT00839 shows the switch rule. The diagnosis index anchors the cohort, the first Nexoral fill sets the therapy index, the Vexpro fill creates the switch, and the observation window extends past the 60-day gap so discontinuation is observed. Synthetic data." src="assets/figures/figure_5_4_switch_example.svg" /></p>
+<p><img alt="Figure 5.4. PAT00839 shows the switch rule. The diagnosis index anchors the cohort, the first Nexoral fill sets the therapy index, the Vexpro fill creates the switch, and the observation window extends past the 60-day gap so discontinuation is observed. Synthetic data." src="../assets/figures/figure_5_4_switch_example.svg" /></p>
 <p><em>Figure 5.4. PAT00839 shows the switch rule. The diagnosis index anchors the cohort, the first Nexoral fill sets the therapy index, the Vexpro fill creates the switch, and the observation window extends past the 60-day gap so discontinuation is observed. Synthetic data.</em></p>
 <p>PAT03874 demonstrates the addition rule: Nexoral arrives while Vexpro still has supply, after the regimen window closes, so the line advances to the combination.</p>
-<p><img alt="Figure 5.5. PAT03874 shows the addition rule. The first Vexpro fill sets the therapy index, the 30-day regimen window closes on 2024-08-05, Nexoral arrives later while Vexpro still has active supply, and the line advances to Nexoral + Vexpro. Observation ends before the regimen can be classified as discontinued, so line 2 is censored. Synthetic data." src="assets/figures/figure_5_5_addition_example.svg" /></p>
+<p><img alt="Figure 5.5. PAT03874 shows the addition rule. The first Vexpro fill sets the therapy index, the 30-day regimen window closes on 2024-08-05, Nexoral arrives later while Vexpro still has active supply, and the line advances to Nexoral + Vexpro. Observation ends before the regimen can be classified as discontinued, so line 2 is censored. Synthetic data." src="../assets/figures/figure_5_5_addition_example.svg" /></p>
 <p><em>Figure 5.5. PAT03874 shows the addition rule. The first Vexpro fill sets the therapy index, the 30-day regimen window closes on 2024-08-05, Nexoral arrives later while Vexpro still has active supply, and the line advances to Nexoral + Vexpro. Observation ends before the regimen can be classified as discontinued, so line 2 is censored. Synthetic data.</em></p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
@@ -1704,7 +1704,7 @@ Roventra line entries, with and without the washout rule:
 180-day washout   Line 1          2798    1.0
 </code></pre></div>
 <p>Without the washout, Roventra has 3,193 line-1 entries. With it, the count is 2,798. The 395 records in between are continuing users that the no-washout view recounted as new starts.</p>
-<p><img alt="Figure 5.6. The Sankey keeps first-line regimens on the left; still on line 1, discontinued, or advanced to line 2 on the right. Synthetic data." src="assets/figures/figure_5_6_pathway_sankey.svg" /></p>
+<p><img alt="Figure 5.6. The Sankey keeps first-line regimens on the left; still on line 1, discontinued, or advanced to line 2 on the right. Synthetic data." src="../assets/figures/figure_5_6_pathway_sankey.svg" /></p>
 <p><em>Figure 5.6. The Sankey keeps first-line regimens on the left; still on line 1, discontinued, or advanced to line 2 on the right. Synthetic data.</em></p>
 <h2 id="6-shake-the-rulers">6. Shake the rulers</h2>
 <p>One rule varies per row; the others hold at base.</p>
