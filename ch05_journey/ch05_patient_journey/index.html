@@ -1148,10 +1148,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#55-the-hub-pathway-where-access-friction-lives" class="md-nav__link">
+  <a href="#55-modern-extensions-to-rule-based-patient-journeys" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5.5 The Hub Pathway: Where Access Friction Lives
+        5.5 Modern Extensions to Rule-Based Patient Journeys
       
     </span>
   </a>
@@ -1159,10 +1159,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#56-modern-extensions-to-rule-based-patient-journeys" class="md-nav__link">
+  <a href="#56-summary" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5.6 Modern Extensions to Rule-Based Patient Journeys
+        5.6 Summary
       
     </span>
   </a>
@@ -1170,21 +1170,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#57-summary" class="md-nav__link">
+  <a href="#57-exercises" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5.7 Summary
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#58-exercises" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5.8 Exercises
+        5.7 Exercises
       
     </span>
   </a>
@@ -1820,10 +1809,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#55-the-hub-pathway-where-access-friction-lives" class="md-nav__link">
+  <a href="#55-modern-extensions-to-rule-based-patient-journeys" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5.5 The Hub Pathway: Where Access Friction Lives
+        5.5 Modern Extensions to Rule-Based Patient Journeys
       
     </span>
   </a>
@@ -1831,10 +1820,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#56-modern-extensions-to-rule-based-patient-journeys" class="md-nav__link">
+  <a href="#56-summary" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5.6 Modern Extensions to Rule-Based Patient Journeys
+        5.6 Summary
       
     </span>
   </a>
@@ -1842,21 +1831,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#57-summary" class="md-nav__link">
+  <a href="#57-exercises" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5.7 Summary
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#58-exercises" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5.8 Exercises
+        5.7 Exercises
       
     </span>
   </a>
@@ -1884,10 +1862,10 @@
 
 
 <h1 id="chapter-5-patient-journey-analysis-lines-of-therapy-time-to-treatment-and-persistence">Chapter 5: Patient Journey Analysis: Lines of Therapy, Time to Treatment, and Persistence</h1>
-<p>The market-sizing analysis estimated 8.1 million diagnosed, age-eligible, untreated patients and 1.0 million expected Roventra starts under the access and conversion assumptions. The launch team now needs to convert that opportunity into an operating plan: when treatment starts occur, which products patients start, how often treatment changes, where access delays appear, and how long patients remain on therapy.</p>
+<p>The market-sizing analysis estimated 8.1 million diagnosed, age-eligible, untreated patients and 1.0 million expected Roventra starts under the access and conversion assumptions. The launch team now needs to convert that opportunity into an operating plan: when treatment starts occur, which products patients start, how often treatment changes, and how long patients remain on therapy.</p>
 <p>Those answers affect the demand ramp, supply requirements, patient-support staffing, treatment-mix reporting, and the evidence sent to brand, market access, and field teams. A wrong journey rule can change those decisions. A naive line-of-therapy analysis reports 3,193 Roventra line-1 entries. A 180-day washout identifies 395 of them as continuing users, leaving 2,798 newly observed Roventra starts. The naive result overstates new starts by 14.1%.</p>
-<p>The work covers building a diagnosis-indexed cohort, distinguishing treatment fills from access signals, constructing and testing line-of-therapy rules, estimating time to treatment with censoring and competing events, measuring persistence and adherence, and tracing access outcomes through the hub. Each commercial result connects to its cohort, observation window, calculation rule, and data boundary.</p>
-<p>Before running any chapter listing, execute <code>uv run python ch05_journey/scripts/run_analysis.py</code> from the repository root. The script writes the journey evidence package to <code>ch05_journey/assets/generated_outputs</code>: cohort attrition, treatment episodes, line-of-therapy records, washout comparisons, initiation and persistence curves, adherence records, hub outcomes, and the rule-sensitivity grid. Every analysis below reads from those files. Run <code>uv run python ch05_journey/scripts/build_figures.py</code> to rebuild the figures, or open <a href="../chapter5_walkthrough.ipynb"><code>chapter5_walkthrough.ipynb</code></a> to execute the chapter as one sequence.</p>
+<p>The work covers building a diagnosis-indexed cohort, distinguishing treatment fills from access signals, constructing and testing line-of-therapy rules, estimating time to treatment with censoring and competing events, and measuring persistence and adherence. Each commercial result connects to its cohort, observation window, calculation rule, and data boundary.</p>
+<p>Before running any chapter listing, execute <code>uv run python ch05_journey/scripts/run_analysis.py</code> from the repository root. The script writes the journey evidence package to <code>ch05_journey/assets/generated_outputs</code>: cohort attrition, treatment episodes, line-of-therapy records, washout comparisons, initiation and persistence curves, adherence records, and the rule-sensitivity grid. Every analysis below reads from those files. Run <code>uv run python ch05_journey/scripts/build_figures.py</code> to rebuild the figures, or open <a href="../chapter5_walkthrough.ipynb"><code>chapter5_walkthrough.ipynb</code></a> to execute the chapter as one sequence.</p>
 <h2 id="51-define-the-journey">5.1 Define the Journey</h2>
 <p>The cohort follows the new-user design from pharmacoepidemiology (<a href="https://doi.org/10.1093/aje/kwg231">Ray, 2003</a>). The first qualifying diagnosis during the patient's observable coverage becomes the index event. The design requires 180 covered days before that date to look back through the enrollment window for earlier qualifying diagnoses. Patient journey and line-of-therapy analyses also require at least 90 observable days after index. Time-to-treatment analysis does not carry that requirement.</p>
 <blockquote>
@@ -2775,38 +2753,7 @@ higher basket PDC than index-product PDC: 36 patients
 </tbody>
 </table>
 <p>The stakeholder deliverable should contain the persistence curve with numbers at risk, the PDC distribution, the product-scope comparison, a payer table with uncertainty, and the exact measurement specification. The specification records the index event, product basket, 365-day maximum window, 90-day minimum observable window, refill carryover rule, 0.80 threshold, allowable gap, censoring rule, and data cutoff.</p>
-<h2 id="55-the-hub-pathway-where-access-friction-lives">5.5 The Hub Pathway: Where Access Friction Lives</h2>
-<p>For a specialty product, the journey between the prescription decision and the first pharmacy fill runs through a hub: referral, benefits investigation, prior authorization, and shipment. Pharmacy claims capture the fill only after these steps complete. The specialty-pharmacy file shows the intermediate path:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-
-<span class="n">out</span> <span class="o">=</span> <span class="s2">&quot;ch05_journey/assets/generated_outputs&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">out</span><span class="si">}</span><span class="s2">/sp_funnel.csv&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">()</span>
-<span class="n">outcomes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">out</span><span class="si">}</span><span class="s2">/sp_abandonment_outcomes.csv&quot;</span><span class="p">)</span>
-<span class="n">pivot</span> <span class="o">=</span> <span class="n">outcomes</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s2">&quot;discontinue_reason&quot;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s2">&quot;outcome&quot;</span><span class="p">,</span>
-                             <span class="n">values</span><span class="o">=</span><span class="s2">&quot;patients&quot;</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">pivot</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>                 stage  patients  share_of_referrals  median_days_from_referral
-     Referral received      2597               1.000                        0.0
-Authorization approved      1958               0.754                        5.0
-               Shipped      1836               0.707                       10.0
-             Abandoned       722               0.278                        4.0
-
-outcome                  Later Roventra fill  No further basket fill
-discontinue_reason
-Cost                                   236                            7
-Coverage                               198                            3
-Documentation                          218                            5
-Lost follow-up                          26                            0
-Patient decision                        29                            0
-</code></pre></div>
-<p>The funnel includes only referrals between diagnosis index and follow-up end. Among the 2,597 post-index referrals, 70.7% reach shipment with a median of 10 days from referral, and 27.8% (722) abandon. Of the 722 abandoned referrals, 707 later show a Roventra fill and 15 show no further treatment-basket fill before follow-up ends.</p>
-<p><img alt="Left panel: post-index hub funnel from 2,597 referrals to 1,958 approvals to 1,836 shipments, with median stage timing. Right panel: 722 abandonments split by reason." src="../assets/figures/figure_5_16_hub_funnel.svg" /></p>
-<p><em>Figure 5.16. The hub converts 7 in 10 post-index referrals. Counts, conversion, and time belong together because a pathway can lose patients through delay as well as explicit abandonment. Synthetic data.</em></p>
-<p>The reasons route the work: cost abandonment points to affordability programs, coverage to market access, and documentation to office support. Most abandoned referrals in this synthetic file later show Roventra treatment, so the deliverable should report both the hub outcome and the later claim outcome.</p>
-<p>The broader journey table contains 52 patients with a pended pharmacy transaction and no observed treatment fill. Market access should reconcile those records against later claims, hub status, and channel coverage before classifying them as unresolved barriers. A missing fill may reflect an unresolved access problem, treatment outside the captured channel, or the end of observable follow-up.</p>
-<h2 id="56-modern-extensions-to-rule-based-patient-journeys">5.6 Modern Extensions to Rule-Based Patient Journeys</h2>
+<h2 id="55-modern-extensions-to-rule-based-patient-journeys">5.5 Modern Extensions to Rule-Based Patient Journeys</h2>
 <p>The synthetic data only contains 24 switches and 4 additions. A larger claims or EHR study may support questions about recurring gaps, latent treatment states, common pathway shapes, or future event risk. Table 5.8 maps each question to a modern method that extends the rule-based foundation.</p>
 <p><em>Table 5.8. Choose an extension for a specific journey question.</em></p>
 <table>
@@ -2839,7 +2786,7 @@ Patient decision                        29                            0
 </tr>
 <tr>
 <td>Process mining</td>
-<td>Where do hub pathways contain delay, rework, loops, or deviations from the expected route?</td>
+<td>Where do operational pathways contain delay, rework, loops, or deviations from the expected route?</td>
 <td>Complete event logs with case IDs, activity names, timestamps, and source-system coverage</td>
 <td><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12355893/">Process mining in healthcare review</a></td>
 </tr>
@@ -2881,9 +2828,9 @@ Patient decision                        29                            0
 </tr>
 </tbody>
 </table>
-<h2 id="57-summary">5.7 Summary</h2>
+<h2 id="56-summary">5.6 Summary</h2>
 <p>Starting from 3,193 apparent Roventra line-1 entries, a 180-day treatment washout identified 395 continuing users, leaving 2,798 newly observed Roventra starts. That 14.1% correction changes launch uptake reporting.</p>
-<p>The analysis produced 6 reusable lessons:</p>
+<p>The analysis produced 5 reusable lessons:</p>
 <ul>
 <li>Define the cohort, index date, lookback, follow-up, treatment basket, and data cutoff before constructing a journey.</li>
 <li>Count completed treatment fills as exposure evidence. Preserve pended and reversed transactions as access evidence.</li>
@@ -2891,7 +2838,7 @@ Patient decision                        29                            0
 <li>Estimate treatment initiation with methods that retain censored patients and treat death as a competing event when death data are available.</li>
 <li>Use persistence for elapsed time on treatment and PDC for covered days within a fixed window. State the product scope and observable-day base with every result.</li>
 </ul>
-<h2 id="58-exercises">5.8 Exercises</h2>
+<h2 id="57-exercises">5.7 Exercises</h2>
 <ol>
 <li><strong>Audit a false new start.</strong> Construct line 1 with a 0-day washout and a 180-day washout. Select 1 patient counted only by the 0-day rule, then print the therapy index and all completed treatment-basket fills in the prior 180 days. Explain why the earlier fill changes the commercial classification. See section 5.2.</li>
 <li><strong>Choose the adherence product scope.</strong> Join index-product and market-basket PDC, identify the patients whose values differ, and inspect the treatment products for the patient with the largest increase. State which PDC belongs in a brand continuity report and which belongs in a condition-treatment continuity report. See section 5.4.</li>

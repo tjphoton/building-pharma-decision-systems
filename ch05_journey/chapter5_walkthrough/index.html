@@ -1032,17 +1032,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#9-the-post-index-hub-pathway" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        9. The post-index hub pathway
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#exercises" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1510,17 +1499,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#9-the-post-index-hub-pathway" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        9. The post-index hub pathway
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#exercises" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1572,11 +1550,17 @@
 <span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">attrition</span><span class="p">)</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>                        stage  patients                                                       rule
-Patients in source population     20000                     One row in the patient reference table
-Observed qualifying diagnosis      8213 At least one encounter with ICD prefix E11.9|E11.65|E11.40
-          Sufficient lookback      6562                     At least 180 covered days before index
-              Analysis cohort      5637      Lookback plus at least 90 observable days after index
+<div class="highlight"><pre><span></span><code>                           stage  patients  \
+0  Patients in source population     20000
+1  Observed qualifying diagnosis      8213
+2            Sufficient lookback      6562
+3                Analysis cohort      5637
+
+                                                rule
+0             One row in the patient reference table
+1  At least one encounter with ICD prefix E11.9|E...
+2             At least 180 covered days before index
+3  Lookback plus at least 90 observable days afte...
 </code></pre></div>
 <p>The 5,637 patients form the journey and line-of-therapy cohort. The 90-day follow-up requirement gives early treatment patterns enough time to appear.</p>
 <p><img alt="Figure 5.1. Cohort entry depends on observable time around the diagnosis index." src="../assets/figures/figure_5_1_cohort_eligibility.svg" /></p>
@@ -1609,6 +1593,7 @@ transaction_type
 PAID        8749
 PENDED      1364
 REVERSED      69
+Name: count, dtype: int64
 
 patients with a treatment-basket fill:  3,928
 patients with any basket transaction:   3,980
@@ -1638,16 +1623,20 @@ access signals without treatment:         52
 <span class="nb">print</span><span class="p">(</span><span class="n">lines</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">lines</span><span class="o">.</span><span class="n">patient_id</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s2">&quot;PAT00839&quot;</span><span class="p">),</span> <span class="n">cols</span><span class="p">])</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>PAT00839, diagnosis index 2024-01-26:
-date_of_service product_name  days_supply transaction_type
-     2024-06-20      Nexoral           30             PAID
-     2024-07-22       Vexpro           30           PENDED
-     2024-07-24       Vexpro           30             PAID
-     2024-08-21       Vexpro           30             PAID
+     date_of_service product_name  days_supply transaction_type
+1915      2024-06-20      Nexoral           30             PAID
+1916      2024-07-22       Vexpro           30           PENDED
+1917      2024-07-24       Vexpro           30             PAID
+1918      2024-08-21       Vexpro           30             PAID
 
 lines of therapy:
- line_number regimen line_start   line_end  fill_count    entry_reason   end_reason  line_days
-           1 Nexoral 2024-06-20 2024-07-19           1 Initial therapy       Switch         30
-           2  Vexpro 2024-07-24 2024-09-19           2          Switch Discontinued         58
+     line_number  regimen  line_start    line_end  fill_count  \
+126            1  Nexoral  2024-06-20  2024-07-19           1
+127            2   Vexpro  2024-07-24  2024-09-19           2
+
+        entry_reason    end_reason  line_days
+126  Initial therapy        Switch         30
+127           Switch  Discontinued         58
 </code></pre></div>
 <p><img alt="Figure 5.4. PAT00839 shows the switch rule. The diagnosis index anchors the cohort, the first Nexoral fill sets the therapy index, the Vexpro fill creates the switch, and the observation window extends past the 60-day gap so discontinuation is observed. Synthetic data." src="../assets/figures/figure_5_4_switch_example.svg" /></p>
 <p><em>Figure 5.4. PAT00839 shows the switch rule. The diagnosis index anchors the cohort, the first Nexoral fill sets the therapy index, the Vexpro fill creates the switch, and the observation window extends past the 60-day gap so discontinuation is observed. Synthetic data.</em></p>
@@ -1662,9 +1651,13 @@ lines of therapy:
         <span class="s2">&quot;fill_count&quot;</span><span class="p">,</span> <span class="s2">&quot;entry_reason&quot;</span><span class="p">,</span> <span class="s2">&quot;end_reason&quot;</span><span class="p">,</span> <span class="s2">&quot;line_days&quot;</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">lines</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">lines</span><span class="o">.</span><span class="n">patient_id</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s2">&quot;PAT03874&quot;</span><span class="p">),</span> <span class="n">cols</span><span class="p">])</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code> line_number          regimen line_start   line_end  fill_count    entry_reason end_reason  line_days
-           1           Vexpro 2024-07-06 2024-09-03           1 Initial therapy   Addition         60
-           2 Nexoral + Vexpro 2024-08-29 2025-01-01           2        Addition   Censored        126
+<div class="highlight"><pre><span></span><code>     line_number           regimen  line_start    line_end  fill_count  \
+643            1            Vexpro  2024-07-06  2024-09-03           1
+644            2  Nexoral + Vexpro  2024-08-29  2025-01-01           2
+
+        entry_reason end_reason  line_days
+643  Initial therapy   Addition         60
+644         Addition   Censored        126
 </code></pre></div>
 <h2 id="5-the-cohorts-lines-and-thursdays-answer">5. The cohort's lines, and Thursday's answer</h2>
 <p>Line depth, entries, ends, line-1 regimens, and the washout comparison that resolves the opening scene.</p>
@@ -1692,16 +1685,16 @@ how lines are entered: {&#39;Initial therapy&#39;: 3415, &#39;Switch&#39;: 24, &
 how lines end:         {&#39;Censored&#39;: 1938, &#39;Discontinued&#39;: 1477, &#39;Switch&#39;: 24, &#39;Addition&#39;: 4}
 
 line-1 regimens:
-         regimen  patients  median_line_days  discontinued_share
-        Roventra      2798              59.0               0.434
-          Vexpro       309              67.0               0.443
-         Nexoral       303              66.0               0.356
-Nexoral + Vexpro         5              58.0               0.600
+            regimen  patients  median_line_days  discontinued_share
+0          Roventra      2798              59.0               0.434
+1            Vexpro       309              67.0               0.443
+2           Nexoral       303              66.0               0.356
+3  Nexoral + Vexpro         5              58.0               0.600
 
 Roventra line entries, with and without the washout rule:
-           rule position  line_entries  share
-     no washout   Line 1          3193    1.0
-180-day washout   Line 1          2798    1.0
+              rule position  line_entries  share
+0       no washout   Line 1          3193    1.0
+0  180-day washout   Line 1          2798    1.0
 </code></pre></div>
 <p>Without the washout, Roventra has 3,193 line-1 entries. With it, the count is 2,798. The 395 records in between are continuing users that the no-washout view recounted as new starts.</p>
 <p><img alt="Figure 5.6. The Sankey keeps first-line regimens on the left; still on line 1, discontinued, or advanced to line 2 on the right. Synthetic data." src="../assets/figures/figure_5_6_pathway_sankey.svg" /></p>
@@ -1717,14 +1710,32 @@ Roventra line entries, with and without the washout rule:
              <span class="s2">&quot;line1_discontinued_share&quot;</span><span class="p">,</span> <span class="s2">&quot;roventra_line1_entry_share&quot;</span><span class="p">]]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">view</span><span class="p">)</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>        varied  washout_days  regimen_window_days  allowable_gap_days  new_to_therapy_patients  combination_line1_share  line1_discontinued_share  roventra_line1_entry_share
-       washout             0                   30                  60                     3928                    0.001                     0.474                         1.0
-       washout            90                   30                  60                     3444                    0.001                     0.426                         1.0
-       washout           180                   30                  60                     3415                    0.001                     0.428                         1.0
-regimen window           180                   14                  60                     3415                    0.000                     0.428                         1.0
-regimen window           180                   45                  60                     3415                    0.004                     0.430                         1.0
- allowable gap           180                   30                  30                     3415                    0.001                     0.543                         1.0
- allowable gap           180                   30                  90                     3415                    0.001                     0.323                         1.0
+<div class="highlight"><pre><span></span><code>           varied  washout_days  regimen_window_days  allowable_gap_days  \
+0         washout             0                   30                  60
+1         washout            90                   30                  60
+2         washout           180                   30                  60
+3  regimen window           180                   14                  60
+4  regimen window           180                   45                  60
+5   allowable gap           180                   30                  30
+6   allowable gap           180                   30                  90
+
+   new_to_therapy_patients  combination_line1_share  line1_discontinued_share  \
+0                     3928                    0.001                     0.474
+1                     3444                    0.001                     0.426
+2                     3415                    0.001                     0.428
+3                     3415                    0.000                     0.428
+4                     3415                    0.004                     0.430
+5                     3415                    0.001                     0.543
+6                     3415                    0.001                     0.323
+
+   roventra_line1_entry_share
+0                         1.0
+1                         1.0
+2                         1.0
+3                         1.0
+4                         1.0
+5                         1.0
+6                         1.0
 </code></pre></div>
 <p>The allowable gap moves the discontinuation result because it changes when a refill gap becomes an event. The Roventra entry share is less sensitive in this package. The commercial answer uses the 3,415 new-to-therapy patients and 2,798 Roventra first-line regimens as the corrected uptake baseline. Only 28 patients reach line 2, which supports rule validation but is too sparse for reliable later-line commercial comparisons.</p>
 <h2 id="7-time-to-treatment-with-censoring">7. Time to treatment, with censoring</h2>
@@ -1748,12 +1759,12 @@ regimen window           180                   45                  60           
 <div class="highlight"><pre><span></span><code>treated-only mean: 36.3 days
 treated-only median: 31 days
 Kaplan-Meier median: 59 days
- day  at_risk  events  censored  survival
-   0        5       0         0       1.0
-  19        5       1         0       0.8
-  31        4       1         0       0.6
-  59        3       1         0       0.4
-  90        2       0         2       0.4
+   day  at_risk  events  censored  survival
+0    0        5       0         0       1.0
+1   19        5       1         0       0.8
+2   31        4       1         0       0.6
+3   59        3       1         0       0.4
+4   90        2       0         2       0.4
 </code></pre></div>
 <p><img alt="Figure 5.8. Patients D and E contribute untreated follow-up through day 90. Their censoring marks end observation, with no recorded treatment event. Conceptual example." src="../assets/figures/figure_5_8_patient_records.svg" /></p>
 <p><em>Figure 5.8. Patients D and E contribute untreated follow-up through day 90. Their censoring marks end observation, with no recorded treatment event. Conceptual example.</em></p>
@@ -1800,12 +1811,12 @@ KM cumulative initiation by day 270: 74.3% (95% CI 72.9% to 75.6%; 722 at risk)
         <span class="s2">&quot;cumulative_competing&quot;</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">aj</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code> day  at_risk  event_free  cumulative_interest  cumulative_competing
-   0        5         1.0                  0.0                   0.0
-  19        5         0.8                  0.2                   0.0
-  31        4         0.6                  0.2                   0.2
-  59        3         0.4                  0.4                   0.2
-  90        2         0.4                  0.4                   0.2
+<div class="highlight"><pre><span></span><code>   day  at_risk  event_free  cumulative_interest  cumulative_competing
+0    0        5         1.0                  0.0                   0.0
+1   19        5         0.8                  0.2                   0.0
+2   31        4         0.6                  0.2                   0.2
+3   59        3         0.4                  0.4                   0.2
+4   90        2         0.4                  0.4                   0.2
 </code></pre></div>
 <p>By day 90, the competing-risk estimate assigns 40% to treatment, 20% to death before treatment, and 40% to remaining untreated and alive. The treatment median is not reached. The final commercial artifact should carry the chosen clock, cohort, observation window, censoring and competing-event rules, confidence intervals, numbers at risk, and data cutoff.</p>
 <h2 id="8-persistence-and-adherence-after-treatment-starts">8. Persistence and adherence after treatment starts</h2>
@@ -1847,53 +1858,25 @@ day 113: 49.9% persistent; 701 at risk
 day 180: 19.2% persistent; 50 at risk
 index-product PDC: mean 0.445, median 0.395, 15.6% at or above 0.80
 higher basket PDC than index-product PDC: 36 patients
-payer_id  adherent_pdc_rate  lower_95  upper_95
-  PAY001             0.1661    0.1290    0.2113
-  PAY002             0.1837    0.1457    0.2289
-  PAY003             0.1677    0.1315    0.2115
-  PAY004             0.1318    0.1003    0.1713
-  PAY005             0.1400    0.1075    0.1803
-  PAY006             0.1637    0.1280    0.2070
-  PAY007             0.1450    0.1111    0.1870
-  PAY008             0.1522    0.1177    0.1946
+  payer_id  adherent_pdc_rate  lower_95  upper_95
+1   PAY001             0.1661    0.1290    0.2113
+2   PAY002             0.1837    0.1457    0.2289
+3   PAY003             0.1677    0.1315    0.2115
+4   PAY004             0.1318    0.1003    0.1713
+5   PAY005             0.1400    0.1075    0.1803
+6   PAY006             0.1637    0.1280    0.2070
+7   PAY007             0.1450    0.1111    0.1870
+8   PAY008             0.1522    0.1177    0.1946
 </code></pre></div>
 <p><img alt="Figure 5.12. Persistence follows elapsed time on the initial regimen, PDC counts covered days within the window, and MPR counts all dispensed supply. Synthetic data." src="../assets/figures/figure_5_12_patient_medication_use.svg" /></p>
 <p><em>Figure 5.12. Persistence follows elapsed time on the initial regimen, PDC counts covered days within the window, and MPR counts all dispensed supply. Synthetic data.</em></p>
 <p>At day 90, 60.6% remain on the initial regimen. Among patients with at least 90 observable days, 15.6% have index-product PDC at or above 0.80, and product switching changes PDC for 36 patients. The payer intervals overlap substantially, so the raw ranking provides weak evidence for a payer-specific adherence difference.</p>
-<h2 id="9-the-post-index-hub-pathway">9. The post-index hub pathway</h2>
-<p>Only referrals between diagnosis index and follow-up end belong to this journey. The funnel combines conversion counts with median time from referral.</p>
 <p><img alt="Figure 5.13. Estimated initial-regimen persistence falls from 73.0% at day 60 to 49.9% at day 113. The 701 patients still at risk on day 113 provide less evidence than the 1,776 patients at risk on day 60. Synthetic data." src="../assets/figures/figure_5_13_persistence.svg" /></p>
 <p><em>Figure 5.13. Estimated initial-regimen persistence falls from 73.0% at day 60 to 49.9% at day 113. The 701 patients still at risk on day 113 provide less evidence than the 1,776 patients at risk on day 60. Synthetic data.</em></p>
 <p><img alt="Figure 5.14. Most measured patients fall below the 0.80 index-product PDC threshold. The full distribution shows how far patients are from the threshold and avoids reducing the analysis to one pass rate. Synthetic data." src="../assets/figures/figure_5_14_pdc_distribution.svg" /></p>
 <p><em>Figure 5.14. Most measured patients fall below the 0.80 index-product PDC threshold. The full distribution shows how far patients are from the threshold and avoids reducing the analysis to one pass rate. Synthetic data.</em></p>
 <p><img alt="Figure 5.15. The payer confidence intervals overlap substantially, including the intervals for PAY002 and PAY004. The observed ranking provides weak evidence for a payer-specific difference. Synthetic data." src="../assets/figures/figure_5_15_payer_adherence.svg" /></p>
 <p><em>Figure 5.15. The payer confidence intervals overlap substantially, including the intervals for PAY002 and PAY004. The observed ranking provides weak evidence for a payer-specific difference. Synthetic data.</em></p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-
-<span class="n">out</span> <span class="o">=</span> <span class="n">ROOT</span> <span class="o">/</span> <span class="s2">&quot;ch05_journey/assets/generated_outputs&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">out</span><span class="si">}</span><span class="s2">/sp_funnel.csv&quot;</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">()</span>
-<span class="n">outcomes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">out</span><span class="si">}</span><span class="s2">/sp_abandonment_outcomes.csv&quot;</span><span class="p">)</span>
-<span class="n">pivot</span> <span class="o">=</span> <span class="n">outcomes</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s2">&quot;discontinue_reason&quot;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s2">&quot;outcome&quot;</span><span class="p">,</span>
-                             <span class="n">values</span><span class="o">=</span><span class="s2">&quot;patients&quot;</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">pivot</span><span class="p">)</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>                 stage  patients  share_of_referrals  median_days_from_referral
-     Referral received      2597               1.000                        0.0
-Authorization approved      1958               0.754                        5.0
-               Shipped      1836               0.707                       10.0
-             Abandoned       722               0.278                        4.0
-
-outcome             Later Roventra fill  No further treatment-basket fill
-discontinue_reason                                                       
-Cost                                236                                 7
-Coverage                            198                                 3
-Documentation                       218                                 5
-Lost follow-up                       26                                 0
-Patient decision                     29                                 0
-</code></pre></div>
-<p><img alt="Figure 5.16. The hub converts 7 in 10 post-index referrals. Counts, conversion, and time belong together because a pathway can lose patients through delay as well as explicit abandonment. Synthetic data." src="../assets/figures/figure_5_16_hub_funnel.svg" /></p>
-<p><em>Figure 5.16. The hub converts 7 in 10 post-index referrals. Counts, conversion, and time belong together because a pathway can lose patients through delay as well as explicit abandonment. Synthetic data.</em></p>
 <h2 id="exercises">Exercises</h2>
 <ol>
 <li><strong>Audit a false new start</strong> by tracing 1 patient removed by the 180-day washout.</li>
