@@ -548,11 +548,11 @@ The second deliverable is a data-gap table for the unanswered questions. Testing
 
 ## 5.4 Staying on Therapy: Persistence and Adherence
 
-At day 90, 60.6% of patients remain on the initial regimen. The next questions are: when did refill gaps begin, did patients continue treatment after switching products, and do payer-level differences identify a credible access problem or random variation?
+At day 90, 60.6% of patients remain on the initial regimen. The next questions are: when did refill gaps begin, did patients continue treatment after switching products, and do payer-level differences identify access problem?
 
 These questions affect refill support, patient-service capacity, HCP follow-up, and market-access investigation. They require 2 related measures. **Persistence** measures the time until a patient leaves the initial regimen. **Adherence**, also called **compliance**, measures the share of observed days with medicine available. A patient can remain on the same regimen for 95 days and still have uncovered days within that period.
 
-`PAT00036` shows the distinction. The patient started Roventra on 2024-09-28 and completed 4 fills before the 2024-12-31 cutoff. The patient remains persistent through 95 observed days, while 7 uncovered days reduce PDC to 92.6%. MPR reaches 117.9% because it counts all 112 dispensed days, including supply extending beyond the study cutoff. Figure 5.12 maps that one history to 4 outputs. Definitions follow the ISPOR terminology for medication use ([Cramer et al., 2008](https://doi.org/10.1111/j.1524-4733.2007.00213.x)).
+`PAT00036` shows the distinction. The patient started Roventra on 2024-09-28 and completed 4 fills before the 2024-12-31 cutoff. The patient remains persistent through 95 observed days, while 7 uncovered days reduce Proportion of days covered (PDC) to 92.6%. Medication possession ratio (MPR) reaches 117.9% because it counts all 112 dispensed days, including supply extending beyond the study cutoff. Figure 5.12 maps that one history to 4 outputs. Definitions are explained later in this chapter, they follow the ISPOR terminology for medication use ([Cramer et al., 2008](https://doi.org/10.1111/j.1524-4733.2007.00213.x)).
 
 ![Timeline for PAT00036 showing 4 fills, covered and uncovered days, persistence through the study cutoff, and the resulting PDC and MPR calculations.](assets/figures/figure_5_12_patient_medication_use.svg)
 
@@ -585,13 +585,13 @@ day 113: 49.9% persistent (95% CI 47.7% to 52.0%); 701 at risk
 day 180: 19.2% persistent (95% CI 16.2% to 22.4%); 50 at risk
 ```
 
-The median time to departure is 113 days, the first day when estimated persistence reaches 50%. The 180-day estimate comes from a thin tail: only 50 of the original 3,415 patients remain in the risk set. The 90-day result, based on 1,128 patients at risk, is the stronger headline for this bounded data package.
+The median time to departure is 113 days, the first day when estimated persistence reaches 50%. The 180-day estimate comes from a thin tail: only 50 of the original 3,415 patients remain on the therapy.
 
-Departure from line 1 has several meanings: a switch or addition shows continued treatment in a changed regimen, while confirmed discontinuation shows a gap beyond the 60-day rule. A single persistence curve combines these events because the estimand is time on the initial regimen. A stakeholder asking about time on any therapy needs a multistate analysis that preserves the separate treatment states.
+Departure from line 1 has several meanings: a switch or addition shows continued treatment in a changed regimen, while confirmed discontinuation shows a gap beyond the 60-day rule. A single persistence curve combines these events. A multistate analysis for time on any therapy to preserve separate treatment states.
 
 ![Kaplan-Meier curve for remaining on the initial regimen, with a 95% confidence interval and annotated risk-set counts at days 60, 90, and 113.](assets/figures/figure_5_13_persistence.svg)
 
-*Figure 5.13. Estimated initial-regimen persistence falls from 73.0% at day 60 to 49.9% at day 113. The 701 patients still at risk on day 113 provide less evidence than the 1,776 patients at risk on day 60. Synthetic data.*
+*Figure 5.13. Estimated initial-regimen persistence falls from 73.0% at day 60 to 49.9% at day 113. Synthetic data.*
 
 ### 5.4.2 Adherence: coverage during the observed window
 
@@ -660,7 +660,7 @@ The PDC cohort contains 2,680 treated patients with at least 90 observable days 
 
 The product basket determines which covered days enter the PDC numerator. **Index-product PDC** counts supply for the product that started line 1. **Market-basket PDC** counts supply for any qualifying treatment for the condition. A patient who receives Roventra for 60 days and then Nexoral for 60 days in a 120-day window has an index-product PDC of $60/120=0.50$ and a market-basket PDC of $120/120=1.00$. Index-product PDC measures continuity on Roventra; market-basket PDC measures continuity on condition treatment.
 
-Only 36 patients have higher market-basket PDC than index-product PDC. The line-of-therapy analysis found only 28 patients who reached line 2, so the near-equality follows directly from the shallow treatment sequences in this synthetic package. A larger difference in real data would point to switching or add-on treatment and should be reconciled against the line table.
+Only 36 patients have higher market-basket PDC than index-product PDC. The line-of-therapy analysis found only 28 patients who reached line 2, so the near-equality follows directly from the shallow treatment sequences in this synthetic data. A larger difference in real data would point to switching or add-on treatment.
 
 Table 5.6 summarizes the measurement choices. The event or numerator defines what counts. The risk set or observable days define who or which days contribute.
 
@@ -675,7 +675,7 @@ Table 5.6 summarizes the measurement choices. The event or numerator defines wha
 
 ### 5.4.4 Payer Adherence Rates with Confidence Intervals
 
-The unadjusted payer summaries range from 13.2% to 18.4% at PDC of 0.80 or higher. A ranking alone would place PAY002 first and PAY004 last. Sample size and random variation determine how much weight that ordering deserves. Listing 5.10 calculates Wilson 95% confidence intervals for each rate.
+The unadjusted payer summaries range from 13.2% to 18.4% at PDC of 0.80 or higher. Listing 5.10 calculates 95% confidence intervals for each rate.
 
 **Listing 5.10: Add uncertainty to the payer adherence comparison**
 
@@ -709,19 +709,19 @@ payer_id  treated_patients  adherent_pdc_rate  lower_95  upper_95
 
 ![Dot plot of payer-level adherence rates with Wilson 95% confidence intervals and the overall rate marked by a vertical reference line.](assets/figures/figure_5_15_payer_adherence.svg)
 
-*Figure 5.15. The payer confidence intervals overlap substantially, including the intervals for PAY002 and PAY004. The observed ranking provides weak evidence for a payer-specific difference. Synthetic data.*
+*Figure 5.15. The payer confidence intervals overlap substantially, including the intervals for PAY002 (top ranking payer) and PAY004 (bottom ranking payer). The observed ranking provides weak evidence for a payer-specific difference. Synthetic data.*
 
-The generator contains no payer-specific adherence mechanism, and the intervals overlap substantially. This package provides no clear evidence of a payer difference.
+The generator contains no payer-specific adherence mechanism, and the intervals overlap substantially. The analysis confirms there is no clear evidence of a payer difference.
 
-In real data, a payer difference would start an investigation while its cause remained unresolved. Formulary restrictions, refill-channel capture, days-supply conventions, case mix, benefit design, and follow-up length can all move the observed rate. The competitive access analysis adds formulary evidence, and the adjusted comparisons section covers case-mix adjustment.
+In real data, a payer difference would start an investigation for the cause. Formulary restrictions, refill-channel capture, days-supply conventions, benefit design, and follow-up length can all affect the observed rate.
 
 ### 5.4.5 Persistence and Adherence in Commercial Strategy
 
-At day 90, 60.6% of patients remain on the initial regimen, leaving about 4 in 10 who have switched, added treatment, restarted, or met the discontinuation rule. Among 2,680 patients with at least 90 observable days, 15.6% have index-product PDC at or above 0.80. Product switching changes PDC for only 36 patients in this synthetic package. Raw payer rates vary by 5.2 percentage points, and overlapping confidence intervals provide weak evidence for a payer-specific effect.
+At day 90, 60.6% of patients remain on the initial regimen, leaving about 4 in 10 who have switched, added treatment, restarted, or met the discontinuation rule. Among 2,680 patients with at least 90 observable days, 15.6% have index-product PDC at or above 0.80. Product switching changes PDC for only 36 patients in this synthetic data. Raw payer rates vary by 5.2 percentage points, and overlapping confidence intervals provide weak evidence for a payer-specific effect.
 
 The day-90 persistence result sets the scale and timing of early departure. The PDC distribution locates refill coverage as a separate problem within the time patients remain under observation. The basket comparison identifies whether switching explains low product-specific coverage. The payer comparison determines whether market access needs a focused evidence review before recommending intervention.
 
-*Table 5.7. Each finding should lead to a bounded commercial action.*
+*Table 5.7. Each finding should lead to a commercial action.*
 
 | Finding in this package | Interpretation | Next analysis or action | Stakeholder use | Boundary |
 | --- | --- | --- | --- | --- |
@@ -733,11 +733,9 @@ The day-90 persistence result sets the scale and timing of early departure. The 
 
 The stakeholder deliverable should contain the persistence curve with numbers at risk, the PDC distribution, the product-scope comparison, a payer table with uncertainty, and the exact measurement specification. The specification records the index event, product basket, 365-day maximum window, 90-day minimum observable window, refill carryover rule, 0.80 threshold, allowable gap, censoring rule, and data cutoff.
 
-Persistence and adherence describe the treatment patterns observed in the available records. Comparisons among products, payers, or support programs require a separate design that addresses case mix, access differences, and incomplete capture before attributing a difference to an intervention.
-
 ## 5.5 The Hub Pathway: Where Access Friction Lives
 
-For a specialty product, the journey between the prescription decision and the first pharmacy fill runs through a hub: referral, benefits investigation, prior authorization, and shipment, with an abandonment exit at every step. Pharmacy claims capture the fill only after these steps complete. The specialty-pharmacy file shows the intermediate path:
+For a specialty product, the journey between the prescription decision and the first pharmacy fill runs through a hub: referral, benefits investigation, prior authorization, and shipment. Pharmacy claims capture the fill only after these steps complete. The specialty-pharmacy file shows the intermediate path:
 
 ```python
 import pandas as pd
@@ -779,7 +777,7 @@ The broader journey table contains 52 patients with a pended pharmacy transactio
 
 ## 5.6 Modern Extensions to Rule-Based Patient Journeys
 
-The synthetic package contains 24 switches and 4 additions, enough to test the line rules and inspect patient traces. A larger claims or EHR study may support questions about recurring gaps, latent treatment states, common pathway shapes, or future event risk. Table 5.8 maps each question to a method that extends the rule-based foundation.
+The synthetic data only contains 24 switches and 4 additions. A larger claims or EHR study may support questions about recurring gaps, latent treatment states, common pathway shapes, or future event risk. Table 5.8 maps each question to a modern method that extends the rule-based foundation.
 
 *Table 5.8. Choose an extension for a specific journey question.*
 
@@ -796,10 +794,6 @@ The synthetic package contains 24 switches and 4 additions, enough to test the l
 | Transformer trajectory models | Which distant diagnoses, visits, and medications help predict a later event? | Large coded sequences, stable vocabularies, time-aware splits, calibration, and interpretation checks | [BEHRT](https://www.nature.com/articles/s41598-020-62922-y) |
 | Time-to-event foundation models | Can one pretrained representation support several future event-time tasks? | Large event histories, task-specific censoring definitions, external validation, and calibration by horizon | [MOTOR](https://openreview.net/forum?id=NialiwI2V6) |
 
-The business question should determine the extension. Multi-state models fit transition probabilities. Recurrent-event models fit repeated gaps. Sequence analysis and process mining fit pathway structure. Hidden-state models fit noisy or intermittently observed states. Representation models fit prediction, similarity, and segmentation tasks.
-
-Each method depends on the cohort, event definitions, observation window, and source coverage established in earlier sections. Model evaluation should include temporal validation, calibration, subgroup performance, sensitivity to coding and censoring rules, and a comparison with the rule-based baseline. The commercial deliverable should show how the additional complexity changes a decision, with model scores presented as supporting evidence.
-
 ## 5.7 Summary
 
 Starting from 3,193 apparent Roventra line-1 entries, a 180-day treatment washout identified 395 continuing users, leaving 2,798 newly observed Roventra starts. That 14.1% correction changes launch uptake reporting.
@@ -811,9 +805,7 @@ The analysis produced 6 reusable lessons:
 - Version the washout, starting-regimen window, allowable gap, addition, switch, restart, discontinuation, and censoring rules.
 - Estimate treatment initiation with methods that retain censored patients and treat death as a competing event when death data are available.
 - Use persistence for elapsed time on treatment and PDC for covered days within a fixed window. State the product scope and observable-day base with every result.
-- Reconcile hub outcomes with later claims because an operational status may precede treatment observed through another record.
 
-The journey evidence package written by `run_analysis.py` records each reported metric with its cohort, time origin, event definition, observation window, rule version, risk set, uncertainty when applicable, and data cutoff. Those fields let a reviewer trace the commercial answer back to the records and rules that produced it.
 
 ## 5.8 Exercises
 
