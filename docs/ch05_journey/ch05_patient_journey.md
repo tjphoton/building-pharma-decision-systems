@@ -1,12 +1,12 @@
 # Chapter 5: Patient Journey Analysis: Lines of Therapy, Time to Treatment, and Persistence
 
-The market-sizing analysis estimated 8.1 million diagnosed, age-eligible, untreated patients and 1.0 million expected Roventra starts under the access and conversion assumptions. The launch team now needs to convert that opportunity into an operating plan: when treatment starts occur, which products patients start, how often treatment changes, where access delays appear, and how long patients remain on therapy.
+The market-sizing analysis estimated 8.1 million diagnosed, age-eligible, untreated patients and 1.0 million expected Roventra starts under the access and conversion assumptions. The launch team now needs to convert that opportunity into an operating plan: when treatment starts occur, which products patients start, how often treatment changes, and how long patients remain on therapy.
 
 Those answers affect the demand ramp, supply requirements, patient-support staffing, treatment-mix reporting, and the evidence sent to brand, market access, and field teams. A wrong journey rule can change those decisions. A naive line-of-therapy analysis reports 3,193 Roventra line-1 entries. A 180-day washout identifies 395 of them as continuing users, leaving 2,798 newly observed Roventra starts. The naive result overstates new starts by 14.1%.
 
-The work covers building a diagnosis-indexed cohort, distinguishing treatment fills from access signals, constructing and testing line-of-therapy rules, estimating time to treatment with censoring and competing events, measuring persistence and adherence, and tracing access outcomes through the hub. Each commercial result connects to its cohort, observation window, calculation rule, and data boundary.
+The work covers building a diagnosis-indexed cohort, distinguishing treatment fills from access signals, constructing and testing line-of-therapy rules, estimating time to treatment with censoring and competing events, and measuring persistence and adherence. Each commercial result connects to its cohort, observation window, calculation rule, and data boundary.
 
-Before running any chapter listing, execute `uv run python ch05_journey/scripts/run_analysis.py` from the repository root. The script writes the journey evidence package to `ch05_journey/assets/generated_outputs`: cohort attrition, treatment episodes, line-of-therapy records, washout comparisons, initiation and persistence curves, adherence records, hub outcomes, and the rule-sensitivity grid. Every analysis below reads from those files. Run `uv run python ch05_journey/scripts/build_figures.py` to rebuild the figures, or open [`chapter5_walkthrough.ipynb`](chapter5_walkthrough.ipynb) to execute the chapter as one sequence.
+Before running any chapter listing, execute `uv run python ch05_journey/scripts/run_analysis.py` from the repository root. The script writes the journey evidence package to `ch05_journey/assets/generated_outputs`: cohort attrition, treatment episodes, line-of-therapy records, washout comparisons, initiation and persistence curves, adherence records, and the rule-sensitivity grid. Every analysis below reads from those files. Run `uv run python ch05_journey/scripts/build_figures.py` to rebuild the figures, or open [`chapter5_walkthrough.ipynb`](chapter5_walkthrough.ipynb) to execute the chapter as one sequence.
 
 ## 5.1 Define the Journey
 
@@ -733,49 +733,7 @@ The day-90 persistence result sets the scale and timing of early departure. The 
 
 The stakeholder deliverable should contain the persistence curve with numbers at risk, the PDC distribution, the product-scope comparison, a payer table with uncertainty, and the exact measurement specification. The specification records the index event, product basket, 365-day maximum window, 90-day minimum observable window, refill carryover rule, 0.80 threshold, allowable gap, censoring rule, and data cutoff.
 
-## 5.5 The Hub Pathway: Where Access Friction Lives
-
-For a specialty product, the journey between the prescription decision and the first pharmacy fill runs through a hub: referral, benefits investigation, prior authorization, and shipment. Pharmacy claims capture the fill only after these steps complete. The specialty-pharmacy file shows the intermediate path:
-
-```python
-import pandas as pd
-
-out = "ch05_journey/assets/generated_outputs"
-print(pd.read_csv(f"{out}/sp_funnel.csv").to_string(index=False))
-print()
-outcomes = pd.read_csv(f"{out}/sp_abandonment_outcomes.csv")
-pivot = outcomes.pivot_table(index="discontinue_reason", columns="outcome",
-                             values="patients", fill_value=0).astype(int)
-print(pivot.to_string())
-```
-
-```text
-                 stage  patients  share_of_referrals  median_days_from_referral
-     Referral received      2597               1.000                        0.0
-Authorization approved      1958               0.754                        5.0
-               Shipped      1836               0.707                       10.0
-             Abandoned       722               0.278                        4.0
-
-outcome                  Later Roventra fill  No further basket fill
-discontinue_reason
-Cost                                   236                            7
-Coverage                               198                            3
-Documentation                          218                            5
-Lost follow-up                          26                            0
-Patient decision                        29                            0
-```
-
-The funnel includes only referrals between diagnosis index and follow-up end. Among the 2,597 post-index referrals, 70.7% reach shipment with a median of 10 days from referral, and 27.8% (722) abandon. Of the 722 abandoned referrals, 707 later show a Roventra fill and 15 show no further treatment-basket fill before follow-up ends.
-
-![Left panel: post-index hub funnel from 2,597 referrals to 1,958 approvals to 1,836 shipments, with median stage timing. Right panel: 722 abandonments split by reason.](assets/figures/figure_5_16_hub_funnel.svg)
-
-*Figure 5.16. The hub converts 7 in 10 post-index referrals. Counts, conversion, and time belong together because a pathway can lose patients through delay as well as explicit abandonment. Synthetic data.*
-
-The reasons route the work: cost abandonment points to affordability programs, coverage to market access, and documentation to office support. Most abandoned referrals in this synthetic file later show Roventra treatment, so the deliverable should report both the hub outcome and the later claim outcome.
-
-The broader journey table contains 52 patients with a pended pharmacy transaction and no observed treatment fill. Market access should reconcile those records against later claims, hub status, and channel coverage before classifying them as unresolved barriers. A missing fill may reflect an unresolved access problem, treatment outside the captured channel, or the end of observable follow-up.
-
-## 5.6 Modern Extensions to Rule-Based Patient Journeys
+## 5.5 Modern Extensions to Rule-Based Patient Journeys
 
 The synthetic data only contains 24 switches and 4 additions. A larger claims or EHR study may support questions about recurring gaps, latent treatment states, common pathway shapes, or future event risk. Table 5.8 maps each question to a modern method that extends the rule-based foundation.
 
@@ -786,7 +744,7 @@ The synthetic data only contains 24 switches and 4 additions. A larger claims or
 | Multi-state and competing-risk models | What is the probability of moving among initiation, switch, discontinuation, death, and other states over time? | Dated transitions, competing events, censoring rules, and enough events per transition | [Putter et al., 2007](https://doi.org/10.1002/sim.2712) |
 | Recurrent-event models | Which factors are associated with repeated refill gaps, hospitalizations, or restarts? | Repeated event dates, risk intervals, time-varying covariates, and within-patient dependence | [Andersen and Gill, 1982](https://doi.org/10.1214/aos/1176345976) |
 | State-sequence analysis | Which complete journey patterns recur across patients? | A common time scale, explicit state alphabet, distance rule, and cluster stability checks | [TraMineR](https://doi.org/10.18637/jss.v040.i04) |
-| Process mining | Where do hub pathways contain delay, rework, loops, or deviations from the expected route? | Complete event logs with case IDs, activity names, timestamps, and source-system coverage | [Process mining in healthcare review](https://pmc.ncbi.nlm.nih.gov/articles/PMC12355893/) |
+| Process mining | Where do operational pathways contain delay, rework, loops, or deviations from the expected route? | Complete event logs with case IDs, activity names, timestamps, and source-system coverage | [Process mining in healthcare review](https://pmc.ncbi.nlm.nih.gov/articles/PMC12355893/) |
 | Hidden Markov and semi-Markov models | Which latent treatment state best explains noisy or intermittently observed records, and how long does that state persist? | Repeated observations, plausible state definitions, dwell-time assumptions, and out-of-sample state validation | [Jackson, 2011](https://doi.org/10.18637/jss.v038.i08) |
 | Probabilistic phenotype inference | What is the probability that a patient belongs to the target clinical cohort? | Diagnosis, procedure, medication, laboratory, and note-derived features with validation labels | [PheNorm](https://doi.org/10.1093/jamia/ocx111) |
 | Standardized pathway analytics | Can the same cohort and pathway definition be reproduced across databases? | Versioned concepts, cohort logic, database mappings, and cross-database diagnostics | [OHDSI Cohort Pathways](https://ohdsi.github.io/TheBookOfOhdsi/OhdsiAnalyticsTools.html) |
@@ -794,11 +752,11 @@ The synthetic data only contains 24 switches and 4 additions. A larger claims or
 | Transformer trajectory models | Which distant diagnoses, visits, and medications help predict a later event? | Large coded sequences, stable vocabularies, time-aware splits, calibration, and interpretation checks | [BEHRT](https://www.nature.com/articles/s41598-020-62922-y) |
 | Time-to-event foundation models | Can one pretrained representation support several future event-time tasks? | Large event histories, task-specific censoring definitions, external validation, and calibration by horizon | [MOTOR](https://openreview.net/forum?id=NialiwI2V6) |
 
-## 5.7 Summary
+## 5.6 Summary
 
 Starting from 3,193 apparent Roventra line-1 entries, a 180-day treatment washout identified 395 continuing users, leaving 2,798 newly observed Roventra starts. That 14.1% correction changes launch uptake reporting.
 
-The analysis produced 6 reusable lessons:
+The analysis produced 5 reusable lessons:
 
 - Define the cohort, index date, lookback, follow-up, treatment basket, and data cutoff before constructing a journey.
 - Count completed treatment fills as exposure evidence. Preserve pended and reversed transactions as access evidence.
@@ -807,7 +765,7 @@ The analysis produced 6 reusable lessons:
 - Use persistence for elapsed time on treatment and PDC for covered days within a fixed window. State the product scope and observable-day base with every result.
 
 
-## 5.8 Exercises
+## 5.7 Exercises
 
 1. **Audit a false new start.** Construct line 1 with a 0-day washout and a 180-day washout. Select 1 patient counted only by the 0-day rule, then print the therapy index and all completed treatment-basket fills in the prior 180 days. Explain why the earlier fill changes the commercial classification. See section 5.2.
 2. **Choose the adherence product scope.** Join index-product and market-basket PDC, identify the patients whose values differ, and inspect the treatment products for the patient with the largest increase. State which PDC belongs in a brand continuity report and which belongs in a condition-treatment continuity report. See section 5.4.

@@ -60,8 +60,8 @@ print(prior)
 
     new starts: no washout 3,928; 180-day washout 3,415
     PAT00002: therapy index 2024-08-15
-    date_of_service product_name  days_supply
-         2024-07-21     Roventra           28
+      date_of_service product_name  days_supply
+    6      2024-07-21     Roventra           28
 
 
 **Judgment.** The pre-index fill shows that this patient was already receiving treatment before the first post-diagnosis fill. The 0-day rule relabels a continuing refill as a launch start. In real data, the methods note should state the washout length, the source used to observe prior fills, and the number of apparent starts removed by the rule.
@@ -89,19 +89,19 @@ print(paid_all.loc[paid_all.patient_id.eq(patient_id), ["date_of_service", "prod
 ```
 
     patients with higher basket PDC: 36
-    patient_id  pdc_index  pdc_basket   gain
-      PAT18206     0.2174      0.8696 0.6522
-      PAT03874     0.3352      0.9665 0.6313
-      PAT15311     0.2027      0.8108 0.6081
-      PAT18715     0.2778      0.8611 0.5833
-      PAT10932     0.2745      0.8235 0.5490
-    
+         patient_id  pdc_index  pdc_basket    gain
+    2430   PAT18206     0.2174      0.8696  0.6522
+    506    PAT03874     0.3352      0.9665  0.6313
+    2045   PAT15311     0.2027      0.8108  0.6081
+    2493   PAT18715     0.2778      0.8611  0.5833
+    1470   PAT10932     0.2745      0.8235  0.5490
+
     Completed products for the largest increase:
-    date_of_service product_name
-         2024-08-16       Vexpro
-         2024-09-20      Nexoral
-         2024-10-17      Nexoral
-         2024-11-16      Nexoral
+          date_of_service product_name
+    41912      2024-08-16       Vexpro
+    41913      2024-09-20      Nexoral
+    41914      2024-10-17      Nexoral
+    41915      2024-11-16      Nexoral
 
 
 **Judgment.** Index-product PDC belongs in a brand continuity report because it stops crediting coverage when the patient moves to another product. Market-basket PDC belongs in a condition-treatment continuity report because it follows qualifying treatment across product changes. The report must name the basket and reconcile changed patients against the line table.

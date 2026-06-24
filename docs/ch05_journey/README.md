@@ -10,8 +10,6 @@ In this chapter, you'll discover:
 - **Lines of therapy construction** - Build explicit sequencing rules for index fills, regimen windows, allowable gaps, additions, switches, restarts, and discontinuation
 - **Treatment initiation curves** - Estimate time-to-treatment with proper censoring and competing events
 - **Persistence and adherence metrics** - Measure how long patients stay on therapy and their medication possession ratio (PDC)
-- **Specialty pharmacy pathways** - Trace hub outcomes for patients requiring fulfillment support
-- **Rule sensitivity and transparency** - Show which journey findings come from data and which come from your explicit rule choices
 
 ## Read the Full Chapter
 

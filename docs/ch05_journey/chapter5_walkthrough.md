@@ -27,11 +27,17 @@ cohort, attrition = build_newly_observed_cohort(
 print(attrition)
 ```
 
-                            stage  patients                                                       rule
-    Patients in source population     20000                     One row in the patient reference table
-    Observed qualifying diagnosis      8213 At least one encounter with ICD prefix E11.9|E11.65|E11.40
-              Sufficient lookback      6562                     At least 180 covered days before index
-                  Analysis cohort      5637      Lookback plus at least 90 observable days after index
+                               stage  patients  \
+    0  Patients in source population     20000
+    1  Observed qualifying diagnosis      8213
+    2            Sufficient lookback      6562
+    3                Analysis cohort      5637
+
+                                                    rule
+    0             One row in the patient reference table
+    1  At least one encounter with ICD prefix E11.9|E...
+    2             At least 180 covered days before index
+    3  Lookback plus at least 90 observable days afte...
 
 
 The 5,637 patients form the journey and line-of-therapy cohort. The 90-day follow-up requirement gives early treatment patterns enough time to appear.
@@ -50,7 +56,7 @@ result = subprocess.run(
 print(result.stdout)
 ```
 
-    
+
 
 
 ## 3. A transaction is not a therapy
@@ -79,7 +85,8 @@ print(f"access signals without treatment:     {len(any_ids - paid_ids):>6,}")
     PAID        8749
     PENDED      1364
     REVERSED      69
-    
+    Name: count, dtype: int64
+
     patients with a treatment-basket fill:  3,928
     patients with any basket transaction:   3,980
     access signals without treatment:         52
@@ -119,16 +126,20 @@ print(lines.loc[lines.patient_id.eq("PAT00839"), cols])
 ```
 
     PAT00839, diagnosis index 2024-01-26:
-    date_of_service product_name  days_supply transaction_type
-         2024-06-20      Nexoral           30             PAID
-         2024-07-22       Vexpro           30           PENDED
-         2024-07-24       Vexpro           30             PAID
-         2024-08-21       Vexpro           30             PAID
-    
+         date_of_service product_name  days_supply transaction_type
+    1915      2024-06-20      Nexoral           30             PAID
+    1916      2024-07-22       Vexpro           30           PENDED
+    1917      2024-07-24       Vexpro           30             PAID
+    1918      2024-08-21       Vexpro           30             PAID
+
     lines of therapy:
-     line_number regimen line_start   line_end  fill_count    entry_reason   end_reason  line_days
-               1 Nexoral 2024-06-20 2024-07-19           1 Initial therapy       Switch         30
-               2  Vexpro 2024-07-24 2024-09-19           2          Switch Discontinued         58
+         line_number  regimen  line_start    line_end  fill_count  \
+    126            1  Nexoral  2024-06-20  2024-07-19           1
+    127            2   Vexpro  2024-07-24  2024-09-19           2
+
+            entry_reason    end_reason  line_days
+    126  Initial therapy        Switch         30
+    127           Switch  Discontinued         58
 
 
 ![Figure 5.4. PAT00839 shows the switch rule. The diagnosis index anchors the cohort, the first Nexoral fill sets the therapy index, the Vexpro fill creates the switch, and the observation window extends past the 60-day gap so discontinuation is observed. Synthetic data.](assets/figures/figure_5_4_switch_example.svg)
@@ -152,9 +163,13 @@ cols = ["line_number", "regimen", "line_start", "line_end",
 print(lines.loc[lines.patient_id.eq("PAT03874"), cols])
 ```
 
-     line_number          regimen line_start   line_end  fill_count    entry_reason end_reason  line_days
-               1           Vexpro 2024-07-06 2024-09-03           1 Initial therapy   Addition         60
-               2 Nexoral + Vexpro 2024-08-29 2025-01-01           2        Addition   Censored        126
+         line_number           regimen  line_start    line_end  fill_count  \
+    643            1            Vexpro  2024-07-06  2024-09-03           1
+    644            2  Nexoral + Vexpro  2024-08-29  2025-01-01           2
+
+            entry_reason end_reason  line_days
+    643  Initial therapy   Addition         60
+    644         Addition   Censored        126
 
 
 ## 5. The cohort's lines, and Thursday's answer
@@ -186,18 +201,18 @@ print(pd.concat([naive, base])[["rule", "position", "line_entries", "share"]]
     patients by deepest line reached: {1: 3387, 2: 28}
     how lines are entered: {'Initial therapy': 3415, 'Switch': 24, 'Addition': 4}
     how lines end:         {'Censored': 1938, 'Discontinued': 1477, 'Switch': 24, 'Addition': 4}
-    
+
     line-1 regimens:
-             regimen  patients  median_line_days  discontinued_share
-            Roventra      2798              59.0               0.434
-              Vexpro       309              67.0               0.443
-             Nexoral       303              66.0               0.356
-    Nexoral + Vexpro         5              58.0               0.600
-    
+                regimen  patients  median_line_days  discontinued_share
+    0          Roventra      2798              59.0               0.434
+    1            Vexpro       309              67.0               0.443
+    2           Nexoral       303              66.0               0.356
+    3  Nexoral + Vexpro         5              58.0               0.600
+
     Roventra line entries, with and without the washout rule:
-               rule position  line_entries  share
-         no washout   Line 1          3193    1.0
-    180-day washout   Line 1          2798    1.0
+                  rule position  line_entries  share
+    0       no washout   Line 1          3193    1.0
+    0  180-day washout   Line 1          2798    1.0
 
 
 Without the washout, Roventra has 3,193 line-1 entries. With it, the count is 2,798. The 395 records in between are continuing users that the no-washout view recounted as new starts.
@@ -223,14 +238,32 @@ view = grid[["varied", "washout_days", "regimen_window_days", "allowable_gap_day
 print(view)
 ```
 
-            varied  washout_days  regimen_window_days  allowable_gap_days  new_to_therapy_patients  combination_line1_share  line1_discontinued_share  roventra_line1_entry_share
-           washout             0                   30                  60                     3928                    0.001                     0.474                         1.0
-           washout            90                   30                  60                     3444                    0.001                     0.426                         1.0
-           washout           180                   30                  60                     3415                    0.001                     0.428                         1.0
-    regimen window           180                   14                  60                     3415                    0.000                     0.428                         1.0
-    regimen window           180                   45                  60                     3415                    0.004                     0.430                         1.0
-     allowable gap           180                   30                  30                     3415                    0.001                     0.543                         1.0
-     allowable gap           180                   30                  90                     3415                    0.001                     0.323                         1.0
+               varied  washout_days  regimen_window_days  allowable_gap_days  \
+    0         washout             0                   30                  60
+    1         washout            90                   30                  60
+    2         washout           180                   30                  60
+    3  regimen window           180                   14                  60
+    4  regimen window           180                   45                  60
+    5   allowable gap           180                   30                  30
+    6   allowable gap           180                   30                  90
+
+       new_to_therapy_patients  combination_line1_share  line1_discontinued_share  \
+    0                     3928                    0.001                     0.474
+    1                     3444                    0.001                     0.426
+    2                     3415                    0.001                     0.428
+    3                     3415                    0.000                     0.428
+    4                     3415                    0.004                     0.430
+    5                     3415                    0.001                     0.543
+    6                     3415                    0.001                     0.323
+
+       roventra_line1_entry_share
+    0                         1.0
+    1                         1.0
+    2                         1.0
+    3                         1.0
+    4                         1.0
+    5                         1.0
+    6                         1.0
 
 
 The allowable gap moves the discontinuation result because it changes when a refill gap becomes an event. The Roventra entry share is less sensitive in this package. The commercial answer uses the 3,415 new-to-therapy patients and 2,798 Roventra first-line regimens as the corrected uptake baseline. Only 28 patients reach line 2, which supports rule validation but is too sparse for reliable later-line commercial comparisons.
@@ -265,12 +298,12 @@ print(toy_curve[["day", "at_risk", "events", "censored", "survival"]]
     treated-only mean: 36.3 days
     treated-only median: 31 days
     Kaplan-Meier median: 59 days
-     day  at_risk  events  censored  survival
-       0        5       0         0       1.0
-      19        5       1         0       0.8
-      31        4       1         0       0.6
-      59        3       1         0       0.4
-      90        2       0         2       0.4
+       day  at_risk  events  censored  survival
+    0    0        5       0         0       1.0
+    1   19        5       1         0       0.8
+    2   31        4       1         0       0.6
+    3   59        3       1         0       0.4
+    4   90        2       0         2       0.4
 
 
 ![Figure 5.8. Patients D and E contribute untreated follow-up through day 90. Their censoring marks end observation, with no recorded treatment event. Conceptual example.](assets/figures/figure_5_8_patient_records.svg)
@@ -336,12 +369,12 @@ cols = ["day", "at_risk", "event_free", "cumulative_interest",
 print(aj[cols].round(3))
 ```
 
-     day  at_risk  event_free  cumulative_interest  cumulative_competing
-       0        5         1.0                  0.0                   0.0
-      19        5         0.8                  0.2                   0.0
-      31        4         0.6                  0.2                   0.2
-      59        3         0.4                  0.4                   0.2
-      90        2         0.4                  0.4                   0.2
+       day  at_risk  event_free  cumulative_interest  cumulative_competing
+    0    0        5         1.0                  0.0                   0.0
+    1   19        5         0.8                  0.2                   0.0
+    2   31        4         0.6                  0.2                   0.2
+    3   59        3         0.4                  0.4                   0.2
+    4   90        2         0.4                  0.4                   0.2
 
 
 By day 90, the competing-risk estimate assigns 40% to treatment, 20% to death before treatment, and 40% to remaining untreated and alive. The treatment median is not reached. The final commercial artifact should carry the chosen clock, cohort, observation window, censoring and competing-event rules, confidence intervals, numbers at risk, and data cutoff.
@@ -393,15 +426,15 @@ print(payer[["payer_id", "adherent_pdc_rate", "lower_95", "upper_95"]]
     day 180: 19.2% persistent; 50 at risk
     index-product PDC: mean 0.445, median 0.395, 15.6% at or above 0.80
     higher basket PDC than index-product PDC: 36 patients
-    payer_id  adherent_pdc_rate  lower_95  upper_95
-      PAY001             0.1661    0.1290    0.2113
-      PAY002             0.1837    0.1457    0.2289
-      PAY003             0.1677    0.1315    0.2115
-      PAY004             0.1318    0.1003    0.1713
-      PAY005             0.1400    0.1075    0.1803
-      PAY006             0.1637    0.1280    0.2070
-      PAY007             0.1450    0.1111    0.1870
-      PAY008             0.1522    0.1177    0.1946
+      payer_id  adherent_pdc_rate  lower_95  upper_95
+    1   PAY001             0.1661    0.1290    0.2113
+    2   PAY002             0.1837    0.1457    0.2289
+    3   PAY003             0.1677    0.1315    0.2115
+    4   PAY004             0.1318    0.1003    0.1713
+    5   PAY005             0.1400    0.1075    0.1803
+    6   PAY006             0.1637    0.1280    0.2070
+    7   PAY007             0.1450    0.1111    0.1870
+    8   PAY008             0.1522    0.1177    0.1946
 
 
 ![Figure 5.12. Persistence follows elapsed time on the initial regimen, PDC counts covered days within the window, and MPR counts all dispensed supply. Synthetic data.](assets/figures/figure_5_12_patient_medication_use.svg)
@@ -410,9 +443,6 @@ print(payer[["payer_id", "adherent_pdc_rate", "lower_95", "upper_95"]]
 
 At day 90, 60.6% remain on the initial regimen. Among patients with at least 90 observable days, 15.6% have index-product PDC at or above 0.80, and product switching changes PDC for 36 patients. The payer intervals overlap substantially, so the raw ranking provides weak evidence for a payer-specific adherence difference.
 
-## 9. The post-index hub pathway
-
-Only referrals between diagnosis index and follow-up end belong to this journey. The funnel combines conversion counts with median time from referral.
 
 ![Figure 5.13. Estimated initial-regimen persistence falls from 73.0% at day 60 to 49.9% at day 113. The 701 patients still at risk on day 113 provide less evidence than the 1,776 patients at risk on day 60. Synthetic data.](assets/figures/figure_5_13_persistence.svg)
 
@@ -425,38 +455,6 @@ Only referrals between diagnosis index and follow-up end belong to this journey.
 ![Figure 5.15. The payer confidence intervals overlap substantially, including the intervals for PAY002 and PAY004. The observed ranking provides weak evidence for a payer-specific difference. Synthetic data.](assets/figures/figure_5_15_payer_adherence.svg)
 
 *Figure 5.15. The payer confidence intervals overlap substantially, including the intervals for PAY002 and PAY004. The observed ranking provides weak evidence for a payer-specific difference. Synthetic data.*
-
-
-```python
-import pandas as pd
-
-out = ROOT / "ch05_journey/assets/generated_outputs"
-print(pd.read_csv(f"{out}/sp_funnel.csv"))
-print()
-outcomes = pd.read_csv(f"{out}/sp_abandonment_outcomes.csv")
-pivot = outcomes.pivot_table(index="discontinue_reason", columns="outcome",
-                             values="patients", fill_value=0).astype(int)
-print(pivot)
-```
-
-                     stage  patients  share_of_referrals  median_days_from_referral
-         Referral received      2597               1.000                        0.0
-    Authorization approved      1958               0.754                        5.0
-                   Shipped      1836               0.707                       10.0
-                 Abandoned       722               0.278                        4.0
-    
-    outcome             Later Roventra fill  No further treatment-basket fill
-    discontinue_reason                                                       
-    Cost                                236                                 7
-    Coverage                            198                                 3
-    Documentation                       218                                 5
-    Lost follow-up                       26                                 0
-    Patient decision                     29                                 0
-
-
-![Figure 5.16. The hub converts 7 in 10 post-index referrals. Counts, conversion, and time belong together because a pathway can lose patients through delay as well as explicit abandonment. Synthetic data.](assets/figures/figure_5_16_hub_funnel.svg)
-
-*Figure 5.16. The hub converts 7 in 10 post-index referrals. Counts, conversion, and time belong together because a pathway can lose patients through delay as well as explicit abandonment. Synthetic data.*
 
 ## Exercises
 
