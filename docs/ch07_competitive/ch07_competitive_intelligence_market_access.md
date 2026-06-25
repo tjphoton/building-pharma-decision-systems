@@ -407,72 +407,15 @@ The blend fits the pre-event weeks closely (RMSPE 0.038) and reads a +7.5-point 
 
 **Conclusion.** The opening question was whether PAY004's Roventra share gain came from the formulary event or from market-wide factors. The evidence is unambiguous. The donor payers show that the background market trend during this period was slightly declining: without the formulary change, PAY004's Roventra share would have drifted lower with the class. The observed gain stands against that declining baseline, not on top of a rising tide. The ITS estimates a +7.4-point immediate lift at week 17 growing to +10.0 points by week 28 (95% CI: +6.1 to +14.0); the synthetic control confirms +7.5 points using a different method and no functional-form assumption. The PAY004 formulary improvement drove a genuine, measurable increase in Roventra share. The PAY004 access flag resolves. A comparable contracting effort at cells with similar prior-authorization barriers is the next action.
 
-## 7.6 Account-Level Decision Routing
+## 7.6 Evidence Sufficiency and Change Detection
 
-The 32 payer-region flags produce a prioritized worklist for two teams. Payer-region cells flagged for access work go to the market access team, which handles formulary contracting: the rebate and coverage-tier negotiations that determine whether a health plan covers Roventra and under what conditions. Cells flagged for adoption review go to field analytics, which identifies the accounts and prescribers within those payers where coverage is workable but uptake lags. Those payer-level assignments tell each team which payers to target; they do not yet tell a field representative which specific clinic or hospital to prioritize.
-
-Account-level routing bridges that gap. The HCP-account attribution from Chapter 6 assigned each patient to a prescriber and an active account affiliation. That mapping carries into this step. A large hospital system may have patients covered by a dozen different plans; the account view keeps restricted-plan patients visible even when most patients at the same account have workable coverage.
-
-An account is flagged for access when at least 60% of its attributed patients sit in non-covered or step-edit cells. Adoption uses the same partial-pooling posterior as the payer-region table. Either flag requires at least 10 attributed patients and 8 treated patients; accounts below that threshold go to monitoring.
-
-**Listing 7.9**: Build the account action queue
-
-```python
-accounts = results["account_access_adoption_actions"]
-print(accounts.action.value_counts().to_string())
-```
-
-```text
-action
-Monitor             65
-Access work         24
-Defend and learn    22
-Dual workstream      2
-Adoption review      1
-```
-
-ACC155, ACC005, and ACC121 carry similar share but different evidence.
-
-```python
-sel = accounts.set_index("account_id").loc[["ACC155", "ACC005", "ACC121"]]
-view = pd.DataFrame(
-    {
-        "attributed_patients": sel.attributed_patients.astype(int),
-        "treated_patients": sel.treated_patients.astype(int),
-        "brand_share": sel.brand_share.map(lambda v: f"{v:.1%}"),
-        "restricted_rate": sel.restricted_patient_rate.map(lambda v: f"{v:.1%}"),
-        "prob_below_82": sel.probability_below_benchmark.map(lambda v: f"{v:.0%}"),
-        "action": sel.action,
-    }
-)
-print(view.T.to_string())
-```
-
-```text
-account_id                    ACC155           ACC005            ACC121
-attributed_patients               38               24                34
-treated_patients                  24               11                15
-brand_share                    66.7%            54.5%             80.0%
-restricted_rate                57.9%            75.0%             58.8%
-prob_below_82                    88%              87%               51%
-action               Adoption review  Dual workstream  Defend and learn
-```
-
-ACC155 has an 88% posterior probability of trailing the benchmark and 57.9% restricted patients (below the 60% access threshold): adoption review. ACC005 clears both with 75.0% restricted patients and 87% posterior probability: dual workstream. ACC121 at 58.8% restricted and 51% posterior probability clears neither threshold: defend and learn.
-
-![Two horizontal bar panels show the account action counts and the accounts holding the largest pools of attributed patients behind a material access barrier.](assets/figures/figure_7_5_account_actions.svg)
-
-*Figure 7.5. Thin account evidence sends 65 accounts to monitoring. The second panel shows where the largest restricted patient pools sit, which is where access work pays back fastest. Synthetic data.*
-
-A local team can override an action through the established account-override process. The original evidence, policy result, approver, and expiration date stay in the audit record.
-
-## 7.7 Evidence Sufficiency and Change Detection
-
-### 7.7.1 Weekly CUSUM Detection
+### 7.6.1 Weekly CUSUM Detection
 
 Quarterly reanalyses cannot catch a formulary move that happens mid-quarter. CUSUM (cumulative sum) provides near-real-time detection of sustained share shifts without waiting for the next scheduled run.
 
-Each week, the algorithm standardizes the observed share against a 12-week baseline: it subtracts the baseline mean, divides by the baseline standard deviation, then removes a slack of 0.5 standard deviations to absorb routine week-to-week noise. The result is added to a running positive total. When the total exceeds 4 standard deviations, the algorithm signals a sustained upward shift and resets. A single good or bad week cannot trigger an alarm; it takes several consecutive above-baseline weeks for the running total to accumulate to the threshold.
+Each week, the algorithm standardizes the observed share against a 12-week baseline: it subtracts the baseline mean, divides by the baseline standard deviation, then removes a slack of 0.5 standard deviations to absorb routine week-to-week noise. The result is added to a running positive total. When the total exceeds 4 standard deviations, the algorithm opens a monitoring episode and resets the running total. Repeat threshold crossings in the same payer, metric, and direction stay inside that episode until the signal returns near baseline for several weeks. A larger second shift, a reversal, or a different segment can open a new episode.
+
+**Listing 7.9**: Report weekly CUSUM alarms
 
 ```python
 alerts = results["changepoint_alerts"].head(3).copy()
@@ -481,15 +424,17 @@ print(alerts.to_string(index=False))
 ```
 
 ```text
- week direction  standardized_cusum
-   20  Increase               4.136
-   24  Increase               4.127
-   32  Increase               4.538
+ week direction  standardized_cusum episode_status
+   20  Increase               4.136         Opened
 ```
 
-Three upward alarms fire between weeks 20 and 32. The PAY004 formulary improvement happened at week 17; the first alarm at week 20 arrives 3 weeks later. That detection lag is the trigger point for the controlled ITS model in Section 7.5.
+The PAY004 formulary improvement happened at week 17. The week 20 alarm opens the increase episode 3 weeks later. Later threshold crossings confirm that the elevated-share regime persists; they do not create separate discoveries for the same payer-metric-direction.
 
-### 7.7.2 Switch evidence sufficiency
+![Two stacked panels show PAY004 weekly Roventra share and the positive standardized CUSUM trace. The formulary event is marked at week 17, the alarm threshold is marked at 4 standard deviations, the green point marks the episode-opening alarm, and hollow gray points mark later persistence crossings.](assets/figures/figure_7_5_cusum_detection.svg)
+
+*Figure 7.5. PAY004 share rises after the week 17 formulary event. The positive CUSUM opens an increase episode at week 20. Later threshold crossings show persistence of the same episode, not separate events. Synthetic data.*
+
+### 7.6.2 Switch evidence sufficiency
 
 A time-to-switch analysis asks whether patients on Roventra stay on therapy longer than patients on a competitor. The standard summary is the median time to switch: the point at which half the patients in a regimen have switched away. Reporting that number requires a survival curve to cross 50%. When the observed curve stays above 50% through the end of follow-up, the median is not reached, and the right answer is to say so rather than estimate a number the data cannot support.
 
@@ -517,17 +462,15 @@ The right response is to accumulate events across future quarterly refreshes. Fi
 
 *Figure 7.6. When the survival curve stays above 50% through all of follow-up, the median time to switch is not reached. Reporting a number here would invent precision the data does not hold. Track event accumulation across quarterly refreshes before publishing a comparative median. Synthetic data.*
 
-The monitoring package tracks formulary effective dates and enrollment refreshes, claim maturity and transaction capture, action counts and their sensitivity to the thresholds, posterior adoption probabilities, policy and account overrides, weekly changepoint alarms, and event counts before any survival comparison is published.
+The monitoring package tracks formulary effective dates and enrollment refreshes, claim maturity and transaction capture, action counts and their sensitivity to the thresholds, posterior adoption probabilities, policy overrides, weekly changepoint alarms, and event counts before any survival comparison is published.
 
-## 7.8 From Question to Decision
+## 7.7 Summary
 
 Roventra's uneven uptake raised one question: access or adoption. Observed share mixes the two, and small cells make the raw signal unreliable. Cell-by-cell evidence separates them.
 
-Effective-dated policy and enrolled lives settled the access state for each of the 32 cells. The washout correction reduced 6,401 patients who looked new to 2,798 genuine new-to-brand starts; competitive share rests on that corrected count. Partial pooling distinguished real adoption gaps from small-cell noise. A controlled time series and a synthetic control confirmed that the PAY004 formulary win pulled through 7 to 10 points of share on top of the underlying market trend. The result is a routed queue: 20 payer-region cells and 24 accounts to contracting for coverage work, a handful to field teams for adoption review, two cells with both problems to a dual workstream, and the thin cells to monitoring.
+Effective-dated policy and enrolled lives settled the access state for each of the 32 cells. The washout correction reduced 6,401 patients who looked new to 2,798 genuine new-to-brand starts; competitive share rests on that corrected count. Partial pooling distinguished real adoption gaps from small-cell noise. A controlled time series and a synthetic control confirmed that the PAY004 formulary win pulled through 7 to 10 points of share on top of the underlying market trend. The result is a routed payer-region queue: 19 access-only cells, 2 adoption-only cells, 1 dual-workstream cell, and 10 defend-and-learn cells.
 
-The cells where Roventra trails named competitors on the formulary go to contracting; accounts where coverage is workable and adoption is the gap go to field teams. Each action carries the evidence, the population it rests on, the reason code, the rule version, and a refresh date.
-
-## 7.9 Summary
+The cells where Roventra trails named competitors on the formulary go to contracting. Cells where coverage is workable and adoption is the gap go to field teams. Each action carries the evidence, the population it rests on, the reason code, the rule version, and a refresh date.
 
 Separate access and adoption evidence turns a single low-share signal into a routed action queue.
 
@@ -537,12 +480,10 @@ Separate access and adoption evidence turns a single low-share signal into a rou
 - Partial pooling pulls small-cell share toward the national prior; the adoption flag uses the posterior probability of trailing the benchmark.
 - Access and adoption stay separate flags; a cell can earn both and route to a dual workstream.
 - A controlled interrupted time series and a synthetic control measure a formulary event against contemporaneous donor trends.
-- Account actions reuse the existing patient-HCP-account mapping and keep a payer-specific queue per account.
+- Weekly CUSUM detects sustained share shifts between scheduled quarterly refreshes.
 - A switch median stays `Not reached` when the curves never cross 50%, and the cohort says so instead of inventing a number.
 
-> **Action rule:** Assign effective-dated policy and exposed lives first. Reconstruct prescription attempts and washout-corrected starts next. Release an access, adoption, dual, defend, or monitor action only when the population it rests on, its uncertainty, the reason code, the rule version, and the refresh date all sit on the same row.
-
-## 7.10 Exercises
+## 7.8 Exercises
 
 1. **Rebuild covered lives.** Use Section 7.2. Pick 4 payer-region rows from `policy_landscape`, compute plan coverage, covered lives, lives with no restriction, and the access-quality score by hand, then reproduce the values in fewer than 20 lines of pandas. Which measure belongs in a payer contracting review, and which belongs in a field plan?
 2. **Trace an attempt.** Pick 1 patient with a PENDED transaction from `results["prescription_attempts"]`, print the full transaction chain, and classify the final attempt outcome. State which raw row count would overstate access friction and why.
@@ -550,4 +491,4 @@ Separate access and adoption evidence turns a single low-share signal into a rou
 
 Worked solutions are in [`exercise_solutions.ipynb`](exercise_solutions.ipynb). Each solution ends with the judgment an analyst should record for real data.
 
-The contact-sequence and channel-response analysis builds on these account actions, and the access and adoption routing stays visible in the engagement plan.
+The contact-sequence and channel-response analysis reads the access and adoption routing into the engagement plan.

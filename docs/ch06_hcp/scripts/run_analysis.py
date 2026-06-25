@@ -1,4 +1,4 @@
-"""Run the Chapter 6 HCP and account targeting analysis."""
+"""Run the Chapter 6 HCP targeting analysis."""
 
 from __future__ import annotations
 
@@ -342,7 +342,7 @@ def write_outputs(
     chapter6_data_manifest = json.loads(paths["chapter6_data_manifest"].read_text())
     manifest = {
         "chapter": 6,
-        "artifact": "HCP and account decision package",
+        "artifact": "HCP targeting evidence package",
         "analysis_date": ANALYSIS_DATE.date().isoformat(),
         "rule_version": "ch06-targeting-v2",
         "upstream_synthetic_seed": chapter3_manifest["run_config"]["seed"],
@@ -378,11 +378,11 @@ def write_outputs(
             "saturation_contacts_per_hcp": SATURATION_CONTACTS_PER_HCP,
         },
         "decision_boundaries": {
-            "referral": "Pathway and account context only",
+            "referral": "Pathway context only",
             "kol": "Medical-affairs scientific role review only",
             "open_payments": "Transparency review only",
             "kmeans": "Post-gate engagement pattern only",
-            "commercial_policy": "Account and HCP action eligibility",
+            "commercial_policy": "HCP action eligibility with site context",
         },
         "outputs": output_contracts,
     }
@@ -403,12 +403,10 @@ def print_summary(results: Mapping[str, pd.DataFrame]) -> None:
     )
     print(f"Eligible-roster patients: {results['patient_hcp']['patient_id'].nunique():,}")
     print(f"Eligible HCPs with attributed patients: {results['hcp_features']['npi'].nunique():,}")
-    print(f"Eligible accounts: {accounts['account_id'].nunique():,}")
+    print(f"Sites represented: {accounts['account_id'].nunique():,}")
     print(f"Qualifying referral episodes: {len(results['referral_episodes']):,}")
     print(f"KOL role candidates: {int(results['kol_profiles']['kol_candidate'].sum()):,}")
     print(f"Selected k-means clusters: {selected_k}")
-    print("\nAccount actions:")
-    print(accounts["account_action"].value_counts().to_string())
     print(f"\nPlanned HCPs: {calls['npi'].nunique():,}")
     print(f"Recommended calls: {calls['recommended_calls'].sum():,}")
 

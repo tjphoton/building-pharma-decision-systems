@@ -1,4 +1,4 @@
-"""Transparent HCP and account targeting for Chapter 6."""
+"""Transparent HCP targeting for Chapter 6."""
 
 from __future__ import annotations
 
@@ -631,7 +631,7 @@ def build_call_plan(
     hcp_targets: pd.DataFrame,
     territory_capacity: pd.DataFrame,
 ) -> pd.DataFrame:
-    """Translate account actions into a 4-week, capacity-bounded field plan."""
+    """Translate HCP eligibility rows into a 4-week, capacity-bounded field plan."""
 
     planned = []
     for account in account_targets.itertuples():

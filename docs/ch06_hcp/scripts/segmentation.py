@@ -1,4 +1,4 @@
-"""Validated k-means engagement archetypes for Chapter 6."""
+"""Validated k-means engagement profiles for Chapter 6."""
 
 from __future__ import annotations
 
@@ -152,7 +152,7 @@ def select_cluster_count(evaluation: pd.DataFrame) -> int:
 def _profile_label(row: pd.Series) -> tuple[str, str]:
     """Name a centroid from its dominant observed profile."""
 
-    if row["access_resource_score"] >= 0.62:
+    if row["access_resource_score"] >= 0.70 and row["evidence_need_score"] < 0.62:
         return "Access-resource need", "Access resources, then evidence follow-up"
     if row["evidence_need_score"] >= 0.62 and row["digital_response_rate"] > row[
         "field_response_rate"
@@ -261,7 +261,7 @@ def fit_hcp_segments(
 
 
 def build_policy_baseline(feature_table: pd.DataFrame) -> pd.DataFrame:
-    """Create a transparent comparator for the fitted archetypes."""
+    """Create a transparent comparator for the fitted engagement profiles."""
 
     result = feature_table[["npi"]].copy()
     result["policy_segment"] = np.select(
@@ -289,7 +289,7 @@ def compare_with_policy_baseline(
     segments: pd.DataFrame,
     policy: pd.DataFrame,
 ) -> pd.DataFrame:
-    """Cross-tab k-means archetypes against the transparent policy baseline."""
+    """Cross-tab k-means profiles against the transparent policy baseline."""
 
     merged = segments[["npi", "segment_name"]].merge(
         policy, on="npi", how="inner", validate="one_to_one"

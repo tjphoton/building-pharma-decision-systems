@@ -161,8 +161,10 @@ def standardized_cusum(
     baseline_periods: int = 12,
     slack: float = 0.5,
     threshold: float = 4.0,
+    recovery_z: float = 0.5,
+    recovery_periods: int = 4,
 ) -> pd.DataFrame:
-    """Flag sustained standardized shifts and reset after each alarm."""
+    """Open an episode at the first sustained shift and suppress repeats."""
 
     baseline = series.iloc[:baseline_periods]
     mean = float(baseline.mean())
@@ -170,20 +172,46 @@ def standardized_cusum(
     if std <= 0:
         raise ValueError("CUSUM baseline standard deviation must be positive")
     positive = negative = 0.0
+    increase_episode_open = False
+    decrease_episode_open = False
+    recovery_streak = 0
     rows: list[dict] = []
     for position, value in enumerate(series, start=1):
         z = (float(value) - mean) / std
+        if abs(z) <= recovery_z:
+            recovery_streak += 1
+        else:
+            recovery_streak = 0
+        if recovery_streak >= recovery_periods:
+            increase_episode_open = False
+            decrease_episode_open = False
+
         positive = max(0.0, positive + z - slack)
         negative = min(0.0, negative + z + slack)
-        if positive > threshold or negative < -threshold:
+        increase_alarm = positive > threshold
+        decrease_alarm = negative < -threshold
+        if increase_alarm and not increase_episode_open:
             rows.append(
                 {
                     "week": position,
-                    "direction": "Increase" if positive > threshold else "Decrease",
-                    "standardized_cusum": positive
-                    if positive > threshold
-                    else negative,
+                    "direction": "Increase",
+                    "standardized_cusum": positive,
+                    "episode_status": "Opened",
                 }
             )
+            increase_episode_open = True
+            recovery_streak = 0
+        elif decrease_alarm and not decrease_episode_open:
+            rows.append(
+                {
+                    "week": position,
+                    "direction": "Decrease",
+                    "standardized_cusum": negative,
+                    "episode_status": "Opened",
+                }
+            )
+            decrease_episode_open = True
+            recovery_streak = 0
+        if increase_alarm or decrease_alarm:
             positive = negative = 0.0
     return pd.DataFrame(rows)

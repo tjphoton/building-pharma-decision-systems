@@ -22,6 +22,9 @@ print("Loaded Chapter 7 evidence package.")
 
 ```
 
+    Loaded Chapter 7 evidence package.
+
+
 ## 7.1 Opening evidence
 
 The corrected cohort comes straight from the patient-journey line table, so competitive share starts from the same population.
@@ -41,6 +44,13 @@ print(f"Payer-region access flags: {int(headline.payer_region_access_flags)} of 
 print(f"Payer-region adoption flags: {int(headline.payer_region_adoption_flags)} of 32")
 
 ```
+
+    New-to-therapy patients: 3,415
+    Roventra new starts: 2,798
+    Materially restricted lives: 6,740,000 of 10,926,000 (61.7%)
+    Payer-region access flags: 20 of 32
+    Payer-region adoption flags: 3 of 32
+
 
 ## 7.2 Effective-dated access and covered lives
 
@@ -64,6 +74,25 @@ print()
 print(results["relative_position"].position.value_counts())
 
 ```
+
+    Plan-region records:          32
+    Records covering Roventra:    24 (75.0%)
+    Enrolled lives:               10,926,000
+    Lives with workable coverage: 8,314,000 (76.1%)
+    Lives with no restriction:    0 (0.0%)
+    Access-quality score:         0.533
+    
+              access_state  payer_region_cells  enrolled_lives lives_share
+    0  Prior authorization                  12         4186000       38.3%
+    1            Step edit                  12         4128000       37.8%
+    2          Non-covered                   8         2612000       23.9%
+    
+    position
+    Competitor favored    20
+    Parity                 8
+    Brand favored          4
+    Name: count, dtype: int64
+
 
 Non-coverage and step therapy are the two states a patient cannot clear alone, and a competitor holds the better formulary position in 20 of 32 cells.
 
@@ -105,6 +134,13 @@ print(tbl)
 
 ```
 
+          All brands Roventra Vexpro Nexoral Nexoral+Vexpro
+    TRx       30,552   16,636  6,884   7,032               
+    NRx       13,867    6,401  3,684   3,782               
+    NBRx       3,415    2,798    309     303              5
+    Share       100%    81.9%   9.0%    8.9%           0.1%
+
+
 Roventra holds 81.9% (2,798 of 3,415) of new-to-therapy NBRx starts. The Share row is the right base for competitive comparison.
 
 
@@ -130,6 +166,10 @@ for name, brand_starts, competitor_starts in [("Small cell", 7, 2), ("Large cell
     print(f"{name}: raw {raw:.1%}, pooled {pooled:.1%}, P(<82%) {prob_below:.1%}")
 
 ```
+
+    Small cell: raw 77.8%, pooled 81.2%, P(<82%) 52.9%
+    Large cell: raw 74.6%, pooled 76.4%, P(<82%) 95.7%
+
 
 
 ```python
@@ -157,6 +197,24 @@ print()
 print(decisions.action.value_counts())
 
 ```
+
+                     PAY002 Northeast       PAY004 Midwest     PAY005 South
+    access_state          Non-covered  Prior authorization      Non-covered
+    treated_patients              100                  118              129
+    brand_share                 85.0%                77.1%            75.2%
+    share_95ci                77%-91%              69%-84%          67%-82%
+    prob_below_82                 24%                  87%              95%
+    access_flag                  True                False             True
+    adoption_flag               False                 True             True
+    action                Access work      Adoption review  Dual workstream
+    
+    action
+    Access work         19
+    Defend and learn    10
+    Adoption review      2
+    Dual workstream      1
+    Name: count, dtype: int64
+
 
 Partial pooling holds the small cell back. The access and adoption flags route each cell independently: similar shares reach access work, adoption review, and a dual workstream.
 
@@ -186,59 +244,54 @@ print(f"Post-period mean gap: {diagnostic.post_mean_gap:+.1%}")
 
 ```
 
+    Immediate level effect: +7.4%
+    Slope change per week: +0.24%
+    Week 28 effect: +10.0% (95% CI +6.1% to +14.0%)
+    Pre-period RMSPE: 0.038
+    Post-period mean gap: +7.5%
+
+
 The controlled time series separates the PAY004 lift from the market trend, and the synthetic control lands in the same place.
 
 
 ![Two stacked panels show PAY004 observed share, the ITS model fit, and the counterfactual through the year, and the lower panel shows observed week-by-week gaps as dots with the smooth model estimate as a green line.](assets/figures/figure_7_4_formulary_event.svg)
 
 
-## 7.6 Account actions
-
-
-
-```python
-accounts = results["account_access_adoption_actions"]
-print(accounts.action.value_counts())
-print()
-sel = accounts.set_index("account_id").loc[["ACC155", "ACC005", "ACC121"]]
-view = pd.DataFrame(
-    {
-        "attributed_patients": sel.attributed_patients.astype(int),
-        "treated_patients": sel.treated_patients.astype(int),
-        "brand_share": sel.brand_share.map(lambda v: f"{v:.1%}"),
-        "restricted_rate": sel.restricted_patient_rate.map(lambda v: f"{v:.1%}"),
-        "prob_below_82": sel.probability_below_benchmark.map(lambda v: f"{v:.0%}"),
-        "action": sel.action,
-    }
-)
-print(view.T)
-
-```
-
-Account actions reuse the patient-HCP-account mapping and keep a payer-specific queue per account.
-
-
-![Two horizontal bar panels show the account action counts and the accounts holding the largest pools of attributed patients behind a material access barrier.](assets/figures/figure_7_5_account_actions.svg)
-
-
-## 7.7 Monitoring and evidence sufficiency
+## 7.6 Monitoring and evidence sufficiency
 
 
 
 ```python
 alerts = results["changepoint_alerts"].head(3).copy()
 alerts["standardized_cusum"] = alerts.standardized_cusum.round(3)
-print(alerts)
+print(alerts.to_string(index=False))
 print()
 print(results["switch_evidence"][[
     "first_regimen", "patients", "switch_events",
     "median_time_to_switch", "comparison_status",
-]])
+]].to_string(index=False))
 
 ```
 
-CUSUM supplies a review date. The switch table records that comparative medians are not reached.
+     week direction  standardized_cusum episode_status
+       20  Increase               4.136         Opened
+    
+       first_regimen  patients  switch_events median_time_to_switch          comparison_status
+            Roventra      2798              0           Not reached Insufficient switch events
+              Vexpro       309             12           Not reached Insufficient switch events
+             Nexoral       303             12           Not reached Insufficient switch events
+    Nexoral + Vexpro         5              0           Not reached Insufficient switch events
+
+
+CUSUM opens the PAY004 increase episode at week 20. Later threshold crossings are persistence evidence for the same episode.
+
+
+![Two stacked panels show PAY004 weekly Roventra share and the positive standardized CUSUM trace. The formulary event is marked at week 17, the alarm threshold is marked at 4 standard deviations, the green point marks the episode-opening alarm, and hollow gray points mark later persistence crossings.](assets/figures/figure_7_5_cusum_detection.svg)
+
+*Figure 7.5. PAY004 share rises after the week 17 formulary event. The positive CUSUM opens an increase episode at week 20. Later threshold crossings show persistence of the same episode, not separate events. Synthetic data.*
 
 
 ![Conceptual survival curves contrasting a cohort with sufficient switch events (green, median reached at a marked week) against a sparse cohort (blue, curve stays above 50% through week 52).](assets/figures/figure_7_6_switch_support.svg)
+
+*Figure 7.6. When the survival curve stays above 50% through all of follow-up, the median time to switch is not reached. Reporting a number here would invent precision the data does not hold. Track event accumulation across quarterly refreshes before publishing a comparative median. Synthetic data.*
 
