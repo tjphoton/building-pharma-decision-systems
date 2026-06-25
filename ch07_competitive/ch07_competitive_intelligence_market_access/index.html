@@ -1664,14 +1664,15 @@
 
 
 <h1 id="chapter-7-competitive-intelligence-and-market-access">Chapter 7: Competitive Intelligence and Market Access</h1>
-<p>Roventra uptake is uneven across the country. In some payer-region cells it converts new patients well; in others it barely moves. The brand team needs to know why. When patients cannot get the drug, market access has to renegotiate coverage and utilization-management terms with the plan. When coverage is workable and prescribers still pick a competitor first, field analytics has to investigate adoption. Both problems look the same from the top: low Roventra share. Observed share alone cannot separate an access barrier from an adoption gap.</p>
-<p>The evidence that separates them comes from assembling an effective-dated access landscape, counting new starts with the prescription-volume measures, turning raw pharmacy transactions into clean prescription attempts, estimating corrected competitive share with its uncertainty, measuring a real formulary change against a control, and routing every payer-region and account result to the team.</p>
+<p>Roventra's market share is uneven across the country. In some payer-region cells it converts new patients well; in others it stalls. The brand team wants to know why. When patients cannot get the drug, market access has to renegotiate coverage terms with the plan. When coverage is workable and prescribers still pick a competitor first, field analytics has to investigate adoption. Both problems look the same on the surface: low Roventra share. Observed share alone cannot separate an access barrier from an adoption gap.</p>
+<p>The evidence comes from assembling an effective-dated access landscape, counting new starts with the prescription-volume measures, turning raw pharmacy transactions into clean prescription attempts, estimating corrected competitive share with its uncertainty, measuring a real formulary change against a control, and routing each payer-region and account result to contracting or the field team.</p>
 <p>The analysis reuses the synthetic data source and the derived journey and HCP-account outputs, and adds two new tables: a plan-region enrollment count and a weekly formulary-event panel, including the planted PAY004 effect. Open <a href="../chapter7_walkthrough.ipynb"><code>chapter7_walkthrough.ipynb</code></a>, or run through the shared analysis entry point.</p>
 <h2 id="71-teaching-datasets">7.1 Teaching Datasets</h2>
 <p>Run the blocks in order from the repository root. Generate the supplemental data first:</p>
 <div class="highlight"><pre><span></span><code>uv<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>ch07_competitive/generation_modules/generate_ch07_data.py
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>Chapter 7 supplemental data
+  access_history: 98 rows
   plan_region_enrollment: 32 rows
   formulary_event_panel: 208 rows
 Wrote Chapter 7-only data to ch07_competitive/data/generated
@@ -1711,8 +1712,30 @@ Payer-region adoption flags: 3 of 32
 <p><strong>Note:</strong> All products, patients, payers, accounts, and events here are fictional and synthetic. One formulary event for PAY004 carries a planted effect with a known answer for verifying the measurement code.</p>
 </blockquote>
 <h2 id="72-effective-dated-access">7.2 Effective-Dated Access</h2>
-<p>A plan can cover Roventra in January, add step therapy in July, and drop it in October. Three measures capture that moving picture: plan-region record coverage (each plan weighted equally), covered lives (each record weighted by enrolled patients), and the access-quality score (each plan weighted by ease of access). The access-quality weights come from the market-sizing analysis: Covered 0.90, Covered with step edit 0.75, Covered with prior authorization 0.65, Non-covered 0.10.</p>
-<p><strong>Listing 7.2</strong>: Plan coverage, covered lives, and access quality</p>
+<p>A formulary record carries an effective window, and a plan can revise Roventra's terms mid-year. PAY005 South covered Roventra in January, added a step edit in July, and dropped it to non-covered in October. The access state on any analysis date is the record whose effective window contains that date.</p>
+<p><strong>Listing 7.2</strong>: Select the access record in force on the analysis date</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="n">history</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;access_history&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">query</span><span class="p">(</span>
+    <span class="s2">&quot;payer_id == &#39;PAY005&#39; and region == &#39;South&#39; and product_name == &#39;Roventra&#39;&quot;</span>
+<span class="p">)</span>
+<span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;effective_start&quot;</span><span class="p">,</span> <span class="s2">&quot;effective_end&quot;</span><span class="p">,</span> <span class="s2">&quot;coverage_status&quot;</span><span class="p">,</span> <span class="s2">&quot;step_edit&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">history</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+
+<span class="n">analysis_date</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;2024-12-31&quot;</span><span class="p">)</span>
+<span class="n">active</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;effective_start &lt;= @analysis_date &lt;= effective_end&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">In force on </span><span class="si">{</span><span class="n">analysis_date</span><span class="o">.</span><span class="n">date</span><span class="p">()</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">active</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">coverage_status</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>effective_start effective_end coverage_status step_edit
+     2024-01-01    2024-06-30         Covered        No
+     2024-07-01    2024-09-30         Covered       Yes
+     2024-10-01    2025-12-31     Non-covered        No
+
+In force on 2024-12-31: Non-covered
+</code></pre></div>
+<p>On 2024-12-31, PAY005 South sits behind a non-coverage barrier. </p>
+<p>The same selection runs for all 32 cells, three measures summarize the records in force on the analysis date, 2024-12-31: plan-region record coverage (each plan weighted equally), covered lives (each record weighted by enrolled patients), and the access-quality score (each plan weighted by ease of access). The access-quality weights come from the market-sizing analysis: Covered 0.90, Covered with step edit 0.75, Covered with prior authorization 0.65, Non-covered 0.10, same weights we used in the market sizing analysis.</p>
+<p><strong>Listing 7.3</strong>: Plan coverage, covered lives, and access quality</p>
 <div class="highlight"><pre><span></span><code><span class="n">summary</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;covered_lives_summary&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;payer_type == &#39;All&#39;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Plan-region records:          </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">summary</span><span class="o">.</span><span class="n">plans</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Records covering Roventra:    </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">summary</span><span class="o">.</span><span class="n">covered_plans</span><span class="p">)</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">summary</span><span class="o">.</span><span class="n">plan_coverage_rate</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
@@ -1728,9 +1751,9 @@ Lives with workable coverage: 8,314,000 (76.1%)
 Lives with no restriction:    0 (0.0%)
 Access-quality score:         0.533
 </code></pre></div>
-<p>24 of 32 (75%) plan-region records cover Roventra, and they hold 8,314,000 of the 10,926,000 (76.1%) lives. The coverage looks healthy, but every covered cell still carries prior authorization, step therapy, specialty-pharmacy routing, or a quantity limit: zero lives have no restriction at all. The access-quality score of 0.533 captures that mix.</p>
+<p>24 of 32 (75%) plan-region records cover Roventra, and they hold 8,314,000 of the 10,926,000 (76.1%) lives. The coverage looks healthy, but every covered cell still carries prior authorization, step therapy, specialty-pharmacy routing, or a quantity limit: zero lives have no restriction at all. The weighted access-quality score is 0.533.</p>
 <p>The distribution by access state shows where those lives sit.</p>
-<p><strong>Listing 7.3</strong>: Lives by access state</p>
+<p><strong>Listing 7.4</strong>: Lives by access state</p>
 <div class="highlight"><pre><span></span><code><span class="n">restriction_lives</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;restriction_lives&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="n">restriction_lives</span><span class="p">[</span><span class="s2">&quot;lives_share&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
     <span class="n">restriction_lives</span><span class="o">.</span><span class="n">lives_share</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">v</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">v</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -1742,8 +1765,8 @@ Prior authorization                  12         4186000       38.3%
           Step edit                  12         4128000       37.8%
         Non-covered                   8         2612000       23.9%
 </code></pre></div>
-<p>A plan that puts Roventra behind step therapy still wins if it puts every competitor behind non-coverage. The relative-position view compares Roventra's access state in each cell with the strongest competitor in the same cell.</p>
-<p><strong>Listing 7.4</strong>: Relative formulary position against the strongest competitor</p>
+<p>A plan that puts Roventra behind step therapy could still win if it puts every competitor behind non-coverage. The relative-position view compares Roventra's access state with its competitor.</p>
+<p><strong>Listing 7.5</strong>: Relative formulary position against the strongest competitor</p>
 <div class="highlight"><pre><span></span><code><span class="n">relative</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;relative_position&quot;</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">relative</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
 </code></pre></div>
@@ -1752,12 +1775,12 @@ Competitor favored    20
 Parity                 8
 Brand favored          4
 </code></pre></div>
-<p>A competitor holds the better formulary position in 20 of 32 cells: Roventra's access disadvantage, and contracting's negotiation queue.</p>
+<p>A competitor holds the better formulary position in 20 of 32 cells: Roventra has access disadvantage, contracting's negotiation has some work to do.</p>
 <h2 id="73-prescription-counts-nbrx-nrx-and-trx">7.3 Prescription Counts: NBRx, NRx, and TRx</h2>
-<p>Competitive share has to be built on new prescription starts. TRx (total prescriptions) counts every Roventra fill, including refills. NRx (new prescriptions) counts each new prescription written, including both patients who are brand-new to the drug and patients restarting after a gap; one patient can generate multiple NRxs over time. NBRx (new-to-brand prescriptions) is the strictest count: each patient has exactly one NBRx for a given drug, the first prescription they ever fill for it. A patient who stopped Roventra and restarted generates a new NRx but not a new NBRx. NBRx captures only patients genuinely new to Roventra (therapy-naive starters and competitor switchers alike), making it the right base for competitive share. The washout filter in the patient-journey analysis produces the NBRx count by removing any patient with a prior Roventra claim.</p>
+<p>Competitive share has to be built on new prescription starts. TRx (total prescriptions) counts every Roventra fill, including refills. NRx (new prescriptions) doesn't count refills; it counts each new prescription written, including both patients who are brand-new to the drug and patients restarting after a gap; one patient can generate multiple NRxs over time. NBRx (new-to-brand prescriptions) counts each patient exactly once for a given drug, the first prescription they ever fill for it. A patient who stopped Roventra and restarted generates a new NRx but not a new NBRx. NBRx captures only patients genuinely new to Roventra, making it the right matrics for competitive share. The washout filter in the patient-journey analysis produces the NBRx count by removing any patient with a prior Roventra claim.</p>
 <p><img alt="A timeline for one patient shows three rows. TRx marks every fill including refills. NRx marks the first fill of each episode, including restarts after a gap. NBRx marks only the patient's very first fill ever." src="../assets/figures/figure_7_1_prescription_types.svg" /></p>
 <p><em>Figure 7.1. TRx grows with every refill. A restart after a treatment gap adds one NRx but no NBRx. NBRx is capped at one per patient per drug. Synthetic data.</em></p>
-<p><strong>Listing 7.5</strong>: TRx, NRx, and NBRx by brand</p>
+<p><strong>Listing 7.6</strong>: TRx, NRx, and NBRx by brand</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
 <span class="n">attempts</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;prescription_attempts&quot;</span><span class="p">]</span>
@@ -1796,12 +1819,12 @@ Share        100%    81.9%   9.0%    8.9%           0.1%
 </code></pre></div>
 <p>"All brands" covers the three therapy-class products. TRx and NRx are script counts; NBRx is the washout-corrected new-patient count per drug. Five patients started on Nexoral and Vexpro together. The Share row reads from NBRx: Roventra holds 81.9% of new-to-therapy first regimens.</p>
 <h2 id="74-access-and-adoption">7.4 Access and Adoption</h2>
-<p>Low Roventra share in a payer-region cell can have two causes. A coverage barrier prevents the drug from reaching the patient: a plan that requires step therapy before Roventra, or refuses to cover it altogether, produces low share even when every prescriber writes it first. Contracting must fix that. Or coverage is workable and prescribers still choose a competitor: field analytics investigates that. Raw share alone cannot separate the two, so the analysis assigns independent access and adoption flags to each cell.</p>
-<p>Even when the separation is clear, payer-region cells are small. A cell with 9 treated patients can show 78% share one quarter and 89% the next from chance alone. A raw share of 77.8% (7 Roventra starts out of 9 treated patients) sits below the 82% national benchmark, and a naive rule flags it as an adoption gap. Nine patients carry almost no information: the same true share produces 7 of 9 nearly as often as 8 of 9. A cell with 88 Roventra starts out of 118 treated patients carries real information; the small cell does not.</p>
+<p>Low Roventra share can have two causes. A coverage barrier or prescribers choose a competitor. To separate the two, the analysis assigns independent access and adoption flags to each payer-region cell.</p>
 <h3 id="741-partial-pooling">7.4.1 Partial pooling</h3>
-<p>Before observing a single patient in a cell, we need a starting belief about Roventra's true share there. That starting belief is the <strong>prior</strong>. It comes from the corrected national picture: 81.9% of new-to-therapy patients across all 32 cells started on Roventra. We encode that belief as if we had already observed 40 patients in that cell, 32.8 of whom chose Roventra. The number 40 is the <strong>prior strength</strong>: it sets how much national evidence we carry into each local cell before any local data arrives.</p>
+<p>The counts in payer-region cells might be small. A small cell with 7 Rovertra starts out of 9 treatted patients carries less certainty than cell with 88 Roventra starts out of 118 treated patients. This section addresses this issue with a method called partial pooling. The same technique appears in pharmaceutical commercial analytics under several other names: empirical Bayes shrinkage, hierarchical Bayes, or multilevel regression.</p>
+<p>Before observing a makret share in a payer-region cell, we need a starting belief about Roventra's true share there. That starting belief is the prior. It comes from the corrected national picture: 81.9% of new-to-therapy patients across all 32 cells started on Roventra. We encode that belief as if we had already observed 40 patients in that cell, 32.8 of whom chose Roventra. The number 40 is the prior strength, a judgment cal here. It sets how much national evidence we carry into each local cell before any local data arrives. Prior and local data carry equal weight when a cell reaches exactly 40 real patients; below that, the national rate dominates. Setting 40 near the 30-patient minimum required to raise an adoption flag keeps borderline cells anchored to the national rate when evidence is thin.</p>
 <p>When a cell's data arrives, the prior and the local observations combine. A cell with 7 Roventra starts out of 9 treated patients updates the prior by addition: (32.8 + 7) Roventra starts out of (40 + 9) total. The posterior share is 39.8 / 49 = 81.2%. The 7 local patients barely move the estimate because 40 pseudo-patients of national evidence dominate. A larger cell with 88 starts out of 118 patients gives (32.8 + 88) / (40 + 118) = 76.4%: here 118 real patients outweigh the 40-patient prior, and the estimate lands close to the raw 74.6%.</p>
-<p>This is <strong>partial pooling</strong>: each cell borrows strength from the national average, and the amount borrowed shrinks as local evidence grows. The underlying model is the <strong>beta-binomial</strong>: a Beta distribution describes our uncertainty about the true share in a cell, and a Binomial distribution counts how many Roventra starts that true share would produce. The technique appears in pharmaceutical commercial analytics under several names: empirical Bayes shrinkage, hierarchical Bayes, or multilevel regression. The key property matches the problem: small cells shrink toward the national rate while large cells stay near their own data.</p>
+<p>This is partial pooling: each cell borrows strength from the national average, and the amount borrowed shrinks as local evidence grows. The underlying model is the beta-binomial: a Beta distribution describes our uncertainty about the true share in a cell, and a Binomial distribution counts how many Roventra starts that true share would produce. The key property: small cells shrink toward the national rate while large cells stay near their own data.</p>
 <blockquote>
 <p><strong>Note:</strong> The theoretical foundation appears in Efron and Morris (1977), "Stein's Paradox in Statistics," <em>Scientific American</em>, 236(5):119–127, and in Gelman et al. (2013), <em>Bayesian Data Analysis</em>, 3rd ed., Chapter 5. The <code>scipy.stats.beta</code> functions used below implement the same posterior exactly.</p>
 </blockquote>
@@ -1816,7 +1839,7 @@ Share        100%    81.9%   9.0%    8.9%           0.1%
 <p><span class="arithmatex">\(\alpha_0\)</span> and <span class="arithmatex">\(\beta_0\)</span> are the prior Roventra and competitor pseudo-counts. When <span class="arithmatex">\(n\)</span> is small, the prior terms dominate and <span class="arithmatex">\(\hat{p}\)</span> stays near 81.9%. When <span class="arithmatex">\(n\)</span> is large, the prior terms shrink in relative weight and <span class="arithmatex">\(\hat{p}\)</span> approaches <span class="arithmatex">\(s/n\)</span>.</p>
 <p><img alt="A scatter plot of 32 payer-region cells shows raw brand share on the x-axis and pooled posterior share on the y-axis. Points for small cells cluster near the diagonal of the national prior; points for large cells cluster near the no-pooling diagonal." src="../assets/figures/figure_7_2_partial_pooling.svg" /></p>
 <p><em>Figure 7.2. Each point is one payer-region cell. Small cells (light color) are pulled far toward the 81.9% national prior. Large cells (dark color) stay near the diagonal because local evidence outweighs the prior. Synthetic data.</em></p>
-<p><strong>Listing 7.6</strong>: Shrink two cells toward the national prior</p>
+<p><strong>Listing 7.7</strong>: Shrink two cells toward the national prior</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">beta</span>
 
 <span class="n">prior_mean</span> <span class="o">=</span> <span class="mf">0.8193</span>           <span class="c1"># national corrected Roventra share</span>
@@ -1841,9 +1864,10 @@ Share        100%    81.9%   9.0%    8.9%           0.1%
 <div class="highlight"><pre><span></span><code>Small cell: raw 77.8%, pooled 81.2%, P(true share &lt; 82%) 52.9%
 Large cell: raw 74.6%, pooled 76.4%, P(true share &lt; 82%) 95.7%
 </code></pre></div>
-<p>The small cell's 77.8% pools back to 81.2%, and the probability of trailing the benchmark is 52.9% (close to a coin flip). The large cell barely moves from 74.6% to 76.4%, with a 95.7% probability of genuinely trailing the benchmark. The adoption flag uses that posterior probability: a cell is flagged only with at least 30 treated patients and at least 80% posterior probability of trailing the benchmark.</p>
+<p><code>P(true share &lt; 82%)</code> is the fraction of the posterior Beta distribution that falls below the benchmark, computed as <code>beta.cdf(0.82, s + alpha0, c + beta0)</code>. For the small cell, 9 real patients leave the posterior wide: the distribution straddles the 82% line, and 52.9% falls below it. For the large cell, 118 real patients narrow the posterior sharply and place it well below 82%: 95.7% falls below. At 52.9%, the evidence is close to a coin flip, it cannot distinguish a genuine gap from sampling variation; the small cell does not reach the 80% adoption flag threshold.</p>
+<p>The adoption flag uses that posterior probability: a cell is flagged only with at least 30 treated patients and at least 80% posterior probability of trailing the benchmark.</p>
 <h3 id="742-payer-region-routing-flags">7.4.2 Payer-Region Routing Flags</h3>
-<p>Each cell carries an access flag from its policy state and friction, and an adoption flag from the pooled posterior. The two flags are independent: a cell can earn both at once. The conditions:</p>
+<p>Now in each cell we define an access flag from its policy state and friction, and an adoption flag from the pooled posterior. The conditions:</p>
 <ul>
 <li><strong>Access flag</strong> True: cell has a material barrier (non-covered or step-edit) AND at least 25% of enrolled lives sit behind that barrier, OR the unresolved attempt rate exceeds 15%.</li>
 <li><strong>Adoption flag</strong> True: at least 30 treated patients observed AND posterior probability of trailing the 82% benchmark exceeds 80%.</li>
@@ -1862,7 +1886,7 @@ Large cell: raw 74.6%, pooled 76.4%, P(true share &lt; 82%) 95.7%
 <tr>
 <td>No</td>
 <td>No</td>
-<td>Defend and learn</td>
+<td>Sustain</td>
 </tr>
 <tr>
 <td>No</td>
@@ -1872,7 +1896,7 @@ Large cell: raw 74.6%, pooled 76.4%, P(true share &lt; 82%) 95.7%
 <tr>
 <td>Yes</td>
 <td>No</td>
-<td>Access work</td>
+<td>Access review</td>
 </tr>
 <tr>
 <td>Yes</td>
@@ -1881,13 +1905,12 @@ Large cell: raw 74.6%, pooled 76.4%, P(true share &lt; 82%) 95.7%
 </tr>
 <tr>
 <td>Sparse evidence</td>
-<td>Any</td>
+<td>Sparse evidence</td>
 <td>Monitor</td>
 </tr>
 </tbody>
 </table>
-<p>Three cells illustrate how the same share produces different actions.</p>
-<p><strong>Listing 7.7</strong>: Three payer-region decisions side by side</p>
+<p><strong>Listing 7.8</strong>: Three payer-region decisions side by side</p>
 <div class="highlight"><pre><span></span><code><span class="n">decisions</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;payer_region_decisions&quot;</span><span class="p">]</span>
 <span class="n">sel</span> <span class="o">=</span> <span class="n">decisions</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s2">&quot;payer_id&quot;</span><span class="p">,</span> <span class="s2">&quot;region&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
     <span class="p">[(</span><span class="s2">&quot;PAY002&quot;</span><span class="p">,</span> <span class="s2">&quot;Northeast&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;PAY004&quot;</span><span class="p">,</span> <span class="s2">&quot;Midwest&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;PAY005&quot;</span><span class="p">,</span> <span class="s2">&quot;South&quot;</span><span class="p">)]</span>
@@ -1917,23 +1940,22 @@ share_95ci                77%-91%              69%-84%          67%-82%
 prob_below_82                 24%                  87%              95%
 access_flag                  True                False             True
 adoption_flag               False                 True             True
-action                Access work      Adoption review  Dual workstream
+action              Access review      Adoption review  Dual workstream
 </code></pre></div>
-<p>PAY002 Northeast has access_flag True (non-covered, all enrolled lives restricted) and adoption_flag False: its 24% posterior probability does not reach the 80% threshold. Access work. PAY004 Midwest has access_flag False and adoption_flag True: prior-authorization access is workable, but 87% posterior probability with 118 treated patients meets both adoption flag conditions. Adoption review. PAY005 South has both flags True: a non-covered barrier and 95% posterior probability with 129 treated patients. Dual workstream. Three cells with similar shares reach three different actions because access and adoption route independently.</p>
-<p><img alt="Four aligned panels show, for 32 payer-region cells, Roventra share with its uncertainty interval, restricted lives, PENDED attempt exposure, and the assigned action labeled with a shape and color legend." src="../assets/figures/figure_7_3_payer_region_matrix.svg" /></p>
-<p><em>Figure 7.3. Similar Roventra shares sit beside different access states, and the action column preserves the difference. Wide share intervals mark the small cells the partial-pooling rule holds back. Synthetic data.</em></p>
+<p>PAY002 Northeast has access_flag True (non-covered, all enrolled lives restricted) and adoption_flag False: its 24% posterior probability does not reach the 80% threshold. Access review. PAY004 Midwest has access_flag False and adoption_flag True: prior-authorization access is workable, but 87% posterior probability with 118 treated patients meets both adoption flag conditions. Adoption review. PAY005 South has both flags True: a non-covered barrier and 95% posterior probability with 129 treated patients. Dual workstream. Three cells reach three different actions because access and adoption route independently.</p>
+<p><img alt="Five aligned panels show, for 32 payer-region cells, Roventra share with its uncertainty interval, adoption flag (filled orange square for True), restricted lives, access flag (filled red square for True), and the assigned action labeled with a shape and color legend keyed to Sustain, Adoption review, Access review, Dual workstream, and Monitor." src="../assets/figures/figure_7_3_payer_region_matrix.svg" /></p>
+<p><em>Figure 7.3. The adoption flag and access flag are set independently from share uncertainty and restricted lives; the action column combines them. Wide share intervals mark the small cells the partial-pooling rule holds back. Synthetic data.</em></p>
 <p>The 32 cells distribute across five actions.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">decisions</span><span class="o">.</span><span class="n">action</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>action
-Access work         19
-Defend and learn    10
-Adoption review      2
-Dual workstream      1
+Access review      19
+Sustain            10
+Adoption review     2
+Dual workstream     1
 </code></pre></div>
-<p>Every row carries the analysis date, reason code, decision-rule version, and refresh date.</p>
 <h2 id="75-formulary-event-attribution">7.5 Formulary Event Attribution</h2>
-<p>At week 17 of 2024, PAY004 moved Roventra from a restricted tier to preferred formulary coverage. PAY004's prior-authorization status was already flagged for access work in Section 7.4, so a successful formulary improvement would resolve that flag and redirect the contracting effort toward payers still blocking coverage. The central question is attribution: did Roventra's share in PAY004 actually rise because of this formulary change, or would share have moved in the same direction anyway, driven by factors affecting every payer in the market at the same time?</p>
+<p>At week 17 of 2024, PAY004 Northeast moved Roventra from a prior-authorization tier to preferred formulary coverage. PAY004 Northeast carried workable PA-gated coverage before the event: prior-authorization is workable, so it did not trigger an access flag, but Roventra sat at parity with competitors on the formulary and contracting pursued the improvement to open an advantage. The central question is attribution: did Roventra's share in PAY004 Northeast actually rise because of this formulary change, or would share have moved in the same direction anyway, driven by factors affecting every payer in the market at the same time?</p>
 <p>Attribution matters commercially. If the class was already growing during weeks 17 to 52 and PAY004 just rose with it, the contracting team deserves no credit for the gain, and the same budget directed at a different payer might have delivered more. If the class trend was flat or declining and PAY004 still gained, the formulary event was the cause and a repeated playbook at similar payers is warranted. A raw before-and-after average cannot separate these scenarios: it takes the full observed change in PAY004 and calls it the effect, without asking what PAY004 would have looked like had the formulary event never happened.</p>
 <p>The controlled interrupted time series (ITS) and the synthetic control both estimate that missing counterfactual. An ITS model fits PAY004's share as a function of time, with explicit terms for the level and slope change at the event week. The three donor payers that did not receive the formulary change track what was happening to the market during the same period; adding their mean as a covariate subtracts that common movement before measuring PAY004's specific response.</p>
 <h3 id="751-controlled-interrupted-time-series">7.5.1 Controlled interrupted time series</h3>
@@ -1997,7 +2019,7 @@ Dual workstream      1
 </tr>
 </tbody>
 </table>
-<p><strong>Listing 7.8</strong>: Report the controlled event effect</p>
+<p><strong>Listing 7.9</strong>: Report the controlled event effect</p>
 <div class="highlight"><pre><span></span><code><span class="n">event</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;formulary_event_effect&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Immediate level effect: </span><span class="si">{</span><span class="n">event</span><span class="o">.</span><span class="n">immediate_effect</span><span class="si">:</span><span class="s2">+.1%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Slope change per week: </span><span class="si">{</span><span class="n">event</span><span class="o">.</span><span class="n">slope_change_per_week</span><span class="si">:</span><span class="s2">+.2%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -2031,12 +2053,12 @@ Post-period mean gap: +7.5%
 Donor weights: PAY003=0.547, PAY006=0.000, PAY008=0.453
 </code></pre></div>
 <p>The blend fits the pre-event weeks closely (RMSPE 0.038) and reads a +7.5-point post-event gap, consistent with the controlled time-series estimate. Two methods with different assumptions reach the same answer.</p>
-<p><strong>Conclusion.</strong> The opening question was whether PAY004's Roventra share gain came from the formulary event or from market-wide factors. The evidence is unambiguous. The donor payers show that the background market trend during this period was slightly declining: without the formulary change, PAY004's Roventra share would have drifted lower with the class. The observed gain stands against that declining baseline, not on top of a rising tide. The ITS estimates a +7.4-point immediate lift at week 17 growing to +10.0 points by week 28 (95% CI: +6.1 to +14.0); the synthetic control confirms +7.5 points using a different method and no functional-form assumption. The PAY004 formulary improvement drove a genuine, measurable increase in Roventra share. The PAY004 access flag resolves. A comparable contracting effort at cells with similar prior-authorization barriers is the next action.</p>
+<p><strong>Conclusion.</strong> The opening question was whether PAY004's Roventra share gain came from the formulary event or from market-wide factors. The evidence is unambiguous. The donor payers show that the background market trend during this period was slightly declining: without the formulary change, PAY004's Roventra share would have drifted lower with the class. The observed gain stands against that declining baseline, not on top of a rising tide. The ITS estimates a +7.4-point immediate lift at week 17 growing to +10.0 points by week 28 (95% CI: +6.1 to +14.0); the synthetic control confirms +7.5 points using a different method and no functional-form assumption. The PAY004 Northeast formulary improvement drove a genuine, measurable increase in Roventra share. PAY004 Northeast's PA barrier lifted, and its end-of-year share sits above the 82% benchmark. A comparable contracting effort at PA-gated cells where Roventra still sits at parity with competitors is the next action.</p>
 <h2 id="76-evidence-sufficiency-and-change-detection">7.6 Evidence Sufficiency and Change Detection</h2>
 <h3 id="761-weekly-cusum-detection">7.6.1 Weekly CUSUM Detection</h3>
 <p>Quarterly reanalyses cannot catch a formulary move that happens mid-quarter. CUSUM (cumulative sum) provides near-real-time detection of sustained share shifts without waiting for the next scheduled run.</p>
 <p>Each week, the algorithm standardizes the observed share against a 12-week baseline: it subtracts the baseline mean, divides by the baseline standard deviation, then removes a slack of 0.5 standard deviations to absorb routine week-to-week noise. The result is added to a running positive total. When the total exceeds 4 standard deviations, the algorithm opens a monitoring episode and resets the running total. Repeat threshold crossings in the same payer, metric, and direction stay inside that episode until the signal returns near baseline for several weeks. A larger second shift, a reversal, or a different segment can open a new episode.</p>
-<p><strong>Listing 7.9</strong>: Report weekly CUSUM alarms</p>
+<p><strong>Listing 7.10</strong>: Report weekly CUSUM alarms</p>
 <div class="highlight"><pre><span></span><code><span class="n">alerts</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;changepoint_alerts&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="n">alerts</span><span class="p">[</span><span class="s2">&quot;standardized_cusum&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">alerts</span><span class="o">.</span><span class="n">standardized_cusum</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">alerts</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
@@ -2068,7 +2090,7 @@ Nexoral + Vexpro         5              0                0           Not reached
 <p>The monitoring package tracks formulary effective dates and enrollment refreshes, claim maturity and transaction capture, action counts and their sensitivity to the thresholds, posterior adoption probabilities, policy overrides, weekly changepoint alarms, and event counts before any survival comparison is published.</p>
 <h2 id="77-summary">7.7 Summary</h2>
 <p>Roventra's uneven uptake raised one question: access or adoption. Observed share mixes the two, and small cells make the raw signal unreliable. Cell-by-cell evidence separates them.</p>
-<p>Effective-dated policy and enrolled lives settled the access state for each of the 32 cells. The washout correction reduced 6,401 patients who looked new to 2,798 genuine new-to-brand starts; competitive share rests on that corrected count. Partial pooling distinguished real adoption gaps from small-cell noise. A controlled time series and a synthetic control confirmed that the PAY004 formulary win pulled through 7 to 10 points of share on top of the underlying market trend. The result is a routed payer-region queue: 19 access-only cells, 2 adoption-only cells, 1 dual-workstream cell, and 10 defend-and-learn cells.</p>
+<p>Effective-dated policy and enrolled lives settled the access state for each of the 32 cells. The washout correction reduced 6,401 patients who looked new to 2,798 genuine new-to-brand starts; competitive share rests on that corrected count. Partial pooling distinguished real adoption gaps from small-cell noise. A controlled time series and a synthetic control confirmed that the PAY004 formulary win pulled through 7 to 10 points of share on top of the underlying market trend. The result is a routed payer-region queue: 19 access-review cells, 2 adoption-review cells, 1 dual-workstream cell, and 10 sustain cells.</p>
 <p>The cells where Roventra trails named competitors on the formulary go to contracting. Cells where coverage is workable and adoption is the gap go to field teams. Each action carries the evidence, the population it rests on, the reason code, the rule version, and a refresh date.</p>
 <p>Separate access and adoption evidence turns a single low-share signal into a routed action queue.</p>
 <ul>

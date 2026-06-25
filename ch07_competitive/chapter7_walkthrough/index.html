@@ -1490,6 +1490,24 @@ Payer-region access flags: 20 of 32
 Payer-region adoption flags: 3 of 32
 </code></pre></div>
 <h2 id="72-effective-dated-access-and-covered-lives">7.2 Effective-dated access and covered lives</h2>
+<div class="highlight"><pre><span></span><code><span class="n">history</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;access_history&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">query</span><span class="p">(</span>
+    <span class="s2">&quot;payer_id == &#39;PAY005&#39; and region == &#39;South&#39; and product_name == &#39;Roventra&#39;&quot;</span>
+<span class="p">)</span>
+<span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;effective_start&quot;</span><span class="p">,</span> <span class="s2">&quot;effective_end&quot;</span><span class="p">,</span> <span class="s2">&quot;coverage_status&quot;</span><span class="p">,</span> <span class="s2">&quot;step_edit&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">history</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+
+<span class="n">analysis_date</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">&quot;2024-12-31&quot;</span><span class="p">)</span>
+<span class="n">active</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;effective_start &lt;= @analysis_date &lt;= effective_end&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">In force on </span><span class="si">{</span><span class="n">analysis_date</span><span class="o">.</span><span class="n">date</span><span class="p">()</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">active</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">coverage_status</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>effective_start effective_end coverage_status step_edit
+     2024-01-01    2024-06-30         Covered        No
+     2024-07-01    2024-09-30         Covered       Yes
+     2024-10-01    2025-12-31     Non-covered        No
+
+In force on 2024-12-31: Non-covered
+</code></pre></div>
+<p>PAY005 South covered Roventra in January, added a step edit in July, and dropped it to non-covered in October. Each cell contributes the record in force on 2024-12-31.</p>
 <div class="highlight"><pre><span></span><code><span class="n">summary</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;covered_lives_summary&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;payer_type == &#39;All&#39;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Plan-region records:          </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">summary</span><span class="o">.</span><span class="n">plans</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Records covering Roventra:    </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">summary</span><span class="o">.</span><span class="n">covered_plans</span><span class="p">)</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">summary</span><span class="o">.</span><span class="n">plan_coverage_rate</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
@@ -1502,9 +1520,9 @@ Payer-region adoption flags: 3 of 32
 <span class="n">restriction_lives</span><span class="p">[</span><span class="s2">&quot;lives_share&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">restriction_lives</span><span class="o">.</span><span class="n">lives_share</span><span class="o">.</span><span class="n">map</span><span class="p">(</span>
     <span class="k">lambda</span> <span class="n">v</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">v</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">restriction_lives</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">restriction_lives</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;relative_position&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;relative_position&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>Plan-region records:          32
 Records covering Roventra:    24 (75.0%)
@@ -1513,16 +1531,15 @@ Lives with workable coverage: 8,314,000 (76.1%)
 Lives with no restriction:    0 (0.0%)
 Access-quality score:         0.533
 
-          access_state  payer_region_cells  enrolled_lives lives_share
-0  Prior authorization                  12         4186000       38.3%
-1            Step edit                  12         4128000       37.8%
-2          Non-covered                   8         2612000       23.9%
+       access_state  payer_region_cells  enrolled_lives lives_share
+Prior authorization                  12         4186000       38.3%
+          Step edit                  12         4128000       37.8%
+        Non-covered                   8         2612000       23.9%
 
 position
 Competitor favored    20
 Parity                 8
 Brand favored          4
-Name: count, dtype: int64
 </code></pre></div>
 <p>Non-coverage and step therapy are the two states a patient cannot clear alone, and a competitor holds the better formulary position in 20 of 32 cells.</p>
 <h2 id="73-trx-nrx-and-nbrx-by-brand">7.3 TRx, NRx, and NBRx by brand</h2>
@@ -1554,7 +1571,7 @@ Name: count, dtype: int64
     <span class="p">},</span>
     <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;TRx&quot;</span><span class="p">,</span> <span class="s2">&quot;NRx&quot;</span><span class="p">,</span> <span class="s2">&quot;NBRx&quot;</span><span class="p">,</span> <span class="s2">&quot;Share&quot;</span><span class="p">],</span>
 <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">tbl</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tbl</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>      All brands Roventra Vexpro Nexoral Nexoral+Vexpro
 TRx       30,552   16,636  6,884   7,032               
@@ -1563,7 +1580,6 @@ NBRx       3,415    2,798    309     303              5
 Share       100%    81.9%   9.0%    8.9%           0.1%
 </code></pre></div>
 <p>Roventra holds 81.9% (2,798 of 3,415) of new-to-therapy NBRx starts. The Share row is the right base for competitive comparison.</p>
-<p><img alt="A timeline for one patient shows three rows. TRx marks every fill including refills. NRx marks the first fill of each episode, including restarts after a gap. NBRx marks only the patient's very first fill ever." src="../assets/figures/figure_7_1_prescription_types.svg" /></p>
 <h2 id="74-access-and-adoption-decisions">7.4 Access and adoption decisions</h2>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">beta</span>  <span class="c1"># noqa: E402</span>
 
@@ -1600,9 +1616,9 @@ Large cell: raw 74.6%, pooled 76.4%, P(&lt;82%) 95.7%
     <span class="p">}</span>
 <span class="p">)</span>
 <span class="n">view</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">p</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">r</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">p</span><span class="p">,</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">view</span><span class="o">.</span><span class="n">index</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">view</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">view</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
 <span class="nb">print</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">decisions</span><span class="o">.</span><span class="n">action</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">decisions</span><span class="o">.</span><span class="n">action</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>                 PAY002 Northeast       PAY004 Midwest     PAY005 South
 access_state          Non-covered  Prior authorization      Non-covered
@@ -1619,11 +1635,8 @@ Access work         19
 Defend and learn    10
 Adoption review      2
 Dual workstream      1
-Name: count, dtype: int64
 </code></pre></div>
 <p>Partial pooling holds the small cell back. The access and adoption flags route each cell independently: similar shares reach access work, adoption review, and a dual workstream.</p>
-<p><img alt="A scatter plot of 32 payer-region cells shows raw brand share on the x-axis and pooled posterior share on the y-axis. Points for small cells cluster near the diagonal of the national prior; points for large cells cluster near the no-pooling diagonal." src="../assets/figures/figure_7_2_partial_pooling.svg" /></p>
-<p><img alt="Four aligned panels show, for 32 payer-region cells, Roventra share with its uncertainty interval, restricted lives, PENDED attempt exposure, and the assigned action labeled with a shape and color legend." src="../assets/figures/figure_7_3_payer_region_matrix.svg" /></p>
 <h2 id="75-controlled-formulary-event-measurement">7.5 Controlled formulary-event measurement</h2>
 <div class="highlight"><pre><span></span><code><span class="n">event</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;formulary_event_effect&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Immediate level effect: </span><span class="si">{</span><span class="n">event</span><span class="o">.</span><span class="n">immediate_effect</span><span class="si">:</span><span class="s2">+.1%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -1644,7 +1657,6 @@ Pre-period RMSPE: 0.038
 Post-period mean gap: +7.5%
 </code></pre></div>
 <p>The controlled time series separates the PAY004 lift from the market trend, and the synthetic control lands in the same place.</p>
-<p><img alt="Two stacked panels show PAY004 observed share, the ITS model fit, and the counterfactual through the year, and the lower panel shows observed week-by-week gaps as dots with the smooth model estimate as a green line." src="../assets/figures/figure_7_4_formulary_event.svg" /></p>
 <h2 id="76-monitoring-and-evidence-sufficiency">7.6 Monitoring and evidence sufficiency</h2>
 <div class="highlight"><pre><span></span><code><span class="n">alerts</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;changepoint_alerts&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="n">alerts</span><span class="p">[</span><span class="s2">&quot;standardized_cusum&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">alerts</span><span class="o">.</span><span class="n">standardized_cusum</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>

@@ -69,7 +69,7 @@ def input_paths(repo_root: Path) -> dict[str, Path]:
     hcp = repo_root / "ch06_hcp" / "assets" / "generated_outputs"
     generated = repo_root / "ch07_competitive" / "data" / "generated"
     return {
-        "access": upstream / "market_access" / "market_access_rules.csv",
+        "access": generated / "access_history.csv",
         "formulary": upstream / "formulary" / "formulary_status.csv",
         "pharmacy": upstream / "claims_pharmacy" / "pharmacy_claims.csv",
         "ndc_codes": upstream / "reference" / "ndc_codes.csv",
@@ -265,6 +265,7 @@ def run_analysis(repo_root: Path) -> dict[str, pd.DataFrame]:
         "source_of_business": source_of_business,
         "treatment_transitions": transitions,
         "switch_evidence": switch_evidence,
+        "access_history": inputs["access"],
         "policy_landscape": policy,
         "covered_lives_summary": lives,
         "restriction_lives": restrictions,
