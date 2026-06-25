@@ -1285,21 +1285,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#76-account-actions" class="md-nav__link">
+  <a href="#76-monitoring-and-evidence-sufficiency" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7.6 Account actions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#77-monitoring-and-evidence-sufficiency" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        7.7 Monitoring and evidence sufficiency
+        7.6 Monitoring and evidence sufficiency
       
     </span>
   </a>
@@ -1432,21 +1421,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#76-account-actions" class="md-nav__link">
+  <a href="#76-monitoring-and-evidence-sufficiency" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7.6 Account actions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#77-monitoring-and-evidence-sufficiency" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        7.7 Monitoring and evidence sufficiency
+        7.6 Monitoring and evidence sufficiency
       
     </span>
   </a>
@@ -1490,6 +1468,8 @@
 <span class="n">results</span> <span class="o">=</span> <span class="n">run_analysis</span><span class="p">(</span><span class="n">ROOT</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Loaded Chapter 7 evidence package.&quot;</span><span class="p">)</span>
 </code></pre></div>
+<div class="highlight"><pre><span></span><code>Loaded Chapter 7 evidence package.
+</code></pre></div>
 <h2 id="71-opening-evidence">7.1 Opening evidence</h2>
 <p>The corrected cohort comes straight from the patient-journey line table, so competitive share starts from the same population.</p>
 <div class="highlight"><pre><span></span><code><span class="n">headline</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;headline&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -1502,6 +1482,12 @@
 <span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Payer-region access flags: </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">headline</span><span class="o">.</span><span class="n">payer_region_access_flags</span><span class="p">)</span><span class="si">}</span><span class="s2"> of 32&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Payer-region adoption flags: </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">headline</span><span class="o">.</span><span class="n">payer_region_adoption_flags</span><span class="p">)</span><span class="si">}</span><span class="s2"> of 32&quot;</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>New-to-therapy patients: 3,415
+Roventra new starts: 2,798
+Materially restricted lives: 6,740,000 of 10,926,000 (61.7%)
+Payer-region access flags: 20 of 32
+Payer-region adoption flags: 3 of 32
 </code></pre></div>
 <h2 id="72-effective-dated-access-and-covered-lives">7.2 Effective-dated access and covered lives</h2>
 <div class="highlight"><pre><span></span><code><span class="n">summary</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;covered_lives_summary&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;payer_type == &#39;All&#39;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -1519,6 +1505,24 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">restriction_lives</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;relative_position&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Plan-region records:          32
+Records covering Roventra:    24 (75.0%)
+Enrolled lives:               10,926,000
+Lives with workable coverage: 8,314,000 (76.1%)
+Lives with no restriction:    0 (0.0%)
+Access-quality score:         0.533
+
+          access_state  payer_region_cells  enrolled_lives lives_share
+0  Prior authorization                  12         4186000       38.3%
+1            Step edit                  12         4128000       37.8%
+2          Non-covered                   8         2612000       23.9%
+
+position
+Competitor favored    20
+Parity                 8
+Brand favored          4
+Name: count, dtype: int64
 </code></pre></div>
 <p>Non-coverage and step therapy are the two states a patient cannot clear alone, and a competitor holds the better formulary position in 20 of 32 cells.</p>
 <h2 id="73-trx-nrx-and-nbrx-by-brand">7.3 TRx, NRx, and NBRx by brand</h2>
@@ -1552,6 +1556,12 @@
 <span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">tbl</span><span class="p">)</span>
 </code></pre></div>
+<div class="highlight"><pre><span></span><code>      All brands Roventra Vexpro Nexoral Nexoral+Vexpro
+TRx       30,552   16,636  6,884   7,032               
+NRx       13,867    6,401  3,684   3,782               
+NBRx       3,415    2,798    309     303              5
+Share       100%    81.9%   9.0%    8.9%           0.1%
+</code></pre></div>
 <p>Roventra holds 81.9% (2,798 of 3,415) of new-to-therapy NBRx starts. The Share row is the right base for competitive comparison.</p>
 <p><img alt="A timeline for one patient shows three rows. TRx marks every fill including refills. NRx marks the first fill of each episode, including restarts after a gap. NBRx marks only the patient's very first fill ever." src="../assets/figures/figure_7_1_prescription_types.svg" /></p>
 <h2 id="74-access-and-adoption-decisions">7.4 Access and adoption decisions</h2>
@@ -1567,6 +1577,9 @@
     <span class="n">pooled</span> <span class="o">=</span> <span class="p">(</span><span class="n">brand_starts</span> <span class="o">+</span> <span class="n">alpha0</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">treated</span> <span class="o">+</span> <span class="n">alpha0</span> <span class="o">+</span> <span class="n">beta0</span><span class="p">)</span>
     <span class="n">prob_below</span> <span class="o">=</span> <span class="n">beta</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mf">0.82</span><span class="p">,</span> <span class="n">brand_starts</span> <span class="o">+</span> <span class="n">alpha0</span><span class="p">,</span> <span class="n">competitor_starts</span> <span class="o">+</span> <span class="n">beta0</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">: raw </span><span class="si">{</span><span class="n">raw</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">, pooled </span><span class="si">{</span><span class="n">pooled</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">, P(&lt;82%) </span><span class="si">{</span><span class="n">prob_below</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Small cell: raw 77.8%, pooled 81.2%, P(&lt;82%) 52.9%
+Large cell: raw 74.6%, pooled 76.4%, P(&lt;82%) 95.7%
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="n">decisions</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;payer_region_decisions&quot;</span><span class="p">]</span>
 <span class="n">sel</span> <span class="o">=</span> <span class="n">decisions</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s2">&quot;payer_id&quot;</span><span class="p">,</span> <span class="s2">&quot;region&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
@@ -1591,6 +1604,23 @@
 <span class="nb">print</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">decisions</span><span class="o">.</span><span class="n">action</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
 </code></pre></div>
+<div class="highlight"><pre><span></span><code>                 PAY002 Northeast       PAY004 Midwest     PAY005 South
+access_state          Non-covered  Prior authorization      Non-covered
+treated_patients              100                  118              129
+brand_share                 85.0%                77.1%            75.2%
+share_95ci                77%-91%              69%-84%          67%-82%
+prob_below_82                 24%                  87%              95%
+access_flag                  True                False             True
+adoption_flag               False                 True             True
+action                Access work      Adoption review  Dual workstream
+
+action
+Access work         19
+Defend and learn    10
+Adoption review      2
+Dual workstream      1
+Name: count, dtype: int64
+</code></pre></div>
 <p>Partial pooling holds the small cell back. The access and adoption flags route each cell independently: similar shares reach access work, adoption review, and a dual workstream.</p>
 <p><img alt="A scatter plot of 32 payer-region cells shows raw brand share on the x-axis and pooled posterior share on the y-axis. Points for small cells cluster near the diagonal of the national prior; points for large cells cluster near the no-pooling diagonal." src="../assets/figures/figure_7_2_partial_pooling.svg" /></p>
 <p><img alt="Four aligned panels show, for 32 payer-region cells, Roventra share with its uncertainty interval, restricted lives, PENDED attempt exposure, and the assigned action labeled with a shape and color legend." src="../assets/figures/figure_7_3_payer_region_matrix.svg" /></p>
@@ -1607,39 +1637,38 @@
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Pre-period RMSPE: </span><span class="si">{</span><span class="n">diagnostic</span><span class="o">.</span><span class="n">pre_rmspe</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Post-period mean gap: </span><span class="si">{</span><span class="n">diagnostic</span><span class="o">.</span><span class="n">post_mean_gap</span><span class="si">:</span><span class="s2">+.1%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
+<div class="highlight"><pre><span></span><code>Immediate level effect: +7.4%
+Slope change per week: +0.24%
+Week 28 effect: +10.0% (95% CI +6.1% to +14.0%)
+Pre-period RMSPE: 0.038
+Post-period mean gap: +7.5%
+</code></pre></div>
 <p>The controlled time series separates the PAY004 lift from the market trend, and the synthetic control lands in the same place.</p>
 <p><img alt="Two stacked panels show PAY004 observed share, the ITS model fit, and the counterfactual through the year, and the lower panel shows observed week-by-week gaps as dots with the smooth model estimate as a green line." src="../assets/figures/figure_7_4_formulary_event.svg" /></p>
-<h2 id="76-account-actions">7.6 Account actions</h2>
-<div class="highlight"><pre><span></span><code><span class="n">accounts</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;account_access_adoption_actions&quot;</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">accounts</span><span class="o">.</span><span class="n">action</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">()</span>
-<span class="n">sel</span> <span class="o">=</span> <span class="n">accounts</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;account_id&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s2">&quot;ACC155&quot;</span><span class="p">,</span> <span class="s2">&quot;ACC005&quot;</span><span class="p">,</span> <span class="s2">&quot;ACC121&quot;</span><span class="p">]]</span>
-<span class="n">view</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
-    <span class="p">{</span>
-        <span class="s2">&quot;attributed_patients&quot;</span><span class="p">:</span> <span class="n">sel</span><span class="o">.</span><span class="n">attributed_patients</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">),</span>
-        <span class="s2">&quot;treated_patients&quot;</span><span class="p">:</span> <span class="n">sel</span><span class="o">.</span><span class="n">treated_patients</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">),</span>
-        <span class="s2">&quot;brand_share&quot;</span><span class="p">:</span> <span class="n">sel</span><span class="o">.</span><span class="n">brand_share</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">v</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">v</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">),</span>
-        <span class="s2">&quot;restricted_rate&quot;</span><span class="p">:</span> <span class="n">sel</span><span class="o">.</span><span class="n">restricted_patient_rate</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">v</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">v</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">),</span>
-        <span class="s2">&quot;prob_below_82&quot;</span><span class="p">:</span> <span class="n">sel</span><span class="o">.</span><span class="n">probability_below_benchmark</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">v</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">v</span><span class="si">:</span><span class="s2">.0%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">),</span>
-        <span class="s2">&quot;action&quot;</span><span class="p">:</span> <span class="n">sel</span><span class="o">.</span><span class="n">action</span><span class="p">,</span>
-    <span class="p">}</span>
-<span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">view</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
-</code></pre></div>
-<p>Account actions reuse the patient-HCP-account mapping and keep a payer-specific queue per account.</p>
-<p><img alt="Two horizontal bar panels show the account action counts and the accounts holding the largest pools of attributed patients behind a material access barrier." src="../assets/figures/figure_7_5_account_actions.svg" /></p>
-<h2 id="77-monitoring-and-evidence-sufficiency">7.7 Monitoring and evidence sufficiency</h2>
+<h2 id="76-monitoring-and-evidence-sufficiency">7.6 Monitoring and evidence sufficiency</h2>
 <div class="highlight"><pre><span></span><code><span class="n">alerts</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;changepoint_alerts&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="n">alerts</span><span class="p">[</span><span class="s2">&quot;standardized_cusum&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">alerts</span><span class="o">.</span><span class="n">standardized_cusum</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">alerts</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">alerts</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;switch_evidence&quot;</span><span class="p">][[</span>
     <span class="s2">&quot;first_regimen&quot;</span><span class="p">,</span> <span class="s2">&quot;patients&quot;</span><span class="p">,</span> <span class="s2">&quot;switch_events&quot;</span><span class="p">,</span>
     <span class="s2">&quot;median_time_to_switch&quot;</span><span class="p">,</span> <span class="s2">&quot;comparison_status&quot;</span><span class="p">,</span>
-<span class="p">]])</span>
+<span class="p">]]</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
 </code></pre></div>
-<p>CUSUM supplies a review date. The switch table records that comparative medians are not reached.</p>
+<div class="highlight"><pre><span></span><code> week direction  standardized_cusum episode_status
+   20  Increase               4.136         Opened
+
+   first_regimen  patients  switch_events median_time_to_switch          comparison_status
+        Roventra      2798              0           Not reached Insufficient switch events
+          Vexpro       309             12           Not reached Insufficient switch events
+         Nexoral       303             12           Not reached Insufficient switch events
+Nexoral + Vexpro         5              0           Not reached Insufficient switch events
+</code></pre></div>
+<p>CUSUM opens the PAY004 increase episode at week 20. Later threshold crossings are persistence evidence for the same episode.</p>
+<p><img alt="Two stacked panels show PAY004 weekly Roventra share and the positive standardized CUSUM trace. The formulary event is marked at week 17, the alarm threshold is marked at 4 standard deviations, the green point marks the episode-opening alarm, and hollow gray points mark later persistence crossings." src="../assets/figures/figure_7_5_cusum_detection.svg" /></p>
+<p><em>Figure 7.5. PAY004 share rises after the week 17 formulary event. The positive CUSUM opens an increase episode at week 20. Later threshold crossings show persistence of the same episode, not separate events. Synthetic data.</em></p>
 <p><img alt="Conceptual survival curves contrasting a cohort with sufficient switch events (green, median reached at a marked week) against a sparse cohort (blue, curve stays above 50% through week 52)." src="../assets/figures/figure_7_6_switch_support.svg" /></p>
+<p><em>Figure 7.6. When the survival curve stays above 50% through all of follow-up, the median time to switch is not reached. Reporting a number here would invent precision the data does not hold. Track event accumulation across quarterly refreshes before publishing a comparative median. Synthetic data.</em></p>
 
 
 
