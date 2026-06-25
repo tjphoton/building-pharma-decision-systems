@@ -107,16 +107,16 @@ def payer_region_decisions(
             out["access_flag"] & ~out["adoption_flag"],
             ~out["access_flag"] & out["adoption_flag"],
         ],
-        ["Monitor", "Dual workstream", "Access work", "Adoption review"],
-        default="Defend and learn",
+        ["Monitor", "Dual workstream", "Access review", "Adoption review"],
+        default="Sustain",
     )
     out["owner"] = out["action"].map(
         {
             "Monitor": "Commercial analytics",
             "Dual workstream": "Market access and field analytics",
-            "Access work": "Market access",
+            "Access review": "Market access",
             "Adoption review": "Field analytics",
-            "Defend and learn": "Brand and field analytics",
+            "Sustain": "Brand and field analytics",
         }
     )
     out["reason_code"] = np.select(
@@ -127,7 +127,7 @@ def payer_region_decisions(
             ~out["access_flag"] & out["adoption_flag"],
         ],
         [
-            "MONITOR_SPARSE_TREATED_DENOMINATOR",
+            "MONITOR_SPARSE_TREATED_BASE",
             "DUAL_ACCESS_AND_ADOPTION",
             "ROUTE_ACCESS_BARRIER",
             "INVESTIGATE_ADOPTION_GAP",

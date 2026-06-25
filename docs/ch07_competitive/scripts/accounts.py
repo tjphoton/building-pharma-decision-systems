@@ -126,8 +126,8 @@ def build_account_actions(
             account["access_flag"] & ~account["adoption_flag"],
             ~account["access_flag"] & account["adoption_flag"],
         ],
-        ["Monitor", "Dual workstream", "Access work", "Adoption review"],
-        default="Defend and learn",
+        ["Monitor", "Dual workstream", "Access review", "Adoption review"],
+        default="Sustain",
     )
     account["reason_code"] = np.select(
         [
