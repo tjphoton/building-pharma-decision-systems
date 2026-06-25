@@ -284,68 +284,6 @@ source_specialty destination_specialty  unique_patients
 
 The dominant flow is Primary Care to Endocrinology, carrying 1,348 unique patients. A secondary stream continues from Endocrinology to Cardiology, carrying 311 patients with comorbid cardiovascular disease. Both pathways are large enough to be structurally meaningful for pathway education and continuity review.
 
-### 6.4.3 Top-Pathway Stability
-
-A high volume rank can reflect a single very active referrer rather than a broad, stable pattern, and a top-20 ranking in the observed data could shift if slightly different patients were in the dataset.
-
-Two signals capture ranking quality: volume (unique T2D patients through that HCP across all referral episodes) and breadth (distinct source HCPs who sent patients there). An HCP with high volume but breadth of 1 receives all referrals from a single physician, which is not a market-wide pathway. Breadth of 8 or more signals that many independent physicians route patients to the same destination.
-
-The stability test runs two checks. The transition-window sweep refits the full graph under 30-, 45-, and 60-day window definitions and compares the top-20 ranking across all three. The patient-level bootstrap draws 80 resamples from the referral episode table, each the same size as the original but drawn with replacement. The graph is refit on each resample and the top-20 ranking is recorded. An HCP that lands in the top 20 in 95% or more of those runs holds its position regardless of which specific patients were in the data.
-
-**Listing 6.7**: Review stable pathway HCPs
-
-```python
-referral = results["referral_metrics"].merge(
-    results["referral_stability"][["npi", "bootstrap_top20_frequency"]],
-    on="npi",
-).sort_values(["bootstrap_top20_frequency", "pathway_patient_volume"], ascending=[False, False])
-
-referral["bootstrap_top20_frequency"] = (
-    referral["bootstrap_top20_frequency"].map(lambda value: f"{value:.1%}")
-)
-cols = ["npi", "specialty", "pathway_patient_volume", "pathway_breadth", "bootstrap_top20_frequency"]
-
-stable   = referral[referral["bootstrap_top20_frequency"].str.rstrip("%").astype(float) >= 90]
-unstable = referral[referral["bootstrap_top20_frequency"].str.rstrip("%").astype(float) <  90]
-
-print("--- Stable (≥ 90% bootstrap frequency) ---")
-print(stable[cols].to_string(index=False))
-print("\n--- Below threshold (< 90%) ---")
-print(unstable[cols].head(9).to_string(index=False))
-```
-
-```text
---- Stable (≥ 90% bootstrap frequency) ---
-       npi     specialty  pathway_patient_volume  pathway_breadth bootstrap_top20_frequency
-9000000217 Endocrinology                      87                8                    100.0%
-9000000567 Endocrinology                      80                7                    100.0%
-9000000127 Endocrinology                      70                9                    100.0%
-9000000204 Endocrinology                      64                8                    100.0%
-9000000207 Endocrinology                      62                6                    100.0%
-9000000258 Endocrinology                      61                6                    100.0%
-9000000550 Endocrinology                      59                7                    100.0%
-9000000170 Endocrinology                      69               10                     98.8%
-9000000215 Endocrinology                      64                8                     98.8%
-9000000636 Endocrinology                      58                8                     98.8%
-9000000409 Endocrinology                      51                5                     97.5%
-9000000115 Endocrinology                      56                8                     96.2%
-9000000218 Endocrinology                      50                7                     95.0%
-
---- Below threshold (< 90%) ---
-       npi     specialty  pathway_patient_volume  pathway_breadth bootstrap_top20_frequency
-9000000363 Endocrinology                      50                7                     87.5%
-9000000028 Endocrinology                      44                5                     83.8%
-9000000164 Endocrinology                      42                4                     82.5%
-9000000174 Endocrinology                      46                7                     81.2%
-9000000374 Endocrinology                      42                6                     68.8%
-9000000366 Endocrinology                      41                5                     66.2%
-9000000545 Endocrinology                      43                6                     63.7%
-9000000631 Endocrinology                      37                5                     46.2%
-9000000211 Endocrinology                      36                6                     40.0%
-```
-
-Thirteen HCPs clear the 90% threshold, all Endocrinologists. Pathway stability is a separate signal from commercial review opportunity: an HCP can be a critical referral node with low review opportunity, or the reverse. Both signals belong in the final account plan.
-
 ## 6.5 KOL Scientific Profiles
 
 Which physicians shape how T2D is understood and treated, through research, congress leadership, peer teaching, or clinical practice? Medical affairs identifies these Key Opinion Leaders (KOLs) from scientific evidence, not commercial signals.
@@ -594,7 +532,7 @@ Each section made a distinct decision:
 
 - Attribution rule (Section 6.2): patient-declared rule so they don't drift between HCPs across runs
 - HCP evidence table (Section 6.3): opportunity, adoption share, and permission per eligible HCP
-- Referral pathways (Section 6.4): which disease-specific patient flows are stable enough to inform pathway planning
+- Referral pathways (Section 6.4): which disease-specific patient flows are large enough to inform pathway planning
 - KOL evidence (Section 6.5): scientific evidence for medical-affairs review, separated from commercial targeting
 - Engagement profiles (Section 6.6): how to engage eligible HCPs after they pass the gates
 - Call plan (Section 6.7): executable HCP rows reconciled to HCP caps, site context, and territory capacity
@@ -604,7 +542,7 @@ Each section made a distinct decision:
 
 ### Exercise 1: Change the Referral Window
 
-Use Section 6.4. Rebuild the referral network with a 45-day maximum transition. Compare the top 20 HCPs with the 60-day result. Explain which pathway HCPs remain stable and which decision would change.
+Use Section 6.4. Rebuild the referral network with a 45-day maximum transition. Compare the top 20 HCPs with the 60-day result. Explain which HCPs appear or disappear and what that implies about the referral window choice.
 
 Keep the solution under 20 lines of pandas and Python.
 

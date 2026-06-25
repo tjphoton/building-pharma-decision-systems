@@ -20,9 +20,7 @@ from kol import (  # noqa: E402
     build_transparency_review,
 )
 from referral_network import (  # noqa: E402
-    build_account_referral_context,
     build_referral_graph,
-    build_referral_stability,
     prepare_referral_episodes,
     referral_centrality,
 )
@@ -192,12 +190,6 @@ def run_analysis(repo_root: Path) -> dict[str, pd.DataFrame]:
     referral_metrics = referral_centrality(
         referral_graph, inputs["hcp_account_affiliations"]
     )
-    referral_stability = build_referral_stability(
-        inputs["referral_episodes"], inputs["hcp_account_affiliations"]
-    )
-    account_referral_context = build_account_referral_context(
-        referral_metrics, referral_stability
-    )
 
     kol_profiles, kol_domain_evidence = build_kol_profiles(
         inputs["scientific_evidence"],
@@ -234,18 +226,7 @@ def run_analysis(repo_root: Path) -> dict[str, pd.DataFrame]:
     )
 
     account_features = build_account_features(hcp_features, inputs["accounts"])
-    account_targets = apply_account_policy(account_features).merge(
-        account_referral_context,
-        on="account_id",
-        how="left",
-        validate="one_to_one",
-    )
-    account_targets["pathway_action"] = account_targets["pathway_action"].fillna(
-        "No observed pathway"
-    )
-    account_targets["pathway_reason"] = account_targets["pathway_reason"].fillna(
-        "No qualifying disease-specific referral edge"
-    )
+    account_targets = apply_account_policy(account_features)
     policy_sensitivity = build_policy_sensitivity(account_features)
     hcp_targets = build_hcp_actions(hcp_deciles, account_targets, hcp_segments)
     call_plan = build_call_plan(
@@ -270,8 +251,6 @@ def run_analysis(repo_root: Path) -> dict[str, pd.DataFrame]:
         "referral_episodes": referral_episodes,
         "referral_edges": referral_edges,
         "referral_metrics": referral_metrics,
-        "referral_stability": referral_stability,
-        "account_referral_context": account_referral_context,
         "kol_profiles": kol_profiles,
         "kol_domain_evidence": kol_domain_evidence,
         "kol_review_detail": kol_review_detail,
