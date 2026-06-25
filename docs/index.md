@@ -15,7 +15,7 @@ It follows the complete fictional launch of **Roventra**, a once-daily oral medi
 - A linked synthetic pharmaceutical dataset that mirrors real claims, EHR, payer, CRM, and specialty pharmacy structures
 - Patient population funnels from true prevalence down to eligible, treated patients
 - Lines of therapy with explicit washout, switch, addition, and persistence rules
-- HCP and account targeting with transparent scoring, actionability filters, and field capacity allocation
+- HCP targeting with transparent scoring, actionability filters, and field capacity allocation
 - Competitive intelligence: formulary position, payer access barriers, and corrected treatment share
 - Omnichannel engagement plans, next-best-action recommendations, and incrementality tests
 - Causal inference models and marketing mix models for unified measurement
@@ -77,7 +77,7 @@ Run the notebooks in order within each analytical chapter. Data generation is ha
 | Part 3 | Engagement and measurement | Select channels, estimate incremental impact, and compare performance |
 | Part 4 | Decision engines | Allocate resources and build governed recommendation systems |
 
-The first half covers foundational methods: market sizing, patient journeys, HCP and account targeting, and competitive intelligence. The second half adds omnichannel measurement, real-world evidence, causal inference, machine learning for treatment-effect estimation, and fine-tuned language models for AI decision support. Every method, including the advanced ones, is demonstrated with working Python and verified output.
+The first half covers foundational methods: market sizing, patient journeys, HCP targeting, and competitive intelligence. The second half adds omnichannel measurement, real-world evidence, causal inference, machine learning for treatment-effect estimation, and fine-tuned language models for AI decision support. Every method, including the advanced ones, is demonstrated with working Python and verified output.
 
 ### Chapters
 
@@ -88,9 +88,9 @@ The first half covers foundational methods: market sizing, patient journeys, HCP
 | 3 | [A Synthetic Lab for Real Pharma Questions](ch03_data/ch03_data.md) | Draft completed | [Walkthrough](ch03_data/chapter3_walkthrough.md) | [Exercises](ch03_data/exercise_solutions.md) |
 | 4 | [Market Sizing and Patient Populations](ch04_market/ch04_market_sizing.md) | Draft completed | [Walkthrough](ch04_market/chapter4_walkthrough.md) | [Exercises](ch04_market/exercise_solutions.md) |
 | 5 | [Building the Patient Journey](ch05_journey/ch05_patient_journey.md) | Draft completed | [Walkthrough](ch05_journey/chapter5_walkthrough.md) | [Exercises](ch05_journey/exercise_solutions.md) |
-| 6 | [HCP and Account Targeting](ch06_hcp/ch06_hcp_account_targeting.md) | Draft completed | [Walkthrough](ch06_hcp/chapter6_walkthrough.md) | [Exercises](ch06_hcp/exercise_solutions.md) |
+| 6 | [HCP Targeting](ch06_hcp/ch06_hcp_targeting.md) | Draft completed | [Walkthrough](ch06_hcp/chapter6_walkthrough.md) | [Exercises](ch06_hcp/exercise_solutions.md) |
 | 7 | [Competitive Intelligence and Market Access](ch07_competitive/ch07_competitive_intelligence_market_access.md) | Draft completed | [Walkthrough](ch07_competitive/chapter7_walkthrough.md) | [Exercises](ch07_competitive/exercise_solutions.md) |
-| 8 | Omnichannel Analytics | In progress | | |
+| 8 | [Omnichannel Analytics](ch08_omnichannel/ch08_omnichannel_analytics.md) | Draft completed | [Walkthrough](ch08_omnichannel/chapter8_walkthrough.md) | [Exercises](ch08_omnichannel/exercise_solutions.md) |
 | 9 | Next Best Action | In progress | | |
 | 10 | Experimental Design and Incrementality | In progress | | |
 | 11 | Real-World Evidence and Causal Inference | In progress | | |
@@ -110,7 +110,7 @@ The chapters build on each other, but readers with an immediate decision problem
 | Launch opportunity sizing | Chapters 2, 4, and 7 | Chapters 6 and 13 |
 | Patient journey analysis | Chapters 3 and 5 | Chapters 6, 7, and 10 |
 | Real-world evidence | Chapters 3 and 5 | Chapters 10 and 11 |
-| HCP or account targeting | Chapter 6 | Chapters 7, 8, 9, and 10 |
+| HCP targeting | Chapter 6 | Chapters 7, 8, 9, and 10 |
 | Omnichannel planning | Chapters 8 and 9 | Chapters 10 and 12 |
 | Campaign measurement | Chapters 10 and 11 | Chapters 12 and 13 |
 | Budget allocation | Chapters 12 and 13 | Chapter 14 |
@@ -144,6 +144,7 @@ ch04_market/         Chapter 4 manuscript, notebook, exercises, appendix
 ch05_journey/        Chapter 5 manuscript, notebook, exercises
 ch06_hcp/            Chapter 6 manuscript, notebook, exercises
 ch07_competitive/    Chapter 7 manuscript, notebook, exercises
+ch08_omnichannel/    Chapter 8 manuscript, notebook, exercises
 tests/               Regression tests for generated data and analysis
 pyproject.toml       Python dependencies (managed by uv)
 ```
