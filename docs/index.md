@@ -90,7 +90,7 @@ The first half covers foundational methods: market sizing, patient journeys, HCP
 | 5 | [Building the Patient Journey](ch05_journey/ch05_patient_journey.md) | Draft completed | [Walkthrough](ch05_journey/chapter5_walkthrough.md) | [Exercises](ch05_journey/exercise_solutions.md) |
 | 6 | [HCP Targeting](ch06_hcp/ch06_hcp_targeting.md) | Draft completed | [Walkthrough](ch06_hcp/chapter6_walkthrough.md) | [Exercises](ch06_hcp/exercise_solutions.md) |
 | 7 | [Competitive Intelligence and Market Access](ch07_competitive/ch07_competitive_intelligence_market_access.md) | Draft completed | [Walkthrough](ch07_competitive/chapter7_walkthrough.md) | [Exercises](ch07_competitive/exercise_solutions.md) |
-| 8 | [Omnichannel Analytics](ch08_omnichannel/ch08_omnichannel_analytics.md) | Draft completed | [Walkthrough](ch08_omnichannel/chapter8_walkthrough.md) | [Exercises](ch08_omnichannel/exercise_solutions.md) |
+| 8 | Omnichannel Analytics | In progress | | |
 | 9 | Next Best Action | In progress | | |
 | 10 | Experimental Design and Incrementality | In progress | | |
 | 11 | Real-World Evidence and Causal Inference | In progress | | |
