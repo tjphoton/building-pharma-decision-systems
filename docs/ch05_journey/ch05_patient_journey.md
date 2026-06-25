@@ -1,16 +1,14 @@
 # Chapter 5: Patient Journey Analysis: Lines of Therapy, Time to Treatment, and Persistence
 
-The market-sizing analysis estimated 8.1 million diagnosed, age-eligible, untreated patients and 1.0 million expected Roventra starts under the access and conversion assumptions. The launch team now needs to convert that opportunity into an operating plan: when treatment starts occur, which products patients start, how often treatment changes, and how long patients remain on therapy.
+The market-sizing analysis estimated 8.1 million diagnosed, age-eligible, untreated patients and 1.0 million expected Roventra starts. The launch team now needs to convert that opportunity into an operating plan: when treatment starts occur, which products patients start, how often treatment changes, and how long patients remain on therapy.
 
-Those answers affect the demand ramp, supply requirements, patient-support staffing, treatment-mix reporting, and the evidence sent to brand, market access, and field teams. A wrong journey rule can change those decisions. A naive line-of-therapy analysis reports 3,193 Roventra line-1 entries. A 180-day washout identifies 395 of them as continuing users, leaving 2,798 newly observed Roventra starts. The naive result overstates new starts by 14.1%.
-
-The work covers building a diagnosis-indexed cohort, distinguishing treatment fills from access signals, constructing and testing line-of-therapy rules, estimating time to treatment with censoring and competing events, and measuring persistence and adherence. Each commercial result connects to its cohort, observation window, calculation rule, and data boundary.
+This chapter covers building a diagnosis-indexed cohort, constructing and testing line-of-therapy rules, estimating time to treatment with censoring and competing events, and measuring persistence and adherence.
 
 Before running any chapter listing, execute `uv run python ch05_journey/scripts/run_analysis.py` from the repository root. The script writes the journey evidence package to `ch05_journey/assets/generated_outputs`: cohort attrition, treatment episodes, line-of-therapy records, washout comparisons, initiation and persistence curves, adherence records, and the rule-sensitivity grid. Every analysis below reads from those files. Run `uv run python ch05_journey/scripts/build_figures.py` to rebuild the figures, or open [`chapter5_walkthrough.ipynb`](chapter5_walkthrough.ipynb) to execute the chapter as one sequence.
 
 ## 5.1 Define the Journey
 
-The cohort follows the new-user design from pharmacoepidemiology ([Ray, 2003](https://doi.org/10.1093/aje/kwg231)). The first qualifying diagnosis during the patient's observable coverage becomes the index event. The design requires 180 covered days before that date to look back through the enrollment window for earlier qualifying diagnoses. Patient journey and line-of-therapy analyses also require at least 90 observable days after index. Time-to-treatment analysis does not carry that requirement.
+The cohort follows the new-user design from pharmacoepidemiology ([Ray, 2003](https://doi.org/10.1093/aje/kwg231)). The first qualifying diagnosis during the patient's observable coverage becomes the index event. The design requires 180 covered days before that date to look back through the enrollment window for earlier qualifying diagnoses. Patient journey and line-of-therapy analyses also require at least 90 observable days after index. Time-to-treatment analysis does not have any of these requirement.
 
 > **Note 1:** 180 days look back is a common default in claims-based new-user studies, especially for chronic therapies. People also use 90 days when the refill cycle is short, or 365 days when they want a stricter washout and have enough history. 180 days is a middle ground because it is long enough to catch prior basket fills and still leaves enough patients in the cohort.
 
@@ -55,17 +53,19 @@ Figure 5.1 shows 3 patients in the synthetic dataset. Each has a qualifying diag
 
 ## 5.2 Lines of Therapy: Sequence Rules and Patterns
 
-Line-of-therapy analysis reports newly observed starts, first-line treatment mix, regimen changes, and movement to later therapy. These results feed uptake reporting, competitive analysis, demand planning, and investigations of switching or discontinuation. Their meaning depends on the rules used to convert pharmacy fills into treatment lines.
+Line-of-therapy (LoT) analysis shows how a therapy appears in the real-world treatment journey, then converts patient histories into launch decisions. Prescription volume counts fills. Line-of-therapy analysis classifies those fills as a true new start, a starting regimen, a switch, an add-on, a restart, or continuing use.
 
-Roventra line 1 begins with the first qualifying treatment fill after diagnosis. Building the sequence requires explicit rules for prior-treatment washout, the starting-regimen window, refill gaps, additions, switches, restarts, discontinuation, and censoring. This section applies those rules to synthetic claims data and shows how the washout rule changes the reported Roventra new-start count.
+At the patient level, line-of-therapy analysis reconstructs treatment start, regimen composition, duration, discontinuation, switch, addition, restart, and censoring. At the cohort level, those histories become first-line mix, later-line movement, common treatment sequences, switch-from and switch-to counts, line-specific opportunity size, and competitive share within each line.
+
+Those outputs feed launch reporting, demand planning, competitive analysis, patient-support planning, and market-access investigation. Their meaning depends on the rules used to convert pharmacy fills into treatment lines. Roventra line 1 begins with the first qualifying treatment fill after diagnosis. Building the sequence requires explicit rules for prior-treatment washout, the starting-regimen window, refill gaps, additions, switches, restarts, discontinuation, and censoring. This section applies those rules to synthetic claims data.
 
 ### 5.2.1 The washout rule
 
 The 180-day washout determines which fills count as a true new start: if the patient had a treatment-basket fill in the 180 days before their post-diagnosis fill, they are a continuing user rather than a new start.
 
-The washout window is anchored to the **first treatment fill**, not the diagnosis date. The section 5.1 lookback (also 180 days) counts back from the diagnosis date to confirm the patient is newly diagnosed within observable history. The washout counts back from the first fill to confirm the patient is newly started on therapy. A patient who began Roventra months before diagnosis will pass the diagnosis lookback but fail the washout: their pre-diagnosis fills land inside the 180-day window before their "first" post-diagnosis refill, revealing the continuation.
+The washout window is anchored to the first treatment fill, not the diagnosis date. The section 5.1 lookback (also 180 days) counts back from the diagnosis date to confirm the patient is newly diagnosed within observable history. The washout counts back from the first fill to confirm the patient is newly started on therapy. A patient who began Roventra months before diagnosis will pass the diagnosis lookback but fail the washout: their pre-diagnosis fills land inside the 180-day window before their "first" post-diagnosis refill, revealing the continuation.
 
-Roventra shows 3,193 line-1 entries without the washout rule, 2,798 with it. The 395 patients in between had a basket fill in the 180 days before their post-diagnosis "first" fill; they are therapy continuing users who got relabeled as a new start.
+Roventra shows 3,193 line-1 entries without the washout rule, 2,798 with it. The 395 patients in between had a basket fill in the 180 days before their post-diagnosis "first" fill; they are therapy continuing users who got relabeled as a new start. That distinction decides whether launch reporting counts the patient as new demand or continuing refill volume.
 
 ![Two patient timelines contrast a relabeled continuation with a true new start under the 180-day washout rule.](assets/figures/figure_5_2_washout_relabel.svg)
 
@@ -150,6 +150,8 @@ For PAT00839, diagnosis is on 2024-01-26 and treatment begins on 2024-06-20, 146
 
 Nexoral is the 1st line since he passes the washout. The Nexoral supply runs through 2024-07-19. The Vexpro fill arrives 2024-07-24, within the 60-day allowable gap and after the Nexoral supply has ended, so it is a line 2 switch to Vexpro regimen. Two Vexpro fills carry supply to 2024-09-19. His observation window runs to 2024-12-31, more than 60 days past his last supplied day, so the discontinuation rule applies here: line 2 ended on therapy day 58.
 
+Commercially, this patient contributes to a Nexoral first-line count, a Vexpro second-line switch count, and a discontinuation event on line 2.
+
 ![PAT00839 on a dated timeline showing diagnosis index, therapy index, pharmacy claims, inferred line 1 and line 2 exposure, the switch point, the 60-day gap, discontinuation, and observation end.](assets/figures/figure_5_4_switch_example.svg)
 
 *Figure 5.4. PAT00839 shows the switch rule. The diagnosis index anchors the cohort, the first Nexoral fill sets the therapy index, the Vexpro fill creates the switch, and the observation window extends past the 60-day gap so discontinuation is observed. Synthetic data.*
@@ -209,7 +211,7 @@ lines of therapy:
            2 Nexoral + Vexpro 2024-08-29 2025-01-01           2        Addition   Censored        126
 ```
 
-PAT03874 starts a 60-day Vexpro fill. On 2024-08-29, while that supply is still active but after the 30-day regimen window has closed, Nexoral arrives. A new product on a live backbone is an addition: the line advances to **line 2** and the regimen becomes the combination `Nexoral + Vexpro`. Had the Nexoral fill landed within the first 30 days, it would have joined **line 1** as a combination instead. Whether an addition should advance the line depends on the therapeutic area; oncology protocols typically treat it as a line advance, while some chronic-disease protocols do not. His line 2 is censored because supply runs past the observation boundary.
+PAT03874 starts a 60-day Vexpro fill. On 2024-08-29, while that supply is still active but after the 30-day regimen window has closed, Nexoral arrives. A new product on a live backbone is an addition: the line advances to **line 2** and the regimen becomes the combination `Nexoral + Vexpro`. Had the Nexoral fill landed within the first 30 days, it would have joined **line 1** as a combination instead. The choice changes 2 outputs: first-line combination share and second-line advancement by add-on. Those outputs support different questions about launch positioning and treatment intensification. Whether an addition should advance the line depends on the therapeutic area; oncology protocols typically treat it as a line advance, while some chronic-disease protocols do not. His line 2 is censored because supply runs past the observation boundary.
 
 ![PAT03874 on a dated timeline showing diagnosis index, therapy index, pharmacy claims, the 30-day regimen window, inferred line 1 and line 2 exposure, the addition point, censoring, and observation end.](assets/figures/figure_5_5_addition_example.svg)
 
@@ -217,7 +219,7 @@ PAT03874 starts a 60-day Vexpro fill. On 2024-08-29, while that supply is still 
 
 ### 5.2.5 Cohort treatment pattern
 
-Run the treatment sequence rules over the 3,415 new-to-therapy patients:
+After the patient-level rules are fixed, the cohort summary answers market questions: how many patients enter each line, which regimens start treatment, and how many advance by switch or addition. Run the treatment sequence rules over the 3,415 new-to-therapy patients:
 
 **Listing 5.4: Summarize line-of-therapy patterns and the washout effect**
 
@@ -260,7 +262,7 @@ Roventra line entries, with and without the washout rule:
 180-day washout   Line 1          2798    1.0
 ```
 
-The synthetic data runs from 2024-01-01 to 2025-01-31. With this bounded observation, line-of-therapy depth is shallow: 3,387 of 3,415 treated patients (99.2%) never leave line 1, and 28 reach a second line. Lines advance by switch (24) and addition (4), and 0.1% of first-line regimens are combinations. Restarts are absent because this generator builds tight refill chains. In real data, vacations, hospitalizations, mail-order fills, and incomplete capture make restart logic much more important. Roventra is the most common observed first-line regimen.
+The synthetic data runs from 2024-01-01 to 2025-01-31. With this bounded observation, line-of-therapy depth is shallow: 3,387 of 3,415 treated patients (99.2%) never leave line 1, and 28 reach a second line. Lines advance by switch (24) and addition (4), and 0.1% of first-line regimens are combinations. That pattern is expected in early launch data: first-line uptake and early persistence are usable sooner than later-line sequencing. Restarts are absent because this generator builds tight refill chains. In real data, vacations, hospitalizations, mail-order fills, and incomplete capture make restart logic much more important. Roventra is the most common observed first-line regimen.
 
 ![Sankey diagram showing first-line regimens on the left and observed outcomes on the right, ordered from most common at the top to least common at the bottom.](assets/figures/figure_5_6_pathway_sankey.svg)
 
@@ -270,7 +272,9 @@ The synthetic data runs from 2024-01-01 to 2025-01-31. With this bounded observa
 
 The 180-day washout identifies 3,415 new-to-therapy patients. Roventra appears in the first-line regimen for 2,798 of them. Without the washout, the analysis reports 3,193 Roventra line-1 entries because it counts 395 continuing users as new starts. The uncorrected count is 14.1% higher than the corrected result.
 
-That difference affects 3 commercial outputs. The uptake report needs the corrected 2,798 newly observed Roventra starts. The treatment-mix report needs first-line regimens built under the same washout and regimen-window rules. The demand forecast needs new starts separated from continuing refills because the 2 groups create different expectations for launch growth.
+Line-of-therapy reporting supports corrected new starts, first-line treatment mix, treatment sequence, switch-from and switch-to counts, later-line opportunity size, and line-specific competitive share. This synthetic cohort can support the first 3 directly. Later-line opportunity and line-specific competitive claims need more follow-up.
+
+The uptake report needs the corrected 2,798 newly observed Roventra starts. The treatment-mix report needs first-line regimens built under the same washout and regimen-window rules. The demand forecast needs new starts separated from continuing refills because the 2 groups create different expectations for launch growth.
 
 Only 28 of 3,415 treated patients reach line 2 during the available observation period: 24 through switches and 4 through additions. These counts are sufficient for checking patient traces and validating the sequence rules. They are too small for payer-, account-, or product-level conclusions about later-line behavior.
 
@@ -282,6 +286,8 @@ The commercial deliverable should include the following fields:
 - 2,798 Roventra first-line starts
 - first-line regimen counts and shares
 - 24 switches and 4 additions
+- switch and addition counts by source and destination when event counts support reporting
+- line-specific eligibility or addressable-population statement
 - diagnosis and treatment index definitions
 - 180-day washout
 - 30-day starting-regimen window
@@ -289,19 +295,19 @@ The commercial deliverable should include the following fields:
 - observation window and data cutoff
 - sensitivity results for rules that materially change the output
 
-The corrected new-start count can enter uptake and demand planning. The later-line results remain method-validation findings until more follow-up produces adequate counts.
+The corrected new-start count can enter uptake and demand planning. The later-line results remain method-validation findings until more follow-up produces adequate counts. The deliverable should say which counts are decision-ready and which counts are validation-only. In this dataset, line 2 supports method validation only.
 
 When results are reported by payer, region, or account band, the deliverable should enforce minimum cell sizes and attach the observation window and rule version. Patient-level histories stay within the validation record. Stakeholder outputs use results at the approved level of aggregation.
 
 ## 5.3 Time to Treatment: When Patients Start Therapy
 
-The Kaplan-Meier median time to treatment for this cohort is 168 days, with cumulative initiation reaching 30.5% at day 90 and 52.9% at day 180. The launch team also needs to know where the delay builds up: How long do patients wait at each step? Which HCPs start therapy faster? Does prior authorization add 10 days or 60? Which payer plans create the longest access delay?
+The Kaplan-Meier median time to treatment for this cohort is 168 days, with cumulative initiation reaching 30.5% at day 90 and 52.9% at day 180. Line-of-therapy analysis says what treatment state the patient reaches; time-to-treatment says when treated demand appears after diagnosis. The launch team also needs to know where the delay builds up: How long do patients wait at each step? Which HCPs start therapy faster? Does prior authorization add 10 days or 60? Which payer plans create the longest access delay?
 
 The full path can include symptoms, diagnosis, biomarker testing, a treatment decision, a prescription, prior authorization, and the first treatment fill. A single diagnosis-to-treatment number captures the total delay, but it hides where that delay comes from. Stage-level timings point to the step that a testing program, field reimbursement manager, nurse navigator, HCP education effort, or patient-support program can address.
 
 ![A patient journey runs from symptoms through diagnosis, testing, prescription, prior authorization, and treatment start, with diagnostic, testing, decision, and access delays marked below.](assets/figures/figure_5_7_ttt_stage_clocks.svg)
 
-*Figure 5.7. The total time to treatment contains several operational clocks. This chapter measures diagnosis to treatment start. The other clocks require their own dated events.*
+*Figure 5.7. The total time to treatment contains several operational clocks. The current analysis measures diagnosis to treatment start. The other clocks require their own dated events.*
 
 > **Note:** The synthetic datasets here contain diagnosis dates and first treatment dates. To split delay across testing, physician decision, or payer review, biomarker order dates, result dates, prescription dates, and prior-authorization dates are also required. Those fields are not included in this section.
 
@@ -550,9 +556,11 @@ The second deliverable is a data-gap table for the unanswered questions. Testing
 
 At day 90, 60.6% of patients remain on the initial regimen. The next questions are: when did refill gaps begin, did patients continue treatment after switching products, and do payer-level differences identify access problem?
 
+The persistence event inherits the line-construction rules: switch, addition, restart, discontinuation, and censoring define departure from the initial regimen.
+
 These questions affect refill support, patient-service capacity, HCP follow-up, and market-access investigation. They require 2 related measures. **Persistence** measures the time until a patient leaves the initial regimen. **Adherence**, also called **compliance**, measures the share of observed days with medicine available. A patient can remain on the same regimen for 95 days and still have uncovered days within that period.
 
-`PAT00036` shows the distinction. The patient started Roventra on 2024-09-28 and completed 4 fills before the 2024-12-31 cutoff. The patient remains persistent through 95 observed days, while 7 uncovered days reduce Proportion of days covered (PDC) to 92.6%. Medication possession ratio (MPR) reaches 117.9% because it counts all 112 dispensed days, including supply extending beyond the study cutoff. Figure 5.12 maps that one history to 4 outputs. Definitions are explained later in this chapter, they follow the ISPOR terminology for medication use ([Cramer et al., 2008](https://doi.org/10.1111/j.1524-4733.2007.00213.x)).
+`PAT00036` shows the distinction. The patient started Roventra on 2024-09-28 and completed 4 fills before the 2024-12-31 cutoff. The patient remains persistent through 95 observed days, while 7 uncovered days reduce Proportion of days covered (PDC) to 92.6%. Medication possession ratio (MPR) reaches 117.9% because it counts all 112 dispensed days, including supply extending beyond the study cutoff. Figure 5.12 maps that one history to 4 outputs. Definitions below follow the ISPOR terminology for medication use ([Cramer et al., 2008](https://doi.org/10.1111/j.1524-4733.2007.00213.x)).
 
 ![Timeline for PAT00036 showing 4 fills, covered and uncovered days, persistence through the study cutoff, and the resulting PDC and MPR calculations.](assets/figures/figure_5_12_patient_medication_use.svg)
 
@@ -660,7 +668,7 @@ The PDC cohort contains 2,680 treated patients with at least 90 observable days 
 
 The product basket determines which covered days enter the PDC numerator. **Index-product PDC** counts supply for the product that started line 1. **Market-basket PDC** counts supply for any qualifying treatment for the condition. A patient who receives Roventra for 60 days and then Nexoral for 60 days in a 120-day window has an index-product PDC of $60/120=0.50$ and a market-basket PDC of $120/120=1.00$. Index-product PDC measures continuity on Roventra; market-basket PDC measures continuity on condition treatment.
 
-Only 36 patients have higher market-basket PDC than index-product PDC. The line-of-therapy analysis found only 28 patients who reached line 2, so the near-equality follows directly from the shallow treatment sequences in this synthetic data. A larger difference in real data would point to switching or add-on treatment.
+Only 36 patients have higher market-basket PDC than index-product PDC. The line-of-therapy analysis found only 28 patients who reached line 2, so the near-equality follows directly from the shallow treatment sequences in this synthetic data. A larger difference in real data would point to switching or add-on treatment. Adherence scope should be reconciled with the line-of-therapy output before payer or product comparisons are released.
 
 Table 5.6 summarizes the measurement choices. The event or numerator defines what counts. The risk set or observable days define who or which days contribute.
 
@@ -735,7 +743,7 @@ The stakeholder deliverable should contain the persistence curve with numbers at
 
 ## 5.5 Modern Extensions to Rule-Based Patient Journeys
 
-The synthetic data only contains 24 switches and 4 additions. A larger claims or EHR study may support questions about recurring gaps, latent treatment states, common pathway shapes, or future event risk. Table 5.8 maps each question to a modern method that extends the rule-based foundation.
+The synthetic data only contains 24 switches and 4 additions. A larger claims or EHR study may support questions about recurring gaps, latent treatment states, common pathway shapes, or future event risk. These methods depend on the same event dates, episodes, regimens, line states, and censoring rules. Table 5.8 maps each question to a modern method that extends the rule-based foundation.
 
 *Table 5.8. Choose an extension for a specific journey question.*
 
@@ -756,9 +764,10 @@ The synthetic data only contains 24 switches and 4 additions. A larger claims or
 
 Starting from 3,193 apparent Roventra line-1 entries, a 180-day treatment washout identified 395 continuing users, leaving 2,798 newly observed Roventra starts. That 14.1% correction changes launch uptake reporting.
 
-The analysis produced 5 reusable lessons:
+In this chapter you learned:
 
 - Define the cohort, index date, lookback, follow-up, treatment basket, and data cutoff before constructing a journey.
+- Build line-of-therapy in layers: timeline eligibility, treatment episodes, regimen construction, and line advancement.
 - Count completed treatment fills as exposure evidence. Preserve pended and reversed transactions as access evidence.
 - Version the washout, starting-regimen window, allowable gap, addition, switch, restart, discontinuation, and censoring rules.
 - Estimate treatment initiation with methods that retain censored patients and treat death as a competing event when death data are available.
