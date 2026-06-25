@@ -2,7 +2,7 @@
 
 Roventra's market share is uneven across the country. In some payer-region cells it converts new patients well; in others it stalls. The brand team wants to know why. When patients cannot get the drug, market access has to renegotiate coverage terms with the plan. When coverage is workable and prescribers still pick a competitor first, field analytics has to investigate adoption. Both problems look the same on the surface: low Roventra share. Observed share alone cannot separate an access barrier from an adoption gap.
 
-The evidence comes from assembling an effective-dated access landscape, counting new starts with the prescription-volume measures, turning raw pharmacy transactions into clean prescription attempts, estimating corrected competitive share with its uncertainty, measuring a real formulary change against a control, and routing each payer-region and account result to contracting or the field team.
+The evidence comes from assembling an effective-dated access landscape, counting new starts with the prescription-volume measures, turning raw pharmacy transactions into clean prescription attempts, estimating corrected competitive share with its uncertainty, and measuring a real formulary change against a control to attribute the gain.
 
 The analysis reuses the synthetic data source and the derived journey and HCP-account outputs, and adds two new tables: a plan-region enrollment count and a weekly formulary-event panel, including the planted PAY004 effect. Open [`chapter7_walkthrough.ipynb`](chapter7_walkthrough.ipynb), or run through the shared analysis entry point.
 
@@ -356,11 +356,13 @@ At week 17 of 2024, PAY004 Northeast moved Roventra from a prior-authorization t
 
 Attribution matters commercially. If the class was already growing during weeks 17 to 52 and PAY004 just rose with it, the contracting team deserves no credit for the gain, and the same budget directed at a different payer might have delivered more. If the class trend was flat or declining and PAY004 still gained, the formulary event was the cause and a repeated playbook at similar payers is warranted. A raw before-and-after average cannot separate these scenarios: it takes the full observed change in PAY004 and calls it the effect, without asking what PAY004 would have looked like had the formulary event never happened.
 
-The controlled interrupted time series (ITS) and the synthetic control both estimate that missing counterfactual. An ITS model fits PAY004's share as a function of time, with explicit terms for the level and slope change at the event week. The three donor payers that did not receive the formulary change track what was happening to the market during the same period; adding their mean as a covariate subtracts that common movement before measuring PAY004's specific response.
+The controlled ITS and the synthetic control both estimate that missing counterfactual, what PAY004 Northeast's share would have been absent the formulary event, through different mechanisms. Both rely on three donor payers that did not receive the event: PAY003 South, PAY006 West, and PAY008 Midwest. The shared assumption is that donor payers track the same class trend and seasonality as PAY004 Northeast, so their post-event trajectory represents the baseline PAY004 would have followed without the intervention.
+
+Selecting donors from a larger pool requires three filters before the optimizer runs. Any payer-region that received the same or a related formulary event during the study window is excluded. Donors must be structurally comparable: same payer type, same therapy class, and a share range that brackets the treated unit so the synthetic control interpolates rather than extrapolates. A pre-event parallel-trends check removes candidates whose weekly share moves in a systematically different direction from the treated unit. The convex weight optimization then assigns zero weight to remaining poor matches automatically. PAY006 illustrates this: it was in the donor pool but received zero weight because PAY003 and PAY008 already reconstruct PAY004's pre-event trajectory without it.
 
 ### 7.5.1 Controlled interrupted time series
 
-An interrupted time series (ITS) model separates a formulary-event effect from the background market trend. It represents PAY004's weekly share as a pre-event baseline level and slope, an immediate jump at the event, and a continued slope change after it. The key addition is the control term: the mean Roventra share across three donor payers (PAY003, PAY006, PAY008) that did not receive the formulary change. Donor payers are payers in the same market that share the same class trend and seasonality as PAY004, but were not involved in the formulary event. Adding their mean as a covariate absorbs whatever is driving all payers together. The jump and slope-change terms then measure only what changed for PAY004.
+An ITS model fits PAY004's weekly share as a pre-event baseline level and slope, an immediate jump at the event week, and a continued slope change after it. The control term is the mean Roventra share across the three donor payers each week. Adding that mean as a covariate absorbs whatever is driving all payers together; the jump and slope-change terms then measure only what changed for PAY004.
 
 $$
 \text{share}_t =
@@ -410,7 +412,7 @@ The model reads a 7.4-point jump at the event and continued growth reaching a 10
 
 *Figure 7.4. The counterfactual (dashed gray) follows the slightly downward class trend the donors carry; PAY004's observed share rises above that baseline after week 17. The lower panel dots show the observed gap each week; the green line is the model's linear estimate, reaching +10.0 points by week 28. Synthetic data.*
 
-### 7.5.2 Synthetic control as a robustness check
+### 7.5.2 Synthetic control
 
 A synthetic control provides a nonparametric robustness check on the ITS result. The controlled ITS imposes a linear model structure; the synthetic control makes no functional-form assumption. It finds non-negative weights for the three donor payers (PAY003, PAY006, PAY008) that minimize the pre-event tracking error, then projects the weighted blend forward as a data-driven counterfactual. The post-event gap between PAY004 and its weighted-donor twin is the effect estimate. Two methods with different assumptions reaching the same answer reduces the risk that either result is a modeling artifact.
 
@@ -432,87 +434,34 @@ Post-period mean gap: +7.5%
 Donor weights: PAY003=0.547, PAY006=0.000, PAY008=0.453
 ```
 
-The blend fits the pre-event weeks closely (RMSPE 0.038) and reads a +7.5-point post-event gap, consistent with the controlled time-series estimate. Two methods with different assumptions reach the same answer.
+The blend fits the pre-event weeks closely (RMSPE 0.038) and reads a +7.5-point post-event gap, consistent with the controlled time-series estimate.
+
+![Single panel showing PAY004 observed share as a solid blue line and the synthetic counterfactual as a dashed gray line over 52 weeks, with the event at week 17 marked in red and the post-event gap shaded green.](assets/figures/figure_7_5_synthetic_control.svg)
+
+*Figure 7.5. The synthetic counterfactual (dashed gray) follows the weighted-donor blend through the pre-event weeks with RMSPE 0.038. After week 17, PAY004's observed share (blue) separates from the counterfactual; the green-shaded gap averages +7.5 points across the post-event period. PAY006 receives zero weight because it tracks PAY004 less well than PAY003 and PAY008 in the pre-event period. Synthetic data.*
+
+The synthetic control does not carry a confidence interval in the same sense as the ITS. The optimization is deterministic and produces one weighted counterfactual; there is no residual distribution to integrate over. Formal inference uses permutation tests: apply the same procedure to each donor in turn as a placebo treated unit, then compare PAY004's post-event gap against the distribution of placebo gaps. With three donors here, the minimum permutation p-value is 1/4. The chapter therefore uses the synthetic control as a convergent robustness check: the ITS carries the formal inference with its confidence interval; the synthetic control confirms the estimate is not an artifact of the linear model structure.
 
 **Conclusion.** The opening question was whether PAY004's Roventra share gain came from the formulary event or from market-wide factors. The evidence is unambiguous. The donor payers show that the background market trend during this period was slightly declining: without the formulary change, PAY004's Roventra share would have drifted lower with the class. The observed gain stands against that declining baseline, not on top of a rising tide. The ITS estimates a +7.4-point immediate lift at week 17 growing to +10.0 points by week 28 (95% CI: +6.1 to +14.0); the synthetic control confirms +7.5 points using a different method and no functional-form assumption. The PAY004 Northeast formulary improvement drove a genuine, measurable increase in Roventra share. PAY004 Northeast's PA barrier lifted, and its end-of-year share sits above the 82% benchmark. A comparable contracting effort at PA-gated cells where Roventra still sits at parity with competitors is the next action.
 
-## 7.6 Evidence Sufficiency and Change Detection
-
-### 7.6.1 Weekly CUSUM Detection
-
-Quarterly reanalyses cannot catch a formulary move that happens mid-quarter. CUSUM (cumulative sum) provides near-real-time detection of sustained share shifts without waiting for the next scheduled run.
-
-Each week, the algorithm standardizes the observed share against a 12-week baseline: it subtracts the baseline mean, divides by the baseline standard deviation, then removes a slack of 0.5 standard deviations to absorb routine week-to-week noise. The result is added to a running positive total. When the total exceeds 4 standard deviations, the algorithm opens a monitoring episode and resets the running total. Repeat threshold crossings in the same payer, metric, and direction stay inside that episode until the signal returns near baseline for several weeks. A larger second shift, a reversal, or a different segment can open a new episode.
-
-**Listing 7.10**: Report weekly CUSUM alarms
-
-```python
-alerts = results["changepoint_alerts"].head(3).copy()
-alerts["standardized_cusum"] = alerts.standardized_cusum.round(3)
-print(alerts.to_string(index=False))
-```
-
-```text
- week direction  standardized_cusum episode_status
-   20  Increase               4.136         Opened
-```
-
-The PAY004 formulary improvement happened at week 17. The week 20 alarm opens the increase episode 3 weeks later. Later threshold crossings confirm that the elevated-share regime persists; they do not create separate discoveries for the same payer-metric-direction.
-
-![Two stacked panels show PAY004 weekly Roventra share and the positive standardized CUSUM trace. The formulary event is marked at week 17, the alarm threshold is marked at 4 standard deviations, the green point marks the episode-opening alarm, and hollow gray points mark later persistence crossings.](assets/figures/figure_7_5_cusum_detection.svg)
-
-*Figure 7.5. PAY004 share rises after the week 17 formulary event. The positive CUSUM opens an increase episode at week 20. Later threshold crossings show persistence of the same episode, not separate events. Synthetic data.*
-
-### 7.6.2 Switch evidence sufficiency
-
-A time-to-switch analysis asks whether patients on Roventra stay on therapy longer than patients on a competitor. The standard summary is the median time to switch: the point at which half the patients in a regimen have switched away. Reporting that number requires a survival curve to cross 50%. When the observed curve stays above 50% through the end of follow-up, the median is not reached, and the right answer is to say so rather than estimate a number the data cannot support.
-
-The current cohort is early. Roventra has 2,798 starters and 0 observed switches; each single-product competitor has around 12 switches from roughly 300 patients. No curve crosses 50%.
-
-```python
-columns = [
-    "first_regimen", "patients", "switch_events",
-    "addition_events", "median_time_to_switch", "comparison_status",
-]
-print(results["switch_evidence"][columns].to_string(index=False))
-```
-
-```text
-   first_regimen  patients  switch_events  addition_events median_time_to_switch          comparison_status
-        Roventra      2798              0                0           Not reached Insufficient switch events
-          Vexpro       309             12                1           Not reached Insufficient switch events
-         Nexoral       303             12                3           Not reached Insufficient switch events
-Nexoral + Vexpro         5              0                0           Not reached Insufficient switch events
-```
-
-The right response is to accumulate events across future quarterly refreshes. Figure 7.6 illustrates what "median not reached" means geometrically: when the survival curve stays above the 50% line through the entire follow-up window, no median can be read off.
-
-![Conceptual survival curves contrasting a cohort with sufficient switch events (green, median reached at a marked week) against a sparse cohort (blue, curve stays above 50% through week 52).](assets/figures/figure_7_6_switch_support.svg)
-
-*Figure 7.6. When the survival curve stays above 50% through all of follow-up, the median time to switch is not reached. Reporting a number here would invent precision the data does not hold. Track event accumulation across quarterly refreshes before publishing a comparative median. Synthetic data.*
-
-The monitoring package tracks formulary effective dates and enrollment refreshes, claim maturity and transaction capture, action counts and their sensitivity to the thresholds, posterior adoption probabilities, policy overrides, weekly changepoint alarms, and event counts before any survival comparison is published.
-
-## 7.7 Summary
+## 7.6 Summary
 
 Roventra's uneven uptake raised one question: access or adoption. Observed share mixes the two, and small cells make the raw signal unreliable. Cell-by-cell evidence separates them.
 
 Effective-dated policy and enrolled lives settled the access state for each of the 32 cells. The washout correction reduced 6,401 patients who looked new to 2,798 genuine new-to-brand starts; competitive share rests on that corrected count. Partial pooling distinguished real adoption gaps from small-cell noise. A controlled time series and a synthetic control confirmed that the PAY004 formulary win pulled through 7 to 10 points of share on top of the underlying market trend. The result is a routed payer-region queue: 19 access-review cells, 2 adoption-review cells, 1 dual-workstream cell, and 10 sustain cells.
 
-The cells where Roventra trails named competitors on the formulary go to contracting. Cells where coverage is workable and adoption is the gap go to field teams. Each action carries the evidence, the population it rests on, the reason code, the rule version, and a refresh date.
+The cells where Roventra trails named competitors on the formulary go to contracting. Cells where coverage is workable and adoption is the gap go to field teams.
 
-Separate access and adoption evidence turns a single low-share signal into a routed action queue.
+In this chapter you learned:
 
 - Effective-dated policy records define the access state on the analysis date.
-- Plan coverage, covered lives, lives with no restriction, and the access-quality score answer different questions and use the same access weights as the market-sizing work.
-- TRx, NRx, and NBRx are different counts; competitive share belongs on the washout-corrected NBRx of 2,798.
+- Plan coverage, covered lives, lives with no restriction, and the access-quality score answer different questions.
+- TRx, NRx, and NBRx are different metrics; use washout-corrected NBRx for competitive share analysis.
 - Partial pooling pulls small-cell share toward the national prior; the adoption flag uses the posterior probability of trailing the benchmark.
 - Access and adoption stay separate flags; a cell can earn both and route to a dual workstream.
-- A controlled interrupted time series and a synthetic control measure a formulary event against contemporaneous donor trends.
-- Weekly CUSUM detects sustained share shifts between scheduled quarterly refreshes.
-- A switch median stays `Not reached` when the curves never cross 50%, and the cohort says so instead of inventing a number.
+- A controlled interrupted time series and a synthetic control measure a formulary event against contemporaneous donor trends; the ITS carries the confidence interval and the synthetic control confirms the estimate holds under a different set of assumptions.
 
-## 7.8 Exercises
+## 7.7 Exercises
 
 1. **Rebuild covered lives.** Use Section 7.2. Pick 4 payer-region rows from `policy_landscape`, compute plan coverage, covered lives, lives with no restriction, and the access-quality score by hand, then reproduce the values in fewer than 20 lines of pandas. Which measure belongs in a payer contracting review, and which belongs in a field plan?
 2. **Trace an attempt.** Pick 1 patient with a PENDED transaction from `results["prescription_attempts"]`, print the full transaction chain, and classify the final attempt outcome. State which raw row count would overstate access friction and why.
