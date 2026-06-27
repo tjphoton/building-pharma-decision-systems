@@ -313,7 +313,7 @@ Expected starts (25% assumed)  1,047,243
 
 ![A horizontal funnel declines from 29.2 million diagnosed patients to 1.0 million expected starts, with a marked boundary where weighted counts become expected values.](assets/figures/figure_4_3_market_funnel.svg)
 
-*Figure 4.2. The first three stages are calculated counts from the panel and national anchors. The last two are based on access and conversion assumptions. Synthetic analysis with public anchors.*
+*Figure 4.3. The first three stages are calculated counts from the panel and national anchors. The last two are based on access and conversion assumptions. Synthetic analysis with public anchors.*
 
 The age rule keeps 6,998 of 8,213 (85.2%) diagnosed panel patients, scaling to 24.9 million nationally. The untreated share, measured from the panel, is 2,278 of 6,998 (32.6%), producing 8.1 million. Access multiplies each untreated patient by a coverage probability rather than removing patients; the base of 8.1 million stays in the funnel and the access-adjusted reachable total is 4.2 million. The final 25% conversion is a scenario assumption, giving 1.0 million expected starts.
 
@@ -374,19 +374,63 @@ Chapman=9,488  CI=[9,438, 9,543]
 
 The estimate is 9,488, compared with the true 9,308 in this synthetic file: 1.9% high, or 180 patients above the true launch condition population. The method assumes that each individual has a similar probability of being observed. In real data, sicker patients are more likely to appear in both medical and pharmacy records, which biases the estimate downward.
 
+## 4.6 SDOH and Under-Observation
 
-## 4.6 Patient Finding: From Count to List
+The Chapman estimator gives a national count. It does not say where the 415 hidden patients are or why they are missing. Patients in areas with limited primary care access, high uninsured rates, and transportation barriers see providers less often. Fewer encounters mean fewer opportunities to receive and code a diagnosis, even when the condition is present. Those patients are concentrated in the same geographies where social and economic barriers to care are highest.
+
+Area-level social determinants of health (SDOH) provide the geographic signal. Four measures capture distinct barriers:
+
+- **Uninsured share** (ACS table B27001): uninsured patients have fewer paid encounters and less diagnostic coding. They are less likely to appear in a paid-claims database even when the condition is present.
+- **Transportation burden** (ACS commuting data, SVI Theme 4): delays initial diagnosis visits and medication refill pickup. High values appear in rural areas and in urban neighborhoods without reliable transit.
+- **Primary care access index** (HRSA shortage area data): patients in shortage areas see fewer providers, generate fewer evaluation-and-management claims, and receive less frequent diagnostic coding. Even a motivated patient cannot receive a coded diagnosis without an accessible provider.
+- **Rural share** (USDA rural-urban continuum): combines the other three barriers and independently predicts claims under-observation even after controlling for the remaining fields.
+
+These four fields are combined into a composite `sdoh_barrier_quintile` (1 = lowest barrier, 5 = highest). This quintile is an area-level planning index, not a description of any individual patient. A patient living in a high-quintile geography may or may not face those barriers personally.
+
+`build_sdoh_market_outputs()` in `sdoh_market.py` builds the synthetic area table, market summary, model comparison, and account review flag. Listing 4.6 reads the local Chapter 4 outputs.
+
+**Listing 4.6: Summarize structural under-observation by barrier quintile**
+
+```python
+import pandas as pd
+
+SDOH_OUT = "ch04_market/assets/generated_outputs"
+market = pd.read_csv(f"{SDOH_OUT}/sdoh_market_summary.csv")
+print(market.to_string(index=False))
+```
+
+```text
+ sdoh_barrier_quintile  areas  true_condition_patients  observed_diagnosed  estimated_unobserved  observed_share_pct
+                     1      4                      166                 129                    37                77.7
+                     2      4                      187                 134                    53                71.7
+                     3      4                      216                 131                    85                60.6
+                     4      4                      184                  99                    85                53.8
+                     5      4                      202                  97                   105                48.0
+```
+
+Observed diagnosis share falls from 77.7% in Q1 to 48.0% in Q5. In the highest-barrier areas, roughly half of patients who truly have the condition do not appear in the diagnosis coding source. The estimated unobserved count rises from 37 in Q1 to 105 in Q5; Q4 and Q5 together account for 190 of the 365 estimated unobserved patients in this panel (52%).
+
+The national-level Chapman estimate sets the overall scale. When area-level SDOH data is linked to a claims source, high-barrier geographies contribute a disproportionate share of the hidden patients. This decomposition adds a geographic prior: field resources, community health program investments, and diagnosis pathway reviews can be directed toward the areas where the capture rate is lowest.
+
+> **Caution:** These numbers come from a synthetic panel where `true_condition` is a known label. In real data you cannot observe `true_condition` directly. The SDOH analysis supports a hypothesis about where under-observation is concentrated. It does not prove that any specific area has exactly X hidden patients. Treat the quintile gradient as a planning prior, not a measurement.
+
+![Observed diagnosis share and estimated unobserved patients by SDOH barrier quintile.](assets/figures/figure_4_5_sdoh_under_observation.svg)
+
+*Figure 4.5. Observed diagnosis share falls and estimated unobserved patients rise as SDOH barrier quintile increases. Synthetic area-level data.*
+
+The account-level output from this analysis is a `diagnosis_pathway_flag` on accounts in Q4 and Q5 with a large estimated unobserved count. The flag prompts the field medical team to ask whether local diagnosis guidelines and community health pathways are reaching all eligible patients in those territories.
+
+
+## 4.7 Patient Finding: From Count to List
 
 Capture-recapture places about 415 launch-condition patients outside both clean sources. A patient-finding model turns that count into a ranked list.
 
 A gradient boosting model is trained on patients whose diagnosis is already known, then scored on patients whose diagnosis is not coded. The outcome is the confirmed condition. Features include medical activity, competitor and support drug fills, lab results such as A1C values, and demographics. A patient on a competitor drug with a high A1C and no coded diagnosis is the type of record the model ranks highly.
 
-**Listing 4.6: Rank undiagnosed patients by probability of the true condition**
+**Listing 4.7: Rank undiagnosed patients by probability of the true condition**
 
 ```python
 from sklearn.ensemble import GradientBoostingClassifier
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import roc_auc_score
 
 lab = pd.read_csv(f"{DATA}/claims_lab/lab_results.csv")
 a1c = lab[lab.test_name.eq("Hemoglobin A1c")]
@@ -405,19 +449,11 @@ f["diabetes_rx_proxy"] = f.patient_id.isin(diabetes_rx_patients).astype(int)
 
 X = pd.get_dummies(f.drop(columns=["patient_id", "diagnosed", "true_condition"]),
                    columns=["age_band", "region", "sex"])
-Xtr, Xte, ytr, yte = train_test_split(X, f.diagnosed.astype(int),
-                                      test_size=0.3, random_state=20260613, stratify=f.diagnosed)
-clf = GradientBoostingClassifier(random_state=20260613).fit(Xtr, ytr)
+clf = GradientBoostingClassifier(random_state=20260613).fit(X, f.diagnosed.astype(int))
 f["score"] = clf.predict_proba(X)[:, 1]
-print("held-out AUC (predicting the confirmed condition):",
-      round(roc_auc_score(yte, clf.predict_proba(Xte)[:, 1]), 3))
 ```
 
-```text
-held-out AUC (predicting the confirmed condition): 0.93
-```
-
-On the test split, the model separates diagnosed from undiagnosed patients at 0.93 AUC. Medical evidence, utilization, competitor fills, and labs carry a real signal. AUC is area under the ROC curve; 0.93 is strong, and random guessing is 0.50. The model is then applied to undiagnosed patients and the top of the ranked list is checked against the true conditions:
+The model is applied to undiagnosed patients and the top of the ranked list is checked against the true conditions:
 
 ```python
 undx = f[f.diagnosed.eq(0)].sort_values("score", ascending=False)
@@ -436,29 +472,78 @@ print("PAT00046 percentile among undiagnosed:",
 undiagnosed patients: 11,787
 truly positive among them: 1,250 (10.6%)
 top 10%: 1,177 true (99.9%), lift 9.4x
-top 20%: 1,209 true (51.3%), lift 4.8x
-PAT00046 percentile among undiagnosed: 94.4
+top 20%: 1,211 true (51.4%), lift 4.8x
+PAT00046 percentile among undiagnosed: 97.0
 ```
 
-Among 11,787 undiagnosed patients, 10.6% truly have the condition. The model's top decile is 99.9% true, a 9.4-fold lift, and PAT00046 lands at the 94.4th percentile. The ranked list lets the team start with the highest-scored decile instead of reviewing all 11,787 undiagnosed patients to find 1,250 true cases. This approach is common in rare-disease and under-diagnosis programs.
+Among 11,787 undiagnosed patients, 10.6% truly have the condition. The model's top decile is 99.9% true, a 9.4-fold lift, and PAT00046 lands at the 97.0th percentile. The ranked list lets the team start with the highest-scored decile instead of reviewing all 11,787 undiagnosed patients to find 1,250 true cases. This approach is common in rare-disease and under-diagnosis programs.
 
 > **Note:** The synthetic generator plants these signals. Launch-condition patients are more likely to have elevated A1C results, launch-diagnosis coding, and Roventra or competitor fills, while age, region, and sex are only background features. That is why the model can rank the undiagnosed patients well in this teaching file.
 
-## 4.7 From a Scored List to a Commercial Action
+The claims-only model has a structural blind spot. In high-barrier areas (Q4 and Q5), patients generate fewer primary care encounters. The same features that carry a clear signal in low-barrier geographies carry a weaker signal where records are sparse, because the model cannot distinguish "few encounters because condition is absent" from "few encounters because structural barriers prevent care-seeking." True patients in high-barrier areas tend to be ranked lower than they should be.
+
+Adding area-level SDOH variables as model features partially corrects this. The composite quintile provides structural context: a patient with a moderate claims score in a high-`uninsured_share`, low-`primary_care_access_index` area is more likely to be a true positive than that score implies in a low-barrier area. `build_sdoh_market_outputs()` in `sdoh_market.py` runs both models and saves the comparison.
+
+**Listing 4.8: Compare claims-only and SDOH-enriched patient finding**
+
+```python
+import pandas as pd
+
+SDOH_OUT = "ch04_market/assets/generated_outputs"
+summary = pd.read_csv(f"{SDOH_OUT}/sdoh_model_summary.csv").set_index("model")
+top_decile = pd.read_csv(f"{SDOH_OUT}/sdoh_model_top_decile.csv")
+
+for label in ["Claims only", "Claims + SDOH"]:
+    row = summary.loc[label]
+    print(f"{label}: AUC {row['auc']:.3f}, "
+          f"true selected {int(row['true_patients_selected'])}, "
+          f"Q4-Q5 true {int(row['high_barrier_true_patients'])} "
+          f"({row['high_barrier_selected_share_pct']:.1f}% of top decile)")
+print()
+print("True undiagnosed patients in top decile, by SDOH quintile:")
+print(top_decile[["sdoh_barrier_quintile",
+                   "claims_only_true", "claims_sdoh_true"]].to_string(index=False))
+```
+
+```text
+Claims only:   AUC 0.772, true selected 104, Q4-Q5 true  36 (34.3% of top decile)
+Claims + SDOH: AUC 0.805, true selected 110, Q4-Q5 true  64 (63.5% of top decile)
+
+True undiagnosed patients in top decile, by SDOH quintile:
+ sdoh_barrier_quintile  claims_only_true  claims_sdoh_true
+                     1                21                10
+                     2                25                16
+                     3                22                20
+                     4                17                26
+                     5                19                38
+```
+
+The SDOH-enriched model raises AUC from 0.772 to 0.805. The larger operational change is the reallocation of the fixed-size top-decile list. Adding SDOH moves the action list toward Q4 and Q5, where claims signals are weakest and true patients are most likely to remain hidden. The claims-only model places 36 true patients from Q4 and Q5 in its top decile; the SDOH model places 64. It gains those patients largely by dropping Q1 and Q2 patients who, in low-barrier areas, are reachable through standard HCP engagement anyway.
+
+![Claims plus SDOH selects more true undiagnosed patients from high-barrier quintiles than the claims-only model.](assets/figures/figure_4_6_sdoh_model_lift.svg)
+
+*Figure 4.6. SDOH features redirect the fixed-size patient-finding action list toward high-barrier areas. Synthetic area-level data.*
+
+## 4.8 From a Scored List to a Commercial Action
 
 The patient IDs are tokenized; the brand does not receive direct patient identities. The ranked list supports two commercial uses: an HCP target list for field action, and a clean-room audience seed for privacy-preserving matching.
 
 The HCP target list names physicians, accounts, territories, and the number of high-scoring undiagnosed patients linked to each physician. A field rep uses it to rank accounts and prepare a call plan with the local account team.
 
-**Listing 4.7: Produce the HCP targeting output**
+**Listing 4.9: Produce the HCP targeting output**
 
 ```python
+OUT = "ch04_market/assets/generated_outputs"
+sdoh_scores = pd.read_csv(f"{OUT}/sdoh_patient_scores.csv")
+
 hcp_targets = pd.read_csv(f"{DATA}/reference/hcp_targets.csv")
 provider_events = pd.concat([
     mc[["patient_id", "rendering_npi"]].rename(columns={"rendering_npi": "npi"}),
     rx[["patient_id", "prescriber_npi"]].rename(columns={"prescriber_npi": "npi"}),
 ], ignore_index=True).dropna()
-top_decile = undx.head(int(len(undx) * 0.10))[["patient_id", "score"]]
+top_decile = sdoh_scores.head(int(len(sdoh_scores) * 0.10))[["patient_id", "sdoh_score"]].rename(
+    columns={"sdoh_score": "score"}
+)
 hcp_output = (provider_events.merge(top_decile, on="patient_id")
               .merge(hcp_targets, on="npi", how="inner")
               .groupby(["npi", "account_id", "territory", "state", "specialty_1"])
@@ -475,16 +560,16 @@ print(hcp_output[["npi", "specialty_1", "territory", "state",
 
 ```text
        npi   specialty_1 territory state  high_score_patients mean_score account_id
-9000000249      Oncology       T04    FL                    9      0.879     ACC147
-9000000617  Primary Care       T02    PA                    8      0.867     ACC169
-9000000026 Endocrinology       T03    WA                    8      0.855     ACC226
-9000000506      Oncology       T05    IL                    8      0.852     ACC172
-9000000640  Primary Care       T06    FL                    6      0.879     ACC005
-9000000160    Cardiology       T08    TX                    6      0.876     ACC207
-9000000616      Oncology       T07    CA                    6      0.867     ACC046
-9000000665      Oncology       T06    NJ                    6      0.850     ACC085
-9000000469 Endocrinology       T02    IL                    6      0.846     ACC121
-9000000520  Primary Care       T07    FL                    5      0.889     ACC110
+9000000249      Oncology       T04    FL                    9      0.871     ACC147
+9000000617  Primary Care       T02    PA                    8      0.862     ACC169
+9000000026 Endocrinology       T03    WA                    8      0.861     ACC226
+9000000506      Oncology       T05    IL                    8      0.854     ACC172
+9000000616      Oncology       T07    CA                    6      0.875     ACC046
+9000000160    Cardiology       T08    TX                    6      0.874     ACC207
+9000000640  Primary Care       T06    FL                    6      0.867     ACC005
+9000000469 Endocrinology       T02    IL                    6      0.845     ACC121
+9000000665      Oncology       T06    NJ                    6      0.839     ACC085
+9000000520  Primary Care       T07    FL                    5      0.874     ACC110
 ```
 
 > **Note:** Due to the synthetic limitation, the provider specialties were assigned independently of the patient condition. The HCP list is built by rolling the scored patients up to the linked providers and accounts, so specialties like oncology and cardiology can appear even though the launch condition is diabetes.
@@ -493,33 +578,33 @@ The secondary path is direct-to-consumer (DTC) advertising through privacy-prese
 
 > **Note:** In practice, full DTC prescription-drug advertising is allowed in the U.S. and New Zealand, while most other countries ban it or allow only limited forms.
 
-**Listing 4.8: Produce the audience matching seed**
+**Listing 4.10: Produce the audience matching seed**
 
 ```python
-audience_seed = undx.head(10)[[
-    "patient_id", "score", "age_band", "region", "sex",
+audience_seed = sdoh_scores.head(10)[[
+    "patient_id", "sdoh_score", "age_band", "region", "sex",
     "n_class_fills", "max_a1c", "diabetes_rx_proxy",
 ]].copy()
-audience_seed["score"] = audience_seed.score.map(lambda v: f"{v:.3f}")
+audience_seed["sdoh_score"] = audience_seed.sdoh_score.map(lambda v: f"{v:.3f}")
 audience_seed["max_a1c"] = audience_seed.max_a1c.map(lambda v: f"{v:.1f}")
 print(audience_seed.to_string(index=False))
 ```
 
 ```text
-patient_id score age_band    region sex  n_class_fills max_a1c  diabetes_rx_proxy
-  PAT19069 0.980    50-64 Northeast   F              3    11.6                  1
-  PAT06732 0.960      65+ Northeast   M              1    11.2                  1
-  PAT13709 0.944    50-64     South   F              5    11.4                  1
-  PAT11493 0.937    35-49     South   F              2    10.5                  1
-  PAT14943 0.926    18-34   Midwest   M              1    11.2                  1
-  PAT12161 0.924    35-49   Midwest   F              5    10.5                  1
-  PAT05955 0.924    50-64     South   F              0    10.4                  1
-  PAT19399 0.922    18-34     South   F              2     8.0                  1
-  PAT04869 0.921    18-34     South   F              3    10.1                  1
-  PAT06198 0.919    35-49     South   F              1    11.4                  1
+patient_id sdoh_score age_band    region sex  n_class_fills max_a1c  diabetes_rx_proxy
+  PAT19399      0.907    18-34     South   F            2.0     8.0                  1
+  PAT02023      0.905    18-34   Midwest   F            0.0     0.0                  1
+  PAT17759      0.902    18-34     South   M            0.0     0.0                  1
+  PAT00346      0.902    50-64   Midwest   F            0.0     0.0                  1
+  PAT04872      0.901    18-34     South   F            1.0     9.2                  1
+  PAT01623      0.901    18-34      West   F            0.0     0.0                  1
+  PAT10634      0.901      65+      West   F            1.0     8.7                  1
+  PAT02602      0.901    18-34 Northeast   F            0.0    10.2                  1
+  PAT04001      0.900    18-34     South   M            3.0     8.7                  1
+  PAT10193      0.900      65+     South   F            5.0     9.1                  1
 ```
 
-## 4.8 Market-Sizing Bridge
+## 4.9 Market-Sizing Bridge
 
 The table below collects the numbers built in earlier sections and shows where each one comes from.
 
@@ -535,17 +620,17 @@ The table below collects the numbers built in earlier sections and shows where e
 
 The 29 million figure is the anchored diagnosed population. The 8.1 million is the diagnosed, age-eligible, untreated population. The 4.2 million applies the access rules to that untreated group, and the 1.0 million applies the conversion assumption on top of that. PAT00046 sits outside the coded and treated rows: missed by the diagnosis-based filter, counted by capture-recapture in the unseen group, and ranked by the patient-finding model.
 
-## 4.9 Summary
+## 4.10 Summary
 
-The analysis anchored the Roventra market to an external prevalence source and moved through diagnosis, age eligibility, untreated opportunity, access, and expected starts. Capture-recapture estimated the patients both sources miss. Patient finding turned that count into a ranked list, and the final step converted the list into two commercial outputs: audience matching and HCP targeting.
+The analysis anchored the Roventra market to an external prevalence source and moved through diagnosis, age eligibility, untreated opportunity, access, and expected starts. Capture-recapture estimated the patients both sources miss. Area-level social determinants of health showed that the ~415 unobserved patients are not uniformly distributed: observed diagnosis share falls from 78% in low-barrier areas to 48% in high-barrier areas, a 30-percentage-point gradient that tells the field team where to focus diagnosis pathway reviews. Adding SDOH features to the patient-finding model raised AUC from 0.772 to 0.805 and redirected the top-decile action list toward high-barrier areas. Patient finding turned that count into a ranked list, and the final step converted the list into two commercial outputs: audience matching and HCP targeting.
 
-## 4.10 Exercises
+## 4.11 Exercises
 
 Each exercise is solvable with the package you generated and a dozen lines of pandas or scikit-learn.
 
 1. **Pick an index date.** The funnel built above counts everyone diagnosed during 2024, a prevalent cohort. A new-start analysis counts only patients whose first paid launch diagnosis falls in a chosen window. Restrict the diagnosed cohort to patients whose first paid launch diagnosis is in the second half of 2024, recompute the untreated count, and state which commercial question the prevalent cohort answers and which the incident cohort answers. (Hint: index-date choice is the foundation of the line-of-therapy logic covered in the treatment journey chapter, and the two cohorts need different external anchors.)
 2. **Change the access date.** Build an access rule that changes midyear for one payer, then compare the reachable estimate immediately before and after the effective date using the as-of-date join from Listing 4.3. State whether the estimand, the estimator, or both changed. (Hint: the honest answer connects to the competitive access chapter.)
-3. **Break patient finding on purpose.** Retrain the Listing 4.6 model but add a feature that leaks the launch diagnosis (for example, the launch code count). Show what happens to the held-out AUC and to the top-decile precision among undiagnosed patients, and explain why a model that looks better in validation would find nobody new in production. (Hint: leakage rehearses the bias thinking covered in the causal inference chapter.)
+3. **Break patient finding on purpose.** Retrain the Listing 4.8 model but add a feature that leaks the launch diagnosis (for example, the launch code count). Show what happens to the held-out AUC and to the top-decile precision among undiagnosed patients, and explain why a model that looks better in validation would find nobody new in production. (Hint: leakage rehearses the bias thinking covered in the causal inference chapter.)
 
 Two companion notebooks ship with this section: [`chapter4_walkthrough.ipynb`](chapter4_walkthrough.ipynb) replays the analysis as one executable story, and [`exercise_solutions.ipynb`](exercise_solutions.ipynb) works the three exercises with discussion.
 

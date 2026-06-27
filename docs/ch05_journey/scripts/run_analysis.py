@@ -29,6 +29,7 @@ from survival import (  # noqa: E402
     line_persistence_curve,
     treatment_initiation_curve,
 )
+from sdoh_journey import build_sdoh_journey_outputs  # noqa: E402
 
 # Cohort design constants. The 180-day diagnostic lookback exists so the
 # 180-day therapy washout in lot.py is observable for every cohort patient.
@@ -172,6 +173,7 @@ def run_analysis(data_dir: Path) -> dict[str, pd.DataFrame]:
         cohort,
         by_columns=["payer_id"],
     )
+    sdoh_outputs = build_sdoh_journey_outputs()
 
     return {
         "cohort": cohort,
@@ -199,6 +201,7 @@ def run_analysis(data_dir: Path) -> dict[str, pd.DataFrame]:
         "adherence_by_payer": adherence_by_payer,
         "all_indexed": all_indexed_export,
         "lookback_sensitivity": lookback_sensitivity,
+        **sdoh_outputs,
     }
 
 
@@ -227,6 +230,9 @@ def write_outputs(results: Mapping[str, pd.DataFrame], output_dir: Path) -> None
         "adherence_by_payer",
         "all_indexed",
         "lookback_sensitivity",
+        "sdoh_journey_summary",
+        "sdoh_persistence_curve",
+        "sdoh_account_support_flag",
     ]
     for name in csv_tables:
         if name in results and not results[name].empty:
