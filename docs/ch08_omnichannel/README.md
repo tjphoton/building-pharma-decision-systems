@@ -9,10 +9,9 @@ In this chapter, you'll discover:
 - **Response modeling** - Build predictive models from historical channel engagement and outcomes
 - **Channel attribution** - Identify which past channels are associated with HCP response
 - **Uplift analysis** - Test whether associated channels actually caused response, not just correlation
+- **Off-policy evaluation** - Evaluate channel strategies without running them live using OPE estimators
 - **Channel economics** - Convert causal estimates into cost per incremental response
 - **Engagement sequencing** - Design effective channel combinations and sequences
-- **Governed channel plans** - Build transparent, auditable engagement recommendations
-- **Measurement contracts** - Create metrics that feed the next-best-action engine
 
 ## Read the Full Chapter
 
@@ -23,35 +22,6 @@ Also available:
 - 🧪 **[Exercise Solutions](exercise_solutions.ipynb)** - Solutions to chapter exercises
 
 This chapter teaches you to move from "Which channels work?" to "Which channel combinations work best for this HCP, at this time, under this access state, and at what cost per incremental outcome?"
-
-## Chapter Sections
-
-**8.1 Teaching Data**
-Generate and understand the synthetic engagement records across ten channels from January 2024 through March 2025. Load the complete analysis package with event ledger, HCP-account snapshots, and channel plans.
-
-**8.2 Prepare the Modeling Data**
-Build the event ledger that unifies ten source systems into one trustworthy record. Standardize channel-specific fields, define meaningful response metrics, and prepare snapshot features for modeling.
-
-**8.3 Response Modeling**
-Train predictive models on historical channel engagement to forecast HCP response probability. Handle sparse response rates and build model evaluation frameworks.
-
-**8.4 Channel Attribution**
-Identify which past channels are associated with HCP response. Implement attribution methods and analyze channel contributions to outcomes.
-
-**8.5 Uplift Analysis**
-Test whether associated channels actually caused response, not just correlation. Use causal inference methods to estimate true channel treatment effects.
-
-**8.6 Off-Policy Evaluation**
-Evaluate channel strategies without running them live. Use off-policy evaluation estimators to test channel plans before deployment.
-
-**8.7 Channel Economics**
-Convert causal estimates into cost per incremental response. Calculate channel ROI and compare engagement strategies.
-
-**8.8 Governed Channel Planning**
-Build transparent, auditable engagement recommendations. Create channel plans with decision rules and governance structures.
-
-**8.9 Measurement Contracts**
-Design metrics that feed the next-best-action engine. Define measurement frameworks for closed-loop learning.
 
 ## Engagement Channels Covered
 
