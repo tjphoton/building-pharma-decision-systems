@@ -64,3 +64,7 @@ nav:
       - "Competitive Intelligence and Market Access": ch07_competitive/ch07_competitive_intelligence_market_access.md
       - Walkthrough Notebook: ch07_competitive/chapter7_walkthrough.md
       - Exercise Solutions: ch07_competitive/exercise_solutions.md
+  - Chapter 8:
+      - "Omnichannel Analytics: Planning and Attribution": ch08_omnichannel/ch08_omnichannel_analytics.md
+      - Walkthrough Notebook: ch08_omnichannel/chapter8_walkthrough.md
+      - Exercise Solutions: ch08_omnichannel/exercise_solutions.md
