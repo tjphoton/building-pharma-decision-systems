@@ -1709,8 +1709,6 @@
 
 <h1 id="omnichannel-analytics">Omnichannel Analytics</h1>
 <p>Build the 4-week channel plan for the fictional Roventra launch. Start with HCP-account targeting, turn 10 source channels into one event ledger, build a dated channel state, compare response, attribution, uplift, and cost, then release a governed plan row for the next-best-action engine.</p>
-<p><img alt="Figure 8.1. HCP-account targeting feeds a 4-week channel decision, which becomes the governed state table for next best action. Synthetic data." src="assets/figures/figure_8_1_decision_ladder.svg" /></p>
-<p><em>Figure 8.1. HCP-account targeting feeds a 4-week channel decision, which becomes the governed state table for next best action. Synthetic data.</em></p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
@@ -1788,15 +1786,13 @@ Account support     147               145                    96    66.2%
 <span class="p">]]</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>recent_events  snapshots observed_reach adjusted_reach adjusted_marginal_gain
-            0        343          37.6%          45.9%
+            0        343          37.6%          45.9%                       
             1        433          59.1%          53.6%                   7.7%
             2        350          66.0%          61.2%                   7.5%
             3        175          65.7%          68.2%                   7.1%
             4         83          69.9%          74.6%                   6.3%
            5+         38          68.4%          80.0%                   5.5%
 </code></pre></div>
-<p><img alt="Figure 8.2. Raw response rises steeply with recent contact, but adjusting for who is contacted removes most of the slope, and the adjusted return on one more touch shrinks. Synthetic data." src="assets/figures/figure_8_3_saturation.svg" /></p>
-<p><em>Figure 8.2. Raw response rises steeply with recent contact, but adjusting for who is contacted removes most of the slope, and the adjusted return on one more touch shrinks. Synthetic data.</em></p>
 <h2 id="predictive-past-state-and-later-outcome">Predictive: past state and later outcome</h2>
 <div class="highlight"><pre><span></span><code><span class="n">panel</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;snapshot_panel&quot;</span><span class="p">]</span>
 <span class="n">row</span> <span class="o">=</span> <span class="n">panel</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
@@ -1813,8 +1809,8 @@ Outcome end: 2025-03-28
 90-day contact pressure: 3 events
 Later meaningful response: 0
 </code></pre></div>
-<p><img alt="Figure 8.3. HCP0280's prior 90-day events build the February 28 state, and later events label the 28-day outcome. Synthetic data." src="assets/figures/figure_8_4_observation_outcome_windows.svg" /></p>
-<p><em>Figure 8.3. HCP0280's prior 90-day events build the February 28 state, and later events label the 28-day outcome. Synthetic data.</em></p>
+<p><img alt="Figure 8.1. HCP0280's prior 90-day events build the February 28 state. Events above the timeline produced a meaningful response; events below did not. Outcome events after the dashed line are not shown because HCP0280 had none in the next 28 days. Synthetic data." src="../assets/figures/figure_8_1_observation_windows.svg" /></p>
+<p><em>Figure 8.1. HCP0280's prior 90-day events build the February 28 state. Events above the timeline produced a meaningful response; events below did not. Outcome events after the dashed line are not shown because HCP0280 had none in the next 28 days. Synthetic data.</em></p>
 <h2 id="predictive-sparse-response-signals">Predictive: sparse response signals</h2>
 <div class="highlight"><pre><span></span><code><span class="n">shrinkage</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;response_shrinkage&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;observed_response_rate_90&quot;</span><span class="p">,</span> <span class="s2">&quot;shrunken_response_rate_90&quot;</span><span class="p">]:</span>
@@ -1965,50 +1961,36 @@ Speaker program           0.27           8.3
      Paid media           0.21           6.4
 Account support           0.16           4.9
 </code></pre></div>
-<p><img alt="Figure 8.4. Markov removal-effect attribution compares the modeled path before and after removing one channel, then credits channels by the conversion drop. Synthetic data." src="assets/figures/figure_8_6_attribution_rules.svg" /></p>
-<p><em>Figure 8.4. Markov removal-effect attribution compares the modeled path before and after removing one channel, then credits channels by the conversion drop. Synthetic data.</em></p>
 <h2 id="causal-who-responds-because-of-us-uplift">Causal: who responds because of us (uplift)</h2>
 <p>The T-learner treats prior live-program action as the action and next-28-day meaningful response as the outcome. It fits one response model on HCP-account rows with prior live-program action and one on rows without it, then scores every row under both models. The difference is estimated uplift.</p>
+<p><img alt="Figure 8.2. Four HCP behavioral types in uplift modeling. Arrows show how action changes predicted response: persuadable rows move up, sure things stay high, lost causes stay low, and sleeping dogs move down." src="../assets/figures/figure_8_2_uplift_segments.svg" /></p>
+<p><em>Figure 8.2. Four HCP behavioral types in uplift modeling. Arrows show how action changes predicted response: persuadable rows move up, sure things stay high, lost causes stay low, and sleeping dogs move down.</em></p>
 <div class="highlight"><pre><span></span><code><span class="n">segments</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;uplift_segment_summary&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;mean_uplift&quot;</span><span class="p">,</span> <span class="s2">&quot;response_rate&quot;</span><span class="p">,</span> <span class="s2">&quot;mean_baseline_response&quot;</span><span class="p">]:</span>
     <span class="n">segments</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">segments</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">segments</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>uplift_segment  snapshots mean_uplift response_rate mean_baseline_response
-          High        356       13.6%         45.5%                  42.9%
-      Mid-high        355       10.4%         49.0%                  47.0%
-       Mid-low        355        7.9%         66.2%                  55.7%
-           Low        356        4.7%         68.5%                  65.8%
+<div class="highlight"><pre><span></span><code>uplift_segment  snapshots response_rate mean_baseline_response  mean_predicted_response_if_contacted mean_uplift
+          High        285         45.3%                  43.0%                              0.570106       14.0%
+      Mid-high        284         45.4%                  45.2%                              0.563355       11.1%
+           Mid        284         60.9%                  50.6%                              0.597616        9.1%
+       Mid-low        284         67.6%                  58.8%                              0.658259        7.0%
+           Low        285         67.4%                  66.5%                              0.708292        4.3%
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="n">contrast</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;uplift_response_contrast&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;mean_baseline_response&quot;</span><span class="p">,</span> <span class="s2">&quot;mean_uplift&quot;</span><span class="p">]:</span>
-    <span class="n">contrast</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">contrast</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">contrast</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>response_band  snapshots mean_baseline_response mean_uplift
-    B1 lowest        285                  35.1%       11.8%
-           B2        284                  44.5%       10.8%
-           B3        284                  52.1%        9.5%
-           B4        284                  60.0%        7.9%
-   B5 highest        285                  72.4%        5.7%
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;uplift_qini&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><span class="n">ranking</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;uplift_ranking_comparison&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;mean_baseline_response&quot;</span><span class="p">,</span> <span class="s2">&quot;mean_estimated_uplift&quot;</span><span class="p">]:</span>
+    <span class="n">ranking</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">ranking</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ranking</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">()</span>
 <span class="n">diagnostics</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;uplift_diagnostics&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">diagnostics</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="s2">&quot;snapshots&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">c</span><span class="p">]:</span>
     <span class="n">diagnostics</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">diagnostics</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">diagnostics</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>        ranking  targeted_fraction  snapshots  incremental_response
-  uplift_ranked                0.2        284                 0.104
-  uplift_ranked                0.4        569                 0.150
-  uplift_ranked                0.6        853                 0.173
-  uplift_ranked                0.8       1138                 0.176
-  uplift_ranked                1.0       1422                 0.170
-response_ranked                0.2        284                 0.108
-response_ranked                0.4        569                 0.099
-response_ranked                0.6        853                 0.088
-response_ranked                0.8       1138                 0.144
-response_ranked                1.0       1422                 0.170
+<div class="highlight"><pre><span></span><code>        ranking  selected mean_baseline_response mean_estimated_uplift  rows_shared_with_other_ranking
+response_ranked       284                  72.4%                  5.7%                               3
+  uplift_ranked       284                  42.9%                 14.1%                               3
+
                                      0
 treated_snapshots                  782
 control_snapshots                  640
@@ -2017,8 +1999,10 @@ mean_estimated_uplift             9.1%
 observed_uplift_top_quartile     14.4%
 observed_uplift_bottom_quartile   7.3%
 </code></pre></div>
-<p><img alt="Figure 8.5. A T-learner scores the same HCP-account row under action and control models, then ranks by the predicted change in response. Synthetic data." src="assets/figures/figure_8_7_uplift.svg" /></p>
-<p><em>Figure 8.5. A T-learner scores the same HCP-account row under action and control models, then ranks by the predicted change in response. Synthetic data.</em></p>
+<p><img alt="Figure 8.3. A T-learner scores the same HCP-account row with action and control models, subtracts p0 from p1, and ranks rows by uplift. Synthetic data." src="../assets/figures/figure_8_3_t_learner.svg" /></p>
+<p><em>Figure 8.3. A T-learner scores the same HCP-account row with action and control models, subtracts p0 from p1, and ranks rows by uplift. Synthetic data.</em></p>
+<p><img alt="Figure 8.4. Each point is one HCP-account snapshot plotted by its control-model score and action-model score. Color shows estimated uplift. Synthetic data." src="../assets/figures/figure_8_4_uplift.svg" /></p>
+<p><em>Figure 8.4. Each point is one HCP-account snapshot plotted by its control-model score and action-model score. Color shows estimated uplift. Synthetic data.</em></p>
 <h2 id="causal-credit-lift-and-cost">Causal: credit, lift, and cost</h2>
 <div class="highlight"><pre><span></span><code><span class="n">econ</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;channel_economics&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="n">econ</span><span class="p">[</span><span class="s2">&quot;credit&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">econ</span><span class="o">.</span><span class="n">markov_credit</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
@@ -2043,8 +2027,8 @@ Speaker program   8.3%     -0.9 pp $1,150.00              no lift
      Paid media   6.4%     +1.0 pp     $1.40                 $142
 Account support   4.9%     -1.3 pp   $130.00              no lift
 </code></pre></div>
-<p><img alt="Figure 8.6. Email, field, and web look different once path credit, adjusted lift, and cost per incremental response are read together. Synthetic data." src="assets/figures/figure_8_8_cost_per_incremental.svg" /></p>
-<p><em>Figure 8.6. Email, field, and web look different once path credit, adjusted lift, and cost per incremental response are read together. Synthetic data.</em></p>
+<p><img alt="Figure 8.5. Email, field, and web look different once path credit, adjusted lift, and cost per incremental response are read together. Synthetic data." src="../assets/figures/figure_8_5_cost_per_incremental.svg" /></p>
+<p><em>Figure 8.5. Email, field, and web look different once path credit, adjusted lift, and cost per incremental response are read together. Synthetic data.</em></p>
 <h2 id="prescriptive-channel-policy-and-the-plan">Prescriptive: channel policy and the plan</h2>
 <div class="highlight"><pre><span></span><code><span class="n">aff</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;channel_affinity&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;digital_response_rate&quot;</span><span class="p">,</span> <span class="s2">&quot;field_response_rate&quot;</span><span class="p">]:</span>
@@ -2075,8 +2059,6 @@ Account support   4.9%     -1.3 pp   $130.00              no lift
 5  Speaker-program invitation                 4                    4      77.8%
 6             Field follow-up                 1                    2      65.9%
 </code></pre></div>
-<p><img alt="Figure 8.7. Permission, access, pressure, and territory capacity turn 158 HCP-account rows into the governed 4-week channel plan. Synthetic data." src="assets/figures/figure_8_9_channel_plan.svg" /></p>
-<p><em>Figure 8.7. Permission, access, pressure, and territory capacity turn 158 HCP-account rows into the governed 4-week channel plan. Synthetic data.</em></p>
 <div class="highlight"><pre><span></span><code><span class="n">value</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;capacity_value&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="n">value</span><span class="p">[</span><span class="s2">&quot;expected_responses&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">expected_responses</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="n">value</span><span class="p">[</span><span class="s2">&quot;mean_score&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">mean_predicted_response</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -2104,6 +2086,8 @@ Account support   4.9%     -1.3 pp   $130.00              no lift
 4  9000000469     ACC121                 Suppress               SUPPRESS_PERMISSION
 </code></pre></div>
 <h2 id="prescriptive-off-policy-evaluation-handoff-to-next-best-action">Prescriptive: off-policy evaluation (handoff to next best action)</h2>
+<p><img alt="Figure 8.6. Off-policy evaluation compares a candidate policy against logged behavior policy data, uses overlap where the logged and candidate actions agree, and estimates offline value through importance weighting, a reward model, or a doubly robust combination." src="../assets/figures/figure_8_6_ope_estimators.svg" /></p>
+<p><em>Figure 8.6. Off-policy evaluation compares a candidate policy against logged behavior policy data, uses overlap where the logged and candidate actions agree, and estimates offline value through importance weighting, a reward model, or a doubly robust combination.</em></p>
 <div class="highlight"><pre><span></span><code><span class="n">policy_eval</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;policy_evaluation&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="n">focus</span> <span class="o">=</span> <span class="n">policy_eval</span><span class="p">[</span><span class="n">policy_eval</span><span class="o">.</span><span class="n">estimator</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s2">&quot;on_policy_mean&quot;</span><span class="p">,</span> <span class="s2">&quot;snips&quot;</span><span class="p">])]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="n">focus</span><span class="p">[</span><span class="s2">&quot;estimated_response_rate&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">focus</span><span class="o">.</span><span class="n">estimated_response_rate</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>

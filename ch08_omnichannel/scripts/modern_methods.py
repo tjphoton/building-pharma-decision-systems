@@ -67,26 +67,37 @@ def _score_uplift(panel: pd.DataFrame) -> pd.DataFrame:
 
 
 def uplift_segment_summary(panel: pd.DataFrame) -> pd.DataFrame:
-    """Rank snapshots into uplift quartiles and show that uplift is not response."""
+    """Rank snapshots into uplift quintiles and show that uplift is not response."""
 
     work = _score_uplift(panel)
     work["uplift_segment"] = pd.qcut(
         work["estimated_uplift"],
-        q=4,
-        labels=["Low", "Mid-low", "Mid-high", "High"],
+        q=5,
+        labels=["Low", "Mid-low", "Mid", "Mid-high", "High"],
         duplicates="drop",
     )
-    return (
+    result = (
         work.groupby("uplift_segment", observed=True, as_index=False)
         .agg(
             snapshots=("npi", "size"),
-            mean_uplift=("estimated_uplift", "mean"),
             response_rate=("future_response", "mean"),
             mean_baseline_response=("response_if_no_action", "mean"),
+            mean_predicted_response_if_contacted=("response_if_action", "mean"),
+            mean_uplift=("estimated_uplift", "mean"),
         )
         .sort_values("mean_uplift", ascending=False)
         .reset_index(drop=True)
     )
+    return result[
+        [
+            "uplift_segment",
+            "snapshots",
+            "response_rate",
+            "mean_baseline_response",
+            "mean_predicted_response_if_contacted",
+            "mean_uplift",
+        ]
+    ]
 
 
 def uplift_response_contrast(panel: pd.DataFrame) -> pd.DataFrame:
@@ -143,37 +154,48 @@ def uplift_diagnostics(panel: pd.DataFrame) -> pd.DataFrame:
     )
 
 
-def uplift_qini(panel: pd.DataFrame, bins: int = 5) -> pd.DataFrame:
-    """Compare incremental responders captured by uplift vs response ranking.
+def uplift_scatter_data(panel: pd.DataFrame) -> pd.DataFrame:
+    """Return per-snapshot p0, p1, and estimated uplift for scatter visualization."""
 
-    Within each cumulative fraction, the incremental response is the treated rate
-    minus the control rate among the selected snapshots. Ranking by uplift should
-    capture more incremental response than ranking by predicted response.
+    work = _score_uplift(panel)
+    return work[
+        ["response_if_no_action", "response_if_action", "estimated_uplift"]
+    ].copy()
+
+
+def uplift_ranking_comparison(
+    panel: pd.DataFrame, top_fraction: float = 0.20
+) -> pd.DataFrame:
+    """Compare the rows selected by response ranking vs uplift ranking.
+
+    Both rankings select the same number of rows. Response ranking fills its
+    top slice with Sure Things (high p0, low uplift). Uplift ranking fills it
+    with Persuadables (moderate p0, high uplift). The overlap is near zero.
     """
 
     work = _score_uplift(panel)
-    rows: list[dict[str, object]] = []
-    for label, key in [
-        ("uplift_ranked", "estimated_uplift"),
-        ("response_ranked", "response_if_no_action"),
-    ]:
-        ordered = work.sort_values(key, ascending=False).reset_index(drop=True)
-        for fraction in np.linspace(1 / bins, 1.0, bins):
-            cut = ordered.iloc[: int(round(fraction * len(ordered)))]
-            treated = cut.loc[cut["live_program_action"].eq(1), "future_response"]
-            control = cut.loc[cut["live_program_action"].eq(0), "future_response"]
-            rows.append(
-                {
-                    "ranking": label,
-                    "targeted_fraction": round(fraction, 2),
-                    "snapshots": len(cut),
-                    "incremental_response": float(
-                        (treated.mean() if len(treated) else 0.0)
-                        - (control.mean() if len(control) else 0.0)
-                    ),
-                }
-            )
-    return pd.DataFrame(rows)
+    n_select = int(round(top_fraction * len(work)))
+    response_top = work.nlargest(n_select, "response_if_no_action")
+    uplift_top = work.nlargest(n_select, "estimated_uplift")
+    overlap = len(set(response_top.index) & set(uplift_top.index))
+    return pd.DataFrame(
+        [
+            {
+                "ranking": "response_ranked",
+                "selected": n_select,
+                "mean_baseline_response": response_top["response_if_no_action"].mean(),
+                "mean_estimated_uplift": response_top["estimated_uplift"].mean(),
+                "rows_shared_with_other_ranking": overlap,
+            },
+            {
+                "ranking": "uplift_ranked",
+                "selected": n_select,
+                "mean_baseline_response": uplift_top["response_if_no_action"].mean(),
+                "mean_estimated_uplift": uplift_top["estimated_uplift"].mean(),
+                "rows_shared_with_other_ranking": overlap,
+            },
+        ]
+    )
 
 
 # --- Off-policy evaluation (IPS, self-normalized IPS, doubly robust) -----------

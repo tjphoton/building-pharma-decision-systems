@@ -21,8 +21,12 @@ def build_event_ledger(events: pd.DataFrame) -> pd.DataFrame:
         & ledger["field_outcome"].isin(["Positive", "Follow-up"])
     )
     digital_response = (
-        ledger["channel"].isin(["Email", "Web", "Paid media", "Direct mail"])
+        ledger["channel"].isin(["Email", "Web", "Paid media"])
         & ledger["click_flag"].eq(1)
+    )
+    direct_mail_response = (
+        ledger["channel"].eq("Direct mail")
+        & ledger["landing_visit_flag"].eq(1)
     )
     event_response = (
         ledger["channel"].isin(["Peer program", "Speaker program", "Conference"])
@@ -35,6 +39,7 @@ def build_event_ledger(events: pd.DataFrame) -> pd.DataFrame:
     ledger["meaningful_response"] = (
         field_response
         | digital_response
+        | direct_mail_response
         | event_response
         | account_response
     )
@@ -47,7 +52,7 @@ def build_event_ledger(events: pd.DataFrame) -> pd.DataFrame:
             ledger["channel"].isin(["Peer program", "Speaker program", "Conference"])
             & ledger["attendance_flag"].eq(1),
             ledger["channel"].eq("Paid media") & ledger["click_flag"].eq(1),
-            ledger["channel"].eq("Direct mail") & ledger["click_flag"].eq(1),
+            direct_mail_response,
             ledger["channel"].eq("Account support") & ledger["resolution_flag"].eq(1),
             ledger["registration_flag"].eq(1),
             ledger["viewable_impression_flag"].eq(1),
@@ -60,7 +65,7 @@ def build_event_ledger(events: pd.DataFrame) -> pd.DataFrame:
             "Qualified action",
             "Attended",
             "Clicked",
-            "Qualified action",
+            "Landing visit",
             "Resolved",
             "Registered",
             "Viewable impression",

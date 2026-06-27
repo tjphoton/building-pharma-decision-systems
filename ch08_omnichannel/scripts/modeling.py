@@ -124,6 +124,7 @@ def fit_response_model(
     test = scored_panel.loc[scored_panel["split"].eq("test")].copy()
     calibration = _calibration_table(test)
     lift = _lift_table(test)
+    baseline_comparison = _response_history_baseline_comparison(test)
     coefficients = _coefficient_table(model)
     model_card = pd.DataFrame(
         [
@@ -143,6 +144,7 @@ def fit_response_model(
         "model_metrics": pd.DataFrame(metrics_rows),
         "calibration": calibration,
         "lift": lift,
+        "response_history_baseline": baseline_comparison,
         "model_coefficients": coefficients,
         "model_card": model_card,
         "leakage_check": leakage_check(panel),
@@ -252,6 +254,33 @@ def _lift_table(test: pd.DataFrame) -> pd.DataFrame:
     result["lift_vs_test_average"] = result["response_rate"] / overall
     result["quintile_order"] = np.arange(1, len(result) + 1)
     return result
+
+
+def _response_history_baseline_comparison(test: pd.DataFrame) -> pd.DataFrame:
+    y = test["future_response"]
+    overall = float(y.mean())
+    rows: list[dict[str, object]] = []
+    for model_name, score_column in [
+        ("full_model", "predicted_response"),
+        ("response_history_baseline", "shrunken_response_rate_90"),
+    ]:
+        score = test[score_column]
+        top = test.sort_values(score_column, ascending=False).head(
+            int(np.ceil(len(test) * 0.20))
+        )
+        top_response_rate = float(top["future_response"].mean())
+        rows.append(
+            {
+                "model": model_name,
+                "score": score_column,
+                "test_auc": roc_auc_score(y, score),
+                "average_precision": average_precision_score(y, score),
+                "brier_score": brier_score_loss(y, score),
+                "top_20_response_rate": top_response_rate,
+                "top_20_lift": top_response_rate / overall,
+            }
+        )
+    return pd.DataFrame(rows)
 
 
 def _coefficient_table(model: Pipeline) -> pd.DataFrame:
