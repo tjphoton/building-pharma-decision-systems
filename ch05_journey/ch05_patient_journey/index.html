@@ -1148,10 +1148,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#55-modern-extensions-to-rule-based-patient-journeys" class="md-nav__link">
+  <a href="#55-sdoh-and-refill-gaps" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5.5 Modern Extensions to Rule-Based Patient Journeys
+        5.5 SDOH and Refill Gaps
       
     </span>
   </a>
@@ -1159,10 +1159,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#56-summary" class="md-nav__link">
+  <a href="#56-modern-extensions-to-rule-based-patient-journeys" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5.6 Summary
+        5.6 Modern Extensions to Rule-Based Patient Journeys
       
     </span>
   </a>
@@ -1170,10 +1170,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#57-exercises" class="md-nav__link">
+  <a href="#57-summary" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5.7 Exercises
+        5.7 Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#58-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.8 Exercises
       
     </span>
   </a>
@@ -1955,10 +1966,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#55-modern-extensions-to-rule-based-patient-journeys" class="md-nav__link">
+  <a href="#55-sdoh-and-refill-gaps" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5.5 Modern Extensions to Rule-Based Patient Journeys
+        5.5 SDOH and Refill Gaps
       
     </span>
   </a>
@@ -1966,10 +1977,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#56-summary" class="md-nav__link">
+  <a href="#56-modern-extensions-to-rule-based-patient-journeys" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5.6 Summary
+        5.6 Modern Extensions to Rule-Based Patient Journeys
       
     </span>
   </a>
@@ -1977,10 +1988,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#57-exercises" class="md-nav__link">
+  <a href="#57-summary" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5.7 Exercises
+        5.7 Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#58-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.8 Exercises
       
     </span>
   </a>
@@ -2010,13 +2032,15 @@
 <h1 id="chapter-5-patient-journey-analysis-lines-of-therapy-time-to-treatment-and-persistence">Chapter 5: Patient Journey Analysis: Lines of Therapy, Time to Treatment, and Persistence</h1>
 <p>The market-sizing analysis estimated 8.1 million diagnosed, age-eligible, untreated patients and 1.0 million expected Roventra starts. The launch team now needs to convert that opportunity into an operating plan: when treatment starts occur, which products patients start, how often treatment changes, and how long patients remain on therapy.</p>
 <p>This chapter covers building a diagnosis-indexed cohort, constructing and testing line-of-therapy rules, estimating time to treatment with censoring and competing events, and measuring persistence and adherence.</p>
-<p>Before running any chapter listing, execute <code>uv run python ch05_journey/scripts/run_analysis.py</code> from the repository root. The script writes the journey evidence package to <code>ch05_journey/assets/generated_outputs</code>: cohort attrition, treatment episodes, line-of-therapy records, washout comparisons, initiation and persistence curves, adherence records, and the rule-sensitivity grid. Every analysis below reads from those files. Run <code>uv run python ch05_journey/scripts/build_figures.py</code> to rebuild the figures, or open <a href="../chapter5_walkthrough.ipynb"><code>chapter5_walkthrough.ipynb</code></a> to execute the chapter as one sequence.</p>
+<p>Before running any chapter listing, execute <code>uv run python ch05_journey/scripts/run_analysis.py</code> from the repository root. The script writes the journey evidence package to <code>ch05_journey/assets/generated_outputs</code>: cohort attrition, treatment episodes, line-of-therapy records, washout comparisons, initiation and persistence curves, adherence records, and the rule-sensitivity grid. Every analysis below reads from those files. </p>
+<p>Open <a href="../chapter5_walkthrough.ipynb"><code>chapter5_walkthrough.ipynb</code></a> to execute the chapter as one sequence.</p>
 <h2 id="51-define-the-journey">5.1 Define the Journey</h2>
 <p>The cohort follows the new-user design from pharmacoepidemiology (<a href="https://doi.org/10.1093/aje/kwg231">Ray, 2003</a>). The first qualifying diagnosis during the patient's observable coverage becomes the index event. The design requires 180 covered days before that date to look back through the enrollment window for earlier qualifying diagnoses. Patient journey and line-of-therapy analyses also require at least 90 observable days after index. Time-to-treatment analysis does not have any of these requirement.</p>
 <blockquote>
 <p><strong>Note 1:</strong> 180 days look back is a common default in claims-based new-user studies, especially for chronic therapies. People also use 90 days when the refill cycle is short, or 365 days when they want a stricter washout and have enough history. 180 days is a middle ground because it is long enough to catch prior basket fills and still leaves enough patients in the cohort.</p>
 <p><strong>Note 2:</strong> 90 observable days works here because you need enough post-index time to see initiation and early treatment patterns, while still keeping a usable cohort size. Some studies use 30, 60, 90, or 180 days depending on the therapy.</p>
 </blockquote>
+<p><code>load_chapter3_data()</code> in <code>episode_construction.py</code> assembles the raw claim and reference tables; <code>build_newly_observed_cohort()</code> in the same module applies the lookback and follow-up rules and returns the cohort with the attrition table. Listing 5.1 calls both functions directly.</p>
 <p><strong>Listing 5.1: Build the diagnosis-indexed journey cohort</strong></p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
@@ -2072,6 +2096,7 @@ Observed qualifying diagnosis      8213 At least one encounter with ICD prefix E
 <p><em>Figure 5.3. Line-of-therapy rules depend on the timing of fills, active supply, the regimen window, the allowable gap, and the observation boundary. Conceptual schematic.</em></p>
 <h3 id="523-switch-example">5.2.3 Switch example</h3>
 <p><code>PAT00839</code> is a new-to-therapy patient whose 2nd line is entered by a switch and ends in a discontinuation. The line logic begins at the first treatment fill after the diagnosis date.</p>
+<p><code>construct_lines_of_therapy()</code> in <code>lot.py</code> converts treatment episodes into line-of-therapy records and writes <code>lines.csv</code>; Listing 5.2 reads that file to trace PAT00839's switch.</p>
 <p><strong>Listing 5.2: Trace a switch from transactions to lines of therapy</strong></p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">episode_construction</span><span class="w"> </span><span class="kn">import</span> <span class="n">DX_COLS</span><span class="p">,</span> <span class="n">LAUNCH_CONDITION_CODES</span>
@@ -2126,6 +2151,7 @@ lines of therapy:
 <p><em>Figure 5.4. PAT00839 shows the switch rule. The diagnosis index anchors the cohort, the first Nexoral fill sets the therapy index, the Vexpro fill creates the switch, and the observation window extends past the 60-day gap so discontinuation is observed. Synthetic data.</em></p>
 <h3 id="524-addition-example">5.2.4 Addition example</h3>
 <p>PAT03874 demonstrates the 2nd-line addition rule.</p>
+<p><code>construct_lines_of_therapy()</code> in <code>lot.py</code> produces the same <code>lines.csv</code> file; Listing 5.3 reads it to trace PAT03874's addition.</p>
 <p><strong>Listing 5.3: Trace an addition from transactions to lines of therapy</strong></p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">episode_construction</span><span class="w"> </span><span class="kn">import</span> <span class="n">DX_COLS</span><span class="p">,</span> <span class="n">LAUNCH_CONDITION_CODES</span>
@@ -2177,6 +2203,7 @@ lines of therapy:
 <p><em>Figure 5.5. PAT03874 shows the addition rule. The first Vexpro fill sets the therapy index, the 30-day regimen window closes on 2024-08-05, Nexoral arrives later while Vexpro still has active supply, and the line advances to <code>Nexoral + Vexpro</code>. Observation ends before the regimen can be classified as discontinued, so line 2 is censored. Synthetic data.</em></p>
 <h3 id="525-cohort-treatment-pattern">5.2.5 Cohort treatment pattern</h3>
 <p>After the patient-level rules are fixed, the cohort summary answers market questions: how many patients enter each line, which regimens start treatment, and how many advance by switch or addition. Run the treatment sequence rules over the 3,415 new-to-therapy patients:</p>
+<p><code>construct_lines_of_therapy()</code> in <code>lot.py</code> produces <code>lines.csv</code>, <code>lot_line1_summary.csv</code>, and <code>lot_entry_shares.csv</code> (with and without the washout); Listing 5.4 reads all three files to summarize cohort treatment patterns.</p>
 <p><strong>Listing 5.4: Summarize line-of-therapy patterns and the washout effect</strong></p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
@@ -2238,7 +2265,6 @@ Roventra line entries, with and without the washout rule:
 <li>sensitivity results for rules that materially change the output</li>
 </ul>
 <p>The corrected new-start count can enter uptake and demand planning. The later-line results remain method-validation findings until more follow-up produces adequate counts. The deliverable should say which counts are decision-ready and which counts are validation-only. In this dataset, line 2 supports method validation only.</p>
-<p>When results are reported by payer, region, or account band, the deliverable should enforce minimum cell sizes and attach the observation window and rule version. Patient-level histories stay within the validation record. Stakeholder outputs use results at the approved level of aggregation.</p>
 <h2 id="53-time-to-treatment-when-patients-start-therapy">5.3 Time to Treatment: When Patients Start Therapy</h2>
 <p>The Kaplan-Meier median time to treatment for this cohort is 168 days, with cumulative initiation reaching 30.5% at day 90 and 52.9% at day 180. Line-of-therapy analysis says what treatment state the patient reaches; time-to-treatment says when treated demand appears after diagnosis. The launch team also needs to know where the delay builds up: How long do patients wait at each step? Which HCPs start therapy faster? Does prior authorization add 10 days or 60? Which payer plans create the longest access delay?</p>
 <p>The full path can include symptoms, diagnosis, biomarker testing, a treatment decision, a prescription, prior authorization, and the first treatment fill. A single diagnosis-to-treatment number captures the total delay, but it hides where that delay comes from. Stage-level timings point to the step that a testing program, field reimbursement manager, nurse navigator, HCP education effort, or patient-support program can address.</p>
@@ -2418,6 +2444,7 @@ Roventra line entries, with and without the washout rule:
 \hat F_{\text{initiation}}(t)=1-\hat S(t)
 \]</div>
 <p>The Kaplan-Meier median is the first observed day when <span class="arithmatex">\(\hat S(t)\leq0.50\)</span>. The curve stays at <span class="arithmatex">\(3/5\)</span> after day 31 and drops to <span class="arithmatex">\(2/5\)</span> on day 59. The median is the observed crossing time: day 59.</p>
+<p><code>km_curve()</code> in <code>survival.py</code> builds the Kaplan-Meier step table and <code>km_median()</code> in the same module reads the crossing point; Listing 5.5 calls both directly on the toy dataset.</p>
 <p><strong>Listing 5.5: Reproduce the 5-patient calculation</strong></p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">survival</span><span class="w"> </span><span class="kn">import</span> <span class="n">km_curve</span><span class="p">,</span> <span class="n">km_median</span>
@@ -2448,6 +2475,7 @@ Kaplan-Meier median: 59 days
 <p>The cohort-building step identified 6,562 patients with at least 180 days of observable history before their diagnosis index. For time to treatment, 169 of those patients cannot enter the analysis because their diagnosis dates occur after the December 31, 2024 study cutoff, leaving no post-diagnosis time within the study. Removing them creates the 6,393-patient treatment-initiation cohort.</p>
 <p>This cohort does not require 90 days of follow-up after diagnosis. That requirement built the 5,637-patient journey and line-of-therapy cohort in section 5.1. Applying it here would remove recently diagnosed patients. Kaplan-Meier retains them and uses the follow-up available for each patient.</p>
 <p>By the end of each patient's available record, 4,110 of the 6,393 patients had an observed treatment start and 2,283 of 6,393 (35.7%) did not. That 35.7% is not an estimate of the share who will remain untreated permanently; it reflects incomplete follow-up. Kaplan-Meier uses the available follow-up for all 6,393 patients, just as it did for Patients D and E in the 5-patient example.</p>
+<p><code>treatment_initiation_curve()</code> in <code>survival.py</code> computes the cohort Kaplan-Meier curve and writes <code>initiation_curve.csv</code>; <code>summarize_patient_journeys()</code> in <code>episode_construction.py</code> produces <code>initiation_journeys.csv</code>. Listing 5.6 reads both files.</p>
 <p><strong>Listing 5.6: Compare the end-of-study count with the time-to-event result</strong></p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
@@ -2614,6 +2642,7 @@ day 270: 74.3% (95% CI 72.9% to 75.6%); 722 at risk
 </tbody>
 </table>
 <p>At every row, the 3 state probabilities sum to 100%. By day 90, the estimated probability of treatment is 40%, the probability of death before treatment is 20%, and the probability of remaining untreated and alive is 40%. The treatment cumulative incidence does not reach 50%, so no median treatment-initiation time exists in this example.</p>
+<p><code>aalen_johansen_curve()</code> in <code>survival.py</code> computes the competing-risk cumulative incidence functions; Listing 5.7 calls it directly on the toy dataset.</p>
 <p><strong>Listing 5.7: Calculate the competing-risk probabilities</strong></p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">survival</span><span class="w"> </span><span class="kn">import</span> <span class="n">aalen_johansen_curve</span>
@@ -2703,6 +2732,7 @@ day 270: 74.3% (95% CI 72.9% to 75.6%); 722 at risk
 <h3 id="541-persistence-time-until-departure-from-the-initial-regimen">5.4.1 Persistence: time until departure from the initial regimen</h3>
 <p>Persistence starts on the first treatment fill that opens line 1. A switch, addition, restart after the allowable gap, or confirmed discontinuation is an event marking the end of the initial regimen. If observation ends while the allowable gap is still unresolved, the line is censored on the last day for which persistence can be established.</p>
 <p>The Kaplan-Meier estimator from section 5.3 applies with a new event definition. Here, <span class="arithmatex">\(S(t)\)</span> is the estimated probability of remaining on the initial regimen through day <span class="arithmatex">\(t\)</span>.</p>
+<p><code>line_persistence_curve()</code> in <code>survival.py</code> applies the Kaplan-Meier estimator to line-1 departure events and writes <code>line1_persistence.csv</code>; Listing 5.8 reads it here.</p>
 <p><strong>Listing 5.8: Report initial-regimen persistence with its risk set</strong></p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
@@ -2739,6 +2769,7 @@ day 180: 19.2% persistent (95% CI 16.2% to 22.4%); 50 at risk
 \text{MPR} = \frac{112}{95}=1.179
 \]</div>
 <p>MPR exceeds 1 because supply extends beyond the window. PDC caps the numerator at the number of eligible calendar days and stays between 0 and 1. Both measures describe claims-based possession: filling a prescription provides evidence of available supply and cannot confirm ingestion or correct use.</p>
+<p><code>compute_adherence_metrics()</code> in <code>adherence.py</code> calculates per-patient PDC and MPR for both index-product and market-basket scopes, writing <code>adherence_index_product.csv</code> and <code>adherence_market_basket.csv</code>; <code>adherence_summary()</code> in the same module aggregates to the payer level and writes <code>adherence_by_payer.csv</code>. Listings 5.9 and 5.10 read those files.</p>
 <p><strong>Listing 5.9: Summarize the PDC distribution and compare product scopes</strong></p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
@@ -2904,7 +2935,49 @@ higher basket PDC than index-product PDC: 36 patients
 </tbody>
 </table>
 <p>The stakeholder deliverable should contain the persistence curve with numbers at risk, the PDC distribution, the product-scope comparison, a payer table with uncertainty, and the exact measurement specification. The specification records the index event, product basket, 365-day maximum window, 90-day minimum observable window, refill carryover rule, 0.80 threshold, allowable gap, censoring rule, and data cutoff.</p>
-<h2 id="55-modern-extensions-to-rule-based-patient-journeys">5.5 Modern Extensions to Rule-Based Patient Journeys</h2>
+<h2 id="55-sdoh-and-refill-gaps">5.5 SDOH and Refill Gaps</h2>
+<p>The payer comparison asks whether plan-level benefit design explains adherence variation. A second structural lens asks whether the patient's geographic context does. Patients in high-barrier areas face obstacles to staying on therapy that are distinct from clinical discontinuation: cost-sharing barriers interrupt refill sequences for patients who cannot afford the next fill, and access barriers prevent refill pickup when transportation or specialty pharmacy availability fails.</p>
+<p>Cost-sharing barriers are linked to <code>uninsured_share</code>. Patients without insurance or with high-deductible plans face out-of-pocket costs that produce refill gaps. Access barriers are linked to <code>transportation_burden</code> and <code>primary_care_access_index</code>. Specialty pharmacy pickup, prior-authorization renewal visits, and refill outreach all assume the patient can reach a provider or pharmacy.</p>
+<p>These mechanisms point to different program responses. Cost-sharing barriers call for copay assistance enrollment and insurance navigation at the point of prescribing. Access barriers call for specialty pharmacy routing, 90-day supply dispensing, and telephone-based refill support. The SDOH variables are area-level proxies, not patient-level attributes.</p>
+<p><code>build_sdoh_journey_outputs()</code> in <code>sdoh_journey.py</code> builds the local Chapter 5 SDOH persistence summary, persistence curve, and account support flag. Listing 5.11 reads those outputs.</p>
+<p><strong>Listing 5.11: Stratify day-90 persistence by SDOH barrier quintile</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="n">SDOH_OUT</span> <span class="o">=</span> <span class="s2">&quot;ch05_journey/assets/generated_outputs&quot;</span>
+<span class="n">journey</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">SDOH_OUT</span><span class="si">}</span><span class="s2">/sdoh_journey_summary.csv&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">journey</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code> sdoh_barrier_quintile  initiators  persistent_day90  early_refill_gaps  day90_persistence_pct
+                     1          67                49                 18                   73.1
+                     2          56                41                 15                   73.2
+                     3          49                29                 20                   59.2
+                     4          38                18                 20                   47.4
+                     5          24                13                 11                   54.2
+</code></pre></div>
+<p>Q1 and Q2 areas both show about 73% persistence at day 90. Q3 drops to 59%, and Q4 falls to 47%. Q5 is 54.2%, based on 24 initiators. The Q4-to-Q5 reversal is sampling noise. The pooled view gives a cleaner operational signal.</p>
+<p><img alt="Persistence curves by SDOH barrier group. Low barrier reaches 73% at day 90; Middle barrier reaches 59%; High barrier reaches 50%." src="../assets/figures/figure_5_16_sdoh_persistence.svg" /></p>
+<p><em>Figure 5.16. Estimated initial-regimen persistence by SDOH barrier group. Low barrier reaches 73% at day 90; High barrier reaches 50%. Synthetic area-level data.</em></p>
+<p>The 23 percentage point gap between Low and High barrier groups at day 90 is the aggregate signal for support planning. It identifies geographies where the refill-gap rate is high enough to warrant a different operational response.</p>
+<p><strong>Listing 5.12: Flag accounts for support-program review</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">sup_flag</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">SDOH_OUT</span><span class="si">}</span><span class="s2">/sdoh_account_support_flag.csv&quot;</span><span class="p">)</span>
+<span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;account_id&quot;</span><span class="p">,</span> <span class="s2">&quot;area_id&quot;</span><span class="p">,</span> <span class="s2">&quot;sdoh_barrier_quintile&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;initiators&quot;</span><span class="p">,</span> <span class="s2">&quot;early_refill_gaps&quot;</span><span class="p">,</span> <span class="s2">&quot;refill_gap_rate_pct&quot;</span><span class="p">,</span> <span class="s2">&quot;support_review&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sup_flag</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>account_id area_id  sdoh_barrier_quintile  initiators  early_refill_gaps  refill_gap_rate_pct support_review
+    ACCT16  AREA16                      4           9                  6                 66.7            Yes
+    ACCT14  AREA14                      4          12                  5                 41.7            Yes
+    ACCT15  AREA15                      4          10                  5                 50.0            Yes
+    ACCT13  AREA13                      4           7                  4                 57.1            Yes
+    ACCT17  AREA17                      5          10                  4                 40.0            Yes
+    ACCT19  AREA19                      5           4                  3                 75.0            Yes
+    ACCT12  AREA12                      3          22                  9                 40.9             No
+</code></pre></div>
+<p>The flag requires barrier quintile at least 4 and at least 3 early refill gaps in the account. ACCT12 has the most absolute gaps (9) but sits in Q3. Its elevated gap rate is more likely to reflect payer or formulary issues than structural access barriers. Patient services uses flagged accounts to assess whether specialty pharmacy routing, 90-day supply, or copay navigation would reduce gap events.</p>
+<blockquote>
+<p><strong>Caution:</strong> Area-level SDOH variables are ecological measures. They describe the average conditions in a geography, not the experience of any specific patient within it. High refill gaps in a high-barrier account may have multiple causes. The SDOH flag supports a hypothesis about structural barriers and directs aggregate program attention.</p>
+</blockquote>
+<h2 id="56-modern-extensions-to-rule-based-patient-journeys">5.6 Modern Extensions to Rule-Based Patient Journeys</h2>
 <p>The synthetic data only contains 24 switches and 4 additions. A larger claims or EHR study may support questions about recurring gaps, latent treatment states, common pathway shapes, or future event risk. These methods depend on the same event dates, episodes, regimens, line states, and censoring rules. Table 5.8 maps each question to a modern method that extends the rule-based foundation.</p>
 <p><em>Table 5.8. Choose an extension for a specific journey question.</em></p>
 <table>
@@ -2979,7 +3052,7 @@ higher basket PDC than index-product PDC: 36 patients
 </tr>
 </tbody>
 </table>
-<h2 id="56-summary">5.6 Summary</h2>
+<h2 id="57-summary">5.7 Summary</h2>
 <p>Starting from 3,193 apparent Roventra line-1 entries, a 180-day treatment washout identified 395 continuing users, leaving 2,798 newly observed Roventra starts. That 14.1% correction changes launch uptake reporting.</p>
 <p>In this chapter you learned:</p>
 <ul>
@@ -2989,8 +3062,9 @@ higher basket PDC than index-product PDC: 36 patients
 <li>Version the washout, starting-regimen window, allowable gap, addition, switch, restart, discontinuation, and censoring rules.</li>
 <li>Estimate treatment initiation with methods that retain censored patients and treat death as a competing event when death data are available.</li>
 <li>Use persistence for elapsed time on treatment and PDC for covered days within a fixed window. State the product scope and observable-day base with every result.</li>
+<li>Stratify refill gaps by area-level SDOH barrier quintile to identify geographies where structural cost-sharing or access barriers elevate early discontinuation. Use the gradient to route geography-level support programs, not to score individual patients.</li>
 </ul>
-<h2 id="57-exercises">5.7 Exercises</h2>
+<h2 id="58-exercises">5.8 Exercises</h2>
 <ol>
 <li><strong>Audit a false new start.</strong> Construct line 1 with a 0-day washout and a 180-day washout. Select 1 patient counted only by the 0-day rule, then print the therapy index and all completed treatment-basket fills in the prior 180 days. Explain why the earlier fill changes the commercial classification. See section 5.2.</li>
 <li><strong>Choose the adherence product scope.</strong> Join index-product and market-basket PDC, identify the patients whose values differ, and inspect the treatment products for the patient with the largest increase. State which PDC belongs in a brand continuity report and which belongs in a condition-treatment continuity report. See section 5.4.</li>

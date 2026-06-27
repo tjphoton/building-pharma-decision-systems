@@ -34,6 +34,7 @@ from geography import (  # noqa: E402
 from maturity import capture_recapture, claims_maturity_adjustment  # noqa: E402
 from patient_finding import patient_finding_lift  # noqa: E402
 from scenario import scenario_grid  # noqa: E402
+from sdoh_market import build_ch04_sdoh_patient_scores, build_sdoh_market_outputs  # noqa: E402
 
 # Bootstrap replicates for the sampling-uncertainty interval.
 N_BOOT = 1_000
@@ -231,6 +232,8 @@ def run_analysis(repo_root: Path) -> dict:
     )
 
     finding = patient_finding_lift(tables, patients)
+    sdoh_outputs = build_sdoh_market_outputs()
+    sdoh_patient_scores = build_ch04_sdoh_patient_scores(tables, patients)
 
     # Uncertainty layers expressed on one metric (reachable opportunity) for the tornado.
     base_access = scenarios["reachable_opportunity"].iloc[0] / 0.85
@@ -276,6 +279,8 @@ def run_analysis(repo_root: Path) -> dict:
         "uncertainty": uncertainty,
         "uncertainty_layers": layers,
         "patient_finding": finding,
+        "sdoh_patient_scores": sdoh_patient_scores,
+        **sdoh_outputs,
     }
 
 
@@ -300,6 +305,13 @@ def write_outputs(results: dict, output_dir: Path) -> None:
         "uncertainty",
         "uncertainty_layers",
         "patient_finding",
+        "sdoh_patient_scores",
+        "sdoh_area",
+        "sdoh_patient",
+        "sdoh_market_summary",
+        "sdoh_model_summary",
+        "sdoh_model_top_decile",
+        "sdoh_account_market_flag",
     ]
     for name in csv_names:
         results[name].to_csv(output_dir / f"{name}.csv", index=False)
