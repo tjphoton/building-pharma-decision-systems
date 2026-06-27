@@ -3,11 +3,6 @@
 Build the 4-week channel plan for the fictional Roventra launch. Start with HCP-account targeting, turn 10 source channels into one event ledger, build a dated channel state, compare response, attribution, uplift, and cost, then release a governed plan row for the next-best-action engine.
 
 
-![Figure 8.1. HCP-account targeting feeds a 4-week channel decision, which becomes the governed state table for next best action. Synthetic data.](assets/figures/figure_8_1_decision_ladder.svg)
-
-*Figure 8.1. HCP-account targeting feeds a 4-week channel decision, which becomes the governed state table for next best action. Synthetic data.*
-
-
 
 ```python
 from pathlib import Path
@@ -115,17 +110,12 @@ print(sat[[
 ```
 
     recent_events  snapshots observed_reach adjusted_reach adjusted_marginal_gain
-                0        343          37.6%          45.9%
+                0        343          37.6%          45.9%                       
                 1        433          59.1%          53.6%                   7.7%
                 2        350          66.0%          61.2%                   7.5%
                 3        175          65.7%          68.2%                   7.1%
                 4         83          69.9%          74.6%                   6.3%
                5+         38          68.4%          80.0%                   5.5%
-
-
-![Figure 8.2. Raw response rises steeply with recent contact, but adjusting for who is contacted removes most of the slope, and the adjusted return on one more touch shrinks. Synthetic data.](assets/figures/figure_8_3_saturation.svg)
-
-*Figure 8.2. Raw response rises steeply with recent contact, but adjusting for who is contacted removes most of the slope, and the adjusted return on one more touch shrinks. Synthetic data.*
 
 
 ## Predictive: past state and later outcome
@@ -151,9 +141,9 @@ print(f"Later meaningful response: {int(row.future_response)}")
     Later meaningful response: 0
 
 
-![Figure 8.3. HCP0280's prior 90-day events build the February 28 state, and later events label the 28-day outcome. Synthetic data.](assets/figures/figure_8_4_observation_outcome_windows.svg)
+![Figure 8.1. HCP0280's prior 90-day events build the February 28 state. Events above the timeline produced a meaningful response; events below did not. Outcome events after the dashed line are not shown because HCP0280 had none in the next 28 days. Synthetic data.](assets/figures/figure_8_1_observation_windows.svg)
 
-*Figure 8.3. HCP0280's prior 90-day events build the February 28 state, and later events label the 28-day outcome. Synthetic data.*
+*Figure 8.1. HCP0280's prior 90-day events build the February 28 state. Events above the timeline produced a meaningful response; events below did not. Outcome events after the dashed line are not shown because HCP0280 had none in the next 28 days. Synthetic data.*
 
 
 ## Predictive: sparse response signals
@@ -267,7 +257,6 @@ print(features[["feature", "coefficient", "odds_ratio"]].to_string(index=False))
              field_responses_90      +0.098       1.10
 
 
-
 The field-then-digital order effect is real and modest: two explicit order features move test AUC from 0.707 to 0.714.
 
 
@@ -289,7 +278,7 @@ print(sequence_models)
               recent_field_response  snapshots  future_responses future_response_rate
     Field response in prior 90 days        156                94                60.3%
            No recent field response        303               168                55.4%
-
+    
                          model  test_snapshots  roc_auc  average_precision
     0           aggregate_only             427    0.707              0.664
     1  aggregate_plus_sequence             427    0.714              0.670
@@ -345,15 +334,15 @@ print(markov.to_string(index=False))
     Account support           0.16           4.9
 
 
-![Figure 8.4. Markov removal-effect attribution compares the modeled path before and after removing one channel, then credits channels by the conversion drop. Synthetic data.](assets/figures/figure_8_6_attribution_rules.svg)
-
-*Figure 8.4. Markov removal-effect attribution compares the modeled path before and after removing one channel, then credits channels by the conversion drop. Synthetic data.*
-
-
 ## Causal: who responds because of us (uplift)
 
 
 The T-learner treats prior live-program action as the action and next-28-day meaningful response as the outcome. It fits one response model on HCP-account rows with prior live-program action and one on rows without it, then scores every row under both models. The difference is estimated uplift.
+
+
+![Figure 8.2. Four HCP behavioral types in uplift modeling. Arrows show how action changes predicted response: persuadable rows move up, sure things stay high, lost causes stay low, and sleeping dogs move down.](assets/figures/figure_8_2_uplift_segments.svg)
+
+*Figure 8.2. Four HCP behavioral types in uplift modeling. Arrows show how action changes predicted response: persuadable rows move up, sure things stay high, lost causes stay low, and sleeping dogs move down.*
 
 
 
@@ -365,33 +354,21 @@ print(segments.to_string(index=False))
 
 ```
 
-    uplift_segment  snapshots mean_uplift response_rate mean_baseline_response
-              High        356       13.6%         45.5%                  42.9%
-          Mid-high        355       10.4%         49.0%                  47.0%
-           Mid-low        355        7.9%         66.2%                  55.7%
-               Low        356        4.7%         68.5%                  65.8%
+    uplift_segment  snapshots response_rate mean_baseline_response  mean_predicted_response_if_contacted mean_uplift
+              High        285         45.3%                  43.0%                              0.570106       14.0%
+          Mid-high        284         45.4%                  45.2%                              0.563355       11.1%
+               Mid        284         60.9%                  50.6%                              0.597616        9.1%
+           Mid-low        284         67.6%                  58.8%                              0.658259        7.0%
+               Low        285         67.4%                  66.5%                              0.708292        4.3%
 
 
 
 ```python
-contrast = results["uplift_response_contrast"].copy()
-for col in ["mean_baseline_response", "mean_uplift"]:
-    contrast[col] = contrast[col].map(lambda x: f"{x:.1%}")
-print(contrast.to_string(index=False))
-
-```
-
-    response_band  snapshots mean_baseline_response mean_uplift
-        B1 lowest        285                  35.1%       11.8%
-               B2        284                  44.5%       10.8%
-               B3        284                  52.1%        9.5%
-               B4        284                  60.0%        7.9%
-       B5 highest        285                  72.4%        5.7%
-
-
-
-```python
-print(results["uplift_qini"].round(3).to_string(index=False))
+ranking = results["uplift_ranking_comparison"].copy()
+for col in ["mean_baseline_response", "mean_estimated_uplift"]:
+    ranking[col] = ranking[col].map(lambda x: f"{x:.1%}")
+print(ranking.to_string(index=False))
+print()
 diagnostics = results["uplift_diagnostics"].copy()
 for col in [c for c in diagnostics.columns if "snapshots" not in c]:
     diagnostics[col] = diagnostics[col].map(lambda x: f"{x:.1%}")
@@ -399,17 +376,10 @@ print(diagnostics.T)
 
 ```
 
-            ranking  targeted_fraction  snapshots  incremental_response
-      uplift_ranked                0.2        284                 0.104
-      uplift_ranked                0.4        569                 0.150
-      uplift_ranked                0.6        853                 0.173
-      uplift_ranked                0.8       1138                 0.176
-      uplift_ranked                1.0       1422                 0.170
-    response_ranked                0.2        284                 0.108
-    response_ranked                0.4        569                 0.099
-    response_ranked                0.6        853                 0.088
-    response_ranked                0.8       1138                 0.144
-    response_ranked                1.0       1422                 0.170
+            ranking  selected mean_baseline_response mean_estimated_uplift  rows_shared_with_other_ranking
+    response_ranked       284                  72.4%                  5.7%                               3
+      uplift_ranked       284                  42.9%                 14.1%                               3
+    
                                          0
     treated_snapshots                  782
     control_snapshots                  640
@@ -419,9 +389,14 @@ print(diagnostics.T)
     observed_uplift_bottom_quartile   7.3%
 
 
-![Figure 8.5. A T-learner scores the same HCP-account row under action and control models, then ranks by the predicted change in response. Synthetic data.](assets/figures/figure_8_7_uplift.svg)
+![Figure 8.3. A T-learner scores the same HCP-account row with action and control models, subtracts p0 from p1, and ranks rows by uplift. Synthetic data.](assets/figures/figure_8_3_t_learner.svg)
 
-*Figure 8.5. A T-learner scores the same HCP-account row under action and control models, then ranks by the predicted change in response. Synthetic data.*
+*Figure 8.3. A T-learner scores the same HCP-account row with action and control models, subtracts p0 from p1, and ranks rows by uplift. Synthetic data.*
+
+
+![Figure 8.4. Each point is one HCP-account snapshot plotted by its control-model score and action-model score. Color shows estimated uplift. Synthetic data.](assets/figures/figure_8_4_uplift.svg)
+
+*Figure 8.4. Each point is one HCP-account snapshot plotted by its control-model score and action-model score. Color shows estimated uplift. Synthetic data.*
 
 
 ## Causal: credit, lift, and cost
@@ -455,9 +430,9 @@ print(econ[[
     Account support   4.9%     -1.3 pp   $130.00              no lift
 
 
-![Figure 8.6. Email, field, and web look different once path credit, adjusted lift, and cost per incremental response are read together. Synthetic data.](assets/figures/figure_8_8_cost_per_incremental.svg)
+![Figure 8.5. Email, field, and web look different once path credit, adjusted lift, and cost per incremental response are read together. Synthetic data.](assets/figures/figure_8_5_cost_per_incremental.svg)
 
-*Figure 8.6. Email, field, and web look different once path credit, adjusted lift, and cost per incremental response are read together. Synthetic data.*
+*Figure 8.5. Email, field, and web look different once path credit, adjusted lift, and cost per incremental response are read together. Synthetic data.*
 
 
 ## Prescriptive: channel policy and the plan
@@ -502,11 +477,6 @@ print(plan[[
     6             Field follow-up                 1                    2      65.9%
 
 
-![Figure 8.7. Permission, access, pressure, and territory capacity turn 158 HCP-account rows into the governed 4-week channel plan. Synthetic data.](assets/figures/figure_8_9_channel_plan.svg)
-
-*Figure 8.7. Permission, access, pressure, and territory capacity turn 158 HCP-account rows into the governed 4-week channel plan. Synthetic data.*
-
-
 
 ```python
 value = results["capacity_value"].copy()
@@ -546,6 +516,11 @@ print(traces)
 ## Prescriptive: off-policy evaluation (handoff to next best action)
 
 
+![Figure 8.6. Off-policy evaluation compares a candidate policy against logged behavior policy data, uses overlap where the logged and candidate actions agree, and estimates offline value through importance weighting, a reward model, or a doubly robust combination.](assets/figures/figure_8_6_ope_estimators.svg)
+
+*Figure 8.6. Off-policy evaluation compares a candidate policy against logged behavior policy data, uses overlap where the logged and candidate actions agree, and estimates offline value through importance weighting, a reward model, or a doubly robust combination.*
+
+
 
 ```python
 policy_eval = results["policy_evaluation"].copy()
@@ -583,3 +558,4 @@ print(support.to_string(index=False))
 ## Conclusion
 
 The ledger preserves channel meaning, the contact-volume curve shows that raw response rises mostly from selection, and the temporal test limits leakage. Attribution credits field and email near 17% each, while the cost view shows very different economics: about $17 per incremental response on email and $12,049 on field. The off-policy check finds the logged history too thin to rank a new policy yet. The rule set keeps permission, access, pressure, and capacity ahead of response signals, routes each action to the HCP's own responsive channel, and releases 16 promotional rows with a reason code, cycle cap, measurement hook, rule-set version, and refresh date.
+

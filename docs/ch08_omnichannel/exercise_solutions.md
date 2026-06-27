@@ -29,7 +29,7 @@ print(f"Planning HCP-account rows: {len(results['channel_plan']):,}")
 
 ```
 
-    Ledger events: 3,707
+    Ledger events: 3,650
     HCP-account snapshots: 1,422
     Planning HCP-account rows: 158
 
@@ -60,7 +60,7 @@ print(loose["model_metrics"].query("split == 'test'"))
 ```
 
       split  snapshots  responses  response_rate   roc_auc  average_precision  brier_score  base_rate_brier
-    2  test        316        158            0.5  0.716712           0.712998     0.226143         0.268231
+    2  test        316        159       0.503165  0.696311           0.686603     0.241479         0.270875
 
 
 Judgment: the larger label includes machine-open noise. A higher event count weakens the response definition.
@@ -131,21 +131,21 @@ print(eligible)
 ```
 
                 npi account_id          recommended_action assignment                         outcome
-    35   9000000033     ACC044             Email follow-up     Action  Meaningful response in 28 days
-    36   9000000648     ACC199             Email follow-up    Holdout  Meaningful response in 28 days
-    37   9000000567     ACC030             Email follow-up     Action  Meaningful response in 28 days
-    38   9000000389     ACC155             Email follow-up    Holdout  Meaningful response in 28 days
-    101  9000000505     ACC176     Peer-program invitation     Action  Meaningful response in 28 days
-    102  9000000296     ACC113     Peer-program invitation    Holdout  Meaningful response in 28 days
-    103  9000000621     ACC069     Peer-program invitation     Action  Meaningful response in 28 days
-    104  9000000650     ACC210     Peer-program invitation    Holdout  Meaningful response in 28 days
-    105  9000000026     ACC226  Speaker-program invitation     Action  Meaningful response in 28 days
-    106  9000000239     ACC009  Speaker-program invitation    Holdout  Meaningful response in 28 days
-    107  9000000157     ACC247  Speaker-program invitation     Action  Meaningful response in 28 days
+    35   9000000650     ACC210             Email follow-up     Action  Meaningful response in 28 days
+    36   9000000406     ACC028             Email follow-up    Holdout  Meaningful response in 28 days
+    37   9000000174     ACC032             Email follow-up     Action  Meaningful response in 28 days
+    38   9000000658     ACC085             Email follow-up    Holdout  Meaningful response in 28 days
+    39   9000000026     ACC226             Email follow-up     Action  Meaningful response in 28 days
+    40   9000000522     ACC099             Email follow-up    Holdout  Meaningful response in 28 days
+    103  9000000239     ACC009     Peer-program invitation     Action  Meaningful response in 28 days
+    104  9000000110     ACC180     Peer-program invitation    Holdout  Meaningful response in 28 days
+    105  9000000648     ACC199     Peer-program invitation     Action  Meaningful response in 28 days
+    106  9000000082     ACC027     Peer-program invitation    Holdout  Meaningful response in 28 days
+    107  9000000205     ACC229     Peer-program invitation     Action  Meaningful response in 28 days
     108  9000000128     ACC160  Speaker-program invitation    Holdout  Meaningful response in 28 days
-    109  9000000522     ACC099  Speaker-program invitation     Action  Meaningful response in 28 days
-    110  9000000170     ACC132  Speaker-program invitation    Holdout  Meaningful response in 28 days
-    111  9000000372     ACC174  Speaker-program invitation     Action  Meaningful response in 28 days
+    109  9000000204     ACC153  Speaker-program invitation     Action  Meaningful response in 28 days
+    110  9000000232     ACC191  Speaker-program invitation    Holdout  Meaningful response in 28 days
+    111  9000000578     ACC142  Speaker-program invitation     Action  Meaningful response in 28 days
 
 
 Judgment: register eligibility, assignment, the 28-day meaningful-response outcome, and post-assignment exclusions before execution.

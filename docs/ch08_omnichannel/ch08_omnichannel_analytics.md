@@ -134,7 +134,7 @@ print(email)
 
 A snapshot is a cross-sectional record for one HCP-account row at a single point in time, capturing everything known up to that moment and labeling whether a meaningful response follows. The feature window looks back from the snapshot date; the outcome window looks forward; the boundary between them is the snapshot date itself, with no event falling in both windows.
 
-Snapshot dates fall on the last calendar day of each month — January 31, February 28, March 31, and so on through the full 14-month ledger period. Monthly boundaries align with how commercial field planning actually runs: rep territory cycles, promotional budgets, and speaker-program calendars all operate on monthly rhythms. Daily snapshots would produce far more training rows, but a 28-day outcome window means consecutive daily snapshots would have outcome windows that overlap by 27 days, making a clean time-based train/test split nearly impossible without discarding most rows. Weekly snapshots reduce the overlap to 21 days but still require wide gap-based splits. Monthly snapshots solve the problem cleanly: the 28-day outcome window fits inside the one-month gap between snapshot dates, so every row has a non-overlapping outcome window and a clean boundary can be drawn at a single calendar date.
+Snapshot dates fall on the last calendar day of each month: January 31, February 28, March 31, and so on through the full 14-month ledger period. Monthly boundaries align with how commercial field planning actually runs: rep territory cycles, promotional budgets, and speaker-program calendars all operate on monthly rhythms. Daily snapshots would produce far more training rows, but a 28-day outcome window means consecutive daily snapshots would have outcome windows that overlap by 27 days, making a clean time-based train/test split nearly impossible without discarding most rows. Weekly snapshots reduce the overlap to 21 days but still require wide gap-based splits. Monthly snapshots solve the problem cleanly: the 28-day outcome window fits inside the one-month gap between snapshot dates, so every row has a non-overlapping outcome window and a clean boundary can be drawn at a single calendar date.
 
 For the February 28 snapshot, the 90-day feature window runs from December 1 through February 28 inclusive; the 28-day outcome window runs from March 1 through March 28. Events on the snapshot date are included in the feature window and never in the outcome window, so there is no same-day leakage.
 
@@ -358,7 +358,7 @@ A negative coefficient does not mean the feature is unimportant; it means higher
 
 ### 8.3.2 Channel Order and Sequence Effects (LSTM and Transformer)
 
-HCP0280 reached this snapshot after a field response, an email open, and a web qualified action, in that order. That sequence is not arbitrary. The synthetic data plants a field-then-digital effect: rows with a field response in the prior 90 days respond at 60.3% over the next 28 days, against 55.4% without one. To verify the planted signal and quantify the AUC gain from adding sequence features, Listing 8.10 builds two logistic regression models. `aggregate_only` trains on four aggregate features: `total_pressure_90`, `shrunken_response_rate_90`, `evidence_need_score`, and `access_resource_score`. `aggregate_plus_sequence` adds the two handcrafted sequence features — `field_then_digital` and `repeated_email` — bringing the feature count to six. The first output table confirms the 60.3% vs 55.4% response rate split among Email/Web last-channel rows; the second compares test AUC for the two models. The 0.707 → 0.714 improvement reflects both sequence features combined; `repeated_email` contributes but is not broken out separately. The response rate table comes from `field_then_digital_contrast()` and the AUC comparison from `sequence_feature_model()`, both in `modern_methods.py`.
+HCP0280 reached this snapshot after a field response, an email open, and a web qualified action, in that order. That sequence is not arbitrary. The synthetic data plants a field-then-digital effect: rows with a field response in the prior 90 days respond at 60.3% over the next 28 days, against 55.4% without one. To verify the planted signal and quantify the AUC gain from adding sequence features, Listing 8.10 builds two logistic regression models. `aggregate_only` trains on four aggregate features: `total_pressure_90`, `shrunken_response_rate_90`, `evidence_need_score`, and `access_resource_score`. `aggregate_plus_sequence` adds the two handcrafted sequence features, `field_then_digital` and `repeated_email`, bringing the feature count to six. The first output table confirms the 60.3% vs 55.4% response rate split among Email/Web last-channel rows; the second compares test AUC for the two models. The 0.707 to 0.714 improvement reflects both sequence features combined; `repeated_email` contributes but is not broken out separately. The response rate table comes from `field_then_digital_contrast()` and the AUC comparison from `sequence_feature_model()`, both in `modern_methods.py`.
 
 **Listing 8.10**: Compare response rates by recent field response and sequence model AUC gain
 
@@ -389,7 +389,7 @@ The gain is real but modest. Handcrafted sequence features work when the relevan
 
 **When aggregate features are enough.** The 19 aggregate features already capture how much activity occurred in each channel window. For most commercial HCP populations, frequency and recency of contact explain more variance than exact ordering. Aggregate counts are interpretable, fast to compute, and stable across data volumes. If the model's lift curve is monotone and top-decile separation is adequate for the planning decision, there is no reason to add sequence complexity.
 
-**When to consider a recurrent model.** A recurrent neural network, typically an LSTM, replaces the handcrafted sequence features with a learned encoder. The model reads each HCP's event history as an ordered sequence of (channel, date, response) tuples, updates a hidden state after each event, and passes the final state to a prediction head. This lets the model learn that "field → email click" two weeks apart predicts differently from "email click → field" in the same window, without being told which orderings matter. RNNs handle variable-length histories naturally and are a reasonable step up from aggregate logistic regression when event histories are long (more than 10–15 events per HCP) and labeled data is sufficient for a small sequence model (several thousand labeled rows with meaningful outcome variance). The practical limitation is gradient flow: information from early events degrades as sequence length grows, and training must process events step by step rather than in parallel, slowing iteration.
+**When to consider a recurrent model.** A recurrent neural network, typically an LSTM, replaces the handcrafted sequence features with a learned encoder. The model reads each HCP's event history as an ordered sequence of (channel, date, response) tuples, updates a hidden state after each event, and passes the final state to a prediction head. This lets the model learn that "field to email click" two weeks apart predicts differently from "email click to field" in the same window, without being told which orderings matter. RNNs handle variable-length histories naturally and are a reasonable step up from aggregate logistic regression when event histories are long (more than 10 to 15 events per HCP) and labeled data is sufficient for a small sequence model (several thousand labeled rows with meaningful outcome variance). The practical limitation is gradient flow: information from early events degrades as sequence length grows, and training must process events step by step rather than in parallel, slowing iteration.
 
 **When to consider a transformer.** A transformer processes the full event history in parallel through self-attention, allowing each event to attend directly to any earlier event regardless of distance. This eliminates the gradient degradation of RNNs and enables parallel training across the full sequence. In the omnichannel context, self-attention can learn that a live-program attendance two months ago is more predictive than an email open last week for a specific HCP segment, a cross-time dependency that aggregate counts and RNNs do not discover efficiently. Transformers require more labeled data and more tuning than logistic regression or LSTMs, but pre-trained medical-event and claims-event transformers are increasingly available as starting points for fine-tuning on commercial response outcomes.
 
@@ -502,66 +502,38 @@ $$
 
 Applied to the two HCP types: a Sure Thing might score 80% from the action model and 80% from the control model, with uplift near zero. A Persuadable might score 60% from the action model and 45% from the control, with uplift of 15 points. The Sure Thing has the higher raw response probability; the Persuadable has the higher expected change. Scarce program invitations should follow expected change after eligibility and compliance rules are satisfied.
 
-`uplift_segment_summary()`, `uplift_qini()`, and `uplift_diagnostics()` in `modern_methods.py` implement the T-learner and produce the ranking comparisons in Listings 8.13–8.14.
+`uplift_segment_summary()`, `uplift_ranking_comparison()`, and `uplift_diagnostics()` in `modern_methods.py` implement the T-learner and produce the ranking comparisons in Listings 8.13 and 8.14.
 
 **Listing 8.13**: Estimate uplift and contrast it with response
 
 ```python
 segments = results["uplift_segment_summary"].copy()
-for col in ["mean_uplift", "response_rate", "mean_baseline_response"]:
+for col in ["response_rate", "mean_baseline_response",
+            "mean_predicted_response_if_contacted", "mean_uplift"]:
     segments[col] = segments[col].map(lambda x: f"{x:.1%}")
 print(segments.to_string(index=False))
 ```
 
 ```text
-uplift_segment  snapshots mean_uplift response_rate mean_baseline_response
-          High        356       13.6%         45.5%                  42.9%
-      Mid-high        355       10.4%         49.0%                  47.0%
-       Mid-low        355        7.9%         66.2%                  55.7%
-           Low        356        4.7%         68.5%                  65.8%
+uplift_segment  snapshots response_rate mean_baseline_response mean_predicted_response_if_contacted mean_uplift
+          High        285         45.3%                  43.0%                                57.0%       14.0%
+      Mid-high        284         45.4%                  45.2%                                56.3%       11.1%
+           Mid        284         60.9%                  50.6%                                59.8%        9.1%
+       Mid-low        284         67.6%                  58.8%                                65.8%        7.0%
+           Low        285         67.4%                  66.5%                                70.8%        4.3%
 ```
 
-The uplift ranking inverts the priority list. `response_rate` is the observed response in the historical mix of contacted and uncontacted rows. `mean_baseline_response` is the control model's predicted response without program contact. `mean_uplift` is the average model-predicted difference between contact and no contact, `p1 - p0`. The high-uplift segment responds at 45.5% with a 42.9% baseline, but its estimated uplift is 13.6% because the action model predicts 56.5% response for the same rows under program contact. The low-uplift segment responds at 68.5% with a higher 65.8% baseline. Ranking by response sends programs to HCPs who would respond anyway. Ranking by uplift sends them where behavior moves.
+The uplift ranking inverts the priority list. `response_rate` is the observed response in the historical mix of contacted and uncontacted rows. `mean_baseline_response` is the control model's predicted response without program contact (`p0`). `mean_predicted_response_if_contacted` is the action model's predicted response under program contact (`p1`). `mean_uplift` is the average difference, `p1 - p0`. The high-uplift segment responds at 45.3% with a 43.0% baseline, but the action model predicts 57.0% response for those same rows under program contact, giving a 14.0% estimated uplift. The low-uplift segment responds at 67.4% with a 66.5% baseline and 70.8% predicted if contacted: program contact moves them only 4.3 points because they are close to their ceiling. Ranking by response sends programs to HCPs who would respond anyway. Ranking by uplift sends them where behavior changes by program contact.
 
-A cumulative check confirms the ranking does its job. A Qini curve sorts HCP-account rows by a ranking score, then walks down the list and measures the treated-minus-untreated response gap after each larger slice is included. A useful uplift ranking keeps that gap high before the whole population is included.
+Figure 8.4 makes the geometry of the two rankings visible in the same coordinate space.
 
-**Listing 8.14**: Compare uplift ranking with response ranking
+![Figure 8.4. Each point is one HCP-account snapshot plotted by its control-model score (p0, x-axis) and action-model score (p1, y-axis). Color shows estimated uplift. The dotted diagonal is the zero-uplift line where p1 = p0. The gold band selects the top 20% by p0 (response ranking). The green region selects the top 20% by p1 − p0 (uplift ranking). The two selections share only 3 of 284 rows. Synthetic data.](assets/figures/figure_8_4_uplift.svg)
 
-```python
-qini = results["uplift_qini"].copy()
-print(qini.round(3).to_string(index=False))
-diagnostics = results["uplift_diagnostics"].copy()
-for col in [c for c in diagnostics.columns if "snapshots" not in c]:
-    diagnostics[col] = diagnostics[col].map(lambda x: f"{x:.1%}")
-print(diagnostics.T)
-```
+*Figure 8.4. Each point is one HCP-account snapshot plotted by its control-model score (p0, x-axis) and action-model score (p1, y-axis). Color shows estimated uplift. The dotted diagonal is the zero-uplift line where p1 = p0. The gold band selects the top 20% by p0 (response ranking). The green region selects the top 20% by p1 − p0 (uplift ranking). The two selections share only 3 of 284 rows. Synthetic data.*
 
-```text
-        ranking  targeted_fraction  snapshots  incremental_response
-  uplift_ranked                0.2        284                 0.104
-  uplift_ranked                0.4        569                 0.150
-  uplift_ranked                0.6        853                 0.173
-  uplift_ranked                0.8       1138                 0.176
-  uplift_ranked                1.0       1422                 0.170
-response_ranked                0.2        284                 0.108
-response_ranked                0.4        569                 0.099
-response_ranked                0.6        853                 0.088
-response_ranked                0.8       1138                 0.144
-response_ranked                1.0       1422                 0.170
-                                     0
-treated_snapshots                  782
-control_snapshots                  640
-naive_treated_minus_control      17.0%
-mean_estimated_uplift             9.1%
-observed_uplift_top_quartile     14.4%
-observed_uplift_bottom_quartile   7.3%
-```
+Response ranking draws a vertical cutoff: select everyone whose baseline response is already high. That sweeps in the Sure Things on the right: HCPs with a 72.4% mean baseline and only 5.7% mean estimated uplift. Uplift ranking draws a diagonal cutoff: select everyone far above the zero-uplift line regardless of where they sit horizontally. That sweeps in the Persuadables on the upper-left: HCPs with a 42.9% mean baseline whose action model predicts 57.0% response under program contact, giving 14.1% mean estimated uplift. Both rankings select 284 rows and agree on only 3 (1%): they are targeting almost entirely different HCPs. This teaching model uses synthetic data; a real launch should confirm the ranking with a randomized holdout before reallocating program budget.
 
-![Figure 8.4. Uplift ranking keeps the treated-minus-untreated response gap above response ranking through most of the target list. Synthetic data.](assets/figures/figure_8_4_uplift.svg)
-
-*Figure 8.4. Uplift ranking keeps the treated-minus-untreated response gap above response ranking through most of the target list. Synthetic data.*
-
-At the top 20% of HCP-account rows, response ranking is slightly higher than uplift ranking, 10.8% versus 10.4%. After that point, response ranking falls as it adds high-probability rows with less incremental movement. By 80% of rows, uplift ranking captures a 17.6% treated-minus-untreated gap, compared with 14.4% for response ranking. Both curves meet at 17.0% when every row is included. The diagnostics confirm recovery: the naive treated-minus-control difference is 17.0%, mean estimated uplift is 9.1%, and the model's top-uplift quartile shows a 14.4% observed gap against 7.3% in the bottom quartile. This teaching model uses synthetic data; a real launch should confirm the ranking with a randomized holdout before reallocating program budget.
+> **Note on scale.** The scatter axes run from 25% to 90% because the synthetic data is calibrated toward higher response rates to keep the teaching signal visible (see the note in Section 8.2). In a real omnichannel dataset, field meaningful response rates typically sit in the 20% to 40% range and email click rates in the low single digits; the cloud of dots would compress to the lower-left corner of the chart. The geometric structure is preserved regardless of the absolute scale.
 
 ### 8.4.3 Credit, Lift, and Cost
 
@@ -628,145 +600,27 @@ Read the table left to right. Field and email carry almost the same credit, 17.3
 
 The budget decision uses all 3 columns. Email is cheap, so even a small incremental return can support broad use. Field is costly, so it belongs in the few rows whose uplift justifies $225 a touch. Channels with no measurable lift are candidates to reduce, whatever the credit dashboard says.
 
-## 8.5 Release a Governed Plan
+## 8.5 Off-Policy Evaluation
 
-### 8.5.1 Channel Policy and the Plan
+You have designed a new channel allocation rule: route high-access-need HCPs to account support, high-evidence-need HCPs to field, digital responders to email, and everyone else to observe. Before deploying it live, you need to know whether it would perform better. The difficulty is that you have outcome records only for the actions your current policy actually took. For the decisions where the two policies would disagree, the historical outcome carries no information about what the candidate policy would have achieved.
 
-The fourth rung is prescriptive. The signals from the first three acts become a capacity-bound plan, and they pass through policy boundaries first. The 4-week policy applies constraints in a fixed order:
+Off-policy evaluation, or OPE, estimates the value of a candidate policy using data logged by a different policy. In reinforcement learning language, the historical policy is the behavior or logging policy, written as $\pi_b$. The new rule is the evaluation or target policy, written as $\pi_e$. In this chapter, $\pi_b$ is the channel pattern already present in the event history, and $\pi_e$ is the candidate channel rule we want to test offline.
 
-1. Suppress records without engagement permission or with an engagement hold.
-2. Route access work before promotional selection.
-3. Pause promotion at high recent pressure.
-4. Use observed response and the model score inside the remaining priority set.
-5. Release the action with a reason code, cycle cap, measurement hook, and refresh date.
+The commercial reason is straightforward. A live channel-policy test changes which HCP-account rows get field, email, account support, or no contact. That can affect customers, budgets, field workload, and measurement. OPE gives the analytics team a readiness check before the new rule enters a live experiment.
 
-Permission, access, and pressure are policy boundaries. The response score is applied after those checks pass, and the selected channel follows the HCP's own response history.
+The first requirement is overlap. OPE looks for rows where the candidate policy would have chosen the same action that the logged policy actually took. For those rows, the observed response is usable evidence for the candidate. Rows where the policies disagree cannot reveal what would have happened under the candidate action. The more the two policies disagree, the thinner the evidence becomes.
 
-`build_channel_plan()` in `policy.py` runs the five-step gate sequence. `channel_affinity_trace()` in `economics.py` computes the digital and field response rates used for channel selection (Listing 8.17). `plan_summary()` in `policy.py` aggregates the released plan (Listing 8.18). `capacity_value_summary()` in `run_analysis.py` benchmarks model-ranked selection against territory order (Listing 8.19).
+There are 2 common estimator families. Importance sampling reweights observed rewards by how likely the logged action would be under $\pi_e$ compared with $\pi_b$. In this chapter the candidate is deterministic, so matched rows receive inverse logging-probability weight and non-matches receive weight 0. Importance sampling is unbiased when the logging probabilities are correct and every candidate action has support in the log, but it can become unstable when a rare logged action receives a large weight.
 
-**Listing 8.17**: Trace channel affinity into the recommended channel
+The direct method fits a reward model from logged data, then scores the action the candidate would take for each HCP-account row. It is usually more stable than importance sampling, but it depends on the model being right. Doubly robust estimation combines the two ideas: start with the reward-model prediction under the candidate action, then add an importance-weighted correction where the logged action matches the candidate action. A doubly robust estimate can remain valid if either the reward model or the action weights are well specified.
 
-```python
-aff = results["channel_affinity"].copy()
-for col in ["digital_response_rate", "field_response_rate"]:
-    aff[col] = aff[col].map(lambda x: f"{x:.0%}")
-print(aff.to_string(index=False))
-```
+Self-normalized inverse-propensity scoring (SNIPS) is the stabilized importance-sampling estimate used for the main printed comparison. It divides by the empirical sum of the weights, which reduces variance when overlap is thin. The tradeoff is a small bias in exchange for a more stable estimate.
 
-```text
-       npi digital_response_rate field_response_rate  channel_affinity last_response_channel recommended_channel
-9000000280                   26%                 84%   Field responder                   Web                None
-9000000389                   77%                 32% Digital responder                 Field                None
-9000000582                   12%                 88%   Field responder                 Field                None
-```
+![Figure 8.6. Off-policy evaluation compares a candidate policy against logged behavior policy data, uses overlap where the logged and candidate actions agree, and estimates offline value through importance weighting, a reward model, or a doubly robust combination.](assets/figures/figure_8_6_ope_estimators.png)
 
-HCP0389 is a digital responder and lands on email; HCP0582 is a field responder and lands on field. The same gates produce different channels because each HCP carries a stable affinity. HCP0280 is a strong field responder whose recent touches were digital, and it receives no action this cycle. Its model signal was real, but it fell below the territory capacity cutoff, which the plan now shows.
+*Figure 8.6. Off-policy evaluation compares a candidate policy against logged behavior policy data, uses overlap where the logged and candidate actions agree, and estimates offline value through importance weighting, a reward model, or a doubly robust combination.*
 
-**Listing 8.18**: Summarize the released plan
-
-```python
-plan = results["plan_summary"].copy()
-plan["mean_score"] = plan.mean_predicted_response.map(lambda x: f"{x:.1%}")
-print(plan[
-    ["recommended_action", "relationships", "planned_contacts", "mean_score"]
-].rename(columns={
-    "relationships": "hcp_account_rows",
-    "planned_contacts": "planned_engagements",
-}))
-```
-
-```text
-           recommended_action  hcp_account_rows  planned_engagements mean_score
-0                     Observe                61                    0      58.6%
-1                    Suppress                46                    0      51.0%
-2         Access coordination                35                   35      66.5%
-3             Email follow-up                 6                   12      75.1%
-4     Peer-program invitation                 5                    5      75.1%
-5  Speaker-program invitation                 4                    4      77.8%
-6             Field follow-up                 1                    2      65.9%
-```
-
-![Figure 8.6. Permission, access, pressure, and territory capacity turn 158 HCP-account rows into the governed 4-week channel plan. Synthetic data.](assets/figures/figure_8_6_channel_plan.svg)
-
-*Figure 8.6. Permission, access, pressure, and territory capacity turn 158 HCP-account rows into the governed 4-week channel plan. Synthetic data.*
-
-After the policy gates run, 46 HCP-account rows are suppressed for permission, 35 route to access coordination, and 61 remain under observation because of recent pressure, limited response history, or capacity. Territory capacity leaves 16 rows with a promotional action. Model-ranked selection captures more expected response than territory order for the same 16 slots.
-
-**Listing 8.19**: Compare model-ranked capacity with a baseline
-
-```python
-value = results["capacity_value"].copy()
-value["expected_responses"] = value.expected_responses.map(lambda x: f"{x:.2f}")
-value["mean_score"] = value.mean_predicted_response.map(lambda x: f"{x:.1%}")
-print(value[[
-    "selection_rule", "relationships",
-    "expected_responses", "mean_score",
-]].rename(columns={"relationships": "hcp_account_rows"}))
-```
-
-```text
-             selection_rule  hcp_account_rows expected_responses mean_score
-0              model_ranked                16              12.03      75.2%
-1  territory_order_baseline                16              11.41      71.3%
-```
-
-Selecting the same 16 territory slots by model rank captures 1.28 more expected responses than territory order. Five trace rows show how the gates resolve at the HCP-account level.
-
-```python
-ids = ["9000000174", "9000000239", "9000000280", "9000000430", "9000000469"]
-cols = ["npi", "account_id", "recommended_action", "reason_code"]
-traces = results["channel_plan"].loc[
-    results["channel_plan"].npi.isin(ids), cols
-].sort_values("npi").reset_index(drop=True)
-print(traces)
-```
-
-```text
-          npi  ...                       reason_code
-0  9000000174  ...  CAPACITY_RANKED_DIGITAL_RESPONSE
-1  9000000239  ...     CAPACITY_RANKED_PEER_RESPONSE
-2  9000000280  ...     OBSERVE_BELOW_CAPACITY_CUTOFF
-3  9000000430  ...             ROUTE_ACCESS_BOUNDARY
-4  9000000469  ...               SUPPRESS_PERMISSION
-
-[5 rows x 4 columns]
-```
-
-HCP0280 stays under observation below the capacity cutoff. HCP0239 ranks into a speaker-program invitation, HCP0430 routes to access coordination, and HCP0469 is suppressed for permission. The reason code names the controlling gate.
-
-### 8.5.2 Measurement Contract
-
-A plan needs its measurement design before execution begins. The `measurement_hook` field names the observable event for each action.
-
-| Action type | Measurement hook |
-| --- | --- |
-| Email follow-up | delivery and click |
-| Field follow-up | completed interaction and outcome |
-| Peer or speaker invitation | registration, attendance, and follow-up |
-| Access coordination | access-state change and resolved prescription attempts |
-| Suppression | compliance check |
-
-These hooks support execution checks. Incrementality requires an eligible control group. A practical test randomizes among HCP-account rows that passed the same permission, access, pressure, and priority rules. The primary result is the difference in the prespecified later outcome between assigned action and holdout. Assignment, eligibility, exposure, outcome window, and exclusions stay fixed before launch. When the response model selects treatment, it ceases to be proof that treatment worked.
-
-The measurement contract has 5 fields:
-
-| Field | Meaning in this case |
-| --- | --- |
-| Eligibility | passed permission, access, pressure, and capacity gates |
-| Assignment | action or holdout before the cycle begins |
-| Exposure | delivered channel event that matches the assigned action |
-| Outcome | meaningful response in the next 28 days |
-| Exclusion | prelisted records removed after assignment, such as permission loss |
-
-That contract protects the result from post-cycle editing. A team can otherwise keep changing the eligible set, outcome window, or channel definition until the result looks useful.
-
-### 8.5.3 Off-Policy Evaluation
-
-The released 4-week policy is a fixed rule set. A candidate policy may be worse, and testing it live is expensive. Off-policy evaluation estimates the candidate's value from the logged history of the current policy before any live test. The whole method rests on overlap: a logged reward can evaluate the candidate only when the historical action matches what the candidate would have done for the same context.
-
-A candidate policy that chooses account support for high access need, field for high clinical evidence need, email for high digital response, and observe otherwise can be scored against the log. Self-normalized inverse-propensity scoring (SNIPS) reweights each matched reward by the inverse of its logging probability and normalizes by the sum of weights, which keeps the estimate stable under thin overlap.
-
-`off_policy_evaluation()` in `modern_methods.py` applies SNIPS reweighting and returns the matched-snapshot count alongside the effective sample size (Listing 8.20). `off_policy_support()` from the same module breaks down the action overlap by logged-versus-candidate pair (Listing 8.21).
+`off_policy_evaluation()` in `modern_methods.py` applies IPS, SNIPS, and doubly robust estimation and returns estimated response rates and overlap diagnostics (Listing 8.20). `off_policy_support()` from the same module shows which pairs of logged versus candidate actions drove the overlap (Listing 8.21).
 
 **Listing 8.20**: Estimate the candidate policy and check overlap
 
@@ -788,7 +642,7 @@ print(focus.to_string(index=False))
 candidate_policy          snips                   56.0%                 47                  45.5
 ```
 
-The logged policy delivers 46.8%, and SNIPS puts the candidate higher at 56.2%. The warning is in the last two columns: only 47 of 158 logged decisions match the candidate, and the effective sample size is 45.3. Roughly 45 usable observations stand behind the estimate, far too thin to approve a policy switch.
+The current (logged) policy achieved 48.7% response across all 158 HCP-account rows. SNIPS estimates the candidate policy would reach 56.0%. The right place to look is the last two columns: only 47 of the 158 decisions matched the candidate's choice, and the effective sample size is 45.5. The estimate of 56.0% rests on roughly 45 usable data points, far too few to trust as a basis for switching policies.
 
 **Listing 8.21**: Inspect overlap between logged and candidate actions
 
@@ -810,28 +664,17 @@ logged_action candidate_action  snapshots  responses response_rate
         Field          Observe         12          9         75.0%
 ```
 
-Most rows are mismatches: the candidate action differs from the logged action, leaving those rewards unavailable for direct reuse. The estimate is a readiness check. A production system needs deliberate exploration so future logs carry the overlap an off-policy estimate requires. The full inverse-propensity, self-normalized, and doubly-robust comparison, with the bandit that creates the overlap, belongs in the next-best-action engine. Permission, access, pressure, capacity, and approved-content rules stay outside any learning component and run first.
+Only the first and third rows (Field→Field and Observe→Observe) are matches; the rest are disagreements where the candidate wants a different action than the current policy took. Those disagreement rows are excluded from the estimate. The low overlap explains both the thin effective sample size and the uncertainty behind the 56.0% headline.
+
+An off-policy estimate with thin overlap is a readiness check. It tells you whether the candidate is plausible enough to test live; it does not prove the candidate performs better. To produce more reliable future estimates, the current policy needs a deliberate exploration phase: occasionally taking actions outside its default rule, recording those outcomes, and accumulating the overlap a proper off-policy comparison requires.
 
 ## 8.6 Summary
 
-The opening decision was which engagement action and channel each eligible HCP at an account should receive during the next 4 weeks. The event ledger aligned 10 channel families while preserving source-specific measurement meaning. Past-window snapshots separated source records from later outcomes, and the response model ranked the eligible set with a test AUC of 0.711 and a 1.52x top-quintile lift. Attribution credited field and email near 17% each; the cost view showed that those high-credit channels have very different economics, about $17 per incremental response on email and $12,049 on field. Off-policy evaluation found the logged history too thin to rank a new policy yet.
+The opening decision was which engagement action and channel each eligible HCP at an account should receive during the next 4 weeks. The event ledger unified 10 channel families while preserving each source's distinct measurement meaning. Past-window snapshots kept features and outcomes on opposite sides of the snapshot date, and the response model ranked the eligible set with a test AUC of 0.711 and a 1.52× top-quintile lift.
 
-The policy converted those signals into a capacity-bound plan. Permission suppressed 46 HCP-account rows from action, access needs routed 35 to coordination, and recent pressure, limited response history, and capacity left 61 under observation, HCP0280 among them. Sixteen eligible rows received promotional follow-up with a cycle cap and measurement hook, each routed to the HCP's own responsive channel. The model-ranked capacity rule captured 12.72 expected responses against 11.44 from territory order.
+Attribution credited field and email near 17% each. The cost view showed that those nearly equal credit shares carry very different economics: about $17 per incremental response on email versus $12,049 on field. The uplift model separated Persuadables (HCPs with moderate baseline response who move substantially with the program) from Sure Things who respond regardless and Lost Causes who are unlikely to move.
 
-A next-best-action engine can use this channel plan as input. Its decision is broader: choose one eligible action for one HCP-account row on a recommendation date, record the rejected alternatives, apply action precedence, and expire the recommendation when the state changes. The channel analysis supplies the event ledger, response signals, attribution checks, uplift signal, channel economics, pressure rule, and measurement hook. Next-best-action work adds the candidate action set, hard eligibility gates, action precedence, recommendation audit, expiration logic, and the full off-policy and exploration workflow.
-
-Omnichannel planning starts with a dated HCP-account state and climbs a four-rung ladder to a governed action row.
-
-- Keep source-specific response meaning in the common event ledger, and treat email clicks as stronger signals than opens.
-- Build features from events on or before the snapshot and outcomes from later events, validate on later calendar periods, and check lift, calibration, and the constant-rate baseline together.
-- Shrink sparse per-HCP response rates toward the market-wide rate.
-- Separate the three causal numbers: attribution credit, modeled incremental response, and cost per incremental response. A high-credit channel can still be the wrong place to add budget.
-- Estimate uplift to separate persuadable HCP-account rows from sure things, then confirm with a holdout.
-- Apply permission, access, pressure, and territory capacity before response signals become an action, and route each action to the HCP's own responsive channel.
-- Evaluate a candidate policy off-policy before deployment, report effective sample size, and treat a thin log as a reason to explore.
-- Attach a reason code, cycle cap, measurement hook, version, and refresh date to every action.
-
-> **What you have learned from this chapter:** You can now turn ten channels of raw engagement into one dated HCP-account state, rank an eligible set with a temporally honest response model, and compare path credit, estimated lift, and cost before spending budget. You can release an engagement action only after permission, access, pressure, and capacity checks pass, prefer uplift over predicted response when a program slot is scarce, route each action to the channel an HCP actually responds to, and attach a reason code, frequency cap, measurement hook, rule-set version, and refresh date to every action. You can also read a thin logged history as a reason to explore and run a holdout before trusting an off-policy score.
+Off-policy evaluation tested a candidate channel policy against the logged history before deploying it live. The candidate showed 56.0% versus 48.7% for the current policy, but only 47 of 158 decisions overlapped between the two policies, leaving an effective sample size of 45.5. That is too thin to justify a switch.
 
 ## 8.7 Exercises
 

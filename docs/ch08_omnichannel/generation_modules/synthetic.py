@@ -234,9 +234,7 @@ def _event_fields(
         download_flag = int(meaningful and rng.random() < 0.25)
         followup_requested_flag = int(meaningful and rng.random() < 0.22)
     elif channel == "Direct mail":
-        open_flag = int(delivered and rng.random() < 0.36)
-        click_flag = int(meaningful)
-        landing_visit_flag = int(click_flag)
+        landing_visit_flag = int(meaningful)
         followup_requested_flag = int(meaningful and rng.random() < 0.12)
     elif channel == "Phone":
         if meaningful:
@@ -293,9 +291,8 @@ def _event_fields(
             attendance_flag = 1
             followup_requested_flag = 1
         elif channel == "Direct mail" and forced_outcome == "Qualified action":
-            open_flag = 1
-            click_flag = 1
             landing_visit_flag = 1
+            followup_requested_flag = 1
         elif channel == "Phone":
             field_outcome = forced_outcome
             followup_requested_flag = int(forced_outcome == "Follow-up")
@@ -631,8 +628,12 @@ def build_events(
                 & override_truth["field_outcome"].isin(["Positive", "Follow-up"])
             )
             | (
-                override_truth["channel"].isin(["Email", "Web", "Paid media", "Direct mail"])
+                override_truth["channel"].isin(["Email", "Web", "Paid media"])
                 & override_truth["click_flag"].eq(1)
+            )
+            | (
+                override_truth["channel"].eq("Direct mail")
+                & override_truth["landing_visit_flag"].eq(1)
             )
             | (
                 override_truth["channel"].isin(["Peer program", "Speaker program", "Conference"])

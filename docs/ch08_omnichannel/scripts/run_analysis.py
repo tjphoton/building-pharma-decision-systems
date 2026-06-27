@@ -53,8 +53,9 @@ from ch08_omnichannel.scripts.modern_methods import (  # noqa: E402
     sequence_feature_effects,
     sequence_feature_model,
     uplift_diagnostics,
-    uplift_qini,
+    uplift_ranking_comparison,
     uplift_response_contrast,
+    uplift_scatter_data,
     uplift_segment_summary,
 )
 from ch08_omnichannel.scripts.policy import (  # noqa: E402
@@ -223,7 +224,12 @@ def run_analysis(repo_root: Path) -> dict[str, pd.DataFrame]:
         "uplift_diagnostics": uplift_diagnostics(
             model_results["scored_snapshots"]
         ),
-        "uplift_qini": uplift_qini(model_results["scored_snapshots"]),
+        "uplift_scatter_data": uplift_scatter_data(
+            model_results["scored_snapshots"]
+        ),
+        "uplift_ranking_comparison": uplift_ranking_comparison(
+            model_results["scored_snapshots"]
+        ),
         "policy_evaluation": off_policy_evaluation(
             model_results["scored_snapshots"]
         ),
