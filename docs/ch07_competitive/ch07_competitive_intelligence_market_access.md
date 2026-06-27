@@ -6,7 +6,7 @@ The evidence comes from assembling an effective-dated access landscape, counting
 
 The analysis reuses the synthetic data source and the derived journey and HCP-account outputs, and adds two new tables: a plan-region enrollment count and a weekly formulary-event panel, including the planted PAY004 effect. Open [`chapter7_walkthrough.ipynb`](chapter7_walkthrough.ipynb), or run through the shared analysis entry point.
 
-## 7.1 Teaching Datasets
+## 7.1 Generate Teaching Datasets
 
 Run the blocks in order from the repository root. Generate the supplemental data first:
 
@@ -23,6 +23,8 @@ Wrote Chapter 7-only data to ch07_competitive/data/generated
 ```
 
 The block below loads every input.
+
+`run_analysis()` in `run_analysis.py` orchestrates the full Chapter 7 evidence pipeline—calling `build_policy()` and `covered_lives_summary()` from `policy.py`, `build_attempts()` from `transactions.py`, `build_competitive_starts()` from `cohort.py`, `payer_region_decisions()` from `decomposition.py`, and `controlled_its()` and `synthetic_control()` from `formulary_event.py`—and returns the complete `results` dictionary that every subsequent listing reads. Listing 7.1 calls it here.
 
 **Listing 7.1**: Load the shared analysis results
 
@@ -63,9 +65,11 @@ The 3,415 new-to-therapy patients and 2,798 Roventra starts come from the patien
 > **Note:** All products, patients, payers, accounts, and events here are fictional and synthetic. One formulary event for PAY004 carries a planted effect with a known answer for verifying the measurement code.
 
 
-## 7.2 Effective-Dated Access
+## 7.2 Build Effective-Dated Access
 
 A formulary record carries an effective window, and a plan can revise Roventra's terms mid-year. PAY005 South covered Roventra in January, added a step edit in July, and dropped it to non-covered in October. The access state on any analysis date is the record whose effective window contains that date.
+
+`build_policy()` in `policy.py` merges the effective-dated access history with enrolled lives and formulary status, producing `results["access_history"]`; Listing 7.2 reads it here.
 
 **Listing 7.2**: Select the access record in force on the analysis date
 
@@ -96,6 +100,8 @@ On 2024-12-31, PAY005 South sits behind a non-coverage barrier.
 
 The same selection runs for all 32 cells, three measures summarize the records in force on the analysis date, 2024-12-31: plan-region record coverage (each plan weighted equally), covered lives (each record weighted by enrolled patients), and the access-quality score (each plan weighted by ease of access). The access-quality weights come from the market-sizing analysis: Covered 0.90, Covered with step edit 0.75, Covered with prior authorization 0.65, Non-covered 0.10, same weights we used in the market sizing analysis.
 
+`covered_lives_summary()` in `policy.py` aggregates plan-region records by payer type and access state, producing `results["covered_lives_summary"]`; Listing 7.3 reads it here.
+
 **Listing 7.3**: Plan coverage, covered lives, and access quality
 
 ```python
@@ -121,6 +127,8 @@ Access-quality score:         0.533
 
 The distribution by access state shows where those lives sit.
 
+`restriction_lives()` in `policy.py` counts enrolled lives by access-state category, producing `results["restriction_lives"]`; Listing 7.4 reads it here.
+
 **Listing 7.4**: Lives by access state
 
 ```python
@@ -140,6 +148,8 @@ Prior authorization                  12         4186000       38.3%
 
 A plan that puts Roventra behind step therapy could still win if it puts every competitor behind non-coverage. The relative-position view compares Roventra's access state with its competitor.
 
+`relative_position()` in `policy.py` compares the brand's access tier with the strongest competitor in each payer-region cell, producing `results["relative_position"]`; Listing 7.5 reads it here.
+
 **Listing 7.5**: Relative formulary position against the strongest competitor
 
 ```python
@@ -156,13 +166,15 @@ Brand favored          4
 
 A competitor holds the better formulary position in 20 of 32 cells: Roventra has access disadvantage, contracting's negotiation has some work to do.
 
-## 7.3 Prescription Counts: NBRx, NRx, and TRx
+## 7.3 Measure Prescriptions: NBRx, NRx, and TRx
 
 Competitive share has to be built on new prescription starts. TRx (total prescriptions) counts every Roventra fill, including refills. NRx (new prescriptions) doesn't count refills; it counts each new prescription written, including both patients who are brand-new to the drug and patients restarting after a gap; one patient can generate multiple NRxs over time. NBRx (new-to-brand prescriptions) counts each patient exactly once for a given drug, the first prescription they ever fill for it. A patient who stopped Roventra and restarted generates a new NRx but not a new NBRx. NBRx captures only patients genuinely new to Roventra, making it the right matrics for competitive share. The washout filter in the patient-journey analysis produces the NBRx count by removing any patient with a prior Roventra claim.
 
 ![A timeline for one patient shows three rows. TRx marks every fill including refills. NRx marks the first fill of each episode, including restarts after a gap. NBRx marks only the patient's very first fill ever.](assets/figures/figure_7_1_prescription_types.svg)
 
 *Figure 7.1. TRx grows with every refill. A restart after a treatment gap adds one NRx but no NBRx. NBRx is capped at one per patient per drug. Synthetic data.*
+
+`build_attempts()` in `transactions.py` groups raw pharmacy transactions into attempt chains and produces `results["prescription_attempts"]`; `build_competitive_starts()` in `cohort.py` applies the washout rule and produces `results["corrected_line1"]` and `results["source_of_business"]`. Listing 7.6 reads all three.
 
 **Listing 7.6**: TRx, NRx, and NBRx by brand
 
@@ -208,11 +220,11 @@ Share        100%    81.9%   9.0%    8.9%           0.1%
 
 "All brands" covers the three therapy-class products. TRx and NRx are script counts; NBRx is the washout-corrected new-patient count per drug. Five patients started on Nexoral and Vexpro together. The Share row reads from NBRx: Roventra holds 81.9% of new-to-therapy first regimens.
 
-## 7.4 Access and Adoption
+## 7.4 Separate Access from Adoption
 
 Low Roventra share can have two causes. A coverage barrier or prescribers choose a competitor. To separate the two, the analysis assigns independent access and adoption flags to each payer-region cell.
 
-### 7.4.1 Partial pooling
+### 7.4.1 Partial Pooling
 
 The counts in payer-region cells might be small. A small cell with 7 Rovertra starts out of 9 treatted patients carries less certainty than cell with 88 Roventra starts out of 118 treated patients. This section addresses this issue with a method called partial pooling. The same technique appears in pharmaceutical commercial analytics under several other names: empirical Bayes shrinkage, hierarchical Bayes, or multilevel regression.
 
@@ -239,6 +251,8 @@ $\alpha_0$ and $\beta_0$ are the prior Roventra and competitor pseudo-counts. Wh
 ![A scatter plot of 32 payer-region cells shows raw brand share on the x-axis and pooled posterior share on the y-axis. Points for small cells cluster near the diagonal of the national prior; points for large cells cluster near the no-pooling diagonal.](assets/figures/figure_7_2_partial_pooling.svg)
 
 *Figure 7.2. Each point is one payer-region cell. Small cells (light color) are pulled far toward the 81.9% national prior. Large cells (dark color) stay near the diagonal because local evidence outweighs the prior. Synthetic data.*
+
+`payer_region_decisions()` in `decomposition.py` computes the Beta posterior for each cell and sets the access and adoption flags, producing `results["payer_region_decisions"]`; Listings 7.7 and 7.8 illustrate the partial-pooling calculation and read from that result.
 
 **Listing 7.7**: Shrink two cells toward the national prior
 
@@ -275,7 +289,7 @@ Large cell: raw 74.6%, pooled 76.4%, P(true share < 82%) 95.7%
 The adoption flag uses that posterior probability: a cell is flagged only with at least 30 treated patients and at least 80% posterior probability of trailing the benchmark.
 
 
-### 7.4.2 Payer-Region Routing Flags
+### 7.4.2 Payer-Region Actions
 
 Now in each cell we define an access flag from its policy state and friction, and an adoption flag from the pooled posterior. The conditions:
 
@@ -350,7 +364,7 @@ Adoption review     2
 Dual workstream     1
 ```
 
-## 7.5 Formulary Event Attribution
+## 7.5 Measure the Formulary Event
 
 At week 17 of 2024, PAY004 Northeast moved Roventra from a prior-authorization tier to preferred formulary coverage. PAY004 Northeast carried workable PA-gated coverage before the event: prior-authorization is workable, so it did not trigger an access flag, but Roventra sat at parity with competitors on the formulary and contracting pursued the improvement to open an advantage. The central question is attribution: did Roventra's share in PAY004 Northeast actually rise because of this formulary change, or would share have moved in the same direction anyway, driven by factors affecting every payer in the market at the same time?
 
@@ -360,7 +374,7 @@ The controlled ITS and the synthetic control both estimate that missing counterf
 
 Selecting donors from a larger pool requires three filters before the optimizer runs. Any payer-region that received the same or a related formulary event during the study window is excluded. Donors must be structurally comparable: same payer type, same therapy class, and a share range that brackets the treated unit so the synthetic control interpolates rather than extrapolates. A pre-event parallel-trends check removes candidates whose weekly share moves in a systematically different direction from the treated unit. The convex weight optimization then assigns zero weight to remaining poor matches automatically. PAY006 illustrates this: it was in the donor pool but received zero weight because PAY003 and PAY008 already reconstruct PAY004's pre-event trajectory without it.
 
-### 7.5.1 Controlled interrupted time series
+### 7.5.1 Fit the Controlled Interrupted Time Series
 
 An ITS model fits PAY004's weekly share as a pre-event baseline level and slope, an immediate jump at the event week, and a continued slope change after it. The control term is the mean Roventra share across the three donor payers each week. Adding that mean as a covariate absorbs whatever is driving all payers together; the jump and slope-change terms then measure only what changed for PAY004.
 
@@ -387,6 +401,8 @@ $$
 | $\beta_3$ | Added weekly growth rate after the event |
 | $\beta_4$ | Coefficient on the donor market trend |
 
+`controlled_its()` in `formulary_event.py` fits the interrupted time-series model and produces `results["formulary_event_effect"]`; Listing 7.9 reads it here.
+
 **Listing 7.9**: Report the controlled event effect
 
 ```python
@@ -412,7 +428,7 @@ The model reads a 7.4-point jump at the event and continued growth reaching a 10
 
 *Figure 7.4. The counterfactual (dashed gray) follows the slightly downward class trend the donors carry; PAY004's observed share rises above that baseline after week 17. The lower panel dots show the observed gap each week; the green line is the model's linear estimate, reaching +10.0 points by week 28. Synthetic data.*
 
-### 7.5.2 Synthetic control
+### 7.5.2 Check with Synthetic Control
 
 A synthetic control provides a nonparametric robustness check on the ITS result. The controlled ITS imposes a linear model structure; the synthetic control makes no functional-form assumption. It finds non-negative weights for the three donor payers (PAY003, PAY006, PAY008) that minimize the pre-event tracking error, then projects the weighted blend forward as a data-driven counterfactual. The post-event gap between PAY004 and its weighted-donor twin is the effect estimate. Two methods with different assumptions reaching the same answer reduces the risk that either result is a modeling artifact.
 

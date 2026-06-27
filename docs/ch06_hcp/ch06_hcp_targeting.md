@@ -15,7 +15,7 @@ The analysis produces 4 outputs: an HCP evidence table with attributed patients,
 
 > **Note:** All products, patients, HCPs, accounts, payments, scientific activities, referrals, and events in this chapter are fictional and synthetic.
 
-## 6.1 Supplemental Datasets
+## 6.1 Generate Supplemental Datasets
 
 This analysis uses the same identifiers and source tables from the patient-journey cohort. A chapter-specific generator writes supplemental output data under `ch06_hcp/data/generated/`.
 
@@ -43,6 +43,8 @@ Wrote Chapter 6-only data to ch06_hcp/data/generated
 ```
 
 The generator creates effective-dated affiliations, field-promotion permission, longitudinal HCP events, current treatment state, T2D referral episodes, scientific evidence, medical review, engagement evidence, payment transparency, and territory capacity.
+
+`run_analysis()` in `run_analysis.py` orchestrates the full Chapter 6 evidence pipeline—calling `build_target_universe()`, `compare_attribution_rules()`, `build_hcp_features()`, `build_referral_graph()`, `build_kol_profiles()`, `evaluate_cluster_counts()`, `fit_hcp_segments()`, and `build_call_plan()` from the chapter scripts—and returns the complete `results` dictionary that every subsequent listing reads. Listing 6.1 calls it here.
 
 **Listing 6.1**: Load the complete evidence package
 
@@ -75,7 +77,7 @@ Eligible HCPs                158
 
 The target universe requires relevant specialty, assigned geography, and an active site affiliation as of December 31, 2024. 1,556 of 6,393 (24%) journey patients have their attributed HCP in that universe.
 
-## 6.2 Patient-to-HCP Attribution
+## 6.2 Assign Patients to HCPs
 
 The target list needs one attributed HCP per patient. A patient can see the diagnosing HCP, a frequently visited HCP, and a later specialist during the observation window. We compare 3 rules:
 
@@ -88,6 +90,8 @@ The target list needs one attributed HCP per patient. A patient can see the diag
 The index HCP is the primary rule because the field question starts with the diagnosis event that put the patient into the T2D patient-journey cohort. The plurality rule shifts attribution toward the HCP who handled the most qualifying visits around diagnosis. The latest rule shifts attribution toward the most recent observed relationship before the cutoff.
 
 A sensitivity study runs patient attribution under all three rules to measure how much HCP volume and eligibility move. Switching from index to plurality moves 1,986 patients to a different HCP and changes which 133 HCPs cross the 5-patient floor. Switching from index to latest moves 2,264 patients and changes which 146 HCPs cross that floor. The index rule aligns with the opening business question and is retained.
+
+`compare_attribution_rules()` in `targeting.py` runs all three attribution rules over the journey and attribution-events tables and produces `results["attribution_summary"]`; Listing 6.2 reads it here.
 
 **Listing 6.2**: Measure attribution agreement
 
@@ -123,11 +127,11 @@ patient_id  index_npi plurality_npi latest_npi  all_rules_agree
 ```
 
 
-## 6.3 HCP Evidence Table
+## 6.3 Build the HCP Evidence Table
 
 The 158 eligible HCPs vary widely. Some hold many patients but few are currently in a position where a field conversation might change anything. Others have limited volume but nearly all of it is actionable. Some have opted out of field promotion entirely.
 
-### 6.3.1 HCP signals
+### 6.3.1 Opportunity, Adoption, and Permission
 
 The HCP evidence table has one row per HCP and three signals: how much of the HCP's attributed patient book is actionable, how much of that book is already on Roventra, and whether field promotion is currently permitted.
 
@@ -141,6 +145,8 @@ These two groups combine into a single per-HCP count called review opportunity
 (2) Signal Two: current Roventra share. Review opportunity tells you where the potential lies; Roventra share tells you the starting point. An HCP with low share and high review opportunity looks different from one with high share and little room left to grow.
 
 (3) Signal Three: whether the field can contact the HCP at all. An HCP who opts out of field promotion may still be reachable through other channels.
+
+`build_hcp_features()` in `targeting.py` joins patient attribution, treatment state, and permission data to produce `results["hcp_features"]`; Listing 6.3 reads it here.
 
 **Listing 6.3**: Inspect the highest-volume HCP evidence
 
@@ -174,13 +180,15 @@ The top HCP by volume (36 attributed patients) has 32 in review opportunity and 
 
 Out of the 158 eligible HCPs, the concentration analysis focuses on 112 HCPs with `Allowed` field-promotion status.
 
-### 6.3.2 Cumulative capture curve
+### 6.3.2 Opportunity Concentration
 
 Figure 6.1 shows individual opportunity and permission at the HCP level. The cumulative capture curve in Figure 6.2 shows how much of the total contactable opportunity is covered if the field can only reach a subset of the 112 contactable HCPs this cycle.
 
 The chart ranks the 112 contactable HCPs from highest to lowest review opportunity and adds them one decile at a time. After each decile it shows what percentage of the combined review opportunity across all 112 HCPs is now covered.
 
 The dashed diagonal reference line is the baseline for equal distribution: calling the top 10% of HCPs would capture exactly 10% of opportunity, calling 30% would give 30%, and so on. The actual curve rises steeply above the diagonal because opportunity is concentrated: the top 30% of contactable HCPs (about 34 physicians) cover 54% of the total contactable review opportunity.
+
+`build_decile_summary()` in `targeting.py` ranks the contactable HCPs and computes cumulative opportunity capture, producing `results["decile_summary"]`; Listing 6.4 reads it here.
 
 **Listing 6.4**: Measure opportunity concentration among contactable HCPs
 
@@ -211,11 +219,11 @@ print(deciles[[
 
 *Figure 6.2. The curve starts at (0%, 0%) and rises steeply. The top 30% of contactable HCPs by review opportunity account for 54% of total contactable opportunity. The dashed diagonal shows what equal distribution would look like. Synthetic data.*
 
-## 6.4 Referral Graph and Referral Pathways
+## 6.4 Map Referral Pathways
 
 The HCP evidence table shows how much opportunity each physician holds but not how patients arrive there or who influences the diagnosis and treatment decision upstream. Referral graph analysis traces repeated patient flows through the market.
 
-### 6.4.1 Node, edge, and graph
+### 6.4.1 Build the Referral Graph
 
 Medical claims records identify a source HCP (the referring physician) and a destination HCP (the receiving physician) for each patient transition. Those pairs, along with specialty, account, and visit dates, are the raw material for the graph.
 
@@ -226,6 +234,8 @@ The analysis treats each distinct source–destination pair as a directed edge. 
 *Figure 6.3. Conceptual illustration of the referral graph structure used in this chapter. Nodes A–C are Primary Care physicians (blue), node D is the Endocrinologist hub (gold), and nodes E–F are Cardiologists (green). Arrow width reflects patient count on each edge. Node D has the highest betweenness centrality because it bridges multiple upstream sources to downstream specialists.*
 
 One useful graph metric is betweenness centrality: the HCP with the highest betweenness is the one whose removal would most disrupt patient flow across the network, because they sit on many paths that connect otherwise separate parts of the graph. In this market, that physician is HCP 0217. Listing 6.5 shows all edges connected to that HCP.
+
+`build_referral_graph()` in `referral_network.py` constructs the directed graph and produces `results["referral_edges"]`; `referral_centrality()` in the same module computes betweenness scores and produces `results["referral_metrics"]`. Listing 6.5 reads both.
 
 **Listing 6.5**: Inspect edges for the highest-betweenness HCP
 
@@ -258,9 +268,11 @@ Six primary-care physicians send patients to HCP 0217, and HCP 0217 refers out t
 
 *Figure 6.4. The ego network shows the highest-betweenness HCP and the ten strongest referral edges connected to that physician. Patient count labels each edge. Synthetic data.*
 
-### 6.4.2 Disease Referral Pathways
+### 6.4.2 Referral Flows
 
 Listing 6.6 aggregates the validated referral episodes by specialty pair to show where T2D patient volume actually flows in this market.
+
+`prepare_referral_episodes()` in `referral_network.py` validates and filters the raw referral records into `results["referral_episodes"]`; Listing 6.6 aggregates that table by specialty pair.
 
 **Listing 6.6**: Aggregate referral flow by specialty pair
 
@@ -284,7 +296,7 @@ source_specialty destination_specialty  unique_patients
 
 The dominant flow is Primary Care to Endocrinology, carrying 1,348 unique patients. A secondary stream continues from Endocrinology to Cardiology, carrying 311 patients with comorbid cardiovascular disease. Both pathways are large enough to be structurally meaningful for pathway education and continuity review.
 
-## 6.5 KOL Scientific Profiles
+## 6.5 Build KOL Scientific Profiles
 
 Which physicians shape how T2D is understood and treated, through research, congress leadership, peer teaching, or clinical practice? Medical affairs identifies these Key Opinion Leaders (KOLs) from scientific evidence, not commercial signals.
 
@@ -305,6 +317,8 @@ Different roles require different combinations of these domains. An evidence-gen
 | Local practice expert | 70% practice expertise + 30% peer connection |
 
 Each HCP is evaluated against every role formula. The highest-scoring role with a fit score of 65 or above becomes the proposed role and triggers a candidate flag. The score is role-specific: it answers "how well does this HCP fit the evidence-generation collaborator role?" not "how influential is this HCP overall?" There is no universal influence rank.
+
+`build_kol_profiles()` in `kol.py` scores each HCP on the four scientific domains, applies the role-fit formulas, and produces `results["kol_profiles"]`; Listings 6.8 and 6.9 read it here.
 
 **Listing 6.8**: Inspect scientific role candidates
 
@@ -358,7 +372,7 @@ Evidence-generation collaborator    21
 Regional scientific educator        12
 ```
 
-## 6.6 HCP Engagement Profiles
+## 6.6 Segment HCP Engagement Patterns
 
 The HCP opportunity-and-permission table ranks eligible physicians by patient opportunity, current Roventra adoption, and field permission. The referral map shows where patients move. The engagement profile gives the field team the next operating choice: channel sequence, clinical-data emphasis, peer-practice context, and access-resource support.
 
@@ -383,6 +397,8 @@ The K-means algorithm minimizes within-cluster squared distance across these fou
 Here, \(x_i\) is the 4-feature vector for HCP \(i\), \(c(i)\) is the assigned cluster, and \(\mu_{c(i)}\) is the cluster centroid.
 
 The analysis chooses the number of clusters by comparing \(k=3\) through \(k=6\) and selects based on three criteria: silhouette score (how cleanly each HCP fits its cluster compared to the nearest alternative), seed stability (whether the same cluster structure emerges with a different random seed), and bootstrap assignment stability (whether an HCP's cluster assignment is consistent when the fitting sample is resampled). A cluster must also be operationally large enough to be meaningful: at least 10% of the fitted population or 8 HCPs, whichever is larger. Candidate values within 0.02 of the top composite score are compared on bootstrap stability as a tiebreaker.
+
+`evaluate_cluster_counts()` in `segmentation.py` fits k-means for k=3 through k=6 and scores each solution on silhouette, seed stability, and bootstrap ARI, producing `results["cluster_evaluation"]`; Listing 6.10 reads it here.
 
 **Listing 6.10**: Select the number of clusters
 
@@ -425,6 +441,8 @@ After the model chooses \(k=4\), it fits K-means once with 4 clusters. The model
 | Lower evidence need with strong field response | Field maintenance | Maintenance field follow-up |
 | Mixed scores without a dominant pattern | Balanced follow-up | Standard evidence review |
 
+`fit_hcp_segments()` in `segmentation.py` fits the selected k=4 model and assigns engagement profile names, producing `results["segment_profiles"]`; Listing 6.11 reads it here.
+
 **Listing 6.11**: Inspect the operational segment profiles
 
 ```python
@@ -456,7 +474,7 @@ Figure 6.7 shows the four engagement profiles as small-multiples bar charts, one
 
 *Figure 6.7. Each panel is one engagement profile. The dashed line marks 0.5 (mid-range). C0 and C2 both show high evidence-need bars but diverge on which response channel is tall; C1 and C3 both show lower evidence-need bars but split the same way on channel. Synthetic data.*
 
-## 6.7 HCP Selection and the 4-Week Call Plan
+## 6.7 Build the 4-Week Call Plan
 
 The final step converts the HCP evidence table into a territory-reconciled call plan.
 
@@ -478,6 +496,8 @@ For HCPs selected for priority follow-up, the formula for suggested call count i
 \]
 
 The divisor of 8 is a scenario parameter: it represents the approximate number of review-opportunity patients that justify one field call. An HCP with 24 review-opportunity patients suggests 3 calls; an HCP with 4 suggests 1 call (the floor). This allocation is then capped at the HCP's 2-call maximum and the territory's remaining capacity.
+
+`build_call_plan()` in `targeting.py` applies HCP caps, site context, and territory capacity to produce `results["call_plan"]`; Listing 6.12 reads it here.
 
 **Listing 6.12**: Produce the executable field plan
 
