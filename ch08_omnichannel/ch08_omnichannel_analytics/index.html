@@ -1,0 +1,2767 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://tjphoton.github.io/building-pharma-decision-systems/ch08_omnichannel/ch08_omnichannel_analytics/">
+      
+      
+        <link rel="prev" href="../../ch07_competitive/exercise_solutions/">
+      
+      
+        <link rel="next" href="../chapter8_walkthrough/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Omnichannel Analytics: Planning and Attribution - Building Pharmaceutical Decision Systems</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-75R972HVF8"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-75R972HVF8",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-75R972HVF8",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-8-omnichannel-analytics" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Building Pharmaceutical Decision Systems" class="md-header__button md-logo" aria-label="Building Pharmaceutical Decision Systems" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Building Pharmaceutical Decision Systems
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Omnichannel Analytics: Planning and Attribution
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/tjphoton/building-pharma-decision-systems" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Building Pharmaceutical Decision Systems" class="md-nav__button md-logo" aria-label="Building Pharmaceutical Decision Systems" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Building Pharmaceutical Decision Systems
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/tjphoton/building-pharma-decision-systems" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 1
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 1
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch01_intro/ch01_introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A Medicine, a Market, and the Decisions Between Them
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 2
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 2
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch02_ecosystem/ch02_ecosystem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Commercialization Operating System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch02_ecosystem/ch02_appendix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 2 Appendix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 3
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 3
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch03_data/ch03_data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A Synthetic Lab for Real Pharma Questions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch03_data/ch03_appendix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 3 Appendix: Common Data Sources and Synthetic Data Field Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch03_data/chapter3_walkthrough/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Walkthrough Notebook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch03_data/exercise_solutions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercise Solutions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 4
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 4
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch04_market/ch04_market_sizing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Market Sizing and Patient Populations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch04_market/chapter4_walkthrough/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Walkthrough Notebook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch04_market/exercise_solutions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercise Solutions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 5
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 5
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch05_journey/ch05_patient_journey/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Building the Patient Journey: Treatment Patterns, Lines of Therapy, and Persistence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch05_journey/chapter5_walkthrough/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Walkthrough Notebook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch05_journey/exercise_solutions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercise Solutions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 6
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 6
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch06_hcp/ch06_hcp_targeting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HCP Targeting: From Opportunity to Field Action
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch06_hcp/chapter6_walkthrough/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Walkthrough Notebook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch06_hcp/exercise_solutions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercise Solutions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 7
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 7
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch07_competitive/ch07_competitive_intelligence_market_access/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Competitive Intelligence and Market Access
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch07_competitive/chapter7_walkthrough/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Walkthrough Notebook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch07_competitive/exercise_solutions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercise Solutions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 8
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 8
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Omnichannel Analytics: Planning and Attribution
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Omnichannel Analytics: Planning and Attribution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#81-teaching-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 Teaching Data
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#82-prepare-the-modeling-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 Prepare the Modeling Data
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.2 Prepare the Modeling Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#821-the-event-ledger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2.1 The Event Ledger
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#822-past-state-and-later-outcome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2.2 Past State and Later Outcome
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#823-sparse-response-signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2.3 Sparse Response Signals
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#83-the-response-model-from-logistic-regression-to-transformer-sequence-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3 The Response Model: From Logistic Regression to Transformer Sequence Architecture
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.3 The Response Model: From Logistic Regression to Transformer Sequence Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#831-regularized-logistic-regression" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3.1 Regularized Logistic Regression
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#832-channel-order-and-sequence-effects-lstm-and-transformer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3.2 Channel Order and Sequence Effects (LSTM and Transformer)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#84-separate-credit-from-impact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4 Separate Credit from Impact
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.4 Separate Credit from Impact">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#841-attribution-credit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4.1 Attribution Credit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#842-incrementality-who-responds-because-of-us" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4.2 Incrementality: Who Responds Because of Us
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#843-credit-lift-and-cost" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4.3 Credit, Lift, and Cost
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#85-release-a-governed-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.5 Release a Governed Plan
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.5 Release a Governed Plan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#851-channel-policy-and-the-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.5.1 Channel Policy and the Plan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#852-measurement-contract" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.5.2 Measurement Contract
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#853-off-policy-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.5.3 Off-Policy Evaluation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#86-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.6 Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#87-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.7 Exercises
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../chapter8_walkthrough/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Walkthrough Notebook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exercise_solutions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercise Solutions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#81-teaching-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 Teaching Data
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#82-prepare-the-modeling-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 Prepare the Modeling Data
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.2 Prepare the Modeling Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#821-the-event-ledger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2.1 The Event Ledger
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#822-past-state-and-later-outcome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2.2 Past State and Later Outcome
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#823-sparse-response-signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2.3 Sparse Response Signals
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#83-the-response-model-from-logistic-regression-to-transformer-sequence-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3 The Response Model: From Logistic Regression to Transformer Sequence Architecture
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.3 The Response Model: From Logistic Regression to Transformer Sequence Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#831-regularized-logistic-regression" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3.1 Regularized Logistic Regression
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#832-channel-order-and-sequence-effects-lstm-and-transformer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3.2 Channel Order and Sequence Effects (LSTM and Transformer)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#84-separate-credit-from-impact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4 Separate Credit from Impact
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.4 Separate Credit from Impact">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#841-attribution-credit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4.1 Attribution Credit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#842-incrementality-who-responds-because-of-us" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4.2 Incrementality: Who Responds Because of Us
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#843-credit-lift-and-cost" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4.3 Credit, Lift, and Cost
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#85-release-a-governed-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.5 Release a Governed Plan
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.5 Release a Governed Plan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#851-channel-policy-and-the-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.5.1 Channel Policy and the Plan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#852-measurement-contract" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.5.2 Measurement Contract
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#853-off-policy-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.5.3 Off-Policy Evaluation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#86-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.6 Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#87-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.7 Exercises
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="chapter-8-omnichannel-analytics">Chapter 8: Omnichannel Analytics</h1>
+<p>The HCP targeting provides account priority, access flags, and field capacity. The commercial decision now is: what engagement action should run in the next 4 weeks, and on which channel?</p>
+<p>In this chapter, you follow 2 HCPs, HCP0280 and HCP0389, to build the event ledger that unifies ten communication channel systems into a trusted record, a response model that predict responses, an attribution analysis that identifies which past channels are associated with response, uplift analysis that tests whether those channels actually caused it, channel economics that convert causal estimates into cost per incremental response, a governed channel plan, and a measurement contract that feeds the next-best-action engine in the next chapter.</p>
+<p>Open <a href="../chapter8_walkthrough.ipynb"><code>chapter8_walkthrough.ipynb</code></a>, or run the blocks below from the repository root.</p>
+<blockquote>
+<p><strong>Note:</strong> All products, HCPs, accounts, campaigns, and events are fictional and synthetic.</p>
+</blockquote>
+<h2 id="81-teaching-data">8.1 Teaching Data</h2>
+<p>Generate the supplemental engagement records:</p>
+<div class="highlight"><pre><span></span><code>uv<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>ch08_omnichannel/generation_modules/generate_ch08_data.py
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Omnichannel supplemental data
+  engagement_events: 3,650 rows
+  engagement_truth: 3,650 rows
+Wrote omnichannel data to ch08_omnichannel/data/generated
+</code></pre></div>
+<p>The generator reads the existing HCP, account, permission, and access outputs and adds 10 source channels from January 2024 through March 2025: field, approved email, authenticated web, peer program, speaker program, paid media, conference, direct mail, phone, and account support. It also writes an answer-key file with the planted response probabilities, planted live-program treatment effect, planted field-then-digital sequence effect, and machine-open flags. Those answer-key columns stay outside the analysis. They check whether each method recovers a known truth.</p>
+<p>Each monthly snapshot contains one row for one HCP at one affiliated account. Earlier snapshots train the model, and later snapshots test it.</p>
+<p><strong>Listing 8.1</strong>: Load the complete analysis package</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="n">ROOT</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">ROOT</span><span class="p">))</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">ch08_omnichannel.scripts.run_analysis</span><span class="w"> </span><span class="kn">import</span> <span class="n">run_analysis</span>
+
+<span class="n">results</span> <span class="o">=</span> <span class="n">run_analysis</span><span class="p">(</span><span class="n">ROOT</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Ledger events: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;event_ledger&#39;</span><span class="p">])</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;HCP-account snapshots: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;snapshot_panel&#39;</span><span class="p">])</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Planning HCP-account rows: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;channel_plan&#39;</span><span class="p">])</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Ledger events: 3,650
+HCP-account snapshots: 1,422
+Planning HCP-account rows: 158
+</code></pre></div>
+<h2 id="82-prepare-the-modeling-data">8.2 Prepare the Modeling Data</h2>
+<p>Section 8.2 prepares the training data for the response model in section 8.3. The event ledger standardizes measurement across ten source channels. Snapshot features turn event history into model-ready input features and outcome label. Sparse response rate is one of the input features that need to be standardized.</p>
+<h3 id="821-the-event-ledger">8.2.1 The Event Ledger</h3>
+<p>The first step is to turn ten source systems into one trustworthy record. The ledger keeps the source event and the common planning fields. Each source keeps its activity fields.</p>
+<p>The ledger keeps the following source-specific fields for each channel:</p>
+<ol>
+<li><strong>Phone:</strong> interaction outcome and follow-up status</li>
+<li><strong>Email:</strong> delivery, open, click, qualified action, and opt-out</li>
+<li><strong>Direct mail:</strong> delivery, tracked landing visits, and follow-up requests</li>
+<li><strong>Paid media:</strong> impressions, viewable impressions, clicks, landing visits, and downloads</li>
+<li><strong>Web:</strong> impressions, viewable impressions, clicks, landing visits, and downloads</li>
+<li><strong>Peer program (small peer-to-peer education):</strong> invitation, registration, attendance, and follow-up</li>
+<li><strong>Speaker program (formal speaker-led education):</strong> invitation, registration, attendance, and follow-up</li>
+<li><strong>Conference (congress or event engagement):</strong> registration, attendance, content download, and follow-up</li>
+<li><strong>Account support:</strong> access work, transfer status, and resolution</li>
+<li><strong>Field:</strong> interaction outcome and follow-up status</li>
+</ol>
+<p>Conference engagement covers congress, booth, or symposium activity, such as <code>Annual J.P. Morgan Healthcare Conference</code> and <code>ASCO Annual Meeting</code>. Speaker programs are formal brand-run speaker-led events, such as <code>Roventra Clinical Update Series</code>. Peer programs are smaller brand-run peer-to-peer sessions, such as <code>Roventra Clinical Roundtable</code> and <code>Roventra Local Faculty Session</code>.</p>
+<p><code>build_event_ledger()</code> in <code>event_ledger.py</code> constructs the ledger and attaches the channel-specific <code>meaningful_response</code> flag. Listing 8.2 calls <code>channel_delivery_summary()</code> and Listing 8.3 calls <code>email_quality_summary()</code> from the same module.</p>
+<p><strong>Listing 8.2</strong>: Summarize delivery and meaningful response by channel</p>
+<div class="highlight"><pre><span></span><code><span class="n">summary</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;channel_summary&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">summary</span><span class="p">[</span><span class="s2">&quot;response&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">summary</span><span class="o">.</span><span class="n">response_rate_per_delivered</span><span class="o">.</span><span class="n">map</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="p">)</span>
+<span class="n">view</span> <span class="o">=</span> <span class="n">summary</span><span class="p">[</span>
+    <span class="p">[</span><span class="s2">&quot;channel&quot;</span><span class="p">,</span> <span class="s2">&quot;events&quot;</span><span class="p">,</span> <span class="s2">&quot;delivered_events&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;meaningful_responses&quot;</span><span class="p">,</span> <span class="s2">&quot;response&quot;</span><span class="p">]</span>
+<span class="p">]</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;channel&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">view</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>                 events  delivered_events  meaningful_responses response
+channel                                                                 
+Field               815               804                   627    78.0%
+Email               724               712                   499    70.1%
+Web                 420               415                   287    69.2%
+Phone               377               369                   245    66.4%
+Paid media          270               249                   120    48.2%
+Peer program        256               251                   171    68.1%
+Direct mail         246               242                   173    71.5%
+Speaker program     211               206                   142    68.9%
+Conference          184               180                   123    68.3%
+Account support     147               145                    96    66.2%
+</code></pre></div>
+<p><strong>Note:</strong> To keep the teaching signal visible, the synthetic response rates are purposely shifted toward the high end. Real omnichannel response rates are far lower, especially email click rates, which often sit in the low single digits.</p>
+<p><strong>Note:</strong> The <code>meaningful_response</code> flag uses a channel-specific rule: positive or follow-up outcome for field and phone; click for email, web, and paid media; tracked landing visit for direct mail; attendance for peer programs, speaker programs, and conferences; and resolution for account support.</p>
+<p>The ledger keeps the raw intermediate activity metrics: opens, registrations, impressions, landing visits, downloads, follow-up requests, transfers, and resolutions. The code demonstration collapses each source into delivery and meaningful response.</p>
+<p>Each channel also has a measurement failure mode. For example, Apple Mail Privacy Protection can download remote content in the background, so a recorded open may be a machine event. The ledger keeps <code>Opened</code> as a response type and sets <code>meaningful_response = False</code> for this standalone open.</p>
+<p><strong>Listing 8.3</strong>: Compare open and click measures</p>
+<div class="highlight"><pre><span></span><code><span class="n">email</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;email_quality&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">email</span><span class="p">[</span><span class="s2">&quot;rate&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">email</span><span class="o">.</span><span class="n">rate</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">email</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>                         metric  events  base_events   rate
+0                 Raw open rate     626          712  87.9%
+1  Human open rate (answer key)     563          712  79.1%
+2                    Click rate     499          712  70.1%
+3            Click-to-open rate     499          626  79.7%
+</code></pre></div>
+<h3 id="822-past-state-and-later-outcome">8.2.2 Past State and Later Outcome</h3>
+<p>A snapshot is a cross-sectional record for one HCP-account row at a single point in time, capturing everything known up to that moment and labeling whether a meaningful response follows. The feature window looks back from the snapshot date; the outcome window looks forward; the boundary between them is the snapshot date itself, with no event falling in both windows.</p>
+<p>Snapshot dates fall on the last calendar day of each month — January 31, February 28, March 31, and so on through the full 14-month ledger period. Monthly boundaries align with how commercial field planning actually runs: rep territory cycles, promotional budgets, and speaker-program calendars all operate on monthly rhythms. Daily snapshots would produce far more training rows, but a 28-day outcome window means consecutive daily snapshots would have outcome windows that overlap by 27 days, making a clean time-based train/test split nearly impossible without discarding most rows. Weekly snapshots reduce the overlap to 21 days but still require wide gap-based splits. Monthly snapshots solve the problem cleanly: the 28-day outcome window fits inside the one-month gap between snapshot dates, so every row has a non-overlapping outcome window and a clean boundary can be drawn at a single calendar date.</p>
+<p>For the February 28 snapshot, the 90-day feature window runs from December 1 through February 28 inclusive; the 28-day outcome window runs from March 1 through March 28. Events on the snapshot date are included in the feature window and never in the outcome window, so there is no same-day leakage.</p>
+<p><code>build_snapshot_panel()</code> in <code>features.py</code> assembles one row per HCP-account per month, applying these boundary rules. Listing 8.4 traces the raw events for HCP0280 from the event ledger; Listing 8.5 shows the resulting snapshot row.</p>
+<p><strong>Listing 8.4</strong>: HCP0280's past 90-days events</p>
+<div class="highlight"><pre><span></span><code><span class="n">ledger</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;event_ledger&quot;</span><span class="p">]</span>
+<span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;event_date&quot;</span><span class="p">,</span> <span class="s2">&quot;channel&quot;</span><span class="p">,</span> <span class="s2">&quot;response_type&quot;</span><span class="p">,</span> <span class="s2">&quot;meaningful_response&quot;</span><span class="p">]</span>
+<span class="n">trace</span> <span class="o">=</span> <span class="n">ledger</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">ledger</span><span class="o">.</span><span class="n">npi</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s2">&quot;9000000280&quot;</span><span class="p">),</span> <span class="n">cols</span><span class="p">]</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">trace</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>     event_date channel     response_type  meaningful_response
+1690 2025-01-15   Field          Positive                 True
+1691 2025-01-24   Email            Opened                False
+1692 2025-02-10     Web  Qualified action                 True
+</code></pre></div>
+<p><img alt="Figure 8.1. HCP0280's prior 90-day events build the February 28 state. Events above the timeline produced a meaningful response; events below did not. Outcome events after the dashed line are not shown because HCP0280 had none in the next 28 days. Synthetic data." src="../assets/figures/figure_8_1_observation_windows.svg" /></p>
+<p><em>Figure 8.1. HCP0280's prior 90-day events build the February 28 state. Events above the timeline produced a meaningful response; events below did not. Outcome events after the dashed line are not shown because HCP0280 had none in the next 28 days. Synthetic data.</em></p>
+<p><strong>Listing 8.5</strong>: Inspect the feature and outcome boundary</p>
+<div class="highlight"><pre><span></span><code><span class="n">panel</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;snapshot_panel&quot;</span><span class="p">]</span>
+<span class="n">row</span> <span class="o">=</span> <span class="n">panel</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
+    <span class="n">panel</span><span class="o">.</span><span class="n">npi</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s2">&quot;9000000280&quot;</span><span class="p">)</span>
+    <span class="o">&amp;</span> <span class="n">panel</span><span class="o">.</span><span class="n">snapshot_date</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s2">&quot;2025-02-28&quot;</span><span class="p">)</span>
+<span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Snapshot: </span><span class="si">{</span><span class="n">row</span><span class="o">.</span><span class="n">snapshot_date</span><span class="si">:</span><span class="s2">%Y-%m-%d</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Outcome end: </span><span class="si">{</span><span class="n">row</span><span class="o">.</span><span class="n">outcome_end</span><span class="si">:</span><span class="s2">%Y-%m-%d</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;90-day contact pressure: </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">total_pressure_90</span><span class="p">)</span><span class="si">}</span><span class="s2"> events&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Later meaningful response: </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">future_response</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Snapshot: 2025-02-28
+Outcome end: 2025-03-28
+90-day contact pressure: 3 events
+Later meaningful response: 0
+</code></pre></div>
+<p>HCP0280 had 3 events in the prior 90 days, 1 in the prior 30 days, and no meaningful responses in the next 28. Static targeting fields repeat across snapshots; event features are rebuilt as time moves. The 19 features passed to the response model are listed below. Section 8.2.3 explains how the shrunken response rate is computed.</p>
+<table>
+<thead>
+<tr>
+<th>Group</th>
+<th>Feature</th>
+<th>Window</th>
+<th>Unit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Contact pressure</td>
+<td>Total channel touches</td>
+<td>30-day</td>
+<td>Count</td>
+</tr>
+<tr>
+<td>Contact pressure</td>
+<td>Total channel touches</td>
+<td>90-day</td>
+<td>Count</td>
+</tr>
+<tr>
+<td>Contact pressure</td>
+<td>Recency-weighted touches</td>
+<td>90-day</td>
+<td>Weighted count</td>
+</tr>
+<tr>
+<td>Channel activity</td>
+<td>Field meaningful responses</td>
+<td>90-day</td>
+<td>Count</td>
+</tr>
+<tr>
+<td>Channel activity</td>
+<td>Email clicks</td>
+<td>90-day</td>
+<td>Count</td>
+</tr>
+<tr>
+<td>Channel activity</td>
+<td>Web qualified actions</td>
+<td>90-day</td>
+<td>Count</td>
+</tr>
+<tr>
+<td>Channel activity</td>
+<td>Paid-media clicks</td>
+<td>90-day</td>
+<td>Count</td>
+</tr>
+<tr>
+<td>Channel activity</td>
+<td>Live-program attendances</td>
+<td>180-day</td>
+<td>Count</td>
+</tr>
+<tr>
+<td>Channel activity</td>
+<td>Account-support resolutions</td>
+<td>90-day</td>
+<td>Count</td>
+</tr>
+<tr>
+<td>Channel activity</td>
+<td>All-channel engagements</td>
+<td>90-day</td>
+<td>Count</td>
+</tr>
+<tr>
+<td>Response history</td>
+<td>Days since last meaningful response</td>
+<td>All time</td>
+<td>Days</td>
+</tr>
+<tr>
+<td>Response history</td>
+<td>Shrunken response rate</td>
+<td>90-day</td>
+<td>Ratio [0, 1]</td>
+</tr>
+<tr>
+<td>Response history</td>
+<td>Recency-weighted responses</td>
+<td>90-day</td>
+<td>Weighted count</td>
+</tr>
+<tr>
+<td>Response history</td>
+<td>Digital channel response rate</td>
+<td>All time</td>
+<td>Ratio [0, 1]</td>
+</tr>
+<tr>
+<td>Response history</td>
+<td>Field channel response rate</td>
+<td>All time</td>
+<td>Ratio [0, 1]</td>
+</tr>
+<tr>
+<td>Response history</td>
+<td>Last channel to produce a response</td>
+<td>All time</td>
+<td>Category</td>
+</tr>
+<tr>
+<td>Static targeting</td>
+<td>Evidence need score</td>
+<td>Static</td>
+<td>Score [0, 1]</td>
+</tr>
+<tr>
+<td>Static targeting</td>
+<td>Access resource score</td>
+<td>Static</td>
+<td>Score [0, 1]</td>
+</tr>
+<tr>
+<td>Static targeting</td>
+<td>Review opportunity score</td>
+<td>Static</td>
+<td>Score [0, 1]</td>
+</tr>
+</tbody>
+</table>
+<h3 id="823-sparse-response-signals">8.2.3 Sparse Response Signals</h3>
+<p>A single click after one delivered email is a weak signal. A one-event rate carries high uncertainty, so the <code>shrunken_response_rate_90</code> feature pulls each raw per-HCP rate toward the market-wide rate, with the pull strongest when event count is small. The method is the same beta-binomial partial pooling used in the competitive access and adoption (section 7.4.1): a sparse local rate borrows strength from the market prior, while larger samples stay close to their own data. With a market rate of 72% and a prior weight of 8, an HCP with one response in one event moves from 100% to 75%; an HCP with nine responses in nine events moves from 100% to 87%.</p>
+<p><code>response_shrinkage_summary()</code> in <code>features.py</code> applies the beta-binomial shrinkage and selects representative sparse and established rows for inspection.</p>
+<p><strong>Listing 8.6</strong>: Shrink sparse response rates</p>
+<div class="highlight"><pre><span></span><code><span class="n">shrinkage</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;response_shrinkage&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;observed_response_rate_90&quot;</span><span class="p">,</span> <span class="s2">&quot;shrunken_response_rate_90&quot;</span><span class="p">]:</span>
+    <span class="n">shrinkage</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">shrinkage</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">shrinkage</span><span class="p">[</span>
+    <span class="p">[</span><span class="s2">&quot;evidence_level&quot;</span><span class="p">,</span> <span class="s2">&quot;npi&quot;</span><span class="p">,</span> <span class="s2">&quot;meaningful_responses_90&quot;</span><span class="p">,</span> <span class="s2">&quot;total_pressure_90&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;observed_response_rate_90&quot;</span><span class="p">,</span> <span class="s2">&quot;shrunken_response_rate_90&quot;</span><span class="p">]</span>
+<span class="p">]</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>evidence_level        npi  meaningful_responses_90  total_pressure_90 observed_response_rate_90 shrunken_response_rate_90
+        Sparse 9000000008                        1                  1                    100.0%                     71.4%
+        Sparse 9000000085                        1                  1                    100.0%                     71.4%
+        Sparse 9000000122                        1                  1                    100.0%                     71.4%
+   Established 9000000128                        8                  8                    100.0%                     83.9%
+   Established 9000000631                        8                  8                    100.0%                     83.9%
+   Established 9000000462                        3                  8                     37.5%                     52.7%
+</code></pre></div>
+<p>Every one-event HCP-account row at 100% raw lands at 74.7% shrunken, near the market rate. Rows with 8 or 9 responses still shrink and stay closer to their observed result. The shrunken rate is 1 of the 19 predictors listed in section 8.2.2. With the ledger built, features computed, and rates stabilized, the training data is ready for section 8.3.</p>
+<h2 id="83-the-response-model-from-logistic-regression-to-transformer-sequence-architecture">8.3 The Response Model: From Logistic Regression to Transformer Sequence Architecture</h2>
+<p>Section 8.3 builds and evaluates the model that scores each HCP-account row for the likelihood of a meaningful response in the next 28 days. Section 8.3.1 covers the regularized logistic regression: its formula, regularization choice, temporal evaluation design, and how to read the output coefficients. Section 8.3.2 examines channel order effects and the path from the current aggregate baseline to a recurrent or transformer sequence model.</p>
+<h3 id="831-regularized-logistic-regression">8.3.1 Regularized Logistic Regression</h3>
+<p>The model is a regularized logistic regression. The predicted outcome is binary: did a meaningful response occur in the next 28 days? The 19 features from section 8.2 are the inputs, 18 numeric features and 1 categorical response-history field. Logistic regression converts a weighted sum of those features into a response occurrence probability:</p>
+<div class="arithmatex">\[
+p_i = \frac{1}{1 + \exp(-z_i)}, \qquad
+z_i = \beta_0 + \sum_{j=1}^{J}\beta_j x_{ij}
+\]</div>
+<p>For snapshot <span class="arithmatex">\(i\)</span>, each feature <span class="arithmatex">\(x_{ij}\)</span> carries a fitted coefficient <span class="arithmatex">\(\beta_j\)</span> that shifts the log-odds of a later meaningful response up or down. Numeric features are standardized; the last-response-channel categorical feature is one-hot encoded.</p>
+<div class="arithmatex">\[
+\mathcal{L} = -\sum_i \left[y_i \log(p_i) + (1 - y_i)\log(1 - p_i)\right] + \lambda \sum_{j=1}^{J}\beta_j^2
+\]</div>
+<p>In LogisticRegression(C=0.05), C is the inverse of regularization strength in the fitting objective inside scikit-learn, <span class="arithmatex">\(C = 1 / \lambda\)</span>, so <span class="arithmatex">\(C=0.05\)</span> means a stronger penalty on large coefficients. This regularization keeps coefficients stable with 19 inputs across roughly 950 training snapshots.</p>
+<p>This predictive model is not a causal estimate. An HCP with a high score is likely to respond; it may or may not respond because of the next action. That causation link requires the incrementality analysis in section 8.4.2.</p>
+<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.TimeSeriesSplit.html"><code>TimeSeriesSplit</code></a> orders calendar events for training and evaluation. Snapshots through November train the model, December checks the probability scale, and January through February form the test set.</p>
+<p><code>fit_response_model()</code> in <code>modeling.py</code> fits the classifier and produces <code>model_metrics</code>, <code>response_history_baseline</code>, and <code>model_coefficients</code>. Listing 8.8 reads the first two; Listing 8.9 reads the third.</p>
+<p><strong>Listing 8.8</strong>: Review the temporal model test and response-history baseline</p>
+<div class="highlight"><pre><span></span><code><span class="n">metrics</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;model_metrics&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="p">[</span>
+    <span class="s2">&quot;response_rate&quot;</span><span class="p">,</span> <span class="s2">&quot;roc_auc&quot;</span><span class="p">,</span> <span class="s2">&quot;average_precision&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;brier_score&quot;</span><span class="p">,</span> <span class="s2">&quot;base_rate_brier&quot;</span><span class="p">,</span>
+<span class="p">]:</span>
+    <span class="n">metrics</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">metrics</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">metrics</span><span class="p">[[</span>
+    <span class="s2">&quot;split&quot;</span><span class="p">,</span> <span class="s2">&quot;snapshots&quot;</span><span class="p">,</span> <span class="s2">&quot;response_rate&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;roc_auc&quot;</span><span class="p">,</span> <span class="s2">&quot;average_precision&quot;</span><span class="p">,</span>
+<span class="p">]])</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">metrics</span><span class="p">[[</span><span class="s2">&quot;split&quot;</span><span class="p">,</span> <span class="s2">&quot;brier_score&quot;</span><span class="p">,</span> <span class="s2">&quot;base_rate_brier&quot;</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="n">comparison</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;response_history_baseline&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="p">[</span>
+    <span class="s2">&quot;test_auc&quot;</span><span class="p">,</span> <span class="s2">&quot;average_precision&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;brier_score&quot;</span><span class="p">,</span> <span class="s2">&quot;top_20_response_rate&quot;</span><span class="p">,</span>
+<span class="p">]:</span>
+    <span class="n">comparison</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">comparison</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">comparison</span><span class="p">[</span><span class="s2">&quot;top_20_lift&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">comparison</span><span class="o">.</span><span class="n">top_20_lift</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">x&quot;</span><span class="p">)</span>
+<span class="n">comparison</span> <span class="o">=</span> <span class="n">comparison</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span>
+    <span class="s2">&quot;average_precision&quot;</span><span class="p">:</span> <span class="s2">&quot;avg_precision&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;top_20_response_rate&quot;</span><span class="p">:</span> <span class="s2">&quot;top20_rate&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;top_20_lift&quot;</span><span class="p">:</span> <span class="s2">&quot;top20_lift&quot;</span><span class="p">,</span>
+<span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">comparison</span><span class="p">[</span>
+    <span class="p">[</span><span class="s2">&quot;model&quot;</span><span class="p">,</span> <span class="s2">&quot;test_auc&quot;</span><span class="p">,</span> <span class="s2">&quot;avg_precision&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;brier_score&quot;</span><span class="p">,</span> <span class="s2">&quot;top20_rate&quot;</span><span class="p">,</span> <span class="s2">&quot;top20_lift&quot;</span><span class="p">]</span>
+<span class="p">]</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>        split  snapshots  response_rate  roc_auc  average_precision
+0       train        948          0.626    0.667              0.745
+1  validation        158          0.437    0.636              0.533
+2        test        316          0.484    0.711              0.688
+
+        split  brier_score  base_rate_brier
+0       train        0.215            0.234
+1  validation        0.266            0.282
+2        test        0.234            0.270
+
+                    model test_auc avg_precision brier_score top20_rate top20_lift
+               full_model    0.711         0.688       0.234      0.734      1.52x
+response_history_baseline    0.641         0.639       0.281      0.719      1.48x
+</code></pre></div>
+<p>The test area under the ROC curve is 0.711. Average precision is 0.688 against a 48.4% response rate. The Brier score is 0.234, better than the 0.270 constant-rate baseline. Those metrics are good for ranking a constrained planning set, but not an indication that any channel caused the response.</p>
+<p>The <code>brier_score</code> is the mean squared error between each predicted probability and the actual 0/1 outcome, the smaller the better. The <code>base_rate_brier</code> column uses one constant probability for every row, equal to the training-set response rate.</p>
+<p>The response model baseline performance uses only <code>shrunken_response_rate_90</code>, which is the simple rule "prior high responders stay high." The full model improves test AUC from 0.641 to 0.711 and improves Brier score from 0.281 to 0.234. The top-20% response lift changes only from 1.48x to 1.52x, which means past response already carries much of the ranking signal. The model is able to identify high-likelihood response HCPs, then leaves causation and budget movement to uplift and measurement in the next section.</p>
+<p><strong>Listing 8.9</strong>: Inspect top feature effects by standardized coefficient</p>
+<div class="highlight"><pre><span></span><code><span class="n">features</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">results</span><span class="p">[</span><span class="s2">&quot;model_coefficients&quot;</span><span class="p">]</span>
+    <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">abs_coefficient</span><span class="o">=</span><span class="k">lambda</span> <span class="n">frame</span><span class="p">:</span> <span class="n">frame</span><span class="o">.</span><span class="n">coefficient</span><span class="o">.</span><span class="n">abs</span><span class="p">())</span>
+    <span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;abs_coefficient&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="p">)</span>
+<span class="n">features</span><span class="p">[</span><span class="s2">&quot;feature&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">feature</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span>
+    <span class="s2">&quot;last_response_channel_&quot;</span><span class="p">,</span> <span class="s2">&quot;last_channel=&quot;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span>
+<span class="n">features</span><span class="p">[</span><span class="s2">&quot;coefficient&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">coefficient</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">+.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">features</span><span class="p">[</span><span class="s2">&quot;odds_ratio&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">odds_ratio</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">features</span><span class="p">[[</span><span class="s2">&quot;feature&quot;</span><span class="p">,</span> <span class="s2">&quot;coefficient&quot;</span><span class="p">,</span> <span class="s2">&quot;odds_ratio&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>                    feature coefficient odds_ratio
+      access_resource_score      +0.215       1.24
+      digital_response_rate      +0.185       1.20
+live_program_attendance_180      +0.177       1.19
+    last_channel=Paid media      -0.126       0.88
+   last_channel=Direct mail      -0.123       0.88
+        days_since_response      -0.112       0.89
+           last_channel=Web      +0.106       1.11
+         field_responses_90      +0.098       1.10
+</code></pre></div>
+<p>Feature coefficients explain how the model weights inputs to form the ranking. They are associations after regularization, not causal effects: a high score means an HCP is likely to respond, not that the next planned action will cause the response.</p>
+<p>All numeric inputs are standardized before fitting: each coefficient is the log-odds change per one standard deviation, so magnitudes are on a comparable scale across features. The <code>last_response_channel</code> dummies are binary 0/1 and not standardized; their coefficients measure log-odds relative to an implicit reference category: every other last-response channel (field, email, web, phone, and the rest).</p>
+<p>A negative coefficient does not mean the feature is unimportant; it means higher values push the predicted probability down. <code>days_since_response</code> is negative because recency matters: one standard deviation more time since last response reduces the odds of future response by a factor of 0.89. <code>last_channel=Paid media</code> and <code>last_channel=Direct mail</code> are negative relative to the reference group: an HCP whose most recent meaningful response was a paid-media click or a direct-mail reply is predicted to be less likely to respond than one whose last response came through field, email, web, or phone. Those two channels tend to capture lower-intent engagements, so the direction is sensible.</p>
+<h3 id="832-channel-order-and-sequence-effects-lstm-and-transformer">8.3.2 Channel Order and Sequence Effects (LSTM and Transformer)</h3>
+<p>HCP0280 reached this snapshot after a field response, an email open, and a web qualified action, in that order. That sequence is not arbitrary. The synthetic data plants a field-then-digital effect: rows with a field response in the prior 90 days respond at 60.3% over the next 28 days, against 55.4% without one. To verify the planted signal and quantify the AUC gain from adding sequence features, Listing 8.10 builds two logistic regression models. <code>aggregate_only</code> trains on four aggregate features: <code>total_pressure_90</code>, <code>shrunken_response_rate_90</code>, <code>evidence_need_score</code>, and <code>access_resource_score</code>. <code>aggregate_plus_sequence</code> adds the two handcrafted sequence features — <code>field_then_digital</code> and <code>repeated_email</code> — bringing the feature count to six. The first output table confirms the 60.3% vs 55.4% response rate split among Email/Web last-channel rows; the second compares test AUC for the two models. The 0.707 → 0.714 improvement reflects both sequence features combined; <code>repeated_email</code> contributes but is not broken out separately. The response rate table comes from <code>field_then_digital_contrast()</code> and the AUC comparison from <code>sequence_feature_model()</code>, both in <code>modern_methods.py</code>.</p>
+<p><strong>Listing 8.10</strong>: Compare response rates by recent field response and sequence model AUC gain</p>
+<div class="highlight"><pre><span></span><code><span class="n">contrast</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;field_then_digital_contrast&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">contrast</span><span class="p">[</span><span class="s2">&quot;future_response_rate&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">contrast</span><span class="o">.</span><span class="n">future_response_rate</span><span class="o">.</span><span class="n">map</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">contrast</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="n">sequence_models</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;sequence_model_comparison&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">sequence_models</span><span class="p">[</span><span class="s2">&quot;roc_auc&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sequence_models</span><span class="o">.</span><span class="n">roc_auc</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">sequence_models</span><span class="p">[</span><span class="s2">&quot;average_precision&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sequence_models</span><span class="o">.</span><span class="n">average_precision</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sequence_models</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>          recent_field_response  snapshots  future_responses future_response_rate
+Field response in prior 90 days        156                94                60.3%
+       No recent field response        303               168                55.4%
+
+                     model  test_snapshots  roc_auc  average_precision
+0           aggregate_only             427    0.707              0.664
+1  aggregate_plus_sequence             427    0.714              0.670
+</code></pre></div>
+<p>The gain is real but modest. Handcrafted sequence features work when the relevant patterns are known in advance, small in number, and stable over time. They require domain expertise to define: which sequences matter? over what lag?</p>
+<p><strong>When aggregate features are enough.</strong> The 19 aggregate features already capture how much activity occurred in each channel window. For most commercial HCP populations, frequency and recency of contact explain more variance than exact ordering. Aggregate counts are interpretable, fast to compute, and stable across data volumes. If the model's lift curve is monotone and top-decile separation is adequate for the planning decision, there is no reason to add sequence complexity.</p>
+<p><strong>When to consider a recurrent model.</strong> A recurrent neural network, typically an LSTM, replaces the handcrafted sequence features with a learned encoder. The model reads each HCP's event history as an ordered sequence of (channel, date, response) tuples, updates a hidden state after each event, and passes the final state to a prediction head. This lets the model learn that "field → email click" two weeks apart predicts differently from "email click → field" in the same window, without being told which orderings matter. RNNs handle variable-length histories naturally and are a reasonable step up from aggregate logistic regression when event histories are long (more than 10–15 events per HCP) and labeled data is sufficient for a small sequence model (several thousand labeled rows with meaningful outcome variance). The practical limitation is gradient flow: information from early events degrades as sequence length grows, and training must process events step by step rather than in parallel, slowing iteration.</p>
+<p><strong>When to consider a transformer.</strong> A transformer processes the full event history in parallel through self-attention, allowing each event to attend directly to any earlier event regardless of distance. This eliminates the gradient degradation of RNNs and enables parallel training across the full sequence. In the omnichannel context, self-attention can learn that a live-program attendance two months ago is more predictive than an email open last week for a specific HCP segment, a cross-time dependency that aggregate counts and RNNs do not discover efficiently. Transformers require more labeled data and more tuning than logistic regression or LSTMs, but pre-trained medical-event and claims-event transformers are increasingly available as starting points for fine-tuning on commercial response outcomes.</p>
+<h2 id="84-separate-credit-from-impact">8.4 Separate Credit from Impact</h2>
+<h3 id="841-attribution-credit">8.4.1 Attribution Credit</h3>
+<p>A meaningful response usually follows several touches. The same response can be preceded by paid media, email, a field visit, and a web visit. Attribution allocates credit across those recorded touches, and the brand review may read that credit as a budget signal.</p>
+<p>The simplest attribution rules use position in the recorded path. Consider a path where Paid Media leads, then Email, then Field, ending in a response:</p>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>Credit logic</th>
+<th>Who wins this path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>First touch</td>
+<td>100% to the first recorded event</td>
+<td>Paid Media</td>
+</tr>
+<tr>
+<td>Last touch</td>
+<td>100% to the last recorded event</td>
+<td>Field</td>
+</tr>
+<tr>
+<td>Linear</td>
+<td>Equal share across all events</td>
+<td>33.3% each</td>
+</tr>
+<tr>
+<td>Time decay</td>
+<td>More weight to events closer in time</td>
+<td>Field &gt; Email &gt; Paid Media</td>
+</tr>
+</tbody>
+</table>
+<p>All four rules use the same events and the same 90-day window; only the accounting logic changes. <code>attribution_comparison()</code> in <code>sequences.py</code> applies all four rules to the 90-day paths in the event ledger.</p>
+<p><strong>Listing 8.11</strong>: Compare channel credit across heuristic rules</p>
+<div class="highlight"><pre><span></span><code><span class="n">credit</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;attribution&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;channel&quot;</span><span class="p">)</span>
+<span class="n">credit</span> <span class="o">=</span> <span class="n">credit</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span>
+    <span class="s2">&quot;first_touch&quot;</span><span class="p">:</span> <span class="s2">&quot;first&quot;</span><span class="p">,</span> <span class="s2">&quot;last_touch&quot;</span><span class="p">:</span> <span class="s2">&quot;last&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;linear&quot;</span><span class="p">:</span> <span class="s2">&quot;linear&quot;</span><span class="p">,</span> <span class="s2">&quot;time_decay&quot;</span><span class="p">:</span> <span class="s2">&quot;decay&quot;</span><span class="p">,</span>
+<span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">credit</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>                 first  last  linear  decay
+channel                                    
+Email             24.2  21.7    22.2   22.4
+Field             15.9  25.5    20.7   22.1
+Web               11.5  10.8    11.5   10.9
+Phone             14.0   6.4     9.8    8.6
+Peer program       7.6   8.9     9.1    9.6
+Speaker program    7.0   5.7     6.7    6.1
+Paid media         4.5   3.8     5.8    5.4
+Direct mail        9.6   7.6     5.8    5.5
+Conference         3.8   5.7     5.3    5.5
+Account support    1.9   3.8     3.2    4.0
+</code></pre></div>
+<p>Email receives 24.2% of credit under first touch and 21.7% under last touch, because it opens recorded paths more often than it closes them. Field runs the other way: 15.9% under first touch and 25.5% under last touch, because it closes paths more often than it opens them.</p>
+<p>The data-driven alternative models the journey as a chain of channel-to-channel transitions ending in response or nonresponse. The method is a Markov chain removal effect, implemented in three steps. First, every 90-day path is converted into a sequence of transitions: start → channel A → channel B → conversion (or null). Second, those transition counts are normalized into probabilities and assembled into a transition matrix. Solving the fundamental matrix of the absorbing Markov chain gives the baseline conversion probability across all observed paths. Third, for each channel, every transition into and out of that channel is removed from the matrix and the chain is re-solved. The removal effect is the relative drop in conversion probability: a channel that many converting paths pass through will cause a large drop when removed. Credits are the removal effects normalized to sum to 100%.</p>
+<p>An alternative data-driven method is Shapley values, borrowed from cooperative game theory. Shapley treats each channel as a player in a coalition and defines a channel's credit as its average marginal contribution across all possible subsets of channels. It is theoretically more principled but requires evaluating 2ⁿ channel subsets, which is expensive for ten or more channels and demands enough path data to estimate each coalition's conversion rate reliably. Markov removal effect is cheaper, interpretable directly from the observed transition graph, and sufficient for commercial planning decisions where the goal is a relative budget signal rather than a rigorous game-theoretic allocation.</p>
+<p><code>markov_attribution()</code> in <code>sequences.py</code> fits the transition matrix and computes removal effects for all ten channels.</p>
+<p><strong>Listing 8.12</strong>: Allocate credit by Markov removal effect</p>
+<div class="highlight"><pre><span></span><code><span class="n">markov</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;markov_attribution&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">markov</span><span class="p">[</span><span class="s2">&quot;removal_effect&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">markov</span><span class="o">.</span><span class="n">removal_effect</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">markov</span><span class="p">[</span><span class="s2">&quot;markov_credit&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">markov</span><span class="o">.</span><span class="n">markov_credit</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">markov</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>        channel removal_effect markov_credit
+          Field           0.56          17.3
+          Email           0.55          17.0
+            Web           0.39          12.1
+          Phone           0.36          11.2
+   Peer program           0.30           9.2
+Speaker program           0.27           8.3
+    Direct mail           0.23           7.1
+     Conference           0.21           6.5
+     Paid media           0.21           6.4
+Account support           0.16           4.9
+</code></pre></div>
+<p>Email and Field carry the most credit, near 18% each, and conference the least.</p>
+<p><strong>Which rule to use.</strong> First touch and last touch are simple and intuitive but extreme: one channel takes everything. They are useful for focused questions about what started the engagement or what closed it. They are misleading for channels that play a consistent middle role. Linear and time decay spread credit across the path; time decay is appropriate when recent touches are more diagnostic of response. Markov removal effect is the most defensible for data-driven budget reviews because it accounts for the actual frequency and sequence of channel transitions rather than imposing a positional rule. It requires enough path observations to estimate the transition matrix reliably.</p>
+<p>No heuristic rule is causal. First-touch credit for paid media does not mean paid media caused response; it may mean paid media is deployed early in the engagement sequence regardless of outcome. The Markov removal effect is still path accounting. It reflects which channels appear on converting paths, not which channels caused conversion. The next 2 subsections separate path credit from causal contribution and cost.</p>
+<h3 id="842-incrementality-who-responds-because-of-us">8.4.2 Incrementality: Who Responds Because of Us</h3>
+<p>A response model scores who is likely to respond. Attribution scores which channels were present on the path to response. But The million dollar question is: does a specific action, such as a program invitation, an email, or a field visit, change whether this HCP-account row responds at all? Because some HCPs respond regardless, and sending a scarce program invitation to one of them wastes the budget.</p>
+<p>Uplift modeling places every HCP-account row into one of four behavioral types, defined by two questions: would it respond without an action, and does the action change that?</p>
+<p><img alt="Figure 8.2. Four HCP behavioral types in uplift modeling. Arrows show how action changes predicted response: persuadable rows move up, sure things stay high, lost causes stay low, and sleeping dogs move down." src="../assets/figures/figure_8_2_uplift_segments.png" /></p>
+<p><em>Figure 8.2. Four HCP behavioral types in uplift modeling. Arrows show how action changes predicted response: persuadable rows move up, sure things stay high, lost causes stay low, and sleeping dogs move down.</em></p>
+<ul>
+<li><strong>Persuadables</strong> are the primary target. Their baseline response is low, but the action moves them, so every program slot spent here produces genuine incremental return.</li>
+<li><strong>Sure Things</strong> respond at high rates whether contacted or not; sending them a scarce program invitation looks good in a response-rate report but produces little to no incremental change, because they would have responded anyway.</li>
+<li><strong>Lost Causes</strong> respond poorly regardless of what is done; budget spent here generates neither response nor goodwill.</li>
+<li><strong>Sleeping Dogs</strong> are the most counterintuitive segment: their baseline response is high, but an action, particularly an unsolicited outreach, actually reduces their probability of response, perhaps because it disrupts an existing relationship or signals pressure.</li>
+</ul>
+<p>Standard response models find Sure Things and Persuadables alike because Persuadables and Sure Things both score high on predicted response. Sending program invitations to Sure Things produces high observed response rates but no incremental return. To separate them, the analysis compares each row's predicted response <em>with</em> a program against its predicted response <em>without</em> one. That difference is the estimated uplift.</p>
+<p>A T-learner estimates uplift from historical snapshots. The treatment is prior live-program contact. The action model trains on rows with prior live-program contact. The control model trains on rows without it. Both models use only pre-action features. At scoring time, every HCP-account row goes through both models. Let <code>p1</code> be the predicted response with program contact, and let <code>p0</code> be the predicted response without it.</p>
+<div class="arithmatex">\[
+\hat{\tau}_i = \hat{p}_{1i} - \hat{p}_{0i}
+\]</div>
+<p><img alt="Figure 8.3. A T-learner scores the same HCP-account row with action and control models, subtracts p0 from p1, and ranks rows by uplift. Synthetic data." src="../assets/figures/figure_8_3_t_learner.png" /></p>
+<p><em>Figure 8.3. A T-learner scores the same HCP-account row with action and control models, subtracts p0 from p1, and ranks rows by uplift. Synthetic data.</em></p>
+<p>Applied to the two HCP types: a Sure Thing might score 80% from the action model and 80% from the control model, with uplift near zero. A Persuadable might score 60% from the action model and 45% from the control, with uplift of 15 points. The Sure Thing has the higher raw response probability; the Persuadable has the higher expected change. Scarce program invitations should follow expected change after eligibility and compliance rules are satisfied.</p>
+<p><code>uplift_segment_summary()</code>, <code>uplift_qini()</code>, and <code>uplift_diagnostics()</code> in <code>modern_methods.py</code> implement the T-learner and produce the ranking comparisons in Listings 8.13–8.14.</p>
+<p><strong>Listing 8.13</strong>: Estimate uplift and contrast it with response</p>
+<div class="highlight"><pre><span></span><code><span class="n">segments</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;uplift_segment_summary&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;mean_uplift&quot;</span><span class="p">,</span> <span class="s2">&quot;response_rate&quot;</span><span class="p">,</span> <span class="s2">&quot;mean_baseline_response&quot;</span><span class="p">]:</span>
+    <span class="n">segments</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">segments</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">segments</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>uplift_segment  snapshots mean_uplift response_rate mean_baseline_response
+          High        356       13.6%         45.5%                  42.9%
+      Mid-high        355       10.4%         49.0%                  47.0%
+       Mid-low        355        7.9%         66.2%                  55.7%
+           Low        356        4.7%         68.5%                  65.8%
+</code></pre></div>
+<p>The uplift ranking inverts the priority list. <code>response_rate</code> is the observed response in the historical mix of contacted and uncontacted rows. <code>mean_baseline_response</code> is the control model's predicted response without program contact. <code>mean_uplift</code> is the average model-predicted difference between contact and no contact, <code>p1 - p0</code>. The high-uplift segment responds at 45.5% with a 42.9% baseline, but its estimated uplift is 13.6% because the action model predicts 56.5% response for the same rows under program contact. The low-uplift segment responds at 68.5% with a higher 65.8% baseline. Ranking by response sends programs to HCPs who would respond anyway. Ranking by uplift sends them where behavior moves.</p>
+<p>A cumulative check confirms the ranking does its job. A Qini curve sorts HCP-account rows by a ranking score, then walks down the list and measures the treated-minus-untreated response gap after each larger slice is included. A useful uplift ranking keeps that gap high before the whole population is included.</p>
+<p><strong>Listing 8.14</strong>: Compare uplift ranking with response ranking</p>
+<div class="highlight"><pre><span></span><code><span class="n">qini</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;uplift_qini&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">qini</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="n">diagnostics</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;uplift_diagnostics&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">diagnostics</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="s2">&quot;snapshots&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">c</span><span class="p">]:</span>
+    <span class="n">diagnostics</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">diagnostics</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">diagnostics</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>        ranking  targeted_fraction  snapshots  incremental_response
+  uplift_ranked                0.2        284                 0.104
+  uplift_ranked                0.4        569                 0.150
+  uplift_ranked                0.6        853                 0.173
+  uplift_ranked                0.8       1138                 0.176
+  uplift_ranked                1.0       1422                 0.170
+response_ranked                0.2        284                 0.108
+response_ranked                0.4        569                 0.099
+response_ranked                0.6        853                 0.088
+response_ranked                0.8       1138                 0.144
+response_ranked                1.0       1422                 0.170
+                                     0
+treated_snapshots                  782
+control_snapshots                  640
+naive_treated_minus_control      17.0%
+mean_estimated_uplift             9.1%
+observed_uplift_top_quartile     14.4%
+observed_uplift_bottom_quartile   7.3%
+</code></pre></div>
+<p><img alt="Figure 8.4. Uplift ranking keeps the treated-minus-untreated response gap above response ranking through most of the target list. Synthetic data." src="../assets/figures/figure_8_4_uplift.svg" /></p>
+<p><em>Figure 8.4. Uplift ranking keeps the treated-minus-untreated response gap above response ranking through most of the target list. Synthetic data.</em></p>
+<p>At the top 20% of HCP-account rows, response ranking is slightly higher than uplift ranking, 10.8% versus 10.4%. After that point, response ranking falls as it adds high-probability rows with less incremental movement. By 80% of rows, uplift ranking captures a 17.6% treated-minus-untreated gap, compared with 14.4% for response ranking. Both curves meet at 17.0% when every row is included. The diagnostics confirm recovery: the naive treated-minus-control difference is 17.0%, mean estimated uplift is 9.1%, and the model's top-uplift quartile shows a 14.4% observed gap against 7.3% in the bottom quartile. This teaching model uses synthetic data; a real launch should confirm the ranking with a randomized holdout before reallocating program budget.</p>
+<h3 id="843-credit-lift-and-cost">8.4.3 Credit, Lift, and Cost</h3>
+<p>Attribution said email and field each carry about 18% of the credit. Uplift said the highest responders often move the least. One budget input remains: what a touch costs. A channel can dominate the attribution dashboard, drive real incremental response, and still be too expensive to scale broadly.</p>
+<p>The economics table places three numbers side by side for every channel.</p>
+<p><strong>1. Attribution credit</strong> (Markov removal effect): what share of response paths pass through this channel? This is path accounting, not causation.</p>
+<p><strong>2. Incremental response per touch</strong> (<span class="arithmatex">\(\Delta\hat{p}_c\)</span>): the estimated change in predicted response probability when one additional touch from channel <span class="arithmatex">\(c\)</span> is added to a row, holding all other features fixed:</p>
+<div class="arithmatex">\[
+\Delta\hat{p}_c = \hat{p}(\mathbf{x} + \mathbf{e}_c) - \hat{p}(\mathbf{x})
+\]</div>
+<p>where <span class="arithmatex">\(\mathbf{e}_c\)</span> is a unit increment to channel <span class="arithmatex">\(c\)</span>'s touch count. This is observational, not a randomized holdout estimate. It should be confirmed with an experiment before a live budget shift.</p>
+<p><strong>3. Cost per incremental response</strong> (<span class="arithmatex">\(\text{CPI}_c\)</span>): the unit cost of one touch divided by the estimated incremental response it produces:</p>
+<div class="arithmatex">\[
+\text{CPI}_c = \frac{\text{unit cost}_c}{\Delta\hat{p}_c}
+\]</div>
+<p>When <span class="arithmatex">\(\Delta\hat{p}_c \leq 0\)</span>, the channel shows no measurable lift and <span class="arithmatex">\(\text{CPI}_c\)</span> is undefined ("no lift"). Working through two concrete examples from the data: email costs $0.25 per touch with a +0.3 pp incremental response, giving CPI ≈ $73. Field costs $225 per touch with a +1.4 pp incremental response, giving CPI ≈ $16,000. Both channels carry nearly the same attribution credit (≈18%), but their cost structures differ by a factor of 220.</p>
+<p><code>channel_economics()</code> in <code>economics.py</code> joins the Markov credit shares, coefficient-based incremental response estimates, and unit costs into this table.</p>
+<p><strong>Listing 8.16</strong>: Join attribution credit with incremental response and cost</p>
+<div class="highlight"><pre><span></span><code><span class="n">econ</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;channel_economics&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">econ</span><span class="p">[</span><span class="s2">&quot;credit&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">econ</span><span class="o">.</span><span class="n">markov_credit</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+<span class="n">econ</span><span class="p">[</span><span class="s2">&quot;incremental&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">econ</span><span class="o">.</span><span class="n">incremental_per_touch</span><span class="o">.</span><span class="n">map</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="si">:</span><span class="s2">+.1f</span><span class="si">}</span><span class="s2"> pp&quot;</span>
+<span class="p">)</span>
+<span class="n">econ</span><span class="p">[</span><span class="s2">&quot;unit_cost&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">econ</span><span class="o">.</span><span class="n">unit_cost</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;$</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">,.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">econ</span><span class="p">[</span><span class="s2">&quot;cost_per_incremental&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">econ</span><span class="o">.</span><span class="n">cost_per_incremental_response</span><span class="o">.</span><span class="n">map</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;$</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">,.0f</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">notna</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">else</span> <span class="s2">&quot;no lift&quot;</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">econ</span><span class="p">[</span>
+    <span class="p">[</span><span class="s2">&quot;channel&quot;</span><span class="p">,</span> <span class="s2">&quot;credit&quot;</span><span class="p">,</span> <span class="s2">&quot;incremental&quot;</span><span class="p">,</span> <span class="s2">&quot;unit_cost&quot;</span><span class="p">,</span> <span class="s2">&quot;cost_per_incremental&quot;</span><span class="p">]</span>
+<span class="p">]</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>        channel credit incremental unit_cost cost_per_incremental
+          Field  17.3%     +1.9 pp   $225.00              $12,049
+          Email  17.0%     +1.4 pp     $0.25                  $17
+            Web  12.1%     +0.0 pp     $0.12              no lift
+          Phone  11.2%     -2.2 pp    $28.00              no lift
+   Peer program   9.2%     +1.4 pp   $340.00              $24,169
+Speaker program   8.3%     -0.9 pp $1,150.00              no lift
+    Direct mail   7.1%     -2.4 pp     $2.60              no lift
+     Conference   6.5%     +4.4 pp   $760.00              $17,394
+     Paid media   6.4%     +1.0 pp     $1.40                 $142
+Account support   4.9%     -1.3 pp   $130.00              no lift
+</code></pre></div>
+<p><img alt="Figure 8.5. Email, field, and web look different once path credit, adjusted lift, and cost per incremental response are read together. Synthetic data." src="../assets/figures/figure_8_5_cost_per_incremental.svg" /></p>
+<p><em>Figure 8.5. Email, field, and web look different once path credit, adjusted lift, and cost per incremental response are read together. Synthetic data.</em></p>
+<p>Read the table left to right. Field and email carry almost the same credit, 17.3% and 17.0%, while their cost per incremental response is $12,049 against $17. Paid media carries less credit than either, but its low unit cost produces a $142 cost per incremental response. Web, phone, speaker program, direct mail, and account support show no measurable adjusted lift. Their attribution credit reflects position on converting paths, not demonstrated response. Conference earns 6.5% of credit and has a high cost per incremental response at $17,394.</p>
+<p>The budget decision uses all 3 columns. Email is cheap, so even a small incremental return can support broad use. Field is costly, so it belongs in the few rows whose uplift justifies $225 a touch. Channels with no measurable lift are candidates to reduce, whatever the credit dashboard says.</p>
+<h2 id="85-release-a-governed-plan">8.5 Release a Governed Plan</h2>
+<h3 id="851-channel-policy-and-the-plan">8.5.1 Channel Policy and the Plan</h3>
+<p>The fourth rung is prescriptive. The signals from the first three acts become a capacity-bound plan, and they pass through policy boundaries first. The 4-week policy applies constraints in a fixed order:</p>
+<ol>
+<li>Suppress records without engagement permission or with an engagement hold.</li>
+<li>Route access work before promotional selection.</li>
+<li>Pause promotion at high recent pressure.</li>
+<li>Use observed response and the model score inside the remaining priority set.</li>
+<li>Release the action with a reason code, cycle cap, measurement hook, and refresh date.</li>
+</ol>
+<p>Permission, access, and pressure are policy boundaries. The response score is applied after those checks pass, and the selected channel follows the HCP's own response history.</p>
+<p><code>build_channel_plan()</code> in <code>policy.py</code> runs the five-step gate sequence. <code>channel_affinity_trace()</code> in <code>economics.py</code> computes the digital and field response rates used for channel selection (Listing 8.17). <code>plan_summary()</code> in <code>policy.py</code> aggregates the released plan (Listing 8.18). <code>capacity_value_summary()</code> in <code>run_analysis.py</code> benchmarks model-ranked selection against territory order (Listing 8.19).</p>
+<p><strong>Listing 8.17</strong>: Trace channel affinity into the recommended channel</p>
+<div class="highlight"><pre><span></span><code><span class="n">aff</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;channel_affinity&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;digital_response_rate&quot;</span><span class="p">,</span> <span class="s2">&quot;field_response_rate&quot;</span><span class="p">]:</span>
+    <span class="n">aff</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">aff</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.0%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">aff</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>       npi digital_response_rate field_response_rate  channel_affinity last_response_channel recommended_channel
+9000000280                   26%                 84%   Field responder                   Web                None
+9000000389                   77%                 32% Digital responder                 Field                None
+9000000582                   12%                 88%   Field responder                 Field                None
+</code></pre></div>
+<p>HCP0389 is a digital responder and lands on email; HCP0582 is a field responder and lands on field. The same gates produce different channels because each HCP carries a stable affinity. HCP0280 is a strong field responder whose recent touches were digital, and it receives no action this cycle. Its model signal was real, but it fell below the territory capacity cutoff, which the plan now shows.</p>
+<p><strong>Listing 8.18</strong>: Summarize the released plan</p>
+<div class="highlight"><pre><span></span><code><span class="n">plan</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;plan_summary&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">plan</span><span class="p">[</span><span class="s2">&quot;mean_score&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">plan</span><span class="o">.</span><span class="n">mean_predicted_response</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">plan</span><span class="p">[</span>
+    <span class="p">[</span><span class="s2">&quot;recommended_action&quot;</span><span class="p">,</span> <span class="s2">&quot;relationships&quot;</span><span class="p">,</span> <span class="s2">&quot;planned_contacts&quot;</span><span class="p">,</span> <span class="s2">&quot;mean_score&quot;</span><span class="p">]</span>
+<span class="p">]</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span>
+    <span class="s2">&quot;relationships&quot;</span><span class="p">:</span> <span class="s2">&quot;hcp_account_rows&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;planned_contacts&quot;</span><span class="p">:</span> <span class="s2">&quot;planned_engagements&quot;</span><span class="p">,</span>
+<span class="p">}))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>           recommended_action  hcp_account_rows  planned_engagements mean_score
+0                     Observe                61                    0      58.6%
+1                    Suppress                46                    0      51.0%
+2         Access coordination                35                   35      66.5%
+3             Email follow-up                 6                   12      75.1%
+4     Peer-program invitation                 5                    5      75.1%
+5  Speaker-program invitation                 4                    4      77.8%
+6             Field follow-up                 1                    2      65.9%
+</code></pre></div>
+<p><img alt="Figure 8.6. Permission, access, pressure, and territory capacity turn 158 HCP-account rows into the governed 4-week channel plan. Synthetic data." src="../assets/figures/figure_8_6_channel_plan.svg" /></p>
+<p><em>Figure 8.6. Permission, access, pressure, and territory capacity turn 158 HCP-account rows into the governed 4-week channel plan. Synthetic data.</em></p>
+<p>After the policy gates run, 46 HCP-account rows are suppressed for permission, 35 route to access coordination, and 61 remain under observation because of recent pressure, limited response history, or capacity. Territory capacity leaves 16 rows with a promotional action. Model-ranked selection captures more expected response than territory order for the same 16 slots.</p>
+<p><strong>Listing 8.19</strong>: Compare model-ranked capacity with a baseline</p>
+<div class="highlight"><pre><span></span><code><span class="n">value</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;capacity_value&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">value</span><span class="p">[</span><span class="s2">&quot;expected_responses&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">expected_responses</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">value</span><span class="p">[</span><span class="s2">&quot;mean_score&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">mean_predicted_response</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">value</span><span class="p">[[</span>
+    <span class="s2">&quot;selection_rule&quot;</span><span class="p">,</span> <span class="s2">&quot;relationships&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;expected_responses&quot;</span><span class="p">,</span> <span class="s2">&quot;mean_score&quot;</span><span class="p">,</span>
+<span class="p">]]</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;relationships&quot;</span><span class="p">:</span> <span class="s2">&quot;hcp_account_rows&quot;</span><span class="p">}))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>             selection_rule  hcp_account_rows expected_responses mean_score
+0              model_ranked                16              12.03      75.2%
+1  territory_order_baseline                16              11.41      71.3%
+</code></pre></div>
+<p>Selecting the same 16 territory slots by model rank captures 1.28 more expected responses than territory order. Five trace rows show how the gates resolve at the HCP-account level.</p>
+<div class="highlight"><pre><span></span><code><span class="n">ids</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;9000000174&quot;</span><span class="p">,</span> <span class="s2">&quot;9000000239&quot;</span><span class="p">,</span> <span class="s2">&quot;9000000280&quot;</span><span class="p">,</span> <span class="s2">&quot;9000000430&quot;</span><span class="p">,</span> <span class="s2">&quot;9000000469&quot;</span><span class="p">]</span>
+<span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;npi&quot;</span><span class="p">,</span> <span class="s2">&quot;account_id&quot;</span><span class="p">,</span> <span class="s2">&quot;recommended_action&quot;</span><span class="p">,</span> <span class="s2">&quot;reason_code&quot;</span><span class="p">]</span>
+<span class="n">traces</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;channel_plan&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
+    <span class="n">results</span><span class="p">[</span><span class="s2">&quot;channel_plan&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">npi</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">ids</span><span class="p">),</span> <span class="n">cols</span>
+<span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;npi&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">traces</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>          npi  ...                       reason_code
+0  9000000174  ...  CAPACITY_RANKED_DIGITAL_RESPONSE
+1  9000000239  ...     CAPACITY_RANKED_PEER_RESPONSE
+2  9000000280  ...     OBSERVE_BELOW_CAPACITY_CUTOFF
+3  9000000430  ...             ROUTE_ACCESS_BOUNDARY
+4  9000000469  ...               SUPPRESS_PERMISSION
+
+[5 rows x 4 columns]
+</code></pre></div>
+<p>HCP0280 stays under observation below the capacity cutoff. HCP0239 ranks into a speaker-program invitation, HCP0430 routes to access coordination, and HCP0469 is suppressed for permission. The reason code names the controlling gate.</p>
+<h3 id="852-measurement-contract">8.5.2 Measurement Contract</h3>
+<p>A plan needs its measurement design before execution begins. The <code>measurement_hook</code> field names the observable event for each action.</p>
+<table>
+<thead>
+<tr>
+<th>Action type</th>
+<th>Measurement hook</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Email follow-up</td>
+<td>delivery and click</td>
+</tr>
+<tr>
+<td>Field follow-up</td>
+<td>completed interaction and outcome</td>
+</tr>
+<tr>
+<td>Peer or speaker invitation</td>
+<td>registration, attendance, and follow-up</td>
+</tr>
+<tr>
+<td>Access coordination</td>
+<td>access-state change and resolved prescription attempts</td>
+</tr>
+<tr>
+<td>Suppression</td>
+<td>compliance check</td>
+</tr>
+</tbody>
+</table>
+<p>These hooks support execution checks. Incrementality requires an eligible control group. A practical test randomizes among HCP-account rows that passed the same permission, access, pressure, and priority rules. The primary result is the difference in the prespecified later outcome between assigned action and holdout. Assignment, eligibility, exposure, outcome window, and exclusions stay fixed before launch. When the response model selects treatment, it ceases to be proof that treatment worked.</p>
+<p>The measurement contract has 5 fields:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Meaning in this case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Eligibility</td>
+<td>passed permission, access, pressure, and capacity gates</td>
+</tr>
+<tr>
+<td>Assignment</td>
+<td>action or holdout before the cycle begins</td>
+</tr>
+<tr>
+<td>Exposure</td>
+<td>delivered channel event that matches the assigned action</td>
+</tr>
+<tr>
+<td>Outcome</td>
+<td>meaningful response in the next 28 days</td>
+</tr>
+<tr>
+<td>Exclusion</td>
+<td>prelisted records removed after assignment, such as permission loss</td>
+</tr>
+</tbody>
+</table>
+<p>That contract protects the result from post-cycle editing. A team can otherwise keep changing the eligible set, outcome window, or channel definition until the result looks useful.</p>
+<h3 id="853-off-policy-evaluation">8.5.3 Off-Policy Evaluation</h3>
+<p>The released 4-week policy is a fixed rule set. A candidate policy may be worse, and testing it live is expensive. Off-policy evaluation estimates the candidate's value from the logged history of the current policy before any live test. The whole method rests on overlap: a logged reward can evaluate the candidate only when the historical action matches what the candidate would have done for the same context.</p>
+<p>A candidate policy that chooses account support for high access need, field for high clinical evidence need, email for high digital response, and observe otherwise can be scored against the log. Self-normalized inverse-propensity scoring (SNIPS) reweights each matched reward by the inverse of its logging probability and normalizes by the sum of weights, which keeps the estimate stable under thin overlap.</p>
+<p><code>off_policy_evaluation()</code> in <code>modern_methods.py</code> applies SNIPS reweighting and returns the matched-snapshot count alongside the effective sample size (Listing 8.20). <code>off_policy_support()</code> from the same module breaks down the action overlap by logged-versus-candidate pair (Listing 8.21).</p>
+<p><strong>Listing 8.20</strong>: Estimate the candidate policy and check overlap</p>
+<div class="highlight"><pre><span></span><code><span class="n">policy_eval</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;policy_evaluation&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">focus</span> <span class="o">=</span> <span class="n">policy_eval</span><span class="p">[</span><span class="n">policy_eval</span><span class="o">.</span><span class="n">estimator</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s2">&quot;on_policy_mean&quot;</span><span class="p">,</span> <span class="s2">&quot;snips&quot;</span><span class="p">])]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">focus</span><span class="p">[</span><span class="s2">&quot;estimated_response_rate&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">focus</span><span class="o">.</span><span class="n">estimated_response_rate</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">focus</span><span class="p">[</span><span class="s2">&quot;effective_sample_size&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">focus</span><span class="o">.</span><span class="n">effective_sample_size</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">focus</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>          policy      estimator estimated_response_rate  matched_snapshots effective_sample_size
+   logged_policy on_policy_mean                   48.7%                158                 158.0
+candidate_policy          snips                   56.0%                 47                  45.5
+</code></pre></div>
+<p>The logged policy delivers 46.8%, and SNIPS puts the candidate higher at 56.2%. The warning is in the last two columns: only 47 of 158 logged decisions match the candidate, and the effective sample size is 45.3. Roughly 45 usable observations stand behind the estimate, far too thin to approve a policy switch.</p>
+<p><strong>Listing 8.21</strong>: Inspect overlap between logged and candidate actions</p>
+<div class="highlight"><pre><span></span><code><span class="n">support</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;policy_support&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">support</span><span class="p">[</span><span class="s2">&quot;response_rate&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">support</span><span class="o">.</span><span class="n">response_rate</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">support</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>logged_action candidate_action  snapshots  responses response_rate
+        Field            Field         24         20         83.3%
+ Live program            Field         20          5         25.0%
+      Observe          Observe         18          1          5.6%
+ Live program            Email         14          8         57.1%
+      Observe            Email         14          4         28.6%
+      Observe            Field         14          2         14.3%
+        Email            Field         13          9         69.2%
+        Field          Observe         12          9         75.0%
+</code></pre></div>
+<p>Most rows are mismatches: the candidate action differs from the logged action, leaving those rewards unavailable for direct reuse. The estimate is a readiness check. A production system needs deliberate exploration so future logs carry the overlap an off-policy estimate requires. The full inverse-propensity, self-normalized, and doubly-robust comparison, with the bandit that creates the overlap, belongs in the next-best-action engine. Permission, access, pressure, capacity, and approved-content rules stay outside any learning component and run first.</p>
+<h2 id="86-summary">8.6 Summary</h2>
+<p>The opening decision was which engagement action and channel each eligible HCP at an account should receive during the next 4 weeks. The event ledger aligned 10 channel families while preserving source-specific measurement meaning. Past-window snapshots separated source records from later outcomes, and the response model ranked the eligible set with a test AUC of 0.711 and a 1.52x top-quintile lift. Attribution credited field and email near 17% each; the cost view showed that those high-credit channels have very different economics, about $17 per incremental response on email and $12,049 on field. Off-policy evaluation found the logged history too thin to rank a new policy yet.</p>
+<p>The policy converted those signals into a capacity-bound plan. Permission suppressed 46 HCP-account rows from action, access needs routed 35 to coordination, and recent pressure, limited response history, and capacity left 61 under observation, HCP0280 among them. Sixteen eligible rows received promotional follow-up with a cycle cap and measurement hook, each routed to the HCP's own responsive channel. The model-ranked capacity rule captured 12.72 expected responses against 11.44 from territory order.</p>
+<p>A next-best-action engine can use this channel plan as input. Its decision is broader: choose one eligible action for one HCP-account row on a recommendation date, record the rejected alternatives, apply action precedence, and expire the recommendation when the state changes. The channel analysis supplies the event ledger, response signals, attribution checks, uplift signal, channel economics, pressure rule, and measurement hook. Next-best-action work adds the candidate action set, hard eligibility gates, action precedence, recommendation audit, expiration logic, and the full off-policy and exploration workflow.</p>
+<p>Omnichannel planning starts with a dated HCP-account state and climbs a four-rung ladder to a governed action row.</p>
+<ul>
+<li>Keep source-specific response meaning in the common event ledger, and treat email clicks as stronger signals than opens.</li>
+<li>Build features from events on or before the snapshot and outcomes from later events, validate on later calendar periods, and check lift, calibration, and the constant-rate baseline together.</li>
+<li>Shrink sparse per-HCP response rates toward the market-wide rate.</li>
+<li>Separate the three causal numbers: attribution credit, modeled incremental response, and cost per incremental response. A high-credit channel can still be the wrong place to add budget.</li>
+<li>Estimate uplift to separate persuadable HCP-account rows from sure things, then confirm with a holdout.</li>
+<li>Apply permission, access, pressure, and territory capacity before response signals become an action, and route each action to the HCP's own responsive channel.</li>
+<li>Evaluate a candidate policy off-policy before deployment, report effective sample size, and treat a thin log as a reason to explore.</li>
+<li>Attach a reason code, cycle cap, measurement hook, version, and refresh date to every action.</li>
+</ul>
+<blockquote>
+<p><strong>What you have learned from this chapter:</strong> You can now turn ten channels of raw engagement into one dated HCP-account state, rank an eligible set with a temporally honest response model, and compare path credit, estimated lift, and cost before spending budget. You can release an engagement action only after permission, access, pressure, and capacity checks pass, prefer uplift over predicted response when a program slot is scarce, route each action to the channel an HCP actually responds to, and attach a reason code, frequency cap, measurement hook, rule-set version, and refresh date to every action. You can also read a thin logged history as a reason to explore and run a holdout before trusting an off-policy score.</p>
+</blockquote>
+<h2 id="87-exercises">8.7 Exercises</h2>
+<ol>
+<li><strong>Change the response definition.</strong> Use the event ledger. Count email opens as meaningful responses, rebuild the snapshot panel, and compare the test response rate and lift table. State whether the added events represent a stronger signal or a looser label. (The event ledger and the response model.)</li>
+<li><strong>Rank by uplift.</strong> Use the uplift output. Select the 16 promotional slots by estimated uplift, then compare which HCP-account rows enter the plan under the response-ranked version. State which rows drop out and why a sure-thing responder might be a weak use of a scarce program invitation. (Incrementality.)</li>
+<li><strong>Design a holdout.</strong> Use the measurement contract. Select the HCP-account rows eligible for email, peer-program, or speaker-program follow-up, assign 50% to holdout with a fixed seed, and produce an assignment table in fewer than 20 lines. Name the primary outcome, window, and exclusion rule you would register before execution. (The measurement contract.)</li>
+</ol>
+<p>Worked solutions are in <a href="../exercise_solutions.ipynb"><code>exercise_solutions.ipynb</code></a>. Each solution ends with the judgment an analyst should record for real data.</p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.indexes", "navigation.top", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,2199 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://tjphoton.github.io/building-pharma-decision-systems/ch08_omnichannel/chapter8_walkthrough/">
+      
+      
+        <link rel="prev" href="../ch08_omnichannel_analytics/">
+      
+      
+        <link rel="next" href="../exercise_solutions/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Walkthrough Notebook - Building Pharmaceutical Decision Systems</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-75R972HVF8"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-75R972HVF8",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-75R972HVF8",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#omnichannel-analytics" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Building Pharmaceutical Decision Systems" class="md-header__button md-logo" aria-label="Building Pharmaceutical Decision Systems" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Building Pharmaceutical Decision Systems
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Walkthrough Notebook
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/tjphoton/building-pharma-decision-systems" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Building Pharmaceutical Decision Systems" class="md-nav__button md-logo" aria-label="Building Pharmaceutical Decision Systems" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Building Pharmaceutical Decision Systems
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/tjphoton/building-pharma-decision-systems" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 1
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 1
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch01_intro/ch01_introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A Medicine, a Market, and the Decisions Between Them
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 2
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 2
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch02_ecosystem/ch02_ecosystem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Commercialization Operating System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch02_ecosystem/ch02_appendix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 2 Appendix
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 3
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 3
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch03_data/ch03_data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A Synthetic Lab for Real Pharma Questions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch03_data/ch03_appendix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 3 Appendix: Common Data Sources and Synthetic Data Field Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch03_data/chapter3_walkthrough/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Walkthrough Notebook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch03_data/exercise_solutions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercise Solutions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 4
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 4
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch04_market/ch04_market_sizing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Market Sizing and Patient Populations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch04_market/chapter4_walkthrough/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Walkthrough Notebook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch04_market/exercise_solutions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercise Solutions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 5
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 5
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch05_journey/ch05_patient_journey/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Building the Patient Journey: Treatment Patterns, Lines of Therapy, and Persistence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch05_journey/chapter5_walkthrough/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Walkthrough Notebook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch05_journey/exercise_solutions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercise Solutions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 6
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 6
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch06_hcp/ch06_hcp_targeting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HCP Targeting: From Opportunity to Field Action
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch06_hcp/chapter6_walkthrough/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Walkthrough Notebook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch06_hcp/exercise_solutions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercise Solutions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 7
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 7
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch07_competitive/ch07_competitive_intelligence_market_access/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Competitive Intelligence and Market Access
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch07_competitive/chapter7_walkthrough/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Walkthrough Notebook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch07_competitive/exercise_solutions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercise Solutions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 8
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 8
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch08_omnichannel_analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Omnichannel Analytics: Planning and Attribution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Walkthrough Notebook
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Walkthrough Notebook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#descriptive-the-event-ledger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Descriptive: the event ledger
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#descriptive-contact-volume-and-selection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Descriptive: contact volume and selection
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#predictive-past-state-and-later-outcome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Predictive: past state and later outcome
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#predictive-sparse-response-signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Predictive: sparse response signals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#predictive-the-response-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Predictive: the response model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#causal-who-gets-credit-attribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Causal: who gets credit (attribution)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#causal-who-responds-because-of-us-uplift" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Causal: who responds because of us (uplift)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#causal-credit-lift-and-cost" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Causal: credit, lift, and cost
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prescriptive-channel-policy-and-the-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prescriptive: channel policy and the plan
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prescriptive-off-policy-evaluation-handoff-to-next-best-action" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prescriptive: off-policy evaluation (handoff to next best action)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exercise_solutions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercise Solutions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#descriptive-the-event-ledger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Descriptive: the event ledger
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#descriptive-contact-volume-and-selection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Descriptive: contact volume and selection
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#predictive-past-state-and-later-outcome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Predictive: past state and later outcome
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#predictive-sparse-response-signals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Predictive: sparse response signals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#predictive-the-response-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Predictive: the response model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#causal-who-gets-credit-attribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Causal: who gets credit (attribution)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#causal-who-responds-because-of-us-uplift" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Causal: who responds because of us (uplift)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#causal-credit-lift-and-cost" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Causal: credit, lift, and cost
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prescriptive-channel-policy-and-the-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prescriptive: channel policy and the plan
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prescriptive-off-policy-evaluation-handoff-to-next-best-action" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prescriptive: off-policy evaluation (handoff to next best action)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="omnichannel-analytics">Omnichannel Analytics</h1>
+<p>Build the 4-week channel plan for the fictional Roventra launch. Start with HCP-account targeting, turn 10 source channels into one event ledger, build a dated channel state, compare response, attribution, uplift, and cost, then release a governed plan row for the next-best-action engine.</p>
+<p><img alt="Figure 8.1. HCP-account targeting feeds a 4-week channel decision, which becomes the governed state table for next best action. Synthetic data." src="assets/figures/figure_8_1_decision_ladder.svg" /></p>
+<p><em>Figure 8.1. HCP-account targeting feeds a 4-week channel decision, which becomes the governed state table for next best action. Synthetic data.</em></p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="n">ROOT</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">ROOT</span> <span class="o">/</span> <span class="s2">&quot;pyproject.toml&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+    <span class="n">ROOT</span> <span class="o">=</span> <span class="n">ROOT</span><span class="o">.</span><span class="n">parent</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">ROOT</span><span class="p">))</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">ROOT</span> <span class="o">/</span> <span class="s2">&quot;ch08_omnichannel&quot;</span> <span class="o">/</span> <span class="s2">&quot;generation_modules&quot;</span><span class="p">))</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">ROOT</span> <span class="o">/</span> <span class="s2">&quot;ch08_omnichannel&quot;</span> <span class="o">/</span> <span class="s2">&quot;scripts&quot;</span><span class="p">))</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">ch08_omnichannel.generation_modules.synthetic</span><span class="w"> </span><span class="kn">import</span> <span class="n">generate</span>  <span class="c1"># noqa: E402</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ch08_omnichannel.scripts.run_analysis</span><span class="w"> </span><span class="kn">import</span> <span class="n">run_analysis</span>  <span class="c1"># noqa: E402</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&quot;display.width&quot;</span><span class="p">,</span> <span class="mi">140</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&quot;display.max_columns&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="n">generate</span><span class="p">(</span><span class="n">ROOT</span><span class="p">,</span> <span class="n">ROOT</span> <span class="o">/</span> <span class="s2">&quot;ch08_omnichannel&quot;</span> <span class="o">/</span> <span class="s2">&quot;data&quot;</span> <span class="o">/</span> <span class="s2">&quot;generated&quot;</span><span class="p">)</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">run_analysis</span><span class="p">(</span><span class="n">ROOT</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Ledger events: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;event_ledger&#39;</span><span class="p">])</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;HCP-account snapshots: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;snapshot_panel&#39;</span><span class="p">])</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Planning HCP-account rows: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;channel_plan&#39;</span><span class="p">])</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Ledger events: 3,650
+HCP-account snapshots: 1,422
+Planning HCP-account rows: 158
+</code></pre></div>
+<h2 id="descriptive-the-event-ledger">Descriptive: the event ledger</h2>
+<div class="highlight"><pre><span></span><code><span class="n">summary</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;channel_summary&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">summary</span><span class="p">[</span><span class="s2">&quot;response&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">summary</span><span class="o">.</span><span class="n">response_rate_per_delivered</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">summary</span><span class="p">[[</span>
+    <span class="s2">&quot;channel&quot;</span><span class="p">,</span> <span class="s2">&quot;events&quot;</span><span class="p">,</span> <span class="s2">&quot;delivered_events&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;meaningful_responses&quot;</span><span class="p">,</span> <span class="s2">&quot;response&quot;</span><span class="p">,</span>
+<span class="p">]]</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;channel&quot;</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>                 events  delivered_events  meaningful_responses response
+channel                                                                 
+Field               815               804                   627    78.0%
+Email               724               712                   499    70.1%
+Web                 420               415                   287    69.2%
+Phone               377               369                   245    66.4%
+Paid media          270               249                   120    48.2%
+Peer program        256               251                   171    68.1%
+Direct mail         246               242                   173    71.5%
+Speaker program     211               206                   142    68.9%
+Conference          184               180                   123    68.3%
+Account support     147               145                    96    66.2%
+</code></pre></div>
+<p>Email opens stay visible in the ledger. Clicks define meaningful email response.</p>
+<div class="highlight"><pre><span></span><code><span class="n">email</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;email_quality&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">email</span><span class="p">[</span><span class="s2">&quot;rate&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">email</span><span class="o">.</span><span class="n">rate</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">email</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>                         metric  events  base_events   rate
+0                 Raw open rate     626          712  87.9%
+1  Human open rate (answer key)     563          712  79.1%
+2                    Click rate     499          712  70.1%
+3            Click-to-open rate     499          626  79.7%
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">ledger</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;event_ledger&quot;</span><span class="p">]</span>
+<span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;event_date&quot;</span><span class="p">,</span> <span class="s2">&quot;channel&quot;</span><span class="p">,</span> <span class="s2">&quot;response_type&quot;</span><span class="p">,</span> <span class="s2">&quot;meaningful_response&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ledger</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">ledger</span><span class="o">.</span><span class="n">npi</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s2">&quot;9000000280&quot;</span><span class="p">),</span> <span class="n">cols</span><span class="p">]</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>     event_date channel     response_type  meaningful_response
+1690 2025-01-15   Field          Positive                 True
+1691 2025-01-24   Email            Opened                False
+1692 2025-02-10     Web  Qualified action                 True
+</code></pre></div>
+<h2 id="descriptive-contact-volume-and-selection">Descriptive: contact volume and selection</h2>
+<div class="highlight"><pre><span></span><code><span class="n">sat</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;saturation&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;observed_reach&quot;</span><span class="p">,</span> <span class="s2">&quot;adjusted_reach&quot;</span><span class="p">,</span> <span class="s2">&quot;adjusted_marginal_gain&quot;</span><span class="p">]:</span>
+    <span class="n">sat</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">sat</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">notna</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sat</span><span class="p">[[</span>
+    <span class="s2">&quot;recent_events&quot;</span><span class="p">,</span> <span class="s2">&quot;snapshots&quot;</span><span class="p">,</span> <span class="s2">&quot;observed_reach&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;adjusted_reach&quot;</span><span class="p">,</span> <span class="s2">&quot;adjusted_marginal_gain&quot;</span><span class="p">,</span>
+<span class="p">]]</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>recent_events  snapshots observed_reach adjusted_reach adjusted_marginal_gain
+            0        343          37.6%          45.9%
+            1        433          59.1%          53.6%                   7.7%
+            2        350          66.0%          61.2%                   7.5%
+            3        175          65.7%          68.2%                   7.1%
+            4         83          69.9%          74.6%                   6.3%
+           5+         38          68.4%          80.0%                   5.5%
+</code></pre></div>
+<p><img alt="Figure 8.2. Raw response rises steeply with recent contact, but adjusting for who is contacted removes most of the slope, and the adjusted return on one more touch shrinks. Synthetic data." src="assets/figures/figure_8_3_saturation.svg" /></p>
+<p><em>Figure 8.2. Raw response rises steeply with recent contact, but adjusting for who is contacted removes most of the slope, and the adjusted return on one more touch shrinks. Synthetic data.</em></p>
+<h2 id="predictive-past-state-and-later-outcome">Predictive: past state and later outcome</h2>
+<div class="highlight"><pre><span></span><code><span class="n">panel</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;snapshot_panel&quot;</span><span class="p">]</span>
+<span class="n">row</span> <span class="o">=</span> <span class="n">panel</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
+    <span class="n">panel</span><span class="o">.</span><span class="n">npi</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s2">&quot;9000000280&quot;</span><span class="p">)</span>
+    <span class="o">&amp;</span> <span class="n">panel</span><span class="o">.</span><span class="n">snapshot_date</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s2">&quot;2025-02-28&quot;</span><span class="p">)</span>
+<span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Snapshot: </span><span class="si">{</span><span class="n">row</span><span class="o">.</span><span class="n">snapshot_date</span><span class="si">:</span><span class="s2">%Y-%m-%d</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Outcome end: </span><span class="si">{</span><span class="n">row</span><span class="o">.</span><span class="n">outcome_end</span><span class="si">:</span><span class="s2">%Y-%m-%d</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;90-day contact pressure: </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">total_pressure_90</span><span class="p">)</span><span class="si">}</span><span class="s2"> events&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Later meaningful response: </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">future_response</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Snapshot: 2025-02-28
+Outcome end: 2025-03-28
+90-day contact pressure: 3 events
+Later meaningful response: 0
+</code></pre></div>
+<p><img alt="Figure 8.3. HCP0280's prior 90-day events build the February 28 state, and later events label the 28-day outcome. Synthetic data." src="assets/figures/figure_8_4_observation_outcome_windows.svg" /></p>
+<p><em>Figure 8.3. HCP0280's prior 90-day events build the February 28 state, and later events label the 28-day outcome. Synthetic data.</em></p>
+<h2 id="predictive-sparse-response-signals">Predictive: sparse response signals</h2>
+<div class="highlight"><pre><span></span><code><span class="n">shrinkage</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;response_shrinkage&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;observed_response_rate_90&quot;</span><span class="p">,</span> <span class="s2">&quot;shrunken_response_rate_90&quot;</span><span class="p">]:</span>
+    <span class="n">shrinkage</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">shrinkage</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">shrinkage</span><span class="p">[[</span>
+    <span class="s2">&quot;evidence_level&quot;</span><span class="p">,</span> <span class="s2">&quot;npi&quot;</span><span class="p">,</span> <span class="s2">&quot;meaningful_responses_90&quot;</span><span class="p">,</span> <span class="s2">&quot;total_pressure_90&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;observed_response_rate_90&quot;</span><span class="p">,</span> <span class="s2">&quot;shrunken_response_rate_90&quot;</span><span class="p">,</span>
+<span class="p">]]</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>evidence_level        npi  meaningful_responses_90  total_pressure_90 observed_response_rate_90 shrunken_response_rate_90
+        Sparse 9000000008                        1                  1                    100.0%                     71.4%
+        Sparse 9000000085                        1                  1                    100.0%                     71.4%
+        Sparse 9000000122                        1                  1                    100.0%                     71.4%
+   Established 9000000128                        8                  8                    100.0%                     83.9%
+   Established 9000000631                        8                  8                    100.0%                     83.9%
+   Established 9000000462                        3                  8                     37.5%                     52.7%
+</code></pre></div>
+<h2 id="predictive-the-response-model">Predictive: the response model</h2>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;leakage_check&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>           model  train_auc  test_auc
+       past_only      0.667     0.711
+same_window_leak      1.000     1.000
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">metrics</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;model_metrics&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="p">[</span>
+    <span class="s2">&quot;response_rate&quot;</span><span class="p">,</span> <span class="s2">&quot;roc_auc&quot;</span><span class="p">,</span> <span class="s2">&quot;average_precision&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;brier_score&quot;</span><span class="p">,</span> <span class="s2">&quot;base_rate_brier&quot;</span><span class="p">,</span>
+<span class="p">]:</span>
+    <span class="n">metrics</span><span class="p">[</span><span class="n">column</span><span class="p">]</span> <span class="o">=</span> <span class="n">metrics</span><span class="p">[</span><span class="n">column</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">metrics</span><span class="p">[[</span>
+    <span class="s2">&quot;split&quot;</span><span class="p">,</span> <span class="s2">&quot;snapshots&quot;</span><span class="p">,</span> <span class="s2">&quot;response_rate&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;roc_auc&quot;</span><span class="p">,</span> <span class="s2">&quot;average_precision&quot;</span><span class="p">,</span>
+<span class="p">]])</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">metrics</span><span class="p">[[</span><span class="s2">&quot;split&quot;</span><span class="p">,</span> <span class="s2">&quot;brier_score&quot;</span><span class="p">,</span> <span class="s2">&quot;base_rate_brier&quot;</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="n">comparison</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;response_history_baseline&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="p">[</span>
+    <span class="s2">&quot;test_auc&quot;</span><span class="p">,</span> <span class="s2">&quot;average_precision&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;brier_score&quot;</span><span class="p">,</span> <span class="s2">&quot;top_20_response_rate&quot;</span><span class="p">,</span>
+<span class="p">]:</span>
+    <span class="n">comparison</span><span class="p">[</span><span class="n">column</span><span class="p">]</span> <span class="o">=</span> <span class="n">comparison</span><span class="p">[</span><span class="n">column</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">comparison</span><span class="p">[</span><span class="s2">&quot;top_20_lift&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">comparison</span><span class="o">.</span><span class="n">top_20_lift</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">x&quot;</span><span class="p">)</span>
+<span class="n">comparison</span> <span class="o">=</span> <span class="n">comparison</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span>
+    <span class="s2">&quot;average_precision&quot;</span><span class="p">:</span> <span class="s2">&quot;avg_precision&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;top_20_response_rate&quot;</span><span class="p">:</span> <span class="s2">&quot;top20_rate&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;top_20_lift&quot;</span><span class="p">:</span> <span class="s2">&quot;top20_lift&quot;</span><span class="p">,</span>
+<span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">comparison</span><span class="p">[[</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">,</span> <span class="s2">&quot;test_auc&quot;</span><span class="p">,</span> <span class="s2">&quot;avg_precision&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;brier_score&quot;</span><span class="p">,</span> <span class="s2">&quot;top20_rate&quot;</span><span class="p">,</span> <span class="s2">&quot;top20_lift&quot;</span><span class="p">,</span>
+<span class="p">]]</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="n">features</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">results</span><span class="p">[</span><span class="s2">&quot;model_coefficients&quot;</span><span class="p">]</span>
+    <span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">abs_coefficient</span><span class="o">=</span><span class="k">lambda</span> <span class="n">frame</span><span class="p">:</span> <span class="n">frame</span><span class="o">.</span><span class="n">coefficient</span><span class="o">.</span><span class="n">abs</span><span class="p">())</span>
+    <span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;abs_coefficient&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="p">)</span>
+<span class="n">features</span><span class="p">[</span><span class="s2">&quot;feature&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">feature</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span>
+    <span class="s2">&quot;last_response_channel_&quot;</span><span class="p">,</span> <span class="s2">&quot;last_channel=&quot;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span>
+<span class="n">features</span><span class="p">[</span><span class="s2">&quot;coefficient&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">coefficient</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">+.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">features</span><span class="p">[</span><span class="s2">&quot;odds_ratio&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">odds_ratio</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">features</span><span class="p">[[</span><span class="s2">&quot;feature&quot;</span><span class="p">,</span> <span class="s2">&quot;coefficient&quot;</span><span class="p">,</span> <span class="s2">&quot;odds_ratio&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>        split  snapshots  response_rate  roc_auc  average_precision
+0       train        948          0.626    0.667              0.745
+1  validation        158          0.437    0.636              0.533
+2        test        316          0.484    0.711              0.688
+
+        split  brier_score  base_rate_brier
+0       train        0.215            0.234
+1  validation        0.266            0.282
+2        test        0.234            0.270
+
+                    model test_auc avg_precision brier_score top20_rate top20_lift
+               full_model    0.711         0.688       0.234      0.734      1.52x
+response_history_baseline    0.641         0.639       0.281      0.719      1.48x
+
+                    feature coefficient odds_ratio
+      access_resource_score      +0.215       1.24
+      digital_response_rate      +0.185       1.20
+live_program_attendance_180      +0.177       1.19
+    last_channel=Paid media      -0.126       0.88
+   last_channel=Direct mail      -0.123       0.88
+        days_since_response      -0.112       0.89
+           last_channel=Web      +0.106       1.11
+         field_responses_90      +0.098       1.10
+</code></pre></div>
+<p>The field-then-digital order effect is real and modest: two explicit order features move test AUC from 0.707 to 0.714.</p>
+<div class="highlight"><pre><span></span><code><span class="n">contrast</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;field_then_digital_contrast&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">contrast</span><span class="p">[</span><span class="s2">&quot;future_response_rate&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">contrast</span><span class="o">.</span><span class="n">future_response_rate</span><span class="o">.</span><span class="n">map</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">contrast</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="n">sequence_models</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;sequence_model_comparison&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">sequence_models</span><span class="p">[</span><span class="s2">&quot;roc_auc&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sequence_models</span><span class="o">.</span><span class="n">roc_auc</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">sequence_models</span><span class="p">[</span><span class="s2">&quot;average_precision&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sequence_models</span><span class="o">.</span><span class="n">average_precision</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sequence_models</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>          recent_field_response  snapshots  future_responses future_response_rate
+Field response in prior 90 days        156                94                60.3%
+       No recent field response        303               168                55.4%
+
+                     model  test_snapshots  roc_auc  average_precision
+0           aggregate_only             427    0.707              0.664
+1  aggregate_plus_sequence             427    0.714              0.670
+</code></pre></div>
+<h2 id="causal-who-gets-credit-attribution">Causal: who gets credit (attribution)</h2>
+<div class="highlight"><pre><span></span><code><span class="n">credit</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;attribution&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;channel&quot;</span><span class="p">)</span>
+<span class="n">credit</span> <span class="o">=</span> <span class="n">credit</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span>
+    <span class="s2">&quot;first_touch&quot;</span><span class="p">:</span> <span class="s2">&quot;first&quot;</span><span class="p">,</span> <span class="s2">&quot;last_touch&quot;</span><span class="p">:</span> <span class="s2">&quot;last&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;time_decay&quot;</span><span class="p">:</span> <span class="s2">&quot;decay&quot;</span><span class="p">,</span>
+<span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">credit</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>                 first  last  linear  decay
+channel                                    
+Email             24.2  21.7    22.2   22.4
+Field             15.9  25.5    20.7   22.1
+Web               11.5  10.8    11.5   10.9
+Phone             14.0   6.4     9.8    8.6
+Peer program       7.6   8.9     9.1    9.6
+Speaker program    7.0   5.7     6.7    6.1
+Paid media         4.5   3.8     5.8    5.4
+Direct mail        9.6   7.6     5.8    5.5
+Conference         3.8   5.7     5.3    5.5
+Account support    1.9   3.8     3.2    4.0
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">markov</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;markov_attribution&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">markov</span><span class="p">[</span><span class="s2">&quot;removal_effect&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">markov</span><span class="o">.</span><span class="n">removal_effect</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">markov</span><span class="p">[</span><span class="s2">&quot;markov_credit&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">markov</span><span class="o">.</span><span class="n">markov_credit</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">markov</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>        channel removal_effect markov_credit
+          Field           0.56          17.3
+          Email           0.55          17.0
+            Web           0.39          12.1
+          Phone           0.36          11.2
+   Peer program           0.30           9.2
+Speaker program           0.27           8.3
+    Direct mail           0.23           7.1
+     Conference           0.21           6.5
+     Paid media           0.21           6.4
+Account support           0.16           4.9
+</code></pre></div>
+<p><img alt="Figure 8.4. Markov removal-effect attribution compares the modeled path before and after removing one channel, then credits channels by the conversion drop. Synthetic data." src="assets/figures/figure_8_6_attribution_rules.svg" /></p>
+<p><em>Figure 8.4. Markov removal-effect attribution compares the modeled path before and after removing one channel, then credits channels by the conversion drop. Synthetic data.</em></p>
+<h2 id="causal-who-responds-because-of-us-uplift">Causal: who responds because of us (uplift)</h2>
+<p>The T-learner treats prior live-program action as the action and next-28-day meaningful response as the outcome. It fits one response model on HCP-account rows with prior live-program action and one on rows without it, then scores every row under both models. The difference is estimated uplift.</p>
+<div class="highlight"><pre><span></span><code><span class="n">segments</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;uplift_segment_summary&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;mean_uplift&quot;</span><span class="p">,</span> <span class="s2">&quot;response_rate&quot;</span><span class="p">,</span> <span class="s2">&quot;mean_baseline_response&quot;</span><span class="p">]:</span>
+    <span class="n">segments</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">segments</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">segments</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>uplift_segment  snapshots mean_uplift response_rate mean_baseline_response
+          High        356       13.6%         45.5%                  42.9%
+      Mid-high        355       10.4%         49.0%                  47.0%
+       Mid-low        355        7.9%         66.2%                  55.7%
+           Low        356        4.7%         68.5%                  65.8%
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">contrast</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;uplift_response_contrast&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;mean_baseline_response&quot;</span><span class="p">,</span> <span class="s2">&quot;mean_uplift&quot;</span><span class="p">]:</span>
+    <span class="n">contrast</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">contrast</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">contrast</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>response_band  snapshots mean_baseline_response mean_uplift
+    B1 lowest        285                  35.1%       11.8%
+           B2        284                  44.5%       10.8%
+           B3        284                  52.1%        9.5%
+           B4        284                  60.0%        7.9%
+   B5 highest        285                  72.4%        5.7%
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;uplift_qini&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="n">diagnostics</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;uplift_diagnostics&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">diagnostics</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="s2">&quot;snapshots&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">c</span><span class="p">]:</span>
+    <span class="n">diagnostics</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">diagnostics</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">diagnostics</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>        ranking  targeted_fraction  snapshots  incremental_response
+  uplift_ranked                0.2        284                 0.104
+  uplift_ranked                0.4        569                 0.150
+  uplift_ranked                0.6        853                 0.173
+  uplift_ranked                0.8       1138                 0.176
+  uplift_ranked                1.0       1422                 0.170
+response_ranked                0.2        284                 0.108
+response_ranked                0.4        569                 0.099
+response_ranked                0.6        853                 0.088
+response_ranked                0.8       1138                 0.144
+response_ranked                1.0       1422                 0.170
+                                     0
+treated_snapshots                  782
+control_snapshots                  640
+naive_treated_minus_control      17.0%
+mean_estimated_uplift             9.1%
+observed_uplift_top_quartile     14.4%
+observed_uplift_bottom_quartile   7.3%
+</code></pre></div>
+<p><img alt="Figure 8.5. A T-learner scores the same HCP-account row under action and control models, then ranks by the predicted change in response. Synthetic data." src="assets/figures/figure_8_7_uplift.svg" /></p>
+<p><em>Figure 8.5. A T-learner scores the same HCP-account row under action and control models, then ranks by the predicted change in response. Synthetic data.</em></p>
+<h2 id="causal-credit-lift-and-cost">Causal: credit, lift, and cost</h2>
+<div class="highlight"><pre><span></span><code><span class="n">econ</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;channel_economics&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">econ</span><span class="p">[</span><span class="s2">&quot;credit&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">econ</span><span class="o">.</span><span class="n">markov_credit</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+<span class="n">econ</span><span class="p">[</span><span class="s2">&quot;incremental&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">econ</span><span class="o">.</span><span class="n">incremental_per_touch</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="si">:</span><span class="s2">+.1f</span><span class="si">}</span><span class="s2"> pp&quot;</span><span class="p">)</span>
+<span class="n">econ</span><span class="p">[</span><span class="s2">&quot;unit_cost&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">econ</span><span class="o">.</span><span class="n">unit_cost</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;$</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">,.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">econ</span><span class="p">[</span><span class="s2">&quot;cost_per_incremental&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">econ</span><span class="o">.</span><span class="n">cost_per_incremental_response</span><span class="o">.</span><span class="n">map</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;$</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">,.0f</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">notna</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">else</span> <span class="s2">&quot;no lift&quot;</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">econ</span><span class="p">[[</span>
+    <span class="s2">&quot;channel&quot;</span><span class="p">,</span> <span class="s2">&quot;credit&quot;</span><span class="p">,</span> <span class="s2">&quot;incremental&quot;</span><span class="p">,</span> <span class="s2">&quot;unit_cost&quot;</span><span class="p">,</span> <span class="s2">&quot;cost_per_incremental&quot;</span><span class="p">,</span>
+<span class="p">]]</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>        channel credit incremental unit_cost cost_per_incremental
+          Field  17.3%     +1.9 pp   $225.00              $12,049
+          Email  17.0%     +1.4 pp     $0.25                  $17
+            Web  12.1%     +0.0 pp     $0.12              no lift
+          Phone  11.2%     -2.2 pp    $28.00              no lift
+   Peer program   9.2%     +1.4 pp   $340.00              $24,169
+Speaker program   8.3%     -0.9 pp $1,150.00              no lift
+    Direct mail   7.1%     -2.4 pp     $2.60              no lift
+     Conference   6.5%     +4.4 pp   $760.00              $17,394
+     Paid media   6.4%     +1.0 pp     $1.40                 $142
+Account support   4.9%     -1.3 pp   $130.00              no lift
+</code></pre></div>
+<p><img alt="Figure 8.6. Email, field, and web look different once path credit, adjusted lift, and cost per incremental response are read together. Synthetic data." src="assets/figures/figure_8_8_cost_per_incremental.svg" /></p>
+<p><em>Figure 8.6. Email, field, and web look different once path credit, adjusted lift, and cost per incremental response are read together. Synthetic data.</em></p>
+<h2 id="prescriptive-channel-policy-and-the-plan">Prescriptive: channel policy and the plan</h2>
+<div class="highlight"><pre><span></span><code><span class="n">aff</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;channel_affinity&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;digital_response_rate&quot;</span><span class="p">,</span> <span class="s2">&quot;field_response_rate&quot;</span><span class="p">]:</span>
+    <span class="n">aff</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">aff</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.0%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">aff</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>       npi digital_response_rate field_response_rate  channel_affinity last_response_channel recommended_channel
+9000000280                   26%                 84%   Field responder                   Web                None
+9000000389                   77%                 32% Digital responder                 Field                None
+9000000582                   12%                 88%   Field responder                 Field                None
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">plan</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;plan_summary&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">plan</span><span class="p">[</span><span class="s2">&quot;mean_score&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">plan</span><span class="o">.</span><span class="n">mean_predicted_response</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">plan</span><span class="p">[[</span>
+    <span class="s2">&quot;recommended_action&quot;</span><span class="p">,</span> <span class="s2">&quot;relationships&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;planned_contacts&quot;</span><span class="p">,</span> <span class="s2">&quot;mean_score&quot;</span><span class="p">,</span>
+<span class="p">]]</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span>
+    <span class="s2">&quot;relationships&quot;</span><span class="p">:</span> <span class="s2">&quot;hcp_account_rows&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;planned_contacts&quot;</span><span class="p">:</span> <span class="s2">&quot;planned_engagements&quot;</span><span class="p">,</span>
+<span class="p">}))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>           recommended_action  hcp_account_rows  planned_engagements mean_score
+0                     Observe                61                    0      58.6%
+1                    Suppress                46                    0      51.0%
+2         Access coordination                35                   35      66.5%
+3             Email follow-up                 6                   12      75.1%
+4     Peer-program invitation                 5                    5      75.1%
+5  Speaker-program invitation                 4                    4      77.8%
+6             Field follow-up                 1                    2      65.9%
+</code></pre></div>
+<p><img alt="Figure 8.7. Permission, access, pressure, and territory capacity turn 158 HCP-account rows into the governed 4-week channel plan. Synthetic data." src="assets/figures/figure_8_9_channel_plan.svg" /></p>
+<p><em>Figure 8.7. Permission, access, pressure, and territory capacity turn 158 HCP-account rows into the governed 4-week channel plan. Synthetic data.</em></p>
+<div class="highlight"><pre><span></span><code><span class="n">value</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;capacity_value&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">value</span><span class="p">[</span><span class="s2">&quot;expected_responses&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">expected_responses</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">value</span><span class="p">[</span><span class="s2">&quot;mean_score&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">mean_predicted_response</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">value</span><span class="p">[[</span>
+    <span class="s2">&quot;selection_rule&quot;</span><span class="p">,</span> <span class="s2">&quot;relationships&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;expected_responses&quot;</span><span class="p">,</span> <span class="s2">&quot;mean_score&quot;</span><span class="p">,</span>
+<span class="p">]]</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;relationships&quot;</span><span class="p">:</span> <span class="s2">&quot;hcp_account_rows&quot;</span><span class="p">}))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>             selection_rule  hcp_account_rows expected_responses mean_score
+0              model_ranked                16              12.03      75.2%
+1  territory_order_baseline                16              11.41      71.3%
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">ids</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;9000000174&quot;</span><span class="p">,</span> <span class="s2">&quot;9000000239&quot;</span><span class="p">,</span> <span class="s2">&quot;9000000280&quot;</span><span class="p">,</span> <span class="s2">&quot;9000000430&quot;</span><span class="p">,</span> <span class="s2">&quot;9000000469&quot;</span><span class="p">]</span>
+<span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;npi&quot;</span><span class="p">,</span> <span class="s2">&quot;account_id&quot;</span><span class="p">,</span> <span class="s2">&quot;recommended_action&quot;</span><span class="p">,</span> <span class="s2">&quot;reason_code&quot;</span><span class="p">]</span>
+<span class="n">traces</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;channel_plan&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
+    <span class="n">results</span><span class="p">[</span><span class="s2">&quot;channel_plan&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">npi</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">ids</span><span class="p">),</span> <span class="n">cols</span>
+<span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;npi&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">traces</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>          npi account_id       recommended_action                       reason_code
+0  9000000174     ACC032          Email follow-up  CAPACITY_RANKED_DIGITAL_RESPONSE
+1  9000000239     ACC009  Peer-program invitation     CAPACITY_RANKED_PEER_RESPONSE
+2  9000000280     ACC089                  Observe     OBSERVE_BELOW_CAPACITY_CUTOFF
+3  9000000430     ACC189      Access coordination             ROUTE_ACCESS_BOUNDARY
+4  9000000469     ACC121                 Suppress               SUPPRESS_PERMISSION
+</code></pre></div>
+<h2 id="prescriptive-off-policy-evaluation-handoff-to-next-best-action">Prescriptive: off-policy evaluation (handoff to next best action)</h2>
+<div class="highlight"><pre><span></span><code><span class="n">policy_eval</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;policy_evaluation&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">focus</span> <span class="o">=</span> <span class="n">policy_eval</span><span class="p">[</span><span class="n">policy_eval</span><span class="o">.</span><span class="n">estimator</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s2">&quot;on_policy_mean&quot;</span><span class="p">,</span> <span class="s2">&quot;snips&quot;</span><span class="p">])]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">focus</span><span class="p">[</span><span class="s2">&quot;estimated_response_rate&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">focus</span><span class="o">.</span><span class="n">estimated_response_rate</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">focus</span><span class="p">[</span><span class="s2">&quot;effective_sample_size&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">focus</span><span class="o">.</span><span class="n">effective_sample_size</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">focus</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>          policy      estimator estimated_response_rate  matched_snapshots effective_sample_size
+   logged_policy on_policy_mean                   48.7%                158                 158.0
+candidate_policy          snips                   56.0%                 47                  45.5
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">support</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;policy_support&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">support</span><span class="p">[</span><span class="s2">&quot;response_rate&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">support</span><span class="o">.</span><span class="n">response_rate</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">support</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>logged_action candidate_action  snapshots  responses response_rate
+        Field            Field         24         20         83.3%
+ Live program            Field         20          5         25.0%
+      Observe          Observe         18          1          5.6%
+ Live program            Email         14          8         57.1%
+      Observe            Email         14          4         28.6%
+      Observe            Field         14          2         14.3%
+        Email            Field         13          9         69.2%
+        Field          Observe         12          9         75.0%
+</code></pre></div>
+<h2 id="conclusion">Conclusion</h2>
+<p>The ledger preserves channel meaning, the contact-volume curve shows that raw response rises mostly from selection, and the temporal test limits leakage. Attribution credits field and email near 17% each, while the cost view shows very different economics: about $17 per incremental response on email and $12,049 on field. The off-policy check finds the logged history too thin to rank a new policy yet. The rule set keeps permission, access, pressure, and capacity ahead of response signals, routes each action to the HCP's own responsive channel, and releases 16 promotional rows with a reason code, cycle cap, measurement hook, rule-set version, and refresh date.</p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.indexes", "navigation.top", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
