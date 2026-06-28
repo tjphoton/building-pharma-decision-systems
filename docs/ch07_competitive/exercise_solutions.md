@@ -20,6 +20,9 @@ print("Loaded Chapter 7 evidence package.")
 
 ```
 
+    Loaded Chapter 7 evidence package.
+
+
 ## Exercise 1: Rebuild covered lives
 
 
@@ -39,6 +42,12 @@ print(f"access-quality score: {quality:.3f}")
 
 ```
 
+    plan coverage: 100.0%
+    covered lives: 1,576,000 of 1,576,000 (100.0%)
+    unrestricted lives: 0 of 1,576,000 (0.0%)
+    access-quality score: 0.750
+
+
 **Methods note:** Contracting review should lead with covered and restricted lives. The access-quality score remains a scenario-weighted supplement.
 
 
@@ -53,9 +62,22 @@ trace = attempts.loc[attempts.patient_id.eq(patient), [
     "patient_id", "fill_number", "first_submission_date",
     "last_transaction_date", "transaction_rows", "had_pend", "final_outcome",
 ]]
-print(trace)
+print(trace.reset_index(drop=True))
 
 ```
+
+      patient_id  fill_number first_submission_date last_transaction_date  \
+    0   PAT00001            0            2024-10-14            2024-10-18   
+    1   PAT00001            1            2024-11-22            2024-11-22   
+    2   PAT00001            2            2024-12-25            2024-12-25   
+    3   PAT00001            3            2025-01-21            2025-01-21   
+    
+       transaction_rows  had_pend final_outcome  
+    0                 2      True     Completed  
+    1                 1     False     Completed  
+    2                 1     False     Completed  
+    3                 1     False     Completed  
+
 
 **Methods note:** Count the grouped attempt once. Counting every transaction row overstates access friction.
 
@@ -81,6 +103,22 @@ print("\n80% benchmark")
 print(alternative)
 
 ```
+
+    82% benchmark
+    action
+    Access review      19
+    Sustain            10
+    Adoption review     2
+    Dual workstream     1
+    Name: count, dtype: int64
+    
+    80% benchmark
+    action
+    Access review      19
+    Sustain            12
+    Dual workstream     1
+    Name: count, dtype: int64
+
 
 **Methods note:** The source evidence stays fixed. The action changes because the operating benchmark changed, so the output must retain the rule version.
 

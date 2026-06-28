@@ -61,7 +61,7 @@ history = results["access_history"].query(
     "payer_id == 'PAY005' and region == 'South' and product_name == 'Roventra'"
 )
 cols = ["effective_start", "effective_end", "coverage_status", "step_edit"]
-print(history[cols].to_string(index=False))
+print(history[cols].reset_index(drop=True))
 
 analysis_date = pd.Timestamp("2024-12-31")
 active = history.query("effective_start <= @analysis_date <= effective_end")
@@ -69,10 +69,10 @@ print(f"\nIn force on {analysis_date.date()}: {active.iloc[0].coverage_status}")
 
 ```
 
-    effective_start effective_end coverage_status step_edit
-         2024-01-01    2024-06-30         Covered        No
-         2024-07-01    2024-09-30         Covered       Yes
-         2024-10-01    2025-12-31     Non-covered        No
+      effective_start effective_end coverage_status step_edit
+    0      2024-01-01    2024-06-30         Covered        No
+    1      2024-07-01    2024-09-30         Covered       Yes
+    2      2024-10-01    2025-12-31     Non-covered        No
     
     In force on 2024-12-31: Non-covered
 
@@ -94,9 +94,9 @@ restriction_lives = results["restriction_lives"].copy()
 restriction_lives["lives_share"] = restriction_lives.lives_share.map(
     lambda v: f"{v:.1%}"
 )
-print(restriction_lives.to_string(index=False))
+print(restriction_lives)
 print()
-print(results["relative_position"].position.value_counts().to_string())
+print(results["relative_position"].position.value_counts())
 
 ```
 
@@ -107,21 +107,27 @@ print(results["relative_position"].position.value_counts().to_string())
     Lives with no restriction:    0 (0.0%)
     Access-quality score:         0.533
     
-           access_state  payer_region_cells  enrolled_lives lives_share
-    Prior authorization                  12         4186000       38.3%
-              Step edit                  12         4128000       37.8%
-            Non-covered                   8         2612000       23.9%
+              access_state  payer_region_cells  enrolled_lives lives_share
+    0  Prior authorization                  12         4186000       38.3%
+    1            Step edit                  12         4128000       37.8%
+    2          Non-covered                   8         2612000       23.9%
     
     position
     Competitor favored    20
     Parity                 8
     Brand favored          4
+    Name: count, dtype: int64
 
 
 Non-coverage and step therapy are the two states a patient cannot clear alone, and a competitor holds the better formulary position in 20 of 32 cells.
 
 
 ## 7.3 TRx, NRx, and NBRx by brand
+
+
+![A timeline for one patient shows three rows. TRx marks every fill including refills. NRx marks the first fill of each episode, including restarts after a gap. NBRx marks only the patient's very first fill ever.](assets/figures/figure_7_1_prescription_types.svg)
+
+*Figure 7.1. TRx grows with every refill. A restart after a treatment gap adds one NRx but no NBRx. NBRx is capped at one per patient per drug. Synthetic data.*
 
 
 
@@ -154,7 +160,7 @@ tbl = pd.DataFrame(
     },
     index=["TRx", "NRx", "NBRx", "Share"],
 )
-print(tbl.to_string())
+print(tbl)
 
 ```
 
@@ -192,6 +198,11 @@ for name, brand_starts, competitor_starts in [("Small cell", 7, 2), ("Large cell
     Large cell: raw 74.6%, pooled 76.4%, P(<82%) 95.7%
 
 
+![A scatter plot of 32 payer-region cells shows raw brand share on the x-axis and pooled posterior share on the y-axis. Points for small cells cluster near the diagonal of the national prior; points for large cells cluster near the no-pooling diagonal.](assets/figures/figure_7_2_partial_pooling.svg)
+
+*Figure 7.2. Each point is one payer-region cell. Small cells (light color) are pulled far toward the 81.9% national prior. Large cells (dark color) stay near the diagonal because local evidence outweighs the prior. Synthetic data.*
+
+
 
 ```python
 decisions = results["payer_region_decisions"]
@@ -213,9 +224,9 @@ view = pd.DataFrame(
     }
 )
 view.index = [f"{p} {r}" for p, r in view.index]
-print(view.T.to_string())
+print(view.T)
 print()
-print(decisions.action.value_counts().to_string())
+print(decisions.action.value_counts())
 
 ```
 
@@ -227,16 +238,22 @@ print(decisions.action.value_counts().to_string())
     prob_below_82                 24%                  87%              95%
     access_flag                  True                False             True
     adoption_flag               False                 True             True
-    action                Access work      Adoption review  Dual workstream
+    action              Access review      Adoption review  Dual workstream
     
     action
-    Access work         19
-    Defend and learn    10
-    Adoption review      2
-    Dual workstream      1
+    Access review      19
+    Sustain            10
+    Adoption review     2
+    Dual workstream     1
+    Name: count, dtype: int64
 
 
 Partial pooling holds the small cell back. The access and adoption flags route each cell independently: similar shares reach access work, adoption review, and a dual workstream.
+
+
+![Five aligned panels show, for 32 payer-region cells, Roventra share with its uncertainty interval, adoption flag (filled orange square for True), restricted lives, access flag (filled red square for True), and the assigned action labeled with a shape and color legend keyed to Sustain, Adoption review, Access review, Dual workstream, and Monitor.](assets/figures/figure_7_3_payer_region_matrix.svg)
+
+*Figure 7.3. The adoption flag and access flag are set independently from share uncertainty and restricted lives; the action column combines them. Wide share intervals mark the small cells the partial-pooling rule holds back. Synthetic data.*
 
 
 ## 7.5 Controlled formulary-event measurement
@@ -268,41 +285,12 @@ print(f"Post-period mean gap: {diagnostic.post_mean_gap:+.1%}")
 The controlled time series separates the PAY004 lift from the market trend, and the synthetic control lands in the same place.
 
 
-## 7.6 Monitoring and evidence sufficiency
+![Two stacked panels show PAY004 observed share, the ITS model fit, and the counterfactual through the year, and the lower panel shows observed week-by-week gaps as dots with the smooth model estimate as a green line.](assets/figures/figure_7_4_formulary_event.svg)
+
+*Figure 7.4. The counterfactual (dashed gray) follows the slightly downward class trend the donors carry; PAY004's observed share rises above that baseline after week 17. The lower panel dots show the observed gap each week; the green line is the model's linear estimate, reaching +10.0 points by week 28. Synthetic data.*
 
 
+![Single panel showing PAY004 observed share as a solid blue line and the synthetic counterfactual as a dashed gray line over 52 weeks, with the event at week 17 marked in red and the post-event gap shaded green.](assets/figures/figure_7_5_synthetic_control.svg)
 
-```python
-alerts = results["changepoint_alerts"].head(3).copy()
-alerts["standardized_cusum"] = alerts.standardized_cusum.round(3)
-print(alerts.to_string(index=False))
-print()
-print(results["switch_evidence"][[
-    "first_regimen", "patients", "switch_events",
-    "median_time_to_switch", "comparison_status",
-]].to_string(index=False))
-
-```
-
-     week direction  standardized_cusum episode_status
-       20  Increase               4.136         Opened
-    
-       first_regimen  patients  switch_events median_time_to_switch          comparison_status
-            Roventra      2798              0           Not reached Insufficient switch events
-              Vexpro       309             12           Not reached Insufficient switch events
-             Nexoral       303             12           Not reached Insufficient switch events
-    Nexoral + Vexpro         5              0           Not reached Insufficient switch events
-
-
-CUSUM opens the PAY004 increase episode at week 20. Later threshold crossings are persistence evidence for the same episode.
-
-
-![Two stacked panels show PAY004 weekly Roventra share and the positive standardized CUSUM trace. The formulary event is marked at week 17, the alarm threshold is marked at 4 standard deviations, the green point marks the episode-opening alarm, and hollow gray points mark later persistence crossings.](assets/figures/figure_7_5_cusum_detection.svg)
-
-*Figure 7.5. PAY004 share rises after the week 17 formulary event. The positive CUSUM opens an increase episode at week 20. Later threshold crossings show persistence of the same episode, not separate events. Synthetic data.*
-
-
-![Conceptual survival curves contrasting a cohort with sufficient switch events (green, median reached at a marked week) against a sparse cohort (blue, curve stays above 50% through week 52).](assets/figures/figure_7_6_switch_support.svg)
-
-*Figure 7.6. When the survival curve stays above 50% through all of follow-up, the median time to switch is not reached. Reporting a number here would invent precision the data does not hold. Track event accumulation across quarterly refreshes before publishing a comparative median. Synthetic data.*
+*Figure 7.5. The synthetic counterfactual (dashed gray) follows the weighted-donor blend through the pre-event weeks with RMSPE 0.038. After week 17, PAY004's observed share (blue) separates from the counterfactual; the green-shaded gap averages +7.5 points across the post-event period. PAY006 receives zero weight because it tracks PAY004 less well than PAY003 and PAY008 in the pre-event period. Synthetic data.*
 
