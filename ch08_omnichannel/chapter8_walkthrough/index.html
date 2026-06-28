@@ -1963,7 +1963,7 @@ Account support           0.16           4.9
 </code></pre></div>
 <h2 id="causal-who-responds-because-of-us-uplift">Causal: who responds because of us (uplift)</h2>
 <p>The T-learner treats prior live-program action as the action and next-28-day meaningful response as the outcome. It fits one response model on HCP-account rows with prior live-program action and one on rows without it, then scores every row under both models. The difference is estimated uplift.</p>
-<p><img alt="Figure 8.2. Four HCP behavioral types in uplift modeling. Arrows show how action changes predicted response: persuadable rows move up, sure things stay high, lost causes stay low, and sleeping dogs move down." src="../assets/figures/figure_8_2_uplift_segments.svg" /></p>
+<p><img alt="Figure 8.2. Four HCP behavioral types in uplift modeling. Arrows show how action changes predicted response: persuadable rows move up, sure things stay high, lost causes stay low, and sleeping dogs move down." src="../assets/figures/figure_8_2_uplift_segments.png" /></p>
 <p><em>Figure 8.2. Four HCP behavioral types in uplift modeling. Arrows show how action changes predicted response: persuadable rows move up, sure things stay high, lost causes stay low, and sleeping dogs move down.</em></p>
 <div class="highlight"><pre><span></span><code><span class="n">segments</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;uplift_segment_summary&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;mean_uplift&quot;</span><span class="p">,</span> <span class="s2">&quot;response_rate&quot;</span><span class="p">,</span> <span class="s2">&quot;mean_baseline_response&quot;</span><span class="p">]:</span>
@@ -1999,7 +1999,7 @@ mean_estimated_uplift             9.1%
 observed_uplift_top_quartile     14.4%
 observed_uplift_bottom_quartile   7.3%
 </code></pre></div>
-<p><img alt="Figure 8.3. A T-learner scores the same HCP-account row with action and control models, subtracts p0 from p1, and ranks rows by uplift. Synthetic data." src="../assets/figures/figure_8_3_t_learner.svg" /></p>
+<p><img alt="Figure 8.3. A T-learner scores the same HCP-account row with action and control models, subtracts p0 from p1, and ranks rows by uplift. Synthetic data." src="../assets/figures/figure_8_3_t_learner.png" /></p>
 <p><em>Figure 8.3. A T-learner scores the same HCP-account row with action and control models, subtracts p0 from p1, and ranks rows by uplift. Synthetic data.</em></p>
 <p><img alt="Figure 8.4. Each point is one HCP-account snapshot plotted by its control-model score and action-model score. Color shows estimated uplift. Synthetic data." src="../assets/figures/figure_8_4_uplift.svg" /></p>
 <p><em>Figure 8.4. Each point is one HCP-account snapshot plotted by its control-model score and action-model score. Color shows estimated uplift. Synthetic data.</em></p>
@@ -2086,7 +2086,7 @@ Account support   4.9%     -1.3 pp   $130.00              no lift
 4  9000000469     ACC121                 Suppress               SUPPRESS_PERMISSION
 </code></pre></div>
 <h2 id="prescriptive-off-policy-evaluation-handoff-to-next-best-action">Prescriptive: off-policy evaluation (handoff to next best action)</h2>
-<p><img alt="Figure 8.6. Off-policy evaluation compares a candidate policy against logged behavior policy data, uses overlap where the logged and candidate actions agree, and estimates offline value through importance weighting, a reward model, or a doubly robust combination." src="../assets/figures/figure_8_6_ope_estimators.svg" /></p>
+<p><img alt="Figure 8.6. Off-policy evaluation compares a candidate policy against logged behavior policy data, uses overlap where the logged and candidate actions agree, and estimates offline value through importance weighting, a reward model, or a doubly robust combination." src="../assets/figures/figure_8_6_ope_estimators.png" /></p>
 <p><em>Figure 8.6. Off-policy evaluation compares a candidate policy against logged behavior policy data, uses overlap where the logged and candidate actions agree, and estimates offline value through importance weighting, a reward model, or a doubly robust combination.</em></p>
 <div class="highlight"><pre><span></span><code><span class="n">policy_eval</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;policy_evaluation&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="n">focus</span> <span class="o">=</span> <span class="n">policy_eval</span><span class="p">[</span><span class="n">policy_eval</span><span class="o">.</span><span class="n">estimator</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s2">&quot;on_policy_mean&quot;</span><span class="p">,</span> <span class="s2">&quot;snips&quot;</span><span class="p">])]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
