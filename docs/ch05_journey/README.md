@@ -1,22 +1,28 @@
 # Chapter 5: Building the Patient Journey: Treatment Patterns, Lines of Therapy, and Persistence
 
-Welcome to Chapter 5! This chapter turns market opportunity into operational treatment patterns—showing when patients start therapy, which products they use, how treatment changes over time, and which findings are driven by your analysis rules.
+The chapter manuscript is [`ch05_patient_journey.md`](ch05_patient_journey.md). It turns the
+Chapter 3 synthetic package into a journey analysis: a newly observed diagnosis
+cohort, a transaction ledger, treatment episodes, lines of therapy built from
+nine explicit sequencing rules (index, washout, regimen window, allowable gap,
+addition, switch, restart, discontinuation, censoring), initiation and
+persistence curves, adherence metrics, and a sensitivity grid that shows which
+findings the rules create.
 
-## What You'll Learn
+## Current Scenario Inputs
 
-In this chapter, you'll discover:
-- **Diagnosis-indexed cohort design** - Apply 180-day lookback and 90-day follow-up windows following new-user pharmacoepidemiology design
-- **Treatment washout and line rules** - Distinguish true new starts from continuing therapy; detect the 14% overstatement from naive counting
-- **Lines of therapy construction** - Build explicit sequencing rules for index fills, regimen windows, allowable gaps, additions, switches, restarts, and discontinuation
-- **Treatment initiation curves** - Estimate time-to-treatment with proper censoring and competing events
-- **Persistence and adherence metrics** - Measure how long patients stay on therapy and their medication possession ratio (PDC)
+The launch product is `Roventra`, with Nexoral and Vexpro as competitors. Chapter 5 reads the regenerated Chapter 3 package directly, derives product names from `ndc_prescribed`, and builds the launch-condition cohort from the mature medical claims diagnosis columns.
 
-## Read the Full Chapter
+Two executed companion notebooks sit next to the manuscript:
 
-👉 **[Start reading Chapter 5: Building the Patient Journey](ch05_patient_journey.md)**
+- [`ch05_walkthrough.ipynb`](ch05_walkthrough.ipynb): the chapter as one executable story.
+- [`ch05_exercise_solutions.ipynb`](ch05_exercise_solutions.ipynb): worked answers with discussion.
 
-Also available:
-- 📓 **[Walkthrough Notebook](chapter5_walkthrough.ipynb)** - Interactive Python notebook with step-by-step code examples
-- 🧪 **[Exercise Solutions](exercise_solutions.ipynb)** - Solutions to chapter exercises
+Regenerate everything from the repository root:
 
-This chapter teaches you to move from "How many patients start treatment?" to "Here's the exact journey, here are the rules that define it, and here's which parts we can observe versus which parts we choose."
+```bash
+uv run python ch05_journey/scripts/run_analysis.py
+uv run python ch05_journey/scripts/build_figures.py
+```
+
+See [`scripts/README.md`](scripts/README.md) for the module layout and the
+scenario constants behind the sequencing rules.

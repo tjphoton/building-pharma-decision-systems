@@ -6,7 +6,7 @@ This chapter covers building a diagnosis-indexed cohort, constructing and testin
 
 Before running any chapter listing, execute `uv run python ch05_journey/scripts/run_analysis.py` from the repository root. The script writes the journey evidence package to `ch05_journey/assets/generated_outputs`: cohort attrition, treatment episodes, line-of-therapy records, washout comparisons, initiation and persistence curves, adherence records, and the rule-sensitivity grid. Every analysis below reads from those files. 
 
-Open [`chapter5_walkthrough.ipynb`](chapter5_walkthrough.ipynb) to execute the chapter as one sequence.
+Open [`ch05_walkthrough.ipynb`](ch05_walkthrough.ipynb) to execute the chapter as one sequence.
 
 ## 5.1 Define the Journey
 
@@ -860,6 +860,6 @@ In this chapter you learned:
 2. **Choose the adherence product scope.** Join index-product and market-basket PDC, identify the patients whose values differ, and inspect the treatment products for the patient with the largest increase. State which PDC belongs in a brand continuity report and which belongs in a condition-treatment continuity report. See section 5.4.
 3. **Stress-test the data cutoff.** Rebuild the cohort and line-1 results with the study end moved from 2024-12-31 to the raw data edge on 2025-01-31. Compare cohort size, discontinued share, and censored share, then explain why the less mature cutoff changes the result. See sections 5.1 and 5.4.
 
-Worked solutions are in [`exercise_solutions.ipynb`](exercise_solutions.ipynb). Each solution ends with the judgment the analyst should document for real data.
+Worked solutions are in [`ch05_exercise_solutions.ipynb`](ch05_exercise_solutions.ipynb). Each solution ends with the judgment the analyst should document for real data.
 
 The HCP and account targeting analysis carries the patient and treatment evidence into field planning. It asks where the observed opportunity sits, which customers are actionable, and what the field team should do next.

@@ -4,7 +4,7 @@ The HCP targeting provides account priority, access flags, and field capacity. T
 
 In this chapter, you follow 2 HCPs, HCP0280 and HCP0389, to build the event ledger that unifies ten communication channel systems into a trusted record, a response model that predict responses, an attribution analysis that identifies which past channels are associated with response, uplift analysis that tests whether those channels actually caused it, channel economics that convert causal estimates into cost per incremental response, a governed channel plan, and a measurement contract that feeds the next-best-action engine in the next chapter.
 
-Open [`chapter8_walkthrough.ipynb`](chapter8_walkthrough.ipynb), or run the blocks below from the repository root.
+Open [`ch08_walkthrough.ipynb`](ch08_walkthrough.ipynb), or run the blocks below from the repository root.
 
 > **Note:** All products, HCPs, accounts, campaigns, and events are fictional and synthetic.
 
@@ -600,86 +600,18 @@ Read the table left to right. Field and email carry almost the same credit, 17.3
 
 The budget decision uses all 3 columns. Email is cheap, so even a small incremental return can support broad use. Field is costly, so it belongs in the few rows whose uplift justifies $225 a touch. Channels with no measurable lift are candidates to reduce, whatever the credit dashboard says.
 
-## 8.5 Off-Policy Evaluation
-
-You have designed a new channel allocation rule: route high-access-need HCPs to account support, high-evidence-need HCPs to field, digital responders to email, and everyone else to observe. Before deploying it live, you need to know whether it would perform better. The difficulty is that you have outcome records only for the actions your current policy actually took. For the decisions where the two policies would disagree, the historical outcome carries no information about what the candidate policy would have achieved.
-
-Off-policy evaluation, or OPE, estimates the value of a candidate policy using data logged by a different policy. In reinforcement learning language, the historical policy is the behavior or logging policy, written as $\pi_b$. The new rule is the evaluation or target policy, written as $\pi_e$. In this chapter, $\pi_b$ is the channel pattern already present in the event history, and $\pi_e$ is the candidate channel rule we want to test offline.
-
-The commercial reason is straightforward. A live channel-policy test changes which HCP-account rows get field, email, account support, or no contact. That can affect customers, budgets, field workload, and measurement. OPE gives the analytics team a readiness check before the new rule enters a live experiment.
-
-The first requirement is overlap. OPE looks for rows where the candidate policy would have chosen the same action that the logged policy actually took. For those rows, the observed response is usable evidence for the candidate. Rows where the policies disagree cannot reveal what would have happened under the candidate action. The more the two policies disagree, the thinner the evidence becomes.
-
-There are 2 common estimator families. Importance sampling reweights observed rewards by how likely the logged action would be under $\pi_e$ compared with $\pi_b$. In this chapter the candidate is deterministic, so matched rows receive inverse logging-probability weight and non-matches receive weight 0. Importance sampling is unbiased when the logging probabilities are correct and every candidate action has support in the log, but it can become unstable when a rare logged action receives a large weight.
-
-The direct method fits a reward model from logged data, then scores the action the candidate would take for each HCP-account row. It is usually more stable than importance sampling, but it depends on the model being right. Doubly robust estimation combines the two ideas: start with the reward-model prediction under the candidate action, then add an importance-weighted correction where the logged action matches the candidate action. A doubly robust estimate can remain valid if either the reward model or the action weights are well specified.
-
-Self-normalized inverse-propensity scoring (SNIPS) is the stabilized importance-sampling estimate used for the main printed comparison. It divides by the empirical sum of the weights, which reduces variance when overlap is thin. The tradeoff is a small bias in exchange for a more stable estimate.
-
-![Figure 8.6. Off-policy evaluation compares a candidate policy against logged behavior policy data, uses overlap where the logged and candidate actions agree, and estimates offline value through importance weighting, a reward model, or a doubly robust combination.](assets/figures/figure_8_6_ope_estimators.png)
-
-*Figure 8.6. Off-policy evaluation compares a candidate policy against logged behavior policy data, uses overlap where the logged and candidate actions agree, and estimates offline value through importance weighting, a reward model, or a doubly robust combination.*
-
-`off_policy_evaluation()` in `modern_methods.py` applies IPS, SNIPS, and doubly robust estimation and returns estimated response rates and overlap diagnostics (Listing 8.20). `off_policy_support()` from the same module shows which pairs of logged versus candidate actions drove the overlap (Listing 8.21).
-
-**Listing 8.20**: Estimate the candidate policy and check overlap
-
-```python
-policy_eval = results["policy_evaluation"].copy()
-focus = policy_eval[policy_eval.estimator.isin(["on_policy_mean", "snips"])].copy()
-focus["estimated_response_rate"] = (
-    focus.estimated_response_rate.map(lambda x: f"{x:.1%}")
-)
-focus["effective_sample_size"] = (
-    focus.effective_sample_size.map(lambda x: f"{x:.1f}")
-)
-print(focus.to_string(index=False))
-```
-
-```text
-          policy      estimator estimated_response_rate  matched_snapshots effective_sample_size
-   logged_policy on_policy_mean                   48.7%                158                 158.0
-candidate_policy          snips                   56.0%                 47                  45.5
-```
-
-The current (logged) policy achieved 48.7% response across all 158 HCP-account rows. SNIPS estimates the candidate policy would reach 56.0%. The right place to look is the last two columns: only 47 of the 158 decisions matched the candidate's choice, and the effective sample size is 45.5. The estimate of 56.0% rests on roughly 45 usable data points, far too few to trust as a basis for switching policies.
-
-**Listing 8.21**: Inspect overlap between logged and candidate actions
-
-```python
-support = results["policy_support"].head(8).copy()
-support["response_rate"] = support.response_rate.map(lambda x: f"{x:.1%}")
-print(support.to_string(index=False))
-```
-
-```text
-logged_action candidate_action  snapshots  responses response_rate
-        Field            Field         24         20         83.3%
- Live program            Field         20          5         25.0%
-      Observe          Observe         18          1          5.6%
- Live program            Email         14          8         57.1%
-      Observe            Email         14          4         28.6%
-      Observe            Field         14          2         14.3%
-        Email            Field         13          9         69.2%
-        Field          Observe         12          9         75.0%
-```
-
-Only the first and third rows (Field→Field and Observe→Observe) are matches; the rest are disagreements where the candidate wants a different action than the current policy took. Those disagreement rows are excluded from the estimate. The low overlap explains both the thin effective sample size and the uncertainty behind the 56.0% headline.
-
-An off-policy estimate with thin overlap is a readiness check. It tells you whether the candidate is plausible enough to test live; it does not prove the candidate performs better. To produce more reliable future estimates, the current policy needs a deliberate exploration phase: occasionally taking actions outside its default rule, recording those outcomes, and accumulating the overlap a proper off-policy comparison requires.
-
-## 8.6 Summary
+## 8.5 Summary
 
 The opening decision was which engagement action and channel each eligible HCP at an account should receive during the next 4 weeks. The event ledger unified 10 channel families while preserving each source's distinct measurement meaning. Past-window snapshots kept features and outcomes on opposite sides of the snapshot date, and the response model ranked the eligible set with a test AUC of 0.711 and a 1.52× top-quintile lift.
 
 Attribution credited field and email near 17% each. The cost view showed that those nearly equal credit shares carry very different economics: about $17 per incremental response on email versus $12,049 on field. The uplift model separated Persuadables (HCPs with moderate baseline response who move substantially with the program) from Sure Things who respond regardless and Lost Causes who are unlikely to move.
 
-Off-policy evaluation tested a candidate channel policy against the logged history before deploying it live. The candidate showed 56.0% versus 48.7% for the current policy, but only 47 of 158 decisions overlapped between the two policies, leaving an effective sample size of 45.5. That is too thin to justify a switch.
+The channel plan closes the omnichannel analysis and hands a dated state to the next-best-action engine. That engine turns the state into one governed action per HCP-account row, then evaluates alternative policies before a live test.
 
-## 8.7 Exercises
+## 8.6 Exercises
 
 1. **Change the response definition.** Use the event ledger. Count email opens as meaningful responses, rebuild the snapshot panel, and compare the test response rate and lift table. State whether the added events represent a stronger signal or a looser label. (The event ledger and the response model.)
 2. **Rank by uplift.** Use the uplift output. Select the 16 promotional slots by estimated uplift, then compare which HCP-account rows enter the plan under the response-ranked version. State which rows drop out and why a sure-thing responder might be a weak use of a scarce program invitation. (Incrementality.)
 3. **Design a holdout.** Use the measurement contract. Select the HCP-account rows eligible for email, peer-program, or speaker-program follow-up, assign 50% to holdout with a fixed seed, and produce an assignment table in fewer than 20 lines. Name the primary outcome, window, and exclusion rule you would register before execution. (The measurement contract.)
 
-Worked solutions are in [`exercise_solutions.ipynb`](exercise_solutions.ipynb). Each solution ends with the judgment an analyst should record for real data.
+Worked solutions are in [`ch08_exercise_solutions.ipynb`](ch08_exercise_solutions.ipynb). Each solution ends with the judgment an analyst should record for real data.

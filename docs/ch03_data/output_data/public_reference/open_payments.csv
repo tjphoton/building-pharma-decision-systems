@@ -1,0 +1,784 @@
+npi,physician_specialty,company_name,payment_amount,payment_category,payment_year,data_source,source_url,extract_year,source_mode,schema_version,retrieved_at_utc
+9000000002,,Meridian Health Sciences,857.49,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000002,,ClearPath BioMed,24788.22,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000002,,Apex Oncology,1445.88,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000004,,ClearPath BioMed,62802.08,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000005,,NovaBio Pharmaceuticals,6082.07,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000005,,Meridian Health Sciences,24049.68,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000005,,ClearPath BioMed,99415.25,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000005,,Meridian Health Sciences,898.54,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000005,,Helix Therapeutics,1206.13,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000005,,NovaBio Pharmaceuticals,32432.88,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000005,,Helix Therapeutics,221.08,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000005,,Meridian Health Sciences,36281.3,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000007,,Helix Therapeutics,6833.53,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000007,,Helix Therapeutics,15682.55,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000007,,Meridian Health Sciences,249.79,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000007,,NovaBio Pharmaceuticals,860.33,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000008,,Apex Oncology,996.65,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000008,,NovaBio Pharmaceuticals,1028.01,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000008,,Apex Oncology,958.47,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000009,,Meridian Health Sciences,14127.4,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000010,,Meridian Health Sciences,92999.71,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000010,,Apex Oncology,842.99,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000010,,ClearPath BioMed,4164.81,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000010,,NovaBio Pharmaceuticals,3881.02,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000010,,Apex Oncology,14134.66,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000010,,Helix Therapeutics,15303.21,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000011,,Helix Therapeutics,323.16,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000012,,Apex Oncology,189.4,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000012,,Meridian Health Sciences,10742.72,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000013,,ClearPath BioMed,4921.19,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000013,,Apex Oncology,23968.53,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000013,,Apex Oncology,18267.05,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000013,,Apex Oncology,4098.9,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000013,,ClearPath BioMed,12180.8,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000015,,Apex Oncology,837.34,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000015,,ClearPath BioMed,694.53,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000015,,Meridian Health Sciences,1274.35,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000016,,Meridian Health Sciences,8529.65,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000016,,Meridian Health Sciences,933.86,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000019,,Apex Oncology,7791.32,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000019,,NovaBio Pharmaceuticals,516.35,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000019,,Helix Therapeutics,43304.39,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000019,,Apex Oncology,20150.4,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000019,,Meridian Health Sciences,2794.16,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000019,,Meridian Health Sciences,7084.95,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000019,,NovaBio Pharmaceuticals,73437.23,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000019,,Meridian Health Sciences,47800.11,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000022,,ClearPath BioMed,903.85,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000022,,Meridian Health Sciences,1308.16,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000022,,NovaBio Pharmaceuticals,10091.82,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000022,,Apex Oncology,13017.05,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000029,,ClearPath BioMed,14775.81,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000029,,Apex Oncology,892.29,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000029,,NovaBio Pharmaceuticals,3902.69,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000032,,Meridian Health Sciences,1043.7,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000032,,Apex Oncology,406.77,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000033,,Meridian Health Sciences,503.09,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000033,,Meridian Health Sciences,700.56,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000033,,Apex Oncology,1147.9,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000035,,Meridian Health Sciences,123.57,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000039,,Meridian Health Sciences,268.03,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000040,,Apex Oncology,378.38,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000042,,ClearPath BioMed,13637.45,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000042,,Apex Oncology,23987.83,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000042,,Meridian Health Sciences,1407.16,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000042,,ClearPath BioMed,37531.27,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000045,,NovaBio Pharmaceuticals,90176.99,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000054,,NovaBio Pharmaceuticals,792.62,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000054,,Helix Therapeutics,1485.88,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000054,,Meridian Health Sciences,13840.56,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000057,,Meridian Health Sciences,7512.93,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000057,,Helix Therapeutics,695.75,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000057,,NovaBio Pharmaceuticals,97221.75,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000057,,Apex Oncology,52526.54,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000057,,Helix Therapeutics,1036.86,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000057,,Apex Oncology,10047.48,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000059,,Helix Therapeutics,10814.17,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000059,,ClearPath BioMed,1374.55,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000059,,NovaBio Pharmaceuticals,500.48,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000063,,Meridian Health Sciences,912.16,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000063,,ClearPath BioMed,48760.5,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000063,,ClearPath BioMed,2353.92,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000066,,Helix Therapeutics,610.87,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000066,,Helix Therapeutics,2506.96,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000066,,Helix Therapeutics,22263.55,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000066,,Helix Therapeutics,7172.44,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000066,,NovaBio Pharmaceuticals,13722.22,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000078,,Apex Oncology,744.33,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000081,,Helix Therapeutics,717.82,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000081,,Helix Therapeutics,757.17,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000081,,Meridian Health Sciences,1447.25,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000083,,ClearPath BioMed,51063.14,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000083,,Helix Therapeutics,31906.96,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000083,,Meridian Health Sciences,1177.42,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000084,,ClearPath BioMed,12901.29,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000084,,Meridian Health Sciences,468.57,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000084,,Meridian Health Sciences,1053.73,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000088,,NovaBio Pharmaceuticals,14536.06,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000092,,Helix Therapeutics,17426.15,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000092,,Apex Oncology,24098.73,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000092,,ClearPath BioMed,849.08,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000092,,NovaBio Pharmaceuticals,718.64,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000092,,Meridian Health Sciences,1290.16,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000093,,Apex Oncology,23367.26,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000093,,Apex Oncology,10656.94,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000093,,Apex Oncology,18760.54,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000093,,Apex Oncology,4056.0,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000093,,ClearPath BioMed,1068.56,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000093,,NovaBio Pharmaceuticals,13295.16,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000093,,Apex Oncology,17272.76,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000095,,Meridian Health Sciences,3340.39,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000095,,Apex Oncology,45780.15,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000095,,Meridian Health Sciences,656.49,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000095,,Helix Therapeutics,6721.72,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000099,,Apex Oncology,3041.97,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000099,,Apex Oncology,10483.45,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000099,,NovaBio Pharmaceuticals,613.15,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000105,,Helix Therapeutics,906.6,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000105,,Apex Oncology,644.82,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000105,,NovaBio Pharmaceuticals,28241.92,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000105,,NovaBio Pharmaceuticals,376.03,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000105,,ClearPath BioMed,214.59,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000105,,NovaBio Pharmaceuticals,6194.97,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000105,,Helix Therapeutics,48996.78,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000108,,Meridian Health Sciences,1287.8,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000108,,Helix Therapeutics,8618.36,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000108,,ClearPath BioMed,11352.13,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000109,,NovaBio Pharmaceuticals,48307.45,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000111,,Helix Therapeutics,3102.23,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000111,,Apex Oncology,13433.56,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000111,,Meridian Health Sciences,4637.76,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000113,,Apex Oncology,22515.99,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000113,,Meridian Health Sciences,171.5,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000119,,Helix Therapeutics,20018.95,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000119,,Meridian Health Sciences,10662.66,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000119,,Apex Oncology,61652.1,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000120,,Meridian Health Sciences,12960.32,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000121,,Helix Therapeutics,180.36,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000124,,Meridian Health Sciences,933.8,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000124,,Apex Oncology,14074.4,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000124,,Helix Therapeutics,1003.76,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000125,,Helix Therapeutics,5882.65,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000125,,ClearPath BioMed,704.16,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000125,,NovaBio Pharmaceuticals,10070.95,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000126,,NovaBio Pharmaceuticals,696.88,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000126,,Apex Oncology,795.21,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000128,,Apex Oncology,903.02,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000128,,NovaBio Pharmaceuticals,838.52,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000131,,Meridian Health Sciences,120.44,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000131,,Apex Oncology,32851.87,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000131,,Apex Oncology,13555.56,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000131,,NovaBio Pharmaceuticals,2002.7,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000131,,ClearPath BioMed,520.72,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000132,,Apex Oncology,80170.53,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000132,,Meridian Health Sciences,937.75,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000132,,ClearPath BioMed,16527.56,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000132,,Helix Therapeutics,12498.58,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000132,,Helix Therapeutics,1199.05,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000132,,ClearPath BioMed,1001.97,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000132,,Apex Oncology,8099.69,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000132,,Meridian Health Sciences,8290.84,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000133,,ClearPath BioMed,5220.62,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000133,,ClearPath BioMed,7117.64,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000133,,Meridian Health Sciences,1090.58,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000135,,Meridian Health Sciences,1098.85,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000138,,NovaBio Pharmaceuticals,308.45,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000141,,Helix Therapeutics,438.9,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000141,,NovaBio Pharmaceuticals,62056.59,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000141,,Apex Oncology,573.82,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000142,,Meridian Health Sciences,14743.46,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000142,,Meridian Health Sciences,18491.46,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000142,,NovaBio Pharmaceuticals,789.01,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000142,,Meridian Health Sciences,61262.51,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000142,,Helix Therapeutics,65125.84,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000142,,Apex Oncology,592.22,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000142,,Apex Oncology,13742.79,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000144,,NovaBio Pharmaceuticals,73720.85,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000144,,Meridian Health Sciences,14540.84,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000144,,NovaBio Pharmaceuticals,11856.94,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000146,,NovaBio Pharmaceuticals,772.7,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000146,,ClearPath BioMed,1104.94,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000146,,Helix Therapeutics,941.97,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000147,,ClearPath BioMed,1323.77,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000147,,ClearPath BioMed,54433.06,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000147,,NovaBio Pharmaceuticals,440.47,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000149,,Meridian Health Sciences,23386.05,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000149,,NovaBio Pharmaceuticals,16730.06,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000149,,ClearPath BioMed,12094.39,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000149,,NovaBio Pharmaceuticals,954.39,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000149,,ClearPath BioMed,13735.17,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000149,,Apex Oncology,3401.15,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000149,,Apex Oncology,470.77,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000151,,Meridian Health Sciences,9402.45,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000151,,Helix Therapeutics,426.54,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000151,,Meridian Health Sciences,17083.25,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000151,,Apex Oncology,13886.62,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000153,,Apex Oncology,1182.25,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000153,,Apex Oncology,3450.76,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000160,,ClearPath BioMed,1131.66,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000160,,Meridian Health Sciences,880.4,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000161,,Apex Oncology,993.89,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000161,,Meridian Health Sciences,1482.75,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000162,,Meridian Health Sciences,1705.72,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000163,,ClearPath BioMed,1791.44,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000163,,Meridian Health Sciences,7712.81,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000163,,Meridian Health Sciences,1328.75,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000163,,Helix Therapeutics,2065.06,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000165,,Meridian Health Sciences,13464.84,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000165,,ClearPath BioMed,994.28,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000165,,Apex Oncology,1290.06,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000168,,Apex Oncology,19442.83,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000168,,Meridian Health Sciences,697.24,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000168,,NovaBio Pharmaceuticals,61869.01,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000168,,Apex Oncology,21268.9,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000168,,ClearPath BioMed,14359.02,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000168,,ClearPath BioMed,2547.05,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000173,,NovaBio Pharmaceuticals,666.86,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000175,,Apex Oncology,23285.29,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000175,,NovaBio Pharmaceuticals,654.02,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000175,,NovaBio Pharmaceuticals,985.16,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000177,,Apex Oncology,126.84,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000177,,ClearPath BioMed,341.84,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000178,,Meridian Health Sciences,457.18,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000179,,Meridian Health Sciences,594.82,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000183,,NovaBio Pharmaceuticals,732.88,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000183,,Apex Oncology,205.79,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000188,,ClearPath BioMed,10818.63,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000188,,Meridian Health Sciences,43647.34,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000188,,Apex Oncology,1012.05,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000190,,Apex Oncology,12999.12,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000190,,ClearPath BioMed,1180.24,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000195,,Helix Therapeutics,51940.4,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000195,,Helix Therapeutics,7832.31,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000195,,Apex Oncology,511.39,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000195,,Helix Therapeutics,11428.57,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000195,,ClearPath BioMed,641.78,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000195,,Helix Therapeutics,21645.58,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000196,,Apex Oncology,8827.21,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000196,,Meridian Health Sciences,4278.14,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000196,,NovaBio Pharmaceuticals,12789.25,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000196,,Apex Oncology,13035.74,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000196,,Meridian Health Sciences,7863.37,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000198,,NovaBio Pharmaceuticals,5813.36,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000198,,NovaBio Pharmaceuticals,8712.07,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000198,,Helix Therapeutics,2409.91,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000201,,Helix Therapeutics,1260.79,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000201,,Helix Therapeutics,580.06,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000202,,Apex Oncology,1344.91,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000204,,NovaBio Pharmaceuticals,741.42,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000204,,Helix Therapeutics,7752.09,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000204,,Apex Oncology,17265.65,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000209,,ClearPath BioMed,14641.83,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000209,,Apex Oncology,11256.87,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000209,,ClearPath BioMed,85017.35,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000209,,Meridian Health Sciences,444.57,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000209,,NovaBio Pharmaceuticals,13527.42,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000209,,Helix Therapeutics,1105.36,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000216,,Meridian Health Sciences,2746.34,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000216,,NovaBio Pharmaceuticals,921.68,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000216,,Apex Oncology,455.9,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000216,,ClearPath BioMed,539.79,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000216,,Meridian Health Sciences,6631.78,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000216,,Apex Oncology,3229.32,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000220,,ClearPath BioMed,279.81,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000220,,ClearPath BioMed,341.91,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000220,,Helix Therapeutics,14616.53,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000221,,Meridian Health Sciences,5650.51,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000221,,Apex Oncology,1027.19,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000223,,Meridian Health Sciences,349.17,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000223,,NovaBio Pharmaceuticals,417.79,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000224,,ClearPath BioMed,16750.76,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000228,,NovaBio Pharmaceuticals,18425.92,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000228,,NovaBio Pharmaceuticals,5303.35,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000228,,Helix Therapeutics,422.2,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000228,,NovaBio Pharmaceuticals,10898.0,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000228,,Meridian Health Sciences,19374.17,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000228,,Meridian Health Sciences,10553.45,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000228,,ClearPath BioMed,73463.67,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000229,,NovaBio Pharmaceuticals,13949.91,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000229,,Meridian Health Sciences,71170.07,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000229,,ClearPath BioMed,51886.37,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000229,,Apex Oncology,10350.66,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000229,,NovaBio Pharmaceuticals,12164.25,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000229,,Helix Therapeutics,96414.43,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000229,,Meridian Health Sciences,19857.96,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000229,,NovaBio Pharmaceuticals,10697.43,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000230,,NovaBio Pharmaceuticals,345.67,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000232,,NovaBio Pharmaceuticals,217.9,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000232,,NovaBio Pharmaceuticals,21272.87,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000232,,ClearPath BioMed,24740.8,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000233,,Apex Oncology,1475.73,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000233,,Apex Oncology,937.8,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000233,,Apex Oncology,6746.28,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000236,,Apex Oncology,165.28,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000236,,ClearPath BioMed,409.65,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000236,,Helix Therapeutics,41069.31,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000238,,Helix Therapeutics,1495.32,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000238,,NovaBio Pharmaceuticals,4369.94,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000238,,Apex Oncology,7256.84,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000238,,ClearPath BioMed,5288.76,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000238,,NovaBio Pharmaceuticals,2031.78,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000238,,Apex Oncology,8805.37,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000239,,ClearPath BioMed,27353.74,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000239,,NovaBio Pharmaceuticals,10541.01,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000239,,ClearPath BioMed,1434.08,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000239,,Helix Therapeutics,8958.41,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000239,,Meridian Health Sciences,2082.93,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000239,,Helix Therapeutics,825.7,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000239,,Apex Oncology,8632.14,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000241,,Helix Therapeutics,834.92,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000241,,Helix Therapeutics,293.2,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000243,,NovaBio Pharmaceuticals,4694.12,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000243,,Helix Therapeutics,1466.63,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000243,,NovaBio Pharmaceuticals,84004.83,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000243,,Apex Oncology,8297.95,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000243,,Meridian Health Sciences,12641.37,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000243,,ClearPath BioMed,759.05,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000243,,Meridian Health Sciences,5545.42,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000246,,Helix Therapeutics,9680.67,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000246,,ClearPath BioMed,8496.17,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000246,,ClearPath BioMed,14926.13,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000246,,Meridian Health Sciences,5122.22,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000246,,Helix Therapeutics,936.98,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000246,,Meridian Health Sciences,2092.02,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000246,,Meridian Health Sciences,5751.09,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000246,,Helix Therapeutics,215.02,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000249,,Meridian Health Sciences,1457.32,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000249,,Meridian Health Sciences,748.9,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000254,,Meridian Health Sciences,683.05,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000254,,Apex Oncology,6211.13,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000254,,Helix Therapeutics,926.4,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000262,,ClearPath BioMed,3333.42,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000262,,Meridian Health Sciences,4688.0,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000262,,Meridian Health Sciences,17096.41,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000262,,NovaBio Pharmaceuticals,22763.82,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000262,,ClearPath BioMed,41981.59,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000265,,Meridian Health Sciences,6308.2,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000265,,NovaBio Pharmaceuticals,82302.74,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000265,,Apex Oncology,2908.52,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000265,,ClearPath BioMed,13363.76,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000265,,ClearPath BioMed,58915.11,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000269,,Helix Therapeutics,969.77,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000269,,Meridian Health Sciences,809.13,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000269,,NovaBio Pharmaceuticals,6353.42,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000269,,ClearPath BioMed,8965.75,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000269,,Meridian Health Sciences,75264.19,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000269,,Meridian Health Sciences,65301.52,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000269,,Helix Therapeutics,9975.28,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000273,,Apex Oncology,22703.63,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000276,,Apex Oncology,11313.67,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000277,,Helix Therapeutics,1373.01,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000277,,Meridian Health Sciences,1005.77,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000277,,Meridian Health Sciences,1046.16,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000277,,NovaBio Pharmaceuticals,580.33,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000280,,Helix Therapeutics,8133.35,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000280,,NovaBio Pharmaceuticals,532.1,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000281,,Meridian Health Sciences,1019.99,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000281,,Meridian Health Sciences,16954.96,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000281,,Helix Therapeutics,907.41,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000281,,Meridian Health Sciences,1100.76,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000281,,NovaBio Pharmaceuticals,20560.05,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000282,,NovaBio Pharmaceuticals,1295.54,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000282,,Meridian Health Sciences,1185.41,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000282,,Meridian Health Sciences,393.9,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000285,,Helix Therapeutics,91060.17,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000285,,NovaBio Pharmaceuticals,72462.94,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000285,,Meridian Health Sciences,1149.17,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000285,,ClearPath BioMed,19107.96,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000287,,Meridian Health Sciences,445.96,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000288,,NovaBio Pharmaceuticals,10596.96,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000289,,Apex Oncology,741.73,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000295,,ClearPath BioMed,1283.61,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000295,,Meridian Health Sciences,1219.49,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000296,,Helix Therapeutics,1162.79,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000297,,ClearPath BioMed,473.89,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000297,,Helix Therapeutics,1008.83,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000297,,ClearPath BioMed,16551.78,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000299,,Helix Therapeutics,161.15,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000299,,Apex Oncology,313.64,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000300,,ClearPath BioMed,9927.29,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000303,,Meridian Health Sciences,1410.19,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000303,,Meridian Health Sciences,497.66,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000303,,Meridian Health Sciences,4396.62,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000305,,ClearPath BioMed,5592.94,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000305,,ClearPath BioMed,932.2,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000305,,Apex Oncology,1053.44,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000305,,ClearPath BioMed,5774.32,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000305,,NovaBio Pharmaceuticals,80095.23,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000305,,Meridian Health Sciences,81981.06,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000306,,Helix Therapeutics,600.62,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000306,,Helix Therapeutics,6460.74,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000306,,Meridian Health Sciences,12053.49,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000306,,Apex Oncology,10519.31,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000306,,ClearPath BioMed,96849.99,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000306,,Apex Oncology,14816.98,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000306,,Helix Therapeutics,587.54,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000306,,ClearPath BioMed,20047.34,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000307,,NovaBio Pharmaceuticals,546.37,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000309,,Apex Oncology,343.8,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000309,,ClearPath BioMed,478.62,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000309,,Helix Therapeutics,696.37,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000313,,NovaBio Pharmaceuticals,620.25,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000314,,NovaBio Pharmaceuticals,1370.94,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000314,,Helix Therapeutics,1069.15,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000314,,Meridian Health Sciences,24363.67,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000314,,ClearPath BioMed,11098.87,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000314,,NovaBio Pharmaceuticals,1337.52,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000314,,Apex Oncology,17648.88,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000314,,Helix Therapeutics,2270.83,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000317,,ClearPath BioMed,1118.01,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000321,,Meridian Health Sciences,628.64,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000323,,Apex Oncology,59509.67,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000323,,NovaBio Pharmaceuticals,569.02,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000323,,Apex Oncology,12297.17,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000323,,Helix Therapeutics,13076.58,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000323,,NovaBio Pharmaceuticals,2537.83,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000323,,Meridian Health Sciences,6381.58,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000326,,Helix Therapeutics,8770.19,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000326,,Apex Oncology,237.17,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000327,,Meridian Health Sciences,29735.26,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000327,,Meridian Health Sciences,3102.27,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000327,,Helix Therapeutics,11817.86,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000329,,Meridian Health Sciences,813.39,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000329,,Apex Oncology,17780.28,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000329,,Meridian Health Sciences,254.4,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000329,,Helix Therapeutics,13765.4,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000331,,NovaBio Pharmaceuticals,566.26,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000332,,NovaBio Pharmaceuticals,54617.1,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000332,,ClearPath BioMed,550.67,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000332,,Meridian Health Sciences,24194.68,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000333,,Helix Therapeutics,24473.71,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000333,,Helix Therapeutics,504.31,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000333,,Helix Therapeutics,19116.02,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000333,,Apex Oncology,58503.95,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000335,,Helix Therapeutics,22852.4,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000335,,Apex Oncology,5660.75,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000335,,ClearPath BioMed,598.24,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000335,,Apex Oncology,19909.64,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000335,,Apex Oncology,782.97,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000335,,NovaBio Pharmaceuticals,10991.25,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000337,,ClearPath BioMed,392.46,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000337,,ClearPath BioMed,231.7,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000341,,NovaBio Pharmaceuticals,6382.27,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000341,,Meridian Health Sciences,271.85,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000341,,Helix Therapeutics,8247.64,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000350,,NovaBio Pharmaceuticals,17869.23,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000350,,ClearPath BioMed,720.53,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000350,,Apex Oncology,23850.13,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000350,,Helix Therapeutics,24952.43,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000350,,Apex Oncology,425.63,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000350,,NovaBio Pharmaceuticals,8784.63,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000350,,Apex Oncology,9503.95,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000350,,Apex Oncology,12381.78,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000351,,Helix Therapeutics,148.02,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000351,,Apex Oncology,679.37,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000351,,Helix Therapeutics,294.45,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000354,,Apex Oncology,242.94,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000354,,NovaBio Pharmaceuticals,7787.87,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000354,,ClearPath BioMed,65379.5,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000358,,Apex Oncology,31840.45,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000358,,NovaBio Pharmaceuticals,12455.5,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000358,,Apex Oncology,79701.08,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000358,,Helix Therapeutics,67561.46,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000358,,Apex Oncology,3497.45,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000358,,NovaBio Pharmaceuticals,85566.58,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000366,,ClearPath BioMed,15565.09,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000366,,Helix Therapeutics,593.03,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000366,,Meridian Health Sciences,774.8,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000369,,Apex Oncology,668.8,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000369,,Meridian Health Sciences,729.85,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000370,,ClearPath BioMed,555.63,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000371,,ClearPath BioMed,615.88,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000373,,Meridian Health Sciences,254.27,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000373,,Apex Oncology,704.26,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000375,,NovaBio Pharmaceuticals,8626.99,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000375,,ClearPath BioMed,23194.93,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000375,,Meridian Health Sciences,17365.36,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000375,,Helix Therapeutics,57649.06,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000375,,ClearPath BioMed,8127.42,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000375,,NovaBio Pharmaceuticals,80015.96,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000375,,ClearPath BioMed,1189.34,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000375,,Apex Oncology,86350.83,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000382,,Helix Therapeutics,389.71,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000382,,Meridian Health Sciences,6266.91,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000382,,Meridian Health Sciences,880.86,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000382,,ClearPath BioMed,87521.05,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000382,,Meridian Health Sciences,12222.13,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000385,,Meridian Health Sciences,1160.26,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000385,,ClearPath BioMed,24068.28,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000385,,NovaBio Pharmaceuticals,16823.53,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000385,,ClearPath BioMed,3420.05,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000385,,Helix Therapeutics,35128.25,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000385,,NovaBio Pharmaceuticals,11918.77,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000385,,NovaBio Pharmaceuticals,5772.84,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000385,,ClearPath BioMed,21887.68,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000389,,Apex Oncology,10502.7,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000389,,NovaBio Pharmaceuticals,87758.53,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000389,,Helix Therapeutics,12225.9,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000390,,NovaBio Pharmaceuticals,4518.49,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000393,,Helix Therapeutics,7504.33,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000393,,NovaBio Pharmaceuticals,2168.97,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000393,,Apex Oncology,556.98,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000397,,NovaBio Pharmaceuticals,1022.34,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000409,,NovaBio Pharmaceuticals,743.58,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000409,,Meridian Health Sciences,6924.07,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000409,,ClearPath BioMed,6146.76,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000409,,Apex Oncology,19628.54,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000409,,Helix Therapeutics,13771.31,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000409,,Helix Therapeutics,60272.9,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000415,,ClearPath BioMed,29393.56,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000415,,Meridian Health Sciences,496.55,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000415,,Helix Therapeutics,71946.76,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000415,,Apex Oncology,733.38,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000415,,Apex Oncology,14514.82,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000415,,NovaBio Pharmaceuticals,364.43,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000416,,ClearPath BioMed,8024.04,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000416,,Meridian Health Sciences,8765.81,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000416,,NovaBio Pharmaceuticals,16570.5,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000416,,Helix Therapeutics,1564.67,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000416,,Apex Oncology,6077.74,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000417,,ClearPath BioMed,713.31,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000417,,NovaBio Pharmaceuticals,370.16,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000421,,NovaBio Pharmaceuticals,22065.66,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000421,,ClearPath BioMed,7088.11,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000421,,Meridian Health Sciences,8339.6,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000422,,Helix Therapeutics,93515.14,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000422,,ClearPath BioMed,112.92,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000422,,ClearPath BioMed,24426.77,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000422,,ClearPath BioMed,17612.55,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000424,,NovaBio Pharmaceuticals,2327.95,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000424,,ClearPath BioMed,59055.2,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000424,,Meridian Health Sciences,24370.83,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000424,,Apex Oncology,9065.97,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000424,,Helix Therapeutics,52950.15,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000424,,Apex Oncology,745.69,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000430,,ClearPath BioMed,1099.36,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000430,,NovaBio Pharmaceuticals,122.33,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000430,,ClearPath BioMed,955.1,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000432,,Helix Therapeutics,19022.25,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000432,,Apex Oncology,868.72,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000435,,Apex Oncology,738.23,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000435,,Meridian Health Sciences,4562.55,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000435,,NovaBio Pharmaceuticals,183.34,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000435,,Helix Therapeutics,20198.04,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000437,,Helix Therapeutics,938.76,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000437,,Meridian Health Sciences,11401.19,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000442,,Meridian Health Sciences,11164.51,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000442,,Meridian Health Sciences,12751.82,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000442,,Apex Oncology,11778.29,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000442,,ClearPath BioMed,23584.83,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000442,,Meridian Health Sciences,736.0,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000443,,Meridian Health Sciences,53230.5,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000444,,Apex Oncology,1033.7,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000444,,NovaBio Pharmaceuticals,451.0,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000450,,Helix Therapeutics,86532.76,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000450,,Helix Therapeutics,10359.2,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000450,,Meridian Health Sciences,349.83,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000450,,Meridian Health Sciences,11287.77,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000451,,Helix Therapeutics,390.6,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000453,,ClearPath BioMed,261.04,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000453,,Meridian Health Sciences,1105.2,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000453,,Meridian Health Sciences,49552.4,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000453,,Meridian Health Sciences,1384.85,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000453,,Meridian Health Sciences,4159.3,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000453,,Meridian Health Sciences,17708.87,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000453,,NovaBio Pharmaceuticals,408.46,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000453,,Helix Therapeutics,48667.41,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000454,,Helix Therapeutics,19106.27,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000454,,ClearPath BioMed,591.23,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000454,,Helix Therapeutics,5918.95,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000454,,ClearPath BioMed,7688.37,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000454,,ClearPath BioMed,2196.36,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000455,,Helix Therapeutics,1366.35,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000455,,Apex Oncology,303.58,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000455,,Helix Therapeutics,3096.13,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000458,,ClearPath BioMed,361.16,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000460,,ClearPath BioMed,896.41,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000464,,Meridian Health Sciences,5704.71,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000464,,Meridian Health Sciences,6716.72,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000464,,Meridian Health Sciences,13001.25,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000464,,ClearPath BioMed,1949.32,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000468,,NovaBio Pharmaceuticals,407.81,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000468,,NovaBio Pharmaceuticals,42508.43,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000468,,Helix Therapeutics,885.46,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000470,,NovaBio Pharmaceuticals,245.42,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000470,,ClearPath BioMed,15858.05,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000470,,Apex Oncology,1132.12,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000471,,Helix Therapeutics,23070.76,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000471,,Meridian Health Sciences,12258.93,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000471,,Helix Therapeutics,431.92,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000471,,ClearPath BioMed,13781.55,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000475,,Apex Oncology,330.55,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000475,,ClearPath BioMed,1088.97,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000476,,Meridian Health Sciences,82409.84,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000476,,Helix Therapeutics,221.07,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000476,,Meridian Health Sciences,226.27,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000476,,Meridian Health Sciences,13945.52,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000478,,NovaBio Pharmaceuticals,22462.36,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000478,,Apex Oncology,917.31,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000478,,Helix Therapeutics,63234.32,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000478,,Helix Therapeutics,1013.26,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000478,,NovaBio Pharmaceuticals,5469.83,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000478,,Apex Oncology,18158.89,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000483,,Helix Therapeutics,454.3,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000484,,NovaBio Pharmaceuticals,989.56,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000486,,Helix Therapeutics,547.72,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000486,,NovaBio Pharmaceuticals,18296.22,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000486,,NovaBio Pharmaceuticals,2994.27,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000486,,ClearPath BioMed,9923.68,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000486,,NovaBio Pharmaceuticals,14612.04,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000496,,Helix Therapeutics,14370.47,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000496,,Meridian Health Sciences,1287.57,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000496,,Helix Therapeutics,74961.8,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000506,,Meridian Health Sciences,218.36,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000506,,NovaBio Pharmaceuticals,1316.86,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000506,,Meridian Health Sciences,22773.95,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000509,,Apex Oncology,96700.61,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000510,,NovaBio Pharmaceuticals,7723.72,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000510,,Apex Oncology,12945.59,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000510,,Apex Oncology,160.8,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000510,,Apex Oncology,97911.14,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000513,,ClearPath BioMed,8579.32,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000513,,ClearPath BioMed,575.51,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000513,,Meridian Health Sciences,596.89,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000513,,Meridian Health Sciences,17600.47,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000513,,NovaBio Pharmaceuticals,2932.19,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000514,,Helix Therapeutics,45662.32,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000514,,ClearPath BioMed,800.32,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000514,,Apex Oncology,740.73,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000515,,Helix Therapeutics,420.83,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000515,,Meridian Health Sciences,953.09,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000516,,ClearPath BioMed,899.03,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000516,,ClearPath BioMed,19987.48,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000516,,Apex Oncology,10452.06,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000518,,Meridian Health Sciences,929.92,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000520,,Meridian Health Sciences,19631.16,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000521,,Apex Oncology,561.55,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000521,,Helix Therapeutics,896.08,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000532,,Apex Oncology,1129.2,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000532,,Apex Oncology,23261.19,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000532,,Apex Oncology,3583.72,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000534,,Helix Therapeutics,248.8,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000534,,ClearPath BioMed,22984.43,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000535,,Meridian Health Sciences,834.67,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000538,,Apex Oncology,13674.93,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000538,,ClearPath BioMed,11466.87,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000538,,Apex Oncology,1173.24,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000538,,NovaBio Pharmaceuticals,9651.03,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000551,,NovaBio Pharmaceuticals,13314.63,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000551,,NovaBio Pharmaceuticals,10941.45,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000551,,Meridian Health Sciences,2560.5,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000555,,ClearPath BioMed,600.82,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000555,,Helix Therapeutics,1350.53,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000561,,ClearPath BioMed,726.35,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000561,,Meridian Health Sciences,977.12,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000561,,Helix Therapeutics,728.46,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000561,,ClearPath BioMed,2042.12,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000561,,Helix Therapeutics,5944.59,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000567,,Apex Oncology,59527.26,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000567,,Apex Oncology,7312.95,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000567,,NovaBio Pharmaceuticals,12860.15,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000567,,Helix Therapeutics,39162.28,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000567,,Meridian Health Sciences,2064.26,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000567,,Meridian Health Sciences,23246.93,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000575,,Apex Oncology,1317.11,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000575,,Helix Therapeutics,11747.31,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000575,,NovaBio Pharmaceuticals,12113.68,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000575,,Meridian Health Sciences,11683.09,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000575,,Meridian Health Sciences,6421.46,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000575,,ClearPath BioMed,16007.3,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000575,,Helix Therapeutics,12208.37,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000575,,Apex Oncology,5041.78,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000576,,Apex Oncology,910.01,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000576,,NovaBio Pharmaceuticals,10706.34,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000576,,Apex Oncology,130.45,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000580,,NovaBio Pharmaceuticals,55660.4,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000580,,NovaBio Pharmaceuticals,7251.42,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000580,,Helix Therapeutics,311.35,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000585,,ClearPath BioMed,11007.13,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000585,,Meridian Health Sciences,13108.94,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000585,,ClearPath BioMed,10271.76,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000585,,NovaBio Pharmaceuticals,11070.49,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000585,,Apex Oncology,9832.8,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000585,,Meridian Health Sciences,10593.04,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000588,,NovaBio Pharmaceuticals,5805.41,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000592,,NovaBio Pharmaceuticals,4349.11,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000592,,NovaBio Pharmaceuticals,13098.53,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000592,,NovaBio Pharmaceuticals,838.8,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000592,,Helix Therapeutics,74591.13,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000592,,Apex Oncology,8124.62,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000592,,ClearPath BioMed,12698.23,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000593,,Meridian Health Sciences,24796.5,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000593,,ClearPath BioMed,496.23,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000594,,Helix Therapeutics,51255.47,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000594,,Meridian Health Sciences,941.35,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000594,,NovaBio Pharmaceuticals,12786.74,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000594,,Helix Therapeutics,56684.98,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000594,,Helix Therapeutics,1744.88,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000594,,Apex Oncology,257.44,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000594,,Meridian Health Sciences,5649.99,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000598,,Meridian Health Sciences,297.51,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000598,,Apex Oncology,65727.84,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000598,,NovaBio Pharmaceuticals,9631.7,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000599,,Apex Oncology,14368.67,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000599,,Helix Therapeutics,10111.81,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000599,,Meridian Health Sciences,29927.01,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000603,,Apex Oncology,1320.65,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000603,,ClearPath BioMed,926.29,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000603,,Apex Oncology,60935.65,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000603,,ClearPath BioMed,12688.74,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000603,,NovaBio Pharmaceuticals,5119.87,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000603,,Meridian Health Sciences,596.35,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000604,,ClearPath BioMed,514.58,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000604,,NovaBio Pharmaceuticals,10112.95,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000604,,Helix Therapeutics,11982.83,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000604,,NovaBio Pharmaceuticals,7629.76,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000608,,ClearPath BioMed,1236.4,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000609,,Helix Therapeutics,893.43,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000609,,ClearPath BioMed,487.59,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000617,,Apex Oncology,12517.99,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000617,,ClearPath BioMed,17863.28,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000617,,Apex Oncology,5654.97,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000617,,NovaBio Pharmaceuticals,1070.59,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000617,,Apex Oncology,724.33,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000618,,NovaBio Pharmaceuticals,103.17,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000619,,Meridian Health Sciences,880.47,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000622,,NovaBio Pharmaceuticals,4949.11,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000622,,ClearPath BioMed,4915.03,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000622,,ClearPath BioMed,2912.21,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000623,,ClearPath BioMed,9109.66,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000623,,Helix Therapeutics,14860.69,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000623,,NovaBio Pharmaceuticals,25476.22,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000623,,ClearPath BioMed,4976.0,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000623,,Meridian Health Sciences,103.51,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000623,,Apex Oncology,1350.43,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000623,,Helix Therapeutics,4402.18,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000623,,Apex Oncology,4682.29,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000624,,ClearPath BioMed,240.84,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000624,,Meridian Health Sciences,243.4,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000626,,ClearPath BioMed,913.23,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000628,,ClearPath BioMed,18482.83,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000628,,Apex Oncology,9620.76,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000628,,Apex Oncology,9526.73,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000628,,NovaBio Pharmaceuticals,6517.91,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000633,,Helix Therapeutics,14052.39,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000633,,Meridian Health Sciences,1335.18,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000633,,Helix Therapeutics,9865.49,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000633,,NovaBio Pharmaceuticals,2620.63,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000633,,Apex Oncology,2484.36,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000633,,Helix Therapeutics,75930.94,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000633,,ClearPath BioMed,88448.26,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000635,,NovaBio Pharmaceuticals,93685.56,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000635,,Helix Therapeutics,12862.41,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000635,,Meridian Health Sciences,37359.55,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000635,,Meridian Health Sciences,2672.09,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000635,,Helix Therapeutics,12869.95,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000638,,Helix Therapeutics,13880.78,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000639,,NovaBio Pharmaceuticals,20826.52,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000643,,Helix Therapeutics,11945.51,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000643,,NovaBio Pharmaceuticals,3419.83,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000643,,Meridian Health Sciences,17703.02,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000643,,NovaBio Pharmaceuticals,432.69,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000648,,Meridian Health Sciences,9178.6,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000648,,NovaBio Pharmaceuticals,9847.69,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000648,,NovaBio Pharmaceuticals,72642.73,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000648,,NovaBio Pharmaceuticals,60800.73,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000648,,Helix Therapeutics,2505.91,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000650,,Helix Therapeutics,1051.0,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000650,,Apex Oncology,770.08,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000650,,Apex Oncology,34930.07,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000650,,Meridian Health Sciences,399.84,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000653,,Helix Therapeutics,23942.69,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000653,,Apex Oncology,10409.12,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000654,,Helix Therapeutics,8101.16,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000656,,NovaBio Pharmaceuticals,1986.02,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000656,,Helix Therapeutics,4748.82,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000662,,Helix Therapeutics,1302.2,Education/Training,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000662,,Meridian Health Sciences,1113.49,Travel Reimbursement,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000662,,Apex Oncology,22068.18,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000665,,ClearPath BioMed,9065.57,Consulting Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000665,,Apex Oncology,7509.79,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000665,,NovaBio Pharmaceuticals,34382.24,Research Grants,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+9000000665,,Meridian Health Sciences,1793.96,Speaking Fees,2024,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00

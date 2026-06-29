@@ -1,0 +1,9 @@
+payer_id,payer_name,payer_type,region
+PAY001,Northeast Commercial Plan 1,Commercial,Northeast
+PAY002,South Commercial Plan 2,Commercial,South
+PAY003,Midwest Commercial Plan 3,Commercial,Midwest
+PAY004,Northeast Medicare Advantage Plan 4,Medicare Advantage,Northeast
+PAY005,South Medicare Advantage Plan 5,Medicare Advantage,South
+PAY006,Midwest Medicare Part D Plan 6,Medicare Part D,Midwest
+PAY007,West Medicaid Plan 7,Medicaid,West
+PAY008,West Commercial Plan 8,Commercial,West

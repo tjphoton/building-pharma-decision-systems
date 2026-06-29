@@ -4,7 +4,7 @@ Roventra's market share is uneven across the country. In some payer-region cells
 
 The evidence comes from assembling an effective-dated access landscape, counting new starts with the prescription-volume measures, turning raw pharmacy transactions into clean prescription attempts, estimating corrected competitive share with its uncertainty, and measuring a real formulary change against a control to attribute the gain.
 
-The analysis reuses the synthetic data source and the derived journey and HCP-account outputs, and adds two new tables: a plan-region enrollment count and a weekly formulary-event panel, including the planted PAY004 effect. Open [`chapter7_walkthrough.ipynb`](chapter7_walkthrough.ipynb), or run through the shared analysis entry point.
+The analysis reuses the synthetic data source and the derived journey and HCP-account outputs, and adds two new tables: a plan-region enrollment count and a weekly formulary-event panel, including the planted PAY004 effect. Open [`ch07_walkthrough.ipynb`](ch07_walkthrough.ipynb), or run through the shared analysis entry point.
 
 ## 7.1 Generate Teaching Datasets
 
@@ -24,7 +24,7 @@ Wrote Chapter 7-only data to ch07_competitive/data/generated
 
 The block below loads every input.
 
-`run_analysis()` in `run_analysis.py` orchestrates the full Chapter 7 evidence pipeline—calling `build_policy()` and `covered_lives_summary()` from `policy.py`, `build_attempts()` from `transactions.py`, `build_competitive_starts()` from `cohort.py`, `payer_region_decisions()` from `decomposition.py`, and `controlled_its()` and `synthetic_control()` from `formulary_event.py`—and returns the complete `results` dictionary that every subsequent listing reads. Listing 7.1 calls it here.
+`run_analysis()` in `run_analysis.py` orchestrates the full Chapter 7 evidence pipeline. It calls `build_policy()` and `covered_lives_summary()` from `policy.py`, `build_attempts()` from `transactions.py`, `build_competitive_starts()` from `cohort.py`, `payer_region_decisions()` from `decomposition.py`, and `controlled_its()` and `synthetic_control()` from `formulary_event.py`, then returns the complete `results` dictionary that every subsequent listing reads. Listing 7.1 calls it here.
 
 **Listing 7.1**: Load the shared analysis results
 
@@ -483,6 +483,6 @@ In this chapter you learned:
 2. **Trace an attempt.** Pick 1 patient with a PENDED transaction from `results["prescription_attempts"]`, print the full transaction chain, and classify the final attempt outcome. State which raw row count would overstate access friction and why.
 3. **Change the decision rule.** Use Section 7.4. Move the adoption benchmark from 82% to 80%, rerun the payer-region decisions, and compare the actions. State whether the underlying evidence changed or only the operating policy changed.
 
-Worked solutions are in [`exercise_solutions.ipynb`](exercise_solutions.ipynb). Each solution ends with the judgment an analyst should record for real data.
+Worked solutions are in [`ch07_exercise_solutions.ipynb`](ch07_exercise_solutions.ipynb). Each solution ends with the judgment an analyst should record for real data.
 
 The contact-sequence and channel-response analysis reads the access and adoption routing into the engagement plan.

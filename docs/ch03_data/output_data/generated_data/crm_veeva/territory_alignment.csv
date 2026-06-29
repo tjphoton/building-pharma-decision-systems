@@ -1,0 +1,9 @@
+territory,rep_id,region,n_accounts_aligned,n_hcps_aligned,target_calls_per_month,target_coverage_pct
+T01,REP001,Midwest,31,90,36,0.8
+T02,REP002,South,32,90,36,0.8
+T03,REP003,South,32,79,32,0.8
+T04,REP004,Northeast,31,69,28,0.8
+T05,REP005,Northeast,31,94,38,0.8
+T06,REP006,South,31,79,32,0.8
+T07,REP007,West,31,79,32,0.8
+T08,REP008,West,31,86,34,0.8

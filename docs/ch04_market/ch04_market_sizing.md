@@ -4,7 +4,7 @@ The same Roventra disease produces two useful numbers: a diagnosed population of
 
 The analysis starts from the synthetic package built in the data generation chapter. It narrows the population step by step through diagnosis, age eligibility, treatment status, and access, estimates the patients claims data never sees, and ranks undiagnosed patients with a patient-finding model.
 
-Run the code blocks in order from the repository root, or open [`chapter4_walkthrough.ipynb`](chapter4_walkthrough.ipynb) to execute them as a notebook.
+Run the code blocks in order from the repository root, or open [`ch04_walkthrough.ipynb`](ch04_walkthrough.ipynb) to execute them as a notebook.
 
 > **Note:** The launch product is **Roventra**, a fictional once-daily oral medicine. Its competitors are Nexoral and Vexpro. The launch condition is modeled on Type 2 diabetes (ICD-10 codes E11.9, E11.65, E11.40). The age threshold, access probabilities, and conversion rate are scenario settings for this book's learning simulations. They are not a real product label or disease market. The `true_launch_condition` column in `patients.csv` is a synthetic reference field that records each patient's actual condition. It comes from the simulation and does not exist in real claims data. We use it only to validate the analysis results.
 
@@ -632,6 +632,6 @@ Each exercise is solvable with the package you generated and a dozen lines of pa
 2. **Change the access date.** Build an access rule that changes midyear for one payer, then compare the reachable estimate immediately before and after the effective date using the as-of-date join from Listing 4.3. State whether the estimand, the estimator, or both changed. (Hint: the honest answer connects to the competitive access chapter.)
 3. **Break patient finding on purpose.** Retrain the Listing 4.8 model but add a feature that leaks the launch diagnosis (for example, the launch code count). Show what happens to the held-out AUC and to the top-decile precision among undiagnosed patients, and explain why a model that looks better in validation would find nobody new in production. (Hint: leakage rehearses the bias thinking covered in the causal inference chapter.)
 
-Two companion notebooks ship with this section: [`chapter4_walkthrough.ipynb`](chapter4_walkthrough.ipynb) replays the analysis as one executable story, and [`exercise_solutions.ipynb`](exercise_solutions.ipynb) works the three exercises with discussion.
+Two companion notebooks ship with this section: [`ch04_walkthrough.ipynb`](ch04_walkthrough.ipynb) replays the analysis as one executable story, and [`ch04_exercise_solutions.ipynb`](ch04_exercise_solutions.ipynb) works the three exercises with discussion.
 
 The treatment journey chapter follows the untreated patients: what they start, switch, stop, and restart.

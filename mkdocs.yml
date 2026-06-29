@@ -46,25 +46,25 @@ nav:
   - Chapter 3:
       - A Synthetic Lab for Real Pharma Questions: ch03_data/ch03_data.md
       - "Chapter 3 Appendix: Common Data Sources and Synthetic Data Field Reference": ch03_data/ch03_appendix.md
-      - Walkthrough Notebook: ch03_data/chapter3_walkthrough.md
-      - Exercise Solutions: ch03_data/exercise_solutions.md
+      - Walkthrough Notebook: ch03_data/ch03_walkthrough.md
+      - Exercise Solutions: ch03_data/ch03_exercise_solutions.md
   - Chapter 4:
       - Market Sizing and Patient Populations: ch04_market/ch04_market_sizing.md
-      - Walkthrough Notebook: ch04_market/chapter4_walkthrough.md
-      - Exercise Solutions: ch04_market/exercise_solutions.md
+      - Walkthrough Notebook: ch04_market/ch04_walkthrough.md
+      - Exercise Solutions: ch04_market/ch04_exercise_solutions.md
   - Chapter 5:
       - "Building the Patient Journey: Treatment Patterns, Lines of Therapy, and Persistence": ch05_journey/ch05_patient_journey.md
-      - Walkthrough Notebook: ch05_journey/chapter5_walkthrough.md
-      - Exercise Solutions: ch05_journey/exercise_solutions.md
+      - Walkthrough Notebook: ch05_journey/ch05_walkthrough.md
+      - Exercise Solutions: ch05_journey/ch05_exercise_solutions.md
   - Chapter 6:
       - "HCP Targeting: From Opportunity to Field Action": ch06_hcp/ch06_hcp_targeting.md
-      - Walkthrough Notebook: ch06_hcp/chapter6_walkthrough.md
-      - Exercise Solutions: ch06_hcp/exercise_solutions.md
+      - Walkthrough Notebook: ch06_hcp/ch06_walkthrough.md
+      - Exercise Solutions: ch06_hcp/ch06_exercise_solutions.md
   - Chapter 7:
       - "Competitive Intelligence and Market Access": ch07_competitive/ch07_competitive_intelligence_market_access.md
-      - Walkthrough Notebook: ch07_competitive/chapter7_walkthrough.md
-      - Exercise Solutions: ch07_competitive/exercise_solutions.md
+      - Walkthrough Notebook: ch07_competitive/ch07_walkthrough.md
+      - Exercise Solutions: ch07_competitive/ch07_exercise_solutions.md
   - Chapter 8:
       - "Omnichannel Analytics: Planning and Attribution": ch08_omnichannel/ch08_omnichannel_analytics.md
-      - Walkthrough Notebook: ch08_omnichannel/chapter8_walkthrough.md
-      - Exercise Solutions: ch08_omnichannel/exercise_solutions.md
+      - Walkthrough Notebook: ch08_omnichannel/ch08_walkthrough.md
+      - Exercise Solutions: ch08_omnichannel/ch08_exercise_solutions.md

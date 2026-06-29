@@ -1,0 +1,4 @@
+segment,patients,true_positives,true_rate,lift,held_out_auc
+All undiagnosed,11787,1250,0.106,1.0,0.93
+Top 10% by score,1178,1177,0.9992,9.42,0.93
+Top 20% by score,2357,1209,0.5129,4.84,0.93

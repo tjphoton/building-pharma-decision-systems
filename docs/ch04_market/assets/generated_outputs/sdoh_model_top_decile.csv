@@ -1,0 +1,6 @@
+sdoh_barrier_quintile,pool_size,base_rate_pct,claims_only_selected,claims_only_true,claims_sdoh_selected,claims_sdoh_true
+1,361,20.2,42,21,13,10
+2,346,20.2,40,25,20,16
+3,375,20.2,37,22,33,20
+4,365,20.2,32,17,44,26
+5,363,20.2,30,19,71,38

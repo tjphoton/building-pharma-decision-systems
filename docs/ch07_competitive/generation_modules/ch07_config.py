@@ -10,6 +10,13 @@ BRAND = "Roventra"
 COMPETITORS = ("Vexpro", "Nexoral")
 PRODUCTS = (BRAND, *COMPETITORS)
 
+# One cell carries a planted effective-dated history for the as-of-date
+# demonstration: covered in January, step edit in July, non-covered in October.
+# The record in force on the analysis date reproduces the single source row, so
+# every downstream measure is unchanged.
+ACCESS_HISTORY_PAYER = "PAY005"
+ACCESS_HISTORY_REGION = "South"
+
 WASHOUT_DAYS = 180
 STARTING_REGIMEN_DAYS = 30
 

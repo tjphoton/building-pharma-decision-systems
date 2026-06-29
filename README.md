@@ -15,11 +15,31 @@ It follows the complete fictional launch of **Roventra**, a once-daily oral medi
 - A linked synthetic pharmaceutical dataset that mirrors real claims, EHR, payer, CRM, and specialty pharmacy structures
 - Patient population funnels from true prevalence down to eligible, treated patients
 - Lines of therapy with explicit washout, switch, addition, and persistence rules
-- HCP and account targeting with transparent scoring, actionability filters, and field capacity allocation
+- HCP targeting with transparent scoring, actionability filters, and field capacity allocation
 - Competitive intelligence: formulary position, payer access barriers, and corrected treatment share
 - Omnichannel engagement plans, next-best-action recommendations, and incrementality tests
 - Causal inference models and marketing mix models for unified measurement
 - A resource allocation optimizer and a governed AI decision engine
+
+---
+
+## Who This Is For
+
+**Commercial analysts and data scientists** in pharmaceutical companies who need to move from reporting to decision support. The book teaches the judgment layer: when a method is adequate, when it is not, and how to present a finding as a recommendation with a clear owner and measure of success.
+
+**Analytics engineers and BI teams** building commercial data platforms. The chapter on data infrastructure covers claim receipt lag, drug code mapping gaps, and data quality rules that protect downstream analysis.
+
+**Brand teams and commercial leaders** who review analytical recommendations and want to understand what the data can and cannot tell you about market opportunity, customer behavior, and campaign impact.
+
+**Students and independent consultants** entering pharmaceutical commercial analytics. The book assumes no prior pharma experience and defines terms at first use.
+
+### Prerequisites
+
+- Python 3.11 or later
+- Familiarity with pandas and basic data manipulation
+- Basic understanding of statistical concepts (means, distributions, regression)
+
+No pharmaceutical industry background is required. No prior exposure to pharmaceutical data sources, commercial roles, or marketing experience is assumed.
 
 ---
 
@@ -41,8 +61,8 @@ uv run jupyter lab
 
 Hands-on analytical chapters from Chapter 3 onward contain two executed notebooks:
 
-- `chapterN_walkthrough.ipynb`: the chapter as one executable story
-- `exercise_solutions.ipynb`: worked answers with analyst judgment notes
+- `chNN_walkthrough.ipynb`: the chapter as one executable story
+- `chNN_exercise_solutions.ipynb`: worked answers with analyst judgment notes
 
 Run the notebooks in order within each analytical chapter. Data generation is handled inside each walkthrough; no external data download is required. Chapters 1 and 2 are prose foundations and do not require companion notebooks.
 
@@ -57,7 +77,7 @@ Run the notebooks in order within each analytical chapter. Data generation is ha
 | Part 3 | Engagement and measurement | Select channels, estimate incremental impact, and compare performance |
 | Part 4 | Decision engines | Allocate resources and build governed recommendation systems |
 
-The first half covers foundational methods: market sizing, patient journeys, HCP and account targeting, and competitive intelligence. The second half adds omnichannel measurement, real-world evidence, causal inference, machine learning for treatment-effect estimation, and fine-tuned language models for AI decision support. Every method, including the advanced ones, is demonstrated with working Python and verified output.
+The first half covers foundational methods: market sizing, patient journeys, HCP targeting, and competitive intelligence. The second half adds omnichannel measurement, real-world evidence, causal inference, machine learning for treatment-effect estimation, and fine-tuned language models for AI decision support. Every method, including the advanced ones, is demonstrated with working Python and verified output.
 
 ### Chapters
 
@@ -65,12 +85,12 @@ The first half covers foundational methods: market sizing, patient journeys, HCP
 | --- | --- | --- | --- | --- |
 | 1 | [A Medicine, a Market, and the Decisions Between Them](ch01_intro/ch01_introduction.md) | Draft completed | | |
 | 2 | [The Commercialization Operating System](ch02_ecosystem/ch02_ecosystem.md) | Draft completed | | |
-| 3 | [A Synthetic Lab for Real Pharma Questions](ch03_data/ch03_data.md) | Draft completed | [Walkthrough](ch03_data/chapter3_walkthrough.md) | [Exercises](ch03_data/exercise_solutions.md) |
-| 4 | [Market Sizing and Patient Populations](ch04_market/ch04_market_sizing.md) | Draft completed | [Walkthrough](ch04_market/chapter4_walkthrough.md) | [Exercises](ch04_market/exercise_solutions.md) |
-| 5 | [Building the Patient Journey](ch05_journey/ch05_patient_journey.md) | Draft completed | [Walkthrough](ch05_journey/chapter5_walkthrough.md) | [Exercises](ch05_journey/exercise_solutions.md) |
-| 6 | [HCP and Account Targeting](ch06_hcp/ch06_hcp_account_targeting.md) | Draft completed | [Walkthrough](ch06_hcp/chapter6_walkthrough.md) | [Exercises](ch06_hcp/exercise_solutions.md) |
-| 7 | [Competitive Intelligence and Market Access](ch07_competitive/ch07_competitive_intelligence_market_access.md) | Draft completed | [Walkthrough](ch07_competitive/chapter7_walkthrough.md) | [Exercises](ch07_competitive/exercise_solutions.md) |
-| 8 | [Omnichannel Analytics: Planning and Attribution](ch08_omnichannel/ch08_omnichannel_analytics.md) | Draft completed | [Walkthrough](ch08_omnichannel/chapter8_walkthrough.md) | [Exercises](ch08_omnichannel/exercise_solutions.md) |
+| 3 | [A Synthetic Lab for Real Pharma Questions](ch03_data/ch03_data.md) | Draft completed | [Walkthrough](ch03_data/ch03_walkthrough.md) | [Exercises](ch03_data/ch03_exercise_solutions.md) |
+| 4 | [Market Sizing and Patient Populations](ch04_market/ch04_market_sizing.md) | Draft completed | [Walkthrough](ch04_market/ch04_walkthrough.md) | [Exercises](ch04_market/ch04_exercise_solutions.md) |
+| 5 | [Building the Patient Journey](ch05_journey/ch05_patient_journey.md) | Draft completed | [Walkthrough](ch05_journey/ch05_walkthrough.md) | [Exercises](ch05_journey/ch05_exercise_solutions.md) |
+| 6 | [HCP Targeting](ch06_hcp/ch06_hcp_targeting.md) | Draft completed | [Walkthrough](ch06_hcp/ch06_walkthrough.md) | [Exercises](ch06_hcp/ch06_exercise_solutions.md) |
+| 7 | [Competitive Intelligence and Market Access](ch07_competitive/ch07_competitive_intelligence_market_access.md) | Draft completed | [Walkthrough](ch07_competitive/ch07_walkthrough.md) | [Exercises](ch07_competitive/ch07_exercise_solutions.md) |
+| 8 | [Omnichannel Analytics](ch08_omnichannel/ch08_omnichannel_analytics.md) | Draft completed | [Walkthrough](ch08_omnichannel/ch08_walkthrough.md) | [Exercises](ch08_omnichannel/ch08_exercise_solutions.md) |
 | 9 | Next Best Action | In progress | | |
 | 10 | Experimental Design and Incrementality | In progress | | |
 | 11 | Real-World Evidence and Causal Inference | In progress | | |
@@ -79,6 +99,74 @@ The first half covers foundational methods: market sizing, patient journeys, HCP
 | 14 | AI Decision Intelligence | In progress | | |
 | 15 | Capstone Case Studies | In progress | | |
 
+---
+
+## Navigate by Decision Need
+
+The chapters build on each other, but readers with an immediate decision problem can start with the most relevant section.
+
+| If the immediate need is... | Start with... | Then connect to... |
+| --- | --- | --- |
+| Launch opportunity sizing | Chapters 2, 4, and 7 | Chapters 6 and 13 |
+| Patient journey analysis | Chapters 3 and 5 | Chapters 6, 7, and 10 |
+| Real-world evidence | Chapters 3 and 5 | Chapters 10 and 11 |
+| HCP targeting | Chapter 6 | Chapters 7, 8, 9, and 10 |
+| Omnichannel planning | Chapters 8 and 9 | Chapters 10 and 12 |
+| Campaign measurement | Chapters 10 and 11 | Chapters 12 and 13 |
+| Budget allocation | Chapters 12 and 13 | Chapter 14 |
+| Commercial AI and decision engines | Chapter 14 | Chapters 3, 6, 9, 10, 11, and 13 |
+
+---
+
+## The Roventra World
+
+All examples run against a single fictional launch. Using a consistent case across 15 chapters means the patient found in the data chapter reappears in the targeting chapter, the payer that denied coverage in the competitive chapter feeds the access analysis in the resource allocation chapter, and the HCP ranked first in targeting becomes the unit of measurement in the incrementality chapter.
+
+| Entity | ID | Role |
+| --- | --- | --- |
+| Roventra | `90000-1001-11` | The launch product: once-daily oral medicine |
+| Nexoral | `90000-1002-11` | Established oral competitor |
+| Vexpro | `90000-1003-11` | Established weekly injectable competitor |
+| Patient | `PAT02034` | The canonical patient traced across all data sources |
+| HCP | `HCP0280` | The prescriber: a targeting priority and measurement unit |
+| Account | `ACC089` | The clinic where field prioritization and call planning occur |
+| Payer | `PAY002` | The organization whose formulary decisions shape patient access |
+
+---
+
+## Repository Layout
+
+```
+ch01_intro/          Chapter 1 manuscript
+ch02_ecosystem/      Chapter 2 manuscript and appendix
+ch03_data/           Chapter 3 manuscript, notebook, exercises, appendix
+ch04_market/         Chapter 4 manuscript, notebook, exercises, appendix
+ch05_journey/        Chapter 5 manuscript, notebook, exercises
+ch06_hcp/            Chapter 6 manuscript, notebook, exercises
+ch07_competitive/    Chapter 7 manuscript, notebook, exercises
+ch08_omnichannel/    Chapter 8 manuscript, notebook, exercises
+tests/               Regression tests for generated data and analysis
+pyproject.toml       Python dependencies (managed by uv)
+```
+
+Generated datasets are not tracked. Each analytical walkthrough notebook regenerates the data it needs.
+
+---
+
+## Supporting Material
+
+| Reference | Purpose |
+| --- | --- |
+| [Appendix 2A: Launch Team Role Reference](ch02_ecosystem/ch02_appendix.md) | Cross-functional commercial roles and responsibilities |
+| [Appendix 3A: Data Specifications](ch03_data/ch03_appendix.md) | Synthetic dataset schema, field definitions, and generation rules |
+
+---
+
+## About the Author
+
+Xinjie Qiu has spent more than a decade leading data organizations at Havas Health, Real Chemistry and Horizon Next, building marketing data science, advanced analytics, pharmaceutical and healthcare commercial analytics capabilities, and working with brands including Pfizer, Sanofi, Novartis, Amgen, UnitedHealthcare, Google on new product launch, HCP targeting, patient journey analysis, marketing causal inference, and AI-supported decision systems. His background combines a PhD in Physics from the University of Minnesota with oncology research at Memorial Sloan Kettering Cancer Center.
+
+Connect on [LinkedIn](https://www.linkedin.com/in/xinjieqiu).
 
 ---
 

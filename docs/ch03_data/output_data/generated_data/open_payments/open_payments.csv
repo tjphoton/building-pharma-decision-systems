@@ -1,0 +1,784 @@
+npi,company_name,payment_year,payment_category,payment_amount,is_kol
+9000000002,Meridian Health Sciences,2024,Travel Reimbursement,857.49,False
+9000000002,ClearPath BioMed,2024,Consulting Fees,24788.22,False
+9000000002,Apex Oncology,2024,Education/Training,1445.88,False
+9000000004,ClearPath BioMed,2024,Research Grants,62802.08,False
+9000000005,NovaBio Pharmaceuticals,2024,Speaking Fees,6082.07,True
+9000000005,Meridian Health Sciences,2024,Consulting Fees,24049.68,True
+9000000005,ClearPath BioMed,2024,Research Grants,99415.25,True
+9000000005,Meridian Health Sciences,2024,Travel Reimbursement,898.54,True
+9000000005,Helix Therapeutics,2024,Education/Training,1206.13,True
+9000000005,NovaBio Pharmaceuticals,2024,Research Grants,32432.88,True
+9000000005,Helix Therapeutics,2024,Education/Training,221.08,True
+9000000005,Meridian Health Sciences,2024,Research Grants,36281.3,True
+9000000007,Helix Therapeutics,2024,Consulting Fees,6833.53,True
+9000000007,Helix Therapeutics,2024,Research Grants,15682.55,True
+9000000007,Meridian Health Sciences,2024,Travel Reimbursement,249.79,True
+9000000007,NovaBio Pharmaceuticals,2024,Education/Training,860.33,True
+9000000008,Apex Oncology,2024,Travel Reimbursement,996.65,False
+9000000008,NovaBio Pharmaceuticals,2024,Travel Reimbursement,1028.01,False
+9000000008,Apex Oncology,2024,Travel Reimbursement,958.47,False
+9000000009,Meridian Health Sciences,2024,Consulting Fees,14127.4,False
+9000000010,Meridian Health Sciences,2024,Research Grants,92999.71,True
+9000000010,Apex Oncology,2024,Travel Reimbursement,842.99,True
+9000000010,ClearPath BioMed,2024,Speaking Fees,4164.81,True
+9000000010,NovaBio Pharmaceuticals,2024,Speaking Fees,3881.02,True
+9000000010,Apex Oncology,2024,Speaking Fees,14134.66,True
+9000000010,Helix Therapeutics,2024,Consulting Fees,15303.21,True
+9000000011,Helix Therapeutics,2024,Travel Reimbursement,323.16,False
+9000000012,Apex Oncology,2024,Travel Reimbursement,189.4,False
+9000000012,Meridian Health Sciences,2024,Consulting Fees,10742.72,False
+9000000013,ClearPath BioMed,2024,Consulting Fees,4921.19,True
+9000000013,Apex Oncology,2024,Consulting Fees,23968.53,True
+9000000013,Apex Oncology,2024,Consulting Fees,18267.05,True
+9000000013,Apex Oncology,2024,Speaking Fees,4098.9,True
+9000000013,ClearPath BioMed,2024,Speaking Fees,12180.8,True
+9000000015,Apex Oncology,2024,Education/Training,837.34,False
+9000000015,ClearPath BioMed,2024,Education/Training,694.53,False
+9000000015,Meridian Health Sciences,2024,Education/Training,1274.35,False
+9000000016,Meridian Health Sciences,2024,Speaking Fees,8529.65,False
+9000000016,Meridian Health Sciences,2024,Travel Reimbursement,933.86,False
+9000000019,Apex Oncology,2024,Speaking Fees,7791.32,True
+9000000019,NovaBio Pharmaceuticals,2024,Travel Reimbursement,516.35,True
+9000000019,Helix Therapeutics,2024,Research Grants,43304.39,True
+9000000019,Apex Oncology,2024,Consulting Fees,20150.4,True
+9000000019,Meridian Health Sciences,2024,Consulting Fees,2794.16,True
+9000000019,Meridian Health Sciences,2024,Speaking Fees,7084.95,True
+9000000019,NovaBio Pharmaceuticals,2024,Research Grants,73437.23,True
+9000000019,Meridian Health Sciences,2024,Research Grants,47800.11,True
+9000000022,ClearPath BioMed,2024,Education/Training,903.85,True
+9000000022,Meridian Health Sciences,2024,Education/Training,1308.16,True
+9000000022,NovaBio Pharmaceuticals,2024,Speaking Fees,10091.82,True
+9000000022,Apex Oncology,2024,Speaking Fees,13017.05,True
+9000000029,ClearPath BioMed,2024,Consulting Fees,14775.81,False
+9000000029,Apex Oncology,2024,Education/Training,892.29,False
+9000000029,NovaBio Pharmaceuticals,2024,Speaking Fees,3902.69,False
+9000000032,Meridian Health Sciences,2024,Travel Reimbursement,1043.7,False
+9000000032,Apex Oncology,2024,Education/Training,406.77,False
+9000000033,Meridian Health Sciences,2024,Travel Reimbursement,503.09,False
+9000000033,Meridian Health Sciences,2024,Education/Training,700.56,False
+9000000033,Apex Oncology,2024,Travel Reimbursement,1147.9,False
+9000000035,Meridian Health Sciences,2024,Travel Reimbursement,123.57,False
+9000000039,Meridian Health Sciences,2024,Travel Reimbursement,268.03,False
+9000000040,Apex Oncology,2024,Education/Training,378.38,False
+9000000042,ClearPath BioMed,2024,Speaking Fees,13637.45,True
+9000000042,Apex Oncology,2024,Consulting Fees,23987.83,True
+9000000042,Meridian Health Sciences,2024,Education/Training,1407.16,True
+9000000042,ClearPath BioMed,2024,Research Grants,37531.27,True
+9000000045,NovaBio Pharmaceuticals,2024,Research Grants,90176.99,False
+9000000054,NovaBio Pharmaceuticals,2024,Education/Training,792.62,False
+9000000054,Helix Therapeutics,2024,Education/Training,1485.88,False
+9000000054,Meridian Health Sciences,2024,Consulting Fees,13840.56,False
+9000000057,Meridian Health Sciences,2024,Speaking Fees,7512.93,True
+9000000057,Helix Therapeutics,2024,Travel Reimbursement,695.75,True
+9000000057,NovaBio Pharmaceuticals,2024,Research Grants,97221.75,True
+9000000057,Apex Oncology,2024,Research Grants,52526.54,True
+9000000057,Helix Therapeutics,2024,Travel Reimbursement,1036.86,True
+9000000057,Apex Oncology,2024,Speaking Fees,10047.48,True
+9000000059,Helix Therapeutics,2024,Speaking Fees,10814.17,False
+9000000059,ClearPath BioMed,2024,Education/Training,1374.55,False
+9000000059,NovaBio Pharmaceuticals,2024,Education/Training,500.48,False
+9000000063,Meridian Health Sciences,2024,Travel Reimbursement,912.16,True
+9000000063,ClearPath BioMed,2024,Research Grants,48760.5,True
+9000000063,ClearPath BioMed,2024,Consulting Fees,2353.92,True
+9000000066,Helix Therapeutics,2024,Education/Training,610.87,True
+9000000066,Helix Therapeutics,2024,Consulting Fees,2506.96,True
+9000000066,Helix Therapeutics,2024,Consulting Fees,22263.55,True
+9000000066,Helix Therapeutics,2024,Speaking Fees,7172.44,True
+9000000066,NovaBio Pharmaceuticals,2024,Speaking Fees,13722.22,True
+9000000078,Apex Oncology,2024,Education/Training,744.33,False
+9000000081,Helix Therapeutics,2024,Education/Training,717.82,False
+9000000081,Helix Therapeutics,2024,Education/Training,757.17,False
+9000000081,Meridian Health Sciences,2024,Education/Training,1447.25,False
+9000000083,ClearPath BioMed,2024,Research Grants,51063.14,False
+9000000083,Helix Therapeutics,2024,Research Grants,31906.96,False
+9000000083,Meridian Health Sciences,2024,Travel Reimbursement,1177.42,False
+9000000084,ClearPath BioMed,2024,Consulting Fees,12901.29,False
+9000000084,Meridian Health Sciences,2024,Travel Reimbursement,468.57,False
+9000000084,Meridian Health Sciences,2024,Travel Reimbursement,1053.73,False
+9000000088,NovaBio Pharmaceuticals,2024,Speaking Fees,14536.06,False
+9000000092,Helix Therapeutics,2024,Consulting Fees,17426.15,True
+9000000092,Apex Oncology,2024,Consulting Fees,24098.73,True
+9000000092,ClearPath BioMed,2024,Travel Reimbursement,849.08,True
+9000000092,NovaBio Pharmaceuticals,2024,Travel Reimbursement,718.64,True
+9000000092,Meridian Health Sciences,2024,Education/Training,1290.16,True
+9000000093,Apex Oncology,2024,Consulting Fees,23367.26,True
+9000000093,Apex Oncology,2024,Consulting Fees,10656.94,True
+9000000093,Apex Oncology,2024,Research Grants,18760.54,True
+9000000093,Apex Oncology,2024,Speaking Fees,4056.0,True
+9000000093,ClearPath BioMed,2024,Travel Reimbursement,1068.56,True
+9000000093,NovaBio Pharmaceuticals,2024,Consulting Fees,13295.16,True
+9000000093,Apex Oncology,2024,Research Grants,17272.76,True
+9000000095,Meridian Health Sciences,2024,Consulting Fees,3340.39,True
+9000000095,Apex Oncology,2024,Research Grants,45780.15,True
+9000000095,Meridian Health Sciences,2024,Education/Training,656.49,True
+9000000095,Helix Therapeutics,2024,Consulting Fees,6721.72,True
+9000000099,Apex Oncology,2024,Consulting Fees,3041.97,False
+9000000099,Apex Oncology,2024,Speaking Fees,10483.45,False
+9000000099,NovaBio Pharmaceuticals,2024,Education/Training,613.15,False
+9000000105,Helix Therapeutics,2024,Travel Reimbursement,906.6,True
+9000000105,Apex Oncology,2024,Education/Training,644.82,True
+9000000105,NovaBio Pharmaceuticals,2024,Research Grants,28241.92,True
+9000000105,NovaBio Pharmaceuticals,2024,Travel Reimbursement,376.03,True
+9000000105,ClearPath BioMed,2024,Education/Training,214.59,True
+9000000105,NovaBio Pharmaceuticals,2024,Speaking Fees,6194.97,True
+9000000105,Helix Therapeutics,2024,Research Grants,48996.78,True
+9000000108,Meridian Health Sciences,2024,Education/Training,1287.8,False
+9000000108,Helix Therapeutics,2024,Research Grants,8618.36,False
+9000000108,ClearPath BioMed,2024,Speaking Fees,11352.13,False
+9000000109,NovaBio Pharmaceuticals,2024,Research Grants,48307.45,False
+9000000111,Helix Therapeutics,2024,Speaking Fees,3102.23,False
+9000000111,Apex Oncology,2024,Speaking Fees,13433.56,False
+9000000111,Meridian Health Sciences,2024,Speaking Fees,4637.76,False
+9000000113,Apex Oncology,2024,Consulting Fees,22515.99,False
+9000000113,Meridian Health Sciences,2024,Travel Reimbursement,171.5,False
+9000000119,Helix Therapeutics,2024,Consulting Fees,20018.95,True
+9000000119,Meridian Health Sciences,2024,Speaking Fees,10662.66,True
+9000000119,Apex Oncology,2024,Research Grants,61652.1,True
+9000000120,Meridian Health Sciences,2024,Speaking Fees,12960.32,False
+9000000121,Helix Therapeutics,2024,Travel Reimbursement,180.36,False
+9000000124,Meridian Health Sciences,2024,Travel Reimbursement,933.8,True
+9000000124,Apex Oncology,2024,Speaking Fees,14074.4,True
+9000000124,Helix Therapeutics,2024,Education/Training,1003.76,True
+9000000125,Helix Therapeutics,2024,Speaking Fees,5882.65,False
+9000000125,ClearPath BioMed,2024,Education/Training,704.16,False
+9000000125,NovaBio Pharmaceuticals,2024,Speaking Fees,10070.95,False
+9000000126,NovaBio Pharmaceuticals,2024,Travel Reimbursement,696.88,False
+9000000126,Apex Oncology,2024,Education/Training,795.21,False
+9000000128,Apex Oncology,2024,Travel Reimbursement,903.02,False
+9000000128,NovaBio Pharmaceuticals,2024,Education/Training,838.52,False
+9000000131,Meridian Health Sciences,2024,Travel Reimbursement,120.44,True
+9000000131,Apex Oncology,2024,Research Grants,32851.87,True
+9000000131,Apex Oncology,2024,Speaking Fees,13555.56,True
+9000000131,NovaBio Pharmaceuticals,2024,Speaking Fees,2002.7,True
+9000000131,ClearPath BioMed,2024,Travel Reimbursement,520.72,True
+9000000132,Apex Oncology,2024,Research Grants,80170.53,True
+9000000132,Meridian Health Sciences,2024,Travel Reimbursement,937.75,True
+9000000132,ClearPath BioMed,2024,Consulting Fees,16527.56,True
+9000000132,Helix Therapeutics,2024,Consulting Fees,12498.58,True
+9000000132,Helix Therapeutics,2024,Travel Reimbursement,1199.05,True
+9000000132,ClearPath BioMed,2024,Travel Reimbursement,1001.97,True
+9000000132,Apex Oncology,2024,Speaking Fees,8099.69,True
+9000000132,Meridian Health Sciences,2024,Consulting Fees,8290.84,True
+9000000133,ClearPath BioMed,2024,Speaking Fees,5220.62,False
+9000000133,ClearPath BioMed,2024,Consulting Fees,7117.64,False
+9000000133,Meridian Health Sciences,2024,Travel Reimbursement,1090.58,False
+9000000135,Meridian Health Sciences,2024,Education/Training,1098.85,False
+9000000138,NovaBio Pharmaceuticals,2024,Travel Reimbursement,308.45,False
+9000000141,Helix Therapeutics,2024,Education/Training,438.9,False
+9000000141,NovaBio Pharmaceuticals,2024,Research Grants,62056.59,False
+9000000141,Apex Oncology,2024,Travel Reimbursement,573.82,False
+9000000142,Meridian Health Sciences,2024,Consulting Fees,14743.46,True
+9000000142,Meridian Health Sciences,2024,Consulting Fees,18491.46,True
+9000000142,NovaBio Pharmaceuticals,2024,Education/Training,789.01,True
+9000000142,Meridian Health Sciences,2024,Research Grants,61262.51,True
+9000000142,Helix Therapeutics,2024,Research Grants,65125.84,True
+9000000142,Apex Oncology,2024,Education/Training,592.22,True
+9000000142,Apex Oncology,2024,Speaking Fees,13742.79,True
+9000000144,NovaBio Pharmaceuticals,2024,Research Grants,73720.85,True
+9000000144,Meridian Health Sciences,2024,Speaking Fees,14540.84,True
+9000000144,NovaBio Pharmaceuticals,2024,Speaking Fees,11856.94,True
+9000000146,NovaBio Pharmaceuticals,2024,Education/Training,772.7,False
+9000000146,ClearPath BioMed,2024,Travel Reimbursement,1104.94,False
+9000000146,Helix Therapeutics,2024,Travel Reimbursement,941.97,False
+9000000147,ClearPath BioMed,2024,Education/Training,1323.77,False
+9000000147,ClearPath BioMed,2024,Research Grants,54433.06,False
+9000000147,NovaBio Pharmaceuticals,2024,Travel Reimbursement,440.47,False
+9000000149,Meridian Health Sciences,2024,Consulting Fees,23386.05,True
+9000000149,NovaBio Pharmaceuticals,2024,Consulting Fees,16730.06,True
+9000000149,ClearPath BioMed,2024,Speaking Fees,12094.39,True
+9000000149,NovaBio Pharmaceuticals,2024,Education/Training,954.39,True
+9000000149,ClearPath BioMed,2024,Speaking Fees,13735.17,True
+9000000149,Apex Oncology,2024,Speaking Fees,3401.15,True
+9000000149,Apex Oncology,2024,Education/Training,470.77,True
+9000000151,Meridian Health Sciences,2024,Speaking Fees,9402.45,True
+9000000151,Helix Therapeutics,2024,Education/Training,426.54,True
+9000000151,Meridian Health Sciences,2024,Research Grants,17083.25,True
+9000000151,Apex Oncology,2024,Speaking Fees,13886.62,True
+9000000153,Apex Oncology,2024,Education/Training,1182.25,False
+9000000153,Apex Oncology,2024,Speaking Fees,3450.76,False
+9000000160,ClearPath BioMed,2024,Education/Training,1131.66,False
+9000000160,Meridian Health Sciences,2024,Education/Training,880.4,False
+9000000161,Apex Oncology,2024,Education/Training,993.89,False
+9000000161,Meridian Health Sciences,2024,Education/Training,1482.75,False
+9000000162,Meridian Health Sciences,2024,Speaking Fees,1705.72,False
+9000000163,ClearPath BioMed,2024,Speaking Fees,1791.44,True
+9000000163,Meridian Health Sciences,2024,Speaking Fees,7712.81,True
+9000000163,Meridian Health Sciences,2024,Education/Training,1328.75,True
+9000000163,Helix Therapeutics,2024,Consulting Fees,2065.06,True
+9000000165,Meridian Health Sciences,2024,Speaking Fees,13464.84,False
+9000000165,ClearPath BioMed,2024,Education/Training,994.28,False
+9000000165,Apex Oncology,2024,Education/Training,1290.06,False
+9000000168,Apex Oncology,2024,Research Grants,19442.83,True
+9000000168,Meridian Health Sciences,2024,Education/Training,697.24,True
+9000000168,NovaBio Pharmaceuticals,2024,Research Grants,61869.01,True
+9000000168,Apex Oncology,2024,Consulting Fees,21268.9,True
+9000000168,ClearPath BioMed,2024,Speaking Fees,14359.02,True
+9000000168,ClearPath BioMed,2024,Speaking Fees,2547.05,True
+9000000173,NovaBio Pharmaceuticals,2024,Travel Reimbursement,666.86,False
+9000000175,Apex Oncology,2024,Research Grants,23285.29,False
+9000000175,NovaBio Pharmaceuticals,2024,Education/Training,654.02,False
+9000000175,NovaBio Pharmaceuticals,2024,Travel Reimbursement,985.16,False
+9000000177,Apex Oncology,2024,Travel Reimbursement,126.84,False
+9000000177,ClearPath BioMed,2024,Education/Training,341.84,False
+9000000178,Meridian Health Sciences,2024,Education/Training,457.18,False
+9000000179,Meridian Health Sciences,2024,Travel Reimbursement,594.82,False
+9000000183,NovaBio Pharmaceuticals,2024,Travel Reimbursement,732.88,False
+9000000183,Apex Oncology,2024,Education/Training,205.79,False
+9000000188,ClearPath BioMed,2024,Consulting Fees,10818.63,True
+9000000188,Meridian Health Sciences,2024,Research Grants,43647.34,True
+9000000188,Apex Oncology,2024,Travel Reimbursement,1012.05,True
+9000000190,Apex Oncology,2024,Consulting Fees,12999.12,False
+9000000190,ClearPath BioMed,2024,Travel Reimbursement,1180.24,False
+9000000195,Helix Therapeutics,2024,Research Grants,51940.4,True
+9000000195,Helix Therapeutics,2024,Consulting Fees,7832.31,True
+9000000195,Apex Oncology,2024,Travel Reimbursement,511.39,True
+9000000195,Helix Therapeutics,2024,Speaking Fees,11428.57,True
+9000000195,ClearPath BioMed,2024,Travel Reimbursement,641.78,True
+9000000195,Helix Therapeutics,2024,Consulting Fees,21645.58,True
+9000000196,Apex Oncology,2024,Speaking Fees,8827.21,True
+9000000196,Meridian Health Sciences,2024,Consulting Fees,4278.14,True
+9000000196,NovaBio Pharmaceuticals,2024,Speaking Fees,12789.25,True
+9000000196,Apex Oncology,2024,Speaking Fees,13035.74,True
+9000000196,Meridian Health Sciences,2024,Consulting Fees,7863.37,True
+9000000198,NovaBio Pharmaceuticals,2024,Speaking Fees,5813.36,True
+9000000198,NovaBio Pharmaceuticals,2024,Speaking Fees,8712.07,True
+9000000198,Helix Therapeutics,2024,Consulting Fees,2409.91,True
+9000000201,Helix Therapeutics,2024,Education/Training,1260.79,False
+9000000201,Helix Therapeutics,2024,Education/Training,580.06,False
+9000000202,Apex Oncology,2024,Education/Training,1344.91,False
+9000000204,NovaBio Pharmaceuticals,2024,Travel Reimbursement,741.42,False
+9000000204,Helix Therapeutics,2024,Speaking Fees,7752.09,False
+9000000204,Apex Oncology,2024,Consulting Fees,17265.65,False
+9000000209,ClearPath BioMed,2024,Consulting Fees,14641.83,True
+9000000209,Apex Oncology,2024,Speaking Fees,11256.87,True
+9000000209,ClearPath BioMed,2024,Research Grants,85017.35,True
+9000000209,Meridian Health Sciences,2024,Education/Training,444.57,True
+9000000209,NovaBio Pharmaceuticals,2024,Speaking Fees,13527.42,True
+9000000209,Helix Therapeutics,2024,Education/Training,1105.36,True
+9000000216,Meridian Health Sciences,2024,Speaking Fees,2746.34,True
+9000000216,NovaBio Pharmaceuticals,2024,Travel Reimbursement,921.68,True
+9000000216,Apex Oncology,2024,Travel Reimbursement,455.9,True
+9000000216,ClearPath BioMed,2024,Travel Reimbursement,539.79,True
+9000000216,Meridian Health Sciences,2024,Consulting Fees,6631.78,True
+9000000216,Apex Oncology,2024,Consulting Fees,3229.32,True
+9000000220,ClearPath BioMed,2024,Travel Reimbursement,279.81,False
+9000000220,ClearPath BioMed,2024,Education/Training,341.91,False
+9000000220,Helix Therapeutics,2024,Consulting Fees,14616.53,False
+9000000221,Meridian Health Sciences,2024,Consulting Fees,5650.51,False
+9000000221,Apex Oncology,2024,Travel Reimbursement,1027.19,False
+9000000223,Meridian Health Sciences,2024,Travel Reimbursement,349.17,False
+9000000223,NovaBio Pharmaceuticals,2024,Travel Reimbursement,417.79,False
+9000000224,ClearPath BioMed,2024,Consulting Fees,16750.76,False
+9000000228,NovaBio Pharmaceuticals,2024,Research Grants,18425.92,True
+9000000228,NovaBio Pharmaceuticals,2024,Speaking Fees,5303.35,True
+9000000228,Helix Therapeutics,2024,Travel Reimbursement,422.2,True
+9000000228,NovaBio Pharmaceuticals,2024,Speaking Fees,10898.0,True
+9000000228,Meridian Health Sciences,2024,Consulting Fees,19374.17,True
+9000000228,Meridian Health Sciences,2024,Consulting Fees,10553.45,True
+9000000228,ClearPath BioMed,2024,Research Grants,73463.67,True
+9000000229,NovaBio Pharmaceuticals,2024,Consulting Fees,13949.91,True
+9000000229,Meridian Health Sciences,2024,Research Grants,71170.07,True
+9000000229,ClearPath BioMed,2024,Research Grants,51886.37,True
+9000000229,Apex Oncology,2024,Speaking Fees,10350.66,True
+9000000229,NovaBio Pharmaceuticals,2024,Consulting Fees,12164.25,True
+9000000229,Helix Therapeutics,2024,Research Grants,96414.43,True
+9000000229,Meridian Health Sciences,2024,Consulting Fees,19857.96,True
+9000000229,NovaBio Pharmaceuticals,2024,Research Grants,10697.43,True
+9000000230,NovaBio Pharmaceuticals,2024,Education/Training,345.67,False
+9000000232,NovaBio Pharmaceuticals,2024,Travel Reimbursement,217.9,True
+9000000232,NovaBio Pharmaceuticals,2024,Consulting Fees,21272.87,True
+9000000232,ClearPath BioMed,2024,Consulting Fees,24740.8,True
+9000000233,Apex Oncology,2024,Education/Training,1475.73,True
+9000000233,Apex Oncology,2024,Education/Training,937.8,True
+9000000233,Apex Oncology,2024,Consulting Fees,6746.28,True
+9000000236,Apex Oncology,2024,Travel Reimbursement,165.28,False
+9000000236,ClearPath BioMed,2024,Travel Reimbursement,409.65,False
+9000000236,Helix Therapeutics,2024,Research Grants,41069.31,False
+9000000238,Helix Therapeutics,2024,Education/Training,1495.32,True
+9000000238,NovaBio Pharmaceuticals,2024,Speaking Fees,4369.94,True
+9000000238,Apex Oncology,2024,Speaking Fees,7256.84,True
+9000000238,ClearPath BioMed,2024,Consulting Fees,5288.76,True
+9000000238,NovaBio Pharmaceuticals,2024,Speaking Fees,2031.78,True
+9000000238,Apex Oncology,2024,Consulting Fees,8805.37,True
+9000000239,ClearPath BioMed,2024,Research Grants,27353.74,True
+9000000239,NovaBio Pharmaceuticals,2024,Speaking Fees,10541.01,True
+9000000239,ClearPath BioMed,2024,Education/Training,1434.08,True
+9000000239,Helix Therapeutics,2024,Speaking Fees,8958.41,True
+9000000239,Meridian Health Sciences,2024,Consulting Fees,2082.93,True
+9000000239,Helix Therapeutics,2024,Education/Training,825.7,True
+9000000239,Apex Oncology,2024,Speaking Fees,8632.14,True
+9000000241,Helix Therapeutics,2024,Education/Training,834.92,False
+9000000241,Helix Therapeutics,2024,Travel Reimbursement,293.2,False
+9000000243,NovaBio Pharmaceuticals,2024,Speaking Fees,4694.12,True
+9000000243,Helix Therapeutics,2024,Education/Training,1466.63,True
+9000000243,NovaBio Pharmaceuticals,2024,Research Grants,84004.83,True
+9000000243,Apex Oncology,2024,Speaking Fees,8297.95,True
+9000000243,Meridian Health Sciences,2024,Speaking Fees,12641.37,True
+9000000243,ClearPath BioMed,2024,Travel Reimbursement,759.05,True
+9000000243,Meridian Health Sciences,2024,Speaking Fees,5545.42,True
+9000000246,Helix Therapeutics,2024,Consulting Fees,9680.67,True
+9000000246,ClearPath BioMed,2024,Speaking Fees,8496.17,True
+9000000246,ClearPath BioMed,2024,Speaking Fees,14926.13,True
+9000000246,Meridian Health Sciences,2024,Speaking Fees,5122.22,True
+9000000246,Helix Therapeutics,2024,Education/Training,936.98,True
+9000000246,Meridian Health Sciences,2024,Speaking Fees,2092.02,True
+9000000246,Meridian Health Sciences,2024,Speaking Fees,5751.09,True
+9000000246,Helix Therapeutics,2024,Travel Reimbursement,215.02,True
+9000000249,Meridian Health Sciences,2024,Education/Training,1457.32,False
+9000000249,Meridian Health Sciences,2024,Travel Reimbursement,748.9,False
+9000000254,Meridian Health Sciences,2024,Education/Training,683.05,False
+9000000254,Apex Oncology,2024,Consulting Fees,6211.13,False
+9000000254,Helix Therapeutics,2024,Travel Reimbursement,926.4,False
+9000000262,ClearPath BioMed,2024,Speaking Fees,3333.42,True
+9000000262,Meridian Health Sciences,2024,Consulting Fees,4688.0,True
+9000000262,Meridian Health Sciences,2024,Consulting Fees,17096.41,True
+9000000262,NovaBio Pharmaceuticals,2024,Consulting Fees,22763.82,True
+9000000262,ClearPath BioMed,2024,Research Grants,41981.59,True
+9000000265,Meridian Health Sciences,2024,Speaking Fees,6308.2,True
+9000000265,NovaBio Pharmaceuticals,2024,Research Grants,82302.74,True
+9000000265,Apex Oncology,2024,Speaking Fees,2908.52,True
+9000000265,ClearPath BioMed,2024,Speaking Fees,13363.76,True
+9000000265,ClearPath BioMed,2024,Research Grants,58915.11,True
+9000000269,Helix Therapeutics,2024,Travel Reimbursement,969.77,True
+9000000269,Meridian Health Sciences,2024,Travel Reimbursement,809.13,True
+9000000269,NovaBio Pharmaceuticals,2024,Speaking Fees,6353.42,True
+9000000269,ClearPath BioMed,2024,Consulting Fees,8965.75,True
+9000000269,Meridian Health Sciences,2024,Research Grants,75264.19,True
+9000000269,Meridian Health Sciences,2024,Research Grants,65301.52,True
+9000000269,Helix Therapeutics,2024,Speaking Fees,9975.28,True
+9000000273,Apex Oncology,2024,Consulting Fees,22703.63,False
+9000000276,Apex Oncology,2024,Research Grants,11313.67,False
+9000000277,Helix Therapeutics,2024,Education/Training,1373.01,True
+9000000277,Meridian Health Sciences,2024,Travel Reimbursement,1005.77,True
+9000000277,Meridian Health Sciences,2024,Travel Reimbursement,1046.16,True
+9000000277,NovaBio Pharmaceuticals,2024,Education/Training,580.33,True
+9000000280,Helix Therapeutics,2024,Speaking Fees,8133.35,False
+9000000280,NovaBio Pharmaceuticals,2024,Education/Training,532.1,False
+9000000281,Meridian Health Sciences,2024,Education/Training,1019.99,True
+9000000281,Meridian Health Sciences,2024,Consulting Fees,16954.96,True
+9000000281,Helix Therapeutics,2024,Education/Training,907.41,True
+9000000281,Meridian Health Sciences,2024,Education/Training,1100.76,True
+9000000281,NovaBio Pharmaceuticals,2024,Research Grants,20560.05,True
+9000000282,NovaBio Pharmaceuticals,2024,Education/Training,1295.54,False
+9000000282,Meridian Health Sciences,2024,Education/Training,1185.41,False
+9000000282,Meridian Health Sciences,2024,Travel Reimbursement,393.9,False
+9000000285,Helix Therapeutics,2024,Research Grants,91060.17,True
+9000000285,NovaBio Pharmaceuticals,2024,Research Grants,72462.94,True
+9000000285,Meridian Health Sciences,2024,Education/Training,1149.17,True
+9000000285,ClearPath BioMed,2024,Research Grants,19107.96,True
+9000000287,Meridian Health Sciences,2024,Education/Training,445.96,False
+9000000288,NovaBio Pharmaceuticals,2024,Speaking Fees,10596.96,False
+9000000289,Apex Oncology,2024,Education/Training,741.73,False
+9000000295,ClearPath BioMed,2024,Education/Training,1283.61,False
+9000000295,Meridian Health Sciences,2024,Education/Training,1219.49,False
+9000000296,Helix Therapeutics,2024,Education/Training,1162.79,False
+9000000297,ClearPath BioMed,2024,Education/Training,473.89,False
+9000000297,Helix Therapeutics,2024,Education/Training,1008.83,False
+9000000297,ClearPath BioMed,2024,Consulting Fees,16551.78,False
+9000000299,Helix Therapeutics,2024,Travel Reimbursement,161.15,False
+9000000299,Apex Oncology,2024,Education/Training,313.64,False
+9000000300,ClearPath BioMed,2024,Speaking Fees,9927.29,False
+9000000303,Meridian Health Sciences,2024,Education/Training,1410.19,False
+9000000303,Meridian Health Sciences,2024,Travel Reimbursement,497.66,False
+9000000303,Meridian Health Sciences,2024,Speaking Fees,4396.62,False
+9000000305,ClearPath BioMed,2024,Consulting Fees,5592.94,True
+9000000305,ClearPath BioMed,2024,Education/Training,932.2,True
+9000000305,Apex Oncology,2024,Travel Reimbursement,1053.44,True
+9000000305,ClearPath BioMed,2024,Consulting Fees,5774.32,True
+9000000305,NovaBio Pharmaceuticals,2024,Research Grants,80095.23,True
+9000000305,Meridian Health Sciences,2024,Research Grants,81981.06,True
+9000000306,Helix Therapeutics,2024,Education/Training,600.62,True
+9000000306,Helix Therapeutics,2024,Consulting Fees,6460.74,True
+9000000306,Meridian Health Sciences,2024,Consulting Fees,12053.49,True
+9000000306,Apex Oncology,2024,Speaking Fees,10519.31,True
+9000000306,ClearPath BioMed,2024,Research Grants,96849.99,True
+9000000306,Apex Oncology,2024,Speaking Fees,14816.98,True
+9000000306,Helix Therapeutics,2024,Travel Reimbursement,587.54,True
+9000000306,ClearPath BioMed,2024,Research Grants,20047.34,True
+9000000307,NovaBio Pharmaceuticals,2024,Education/Training,546.37,False
+9000000309,Apex Oncology,2024,Education/Training,343.8,False
+9000000309,ClearPath BioMed,2024,Education/Training,478.62,False
+9000000309,Helix Therapeutics,2024,Travel Reimbursement,696.37,False
+9000000313,NovaBio Pharmaceuticals,2024,Travel Reimbursement,620.25,False
+9000000314,NovaBio Pharmaceuticals,2024,Education/Training,1370.94,True
+9000000314,Helix Therapeutics,2024,Education/Training,1069.15,True
+9000000314,Meridian Health Sciences,2024,Consulting Fees,24363.67,True
+9000000314,ClearPath BioMed,2024,Speaking Fees,11098.87,True
+9000000314,NovaBio Pharmaceuticals,2024,Education/Training,1337.52,True
+9000000314,Apex Oncology,2024,Consulting Fees,17648.88,True
+9000000314,Helix Therapeutics,2024,Consulting Fees,2270.83,True
+9000000317,ClearPath BioMed,2024,Travel Reimbursement,1118.01,False
+9000000321,Meridian Health Sciences,2024,Education/Training,628.64,False
+9000000323,Apex Oncology,2024,Research Grants,59509.67,True
+9000000323,NovaBio Pharmaceuticals,2024,Education/Training,569.02,True
+9000000323,Apex Oncology,2024,Speaking Fees,12297.17,True
+9000000323,Helix Therapeutics,2024,Consulting Fees,13076.58,True
+9000000323,NovaBio Pharmaceuticals,2024,Speaking Fees,2537.83,True
+9000000323,Meridian Health Sciences,2024,Consulting Fees,6381.58,True
+9000000326,Helix Therapeutics,2024,Consulting Fees,8770.19,False
+9000000326,Apex Oncology,2024,Education/Training,237.17,False
+9000000327,Meridian Health Sciences,2024,Research Grants,29735.26,False
+9000000327,Meridian Health Sciences,2024,Speaking Fees,3102.27,False
+9000000327,Helix Therapeutics,2024,Speaking Fees,11817.86,False
+9000000329,Meridian Health Sciences,2024,Travel Reimbursement,813.39,True
+9000000329,Apex Oncology,2024,Research Grants,17780.28,True
+9000000329,Meridian Health Sciences,2024,Travel Reimbursement,254.4,True
+9000000329,Helix Therapeutics,2024,Speaking Fees,13765.4,True
+9000000331,NovaBio Pharmaceuticals,2024,Travel Reimbursement,566.26,False
+9000000332,NovaBio Pharmaceuticals,2024,Research Grants,54617.1,False
+9000000332,ClearPath BioMed,2024,Education/Training,550.67,False
+9000000332,Meridian Health Sciences,2024,Consulting Fees,24194.68,False
+9000000333,Helix Therapeutics,2024,Consulting Fees,24473.71,True
+9000000333,Helix Therapeutics,2024,Travel Reimbursement,504.31,True
+9000000333,Helix Therapeutics,2024,Consulting Fees,19116.02,True
+9000000333,Apex Oncology,2024,Research Grants,58503.95,True
+9000000335,Helix Therapeutics,2024,Consulting Fees,22852.4,True
+9000000335,Apex Oncology,2024,Speaking Fees,5660.75,True
+9000000335,ClearPath BioMed,2024,Travel Reimbursement,598.24,True
+9000000335,Apex Oncology,2024,Research Grants,19909.64,True
+9000000335,Apex Oncology,2024,Education/Training,782.97,True
+9000000335,NovaBio Pharmaceuticals,2024,Speaking Fees,10991.25,True
+9000000337,ClearPath BioMed,2024,Education/Training,392.46,False
+9000000337,ClearPath BioMed,2024,Education/Training,231.7,False
+9000000341,NovaBio Pharmaceuticals,2024,Speaking Fees,6382.27,False
+9000000341,Meridian Health Sciences,2024,Travel Reimbursement,271.85,False
+9000000341,Helix Therapeutics,2024,Consulting Fees,8247.64,False
+9000000350,NovaBio Pharmaceuticals,2024,Consulting Fees,17869.23,True
+9000000350,ClearPath BioMed,2024,Education/Training,720.53,True
+9000000350,Apex Oncology,2024,Consulting Fees,23850.13,True
+9000000350,Helix Therapeutics,2024,Consulting Fees,24952.43,True
+9000000350,Apex Oncology,2024,Travel Reimbursement,425.63,True
+9000000350,NovaBio Pharmaceuticals,2024,Consulting Fees,8784.63,True
+9000000350,Apex Oncology,2024,Research Grants,9503.95,True
+9000000350,Apex Oncology,2024,Consulting Fees,12381.78,True
+9000000351,Helix Therapeutics,2024,Travel Reimbursement,148.02,False
+9000000351,Apex Oncology,2024,Travel Reimbursement,679.37,False
+9000000351,Helix Therapeutics,2024,Travel Reimbursement,294.45,False
+9000000354,Apex Oncology,2024,Education/Training,242.94,True
+9000000354,NovaBio Pharmaceuticals,2024,Consulting Fees,7787.87,True
+9000000354,ClearPath BioMed,2024,Research Grants,65379.5,True
+9000000358,Apex Oncology,2024,Research Grants,31840.45,True
+9000000358,NovaBio Pharmaceuticals,2024,Consulting Fees,12455.5,True
+9000000358,Apex Oncology,2024,Research Grants,79701.08,True
+9000000358,Helix Therapeutics,2024,Research Grants,67561.46,True
+9000000358,Apex Oncology,2024,Speaking Fees,3497.45,True
+9000000358,NovaBio Pharmaceuticals,2024,Research Grants,85566.58,True
+9000000366,ClearPath BioMed,2024,Consulting Fees,15565.09,False
+9000000366,Helix Therapeutics,2024,Travel Reimbursement,593.03,False
+9000000366,Meridian Health Sciences,2024,Education/Training,774.8,False
+9000000369,Apex Oncology,2024,Travel Reimbursement,668.8,False
+9000000369,Meridian Health Sciences,2024,Travel Reimbursement,729.85,False
+9000000370,ClearPath BioMed,2024,Education/Training,555.63,False
+9000000371,ClearPath BioMed,2024,Education/Training,615.88,False
+9000000373,Meridian Health Sciences,2024,Education/Training,254.27,False
+9000000373,Apex Oncology,2024,Travel Reimbursement,704.26,False
+9000000375,NovaBio Pharmaceuticals,2024,Speaking Fees,8626.99,True
+9000000375,ClearPath BioMed,2024,Consulting Fees,23194.93,True
+9000000375,Meridian Health Sciences,2024,Consulting Fees,17365.36,True
+9000000375,Helix Therapeutics,2024,Research Grants,57649.06,True
+9000000375,ClearPath BioMed,2024,Speaking Fees,8127.42,True
+9000000375,NovaBio Pharmaceuticals,2024,Research Grants,80015.96,True
+9000000375,ClearPath BioMed,2024,Education/Training,1189.34,True
+9000000375,Apex Oncology,2024,Research Grants,86350.83,True
+9000000382,Helix Therapeutics,2024,Travel Reimbursement,389.71,True
+9000000382,Meridian Health Sciences,2024,Consulting Fees,6266.91,True
+9000000382,Meridian Health Sciences,2024,Education/Training,880.86,True
+9000000382,ClearPath BioMed,2024,Research Grants,87521.05,True
+9000000382,Meridian Health Sciences,2024,Consulting Fees,12222.13,True
+9000000385,Meridian Health Sciences,2024,Travel Reimbursement,1160.26,True
+9000000385,ClearPath BioMed,2024,Research Grants,24068.28,True
+9000000385,NovaBio Pharmaceuticals,2024,Consulting Fees,16823.53,True
+9000000385,ClearPath BioMed,2024,Consulting Fees,3420.05,True
+9000000385,Helix Therapeutics,2024,Research Grants,35128.25,True
+9000000385,NovaBio Pharmaceuticals,2024,Consulting Fees,11918.77,True
+9000000385,NovaBio Pharmaceuticals,2024,Speaking Fees,5772.84,True
+9000000385,ClearPath BioMed,2024,Consulting Fees,21887.68,True
+9000000389,Apex Oncology,2024,Speaking Fees,10502.7,False
+9000000389,NovaBio Pharmaceuticals,2024,Research Grants,87758.53,False
+9000000389,Helix Therapeutics,2024,Consulting Fees,12225.9,False
+9000000390,NovaBio Pharmaceuticals,2024,Speaking Fees,4518.49,False
+9000000393,Helix Therapeutics,2024,Speaking Fees,7504.33,False
+9000000393,NovaBio Pharmaceuticals,2024,Speaking Fees,2168.97,False
+9000000393,Apex Oncology,2024,Travel Reimbursement,556.98,False
+9000000397,NovaBio Pharmaceuticals,2024,Education/Training,1022.34,False
+9000000409,NovaBio Pharmaceuticals,2024,Education/Training,743.58,True
+9000000409,Meridian Health Sciences,2024,Speaking Fees,6924.07,True
+9000000409,ClearPath BioMed,2024,Speaking Fees,6146.76,True
+9000000409,Apex Oncology,2024,Consulting Fees,19628.54,True
+9000000409,Helix Therapeutics,2024,Speaking Fees,13771.31,True
+9000000409,Helix Therapeutics,2024,Research Grants,60272.9,True
+9000000415,ClearPath BioMed,2024,Research Grants,29393.56,True
+9000000415,Meridian Health Sciences,2024,Travel Reimbursement,496.55,True
+9000000415,Helix Therapeutics,2024,Research Grants,71946.76,True
+9000000415,Apex Oncology,2024,Travel Reimbursement,733.38,True
+9000000415,Apex Oncology,2024,Speaking Fees,14514.82,True
+9000000415,NovaBio Pharmaceuticals,2024,Travel Reimbursement,364.43,True
+9000000416,ClearPath BioMed,2024,Consulting Fees,8024.04,True
+9000000416,Meridian Health Sciences,2024,Speaking Fees,8765.81,True
+9000000416,NovaBio Pharmaceuticals,2024,Consulting Fees,16570.5,True
+9000000416,Helix Therapeutics,2024,Speaking Fees,1564.67,True
+9000000416,Apex Oncology,2024,Consulting Fees,6077.74,True
+9000000417,ClearPath BioMed,2024,Education/Training,713.31,False
+9000000417,NovaBio Pharmaceuticals,2024,Education/Training,370.16,False
+9000000421,NovaBio Pharmaceuticals,2024,Consulting Fees,22065.66,False
+9000000421,ClearPath BioMed,2024,Speaking Fees,7088.11,False
+9000000421,Meridian Health Sciences,2024,Speaking Fees,8339.6,False
+9000000422,Helix Therapeutics,2024,Research Grants,93515.14,True
+9000000422,ClearPath BioMed,2024,Travel Reimbursement,112.92,True
+9000000422,ClearPath BioMed,2024,Consulting Fees,24426.77,True
+9000000422,ClearPath BioMed,2024,Consulting Fees,17612.55,True
+9000000424,NovaBio Pharmaceuticals,2024,Speaking Fees,2327.95,True
+9000000424,ClearPath BioMed,2024,Research Grants,59055.2,True
+9000000424,Meridian Health Sciences,2024,Consulting Fees,24370.83,True
+9000000424,Apex Oncology,2024,Research Grants,9065.97,True
+9000000424,Helix Therapeutics,2024,Research Grants,52950.15,True
+9000000424,Apex Oncology,2024,Travel Reimbursement,745.69,True
+9000000430,ClearPath BioMed,2024,Education/Training,1099.36,False
+9000000430,NovaBio Pharmaceuticals,2024,Travel Reimbursement,122.33,False
+9000000430,ClearPath BioMed,2024,Education/Training,955.1,False
+9000000432,Helix Therapeutics,2024,Consulting Fees,19022.25,False
+9000000432,Apex Oncology,2024,Education/Training,868.72,False
+9000000435,Apex Oncology,2024,Education/Training,738.23,True
+9000000435,Meridian Health Sciences,2024,Speaking Fees,4562.55,True
+9000000435,NovaBio Pharmaceuticals,2024,Travel Reimbursement,183.34,True
+9000000435,Helix Therapeutics,2024,Consulting Fees,20198.04,True
+9000000437,Helix Therapeutics,2024,Education/Training,938.76,False
+9000000437,Meridian Health Sciences,2024,Consulting Fees,11401.19,False
+9000000442,Meridian Health Sciences,2024,Consulting Fees,11164.51,True
+9000000442,Meridian Health Sciences,2024,Consulting Fees,12751.82,True
+9000000442,Apex Oncology,2024,Speaking Fees,11778.29,True
+9000000442,ClearPath BioMed,2024,Research Grants,23584.83,True
+9000000442,Meridian Health Sciences,2024,Travel Reimbursement,736.0,True
+9000000443,Meridian Health Sciences,2024,Research Grants,53230.5,False
+9000000444,Apex Oncology,2024,Travel Reimbursement,1033.7,False
+9000000444,NovaBio Pharmaceuticals,2024,Education/Training,451.0,False
+9000000450,Helix Therapeutics,2024,Research Grants,86532.76,True
+9000000450,Helix Therapeutics,2024,Consulting Fees,10359.2,True
+9000000450,Meridian Health Sciences,2024,Travel Reimbursement,349.83,True
+9000000450,Meridian Health Sciences,2024,Consulting Fees,11287.77,True
+9000000451,Helix Therapeutics,2024,Education/Training,390.6,False
+9000000453,ClearPath BioMed,2024,Education/Training,261.04,True
+9000000453,Meridian Health Sciences,2024,Education/Training,1105.2,True
+9000000453,Meridian Health Sciences,2024,Research Grants,49552.4,True
+9000000453,Meridian Health Sciences,2024,Education/Training,1384.85,True
+9000000453,Meridian Health Sciences,2024,Speaking Fees,4159.3,True
+9000000453,Meridian Health Sciences,2024,Consulting Fees,17708.87,True
+9000000453,NovaBio Pharmaceuticals,2024,Education/Training,408.46,True
+9000000453,Helix Therapeutics,2024,Research Grants,48667.41,True
+9000000454,Helix Therapeutics,2024,Consulting Fees,19106.27,True
+9000000454,ClearPath BioMed,2024,Education/Training,591.23,True
+9000000454,Helix Therapeutics,2024,Consulting Fees,5918.95,True
+9000000454,ClearPath BioMed,2024,Consulting Fees,7688.37,True
+9000000454,ClearPath BioMed,2024,Consulting Fees,2196.36,True
+9000000455,Helix Therapeutics,2024,Education/Training,1366.35,False
+9000000455,Apex Oncology,2024,Education/Training,303.58,False
+9000000455,Helix Therapeutics,2024,Speaking Fees,3096.13,False
+9000000458,ClearPath BioMed,2024,Education/Training,361.16,False
+9000000460,ClearPath BioMed,2024,Education/Training,896.41,False
+9000000464,Meridian Health Sciences,2024,Consulting Fees,5704.71,True
+9000000464,Meridian Health Sciences,2024,Speaking Fees,6716.72,True
+9000000464,Meridian Health Sciences,2024,Speaking Fees,13001.25,True
+9000000464,ClearPath BioMed,2024,Speaking Fees,1949.32,True
+9000000468,NovaBio Pharmaceuticals,2024,Travel Reimbursement,407.81,False
+9000000468,NovaBio Pharmaceuticals,2024,Research Grants,42508.43,False
+9000000468,Helix Therapeutics,2024,Education/Training,885.46,False
+9000000470,NovaBio Pharmaceuticals,2024,Travel Reimbursement,245.42,True
+9000000470,ClearPath BioMed,2024,Research Grants,15858.05,True
+9000000470,Apex Oncology,2024,Travel Reimbursement,1132.12,True
+9000000471,Helix Therapeutics,2024,Consulting Fees,23070.76,True
+9000000471,Meridian Health Sciences,2024,Speaking Fees,12258.93,True
+9000000471,Helix Therapeutics,2024,Education/Training,431.92,True
+9000000471,ClearPath BioMed,2024,Research Grants,13781.55,True
+9000000475,Apex Oncology,2024,Education/Training,330.55,False
+9000000475,ClearPath BioMed,2024,Travel Reimbursement,1088.97,False
+9000000476,Meridian Health Sciences,2024,Research Grants,82409.84,True
+9000000476,Helix Therapeutics,2024,Education/Training,221.07,True
+9000000476,Meridian Health Sciences,2024,Education/Training,226.27,True
+9000000476,Meridian Health Sciences,2024,Consulting Fees,13945.52,True
+9000000478,NovaBio Pharmaceuticals,2024,Consulting Fees,22462.36,True
+9000000478,Apex Oncology,2024,Education/Training,917.31,True
+9000000478,Helix Therapeutics,2024,Research Grants,63234.32,True
+9000000478,Helix Therapeutics,2024,Travel Reimbursement,1013.26,True
+9000000478,NovaBio Pharmaceuticals,2024,Speaking Fees,5469.83,True
+9000000478,Apex Oncology,2024,Consulting Fees,18158.89,True
+9000000483,Helix Therapeutics,2024,Travel Reimbursement,454.3,False
+9000000484,NovaBio Pharmaceuticals,2024,Travel Reimbursement,989.56,False
+9000000486,Helix Therapeutics,2024,Travel Reimbursement,547.72,True
+9000000486,NovaBio Pharmaceuticals,2024,Research Grants,18296.22,True
+9000000486,NovaBio Pharmaceuticals,2024,Consulting Fees,2994.27,True
+9000000486,ClearPath BioMed,2024,Speaking Fees,9923.68,True
+9000000486,NovaBio Pharmaceuticals,2024,Consulting Fees,14612.04,True
+9000000496,Helix Therapeutics,2024,Speaking Fees,14370.47,False
+9000000496,Meridian Health Sciences,2024,Education/Training,1287.57,False
+9000000496,Helix Therapeutics,2024,Research Grants,74961.8,False
+9000000506,Meridian Health Sciences,2024,Travel Reimbursement,218.36,False
+9000000506,NovaBio Pharmaceuticals,2024,Education/Training,1316.86,False
+9000000506,Meridian Health Sciences,2024,Research Grants,22773.95,False
+9000000509,Apex Oncology,2024,Research Grants,96700.61,False
+9000000510,NovaBio Pharmaceuticals,2024,Consulting Fees,7723.72,True
+9000000510,Apex Oncology,2024,Speaking Fees,12945.59,True
+9000000510,Apex Oncology,2024,Travel Reimbursement,160.8,True
+9000000510,Apex Oncology,2024,Research Grants,97911.14,True
+9000000513,ClearPath BioMed,2024,Consulting Fees,8579.32,True
+9000000513,ClearPath BioMed,2024,Education/Training,575.51,True
+9000000513,Meridian Health Sciences,2024,Travel Reimbursement,596.89,True
+9000000513,Meridian Health Sciences,2024,Consulting Fees,17600.47,True
+9000000513,NovaBio Pharmaceuticals,2024,Speaking Fees,2932.19,True
+9000000514,Helix Therapeutics,2024,Research Grants,45662.32,False
+9000000514,ClearPath BioMed,2024,Travel Reimbursement,800.32,False
+9000000514,Apex Oncology,2024,Travel Reimbursement,740.73,False
+9000000515,Helix Therapeutics,2024,Education/Training,420.83,False
+9000000515,Meridian Health Sciences,2024,Education/Training,953.09,False
+9000000516,ClearPath BioMed,2024,Travel Reimbursement,899.03,True
+9000000516,ClearPath BioMed,2024,Consulting Fees,19987.48,True
+9000000516,Apex Oncology,2024,Speaking Fees,10452.06,True
+9000000518,Meridian Health Sciences,2024,Education/Training,929.92,False
+9000000520,Meridian Health Sciences,2024,Consulting Fees,19631.16,False
+9000000521,Apex Oncology,2024,Travel Reimbursement,561.55,False
+9000000521,Helix Therapeutics,2024,Travel Reimbursement,896.08,False
+9000000532,Apex Oncology,2024,Education/Training,1129.2,True
+9000000532,Apex Oncology,2024,Research Grants,23261.19,True
+9000000532,Apex Oncology,2024,Speaking Fees,3583.72,True
+9000000534,Helix Therapeutics,2024,Travel Reimbursement,248.8,False
+9000000534,ClearPath BioMed,2024,Consulting Fees,22984.43,False
+9000000535,Meridian Health Sciences,2024,Travel Reimbursement,834.67,False
+9000000538,Apex Oncology,2024,Consulting Fees,13674.93,True
+9000000538,ClearPath BioMed,2024,Consulting Fees,11466.87,True
+9000000538,Apex Oncology,2024,Travel Reimbursement,1173.24,True
+9000000538,NovaBio Pharmaceuticals,2024,Speaking Fees,9651.03,True
+9000000551,NovaBio Pharmaceuticals,2024,Speaking Fees,13314.63,True
+9000000551,NovaBio Pharmaceuticals,2024,Speaking Fees,10941.45,True
+9000000551,Meridian Health Sciences,2024,Consulting Fees,2560.5,True
+9000000555,ClearPath BioMed,2024,Education/Training,600.82,False
+9000000555,Helix Therapeutics,2024,Education/Training,1350.53,False
+9000000561,ClearPath BioMed,2024,Education/Training,726.35,True
+9000000561,Meridian Health Sciences,2024,Travel Reimbursement,977.12,True
+9000000561,Helix Therapeutics,2024,Education/Training,728.46,True
+9000000561,ClearPath BioMed,2024,Speaking Fees,2042.12,True
+9000000561,Helix Therapeutics,2024,Speaking Fees,5944.59,True
+9000000567,Apex Oncology,2024,Research Grants,59527.26,True
+9000000567,Apex Oncology,2024,Consulting Fees,7312.95,True
+9000000567,NovaBio Pharmaceuticals,2024,Speaking Fees,12860.15,True
+9000000567,Helix Therapeutics,2024,Research Grants,39162.28,True
+9000000567,Meridian Health Sciences,2024,Speaking Fees,2064.26,True
+9000000567,Meridian Health Sciences,2024,Consulting Fees,23246.93,True
+9000000575,Apex Oncology,2024,Education/Training,1317.11,True
+9000000575,Helix Therapeutics,2024,Speaking Fees,11747.31,True
+9000000575,NovaBio Pharmaceuticals,2024,Consulting Fees,12113.68,True
+9000000575,Meridian Health Sciences,2024,Speaking Fees,11683.09,True
+9000000575,Meridian Health Sciences,2024,Research Grants,6421.46,True
+9000000575,ClearPath BioMed,2024,Consulting Fees,16007.3,True
+9000000575,Helix Therapeutics,2024,Speaking Fees,12208.37,True
+9000000575,Apex Oncology,2024,Speaking Fees,5041.78,True
+9000000576,Apex Oncology,2024,Education/Training,910.01,False
+9000000576,NovaBio Pharmaceuticals,2024,Speaking Fees,10706.34,False
+9000000576,Apex Oncology,2024,Travel Reimbursement,130.45,False
+9000000580,NovaBio Pharmaceuticals,2024,Research Grants,55660.4,True
+9000000580,NovaBio Pharmaceuticals,2024,Speaking Fees,7251.42,True
+9000000580,Helix Therapeutics,2024,Education/Training,311.35,True
+9000000585,ClearPath BioMed,2024,Consulting Fees,11007.13,True
+9000000585,Meridian Health Sciences,2024,Speaking Fees,13108.94,True
+9000000585,ClearPath BioMed,2024,Speaking Fees,10271.76,True
+9000000585,NovaBio Pharmaceuticals,2024,Consulting Fees,11070.49,True
+9000000585,Apex Oncology,2024,Speaking Fees,9832.8,True
+9000000585,Meridian Health Sciences,2024,Consulting Fees,10593.04,True
+9000000588,NovaBio Pharmaceuticals,2024,Consulting Fees,5805.41,False
+9000000592,NovaBio Pharmaceuticals,2024,Speaking Fees,4349.11,True
+9000000592,NovaBio Pharmaceuticals,2024,Speaking Fees,13098.53,True
+9000000592,NovaBio Pharmaceuticals,2024,Travel Reimbursement,838.8,True
+9000000592,Helix Therapeutics,2024,Research Grants,74591.13,True
+9000000592,Apex Oncology,2024,Consulting Fees,8124.62,True
+9000000592,ClearPath BioMed,2024,Research Grants,12698.23,True
+9000000593,Meridian Health Sciences,2024,Consulting Fees,24796.5,False
+9000000593,ClearPath BioMed,2024,Travel Reimbursement,496.23,False
+9000000594,Helix Therapeutics,2024,Research Grants,51255.47,True
+9000000594,Meridian Health Sciences,2024,Education/Training,941.35,True
+9000000594,NovaBio Pharmaceuticals,2024,Speaking Fees,12786.74,True
+9000000594,Helix Therapeutics,2024,Research Grants,56684.98,True
+9000000594,Helix Therapeutics,2024,Speaking Fees,1744.88,True
+9000000594,Apex Oncology,2024,Education/Training,257.44,True
+9000000594,Meridian Health Sciences,2024,Consulting Fees,5649.99,True
+9000000598,Meridian Health Sciences,2024,Travel Reimbursement,297.51,False
+9000000598,Apex Oncology,2024,Research Grants,65727.84,False
+9000000598,NovaBio Pharmaceuticals,2024,Speaking Fees,9631.7,False
+9000000599,Apex Oncology,2024,Research Grants,14368.67,True
+9000000599,Helix Therapeutics,2024,Speaking Fees,10111.81,True
+9000000599,Meridian Health Sciences,2024,Research Grants,29927.01,True
+9000000603,Apex Oncology,2024,Education/Training,1320.65,True
+9000000603,ClearPath BioMed,2024,Travel Reimbursement,926.29,True
+9000000603,Apex Oncology,2024,Research Grants,60935.65,True
+9000000603,ClearPath BioMed,2024,Speaking Fees,12688.74,True
+9000000603,NovaBio Pharmaceuticals,2024,Speaking Fees,5119.87,True
+9000000603,Meridian Health Sciences,2024,Travel Reimbursement,596.35,True
+9000000604,ClearPath BioMed,2024,Education/Training,514.58,True
+9000000604,NovaBio Pharmaceuticals,2024,Consulting Fees,10112.95,True
+9000000604,Helix Therapeutics,2024,Speaking Fees,11982.83,True
+9000000604,NovaBio Pharmaceuticals,2024,Speaking Fees,7629.76,True
+9000000608,ClearPath BioMed,2024,Education/Training,1236.4,False
+9000000609,Helix Therapeutics,2024,Education/Training,893.43,False
+9000000609,ClearPath BioMed,2024,Travel Reimbursement,487.59,False
+9000000617,Apex Oncology,2024,Research Grants,12517.99,True
+9000000617,ClearPath BioMed,2024,Consulting Fees,17863.28,True
+9000000617,Apex Oncology,2024,Speaking Fees,5654.97,True
+9000000617,NovaBio Pharmaceuticals,2024,Education/Training,1070.59,True
+9000000617,Apex Oncology,2024,Travel Reimbursement,724.33,True
+9000000618,NovaBio Pharmaceuticals,2024,Travel Reimbursement,103.17,False
+9000000619,Meridian Health Sciences,2024,Travel Reimbursement,880.47,False
+9000000622,NovaBio Pharmaceuticals,2024,Speaking Fees,4949.11,True
+9000000622,ClearPath BioMed,2024,Speaking Fees,4915.03,True
+9000000622,ClearPath BioMed,2024,Consulting Fees,2912.21,True
+9000000623,ClearPath BioMed,2024,Consulting Fees,9109.66,True
+9000000623,Helix Therapeutics,2024,Consulting Fees,14860.69,True
+9000000623,NovaBio Pharmaceuticals,2024,Research Grants,25476.22,True
+9000000623,ClearPath BioMed,2024,Speaking Fees,4976.0,True
+9000000623,Meridian Health Sciences,2024,Travel Reimbursement,103.51,True
+9000000623,Apex Oncology,2024,Education/Training,1350.43,True
+9000000623,Helix Therapeutics,2024,Speaking Fees,4402.18,True
+9000000623,Apex Oncology,2024,Consulting Fees,4682.29,True
+9000000624,ClearPath BioMed,2024,Education/Training,240.84,False
+9000000624,Meridian Health Sciences,2024,Education/Training,243.4,False
+9000000626,ClearPath BioMed,2024,Education/Training,913.23,False
+9000000628,ClearPath BioMed,2024,Consulting Fees,18482.83,True
+9000000628,Apex Oncology,2024,Research Grants,9620.76,True
+9000000628,Apex Oncology,2024,Research Grants,9526.73,True
+9000000628,NovaBio Pharmaceuticals,2024,Speaking Fees,6517.91,True
+9000000633,Helix Therapeutics,2024,Speaking Fees,14052.39,True
+9000000633,Meridian Health Sciences,2024,Education/Training,1335.18,True
+9000000633,Helix Therapeutics,2024,Speaking Fees,9865.49,True
+9000000633,NovaBio Pharmaceuticals,2024,Speaking Fees,2620.63,True
+9000000633,Apex Oncology,2024,Speaking Fees,2484.36,True
+9000000633,Helix Therapeutics,2024,Research Grants,75930.94,True
+9000000633,ClearPath BioMed,2024,Research Grants,88448.26,True
+9000000635,NovaBio Pharmaceuticals,2024,Research Grants,93685.56,True
+9000000635,Helix Therapeutics,2024,Speaking Fees,12862.41,True
+9000000635,Meridian Health Sciences,2024,Research Grants,37359.55,True
+9000000635,Meridian Health Sciences,2024,Speaking Fees,2672.09,True
+9000000635,Helix Therapeutics,2024,Speaking Fees,12869.95,True
+9000000638,Helix Therapeutics,2024,Speaking Fees,13880.78,False
+9000000639,NovaBio Pharmaceuticals,2024,Research Grants,20826.52,False
+9000000643,Helix Therapeutics,2024,Speaking Fees,11945.51,True
+9000000643,NovaBio Pharmaceuticals,2024,Speaking Fees,3419.83,True
+9000000643,Meridian Health Sciences,2024,Consulting Fees,17703.02,True
+9000000643,NovaBio Pharmaceuticals,2024,Travel Reimbursement,432.69,True
+9000000648,Meridian Health Sciences,2024,Speaking Fees,9178.6,True
+9000000648,NovaBio Pharmaceuticals,2024,Speaking Fees,9847.69,True
+9000000648,NovaBio Pharmaceuticals,2024,Research Grants,72642.73,True
+9000000648,NovaBio Pharmaceuticals,2024,Research Grants,60800.73,True
+9000000648,Helix Therapeutics,2024,Speaking Fees,2505.91,True
+9000000650,Helix Therapeutics,2024,Education/Training,1051.0,True
+9000000650,Apex Oncology,2024,Education/Training,770.08,True
+9000000650,Apex Oncology,2024,Research Grants,34930.07,True
+9000000650,Meridian Health Sciences,2024,Travel Reimbursement,399.84,True
+9000000653,Helix Therapeutics,2024,Consulting Fees,23942.69,False
+9000000653,Apex Oncology,2024,Speaking Fees,10409.12,False
+9000000654,Helix Therapeutics,2024,Consulting Fees,8101.16,False
+9000000656,NovaBio Pharmaceuticals,2024,Speaking Fees,1986.02,False
+9000000656,Helix Therapeutics,2024,Consulting Fees,4748.82,False
+9000000662,Helix Therapeutics,2024,Education/Training,1302.2,False
+9000000662,Meridian Health Sciences,2024,Travel Reimbursement,1113.49,False
+9000000662,Apex Oncology,2024,Research Grants,22068.18,False
+9000000665,ClearPath BioMed,2024,Consulting Fees,9065.57,True
+9000000665,Apex Oncology,2024,Research Grants,7509.79,True
+9000000665,NovaBio Pharmaceuticals,2024,Research Grants,34382.24,True
+9000000665,Meridian Health Sciences,2024,Speaking Fees,1793.96,True

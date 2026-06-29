@@ -578,4 +578,4 @@ Use Section 6.5. Select one scientific candidate and inspect the 4 evidence doma
 
 End with one judgment question: which additional real-world source would you require before acting?
 
-The executed [Chapter 6 walkthrough notebook](chapter6_walkthrough.ipynb) reproduces the chapter. Worked answers appear in [the exercise solutions notebook](exercise_solutions.ipynb). The next chapter adds payer and access evidence to the market view.
+The executed [Chapter 6 walkthrough notebook](ch06_walkthrough.ipynb) reproduces the chapter. Worked answers appear in [the exercise solutions notebook](ch06_exercise_solutions.ipynb). The next chapter adds payer and access evidence to the market view.

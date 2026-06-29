@@ -1,0 +1,251 @@
+account_id,account_name,account_type,city,state,region,territory,capacity
+ACC001,Georgia Care 001,Community Practice,Georgia,GA,South,T02,4
+ACC002,Georgia Care 002,Community Practice,Georgia,GA,South,T03,3
+ACC003,New York Care 003,Clinic,New York,NY,Northeast,T04,2
+ACC004,Pennsylvania Care 004,Community Practice,Pennsylvania,PA,Northeast,T05,4
+ACC005,Florida Care 005,Community Practice,Florida,FL,South,T06,4
+ACC006,Arizona Care 006,Health System,Arizona,AZ,West,T07,3
+ACC007,Washington Care 007,Health System,Washington,WA,West,T08,1
+ACC008,Illinois Care 008,Clinic,Illinois,IL,Midwest,T01,4
+ACC009,Ohio Care 009,Health System,Ohio,OH,Midwest,T02,3
+ACC010,Ohio Care 010,Clinic,Ohio,OH,Midwest,T03,4
+ACC011,Illinois Care 011,Academic Center,Illinois,IL,Midwest,T04,3
+ACC012,Texas Care 012,Community Practice,Texas,TX,South,T05,3
+ACC013,Georgia Care 013,Health System,Georgia,GA,South,T06,4
+ACC014,Georgia Care 014,Health System,Georgia,GA,South,T07,4
+ACC015,Texas Care 015,Academic Center,Texas,TX,South,T08,1
+ACC016,Pennsylvania Care 016,Health System,Pennsylvania,PA,Northeast,T01,3
+ACC017,Georgia Care 017,Health System,Georgia,GA,South,T02,1
+ACC018,New Jersey Care 018,Academic Center,New Jersey,NJ,Northeast,T03,4
+ACC019,Ohio Care 019,Academic Center,Ohio,OH,Midwest,T04,1
+ACC020,Arizona Care 020,Academic Center,Arizona,AZ,West,T05,1
+ACC021,Texas Care 021,Community Practice,Texas,TX,South,T06,2
+ACC022,Ohio Care 022,Community Practice,Ohio,OH,Midwest,T07,3
+ACC023,Illinois Care 023,Academic Center,Illinois,IL,Midwest,T08,1
+ACC024,Arizona Care 024,Academic Center,Arizona,AZ,West,T01,4
+ACC025,Ohio Care 025,Community Practice,Ohio,OH,Midwest,T02,3
+ACC026,Illinois Care 026,Academic Center,Illinois,IL,Midwest,T03,4
+ACC027,Illinois Care 027,Academic Center,Illinois,IL,Midwest,T04,2
+ACC028,Texas Care 028,Community Practice,Texas,TX,South,T05,3
+ACC029,Washington Care 029,Clinic,Washington,WA,West,T06,1
+ACC030,Florida Care 030,Health System,Florida,FL,South,T07,4
+ACC031,California Care 031,Clinic,California,CA,West,T08,3
+ACC032,Illinois Care 032,Community Practice,Illinois,IL,Midwest,T01,1
+ACC033,Georgia Care 033,Community Practice,Georgia,GA,South,T02,2
+ACC034,Florida Care 034,Academic Center,Florida,FL,South,T03,4
+ACC035,New York Care 035,Clinic,New York,NY,Northeast,T04,2
+ACC036,Ohio Care 036,Health System,Ohio,OH,Midwest,T05,3
+ACC037,Illinois Care 037,Community Practice,Illinois,IL,Midwest,T06,2
+ACC038,California Care 038,Academic Center,California,CA,West,T07,2
+ACC039,Ohio Care 039,Academic Center,Ohio,OH,Midwest,T08,4
+ACC040,Texas Care 040,Community Practice,Texas,TX,South,T01,4
+ACC041,Washington Care 041,Health System,Washington,WA,West,T02,3
+ACC042,Washington Care 042,Health System,Washington,WA,West,T03,1
+ACC043,Illinois Care 043,Academic Center,Illinois,IL,Midwest,T04,4
+ACC044,Florida Care 044,Community Practice,Florida,FL,South,T05,3
+ACC045,Texas Care 045,Academic Center,Texas,TX,South,T06,2
+ACC046,California Care 046,Community Practice,California,CA,West,T07,3
+ACC047,New Jersey Care 047,Health System,New Jersey,NJ,Northeast,T08,3
+ACC048,Washington Care 048,Academic Center,Washington,WA,West,T01,2
+ACC049,Texas Care 049,Health System,Texas,TX,South,T02,2
+ACC050,Ohio Care 050,Clinic,Ohio,OH,Midwest,T03,2
+ACC051,Georgia Care 051,Academic Center,Georgia,GA,South,T04,4
+ACC052,Illinois Care 052,Health System,Illinois,IL,Midwest,T05,4
+ACC053,Illinois Care 053,Community Practice,Illinois,IL,Midwest,T06,4
+ACC054,Florida Care 054,Community Practice,Florida,FL,South,T07,4
+ACC055,New York Care 055,Academic Center,New York,NY,Northeast,T08,1
+ACC056,Pennsylvania Care 056,Academic Center,Pennsylvania,PA,Northeast,T01,4
+ACC057,Michigan Care 057,Health System,Michigan,MI,Midwest,T02,1
+ACC058,Texas Care 058,Health System,Texas,TX,South,T03,2
+ACC059,Pennsylvania Care 059,Academic Center,Pennsylvania,PA,Northeast,T04,2
+ACC060,New York Care 060,Community Practice,New York,NY,Northeast,T05,4
+ACC061,Illinois Care 061,Academic Center,Illinois,IL,Midwest,T06,1
+ACC062,Arizona Care 062,Community Practice,Arizona,AZ,West,T07,2
+ACC063,California Care 063,Clinic,California,CA,West,T08,1
+ACC064,Florida Care 064,Health System,Florida,FL,South,T01,1
+ACC065,New Jersey Care 065,Academic Center,New Jersey,NJ,Northeast,T02,4
+ACC066,Illinois Care 066,Health System,Illinois,IL,Midwest,T03,4
+ACC067,Illinois Care 067,Academic Center,Illinois,IL,Midwest,T04,1
+ACC068,Michigan Care 068,Health System,Michigan,MI,Midwest,T05,3
+ACC069,New York Care 069,Clinic,New York,NY,Northeast,T06,3
+ACC070,California Care 070,Clinic,California,CA,West,T07,4
+ACC071,Washington Care 071,Community Practice,Washington,WA,West,T08,1
+ACC072,Michigan Care 072,Clinic,Michigan,MI,Midwest,T01,4
+ACC073,Florida Care 073,Community Practice,Florida,FL,South,T02,1
+ACC074,New York Care 074,Health System,New York,NY,Northeast,T03,3
+ACC075,Pennsylvania Care 075,Health System,Pennsylvania,PA,Northeast,T04,1
+ACC076,Ohio Care 076,Health System,Ohio,OH,Midwest,T05,1
+ACC077,New York Care 077,Health System,New York,NY,Northeast,T06,1
+ACC078,Michigan Care 078,Clinic,Michigan,MI,Midwest,T07,3
+ACC079,Texas Care 079,Health System,Texas,TX,South,T08,2
+ACC080,New Jersey Care 080,Clinic,New Jersey,NJ,Northeast,T01,4
+ACC081,Arizona Care 081,Health System,Arizona,AZ,West,T02,4
+ACC082,Illinois Care 082,Health System,Illinois,IL,Midwest,T03,1
+ACC083,New Jersey Care 083,Community Practice,New Jersey,NJ,Northeast,T04,3
+ACC084,Georgia Care 084,Academic Center,Georgia,GA,South,T05,3
+ACC085,New Jersey Care 085,Community Practice,New Jersey,NJ,Northeast,T06,2
+ACC086,Texas Care 086,Health System,Texas,TX,South,T07,2
+ACC087,Washington Care 087,Health System,Washington,WA,West,T08,2
+ACC088,Georgia Care 088,Clinic,Georgia,GA,South,T01,4
+ACC089,New Jersey Care 089,Clinic,New Jersey,NJ,Northeast,T02,2
+ACC090,Georgia Care 090,Health System,Georgia,GA,South,T03,1
+ACC091,Florida Care 091,Clinic,Florida,FL,South,T04,4
+ACC092,Washington Care 092,Clinic,Washington,WA,West,T05,4
+ACC093,New Jersey Care 093,Health System,New Jersey,NJ,Northeast,T06,2
+ACC094,Pennsylvania Care 094,Health System,Pennsylvania,PA,Northeast,T07,2
+ACC095,Arizona Care 095,Health System,Arizona,AZ,West,T08,3
+ACC096,New York Care 096,Community Practice,New York,NY,Northeast,T01,1
+ACC097,Pennsylvania Care 097,Academic Center,Pennsylvania,PA,Northeast,T02,3
+ACC098,New Jersey Care 098,Clinic,New Jersey,NJ,Northeast,T03,2
+ACC099,Ohio Care 099,Community Practice,Ohio,OH,Midwest,T04,2
+ACC100,Ohio Care 100,Clinic,Ohio,OH,Midwest,T05,4
+ACC101,Texas Care 101,Health System,Texas,TX,South,T06,3
+ACC102,Illinois Care 102,Health System,Illinois,IL,Midwest,T07,1
+ACC103,New Jersey Care 103,Health System,New Jersey,NJ,Northeast,T08,3
+ACC104,New Jersey Care 104,Clinic,New Jersey,NJ,Northeast,T01,1
+ACC105,Washington Care 105,Health System,Washington,WA,West,T02,3
+ACC106,New York Care 106,Academic Center,New York,NY,Northeast,T03,2
+ACC107,Georgia Care 107,Academic Center,Georgia,GA,South,T04,1
+ACC108,Washington Care 108,Community Practice,Washington,WA,West,T05,4
+ACC109,Arizona Care 109,Academic Center,Arizona,AZ,West,T06,3
+ACC110,Florida Care 110,Clinic,Florida,FL,South,T07,3
+ACC111,Pennsylvania Care 111,Academic Center,Pennsylvania,PA,Northeast,T08,1
+ACC112,Michigan Care 112,Community Practice,Michigan,MI,Midwest,T01,2
+ACC113,California Care 113,Community Practice,California,CA,West,T02,1
+ACC114,New York Care 114,Health System,New York,NY,Northeast,T03,4
+ACC115,New Jersey Care 115,Academic Center,New Jersey,NJ,Northeast,T04,4
+ACC116,California Care 116,Health System,California,CA,West,T05,1
+ACC117,Washington Care 117,Clinic,Washington,WA,West,T06,4
+ACC118,Georgia Care 118,Health System,Georgia,GA,South,T07,1
+ACC119,Florida Care 119,Health System,Florida,FL,South,T08,3
+ACC120,Ohio Care 120,Community Practice,Ohio,OH,Midwest,T01,4
+ACC121,Illinois Care 121,Academic Center,Illinois,IL,Midwest,T02,3
+ACC122,New Jersey Care 122,Clinic,New Jersey,NJ,Northeast,T03,1
+ACC123,Ohio Care 123,Community Practice,Ohio,OH,Midwest,T04,1
+ACC124,New York Care 124,Health System,New York,NY,Northeast,T05,2
+ACC125,Washington Care 125,Community Practice,Washington,WA,West,T06,2
+ACC126,Washington Care 126,Health System,Washington,WA,West,T07,2
+ACC127,Illinois Care 127,Community Practice,Illinois,IL,Midwest,T08,3
+ACC128,Michigan Care 128,Health System,Michigan,MI,Midwest,T01,4
+ACC129,Georgia Care 129,Academic Center,Georgia,GA,South,T02,3
+ACC130,Arizona Care 130,Academic Center,Arizona,AZ,West,T03,1
+ACC131,New Jersey Care 131,Community Practice,New Jersey,NJ,Northeast,T04,2
+ACC132,New York Care 132,Clinic,New York,NY,Northeast,T05,1
+ACC133,Washington Care 133,Academic Center,Washington,WA,West,T06,2
+ACC134,California Care 134,Community Practice,California,CA,West,T07,4
+ACC135,Georgia Care 135,Academic Center,Georgia,GA,South,T08,1
+ACC136,Georgia Care 136,Health System,Georgia,GA,South,T01,3
+ACC137,Arizona Care 137,Academic Center,Arizona,AZ,West,T02,1
+ACC138,Illinois Care 138,Health System,Illinois,IL,Midwest,T03,2
+ACC139,Arizona Care 139,Health System,Arizona,AZ,West,T04,3
+ACC140,New Jersey Care 140,Community Practice,New Jersey,NJ,Northeast,T05,2
+ACC141,New Jersey Care 141,Health System,New Jersey,NJ,Northeast,T06,2
+ACC142,Illinois Care 142,Health System,Illinois,IL,Midwest,T07,4
+ACC143,Pennsylvania Care 143,Academic Center,Pennsylvania,PA,Northeast,T08,4
+ACC144,Florida Care 144,Community Practice,Florida,FL,South,T01,2
+ACC145,California Care 145,Community Practice,California,CA,West,T02,1
+ACC146,Ohio Care 146,Clinic,Ohio,OH,Midwest,T03,3
+ACC147,Florida Care 147,Academic Center,Florida,FL,South,T04,1
+ACC148,Michigan Care 148,Health System,Michigan,MI,Midwest,T05,4
+ACC149,Georgia Care 149,Clinic,Georgia,GA,South,T06,2
+ACC150,Texas Care 150,Academic Center,Texas,TX,South,T07,2
+ACC151,Pennsylvania Care 151,Health System,Pennsylvania,PA,Northeast,T08,3
+ACC152,Georgia Care 152,Community Practice,Georgia,GA,South,T01,1
+ACC153,Texas Care 153,Community Practice,Texas,TX,South,T02,2
+ACC154,Michigan Care 154,Clinic,Michigan,MI,Midwest,T03,4
+ACC155,Arizona Care 155,Community Practice,Arizona,AZ,West,T04,4
+ACC156,Pennsylvania Care 156,Community Practice,Pennsylvania,PA,Northeast,T05,2
+ACC157,Georgia Care 157,Community Practice,Georgia,GA,South,T06,3
+ACC158,Michigan Care 158,Health System,Michigan,MI,Midwest,T07,1
+ACC159,Florida Care 159,Clinic,Florida,FL,South,T08,2
+ACC160,Florida Care 160,Health System,Florida,FL,South,T01,4
+ACC161,Georgia Care 161,Clinic,Georgia,GA,South,T02,3
+ACC162,New York Care 162,Community Practice,New York,NY,Northeast,T03,1
+ACC163,Ohio Care 163,Health System,Ohio,OH,Midwest,T04,1
+ACC164,Illinois Care 164,Health System,Illinois,IL,Midwest,T05,3
+ACC165,Florida Care 165,Health System,Florida,FL,South,T06,1
+ACC166,Texas Care 166,Academic Center,Texas,TX,South,T07,3
+ACC167,Georgia Care 167,Community Practice,Georgia,GA,South,T08,1
+ACC168,Ohio Care 168,Health System,Ohio,OH,Midwest,T01,3
+ACC169,Pennsylvania Care 169,Clinic,Pennsylvania,PA,Northeast,T02,4
+ACC170,Florida Care 170,Academic Center,Florida,FL,South,T03,3
+ACC171,New Jersey Care 171,Clinic,New Jersey,NJ,Northeast,T04,3
+ACC172,Illinois Care 172,Clinic,Illinois,IL,Midwest,T05,3
+ACC173,Texas Care 173,Academic Center,Texas,TX,South,T06,4
+ACC174,Michigan Care 174,Academic Center,Michigan,MI,Midwest,T07,2
+ACC175,Washington Care 175,Health System,Washington,WA,West,T08,2
+ACC176,Arizona Care 176,Health System,Arizona,AZ,West,T01,3
+ACC177,Pennsylvania Care 177,Community Practice,Pennsylvania,PA,Northeast,T02,1
+ACC178,New York Care 178,Clinic,New York,NY,Northeast,T03,4
+ACC179,California Care 179,Community Practice,California,CA,West,T04,4
+ACC180,Washington Care 180,Health System,Washington,WA,West,T05,4
+ACC181,Washington Care 181,Academic Center,Washington,WA,West,T06,2
+ACC182,Arizona Care 182,Clinic,Arizona,AZ,West,T07,2
+ACC183,Florida Care 183,Academic Center,Florida,FL,South,T08,2
+ACC184,Ohio Care 184,Academic Center,Ohio,OH,Midwest,T01,4
+ACC185,New York Care 185,Academic Center,New York,NY,Northeast,T02,4
+ACC186,New York Care 186,Health System,New York,NY,Northeast,T03,2
+ACC187,New Jersey Care 187,Community Practice,New Jersey,NJ,Northeast,T04,4
+ACC188,Michigan Care 188,Health System,Michigan,MI,Midwest,T05,3
+ACC189,Michigan Care 189,Clinic,Michigan,MI,Midwest,T06,2
+ACC190,Washington Care 190,Health System,Washington,WA,West,T07,3
+ACC191,California Care 191,Clinic,California,CA,West,T08,1
+ACC192,New York Care 192,Health System,New York,NY,Northeast,T01,4
+ACC193,Georgia Care 193,Academic Center,Georgia,GA,South,T02,4
+ACC194,New Jersey Care 194,Health System,New Jersey,NJ,Northeast,T03,4
+ACC195,California Care 195,Academic Center,California,CA,West,T04,1
+ACC196,Illinois Care 196,Community Practice,Illinois,IL,Midwest,T05,1
+ACC197,Ohio Care 197,Health System,Ohio,OH,Midwest,T06,3
+ACC198,Ohio Care 198,Community Practice,Ohio,OH,Midwest,T07,2
+ACC199,Pennsylvania Care 199,Clinic,Pennsylvania,PA,Northeast,T08,3
+ACC200,Florida Care 200,Community Practice,Florida,FL,South,T01,3
+ACC201,Georgia Care 201,Academic Center,Georgia,GA,South,T02,1
+ACC202,Washington Care 202,Community Practice,Washington,WA,West,T03,1
+ACC203,New York Care 203,Clinic,New York,NY,Northeast,T04,2
+ACC204,Michigan Care 204,Health System,Michigan,MI,Midwest,T05,4
+ACC205,Pennsylvania Care 205,Health System,Pennsylvania,PA,Northeast,T06,1
+ACC206,Texas Care 206,Academic Center,Texas,TX,South,T07,2
+ACC207,Texas Care 207,Community Practice,Texas,TX,South,T08,4
+ACC208,Michigan Care 208,Clinic,Michigan,MI,Midwest,T01,2
+ACC209,California Care 209,Health System,California,CA,West,T02,2
+ACC210,Ohio Care 210,Health System,Ohio,OH,Midwest,T03,2
+ACC211,Washington Care 211,Community Practice,Washington,WA,West,T04,4
+ACC212,New York Care 212,Health System,New York,NY,Northeast,T05,4
+ACC213,Pennsylvania Care 213,Health System,Pennsylvania,PA,Northeast,T06,3
+ACC214,Washington Care 214,Clinic,Washington,WA,West,T07,3
+ACC215,California Care 215,Academic Center,California,CA,West,T08,2
+ACC216,New York Care 216,Academic Center,New York,NY,Northeast,T01,1
+ACC217,Georgia Care 217,Clinic,Georgia,GA,South,T02,1
+ACC218,Texas Care 218,Health System,Texas,TX,South,T03,3
+ACC219,Florida Care 219,Clinic,Florida,FL,South,T04,2
+ACC220,Pennsylvania Care 220,Community Practice,Pennsylvania,PA,Northeast,T05,3
+ACC221,Georgia Care 221,Health System,Georgia,GA,South,T06,4
+ACC222,Georgia Care 222,Community Practice,Georgia,GA,South,T07,2
+ACC223,Michigan Care 223,Community Practice,Michigan,MI,Midwest,T08,3
+ACC224,Michigan Care 224,Academic Center,Michigan,MI,Midwest,T01,4
+ACC225,Georgia Care 225,Clinic,Georgia,GA,South,T02,1
+ACC226,Washington Care 226,Community Practice,Washington,WA,West,T03,4
+ACC227,Texas Care 227,Community Practice,Texas,TX,South,T04,1
+ACC228,Washington Care 228,Academic Center,Washington,WA,West,T05,1
+ACC229,Michigan Care 229,Clinic,Michigan,MI,Midwest,T06,1
+ACC230,Washington Care 230,Clinic,Washington,WA,West,T07,1
+ACC231,Illinois Care 231,Community Practice,Illinois,IL,Midwest,T08,1
+ACC232,Texas Care 232,Community Practice,Texas,TX,South,T01,3
+ACC233,Washington Care 233,Community Practice,Washington,WA,West,T02,2
+ACC234,Florida Care 234,Health System,Florida,FL,South,T03,3
+ACC235,Washington Care 235,Clinic,Washington,WA,West,T04,1
+ACC236,Texas Care 236,Academic Center,Texas,TX,South,T05,3
+ACC237,Florida Care 237,Health System,Florida,FL,South,T06,1
+ACC238,Ohio Care 238,Community Practice,Ohio,OH,Midwest,T07,2
+ACC239,Texas Care 239,Community Practice,Texas,TX,South,T08,2
+ACC240,New Jersey Care 240,Community Practice,New Jersey,NJ,Northeast,T01,4
+ACC241,Georgia Care 241,Academic Center,Georgia,GA,South,T02,1
+ACC242,Michigan Care 242,Health System,Michigan,MI,Midwest,T03,1
+ACC243,New Jersey Care 243,Academic Center,New Jersey,NJ,Northeast,T04,2
+ACC244,Michigan Care 244,Health System,Michigan,MI,Midwest,T05,4
+ACC245,Ohio Care 245,Health System,Ohio,OH,Midwest,T06,2
+ACC246,New York Care 246,Health System,New York,NY,Northeast,T07,2
+ACC247,Florida Care 247,Clinic,Florida,FL,South,T08,3
+ACC248,Pennsylvania Care 248,Community Practice,Pennsylvania,PA,Northeast,T01,3
+ACC249,Pennsylvania Care 249,Clinic,Pennsylvania,PA,Northeast,T02,4
+ACC250,New York Care 250,Academic Center,New York,NY,Northeast,T03,1

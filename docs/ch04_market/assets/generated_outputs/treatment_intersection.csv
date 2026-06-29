@@ -1,0 +1,5 @@
+population,population_count,current_product_users,untreated_patients
+All panel patients,20000,6401,13599
+True condition,9308,6401,2907
+Paid-claims phenotype,8213,5541,2672
+Age-eligible paid-claims phenotype,6998,4720,2278

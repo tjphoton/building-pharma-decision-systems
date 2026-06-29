@@ -1,0 +1,1058 @@
+prscrbr_npi,prscrbr_last_org_name,prscrbr_first_name,prscrbr_city,prscrbr_state_abrvtn,prscrbr_type,drug_name,generic_name,drug_class,tot_clms,tot_benes,tot_day_suply,tot_drug_cst,year
+9000000001,Provider_HCP0001,Synthetic,IL City,IL,Pulmonology,Nexoral,nexoral,Competitor A,72,23,4896,66202.28,2024
+9000000002,Provider_HCP0002,Synthetic,FL City,FL,Family Practice,Roventra,roventra,Launch product,71,19,2059,73114.83,2024
+9000000003,Provider_HCP0003,Synthetic,MI City,MI,Family Practice,Vexpro,vexpro,Competitor B,222,122,10656,202842.68,2024
+9000000004,Provider_HCP0004,Synthetic,NY City,NY,Cardiology,Vexpro,vexpro,Competitor B,73,36,4453,48546.72,2024
+9000000005,Provider_HCP0005,Synthetic,PA City,PA,Family Practice,Nexoral,nexoral,Competitor A,236,208,7316,77587.05,2024
+9000000006,Provider_HCP0006,Synthetic,GA City,GA,Oncology/Hematology,Vexpro,vexpro,Competitor B,92,51,6440,12461.21,2024
+9000000006,Provider_HCP0006,Synthetic,GA City,GA,Oncology/Hematology,Nexoral,nexoral,Competitor A,198,197,15048,171431.07,2024
+9000000007,Provider_HCP0007,Synthetic,NJ City,NJ,Family Practice,Nexoral,nexoral,Competitor A,88,54,5984,24384.62,2024
+9000000007,Provider_HCP0007,Synthetic,NJ City,NJ,Family Practice,Roventra,roventra,Launch product,234,150,8190,163004.8,2024
+9000000008,Provider_HCP0008,Synthetic,AZ City,AZ,Cardiology,Vexpro,vexpro,Competitor B,116,115,8932,59774.9,2024
+9000000008,Provider_HCP0008,Synthetic,AZ City,AZ,Cardiology,Roventra,roventra,Launch product,16,11,992,11109.8,2024
+9000000008,Provider_HCP0008,Synthetic,AZ City,AZ,Cardiology,Nexoral,nexoral,Competitor A,74,23,6364,88511.72,2024
+9000000009,Provider_HCP0009,Synthetic,TX City,TX,Rheumatology,Nexoral,nexoral,Competitor A,238,124,17850,35682.46,2024
+9000000010,Provider_HCP0010,Synthetic,WA City,WA,Rheumatology,Roventra,roventra,Launch product,107,13,5029,18380.06,2024
+9000000010,Provider_HCP0010,Synthetic,WA City,WA,Rheumatology,Nexoral,nexoral,Competitor A,248,47,9920,197647.19,2024
+9000000010,Provider_HCP0010,Synthetic,WA City,WA,Rheumatology,Vexpro,vexpro,Competitor B,54,15,3348,37888.78,2024
+9000000011,Provider_HCP0011,Synthetic,CA City,CA,Pulmonology,Roventra,roventra,Launch product,249,45,11952,238135.79,2024
+9000000011,Provider_HCP0011,Synthetic,CA City,CA,Pulmonology,Nexoral,nexoral,Competitor A,13,13,702,15290.2,2024
+9000000012,Provider_HCP0012,Synthetic,CA City,CA,Oncology/Hematology,Roventra,roventra,Launch product,227,16,13393,100115.21,2024
+9000000013,Provider_HCP0013,Synthetic,WA City,WA,Family Practice,Vexpro,vexpro,Competitor B,88,53,6160,41362.27,2024
+9000000013,Provider_HCP0013,Synthetic,WA City,WA,Family Practice,Nexoral,nexoral,Competitor A,83,42,2490,25087.35,2024
+9000000014,Provider_HCP0014,Synthetic,CA City,CA,Rheumatology,Vexpro,vexpro,Competitor B,258,38,22188,35730.15,2024
+9000000015,Provider_HCP0015,Synthetic,IL City,IL,Cardiology,Vexpro,vexpro,Competitor B,248,103,13144,257671.3,2024
+9000000016,Provider_HCP0016,Synthetic,NY City,NY,Family Practice,Vexpro,vexpro,Competitor B,195,62,15210,131188.52,2024
+9000000017,Provider_HCP0017,Synthetic,CA City,CA,Family Practice,Nexoral,nexoral,Competitor A,228,77,6384,258176.59,2024
+9000000017,Provider_HCP0017,Synthetic,CA City,CA,Family Practice,Roventra,roventra,Launch product,295,168,20945,187770.92,2024
+9000000018,Provider_HCP0018,Synthetic,NY City,NY,Oncology/Hematology,Nexoral,nexoral,Competitor A,290,285,22620,70954.67,2024
+9000000018,Provider_HCP0018,Synthetic,NY City,NY,Oncology/Hematology,Vexpro,vexpro,Competitor B,19,13,1558,5729.04,2024
+9000000019,Provider_HCP0019,Synthetic,GA City,GA,Rheumatology,Nexoral,nexoral,Competitor A,57,30,5073,5116.54,2024
+9000000020,Provider_HCP0020,Synthetic,MI City,MI,Family Practice,Vexpro,vexpro,Competitor B,226,113,7684,167660.42,2024
+9000000020,Provider_HCP0020,Synthetic,MI City,MI,Family Practice,Nexoral,nexoral,Competitor A,249,159,13944,121463.86,2024
+9000000021,Provider_HCP0021,Synthetic,IL City,IL,Oncology/Hematology,Vexpro,vexpro,Competitor B,254,122,13208,244272.98,2024
+9000000021,Provider_HCP0021,Synthetic,IL City,IL,Oncology/Hematology,Nexoral,nexoral,Competitor A,201,14,11658,228149.15,2024
+9000000022,Provider_HCP0022,Synthetic,WA City,WA,Family Practice,Roventra,roventra,Launch product,186,126,5208,138411.73,2024
+9000000022,Provider_HCP0022,Synthetic,WA City,WA,Family Practice,Nexoral,nexoral,Competitor A,209,84,17974,143954.31,2024
+9000000023,Provider_HCP0023,Synthetic,IL City,IL,Family Practice,Vexpro,vexpro,Competitor B,127,46,4826,91179.89,2024
+9000000024,Provider_HCP0024,Synthetic,OH City,OH,Oncology/Hematology,Vexpro,vexpro,Competitor B,26,13,2236,5577.14,2024
+9000000025,Provider_HCP0025,Synthetic,WA City,WA,Pulmonology,Nexoral,nexoral,Competitor A,97,50,3007,23066.72,2024
+9000000025,Provider_HCP0025,Synthetic,WA City,WA,Pulmonology,Vexpro,vexpro,Competitor B,151,143,5889,82343.82,2024
+9000000025,Provider_HCP0025,Synthetic,WA City,WA,Pulmonology,Roventra,roventra,Launch product,268,98,19028,71337.44,2024
+9000000026,Provider_HCP0026,Synthetic,WA City,WA,Endocrinology,Nexoral,nexoral,Competitor A,145,143,4785,166905.72,2024
+9000000026,Provider_HCP0026,Synthetic,WA City,WA,Endocrinology,Vexpro,vexpro,Competitor B,74,46,5328,44591.05,2024
+9000000027,Provider_HCP0027,Synthetic,NJ City,NJ,Oncology/Hematology,Vexpro,vexpro,Competitor B,90,41,2880,14476.5,2024
+9000000028,Provider_HCP0028,Synthetic,GA City,GA,Endocrinology,Nexoral,nexoral,Competitor A,281,196,15736,272698.94,2024
+9000000028,Provider_HCP0028,Synthetic,GA City,GA,Endocrinology,Vexpro,vexpro,Competitor B,255,49,8925,278090.88,2024
+9000000029,Provider_HCP0029,Synthetic,TX City,TX,Oncology/Hematology,Nexoral,nexoral,Competitor A,35,24,2205,39460.08,2024
+9000000030,Provider_HCP0030,Synthetic,GA City,GA,Oncology/Hematology,Vexpro,vexpro,Competitor B,52,49,2080,50211.83,2024
+9000000030,Provider_HCP0030,Synthetic,GA City,GA,Oncology/Hematology,Nexoral,nexoral,Competitor A,110,18,6050,29229.85,2024
+9000000031,Provider_HCP0031,Synthetic,GA City,GA,Oncology/Hematology,Nexoral,nexoral,Competitor A,57,41,2679,12064.73,2024
+9000000032,Provider_HCP0032,Synthetic,WA City,WA,Family Practice,Vexpro,vexpro,Competitor B,176,135,11088,45266.6,2024
+9000000033,Provider_HCP0033,Synthetic,FL City,FL,Family Practice,Nexoral,nexoral,Competitor A,87,22,6873,99970.81,2024
+9000000034,Provider_HCP0034,Synthetic,TX City,TX,Endocrinology,Vexpro,vexpro,Competitor B,235,149,15745,73448.48,2024
+9000000035,Provider_HCP0035,Synthetic,NY City,NY,Family Practice,Vexpro,vexpro,Competitor B,250,221,7000,252135.21,2024
+9000000035,Provider_HCP0035,Synthetic,NY City,NY,Family Practice,Nexoral,nexoral,Competitor A,248,82,12400,162595.4,2024
+9000000036,Provider_HCP0036,Synthetic,OH City,OH,Oncology/Hematology,Nexoral,nexoral,Competitor A,25,23,1175,20878.02,2024
+9000000037,Provider_HCP0037,Synthetic,TX City,TX,Oncology/Hematology,Nexoral,nexoral,Competitor A,250,228,22500,191731.28,2024
+9000000037,Provider_HCP0037,Synthetic,TX City,TX,Oncology/Hematology,Roventra,roventra,Launch product,52,21,2704,48594.46,2024
+9000000038,Provider_HCP0038,Synthetic,GA City,GA,Family Practice,Vexpro,vexpro,Competitor B,96,34,6336,23706.56,2024
+9000000038,Provider_HCP0038,Synthetic,GA City,GA,Family Practice,Nexoral,nexoral,Competitor A,113,96,3503,54546.51,2024
+9000000039,Provider_HCP0039,Synthetic,WA City,WA,Oncology/Hematology,Vexpro,vexpro,Competitor B,35,33,3080,40397.19,2024
+9000000039,Provider_HCP0039,Synthetic,WA City,WA,Oncology/Hematology,Roventra,roventra,Launch product,137,128,11097,44021.58,2024
+9000000039,Provider_HCP0039,Synthetic,WA City,WA,Oncology/Hematology,Nexoral,nexoral,Competitor A,185,24,15170,176052.02,2024
+9000000040,Provider_HCP0040,Synthetic,GA City,GA,Family Practice,Roventra,roventra,Launch product,234,149,20826,263754.81,2024
+9000000041,Provider_HCP0041,Synthetic,MI City,MI,Family Practice,Vexpro,vexpro,Competitor B,41,25,3444,44949.68,2024
+9000000042,Provider_HCP0042,Synthetic,WA City,WA,Oncology/Hematology,Vexpro,vexpro,Competitor B,181,94,10498,202376.33,2024
+9000000042,Provider_HCP0042,Synthetic,WA City,WA,Oncology/Hematology,Roventra,roventra,Launch product,61,57,2928,57471.48,2024
+9000000042,Provider_HCP0042,Synthetic,WA City,WA,Oncology/Hematology,Nexoral,nexoral,Competitor A,264,252,16104,246199.64,2024
+9000000043,Provider_HCP0043,Synthetic,IL City,IL,Family Practice,Nexoral,nexoral,Competitor A,219,53,8322,30355.48,2024
+9000000044,Provider_HCP0044,Synthetic,TX City,TX,Cardiology,Nexoral,nexoral,Competitor A,220,126,12540,89364.51,2024
+9000000044,Provider_HCP0044,Synthetic,TX City,TX,Cardiology,Vexpro,vexpro,Competitor B,268,156,9648,125239.59,2024
+9000000045,Provider_HCP0045,Synthetic,PA City,PA,Endocrinology,Nexoral,nexoral,Competitor A,43,13,2967,12818.97,2024
+9000000046,Provider_HCP0046,Synthetic,OH City,OH,Cardiology,Nexoral,nexoral,Competitor A,197,50,5713,156906.89,2024
+9000000047,Provider_HCP0047,Synthetic,GA City,GA,Cardiology,Roventra,roventra,Launch product,124,41,7936,74828.79,2024
+9000000048,Provider_HCP0048,Synthetic,TX City,TX,Oncology/Hematology,Nexoral,nexoral,Competitor A,76,13,4104,23311.81,2024
+9000000048,Provider_HCP0048,Synthetic,TX City,TX,Oncology/Hematology,Vexpro,vexpro,Competitor B,184,116,7544,124075.33,2024
+9000000049,Provider_HCP0049,Synthetic,WA City,WA,Oncology/Hematology,Roventra,roventra,Launch product,278,259,9452,81672.93,2024
+9000000050,Provider_HCP0050,Synthetic,OH City,OH,Oncology/Hematology,Vexpro,vexpro,Competitor B,189,115,8316,194014.28,2024
+9000000051,Provider_HCP0051,Synthetic,FL City,FL,Cardiology,Vexpro,vexpro,Competitor B,291,224,9312,227852.23,2024
+9000000051,Provider_HCP0051,Synthetic,FL City,FL,Cardiology,Nexoral,nexoral,Competitor A,216,115,7776,128924.7,2024
+9000000052,Provider_HCP0052,Synthetic,NY City,NY,Rheumatology,Vexpro,vexpro,Competitor B,29,16,1363,15016.31,2024
+9000000052,Provider_HCP0052,Synthetic,NY City,NY,Rheumatology,Roventra,roventra,Launch product,189,21,6237,100765.19,2024
+9000000053,Provider_HCP0053,Synthetic,NY City,NY,Rheumatology,Vexpro,vexpro,Competitor B,261,168,13050,175193.12,2024
+9000000053,Provider_HCP0053,Synthetic,NY City,NY,Rheumatology,Nexoral,nexoral,Competitor A,191,36,10314,23467.69,2024
+9000000054,Provider_HCP0054,Synthetic,TX City,TX,Rheumatology,Nexoral,nexoral,Competitor A,22,14,1782,25132.26,2024
+9000000054,Provider_HCP0054,Synthetic,TX City,TX,Rheumatology,Vexpro,vexpro,Competitor B,233,167,13514,176050.84,2024
+9000000055,Provider_HCP0055,Synthetic,FL City,FL,Family Practice,Vexpro,vexpro,Competitor B,66,41,2442,75456.3,2024
+9000000055,Provider_HCP0055,Synthetic,FL City,FL,Family Practice,Roventra,roventra,Launch product,264,211,18480,70007.45,2024
+9000000056,Provider_HCP0056,Synthetic,NY City,NY,Cardiology,Vexpro,vexpro,Competitor B,154,123,5390,143824.76,2024
+9000000057,Provider_HCP0057,Synthetic,NJ City,NJ,Cardiology,Nexoral,nexoral,Competitor A,174,165,10440,178780.76,2024
+9000000057,Provider_HCP0057,Synthetic,NJ City,NJ,Cardiology,Vexpro,vexpro,Competitor B,42,24,2520,8853.03,2024
+9000000058,Provider_HCP0058,Synthetic,OH City,OH,Family Practice,Roventra,roventra,Launch product,121,43,7139,89399.06,2024
+9000000058,Provider_HCP0058,Synthetic,OH City,OH,Family Practice,Nexoral,nexoral,Competitor A,83,82,7304,83618.38,2024
+9000000059,Provider_HCP0059,Synthetic,CA City,CA,Family Practice,Nexoral,nexoral,Competitor A,158,54,6952,90887.23,2024
+9000000060,Provider_HCP0060,Synthetic,MI City,MI,Oncology/Hematology,Roventra,roventra,Launch product,30,23,1410,23795.06,2024
+9000000061,Provider_HCP0061,Synthetic,NY City,NY,Cardiology,Vexpro,vexpro,Competitor B,171,48,8550,15783.95,2024
+9000000061,Provider_HCP0061,Synthetic,NY City,NY,Cardiology,Nexoral,nexoral,Competitor A,130,28,5850,68436.64,2024
+9000000062,Provider_HCP0062,Synthetic,FL City,FL,Family Practice,Vexpro,vexpro,Competitor B,186,170,7068,145080.08,2024
+9000000063,Provider_HCP0063,Synthetic,GA City,GA,Family Practice,Nexoral,nexoral,Competitor A,172,102,12212,200594.16,2024
+9000000063,Provider_HCP0063,Synthetic,GA City,GA,Family Practice,Vexpro,vexpro,Competitor B,22,16,1958,13638.24,2024
+9000000064,Provider_HCP0064,Synthetic,PA City,PA,Endocrinology,Vexpro,vexpro,Competitor B,291,130,15714,338232.56,2024
+9000000064,Provider_HCP0064,Synthetic,PA City,PA,Endocrinology,Nexoral,nexoral,Competitor A,276,257,9384,156653.08,2024
+9000000064,Provider_HCP0064,Synthetic,PA City,PA,Endocrinology,Roventra,roventra,Launch product,38,29,2090,14292.8,2024
+9000000065,Provider_HCP0065,Synthetic,GA City,GA,Oncology/Hematology,Nexoral,nexoral,Competitor A,78,18,4758,83621.97,2024
+9000000065,Provider_HCP0065,Synthetic,GA City,GA,Oncology/Hematology,Vexpro,vexpro,Competitor B,34,22,2720,3161.6,2024
+9000000065,Provider_HCP0065,Synthetic,GA City,GA,Oncology/Hematology,Roventra,roventra,Launch product,146,67,5694,170430.53,2024
+9000000066,Provider_HCP0066,Synthetic,TX City,TX,Rheumatology,Nexoral,nexoral,Competitor A,228,138,16416,24911.09,2024
+9000000066,Provider_HCP0066,Synthetic,TX City,TX,Rheumatology,Vexpro,vexpro,Competitor B,136,120,4080,130142.88,2024
+9000000067,Provider_HCP0067,Synthetic,TX City,TX,Family Practice,Vexpro,vexpro,Competitor B,72,40,3168,42229.14,2024
+9000000068,Provider_HCP0068,Synthetic,WA City,WA,Oncology/Hematology,Roventra,roventra,Launch product,287,193,12341,122990.67,2024
+9000000068,Provider_HCP0068,Synthetic,WA City,WA,Oncology/Hematology,Nexoral,nexoral,Competitor A,297,114,15741,211821.73,2024
+9000000069,Provider_HCP0069,Synthetic,GA City,GA,Rheumatology,Vexpro,vexpro,Competitor B,70,30,3290,16619.19,2024
+9000000070,Provider_HCP0070,Synthetic,PA City,PA,Oncology/Hematology,Nexoral,nexoral,Competitor A,168,144,10416,14796.03,2024
+9000000071,Provider_HCP0071,Synthetic,MI City,MI,Rheumatology,Vexpro,vexpro,Competitor B,164,125,10168,63264.91,2024
+9000000072,Provider_HCP0072,Synthetic,NY City,NY,Cardiology,Vexpro,vexpro,Competitor B,293,129,13185,65293.79,2024
+9000000073,Provider_HCP0073,Synthetic,IL City,IL,Family Practice,Vexpro,vexpro,Competitor B,152,137,9728,15605.26,2024
+9000000074,Provider_HCP0074,Synthetic,TX City,TX,Family Practice,Vexpro,vexpro,Competitor B,148,85,5180,163113.72,2024
+9000000075,Provider_HCP0075,Synthetic,OH City,OH,Endocrinology,Nexoral,nexoral,Competitor A,186,138,15438,123956.08,2024
+9000000076,Provider_HCP0076,Synthetic,CA City,CA,Rheumatology,Roventra,roventra,Launch product,188,36,14288,44516.14,2024
+9000000077,Provider_HCP0077,Synthetic,GA City,GA,Family Practice,Nexoral,nexoral,Competitor A,44,32,2772,16254.58,2024
+9000000077,Provider_HCP0077,Synthetic,GA City,GA,Family Practice,Vexpro,vexpro,Competitor B,12,12,1056,6749.15,2024
+9000000078,Provider_HCP0078,Synthetic,NY City,NY,Family Practice,Roventra,roventra,Launch product,82,22,5576,74140.0,2024
+9000000078,Provider_HCP0078,Synthetic,NY City,NY,Family Practice,Vexpro,vexpro,Competitor B,126,66,8316,102494.93,2024
+9000000079,Provider_HCP0079,Synthetic,NY City,NY,Family Practice,Nexoral,nexoral,Competitor A,62,21,3596,12020.53,2024
+9000000079,Provider_HCP0079,Synthetic,NY City,NY,Family Practice,Roventra,roventra,Launch product,133,109,10241,36019.68,2024
+9000000080,Provider_HCP0080,Synthetic,OH City,OH,Family Practice,Nexoral,nexoral,Competitor A,86,12,3612,68916.42,2024
+9000000080,Provider_HCP0080,Synthetic,OH City,OH,Family Practice,Roventra,roventra,Launch product,231,170,13629,51255.82,2024
+9000000081,Provider_HCP0081,Synthetic,PA City,PA,Pulmonology,Roventra,roventra,Launch product,280,149,10920,322550.56,2024
+9000000082,Provider_HCP0082,Synthetic,IL City,IL,Cardiology,Roventra,roventra,Launch product,202,44,7474,84606.28,2024
+9000000082,Provider_HCP0082,Synthetic,IL City,IL,Cardiology,Vexpro,vexpro,Competitor B,256,208,7936,126101.36,2024
+9000000083,Provider_HCP0083,Synthetic,GA City,GA,Oncology/Hematology,Vexpro,vexpro,Competitor B,236,191,10620,280544.27,2024
+9000000084,Provider_HCP0084,Synthetic,WA City,WA,Rheumatology,Vexpro,vexpro,Competitor B,244,44,15128,121203.32,2024
+9000000084,Provider_HCP0084,Synthetic,WA City,WA,Rheumatology,Nexoral,nexoral,Competitor A,70,29,4340,16768.67,2024
+9000000085,Provider_HCP0085,Synthetic,CA City,CA,Endocrinology,Nexoral,nexoral,Competitor A,38,35,1330,31020.95,2024
+9000000085,Provider_HCP0085,Synthetic,CA City,CA,Endocrinology,Vexpro,vexpro,Competitor B,278,133,17514,192984.55,2024
+9000000086,Provider_HCP0086,Synthetic,FL City,FL,Family Practice,Nexoral,nexoral,Competitor A,115,68,8970,76153.99,2024
+9000000087,Provider_HCP0087,Synthetic,NY City,NY,Cardiology,Nexoral,nexoral,Competitor A,125,104,5375,116368.21,2024
+9000000087,Provider_HCP0087,Synthetic,NY City,NY,Cardiology,Roventra,roventra,Launch product,217,148,6944,237975.1,2024
+9000000088,Provider_HCP0088,Synthetic,NY City,NY,Rheumatology,Vexpro,vexpro,Competitor B,211,42,9495,24950.69,2024
+9000000088,Provider_HCP0088,Synthetic,NY City,NY,Rheumatology,Nexoral,nexoral,Competitor A,237,99,11850,226389.43,2024
+9000000089,Provider_HCP0089,Synthetic,GA City,GA,Family Practice,Roventra,roventra,Launch product,74,12,4070,22019.85,2024
+9000000090,Provider_HCP0090,Synthetic,OH City,OH,Oncology/Hematology,Nexoral,nexoral,Competitor A,15,15,1080,5938.63,2024
+9000000090,Provider_HCP0090,Synthetic,OH City,OH,Oncology/Hematology,Roventra,roventra,Launch product,227,219,19749,257587.23,2024
+9000000091,Provider_HCP0091,Synthetic,TX City,TX,Cardiology,Vexpro,vexpro,Competitor B,82,16,3608,38278.73,2024
+9000000091,Provider_HCP0091,Synthetic,TX City,TX,Cardiology,Roventra,roventra,Launch product,222,152,15318,68743.08,2024
+9000000092,Provider_HCP0092,Synthetic,NY City,NY,Family Practice,Vexpro,vexpro,Competitor B,283,240,22640,314435.45,2024
+9000000092,Provider_HCP0092,Synthetic,NY City,NY,Family Practice,Nexoral,nexoral,Competitor A,238,219,9758,196909.54,2024
+9000000093,Provider_HCP0093,Synthetic,NY City,NY,Oncology/Hematology,Roventra,roventra,Launch product,272,98,18496,34762.01,2024
+9000000093,Provider_HCP0093,Synthetic,NY City,NY,Oncology/Hematology,Nexoral,nexoral,Competitor A,52,35,1612,22099.54,2024
+9000000094,Provider_HCP0094,Synthetic,CA City,CA,Oncology/Hematology,Roventra,roventra,Launch product,300,281,21900,272393.35,2024
+9000000095,Provider_HCP0095,Synthetic,PA City,PA,Pulmonology,Roventra,roventra,Launch product,100,73,5100,89818.33,2024
+9000000096,Provider_HCP0096,Synthetic,OH City,OH,Cardiology,Nexoral,nexoral,Competitor A,42,41,1554,11121.7,2024
+9000000097,Provider_HCP0097,Synthetic,PA City,PA,Oncology/Hematology,Nexoral,nexoral,Competitor A,110,13,6600,21178.66,2024
+9000000098,Provider_HCP0098,Synthetic,IL City,IL,Family Practice,Nexoral,nexoral,Competitor A,97,13,4947,76719.03,2024
+9000000098,Provider_HCP0098,Synthetic,IL City,IL,Family Practice,Vexpro,vexpro,Competitor B,256,124,15360,302639.68,2024
+9000000099,Provider_HCP0099,Synthetic,IL City,IL,Oncology/Hematology,Nexoral,nexoral,Competitor A,66,64,4554,44090.2,2024
+9000000100,Provider_HCP0100,Synthetic,GA City,GA,Rheumatology,Roventra,roventra,Launch product,109,96,6431,67604.9,2024
+9000000100,Provider_HCP0100,Synthetic,GA City,GA,Rheumatology,Nexoral,nexoral,Competitor A,110,25,4400,53475.35,2024
+9000000101,Provider_HCP0101,Synthetic,WA City,WA,Family Practice,Vexpro,vexpro,Competitor B,161,117,13202,17762.69,2024
+9000000102,Provider_HCP0102,Synthetic,NJ City,NJ,Family Practice,Roventra,roventra,Launch product,250,172,20000,263140.48,2024
+9000000102,Provider_HCP0102,Synthetic,NJ City,NJ,Family Practice,Nexoral,nexoral,Competitor A,172,158,10492,117366.33,2024
+9000000103,Provider_HCP0103,Synthetic,OH City,OH,Oncology/Hematology,Nexoral,nexoral,Competitor A,100,83,6800,68304.06,2024
+9000000103,Provider_HCP0103,Synthetic,OH City,OH,Oncology/Hematology,Roventra,roventra,Launch product,142,141,10650,112575.43,2024
+9000000104,Provider_HCP0104,Synthetic,MI City,MI,Rheumatology,Vexpro,vexpro,Competitor B,200,110,9400,209808.11,2024
+9000000104,Provider_HCP0104,Synthetic,MI City,MI,Rheumatology,Nexoral,nexoral,Competitor A,41,17,1968,36238.89,2024
+9000000105,Provider_HCP0105,Synthetic,TX City,TX,Cardiology,Vexpro,vexpro,Competitor B,62,18,3038,57903.34,2024
+9000000106,Provider_HCP0106,Synthetic,FL City,FL,Pulmonology,Roventra,roventra,Launch product,211,91,13504,168379.85,2024
+9000000107,Provider_HCP0107,Synthetic,AZ City,AZ,Cardiology,Nexoral,nexoral,Competitor A,237,192,9243,255698.88,2024
+9000000107,Provider_HCP0107,Synthetic,AZ City,AZ,Cardiology,Vexpro,vexpro,Competitor B,127,46,4318,19874.1,2024
+9000000108,Provider_HCP0108,Synthetic,GA City,GA,Endocrinology,Nexoral,nexoral,Competitor A,231,45,16632,80403.53,2024
+9000000108,Provider_HCP0108,Synthetic,GA City,GA,Endocrinology,Vexpro,vexpro,Competitor B,130,69,5330,54730.14,2024
+9000000109,Provider_HCP0109,Synthetic,GA City,GA,Oncology/Hematology,Nexoral,nexoral,Competitor A,115,71,4600,102852.94,2024
+9000000109,Provider_HCP0109,Synthetic,GA City,GA,Oncology/Hematology,Vexpro,vexpro,Competitor B,153,17,4437,97242.71,2024
+9000000110,Provider_HCP0110,Synthetic,WA City,WA,Family Practice,Vexpro,vexpro,Competitor B,66,49,3432,62494.06,2024
+9000000110,Provider_HCP0110,Synthetic,WA City,WA,Family Practice,Nexoral,nexoral,Competitor A,20,13,920,18819.93,2024
+9000000111,Provider_HCP0111,Synthetic,TX City,TX,Family Practice,Nexoral,nexoral,Competitor A,161,158,11753,75086.72,2024
+9000000112,Provider_HCP0112,Synthetic,WA City,WA,Oncology/Hematology,Nexoral,nexoral,Competitor A,62,37,4774,72097.15,2024
+9000000113,Provider_HCP0113,Synthetic,NY City,NY,Cardiology,Nexoral,nexoral,Competitor A,99,27,6435,113549.62,2024
+9000000114,Provider_HCP0114,Synthetic,NY City,NY,Endocrinology,Nexoral,nexoral,Competitor A,212,31,13780,101642.54,2024
+9000000115,Provider_HCP0115,Synthetic,GA City,GA,Endocrinology,Roventra,roventra,Launch product,277,30,24376,189724.93,2024
+9000000115,Provider_HCP0115,Synthetic,GA City,GA,Endocrinology,Vexpro,vexpro,Competitor B,53,43,4187,54013.64,2024
+9000000116,Provider_HCP0116,Synthetic,AZ City,AZ,Oncology/Hematology,Roventra,roventra,Launch product,76,32,4332,22296.61,2024
+9000000117,Provider_HCP0117,Synthetic,MI City,MI,Endocrinology,Vexpro,vexpro,Competitor B,24,14,936,11354.81,2024
+9000000118,Provider_HCP0118,Synthetic,TX City,TX,Cardiology,Nexoral,nexoral,Competitor A,91,61,5096,19477.42,2024
+9000000119,Provider_HCP0119,Synthetic,WA City,WA,Family Practice,Roventra,roventra,Launch product,220,83,17600,17912.11,2024
+9000000119,Provider_HCP0119,Synthetic,WA City,WA,Family Practice,Nexoral,nexoral,Competitor A,298,177,11920,93925.71,2024
+9000000120,Provider_HCP0120,Synthetic,MI City,MI,Pulmonology,Vexpro,vexpro,Competitor B,59,42,4897,52743.72,2024
+9000000120,Provider_HCP0120,Synthetic,MI City,MI,Pulmonology,Nexoral,nexoral,Competitor A,188,154,7144,70204.86,2024
+9000000121,Provider_HCP0121,Synthetic,GA City,GA,Oncology/Hematology,Vexpro,vexpro,Competitor B,269,202,11029,212868.98,2024
+9000000121,Provider_HCP0121,Synthetic,GA City,GA,Oncology/Hematology,Nexoral,nexoral,Competitor A,39,27,3198,44804.84,2024
+9000000122,Provider_HCP0122,Synthetic,FL City,FL,Cardiology,Vexpro,vexpro,Competitor B,115,14,9085,107994.47,2024
+9000000122,Provider_HCP0122,Synthetic,FL City,FL,Cardiology,Nexoral,nexoral,Competitor A,270,24,14310,262897.59,2024
+9000000123,Provider_HCP0123,Synthetic,OH City,OH,Endocrinology,Nexoral,nexoral,Competitor A,122,73,5978,79581.61,2024
+9000000123,Provider_HCP0123,Synthetic,OH City,OH,Endocrinology,Vexpro,vexpro,Competitor B,131,97,11790,25614.87,2024
+9000000124,Provider_HCP0124,Synthetic,NY City,NY,Family Practice,Vexpro,vexpro,Competitor B,15,11,480,2978.12,2024
+9000000124,Provider_HCP0124,Synthetic,NY City,NY,Family Practice,Nexoral,nexoral,Competitor A,283,135,16697,176764.33,2024
+9000000125,Provider_HCP0125,Synthetic,PA City,PA,Pulmonology,Roventra,roventra,Launch product,138,130,10074,64686.84,2024
+9000000125,Provider_HCP0125,Synthetic,PA City,PA,Pulmonology,Nexoral,nexoral,Competitor A,47,34,1457,20012.2,2024
+9000000125,Provider_HCP0125,Synthetic,PA City,PA,Pulmonology,Vexpro,vexpro,Competitor B,120,119,10440,43896.96,2024
+9000000126,Provider_HCP0126,Synthetic,GA City,GA,Cardiology,Nexoral,nexoral,Competitor A,17,17,1122,5985.42,2024
+9000000126,Provider_HCP0126,Synthetic,GA City,GA,Cardiology,Roventra,roventra,Launch product,46,35,3726,33439.33,2024
+9000000126,Provider_HCP0126,Synthetic,GA City,GA,Cardiology,Vexpro,vexpro,Competitor B,108,77,5940,94210.77,2024
+9000000127,Provider_HCP0127,Synthetic,FL City,FL,Endocrinology,Vexpro,vexpro,Competitor B,81,29,3483,52238.79,2024
+9000000127,Provider_HCP0127,Synthetic,FL City,FL,Endocrinology,Roventra,roventra,Launch product,235,92,14100,247295.85,2024
+9000000128,Provider_HCP0128,Synthetic,FL City,FL,Family Practice,Vexpro,vexpro,Competitor B,19,14,1197,16477.59,2024
+9000000128,Provider_HCP0128,Synthetic,FL City,FL,Family Practice,Roventra,roventra,Launch product,267,80,23496,294701.25,2024
+9000000128,Provider_HCP0128,Synthetic,FL City,FL,Family Practice,Nexoral,nexoral,Competitor A,90,43,7920,11281.74,2024
+9000000129,Provider_HCP0129,Synthetic,NY City,NY,Oncology/Hematology,Nexoral,nexoral,Competitor A,213,110,9798,248198.87,2024
+9000000129,Provider_HCP0129,Synthetic,NY City,NY,Oncology/Hematology,Vexpro,vexpro,Competitor B,190,33,6650,119584.52,2024
+9000000130,Provider_HCP0130,Synthetic,AZ City,AZ,Pulmonology,Nexoral,nexoral,Competitor A,192,12,11904,34470.49,2024
+9000000130,Provider_HCP0130,Synthetic,AZ City,AZ,Pulmonology,Vexpro,vexpro,Competitor B,224,68,14560,141974.09,2024
+9000000131,Provider_HCP0131,Synthetic,CA City,CA,Rheumatology,Nexoral,nexoral,Competitor A,49,23,2597,9422.23,2024
+9000000131,Provider_HCP0131,Synthetic,CA City,CA,Rheumatology,Vexpro,vexpro,Competitor B,54,26,2430,61169.35,2024
+9000000131,Provider_HCP0131,Synthetic,CA City,CA,Rheumatology,Roventra,roventra,Launch product,138,69,8694,109120.06,2024
+9000000132,Provider_HCP0132,Synthetic,NY City,NY,Family Practice,Roventra,roventra,Launch product,141,31,7755,144080.97,2024
+9000000133,Provider_HCP0133,Synthetic,NJ City,NJ,Family Practice,Nexoral,nexoral,Competitor A,59,34,4720,31760.68,2024
+9000000134,Provider_HCP0134,Synthetic,AZ City,AZ,Oncology/Hematology,Roventra,roventra,Launch product,20,19,1500,4488.76,2024
+9000000134,Provider_HCP0134,Synthetic,AZ City,AZ,Oncology/Hematology,Vexpro,vexpro,Competitor B,180,69,6480,134452.41,2024
+9000000135,Provider_HCP0135,Synthetic,WA City,WA,Cardiology,Nexoral,nexoral,Competitor A,271,28,23035,285280.69,2024
+9000000136,Provider_HCP0136,Synthetic,PA City,PA,Family Practice,Nexoral,nexoral,Competitor A,85,46,6290,65286.09,2024
+9000000136,Provider_HCP0136,Synthetic,PA City,PA,Family Practice,Vexpro,vexpro,Competitor B,87,73,6525,65822.47,2024
+9000000137,Provider_HCP0137,Synthetic,NY City,NY,Oncology/Hematology,Nexoral,nexoral,Competitor A,75,74,2925,84128.58,2024
+9000000138,Provider_HCP0138,Synthetic,AZ City,AZ,Pulmonology,Roventra,roventra,Launch product,146,109,11388,99598.29,2024
+9000000139,Provider_HCP0139,Synthetic,GA City,GA,Endocrinology,Vexpro,vexpro,Competitor B,189,129,5292,138946.22,2024
+9000000139,Provider_HCP0139,Synthetic,GA City,GA,Endocrinology,Nexoral,nexoral,Competitor A,25,15,1200,21536.07,2024
+9000000140,Provider_HCP0140,Synthetic,FL City,FL,Family Practice,Nexoral,nexoral,Competitor A,91,84,5278,8060.03,2024
+9000000140,Provider_HCP0140,Synthetic,FL City,FL,Family Practice,Vexpro,vexpro,Competitor B,80,59,5280,30639.46,2024
+9000000141,Provider_HCP0141,Synthetic,OH City,OH,Cardiology,Roventra,roventra,Launch product,245,188,21560,59094.05,2024
+9000000141,Provider_HCP0141,Synthetic,OH City,OH,Cardiology,Nexoral,nexoral,Competitor A,109,44,9047,98987.36,2024
+9000000142,Provider_HCP0142,Synthetic,MI City,MI,Pulmonology,Nexoral,nexoral,Competitor A,201,66,6633,157376.61,2024
+9000000143,Provider_HCP0143,Synthetic,TX City,TX,Oncology/Hematology,Vexpro,vexpro,Competitor B,241,231,16388,161525.74,2024
+9000000144,Provider_HCP0144,Synthetic,GA City,GA,Endocrinology,Vexpro,vexpro,Competitor B,251,221,17068,217256.34,2024
+9000000144,Provider_HCP0144,Synthetic,GA City,GA,Endocrinology,Roventra,roventra,Launch product,223,138,8251,192176.02,2024
+9000000145,Provider_HCP0145,Synthetic,TX City,TX,Endocrinology,Vexpro,vexpro,Competitor B,126,67,9954,63626.55,2024
+9000000146,Provider_HCP0146,Synthetic,NJ City,NJ,Family Practice,Nexoral,nexoral,Competitor A,129,58,4515,26567.01,2024
+9000000146,Provider_HCP0146,Synthetic,NJ City,NJ,Family Practice,Vexpro,vexpro,Competitor B,19,13,1045,20551.79,2024
+9000000147,Provider_HCP0147,Synthetic,MI City,MI,Family Practice,Vexpro,vexpro,Competitor B,35,19,2485,30673.08,2024
+9000000148,Provider_HCP0148,Synthetic,FL City,FL,Endocrinology,Roventra,roventra,Launch product,265,120,11925,307260.13,2024
+9000000149,Provider_HCP0149,Synthetic,CA City,CA,Family Practice,Nexoral,nexoral,Competitor A,127,72,5842,108881.2,2024
+9000000150,Provider_HCP0150,Synthetic,GA City,GA,Endocrinology,Nexoral,nexoral,Competitor A,243,232,21141,136914.02,2024
+9000000150,Provider_HCP0150,Synthetic,GA City,GA,Endocrinology,Vexpro,vexpro,Competitor B,168,69,10920,22155.51,2024
+9000000151,Provider_HCP0151,Synthetic,PA City,PA,Oncology/Hematology,Nexoral,nexoral,Competitor A,199,27,17313,90265.74,2024
+9000000151,Provider_HCP0151,Synthetic,PA City,PA,Oncology/Hematology,Vexpro,vexpro,Competitor B,26,13,1274,12717.29,2024
+9000000151,Provider_HCP0151,Synthetic,PA City,PA,Oncology/Hematology,Roventra,roventra,Launch product,126,37,11214,14947.35,2024
+9000000152,Provider_HCP0152,Synthetic,GA City,GA,Oncology/Hematology,Vexpro,vexpro,Competitor B,226,186,16724,120878.32,2024
+9000000153,Provider_HCP0153,Synthetic,IL City,IL,Rheumatology,Nexoral,nexoral,Competitor A,41,11,2747,23669.29,2024
+9000000153,Provider_HCP0153,Synthetic,IL City,IL,Rheumatology,Roventra,roventra,Launch product,126,113,9954,60021.27,2024
+9000000154,Provider_HCP0154,Synthetic,WA City,WA,Family Practice,Vexpro,vexpro,Competitor B,190,27,15200,141227.49,2024
+9000000155,Provider_HCP0155,Synthetic,CA City,CA,Family Practice,Nexoral,nexoral,Competitor A,229,206,12595,47577.1,2024
+9000000156,Provider_HCP0156,Synthetic,WA City,WA,Oncology/Hematology,Vexpro,vexpro,Competitor B,67,65,5963,56881.26,2024
+9000000156,Provider_HCP0156,Synthetic,WA City,WA,Oncology/Hematology,Nexoral,nexoral,Competitor A,150,131,13350,106535.29,2024
+9000000157,Provider_HCP0157,Synthetic,FL City,FL,Family Practice,Vexpro,vexpro,Competitor B,124,47,10292,94125.95,2024
+9000000158,Provider_HCP0158,Synthetic,NY City,NY,Rheumatology,Vexpro,vexpro,Competitor B,285,78,10260,97785.64,2024
+9000000159,Provider_HCP0159,Synthetic,TX City,TX,Cardiology,Roventra,roventra,Launch product,54,38,3402,16163.11,2024
+9000000160,Provider_HCP0160,Synthetic,TX City,TX,Cardiology,Vexpro,vexpro,Competitor B,256,65,9472,191993.48,2024
+9000000160,Provider_HCP0160,Synthetic,TX City,TX,Cardiology,Nexoral,nexoral,Competitor A,45,33,2655,25226.33,2024
+9000000161,Provider_HCP0161,Synthetic,OH City,OH,Family Practice,Nexoral,nexoral,Competitor A,265,177,21730,40979.9,2024
+9000000162,Provider_HCP0162,Synthetic,AZ City,AZ,Family Practice,Nexoral,nexoral,Competitor A,260,73,20540,44583.12,2024
+9000000162,Provider_HCP0162,Synthetic,AZ City,AZ,Family Practice,Roventra,roventra,Launch product,214,174,12840,61407.51,2024
+9000000162,Provider_HCP0162,Synthetic,AZ City,AZ,Family Practice,Vexpro,vexpro,Competitor B,134,24,7638,103264.58,2024
+9000000163,Provider_HCP0163,Synthetic,OH City,OH,Oncology/Hematology,Roventra,roventra,Launch product,150,90,11400,114037.75,2024
+9000000163,Provider_HCP0163,Synthetic,OH City,OH,Oncology/Hematology,Vexpro,vexpro,Competitor B,262,200,14148,111151.51,2024
+9000000164,Provider_HCP0164,Synthetic,AZ City,AZ,Endocrinology,Vexpro,vexpro,Competitor B,142,119,5254,62857.06,2024
+9000000164,Provider_HCP0164,Synthetic,AZ City,AZ,Endocrinology,Roventra,roventra,Launch product,71,20,5964,28476.39,2024
+9000000165,Provider_HCP0165,Synthetic,PA City,PA,Family Practice,Vexpro,vexpro,Competitor B,121,11,6776,65926.87,2024
+9000000166,Provider_HCP0166,Synthetic,WA City,WA,Family Practice,Vexpro,vexpro,Competitor B,252,156,8820,287290.2,2024
+9000000166,Provider_HCP0166,Synthetic,WA City,WA,Family Practice,Nexoral,nexoral,Competitor A,133,26,8911,45178.08,2024
+9000000167,Provider_HCP0167,Synthetic,TX City,TX,Rheumatology,Vexpro,vexpro,Competitor B,206,71,8240,53833.02,2024
+9000000168,Provider_HCP0168,Synthetic,AZ City,AZ,Rheumatology,Vexpro,vexpro,Competitor B,45,25,3600,18767.29,2024
+9000000169,Provider_HCP0169,Synthetic,NY City,NY,Family Practice,Vexpro,vexpro,Competitor B,175,143,12425,170773.08,2024
+9000000170,Provider_HCP0170,Synthetic,NY City,NY,Endocrinology,Vexpro,vexpro,Competitor B,207,183,16767,21191.6,2024
+9000000170,Provider_HCP0170,Synthetic,NY City,NY,Endocrinology,Nexoral,nexoral,Competitor A,284,83,11644,88755.73,2024
+9000000171,Provider_HCP0171,Synthetic,PA City,PA,Endocrinology,Nexoral,nexoral,Competitor A,101,73,7878,50876.1,2024
+9000000172,Provider_HCP0172,Synthetic,FL City,FL,Family Practice,Vexpro,vexpro,Competitor B,171,76,5130,33869.02,2024
+9000000173,Provider_HCP0173,Synthetic,TX City,TX,Family Practice,Nexoral,nexoral,Competitor A,56,54,4088,58644.09,2024
+9000000174,Provider_HCP0174,Synthetic,IL City,IL,Endocrinology,Vexpro,vexpro,Competitor B,66,18,3696,14417.84,2024
+9000000175,Provider_HCP0175,Synthetic,IL City,IL,Cardiology,Vexpro,vexpro,Competitor B,152,92,9424,60566.58,2024
+9000000175,Provider_HCP0175,Synthetic,IL City,IL,Cardiology,Nexoral,nexoral,Competitor A,207,77,18630,238540.2,2024
+9000000176,Provider_HCP0176,Synthetic,WA City,WA,Oncology/Hematology,Vexpro,vexpro,Competitor B,140,50,11480,121236.2,2024
+9000000176,Provider_HCP0176,Synthetic,WA City,WA,Oncology/Hematology,Nexoral,nexoral,Competitor A,276,242,17664,78542.08,2024
+9000000177,Provider_HCP0177,Synthetic,NJ City,NJ,Oncology/Hematology,Nexoral,nexoral,Competitor A,224,40,10080,114990.99,2024
+9000000178,Provider_HCP0178,Synthetic,GA City,GA,Pulmonology,Nexoral,nexoral,Competitor A,125,116,7000,114952.31,2024
+9000000179,Provider_HCP0179,Synthetic,WA City,WA,Rheumatology,Roventra,roventra,Launch product,218,210,15696,145447.58,2024
+9000000179,Provider_HCP0179,Synthetic,WA City,WA,Rheumatology,Nexoral,nexoral,Competitor A,170,169,6120,58945.3,2024
+9000000180,Provider_HCP0180,Synthetic,OH City,OH,Family Practice,Roventra,roventra,Launch product,57,55,4047,30393.29,2024
+9000000181,Provider_HCP0181,Synthetic,GA City,GA,Pulmonology,Vexpro,vexpro,Competitor B,141,40,7896,29715.05,2024
+9000000182,Provider_HCP0182,Synthetic,WA City,WA,Rheumatology,Nexoral,nexoral,Competitor A,98,11,6664,51807.39,2024
+9000000183,Provider_HCP0183,Synthetic,GA City,GA,Rheumatology,Roventra,roventra,Launch product,143,55,10153,156314.63,2024
+9000000183,Provider_HCP0183,Synthetic,GA City,GA,Rheumatology,Vexpro,vexpro,Competitor B,47,35,2115,46064.13,2024
+9000000184,Provider_HCP0184,Synthetic,OH City,OH,Family Practice,Vexpro,vexpro,Competitor B,118,50,8496,101336.89,2024
+9000000184,Provider_HCP0184,Synthetic,OH City,OH,Family Practice,Nexoral,nexoral,Competitor A,185,178,10360,179586.69,2024
+9000000185,Provider_HCP0185,Synthetic,WA City,WA,Pulmonology,Vexpro,vexpro,Competitor B,266,113,16758,129461.04,2024
+9000000185,Provider_HCP0185,Synthetic,WA City,WA,Pulmonology,Nexoral,nexoral,Competitor A,208,64,16640,176467.75,2024
+9000000186,Provider_HCP0186,Synthetic,IL City,IL,Family Practice,Nexoral,nexoral,Competitor A,32,22,2464,8958.89,2024
+9000000186,Provider_HCP0186,Synthetic,IL City,IL,Family Practice,Vexpro,vexpro,Competitor B,57,47,4902,22369.82,2024
+9000000187,Provider_HCP0187,Synthetic,GA City,GA,Family Practice,Vexpro,vexpro,Competitor B,207,165,15318,18314.62,2024
+9000000188,Provider_HCP0188,Synthetic,IL City,IL,Cardiology,Nexoral,nexoral,Competitor A,55,29,3190,53691.59,2024
+9000000189,Provider_HCP0189,Synthetic,AZ City,AZ,Family Practice,Vexpro,vexpro,Competitor B,157,112,5652,152665.57,2024
+9000000189,Provider_HCP0189,Synthetic,AZ City,AZ,Family Practice,Nexoral,nexoral,Competitor A,147,127,10437,102427.78,2024
+9000000190,Provider_HCP0190,Synthetic,NY City,NY,Pulmonology,Vexpro,vexpro,Competitor B,81,51,7128,77345.71,2024
+9000000191,Provider_HCP0191,Synthetic,FL City,FL,Oncology/Hematology,Nexoral,nexoral,Competitor A,168,146,6888,26900.0,2024
+9000000191,Provider_HCP0191,Synthetic,FL City,FL,Oncology/Hematology,Roventra,roventra,Launch product,14,14,1232,8816.4,2024
+9000000192,Provider_HCP0192,Synthetic,IL City,IL,Rheumatology,Vexpro,vexpro,Competitor B,281,223,21075,43734.23,2024
+9000000192,Provider_HCP0192,Synthetic,IL City,IL,Rheumatology,Roventra,roventra,Launch product,117,50,9477,57272.27,2024
+9000000193,Provider_HCP0193,Synthetic,OH City,OH,Family Practice,Nexoral,nexoral,Competitor A,47,38,3525,18965.29,2024
+9000000193,Provider_HCP0193,Synthetic,OH City,OH,Family Practice,Roventra,roventra,Launch product,292,275,20732,349230.55,2024
+9000000194,Provider_HCP0194,Synthetic,FL City,FL,Endocrinology,Roventra,roventra,Launch product,111,25,7548,58896.57,2024
+9000000195,Provider_HCP0195,Synthetic,CA City,CA,Cardiology,Vexpro,vexpro,Competitor B,143,121,5863,135581.84,2024
+9000000196,Provider_HCP0196,Synthetic,TX City,TX,Rheumatology,Nexoral,nexoral,Competitor A,41,29,3362,46494.82,2024
+9000000197,Provider_HCP0197,Synthetic,WA City,WA,Family Practice,Nexoral,nexoral,Competitor A,218,108,7412,236964.16,2024
+9000000197,Provider_HCP0197,Synthetic,WA City,WA,Family Practice,Vexpro,vexpro,Competitor B,192,85,5760,206816.46,2024
+9000000198,Provider_HCP0198,Synthetic,IL City,IL,Pulmonology,Nexoral,nexoral,Competitor A,117,39,4095,104139.55,2024
+9000000199,Provider_HCP0199,Synthetic,IL City,IL,Cardiology,Vexpro,vexpro,Competitor B,52,42,3692,18289.62,2024
+9000000199,Provider_HCP0199,Synthetic,IL City,IL,Cardiology,Roventra,roventra,Launch product,206,12,11124,26813.36,2024
+9000000199,Provider_HCP0199,Synthetic,IL City,IL,Cardiology,Nexoral,nexoral,Competitor A,205,87,17220,59595.65,2024
+9000000200,Provider_HCP0200,Synthetic,OH City,OH,Rheumatology,Nexoral,nexoral,Competitor A,168,128,12264,46927.04,2024
+9000000200,Provider_HCP0200,Synthetic,OH City,OH,Rheumatology,Vexpro,vexpro,Competitor B,171,128,13167,85310.43,2024
+9000000201,Provider_HCP0201,Synthetic,NJ City,NJ,Oncology/Hematology,Nexoral,nexoral,Competitor A,238,76,9520,193468.41,2024
+9000000201,Provider_HCP0201,Synthetic,NJ City,NJ,Oncology/Hematology,Vexpro,vexpro,Competitor B,267,39,16020,129926.55,2024
+9000000202,Provider_HCP0202,Synthetic,AZ City,AZ,Endocrinology,Vexpro,vexpro,Competitor B,142,102,4970,72924.39,2024
+9000000202,Provider_HCP0202,Synthetic,AZ City,AZ,Endocrinology,Nexoral,nexoral,Competitor A,199,130,16915,119894.55,2024
+9000000203,Provider_HCP0203,Synthetic,GA City,GA,Family Practice,Nexoral,nexoral,Competitor A,280,166,19320,116300.39,2024
+9000000204,Provider_HCP0204,Synthetic,TX City,TX,Endocrinology,Roventra,roventra,Launch product,124,119,8928,80388.96,2024
+9000000204,Provider_HCP0204,Synthetic,TX City,TX,Endocrinology,Nexoral,nexoral,Competitor A,242,115,20086,176926.74,2024
+9000000205,Provider_HCP0205,Synthetic,MI City,MI,Family Practice,Roventra,roventra,Launch product,220,165,9240,246814.65,2024
+9000000206,Provider_HCP0206,Synthetic,WA City,WA,Endocrinology,Vexpro,vexpro,Competitor B,173,84,10034,122182.6,2024
+9000000206,Provider_HCP0206,Synthetic,WA City,WA,Endocrinology,Roventra,roventra,Launch product,137,26,12056,138094.47,2024
+9000000207,Provider_HCP0207,Synthetic,PA City,PA,Endocrinology,Roventra,roventra,Launch product,278,55,21684,233628.81,2024
+9000000207,Provider_HCP0207,Synthetic,PA City,PA,Endocrinology,Vexpro,vexpro,Competitor B,244,158,10980,291046.75,2024
+9000000208,Provider_HCP0208,Synthetic,NJ City,NJ,Oncology/Hematology,Roventra,roventra,Launch product,153,44,12240,110794.08,2024
+9000000209,Provider_HCP0209,Synthetic,IL City,IL,Cardiology,Roventra,roventra,Launch product,161,143,12397,89613.13,2024
+9000000210,Provider_HCP0210,Synthetic,FL City,FL,Family Practice,Vexpro,vexpro,Competitor B,156,71,4524,70875.18,2024
+9000000211,Provider_HCP0211,Synthetic,FL City,FL,Endocrinology,Vexpro,vexpro,Competitor B,27,26,1782,29128.39,2024
+9000000211,Provider_HCP0211,Synthetic,FL City,FL,Endocrinology,Nexoral,nexoral,Competitor A,95,30,7600,8691.46,2024
+9000000212,Provider_HCP0212,Synthetic,FL City,FL,Oncology/Hematology,Nexoral,nexoral,Competitor A,180,29,13500,112292.97,2024
+9000000213,Provider_HCP0213,Synthetic,IL City,IL,Oncology/Hematology,Vexpro,vexpro,Competitor B,107,51,8239,14788.41,2024
+9000000214,Provider_HCP0214,Synthetic,NJ City,NJ,Oncology/Hematology,Vexpro,vexpro,Competitor B,184,59,6624,211647.07,2024
+9000000215,Provider_HCP0215,Synthetic,FL City,FL,Endocrinology,Nexoral,nexoral,Competitor A,235,155,11515,159164.57,2024
+9000000216,Provider_HCP0216,Synthetic,FL City,FL,Family Practice,Roventra,roventra,Launch product,210,174,16380,240145.32,2024
+9000000217,Provider_HCP0217,Synthetic,MI City,MI,Endocrinology,Nexoral,nexoral,Competitor A,89,31,4272,66293.19,2024
+9000000217,Provider_HCP0217,Synthetic,MI City,MI,Endocrinology,Roventra,roventra,Launch product,142,74,7100,120876.62,2024
+9000000218,Provider_HCP0218,Synthetic,MI City,MI,Endocrinology,Vexpro,vexpro,Competitor B,56,40,2296,52573.06,2024
+9000000219,Provider_HCP0219,Synthetic,TX City,TX,Family Practice,Nexoral,nexoral,Competitor A,20,12,1720,16642.19,2024
+9000000220,Provider_HCP0220,Synthetic,NY City,NY,Cardiology,Vexpro,vexpro,Competitor B,160,52,11680,14756.15,2024
+9000000221,Provider_HCP0221,Synthetic,WA City,WA,Cardiology,Nexoral,nexoral,Competitor A,130,32,3770,10420.62,2024
+9000000222,Provider_HCP0222,Synthetic,OH City,OH,Cardiology,Roventra,roventra,Launch product,263,202,9468,134026.62,2024
+9000000223,Provider_HCP0223,Synthetic,OH City,OH,Endocrinology,Roventra,roventra,Launch product,21,21,1260,8126.33,2024
+9000000224,Provider_HCP0224,Synthetic,NY City,NY,Oncology/Hematology,Nexoral,nexoral,Competitor A,257,100,11565,110470.98,2024
+9000000224,Provider_HCP0224,Synthetic,NY City,NY,Oncology/Hematology,Roventra,roventra,Launch product,108,44,8100,110973.84,2024
+9000000224,Provider_HCP0224,Synthetic,NY City,NY,Oncology/Hematology,Vexpro,vexpro,Competitor B,51,20,3570,13280.25,2024
+9000000225,Provider_HCP0225,Synthetic,IL City,IL,Family Practice,Roventra,roventra,Launch product,156,93,11232,136620.16,2024
+9000000225,Provider_HCP0225,Synthetic,IL City,IL,Family Practice,Vexpro,vexpro,Competitor B,275,250,18975,31406.4,2024
+9000000226,Provider_HCP0226,Synthetic,PA City,PA,Pulmonology,Nexoral,nexoral,Competitor A,156,36,9048,75956.41,2024
+9000000226,Provider_HCP0226,Synthetic,PA City,PA,Pulmonology,Vexpro,vexpro,Competitor B,277,127,9695,330110.15,2024
+9000000227,Provider_HCP0227,Synthetic,WA City,WA,Pulmonology,Nexoral,nexoral,Competitor A,107,24,2996,110864.01,2024
+9000000228,Provider_HCP0228,Synthetic,NY City,NY,Oncology/Hematology,Nexoral,nexoral,Competitor A,147,85,7497,24647.07,2024
+9000000228,Provider_HCP0228,Synthetic,NY City,NY,Oncology/Hematology,Vexpro,vexpro,Competitor B,225,103,7200,45568.44,2024
+9000000229,Provider_HCP0229,Synthetic,PA City,PA,Cardiology,Nexoral,nexoral,Competitor A,81,48,4293,28011.95,2024
+9000000230,Provider_HCP0230,Synthetic,PA City,PA,Cardiology,Vexpro,vexpro,Competitor B,192,188,14016,53397.88,2024
+9000000230,Provider_HCP0230,Synthetic,PA City,PA,Cardiology,Nexoral,nexoral,Competitor A,97,16,3395,19640.43,2024
+9000000231,Provider_HCP0231,Synthetic,PA City,PA,Cardiology,Vexpro,vexpro,Competitor B,127,21,5207,68585.24,2024
+9000000231,Provider_HCP0231,Synthetic,PA City,PA,Cardiology,Nexoral,nexoral,Competitor A,230,145,19090,196777.94,2024
+9000000232,Provider_HCP0232,Synthetic,CA City,CA,Cardiology,Nexoral,nexoral,Competitor A,21,17,1533,22244.47,2024
+9000000233,Provider_HCP0233,Synthetic,PA City,PA,Oncology/Hematology,Vexpro,vexpro,Competitor B,100,93,7600,57027.5,2024
+9000000233,Provider_HCP0233,Synthetic,PA City,PA,Oncology/Hematology,Nexoral,nexoral,Competitor A,281,132,17141,78506.62,2024
+9000000233,Provider_HCP0233,Synthetic,PA City,PA,Oncology/Hematology,Roventra,roventra,Launch product,91,67,5824,49074.53,2024
+9000000234,Provider_HCP0234,Synthetic,NJ City,NJ,Family Practice,Nexoral,nexoral,Competitor A,24,12,1464,19142.45,2024
+9000000234,Provider_HCP0234,Synthetic,NJ City,NJ,Family Practice,Vexpro,vexpro,Competitor B,187,21,12529,43781.96,2024
+9000000235,Provider_HCP0235,Synthetic,IL City,IL,Cardiology,Nexoral,nexoral,Competitor A,248,56,15128,207078.92,2024
+9000000236,Provider_HCP0236,Synthetic,TX City,TX,Endocrinology,Nexoral,nexoral,Competitor A,277,102,21606,133245.77,2024
+9000000236,Provider_HCP0236,Synthetic,TX City,TX,Endocrinology,Roventra,roventra,Launch product,250,39,10250,231381.66,2024
+9000000237,Provider_HCP0237,Synthetic,NY City,NY,Family Practice,Roventra,roventra,Launch product,137,53,4932,100344.38,2024
+9000000238,Provider_HCP0238,Synthetic,FL City,FL,Endocrinology,Vexpro,vexpro,Competitor B,169,62,6760,36433.51,2024
+9000000238,Provider_HCP0238,Synthetic,FL City,FL,Endocrinology,Roventra,roventra,Launch product,201,99,6633,120435.68,2024
+9000000238,Provider_HCP0238,Synthetic,FL City,FL,Endocrinology,Nexoral,nexoral,Competitor A,87,45,4350,89205.74,2024
+9000000239,Provider_HCP0239,Synthetic,OH City,OH,Family Practice,Nexoral,nexoral,Competitor A,258,157,8772,117859.94,2024
+9000000240,Provider_HCP0240,Synthetic,WA City,WA,Pulmonology,Nexoral,nexoral,Competitor A,220,174,14520,182303.71,2024
+9000000240,Provider_HCP0240,Synthetic,WA City,WA,Pulmonology,Vexpro,vexpro,Competitor B,146,112,9636,64742.78,2024
+9000000241,Provider_HCP0241,Synthetic,MI City,MI,Endocrinology,Roventra,roventra,Launch product,47,39,3478,30484.43,2024
+9000000242,Provider_HCP0242,Synthetic,MI City,MI,Cardiology,Roventra,roventra,Launch product,13,11,663,4888.53,2024
+9000000243,Provider_HCP0243,Synthetic,NJ City,NJ,Cardiology,Nexoral,nexoral,Competitor A,192,115,15168,50796.92,2024
+9000000244,Provider_HCP0244,Synthetic,MI City,MI,Family Practice,Roventra,roventra,Launch product,295,155,23305,149232.33,2024
+9000000244,Provider_HCP0244,Synthetic,MI City,MI,Family Practice,Nexoral,nexoral,Competitor A,170,81,7310,180566.71,2024
+9000000245,Provider_HCP0245,Synthetic,GA City,GA,Rheumatology,Nexoral,nexoral,Competitor A,282,127,8460,208543.51,2024
+9000000245,Provider_HCP0245,Synthetic,GA City,GA,Rheumatology,Vexpro,vexpro,Competitor B,170,12,6290,172896.5,2024
+9000000246,Provider_HCP0246,Synthetic,WA City,WA,Rheumatology,Nexoral,nexoral,Competitor A,151,59,12835,84302.09,2024
+9000000246,Provider_HCP0246,Synthetic,WA City,WA,Rheumatology,Vexpro,vexpro,Competitor B,37,11,2886,37897.54,2024
+9000000247,Provider_HCP0247,Synthetic,NJ City,NJ,Family Practice,Vexpro,vexpro,Competitor B,27,17,1809,15297.44,2024
+9000000248,Provider_HCP0248,Synthetic,GA City,GA,Endocrinology,Nexoral,nexoral,Competitor A,219,176,6789,153595.19,2024
+9000000248,Provider_HCP0248,Synthetic,GA City,GA,Endocrinology,Vexpro,vexpro,Competitor B,99,30,4059,114643.29,2024
+9000000249,Provider_HCP0249,Synthetic,FL City,FL,Oncology/Hematology,Vexpro,vexpro,Competitor B,46,28,3864,6841.5,2024
+9000000250,Provider_HCP0250,Synthetic,MI City,MI,Rheumatology,Nexoral,nexoral,Competitor A,244,238,20496,183377.51,2024
+9000000250,Provider_HCP0250,Synthetic,MI City,MI,Rheumatology,Vexpro,vexpro,Competitor B,185,179,14615,19840.07,2024
+9000000251,Provider_HCP0251,Synthetic,NJ City,NJ,Endocrinology,Nexoral,nexoral,Competitor A,222,203,11100,117518.61,2024
+9000000252,Provider_HCP0252,Synthetic,GA City,GA,Rheumatology,Nexoral,nexoral,Competitor A,149,120,12814,84638.55,2024
+9000000252,Provider_HCP0252,Synthetic,GA City,GA,Rheumatology,Vexpro,vexpro,Competitor B,16,12,752,10670.78,2024
+9000000253,Provider_HCP0253,Synthetic,TX City,TX,Pulmonology,Nexoral,nexoral,Competitor A,126,124,7308,11187.57,2024
+9000000254,Provider_HCP0254,Synthetic,NY City,NY,Family Practice,Roventra,roventra,Launch product,170,85,8840,166002.87,2024
+9000000255,Provider_HCP0255,Synthetic,IL City,IL,Cardiology,Roventra,roventra,Launch product,99,41,2772,97863.3,2024
+9000000255,Provider_HCP0255,Synthetic,IL City,IL,Cardiology,Vexpro,vexpro,Competitor B,32,11,1440,20267.48,2024
+9000000256,Provider_HCP0256,Synthetic,PA City,PA,Endocrinology,Nexoral,nexoral,Competitor A,81,81,4374,15764.84,2024
+9000000256,Provider_HCP0256,Synthetic,PA City,PA,Endocrinology,Roventra,roventra,Launch product,31,21,1922,33475.24,2024
+9000000257,Provider_HCP0257,Synthetic,MI City,MI,Family Practice,Nexoral,nexoral,Competitor A,101,57,8686,103448.26,2024
+9000000257,Provider_HCP0257,Synthetic,MI City,MI,Family Practice,Roventra,roventra,Launch product,122,54,6588,113640.25,2024
+9000000258,Provider_HCP0258,Synthetic,IL City,IL,Endocrinology,Nexoral,nexoral,Competitor A,236,138,11328,254045.01,2024
+9000000258,Provider_HCP0258,Synthetic,IL City,IL,Endocrinology,Roventra,roventra,Launch product,108,60,9288,118533.78,2024
+9000000259,Provider_HCP0259,Synthetic,GA City,GA,Family Practice,Nexoral,nexoral,Competitor A,37,30,1702,18462.82,2024
+9000000259,Provider_HCP0259,Synthetic,GA City,GA,Family Practice,Roventra,roventra,Launch product,142,85,8662,33249.55,2024
+9000000260,Provider_HCP0260,Synthetic,OH City,OH,Endocrinology,Nexoral,nexoral,Competitor A,268,162,10720,49348.85,2024
+9000000261,Provider_HCP0261,Synthetic,PA City,PA,Endocrinology,Nexoral,nexoral,Competitor A,231,143,11319,212848.59,2024
+9000000261,Provider_HCP0261,Synthetic,PA City,PA,Endocrinology,Roventra,roventra,Launch product,277,272,9141,127892.03,2024
+9000000262,Provider_HCP0262,Synthetic,OH City,OH,Family Practice,Vexpro,vexpro,Competitor B,266,157,20216,172474.84,2024
+9000000263,Provider_HCP0263,Synthetic,IL City,IL,Oncology/Hematology,Roventra,roventra,Launch product,266,246,14098,189260.08,2024
+9000000263,Provider_HCP0263,Synthetic,IL City,IL,Oncology/Hematology,Vexpro,vexpro,Competitor B,12,11,864,6273.73,2024
+9000000264,Provider_HCP0264,Synthetic,OH City,OH,Cardiology,Nexoral,nexoral,Competitor A,43,39,3182,28152.79,2024
+9000000265,Provider_HCP0265,Synthetic,MI City,MI,Family Practice,Vexpro,vexpro,Competitor B,78,69,2340,38366.72,2024
+9000000266,Provider_HCP0266,Synthetic,FL City,FL,Rheumatology,Nexoral,nexoral,Competitor A,208,134,18304,166001.7,2024
+9000000266,Provider_HCP0266,Synthetic,FL City,FL,Rheumatology,Vexpro,vexpro,Competitor B,241,28,17834,69308.67,2024
+9000000267,Provider_HCP0267,Synthetic,WA City,WA,Endocrinology,Vexpro,vexpro,Competitor B,299,194,24518,60308.52,2024
+9000000267,Provider_HCP0267,Synthetic,WA City,WA,Endocrinology,Nexoral,nexoral,Competitor A,273,24,10101,302114.24,2024
+9000000268,Provider_HCP0268,Synthetic,IL City,IL,Family Practice,Vexpro,vexpro,Competitor B,154,146,13552,90876.84,2024
+9000000268,Provider_HCP0268,Synthetic,IL City,IL,Family Practice,Nexoral,nexoral,Competitor A,261,79,12006,249192.48,2024
+9000000269,Provider_HCP0269,Synthetic,WA City,WA,Rheumatology,Nexoral,nexoral,Competitor A,54,41,4374,26315.58,2024
+9000000270,Provider_HCP0270,Synthetic,FL City,FL,Oncology/Hematology,Roventra,roventra,Launch product,222,42,7770,20961.79,2024
+9000000271,Provider_HCP0271,Synthetic,AZ City,AZ,Oncology/Hematology,Roventra,roventra,Launch product,95,72,8170,48008.61,2024
+9000000272,Provider_HCP0272,Synthetic,TX City,TX,Cardiology,Vexpro,vexpro,Competitor B,113,68,8814,122983.71,2024
+9000000273,Provider_HCP0273,Synthetic,FL City,FL,Family Practice,Roventra,roventra,Launch product,246,33,22140,204446.43,2024
+9000000273,Provider_HCP0273,Synthetic,FL City,FL,Family Practice,Vexpro,vexpro,Competitor B,201,163,11658,226074.02,2024
+9000000274,Provider_HCP0274,Synthetic,GA City,GA,Oncology/Hematology,Roventra,roventra,Launch product,122,60,9516,116957.99,2024
+9000000275,Provider_HCP0275,Synthetic,FL City,FL,Oncology/Hematology,Roventra,roventra,Launch product,145,92,12615,124831.55,2024
+9000000275,Provider_HCP0275,Synthetic,FL City,FL,Oncology/Hematology,Vexpro,vexpro,Competitor B,149,32,13112,49274.13,2024
+9000000276,Provider_HCP0276,Synthetic,WA City,WA,Pulmonology,Roventra,roventra,Launch product,241,11,9640,111561.73,2024
+9000000276,Provider_HCP0276,Synthetic,WA City,WA,Pulmonology,Vexpro,vexpro,Competitor B,294,108,17052,325067.52,2024
+9000000277,Provider_HCP0277,Synthetic,OH City,OH,Cardiology,Nexoral,nexoral,Competitor A,81,60,6642,75974.37,2024
+9000000278,Provider_HCP0278,Synthetic,TX City,TX,Family Practice,Vexpro,vexpro,Competitor B,53,15,2226,34871.57,2024
+9000000279,Provider_HCP0279,Synthetic,MI City,MI,Endocrinology,Roventra,roventra,Launch product,292,253,23068,124128.95,2024
+9000000279,Provider_HCP0279,Synthetic,MI City,MI,Endocrinology,Nexoral,nexoral,Competitor A,79,22,2765,65856.73,2024
+9000000280,Provider_HCP0280,Synthetic,NJ City,NJ,Endocrinology,Nexoral,nexoral,Competitor A,179,111,5907,125876.6,2024
+9000000281,Provider_HCP0281,Synthetic,OH City,OH,Oncology/Hematology,Vexpro,vexpro,Competitor B,77,24,6237,26960.79,2024
+9000000281,Provider_HCP0281,Synthetic,OH City,OH,Oncology/Hematology,Roventra,roventra,Launch product,272,164,24480,214352.12,2024
+9000000282,Provider_HCP0282,Synthetic,PA City,PA,Endocrinology,Roventra,roventra,Launch product,275,250,20075,316125.37,2024
+9000000282,Provider_HCP0282,Synthetic,PA City,PA,Endocrinology,Vexpro,vexpro,Competitor B,266,57,22610,244814.72,2024
+9000000283,Provider_HCP0283,Synthetic,NY City,NY,Rheumatology,Vexpro,vexpro,Competitor B,55,48,4675,24516.99,2024
+9000000283,Provider_HCP0283,Synthetic,NY City,NY,Rheumatology,Nexoral,nexoral,Competitor A,163,79,7009,176798.14,2024
+9000000284,Provider_HCP0284,Synthetic,FL City,FL,Oncology/Hematology,Nexoral,nexoral,Competitor A,184,183,12328,76449.17,2024
+9000000284,Provider_HCP0284,Synthetic,FL City,FL,Oncology/Hematology,Vexpro,vexpro,Competitor B,110,95,5500,114595.78,2024
+9000000285,Provider_HCP0285,Synthetic,NY City,NY,Family Practice,Vexpro,vexpro,Competitor B,227,125,9534,172175.0,2024
+9000000285,Provider_HCP0285,Synthetic,NY City,NY,Family Practice,Roventra,roventra,Launch product,74,63,4144,23469.73,2024
+9000000286,Provider_HCP0286,Synthetic,IL City,IL,Cardiology,Roventra,roventra,Launch product,103,61,6695,79974.75,2024
+9000000286,Provider_HCP0286,Synthetic,IL City,IL,Cardiology,Vexpro,vexpro,Competitor B,67,34,2412,57848.85,2024
+9000000287,Provider_HCP0287,Synthetic,PA City,PA,Cardiology,Nexoral,nexoral,Competitor A,112,105,5936,95988.23,2024
+9000000288,Provider_HCP0288,Synthetic,NJ City,NJ,Family Practice,Roventra,roventra,Launch product,279,152,13671,183208.73,2024
+9000000289,Provider_HCP0289,Synthetic,OH City,OH,Endocrinology,Vexpro,vexpro,Competitor B,239,96,21510,172888.23,2024
+9000000289,Provider_HCP0289,Synthetic,OH City,OH,Endocrinology,Nexoral,nexoral,Competitor A,271,91,11111,117743.59,2024
+9000000290,Provider_HCP0290,Synthetic,PA City,PA,Oncology/Hematology,Vexpro,vexpro,Competitor B,63,26,4725,21193.11,2024
+9000000290,Provider_HCP0290,Synthetic,PA City,PA,Oncology/Hematology,Nexoral,nexoral,Competitor A,279,178,23715,258225.53,2024
+9000000291,Provider_HCP0291,Synthetic,MI City,MI,Pulmonology,Vexpro,vexpro,Competitor B,34,19,1972,19147.07,2024
+9000000291,Provider_HCP0291,Synthetic,MI City,MI,Pulmonology,Nexoral,nexoral,Competitor A,81,59,3402,21215.73,2024
+9000000292,Provider_HCP0292,Synthetic,MI City,MI,Oncology/Hematology,Nexoral,nexoral,Competitor A,11,11,418,7168.78,2024
+9000000292,Provider_HCP0292,Synthetic,MI City,MI,Oncology/Hematology,Vexpro,vexpro,Competitor B,261,210,14877,198111.06,2024
+9000000293,Provider_HCP0293,Synthetic,WA City,WA,Family Practice,Nexoral,nexoral,Competitor A,153,35,12240,52886.11,2024
+9000000293,Provider_HCP0293,Synthetic,WA City,WA,Family Practice,Vexpro,vexpro,Competitor B,210,172,6300,99081.27,2024
+9000000294,Provider_HCP0294,Synthetic,WA City,WA,Family Practice,Nexoral,nexoral,Competitor A,167,68,10354,45891.62,2024
+9000000294,Provider_HCP0294,Synthetic,WA City,WA,Family Practice,Vexpro,vexpro,Competitor B,251,63,16064,130020.87,2024
+9000000295,Provider_HCP0295,Synthetic,OH City,OH,Oncology/Hematology,Roventra,roventra,Launch product,248,110,22320,219319.42,2024
+9000000296,Provider_HCP0296,Synthetic,CA City,CA,Family Practice,Vexpro,vexpro,Competitor B,74,33,4736,86577.46,2024
+9000000297,Provider_HCP0297,Synthetic,TX City,TX,Pulmonology,Nexoral,nexoral,Competitor A,236,173,6608,109010.9,2024
+9000000298,Provider_HCP0298,Synthetic,PA City,PA,Family Practice,Vexpro,vexpro,Competitor B,112,102,5376,64715.43,2024
+9000000299,Provider_HCP0299,Synthetic,AZ City,AZ,Pulmonology,Vexpro,vexpro,Competitor B,179,17,9666,20549.97,2024
+9000000300,Provider_HCP0300,Synthetic,CA City,CA,Pulmonology,Vexpro,vexpro,Competitor B,173,75,5017,35131.26,2024
+9000000301,Provider_HCP0301,Synthetic,WA City,WA,Pulmonology,Nexoral,nexoral,Competitor A,22,13,1452,24273.93,2024
+9000000301,Provider_HCP0301,Synthetic,WA City,WA,Pulmonology,Vexpro,vexpro,Competitor B,214,130,11128,29992.88,2024
+9000000302,Provider_HCP0302,Synthetic,GA City,GA,Endocrinology,Vexpro,vexpro,Competitor B,214,191,17762,239509.64,2024
+9000000302,Provider_HCP0302,Synthetic,GA City,GA,Endocrinology,Nexoral,nexoral,Competitor A,108,80,8532,113641.96,2024
+9000000303,Provider_HCP0303,Synthetic,WA City,WA,Rheumatology,Roventra,roventra,Launch product,288,169,9504,91087.75,2024
+9000000303,Provider_HCP0303,Synthetic,WA City,WA,Rheumatology,Nexoral,nexoral,Competitor A,156,47,5772,103143.27,2024
+9000000304,Provider_HCP0304,Synthetic,PA City,PA,Oncology/Hematology,Roventra,roventra,Launch product,292,143,25404,253524.86,2024
+9000000304,Provider_HCP0304,Synthetic,PA City,PA,Oncology/Hematology,Nexoral,nexoral,Competitor A,288,11,16992,40578.06,2024
+9000000305,Provider_HCP0305,Synthetic,GA City,GA,Cardiology,Roventra,roventra,Launch product,21,17,945,15699.1,2024
+9000000305,Provider_HCP0305,Synthetic,GA City,GA,Cardiology,Vexpro,vexpro,Competitor B,53,48,3922,55846.32,2024
+9000000306,Provider_HCP0306,Synthetic,NY City,NY,Family Practice,Vexpro,vexpro,Competitor B,62,23,5394,52915.9,2024
+9000000306,Provider_HCP0306,Synthetic,NY City,NY,Family Practice,Roventra,roventra,Launch product,24,20,744,13967.3,2024
+9000000307,Provider_HCP0307,Synthetic,PA City,PA,Family Practice,Vexpro,vexpro,Competitor B,241,240,14219,281759.24,2024
+9000000308,Provider_HCP0308,Synthetic,WA City,WA,Pulmonology,Vexpro,vexpro,Competitor B,56,27,3864,57678.27,2024
+9000000309,Provider_HCP0309,Synthetic,IL City,IL,Family Practice,Vexpro,vexpro,Competitor B,266,155,9576,218992.98,2024
+9000000309,Provider_HCP0309,Synthetic,IL City,IL,Family Practice,Nexoral,nexoral,Competitor A,127,84,10160,145297.51,2024
+9000000310,Provider_HCP0310,Synthetic,GA City,GA,Family Practice,Roventra,roventra,Launch product,20,12,1220,22866.79,2024
+9000000310,Provider_HCP0310,Synthetic,GA City,GA,Family Practice,Nexoral,nexoral,Competitor A,255,16,22695,204288.94,2024
+9000000311,Provider_HCP0311,Synthetic,NY City,NY,Oncology/Hematology,Roventra,roventra,Launch product,48,28,3312,19561.4,2024
+9000000311,Provider_HCP0311,Synthetic,NY City,NY,Oncology/Hematology,Nexoral,nexoral,Competitor A,247,202,14820,277076.55,2024
+9000000312,Provider_HCP0312,Synthetic,NJ City,NJ,Pulmonology,Vexpro,vexpro,Competitor B,115,14,10005,65254.44,2024
+9000000313,Provider_HCP0313,Synthetic,GA City,GA,Family Practice,Vexpro,vexpro,Competitor B,271,109,23306,269679.64,2024
+9000000313,Provider_HCP0313,Synthetic,GA City,GA,Family Practice,Roventra,roventra,Launch product,106,80,7314,28537.34,2024
+9000000314,Provider_HCP0314,Synthetic,WA City,WA,Cardiology,Vexpro,vexpro,Competitor B,107,24,5029,92440.91,2024
+9000000314,Provider_HCP0314,Synthetic,WA City,WA,Cardiology,Roventra,roventra,Launch product,46,26,3174,13038.48,2024
+9000000315,Provider_HCP0315,Synthetic,OH City,OH,Cardiology,Vexpro,vexpro,Competitor B,111,39,3108,124167.67,2024
+9000000316,Provider_HCP0316,Synthetic,NY City,NY,Oncology/Hematology,Nexoral,nexoral,Competitor A,244,114,17812,198682.44,2024
+9000000316,Provider_HCP0316,Synthetic,NY City,NY,Oncology/Hematology,Vexpro,vexpro,Competitor B,232,179,16704,138336.97,2024
+9000000317,Provider_HCP0317,Synthetic,FL City,FL,Oncology/Hematology,Roventra,roventra,Launch product,249,128,12699,135307.79,2024
+9000000317,Provider_HCP0317,Synthetic,FL City,FL,Oncology/Hematology,Nexoral,nexoral,Competitor A,185,34,10360,166831.86,2024
+9000000318,Provider_HCP0318,Synthetic,PA City,PA,Endocrinology,Roventra,roventra,Launch product,115,101,7015,13653.56,2024
+9000000318,Provider_HCP0318,Synthetic,PA City,PA,Endocrinology,Vexpro,vexpro,Competitor B,92,78,7728,41181.35,2024
+9000000319,Provider_HCP0319,Synthetic,FL City,FL,Oncology/Hematology,Vexpro,vexpro,Competitor B,108,40,6588,42499.26,2024
+9000000320,Provider_HCP0320,Synthetic,WA City,WA,Oncology/Hematology,Nexoral,nexoral,Competitor A,208,65,17056,224607.28,2024
+9000000320,Provider_HCP0320,Synthetic,WA City,WA,Oncology/Hematology,Vexpro,vexpro,Competitor B,241,83,20967,188637.43,2024
+9000000321,Provider_HCP0321,Synthetic,OH City,OH,Oncology/Hematology,Nexoral,nexoral,Competitor A,277,96,14404,165704.25,2024
+9000000322,Provider_HCP0322,Synthetic,GA City,GA,Oncology/Hematology,Vexpro,vexpro,Competitor B,212,104,8268,32602.25,2024
+9000000322,Provider_HCP0322,Synthetic,GA City,GA,Oncology/Hematology,Nexoral,nexoral,Competitor A,152,31,4712,13817.24,2024
+9000000323,Provider_HCP0323,Synthetic,WA City,WA,Pulmonology,Roventra,roventra,Launch product,77,77,4004,46017.76,2024
+9000000324,Provider_HCP0324,Synthetic,WA City,WA,Oncology/Hematology,Roventra,roventra,Launch product,218,129,15914,170036.1,2024
+9000000324,Provider_HCP0324,Synthetic,WA City,WA,Oncology/Hematology,Vexpro,vexpro,Competitor B,276,151,22356,257680.8,2024
+9000000325,Provider_HCP0325,Synthetic,MI City,MI,Oncology/Hematology,Nexoral,nexoral,Competitor A,265,227,14045,111944.91,2024
+9000000326,Provider_HCP0326,Synthetic,IL City,IL,Family Practice,Nexoral,nexoral,Competitor A,250,234,22500,293778.07,2024
+9000000327,Provider_HCP0327,Synthetic,IL City,IL,Oncology/Hematology,Nexoral,nexoral,Competitor A,122,15,6954,59200.45,2024
+9000000328,Provider_HCP0328,Synthetic,WA City,WA,Pulmonology,Vexpro,vexpro,Competitor B,25,11,775,7932.15,2024
+9000000328,Provider_HCP0328,Synthetic,WA City,WA,Pulmonology,Nexoral,nexoral,Competitor A,263,85,12098,216372.9,2024
+9000000329,Provider_HCP0329,Synthetic,GA City,GA,Family Practice,Roventra,roventra,Launch product,292,172,14308,252616.4,2024
+9000000329,Provider_HCP0329,Synthetic,GA City,GA,Family Practice,Nexoral,nexoral,Competitor A,86,13,4816,50768.94,2024
+9000000330,Provider_HCP0330,Synthetic,NJ City,NJ,Pulmonology,Roventra,roventra,Launch product,151,80,10872,179280.93,2024
+9000000330,Provider_HCP0330,Synthetic,NJ City,NJ,Pulmonology,Nexoral,nexoral,Competitor A,81,28,6237,77315.47,2024
+9000000331,Provider_HCP0331,Synthetic,MI City,MI,Rheumatology,Roventra,roventra,Launch product,68,57,4964,62352.76,2024
+9000000331,Provider_HCP0331,Synthetic,MI City,MI,Rheumatology,Nexoral,nexoral,Competitor A,89,18,2670,80578.84,2024
+9000000332,Provider_HCP0332,Synthetic,FL City,FL,Pulmonology,Nexoral,nexoral,Competitor A,33,24,2706,20821.9,2024
+9000000333,Provider_HCP0333,Synthetic,NJ City,NJ,Rheumatology,Vexpro,vexpro,Competitor B,78,20,6708,31693.15,2024
+9000000334,Provider_HCP0334,Synthetic,FL City,FL,Rheumatology,Nexoral,nexoral,Competitor A,128,116,9088,23918.91,2024
+9000000335,Provider_HCP0335,Synthetic,IL City,IL,Oncology/Hematology,Roventra,roventra,Launch product,95,72,5985,54192.51,2024
+9000000336,Provider_HCP0336,Synthetic,OH City,OH,Endocrinology,Roventra,roventra,Launch product,203,67,16037,147017.11,2024
+9000000336,Provider_HCP0336,Synthetic,OH City,OH,Endocrinology,Nexoral,nexoral,Competitor A,24,20,1704,20086.81,2024
+9000000336,Provider_HCP0336,Synthetic,OH City,OH,Endocrinology,Vexpro,vexpro,Competitor B,193,24,11387,52051.14,2024
+9000000337,Provider_HCP0337,Synthetic,FL City,FL,Oncology/Hematology,Nexoral,nexoral,Competitor A,170,66,13430,148798.12,2024
+9000000338,Provider_HCP0338,Synthetic,PA City,PA,Oncology/Hematology,Roventra,roventra,Launch product,116,59,5336,39704.92,2024
+9000000339,Provider_HCP0339,Synthetic,FL City,FL,Oncology/Hematology,Vexpro,vexpro,Competitor B,66,66,2178,49083.82,2024
+9000000339,Provider_HCP0339,Synthetic,FL City,FL,Oncology/Hematology,Nexoral,nexoral,Competitor A,260,152,11960,219380.14,2024
+9000000340,Provider_HCP0340,Synthetic,AZ City,AZ,Family Practice,Vexpro,vexpro,Competitor B,78,44,3510,66052.0,2024
+9000000340,Provider_HCP0340,Synthetic,AZ City,AZ,Family Practice,Nexoral,nexoral,Competitor A,38,24,1140,13883.11,2024
+9000000341,Provider_HCP0341,Synthetic,GA City,GA,Pulmonology,Nexoral,nexoral,Competitor A,36,23,1836,38616.27,2024
+9000000342,Provider_HCP0342,Synthetic,TX City,TX,Family Practice,Nexoral,nexoral,Competitor A,284,187,11076,116630.52,2024
+9000000343,Provider_HCP0343,Synthetic,CA City,CA,Oncology/Hematology,Roventra,roventra,Launch product,119,46,5474,109605.42,2024
+9000000343,Provider_HCP0343,Synthetic,CA City,CA,Oncology/Hematology,Vexpro,vexpro,Competitor B,197,85,9850,27195.66,2024
+9000000344,Provider_HCP0344,Synthetic,IL City,IL,Oncology/Hematology,Vexpro,vexpro,Competitor B,41,35,1968,19146.92,2024
+9000000345,Provider_HCP0345,Synthetic,GA City,GA,Oncology/Hematology,Roventra,roventra,Launch product,259,183,20461,138238.63,2024
+9000000345,Provider_HCP0345,Synthetic,GA City,GA,Oncology/Hematology,Vexpro,vexpro,Competitor B,239,94,19837,255866.39,2024
+9000000345,Provider_HCP0345,Synthetic,GA City,GA,Oncology/Hematology,Nexoral,nexoral,Competitor A,246,80,22140,240277.09,2024
+9000000346,Provider_HCP0346,Synthetic,TX City,TX,Family Practice,Vexpro,vexpro,Competitor B,281,196,12083,117583.32,2024
+9000000347,Provider_HCP0347,Synthetic,NY City,NY,Rheumatology,Nexoral,nexoral,Competitor A,147,26,7497,72148.6,2024
+9000000347,Provider_HCP0347,Synthetic,NY City,NY,Rheumatology,Vexpro,vexpro,Competitor B,237,62,11376,161139.63,2024
+9000000347,Provider_HCP0347,Synthetic,NY City,NY,Rheumatology,Roventra,roventra,Launch product,294,83,26460,152310.2,2024
+9000000348,Provider_HCP0348,Synthetic,GA City,GA,Oncology/Hematology,Vexpro,vexpro,Competitor B,30,18,1740,5977.91,2024
+9000000349,Provider_HCP0349,Synthetic,OH City,OH,Oncology/Hematology,Nexoral,nexoral,Competitor A,78,38,2418,51017.6,2024
+9000000350,Provider_HCP0350,Synthetic,OH City,OH,Oncology/Hematology,Vexpro,vexpro,Competitor B,27,12,891,15265.94,2024
+9000000350,Provider_HCP0350,Synthetic,OH City,OH,Oncology/Hematology,Nexoral,nexoral,Competitor A,283,207,23206,216842.29,2024
+9000000351,Provider_HCP0351,Synthetic,NY City,NY,Pulmonology,Nexoral,nexoral,Competitor A,246,89,15252,198404.04,2024
+9000000352,Provider_HCP0352,Synthetic,MI City,MI,Oncology/Hematology,Vexpro,vexpro,Competitor B,39,28,2964,32705.63,2024
+9000000352,Provider_HCP0352,Synthetic,MI City,MI,Oncology/Hematology,Nexoral,nexoral,Competitor A,170,149,13770,119474.08,2024
+9000000353,Provider_HCP0353,Synthetic,NY City,NY,Family Practice,Nexoral,nexoral,Competitor A,39,28,3315,11987.46,2024
+9000000354,Provider_HCP0354,Synthetic,NY City,NY,Pulmonology,Roventra,roventra,Launch product,77,15,5621,41868.13,2024
+9000000354,Provider_HCP0354,Synthetic,NY City,NY,Pulmonology,Nexoral,nexoral,Competitor A,214,100,14766,117417.32,2024
+9000000355,Provider_HCP0355,Synthetic,NY City,NY,Family Practice,Nexoral,nexoral,Competitor A,155,43,11005,108751.84,2024
+9000000356,Provider_HCP0356,Synthetic,NY City,NY,Family Practice,Nexoral,nexoral,Competitor A,73,48,4672,58658.92,2024
+9000000356,Provider_HCP0356,Synthetic,NY City,NY,Family Practice,Roventra,roventra,Launch product,94,30,7520,88863.24,2024
+9000000357,Provider_HCP0357,Synthetic,GA City,GA,Oncology/Hematology,Vexpro,vexpro,Competitor B,98,41,3920,17188.39,2024
+9000000357,Provider_HCP0357,Synthetic,GA City,GA,Oncology/Hematology,Roventra,roventra,Launch product,168,135,14448,32551.01,2024
+9000000358,Provider_HCP0358,Synthetic,TX City,TX,Endocrinology,Nexoral,nexoral,Competitor A,289,37,21386,271279.37,2024
+9000000358,Provider_HCP0358,Synthetic,TX City,TX,Endocrinology,Vexpro,vexpro,Competitor B,191,88,16235,174654.59,2024
+9000000359,Provider_HCP0359,Synthetic,IL City,IL,Cardiology,Nexoral,nexoral,Competitor A,95,77,3230,70979.76,2024
+9000000359,Provider_HCP0359,Synthetic,IL City,IL,Cardiology,Vexpro,vexpro,Competitor B,268,94,19296,139288.71,2024
+9000000359,Provider_HCP0359,Synthetic,IL City,IL,Cardiology,Roventra,roventra,Launch product,86,46,6794,66238.7,2024
+9000000360,Provider_HCP0360,Synthetic,CA City,CA,Endocrinology,Vexpro,vexpro,Competitor B,45,20,1755,47833.01,2024
+9000000360,Provider_HCP0360,Synthetic,CA City,CA,Endocrinology,Nexoral,nexoral,Competitor A,23,14,1104,11426.56,2024
+9000000361,Provider_HCP0361,Synthetic,MI City,MI,Rheumatology,Vexpro,vexpro,Competitor B,293,80,14064,151731.88,2024
+9000000362,Provider_HCP0362,Synthetic,NJ City,NJ,Family Practice,Nexoral,nexoral,Competitor A,117,13,8658,138125.05,2024
+9000000363,Provider_HCP0363,Synthetic,OH City,OH,Endocrinology,Vexpro,vexpro,Competitor B,53,24,2650,17576.82,2024
+9000000364,Provider_HCP0364,Synthetic,MI City,MI,Endocrinology,Vexpro,vexpro,Competitor B,251,95,15813,67526.94,2024
+9000000365,Provider_HCP0365,Synthetic,GA City,GA,Rheumatology,Vexpro,vexpro,Competitor B,94,46,7050,64371.13,2024
+9000000365,Provider_HCP0365,Synthetic,GA City,GA,Rheumatology,Nexoral,nexoral,Competitor A,284,96,14484,47508.95,2024
+9000000366,Provider_HCP0366,Synthetic,WA City,WA,Endocrinology,Nexoral,nexoral,Competitor A,127,42,7747,37390.44,2024
+9000000366,Provider_HCP0366,Synthetic,WA City,WA,Endocrinology,Vexpro,vexpro,Competitor B,238,52,17136,231015.64,2024
+9000000367,Provider_HCP0367,Synthetic,IL City,IL,Family Practice,Nexoral,nexoral,Competitor A,178,109,10680,87275.69,2024
+9000000368,Provider_HCP0368,Synthetic,WA City,WA,Pulmonology,Vexpro,vexpro,Competitor B,135,28,6615,35293.74,2024
+9000000369,Provider_HCP0369,Synthetic,PA City,PA,Oncology/Hematology,Nexoral,nexoral,Competitor A,300,179,14700,101147.76,2024
+9000000369,Provider_HCP0369,Synthetic,PA City,PA,Oncology/Hematology,Vexpro,vexpro,Competitor B,64,15,2048,17856.1,2024
+9000000369,Provider_HCP0369,Synthetic,PA City,PA,Oncology/Hematology,Roventra,roventra,Launch product,82,68,7298,88954.84,2024
+9000000370,Provider_HCP0370,Synthetic,GA City,GA,Cardiology,Nexoral,nexoral,Competitor A,104,77,7072,120884.45,2024
+9000000370,Provider_HCP0370,Synthetic,GA City,GA,Cardiology,Vexpro,vexpro,Competitor B,200,101,10400,62830.79,2024
+9000000370,Provider_HCP0370,Synthetic,GA City,GA,Cardiology,Roventra,roventra,Launch product,260,118,8580,253419.83,2024
+9000000371,Provider_HCP0371,Synthetic,NY City,NY,Endocrinology,Nexoral,nexoral,Competitor A,246,45,7626,88209.07,2024
+9000000372,Provider_HCP0372,Synthetic,MI City,MI,Cardiology,Nexoral,nexoral,Competitor A,226,122,7458,162917.02,2024
+9000000372,Provider_HCP0372,Synthetic,MI City,MI,Cardiology,Vexpro,vexpro,Competitor B,104,76,4264,20654.24,2024
+9000000373,Provider_HCP0373,Synthetic,MI City,MI,Pulmonology,Nexoral,nexoral,Competitor A,267,77,21093,293877.74,2024
+9000000374,Provider_HCP0374,Synthetic,WA City,WA,Endocrinology,Vexpro,vexpro,Competitor B,143,18,11154,89820.61,2024
+9000000375,Provider_HCP0375,Synthetic,IL City,IL,Endocrinology,Nexoral,nexoral,Competitor A,136,39,4896,103921.22,2024
+9000000375,Provider_HCP0375,Synthetic,IL City,IL,Endocrinology,Roventra,roventra,Launch product,97,21,3880,39907.35,2024
+9000000376,Provider_HCP0376,Synthetic,AZ City,AZ,Endocrinology,Nexoral,nexoral,Competitor A,182,54,8918,174228.48,2024
+9000000377,Provider_HCP0377,Synthetic,IL City,IL,Cardiology,Nexoral,nexoral,Competitor A,177,174,10266,169483.31,2024
+9000000377,Provider_HCP0377,Synthetic,IL City,IL,Cardiology,Vexpro,vexpro,Competitor B,148,68,6216,109956.13,2024
+9000000378,Provider_HCP0378,Synthetic,IL City,IL,Oncology/Hematology,Nexoral,nexoral,Competitor A,95,57,7980,65245.15,2024
+9000000379,Provider_HCP0379,Synthetic,OH City,OH,Rheumatology,Vexpro,vexpro,Competitor B,268,98,22780,64081.27,2024
+9000000379,Provider_HCP0379,Synthetic,OH City,OH,Rheumatology,Roventra,roventra,Launch product,196,190,8428,168906.51,2024
+9000000380,Provider_HCP0380,Synthetic,NJ City,NJ,Oncology/Hematology,Nexoral,nexoral,Competitor A,235,103,13395,104348.11,2024
+9000000381,Provider_HCP0381,Synthetic,WA City,WA,Endocrinology,Vexpro,vexpro,Competitor B,159,24,10494,90419.86,2024
+9000000381,Provider_HCP0381,Synthetic,WA City,WA,Endocrinology,Nexoral,nexoral,Competitor A,137,29,4110,29478.67,2024
+9000000382,Provider_HCP0382,Synthetic,NY City,NY,Family Practice,Nexoral,nexoral,Competitor A,270,21,19980,224581.07,2024
+9000000383,Provider_HCP0383,Synthetic,WA City,WA,Oncology/Hematology,Roventra,roventra,Launch product,80,49,2960,46298.6,2024
+9000000383,Provider_HCP0383,Synthetic,WA City,WA,Oncology/Hematology,Vexpro,vexpro,Competitor B,151,57,4379,16260.14,2024
+9000000384,Provider_HCP0384,Synthetic,OH City,OH,Family Practice,Vexpro,vexpro,Competitor B,102,32,4692,97726.13,2024
+9000000384,Provider_HCP0384,Synthetic,OH City,OH,Family Practice,Roventra,roventra,Launch product,211,136,15192,115733.92,2024
+9000000385,Provider_HCP0385,Synthetic,IL City,IL,Cardiology,Vexpro,vexpro,Competitor B,75,60,4275,31970.92,2024
+9000000385,Provider_HCP0385,Synthetic,IL City,IL,Cardiology,Nexoral,nexoral,Competitor A,54,45,2538,16380.29,2024
+9000000386,Provider_HCP0386,Synthetic,CA City,CA,Rheumatology,Nexoral,nexoral,Competitor A,58,51,3074,39307.0,2024
+9000000387,Provider_HCP0387,Synthetic,TX City,TX,Rheumatology,Vexpro,vexpro,Competitor B,177,49,12390,59762.37,2024
+9000000388,Provider_HCP0388,Synthetic,AZ City,AZ,Cardiology,Vexpro,vexpro,Competitor B,83,12,2822,81373.46,2024
+9000000389,Provider_HCP0389,Synthetic,AZ City,AZ,Cardiology,Nexoral,nexoral,Competitor A,146,140,4380,136360.68,2024
+9000000390,Provider_HCP0390,Synthetic,PA City,PA,Cardiology,Vexpro,vexpro,Competitor B,287,246,20664,183845.28,2024
+9000000391,Provider_HCP0391,Synthetic,AZ City,AZ,Oncology/Hematology,Vexpro,vexpro,Competitor B,108,87,9396,66176.12,2024
+9000000392,Provider_HCP0392,Synthetic,NJ City,NJ,Cardiology,Nexoral,nexoral,Competitor A,246,79,11808,35404.28,2024
+9000000393,Provider_HCP0393,Synthetic,IL City,IL,Rheumatology,Nexoral,nexoral,Competitor A,266,99,18620,22612.67,2024
+9000000393,Provider_HCP0393,Synthetic,IL City,IL,Rheumatology,Roventra,roventra,Launch product,258,70,18060,268942.3,2024
+9000000394,Provider_HCP0394,Synthetic,PA City,PA,Rheumatology,Nexoral,nexoral,Competitor A,116,18,3712,41372.77,2024
+9000000394,Provider_HCP0394,Synthetic,PA City,PA,Rheumatology,Vexpro,vexpro,Competitor B,236,229,12980,257076.13,2024
+9000000395,Provider_HCP0395,Synthetic,OH City,OH,Oncology/Hematology,Nexoral,nexoral,Competitor A,120,27,3720,33066.39,2024
+9000000396,Provider_HCP0396,Synthetic,CA City,CA,Family Practice,Roventra,roventra,Launch product,189,153,9828,138509.12,2024
+9000000396,Provider_HCP0396,Synthetic,CA City,CA,Family Practice,Vexpro,vexpro,Competitor B,175,109,9625,51021.83,2024
+9000000397,Provider_HCP0397,Synthetic,IL City,IL,Oncology/Hematology,Vexpro,vexpro,Competitor B,52,28,4628,16605.44,2024
+9000000397,Provider_HCP0397,Synthetic,IL City,IL,Oncology/Hematology,Roventra,roventra,Launch product,223,170,12042,73951.24,2024
+9000000398,Provider_HCP0398,Synthetic,TX City,TX,Rheumatology,Nexoral,nexoral,Competitor A,227,136,17479,28489.06,2024
+9000000398,Provider_HCP0398,Synthetic,TX City,TX,Rheumatology,Vexpro,vexpro,Competitor B,207,158,12420,83966.7,2024
+9000000398,Provider_HCP0398,Synthetic,TX City,TX,Rheumatology,Roventra,roventra,Launch product,155,127,11625,21412.16,2024
+9000000399,Provider_HCP0399,Synthetic,NY City,NY,Family Practice,Nexoral,nexoral,Competitor A,79,34,5925,41788.04,2024
+9000000399,Provider_HCP0399,Synthetic,NY City,NY,Family Practice,Roventra,roventra,Launch product,112,85,5824,20391.45,2024
+9000000400,Provider_HCP0400,Synthetic,MI City,MI,Endocrinology,Nexoral,nexoral,Competitor A,280,166,15120,60899.97,2024
+9000000401,Provider_HCP0401,Synthetic,MI City,MI,Family Practice,Vexpro,vexpro,Competitor B,121,103,10769,18350.7,2024
+9000000402,Provider_HCP0402,Synthetic,PA City,PA,Pulmonology,Nexoral,nexoral,Competitor A,199,77,11940,51653.28,2024
+9000000403,Provider_HCP0403,Synthetic,AZ City,AZ,Oncology/Hematology,Vexpro,vexpro,Competitor B,222,200,11322,208233.46,2024
+9000000403,Provider_HCP0403,Synthetic,AZ City,AZ,Oncology/Hematology,Roventra,roventra,Launch product,274,233,15070,268342.85,2024
+9000000404,Provider_HCP0404,Synthetic,NY City,NY,Family Practice,Roventra,roventra,Launch product,103,46,5047,35938.96,2024
+9000000404,Provider_HCP0404,Synthetic,NY City,NY,Family Practice,Vexpro,vexpro,Competitor B,64,39,5568,10796.1,2024
+9000000404,Provider_HCP0404,Synthetic,NY City,NY,Family Practice,Nexoral,nexoral,Competitor A,234,81,15678,280794.89,2024
+9000000405,Provider_HCP0405,Synthetic,MI City,MI,Family Practice,Nexoral,nexoral,Competitor A,75,41,2775,65837.54,2024
+9000000406,Provider_HCP0406,Synthetic,TX City,TX,Family Practice,Vexpro,vexpro,Competitor B,254,136,10414,177593.38,2024
+9000000406,Provider_HCP0406,Synthetic,TX City,TX,Family Practice,Nexoral,nexoral,Competitor A,102,27,5406,121983.81,2024
+9000000407,Provider_HCP0407,Synthetic,PA City,PA,Pulmonology,Roventra,roventra,Launch product,41,31,1886,43776.52,2024
+9000000408,Provider_HCP0408,Synthetic,NY City,NY,Family Practice,Roventra,roventra,Launch product,89,53,6497,27552.14,2024
+9000000409,Provider_HCP0409,Synthetic,IL City,IL,Endocrinology,Nexoral,nexoral,Competitor A,211,46,18779,134572.98,2024
+9000000410,Provider_HCP0410,Synthetic,NY City,NY,Pulmonology,Vexpro,vexpro,Competitor B,144,24,12960,29366.56,2024
+9000000411,Provider_HCP0411,Synthetic,IL City,IL,Family Practice,Vexpro,vexpro,Competitor B,57,43,3534,18303.67,2024
+9000000411,Provider_HCP0411,Synthetic,IL City,IL,Family Practice,Roventra,roventra,Launch product,147,23,8820,24147.57,2024
+9000000412,Provider_HCP0412,Synthetic,PA City,PA,Family Practice,Nexoral,nexoral,Competitor A,108,105,8208,127713.29,2024
+9000000412,Provider_HCP0412,Synthetic,PA City,PA,Family Practice,Vexpro,vexpro,Competitor B,172,35,5504,199291.89,2024
+9000000413,Provider_HCP0413,Synthetic,GA City,GA,Endocrinology,Nexoral,nexoral,Competitor A,264,196,14256,316061.19,2024
+9000000414,Provider_HCP0414,Synthetic,WA City,WA,Rheumatology,Vexpro,vexpro,Competitor B,12,11,1056,5162.39,2024
+9000000414,Provider_HCP0414,Synthetic,WA City,WA,Rheumatology,Nexoral,nexoral,Competitor A,298,155,11920,215343.84,2024
+9000000415,Provider_HCP0415,Synthetic,PA City,PA,Family Practice,Nexoral,nexoral,Competitor A,129,94,9159,35512.58,2024
+9000000416,Provider_HCP0416,Synthetic,NY City,NY,Rheumatology,Vexpro,vexpro,Competitor B,199,31,9751,200721.64,2024
+9000000416,Provider_HCP0416,Synthetic,NY City,NY,Rheumatology,Nexoral,nexoral,Competitor A,82,61,3690,82506.22,2024
+9000000417,Provider_HCP0417,Synthetic,WA City,WA,Family Practice,Roventra,roventra,Launch product,208,103,10816,189880.3,2024
+9000000417,Provider_HCP0417,Synthetic,WA City,WA,Family Practice,Nexoral,nexoral,Competitor A,43,27,3870,13262.24,2024
+9000000418,Provider_HCP0418,Synthetic,PA City,PA,Endocrinology,Vexpro,vexpro,Competitor B,76,55,5700,27758.48,2024
+9000000418,Provider_HCP0418,Synthetic,PA City,PA,Endocrinology,Roventra,roventra,Launch product,185,168,15355,181347.68,2024
+9000000419,Provider_HCP0419,Synthetic,OH City,OH,Family Practice,Vexpro,vexpro,Competitor B,209,40,18810,144585.12,2024
+9000000419,Provider_HCP0419,Synthetic,OH City,OH,Family Practice,Nexoral,nexoral,Competitor A,52,27,1820,50013.48,2024
+9000000420,Provider_HCP0420,Synthetic,NY City,NY,Cardiology,Vexpro,vexpro,Competitor B,155,20,6820,24496.95,2024
+9000000421,Provider_HCP0421,Synthetic,NJ City,NJ,Rheumatology,Nexoral,nexoral,Competitor A,71,37,3124,31257.65,2024
+9000000422,Provider_HCP0422,Synthetic,PA City,PA,Family Practice,Roventra,roventra,Launch product,114,12,5814,100519.09,2024
+9000000423,Provider_HCP0423,Synthetic,NY City,NY,Family Practice,Nexoral,nexoral,Competitor A,114,81,6270,116724.07,2024
+9000000423,Provider_HCP0423,Synthetic,NY City,NY,Family Practice,Vexpro,vexpro,Competitor B,206,106,15862,115119.86,2024
+9000000424,Provider_HCP0424,Synthetic,GA City,GA,Cardiology,Vexpro,vexpro,Competitor B,146,97,9198,78193.21,2024
+9000000425,Provider_HCP0425,Synthetic,GA City,GA,Cardiology,Vexpro,vexpro,Competitor B,211,94,6541,113902.29,2024
+9000000425,Provider_HCP0425,Synthetic,GA City,GA,Cardiology,Roventra,roventra,Launch product,186,27,5580,18945.74,2024
+9000000426,Provider_HCP0426,Synthetic,TX City,TX,Cardiology,Vexpro,vexpro,Competitor B,209,206,17556,233893.92,2024
+9000000427,Provider_HCP0427,Synthetic,OH City,OH,Family Practice,Vexpro,vexpro,Competitor B,255,180,7395,214461.01,2024
+9000000428,Provider_HCP0428,Synthetic,NY City,NY,Oncology/Hematology,Vexpro,vexpro,Competitor B,209,165,15466,150774.3,2024
+9000000429,Provider_HCP0429,Synthetic,CA City,CA,Family Practice,Nexoral,nexoral,Competitor A,24,17,1176,15820.66,2024
+9000000430,Provider_HCP0430,Synthetic,MI City,MI,Cardiology,Roventra,roventra,Launch product,295,209,24780,168970.2,2024
+9000000430,Provider_HCP0430,Synthetic,MI City,MI,Cardiology,Vexpro,vexpro,Competitor B,60,52,2760,17154.78,2024
+9000000431,Provider_HCP0431,Synthetic,TX City,TX,Endocrinology,Vexpro,vexpro,Competitor B,239,122,13145,78384.27,2024
+9000000432,Provider_HCP0432,Synthetic,AZ City,AZ,Oncology/Hematology,Nexoral,nexoral,Competitor A,150,66,12600,119212.97,2024
+9000000433,Provider_HCP0433,Synthetic,GA City,GA,Oncology/Hematology,Nexoral,nexoral,Competitor A,203,88,9338,61329.72,2024
+9000000434,Provider_HCP0434,Synthetic,NY City,NY,Family Practice,Vexpro,vexpro,Competitor B,203,135,14616,118687.73,2024
+9000000434,Provider_HCP0434,Synthetic,NY City,NY,Family Practice,Nexoral,nexoral,Competitor A,86,65,6708,37441.96,2024
+9000000435,Provider_HCP0435,Synthetic,IL City,IL,Family Practice,Nexoral,nexoral,Competitor A,112,30,7056,131080.32,2024
+9000000436,Provider_HCP0436,Synthetic,GA City,GA,Family Practice,Vexpro,vexpro,Competitor B,96,66,3168,84988.01,2024
+9000000436,Provider_HCP0436,Synthetic,GA City,GA,Family Practice,Nexoral,nexoral,Competitor A,254,80,17526,110903.86,2024
+9000000437,Provider_HCP0437,Synthetic,PA City,PA,Cardiology,Vexpro,vexpro,Competitor B,198,99,16236,188400.23,2024
+9000000437,Provider_HCP0437,Synthetic,PA City,PA,Cardiology,Nexoral,nexoral,Competitor A,225,175,14400,249310.67,2024
+9000000437,Provider_HCP0437,Synthetic,PA City,PA,Cardiology,Roventra,roventra,Launch product,253,196,14674,51949.5,2024
+9000000438,Provider_HCP0438,Synthetic,NJ City,NJ,Cardiology,Vexpro,vexpro,Competitor B,158,134,5846,70203.5,2024
+9000000438,Provider_HCP0438,Synthetic,NJ City,NJ,Cardiology,Roventra,roventra,Launch product,225,43,19350,162276.2,2024
+9000000439,Provider_HCP0439,Synthetic,PA City,PA,Cardiology,Vexpro,vexpro,Competitor B,62,51,2542,67481.67,2024
+9000000440,Provider_HCP0440,Synthetic,AZ City,AZ,Oncology/Hematology,Nexoral,nexoral,Competitor A,119,72,5593,28675.94,2024
+9000000440,Provider_HCP0440,Synthetic,AZ City,AZ,Oncology/Hematology,Vexpro,vexpro,Competitor B,62,27,1984,7914.79,2024
+9000000441,Provider_HCP0441,Synthetic,FL City,FL,Family Practice,Nexoral,nexoral,Competitor A,64,42,4736,48443.93,2024
+9000000442,Provider_HCP0442,Synthetic,GA City,GA,Cardiology,Vexpro,vexpro,Competitor B,75,64,4275,23162.2,2024
+9000000442,Provider_HCP0442,Synthetic,GA City,GA,Cardiology,Roventra,roventra,Launch product,197,178,16942,17059.9,2024
+9000000443,Provider_HCP0443,Synthetic,TX City,TX,Oncology/Hematology,Nexoral,nexoral,Competitor A,276,276,15732,177179.08,2024
+9000000444,Provider_HCP0444,Synthetic,FL City,FL,Cardiology,Roventra,roventra,Launch product,18,11,1116,2194.41,2024
+9000000445,Provider_HCP0445,Synthetic,AZ City,AZ,Family Practice,Nexoral,nexoral,Competitor A,161,144,10787,188504.5,2024
+9000000446,Provider_HCP0446,Synthetic,AZ City,AZ,Family Practice,Roventra,roventra,Launch product,299,64,15847,349891.5,2024
+9000000447,Provider_HCP0447,Synthetic,NY City,NY,Family Practice,Vexpro,vexpro,Competitor B,24,18,888,15593.8,2024
+9000000448,Provider_HCP0448,Synthetic,TX City,TX,Endocrinology,Nexoral,nexoral,Competitor A,297,49,25542,67363.53,2024
+9000000448,Provider_HCP0448,Synthetic,TX City,TX,Endocrinology,Roventra,roventra,Launch product,23,18,1564,12200.36,2024
+9000000449,Provider_HCP0449,Synthetic,IL City,IL,Rheumatology,Nexoral,nexoral,Competitor A,265,71,14310,251382.62,2024
+9000000450,Provider_HCP0450,Synthetic,OH City,OH,Oncology/Hematology,Roventra,roventra,Launch product,211,207,17091,95124.86,2024
+9000000450,Provider_HCP0450,Synthetic,OH City,OH,Oncology/Hematology,Vexpro,vexpro,Competitor B,210,27,18690,204179.42,2024
+9000000451,Provider_HCP0451,Synthetic,OH City,OH,Family Practice,Vexpro,vexpro,Competitor B,93,88,5301,96165.78,2024
+9000000452,Provider_HCP0452,Synthetic,TX City,TX,Oncology/Hematology,Roventra,roventra,Launch product,133,36,10108,147259.07,2024
+9000000452,Provider_HCP0452,Synthetic,TX City,TX,Oncology/Hematology,Vexpro,vexpro,Competitor B,245,104,12250,186560.55,2024
+9000000453,Provider_HCP0453,Synthetic,TX City,TX,Family Practice,Roventra,roventra,Launch product,250,125,21000,122400.77,2024
+9000000453,Provider_HCP0453,Synthetic,TX City,TX,Family Practice,Vexpro,vexpro,Competitor B,112,100,8400,118233.27,2024
+9000000454,Provider_HCP0454,Synthetic,AZ City,AZ,Oncology/Hematology,Vexpro,vexpro,Competitor B,60,36,2460,57078.4,2024
+9000000454,Provider_HCP0454,Synthetic,AZ City,AZ,Oncology/Hematology,Nexoral,nexoral,Competitor A,295,126,10030,182909.16,2024
+9000000455,Provider_HCP0455,Synthetic,GA City,GA,Cardiology,Nexoral,nexoral,Competitor A,220,211,7480,207967.48,2024
+9000000456,Provider_HCP0456,Synthetic,PA City,PA,Pulmonology,Vexpro,vexpro,Competitor B,172,38,14276,62847.93,2024
+9000000456,Provider_HCP0456,Synthetic,PA City,PA,Pulmonology,Nexoral,nexoral,Competitor A,118,78,6608,66642.92,2024
+9000000457,Provider_HCP0457,Synthetic,IL City,IL,Family Practice,Nexoral,nexoral,Competitor A,66,63,2772,65557.96,2024
+9000000457,Provider_HCP0457,Synthetic,IL City,IL,Family Practice,Vexpro,vexpro,Competitor B,22,12,1298,20618.19,2024
+9000000458,Provider_HCP0458,Synthetic,WA City,WA,Endocrinology,Nexoral,nexoral,Competitor A,248,197,17112,106078.25,2024
+9000000459,Provider_HCP0459,Synthetic,NY City,NY,Rheumatology,Nexoral,nexoral,Competitor A,188,132,6392,115934.11,2024
+9000000459,Provider_HCP0459,Synthetic,NY City,NY,Rheumatology,Vexpro,vexpro,Competitor B,165,67,12045,129812.1,2024
+9000000459,Provider_HCP0459,Synthetic,NY City,NY,Rheumatology,Roventra,roventra,Launch product,100,17,4500,38689.14,2024
+9000000460,Provider_HCP0460,Synthetic,FL City,FL,Family Practice,Vexpro,vexpro,Competitor B,162,42,10692,32452.97,2024
+9000000460,Provider_HCP0460,Synthetic,FL City,FL,Family Practice,Nexoral,nexoral,Competitor A,17,15,663,8908.95,2024
+9000000461,Provider_HCP0461,Synthetic,TX City,TX,Cardiology,Vexpro,vexpro,Competitor B,238,207,20706,82564.01,2024
+9000000462,Provider_HCP0462,Synthetic,CA City,CA,Endocrinology,Nexoral,nexoral,Competitor A,281,130,25290,270695.7,2024
+9000000462,Provider_HCP0462,Synthetic,CA City,CA,Endocrinology,Vexpro,vexpro,Competitor B,201,132,6231,140522.44,2024
+9000000463,Provider_HCP0463,Synthetic,NY City,NY,Oncology/Hematology,Vexpro,vexpro,Competitor B,287,200,10332,54973.53,2024
+9000000463,Provider_HCP0463,Synthetic,NY City,NY,Oncology/Hematology,Nexoral,nexoral,Competitor A,145,13,12615,88336.15,2024
+9000000464,Provider_HCP0464,Synthetic,PA City,PA,Pulmonology,Nexoral,nexoral,Competitor A,126,39,5544,53332.19,2024
+9000000465,Provider_HCP0465,Synthetic,NJ City,NJ,Oncology/Hematology,Vexpro,vexpro,Competitor B,44,30,2376,30019.69,2024
+9000000465,Provider_HCP0465,Synthetic,NJ City,NJ,Oncology/Hematology,Roventra,roventra,Launch product,30,19,2340,21578.48,2024
+9000000466,Provider_HCP0466,Synthetic,NJ City,NJ,Oncology/Hematology,Nexoral,nexoral,Competitor A,202,122,13332,72153.93,2024
+9000000466,Provider_HCP0466,Synthetic,NJ City,NJ,Oncology/Hematology,Vexpro,vexpro,Competitor B,280,264,14840,45196.36,2024
+9000000467,Provider_HCP0467,Synthetic,GA City,GA,Family Practice,Nexoral,nexoral,Competitor A,226,190,7232,220124.86,2024
+9000000468,Provider_HCP0468,Synthetic,NJ City,NJ,Rheumatology,Nexoral,nexoral,Competitor A,45,14,3105,24022.11,2024
+9000000468,Provider_HCP0468,Synthetic,NJ City,NJ,Rheumatology,Vexpro,vexpro,Competitor B,166,125,8134,123696.81,2024
+9000000469,Provider_HCP0469,Synthetic,IL City,IL,Endocrinology,Nexoral,nexoral,Competitor A,33,27,1287,21291.57,2024
+9000000470,Provider_HCP0470,Synthetic,MI City,MI,Family Practice,Nexoral,nexoral,Competitor A,267,12,18957,24028.55,2024
+9000000471,Provider_HCP0471,Synthetic,FL City,FL,Endocrinology,Vexpro,vexpro,Competitor B,16,16,448,3887.45,2024
+9000000471,Provider_HCP0471,Synthetic,FL City,FL,Endocrinology,Nexoral,nexoral,Competitor A,204,189,8772,233772.39,2024
+9000000472,Provider_HCP0472,Synthetic,IL City,IL,Oncology/Hematology,Nexoral,nexoral,Competitor A,177,86,9027,194140.14,2024
+9000000473,Provider_HCP0473,Synthetic,WA City,WA,Rheumatology,Nexoral,nexoral,Competitor A,285,266,24510,27341.42,2024
+9000000474,Provider_HCP0474,Synthetic,OH City,OH,Pulmonology,Vexpro,vexpro,Competitor B,44,31,2112,26362.14,2024
+9000000475,Provider_HCP0475,Synthetic,WA City,WA,Family Practice,Nexoral,nexoral,Competitor A,86,70,6880,101788.72,2024
+9000000475,Provider_HCP0475,Synthetic,WA City,WA,Family Practice,Vexpro,vexpro,Competitor B,80,20,5840,62857.27,2024
+9000000476,Provider_HCP0476,Synthetic,TX City,TX,Cardiology,Nexoral,nexoral,Competitor A,231,24,9933,239833.18,2024
+9000000476,Provider_HCP0476,Synthetic,TX City,TX,Cardiology,Vexpro,vexpro,Competitor B,237,93,13746,157999.14,2024
+9000000477,Provider_HCP0477,Synthetic,NY City,NY,Rheumatology,Roventra,roventra,Launch product,252,143,8820,58410.17,2024
+9000000478,Provider_HCP0478,Synthetic,NY City,NY,Cardiology,Roventra,roventra,Launch product,17,14,969,18375.66,2024
+9000000479,Provider_HCP0479,Synthetic,IL City,IL,Family Practice,Nexoral,nexoral,Competitor A,45,14,2835,51098.05,2024
+9000000479,Provider_HCP0479,Synthetic,IL City,IL,Family Practice,Vexpro,vexpro,Competitor B,149,128,10132,174826.48,2024
+9000000480,Provider_HCP0480,Synthetic,GA City,GA,Family Practice,Vexpro,vexpro,Competitor B,141,64,11844,91841.86,2024
+9000000481,Provider_HCP0481,Synthetic,NJ City,NJ,Endocrinology,Nexoral,nexoral,Competitor A,286,112,18018,292791.69,2024
+9000000482,Provider_HCP0482,Synthetic,WA City,WA,Family Practice,Nexoral,nexoral,Competitor A,123,17,9348,139321.02,2024
+9000000482,Provider_HCP0482,Synthetic,WA City,WA,Family Practice,Vexpro,vexpro,Competitor B,244,34,16104,154600.72,2024
+9000000483,Provider_HCP0483,Synthetic,NY City,NY,Pulmonology,Nexoral,nexoral,Competitor A,183,32,16287,209168.25,2024
+9000000483,Provider_HCP0483,Synthetic,NY City,NY,Pulmonology,Roventra,roventra,Launch product,31,19,2263,35808.86,2024
+9000000484,Provider_HCP0484,Synthetic,NY City,NY,Cardiology,Nexoral,nexoral,Competitor A,137,11,8494,155841.27,2024
+9000000485,Provider_HCP0485,Synthetic,OH City,OH,Pulmonology,Nexoral,nexoral,Competitor A,166,86,4980,64420.09,2024
+9000000485,Provider_HCP0485,Synthetic,OH City,OH,Pulmonology,Vexpro,vexpro,Competitor B,55,30,1705,26239.09,2024
+9000000486,Provider_HCP0486,Synthetic,NJ City,NJ,Pulmonology,Nexoral,nexoral,Competitor A,248,221,13640,284999.93,2024
+9000000486,Provider_HCP0486,Synthetic,NJ City,NJ,Pulmonology,Vexpro,vexpro,Competitor B,235,118,14335,247803.32,2024
+9000000487,Provider_HCP0487,Synthetic,FL City,FL,Oncology/Hematology,Vexpro,vexpro,Competitor B,271,142,20325,221002.44,2024
+9000000488,Provider_HCP0488,Synthetic,AZ City,AZ,Rheumatology,Roventra,roventra,Launch product,211,28,7174,159616.3,2024
+9000000488,Provider_HCP0488,Synthetic,AZ City,AZ,Rheumatology,Vexpro,vexpro,Competitor B,224,152,19488,111420.18,2024
+9000000489,Provider_HCP0489,Synthetic,NY City,NY,Rheumatology,Nexoral,nexoral,Competitor A,147,100,7203,116205.1,2024
+9000000489,Provider_HCP0489,Synthetic,NY City,NY,Rheumatology,Roventra,roventra,Launch product,234,55,20592,127291.51,2024
+9000000489,Provider_HCP0489,Synthetic,NY City,NY,Rheumatology,Vexpro,vexpro,Competitor B,289,273,15606,114912.88,2024
+9000000490,Provider_HCP0490,Synthetic,NJ City,NJ,Rheumatology,Roventra,roventra,Launch product,87,29,7308,33179.41,2024
+9000000490,Provider_HCP0490,Synthetic,NJ City,NJ,Rheumatology,Vexpro,vexpro,Competitor B,281,71,11240,174160.04,2024
+9000000490,Provider_HCP0490,Synthetic,NJ City,NJ,Rheumatology,Nexoral,nexoral,Competitor A,152,58,11856,49383.61,2024
+9000000491,Provider_HCP0491,Synthetic,CA City,CA,Endocrinology,Vexpro,vexpro,Competitor B,68,27,5168,46560.12,2024
+9000000492,Provider_HCP0492,Synthetic,WA City,WA,Pulmonology,Roventra,roventra,Launch product,158,135,9006,161149.06,2024
+9000000492,Provider_HCP0492,Synthetic,WA City,WA,Pulmonology,Vexpro,vexpro,Competitor B,45,18,2925,30198.23,2024
+9000000493,Provider_HCP0493,Synthetic,WA City,WA,Oncology/Hematology,Nexoral,nexoral,Competitor A,98,74,7154,103050.45,2024
+9000000493,Provider_HCP0493,Synthetic,WA City,WA,Oncology/Hematology,Roventra,roventra,Launch product,50,13,4450,54571.18,2024
+9000000494,Provider_HCP0494,Synthetic,GA City,GA,Rheumatology,Nexoral,nexoral,Competitor A,19,19,1102,14327.19,2024
+9000000494,Provider_HCP0494,Synthetic,GA City,GA,Rheumatology,Vexpro,vexpro,Competitor B,240,47,8160,260563.29,2024
+9000000495,Provider_HCP0495,Synthetic,IL City,IL,Family Practice,Nexoral,nexoral,Competitor A,112,80,7168,65728.24,2024
+9000000496,Provider_HCP0496,Synthetic,PA City,PA,Family Practice,Vexpro,vexpro,Competitor B,63,35,2268,40254.65,2024
+9000000497,Provider_HCP0497,Synthetic,TX City,TX,Family Practice,Nexoral,nexoral,Competitor A,200,86,11600,177506.4,2024
+9000000498,Provider_HCP0498,Synthetic,FL City,FL,Cardiology,Roventra,roventra,Launch product,289,159,17629,93345.51,2024
+9000000499,Provider_HCP0499,Synthetic,IL City,IL,Family Practice,Roventra,roventra,Launch product,59,22,2183,9931.01,2024
+9000000499,Provider_HCP0499,Synthetic,IL City,IL,Family Practice,Nexoral,nexoral,Competitor A,13,11,429,8823.71,2024
+9000000500,Provider_HCP0500,Synthetic,IL City,IL,Pulmonology,Vexpro,vexpro,Competitor B,214,120,18618,229528.83,2024
+9000000501,Provider_HCP0501,Synthetic,NJ City,NJ,Cardiology,Nexoral,nexoral,Competitor A,299,75,14053,136205.41,2024
+9000000502,Provider_HCP0502,Synthetic,WA City,WA,Family Practice,Vexpro,vexpro,Competitor B,272,259,21760,112776.34,2024
+9000000503,Provider_HCP0503,Synthetic,NJ City,NJ,Cardiology,Vexpro,vexpro,Competitor B,280,57,9520,289452.45,2024
+9000000503,Provider_HCP0503,Synthetic,NJ City,NJ,Cardiology,Nexoral,nexoral,Competitor A,22,22,1298,22631.22,2024
+9000000504,Provider_HCP0504,Synthetic,CA City,CA,Family Practice,Vexpro,vexpro,Competitor B,154,116,9240,64625.95,2024
+9000000505,Provider_HCP0505,Synthetic,AZ City,AZ,Endocrinology,Roventra,roventra,Launch product,272,80,21216,152850.57,2024
+9000000505,Provider_HCP0505,Synthetic,AZ City,AZ,Endocrinology,Nexoral,nexoral,Competitor A,63,29,2268,42142.84,2024
+9000000506,Provider_HCP0506,Synthetic,IL City,IL,Oncology/Hematology,Vexpro,vexpro,Competitor B,103,26,6901,71948.49,2024
+9000000507,Provider_HCP0507,Synthetic,IL City,IL,Endocrinology,Nexoral,nexoral,Competitor A,225,114,11925,146022.99,2024
+9000000507,Provider_HCP0507,Synthetic,IL City,IL,Endocrinology,Vexpro,vexpro,Competitor B,123,122,8856,21115.01,2024
+9000000508,Provider_HCP0508,Synthetic,GA City,GA,Pulmonology,Nexoral,nexoral,Competitor A,299,175,13455,307436.61,2024
+9000000509,Provider_HCP0509,Synthetic,TX City,TX,Oncology/Hematology,Vexpro,vexpro,Competitor B,183,90,10614,195208.83,2024
+9000000509,Provider_HCP0509,Synthetic,TX City,TX,Oncology/Hematology,Roventra,roventra,Launch product,146,78,4818,23558.23,2024
+9000000510,Provider_HCP0510,Synthetic,WA City,WA,Oncology/Hematology,Vexpro,vexpro,Competitor B,93,74,7440,18579.62,2024
+9000000511,Provider_HCP0511,Synthetic,IL City,IL,Cardiology,Vexpro,vexpro,Competitor B,65,49,3770,49789.07,2024
+9000000511,Provider_HCP0511,Synthetic,IL City,IL,Cardiology,Nexoral,nexoral,Competitor A,195,74,13845,88878.25,2024
+9000000512,Provider_HCP0512,Synthetic,WA City,WA,Cardiology,Vexpro,vexpro,Competitor B,230,66,18170,241459.1,2024
+9000000513,Provider_HCP0513,Synthetic,PA City,PA,Oncology/Hematology,Nexoral,nexoral,Competitor A,160,41,9920,53250.48,2024
+9000000513,Provider_HCP0513,Synthetic,PA City,PA,Oncology/Hematology,Roventra,roventra,Launch product,13,13,1066,6403.25,2024
+9000000514,Provider_HCP0514,Synthetic,GA City,GA,Oncology/Hematology,Vexpro,vexpro,Competitor B,198,131,8118,177796.14,2024
+9000000514,Provider_HCP0514,Synthetic,GA City,GA,Oncology/Hematology,Roventra,roventra,Launch product,171,122,7524,152289.31,2024
+9000000515,Provider_HCP0515,Synthetic,GA City,GA,Cardiology,Vexpro,vexpro,Competitor B,109,12,9483,36669.37,2024
+9000000516,Provider_HCP0516,Synthetic,GA City,GA,Family Practice,Roventra,roventra,Launch product,249,58,20169,228653.63,2024
+9000000516,Provider_HCP0516,Synthetic,GA City,GA,Family Practice,Vexpro,vexpro,Competitor B,129,63,8901,71766.07,2024
+9000000517,Provider_HCP0517,Synthetic,WA City,WA,Rheumatology,Nexoral,nexoral,Competitor A,260,175,15600,193128.52,2024
+9000000517,Provider_HCP0517,Synthetic,WA City,WA,Rheumatology,Roventra,roventra,Launch product,177,114,6195,55399.41,2024
+9000000518,Provider_HCP0518,Synthetic,MI City,MI,Rheumatology,Roventra,roventra,Launch product,225,198,11475,128206.44,2024
+9000000518,Provider_HCP0518,Synthetic,MI City,MI,Rheumatology,Nexoral,nexoral,Competitor A,291,273,15423,249468.8,2024
+9000000519,Provider_HCP0519,Synthetic,PA City,PA,Cardiology,Roventra,roventra,Launch product,134,51,8710,103163.3,2024
+9000000520,Provider_HCP0520,Synthetic,FL City,FL,Family Practice,Roventra,roventra,Launch product,274,240,12878,91055.64,2024
+9000000520,Provider_HCP0520,Synthetic,FL City,FL,Family Practice,Nexoral,nexoral,Competitor A,79,65,6320,48020.02,2024
+9000000521,Provider_HCP0521,Synthetic,FL City,FL,Family Practice,Vexpro,vexpro,Competitor B,15,12,795,13822.88,2024
+9000000521,Provider_HCP0521,Synthetic,FL City,FL,Family Practice,Nexoral,nexoral,Competitor A,284,96,10508,265527.45,2024
+9000000522,Provider_HCP0522,Synthetic,OH City,OH,Cardiology,Vexpro,vexpro,Competitor B,137,105,6713,116660.98,2024
+9000000523,Provider_HCP0523,Synthetic,TX City,TX,Oncology/Hematology,Roventra,roventra,Launch product,225,73,16425,164440.31,2024
+9000000523,Provider_HCP0523,Synthetic,TX City,TX,Oncology/Hematology,Vexpro,vexpro,Competitor B,237,23,21093,137136.8,2024
+9000000524,Provider_HCP0524,Synthetic,OH City,OH,Pulmonology,Nexoral,nexoral,Competitor A,160,101,5120,164869.03,2024
+9000000525,Provider_HCP0525,Synthetic,WA City,WA,Cardiology,Nexoral,nexoral,Competitor A,215,186,10965,215951.26,2024
+9000000525,Provider_HCP0525,Synthetic,WA City,WA,Cardiology,Roventra,roventra,Launch product,107,13,3531,68862.17,2024
+9000000526,Provider_HCP0526,Synthetic,FL City,FL,Family Practice,Roventra,roventra,Launch product,137,103,9316,63707.42,2024
+9000000526,Provider_HCP0526,Synthetic,FL City,FL,Family Practice,Nexoral,nexoral,Competitor A,291,260,10185,140349.77,2024
+9000000526,Provider_HCP0526,Synthetic,FL City,FL,Family Practice,Vexpro,vexpro,Competitor B,53,27,2862,51175.83,2024
+9000000527,Provider_HCP0527,Synthetic,WA City,WA,Oncology/Hematology,Roventra,roventra,Launch product,51,39,2142,15622.45,2024
+9000000528,Provider_HCP0528,Synthetic,IL City,IL,Endocrinology,Roventra,roventra,Launch product,69,65,4002,27526.61,2024
+9000000528,Provider_HCP0528,Synthetic,IL City,IL,Endocrinology,Nexoral,nexoral,Competitor A,270,62,19170,299863.2,2024
+9000000529,Provider_HCP0529,Synthetic,OH City,OH,Rheumatology,Nexoral,nexoral,Competitor A,245,125,20580,262139.57,2024
+9000000529,Provider_HCP0529,Synthetic,OH City,OH,Rheumatology,Vexpro,vexpro,Competitor B,20,12,1160,22671.27,2024
+9000000530,Provider_HCP0530,Synthetic,NY City,NY,Oncology/Hematology,Nexoral,nexoral,Competitor A,19,18,1634,9112.6,2024
+9000000531,Provider_HCP0531,Synthetic,PA City,PA,Rheumatology,Nexoral,nexoral,Competitor A,154,146,10780,16879.27,2024
+9000000532,Provider_HCP0532,Synthetic,TX City,TX,Pulmonology,Nexoral,nexoral,Competitor A,195,63,5460,35652.15,2024
+9000000533,Provider_HCP0533,Synthetic,NY City,NY,Endocrinology,Nexoral,nexoral,Competitor A,114,106,4674,44313.34,2024
+9000000534,Provider_HCP0534,Synthetic,WA City,WA,Endocrinology,Vexpro,vexpro,Competitor B,22,19,1364,19046.6,2024
+9000000535,Provider_HCP0535,Synthetic,NJ City,NJ,Family Practice,Nexoral,nexoral,Competitor A,132,129,6600,90634.76,2024
+9000000535,Provider_HCP0535,Synthetic,NJ City,NJ,Family Practice,Roventra,roventra,Launch product,263,213,13150,214935.65,2024
+9000000536,Provider_HCP0536,Synthetic,AZ City,AZ,Oncology/Hematology,Nexoral,nexoral,Competitor A,102,38,8670,111023.78,2024
+9000000537,Provider_HCP0537,Synthetic,TX City,TX,Family Practice,Nexoral,nexoral,Competitor A,148,11,7252,79136.98,2024
+9000000537,Provider_HCP0537,Synthetic,TX City,TX,Family Practice,Vexpro,vexpro,Competitor B,245,128,12250,71446.11,2024
+9000000538,Provider_HCP0538,Synthetic,AZ City,AZ,Pulmonology,Vexpro,vexpro,Competitor B,182,152,7826,43674.72,2024
+9000000538,Provider_HCP0538,Synthetic,AZ City,AZ,Pulmonology,Nexoral,nexoral,Competitor A,151,51,12684,47414.42,2024
+9000000539,Provider_HCP0539,Synthetic,GA City,GA,Cardiology,Nexoral,nexoral,Competitor A,147,12,5880,60875.15,2024
+9000000539,Provider_HCP0539,Synthetic,GA City,GA,Cardiology,Roventra,roventra,Launch product,110,89,9680,60751.27,2024
+9000000539,Provider_HCP0539,Synthetic,GA City,GA,Cardiology,Vexpro,vexpro,Competitor B,103,42,6798,100755.13,2024
+9000000540,Provider_HCP0540,Synthetic,IL City,IL,Cardiology,Vexpro,vexpro,Competitor B,148,122,10952,93884.52,2024
+9000000541,Provider_HCP0541,Synthetic,TX City,TX,Rheumatology,Vexpro,vexpro,Competitor B,136,119,4080,103296.05,2024
+9000000541,Provider_HCP0541,Synthetic,TX City,TX,Rheumatology,Nexoral,nexoral,Competitor A,292,19,8760,221229.59,2024
+9000000542,Provider_HCP0542,Synthetic,GA City,GA,Pulmonology,Vexpro,vexpro,Competitor B,153,46,5049,34740.9,2024
+9000000543,Provider_HCP0543,Synthetic,PA City,PA,Oncology/Hematology,Vexpro,vexpro,Competitor B,170,59,15300,77692.03,2024
+9000000543,Provider_HCP0543,Synthetic,PA City,PA,Oncology/Hematology,Roventra,roventra,Launch product,126,92,4662,71852.97,2024
+9000000544,Provider_HCP0544,Synthetic,FL City,FL,Family Practice,Roventra,roventra,Launch product,220,25,11880,192026.94,2024
+9000000544,Provider_HCP0544,Synthetic,FL City,FL,Family Practice,Vexpro,vexpro,Competitor B,140,23,6860,88710.63,2024
+9000000545,Provider_HCP0545,Synthetic,WA City,WA,Endocrinology,Vexpro,vexpro,Competitor B,298,257,17582,31620.88,2024
+9000000545,Provider_HCP0545,Synthetic,WA City,WA,Endocrinology,Nexoral,nexoral,Competitor A,48,25,3696,20272.4,2024
+9000000546,Provider_HCP0546,Synthetic,FL City,FL,Cardiology,Vexpro,vexpro,Competitor B,44,40,3608,37027.85,2024
+9000000546,Provider_HCP0546,Synthetic,FL City,FL,Cardiology,Nexoral,nexoral,Competitor A,274,160,14522,276710.64,2024
+9000000547,Provider_HCP0547,Synthetic,OH City,OH,Oncology/Hematology,Vexpro,vexpro,Competitor B,104,104,3848,35006.25,2024
+9000000547,Provider_HCP0547,Synthetic,OH City,OH,Oncology/Hematology,Nexoral,nexoral,Competitor A,32,19,2496,28567.09,2024
+9000000548,Provider_HCP0548,Synthetic,PA City,PA,Oncology/Hematology,Nexoral,nexoral,Competitor A,45,26,3780,52888.85,2024
+9000000549,Provider_HCP0549,Synthetic,WA City,WA,Family Practice,Vexpro,vexpro,Competitor B,298,175,14602,91910.79,2024
+9000000550,Provider_HCP0550,Synthetic,CA City,CA,Endocrinology,Vexpro,vexpro,Competitor B,204,44,7140,195227.55,2024
+9000000551,Provider_HCP0551,Synthetic,AZ City,AZ,Cardiology,Vexpro,vexpro,Competitor B,152,115,8816,116984.39,2024
+9000000552,Provider_HCP0552,Synthetic,WA City,WA,Pulmonology,Roventra,roventra,Launch product,157,74,8949,184781.36,2024
+9000000552,Provider_HCP0552,Synthetic,WA City,WA,Pulmonology,Nexoral,nexoral,Competitor A,256,64,13824,240255.13,2024
+9000000553,Provider_HCP0553,Synthetic,GA City,GA,Endocrinology,Nexoral,nexoral,Competitor A,161,131,7728,16887.88,2024
+9000000554,Provider_HCP0554,Synthetic,IL City,IL,Family Practice,Vexpro,vexpro,Competitor B,28,11,1120,28520.19,2024
+9000000554,Provider_HCP0554,Synthetic,IL City,IL,Family Practice,Nexoral,nexoral,Competitor A,32,21,1280,33738.03,2024
+9000000555,Provider_HCP0555,Synthetic,FL City,FL,Oncology/Hematology,Nexoral,nexoral,Competitor A,155,27,8215,23743.37,2024
+9000000556,Provider_HCP0556,Synthetic,NY City,NY,Endocrinology,Nexoral,nexoral,Competitor A,242,98,13794,135718.58,2024
+9000000556,Provider_HCP0556,Synthetic,NY City,NY,Endocrinology,Roventra,roventra,Launch product,203,33,13195,144118.19,2024
+9000000557,Provider_HCP0557,Synthetic,TX City,TX,Family Practice,Nexoral,nexoral,Competitor A,13,12,1118,6264.64,2024
+9000000558,Provider_HCP0558,Synthetic,PA City,PA,Family Practice,Vexpro,vexpro,Competitor B,180,70,13680,106627.72,2024
+9000000559,Provider_HCP0559,Synthetic,PA City,PA,Rheumatology,Vexpro,vexpro,Competitor B,51,31,1734,60799.36,2024
+9000000559,Provider_HCP0559,Synthetic,PA City,PA,Rheumatology,Nexoral,nexoral,Competitor A,220,168,6820,33972.73,2024
+9000000560,Provider_HCP0560,Synthetic,GA City,GA,Oncology/Hematology,Roventra,roventra,Launch product,152,151,10336,169040.54,2024
+9000000561,Provider_HCP0561,Synthetic,PA City,PA,Rheumatology,Vexpro,vexpro,Competitor B,53,42,4346,9019.44,2024
+9000000561,Provider_HCP0561,Synthetic,PA City,PA,Rheumatology,Roventra,roventra,Launch product,53,29,4664,5349.93,2024
+9000000562,Provider_HCP0562,Synthetic,FL City,FL,Cardiology,Vexpro,vexpro,Competitor B,252,214,14112,188794.07,2024
+9000000563,Provider_HCP0563,Synthetic,WA City,WA,Endocrinology,Vexpro,vexpro,Competitor B,114,69,4788,55752.83,2024
+9000000564,Provider_HCP0564,Synthetic,NJ City,NJ,Rheumatology,Vexpro,vexpro,Competitor B,182,107,14014,174636.64,2024
+9000000564,Provider_HCP0564,Synthetic,NJ City,NJ,Rheumatology,Roventra,roventra,Launch product,118,51,6254,23110.11,2024
+9000000564,Provider_HCP0564,Synthetic,NJ City,NJ,Rheumatology,Nexoral,nexoral,Competitor A,75,55,3675,44780.13,2024
+9000000565,Provider_HCP0565,Synthetic,OH City,OH,Family Practice,Nexoral,nexoral,Competitor A,127,35,7620,74946.74,2024
+9000000565,Provider_HCP0565,Synthetic,OH City,OH,Family Practice,Roventra,roventra,Launch product,48,40,1776,25850.16,2024
+9000000565,Provider_HCP0565,Synthetic,OH City,OH,Family Practice,Vexpro,vexpro,Competitor B,38,31,2356,11179.42,2024
+9000000566,Provider_HCP0566,Synthetic,CA City,CA,Rheumatology,Vexpro,vexpro,Competitor B,111,57,4995,78183.22,2024
+9000000566,Provider_HCP0566,Synthetic,CA City,CA,Rheumatology,Nexoral,nexoral,Competitor A,257,81,11565,255150.63,2024
+9000000567,Provider_HCP0567,Synthetic,FL City,FL,Endocrinology,Vexpro,vexpro,Competitor B,255,113,18615,96173.33,2024
+9000000568,Provider_HCP0568,Synthetic,CA City,CA,Rheumatology,Vexpro,vexpro,Competitor B,90,45,6030,46310.73,2024
+9000000568,Provider_HCP0568,Synthetic,CA City,CA,Rheumatology,Roventra,roventra,Launch product,201,85,8844,234039.9,2024
+9000000569,Provider_HCP0569,Synthetic,MI City,MI,Oncology/Hematology,Nexoral,nexoral,Competitor A,277,193,9141,312023.25,2024
+9000000570,Provider_HCP0570,Synthetic,GA City,GA,Family Practice,Vexpro,vexpro,Competitor B,98,68,3038,62463.7,2024
+9000000571,Provider_HCP0571,Synthetic,WA City,WA,Rheumatology,Nexoral,nexoral,Competitor A,277,159,13850,234476.96,2024
+9000000572,Provider_HCP0572,Synthetic,CA City,CA,Endocrinology,Vexpro,vexpro,Competitor B,101,74,6868,18051.75,2024
+9000000572,Provider_HCP0572,Synthetic,CA City,CA,Endocrinology,Nexoral,nexoral,Competitor A,269,220,14526,87443.16,2024
+9000000573,Provider_HCP0573,Synthetic,OH City,OH,Pulmonology,Nexoral,nexoral,Competitor A,161,108,6279,179978.59,2024
+9000000574,Provider_HCP0574,Synthetic,GA City,GA,Endocrinology,Nexoral,nexoral,Competitor A,238,127,19754,183025.95,2024
+9000000574,Provider_HCP0574,Synthetic,GA City,GA,Endocrinology,Vexpro,vexpro,Competitor B,72,72,5544,36964.95,2024
+9000000575,Provider_HCP0575,Synthetic,IL City,IL,Oncology/Hematology,Vexpro,vexpro,Competitor B,125,34,9750,58064.62,2024
+9000000575,Provider_HCP0575,Synthetic,IL City,IL,Oncology/Hematology,Roventra,roventra,Launch product,110,104,6160,48753.76,2024
+9000000576,Provider_HCP0576,Synthetic,OH City,OH,Family Practice,Vexpro,vexpro,Competitor B,252,117,11592,53727.07,2024
+9000000577,Provider_HCP0577,Synthetic,WA City,WA,Oncology/Hematology,Nexoral,nexoral,Competitor A,265,102,19345,232896.03,2024
+9000000578,Provider_HCP0578,Synthetic,IL City,IL,Family Practice,Vexpro,vexpro,Competitor B,119,71,7021,16139.28,2024
+9000000579,Provider_HCP0579,Synthetic,NY City,NY,Rheumatology,Nexoral,nexoral,Competitor A,200,41,7800,197158.68,2024
+9000000580,Provider_HCP0580,Synthetic,NJ City,NJ,Oncology/Hematology,Roventra,roventra,Launch product,151,107,12382,76893.11,2024
+9000000580,Provider_HCP0580,Synthetic,NJ City,NJ,Oncology/Hematology,Nexoral,nexoral,Competitor A,38,18,2470,23363.63,2024
+9000000581,Provider_HCP0581,Synthetic,FL City,FL,Oncology/Hematology,Roventra,roventra,Launch product,38,16,1710,35252.68,2024
+9000000581,Provider_HCP0581,Synthetic,FL City,FL,Oncology/Hematology,Vexpro,vexpro,Competitor B,52,15,2808,43462.97,2024
+9000000582,Provider_HCP0582,Synthetic,PA City,PA,Family Practice,Vexpro,vexpro,Competitor B,237,159,8769,52862.85,2024
+9000000583,Provider_HCP0583,Synthetic,FL City,FL,Cardiology,Nexoral,nexoral,Competitor A,190,136,14820,126256.11,2024
+9000000584,Provider_HCP0584,Synthetic,IL City,IL,Oncology/Hematology,Vexpro,vexpro,Competitor B,88,77,3080,83344.48,2024
+9000000584,Provider_HCP0584,Synthetic,IL City,IL,Oncology/Hematology,Roventra,roventra,Launch product,13,13,754,4344.29,2024
+9000000585,Provider_HCP0585,Synthetic,NJ City,NJ,Rheumatology,Vexpro,vexpro,Competitor B,17,15,1428,8037.5,2024
+9000000586,Provider_HCP0586,Synthetic,IL City,IL,Family Practice,Roventra,roventra,Launch product,270,219,21870,137523.37,2024
+9000000587,Provider_HCP0587,Synthetic,OH City,OH,Endocrinology,Roventra,roventra,Launch product,105,86,5460,81383.18,2024
+9000000587,Provider_HCP0587,Synthetic,OH City,OH,Endocrinology,Nexoral,nexoral,Competitor A,206,200,14214,119626.6,2024
+9000000588,Provider_HCP0588,Synthetic,NY City,NY,Cardiology,Roventra,roventra,Launch product,147,119,11319,114772.55,2024
+9000000588,Provider_HCP0588,Synthetic,NY City,NY,Cardiology,Nexoral,nexoral,Competitor A,228,190,16188,199018.11,2024
+9000000589,Provider_HCP0589,Synthetic,WA City,WA,Family Practice,Nexoral,nexoral,Competitor A,30,11,2010,13917.25,2024
+9000000589,Provider_HCP0589,Synthetic,WA City,WA,Family Practice,Vexpro,vexpro,Competitor B,59,27,5015,18469.86,2024
+9000000590,Provider_HCP0590,Synthetic,TX City,TX,Pulmonology,Vexpro,vexpro,Competitor B,249,172,8217,65077.37,2024
+9000000591,Provider_HCP0591,Synthetic,IL City,IL,Family Practice,Nexoral,nexoral,Competitor A,299,82,12259,333031.83,2024
+9000000591,Provider_HCP0591,Synthetic,IL City,IL,Family Practice,Vexpro,vexpro,Competitor B,54,26,3780,47634.39,2024
+9000000592,Provider_HCP0592,Synthetic,NY City,NY,Rheumatology,Nexoral,nexoral,Competitor A,185,169,9805,127287.95,2024
+9000000593,Provider_HCP0593,Synthetic,OH City,OH,Oncology/Hematology,Nexoral,nexoral,Competitor A,169,82,6084,123093.26,2024
+9000000593,Provider_HCP0593,Synthetic,OH City,OH,Oncology/Hematology,Vexpro,vexpro,Competitor B,254,132,13716,180882.07,2024
+9000000594,Provider_HCP0594,Synthetic,TX City,TX,Endocrinology,Vexpro,vexpro,Competitor B,207,82,11385,122536.47,2024
+9000000594,Provider_HCP0594,Synthetic,TX City,TX,Endocrinology,Nexoral,nexoral,Competitor A,224,94,19040,186855.85,2024
+9000000595,Provider_HCP0595,Synthetic,WA City,WA,Family Practice,Vexpro,vexpro,Competitor B,217,51,15624,123641.62,2024
+9000000596,Provider_HCP0596,Synthetic,IL City,IL,Family Practice,Nexoral,nexoral,Competitor A,180,39,10980,114837.56,2024
+9000000596,Provider_HCP0596,Synthetic,IL City,IL,Family Practice,Vexpro,vexpro,Competitor B,94,66,6204,49872.13,2024
+9000000597,Provider_HCP0597,Synthetic,WA City,WA,Rheumatology,Vexpro,vexpro,Competitor B,154,12,4774,23397.46,2024
+9000000597,Provider_HCP0597,Synthetic,WA City,WA,Rheumatology,Roventra,roventra,Launch product,37,11,2849,5904.47,2024
+9000000598,Provider_HCP0598,Synthetic,GA City,GA,Oncology/Hematology,Vexpro,vexpro,Competitor B,289,269,24565,57783.42,2024
+9000000598,Provider_HCP0598,Synthetic,GA City,GA,Oncology/Hematology,Nexoral,nexoral,Competitor A,28,20,2492,28841.71,2024
+9000000598,Provider_HCP0598,Synthetic,GA City,GA,Oncology/Hematology,Roventra,roventra,Launch product,53,33,4611,62125.32,2024
+9000000599,Provider_HCP0599,Synthetic,NY City,NY,Family Practice,Nexoral,nexoral,Competitor A,188,126,6768,202842.98,2024
+9000000599,Provider_HCP0599,Synthetic,NY City,NY,Family Practice,Vexpro,vexpro,Competitor B,203,32,8120,138858.4,2024
+9000000600,Provider_HCP0600,Synthetic,NJ City,NJ,Family Practice,Nexoral,nexoral,Competitor A,111,25,6327,123619.71,2024
+9000000601,Provider_HCP0601,Synthetic,NY City,NY,Oncology/Hematology,Roventra,roventra,Launch product,164,15,8528,187814.33,2024
+9000000601,Provider_HCP0601,Synthetic,NY City,NY,Oncology/Hematology,Vexpro,vexpro,Competitor B,149,31,8791,136180.61,2024
+9000000601,Provider_HCP0601,Synthetic,NY City,NY,Oncology/Hematology,Nexoral,nexoral,Competitor A,42,25,2184,29771.87,2024
+9000000602,Provider_HCP0602,Synthetic,OH City,OH,Family Practice,Nexoral,nexoral,Competitor A,125,103,8500,110865.93,2024
+9000000602,Provider_HCP0602,Synthetic,OH City,OH,Family Practice,Vexpro,vexpro,Competitor B,95,49,6555,87564.15,2024
+9000000602,Provider_HCP0602,Synthetic,OH City,OH,Family Practice,Roventra,roventra,Launch product,234,215,19656,105660.76,2024
+9000000603,Provider_HCP0603,Synthetic,MI City,MI,Rheumatology,Vexpro,vexpro,Competitor B,214,183,9630,91116.49,2024
+9000000603,Provider_HCP0603,Synthetic,MI City,MI,Rheumatology,Roventra,roventra,Launch product,51,43,1836,60392.33,2024
+9000000604,Provider_HCP0604,Synthetic,GA City,GA,Family Practice,Vexpro,vexpro,Competitor B,179,77,12351,25102.94,2024
+9000000605,Provider_HCP0605,Synthetic,GA City,GA,Cardiology,Vexpro,vexpro,Competitor B,159,13,5724,107902.6,2024
+9000000606,Provider_HCP0606,Synthetic,NY City,NY,Pulmonology,Vexpro,vexpro,Competitor B,123,56,6765,101358.25,2024
+9000000606,Provider_HCP0606,Synthetic,NY City,NY,Pulmonology,Nexoral,nexoral,Competitor A,14,14,784,10420.61,2024
+9000000607,Provider_HCP0607,Synthetic,NY City,NY,Endocrinology,Nexoral,nexoral,Competitor A,33,24,1254,31181.04,2024
+9000000607,Provider_HCP0607,Synthetic,NY City,NY,Endocrinology,Roventra,roventra,Launch product,91,48,2730,57021.4,2024
+9000000607,Provider_HCP0607,Synthetic,NY City,NY,Endocrinology,Vexpro,vexpro,Competitor B,284,212,11076,136738.59,2024
+9000000608,Provider_HCP0608,Synthetic,IL City,IL,Pulmonology,Vexpro,vexpro,Competitor B,108,84,7128,62211.62,2024
+9000000609,Provider_HCP0609,Synthetic,MI City,MI,Oncology/Hematology,Nexoral,nexoral,Competitor A,135,70,9450,29462.11,2024
+9000000610,Provider_HCP0610,Synthetic,GA City,GA,Family Practice,Roventra,roventra,Launch product,106,51,7632,122891.27,2024
+9000000610,Provider_HCP0610,Synthetic,GA City,GA,Family Practice,Nexoral,nexoral,Competitor A,124,13,7440,47041.04,2024
+9000000610,Provider_HCP0610,Synthetic,GA City,GA,Family Practice,Vexpro,vexpro,Competitor B,185,184,10915,28817.51,2024
+9000000611,Provider_HCP0611,Synthetic,TX City,TX,Cardiology,Vexpro,vexpro,Competitor B,226,166,16272,99336.56,2024
+9000000611,Provider_HCP0611,Synthetic,TX City,TX,Cardiology,Nexoral,nexoral,Competitor A,96,22,6720,33548.71,2024
+9000000612,Provider_HCP0612,Synthetic,NY City,NY,Oncology/Hematology,Roventra,roventra,Launch product,161,90,10143,15493.72,2024
+9000000612,Provider_HCP0612,Synthetic,NY City,NY,Oncology/Hematology,Nexoral,nexoral,Competitor A,173,148,7266,94141.05,2024
+9000000612,Provider_HCP0612,Synthetic,NY City,NY,Oncology/Hematology,Vexpro,vexpro,Competitor B,127,93,8763,133411.9,2024
+9000000613,Provider_HCP0613,Synthetic,TX City,TX,Oncology/Hematology,Nexoral,nexoral,Competitor A,77,51,2695,78727.1,2024
+9000000613,Provider_HCP0613,Synthetic,TX City,TX,Oncology/Hematology,Vexpro,vexpro,Competitor B,187,149,16269,144947.68,2024
+9000000614,Provider_HCP0614,Synthetic,NY City,NY,Rheumatology,Roventra,roventra,Launch product,224,213,12768,30405.63,2024
+9000000614,Provider_HCP0614,Synthetic,NY City,NY,Rheumatology,Vexpro,vexpro,Competitor B,233,143,14213,91650.54,2024
+9000000615,Provider_HCP0615,Synthetic,CA City,CA,Cardiology,Vexpro,vexpro,Competitor B,69,21,4554,52545.19,2024
+9000000615,Provider_HCP0615,Synthetic,CA City,CA,Cardiology,Nexoral,nexoral,Competitor A,262,99,20174,239023.93,2024
+9000000616,Provider_HCP0616,Synthetic,CA City,CA,Oncology/Hematology,Vexpro,vexpro,Competitor B,23,16,1288,20647.52,2024
+9000000617,Provider_HCP0617,Synthetic,PA City,PA,Family Practice,Nexoral,nexoral,Competitor A,101,35,7575,22788.79,2024
+9000000617,Provider_HCP0617,Synthetic,PA City,PA,Family Practice,Vexpro,vexpro,Competitor B,119,92,6545,42462.15,2024
+9000000618,Provider_HCP0618,Synthetic,GA City,GA,Family Practice,Nexoral,nexoral,Competitor A,245,151,16415,264654.9,2024
+9000000619,Provider_HCP0619,Synthetic,TX City,TX,Rheumatology,Vexpro,vexpro,Competitor B,248,32,18352,291546.32,2024
+9000000620,Provider_HCP0620,Synthetic,NY City,NY,Endocrinology,Nexoral,nexoral,Competitor A,59,12,5251,15638.32,2024
+9000000621,Provider_HCP0621,Synthetic,NY City,NY,Cardiology,Vexpro,vexpro,Competitor B,117,53,7605,56829.76,2024
+9000000621,Provider_HCP0621,Synthetic,NY City,NY,Cardiology,Nexoral,nexoral,Competitor A,289,122,14161,277546.99,2024
+9000000622,Provider_HCP0622,Synthetic,OH City,OH,Cardiology,Vexpro,vexpro,Competitor B,169,156,4901,163203.17,2024
+9000000623,Provider_HCP0623,Synthetic,MI City,MI,Oncology/Hematology,Nexoral,nexoral,Competitor A,68,65,4420,11303.0,2024
+9000000623,Provider_HCP0623,Synthetic,MI City,MI,Oncology/Hematology,Vexpro,vexpro,Competitor B,268,82,16348,250992.68,2024
+9000000624,Provider_HCP0624,Synthetic,NJ City,NJ,Rheumatology,Vexpro,vexpro,Competitor B,205,78,11480,205153.22,2024
+9000000624,Provider_HCP0624,Synthetic,NJ City,NJ,Rheumatology,Nexoral,nexoral,Competitor A,234,175,7254,241991.26,2024
+9000000625,Provider_HCP0625,Synthetic,MI City,MI,Pulmonology,Nexoral,nexoral,Competitor A,142,121,11360,43459.28,2024
+9000000625,Provider_HCP0625,Synthetic,MI City,MI,Pulmonology,Vexpro,vexpro,Competitor B,205,123,18040,21107.55,2024
+9000000625,Provider_HCP0625,Synthetic,MI City,MI,Pulmonology,Roventra,roventra,Launch product,112,105,5600,61920.5,2024
+9000000626,Provider_HCP0626,Synthetic,MI City,MI,Cardiology,Nexoral,nexoral,Competitor A,217,105,18228,31497.64,2024
+9000000626,Provider_HCP0626,Synthetic,MI City,MI,Cardiology,Vexpro,vexpro,Competitor B,278,128,19182,198943.69,2024
+9000000626,Provider_HCP0626,Synthetic,MI City,MI,Cardiology,Roventra,roventra,Launch product,197,163,7880,38105.24,2024
+9000000627,Provider_HCP0627,Synthetic,GA City,GA,Endocrinology,Nexoral,nexoral,Competitor A,149,31,8940,55508.78,2024
+9000000627,Provider_HCP0627,Synthetic,GA City,GA,Endocrinology,Vexpro,vexpro,Competitor B,178,57,9078,204902.46,2024
+9000000628,Provider_HCP0628,Synthetic,NJ City,NJ,Pulmonology,Vexpro,vexpro,Competitor B,116,18,10208,130820.37,2024
+9000000628,Provider_HCP0628,Synthetic,NJ City,NJ,Pulmonology,Nexoral,nexoral,Competitor A,147,14,7497,123487.31,2024
+9000000629,Provider_HCP0629,Synthetic,CA City,CA,Pulmonology,Vexpro,vexpro,Competitor B,20,16,1160,20699.86,2024
+9000000630,Provider_HCP0630,Synthetic,WA City,WA,Family Practice,Roventra,roventra,Launch product,263,253,17358,26155.17,2024
+9000000630,Provider_HCP0630,Synthetic,WA City,WA,Family Practice,Nexoral,nexoral,Competitor A,250,134,20750,170702.59,2024
+9000000631,Provider_HCP0631,Synthetic,MI City,MI,Endocrinology,Roventra,roventra,Launch product,137,134,12193,81399.99,2024
+9000000631,Provider_HCP0631,Synthetic,MI City,MI,Endocrinology,Vexpro,vexpro,Competitor B,36,23,1224,12814.5,2024
+9000000632,Provider_HCP0632,Synthetic,MI City,MI,Oncology/Hematology,Vexpro,vexpro,Competitor B,68,30,3876,68417.12,2024
+9000000632,Provider_HCP0632,Synthetic,MI City,MI,Oncology/Hematology,Nexoral,nexoral,Competitor A,18,13,756,13254.49,2024
+9000000633,Provider_HCP0633,Synthetic,PA City,PA,Family Practice,Roventra,roventra,Launch product,291,40,21243,293663.37,2024
+9000000633,Provider_HCP0633,Synthetic,PA City,PA,Family Practice,Nexoral,nexoral,Competitor A,205,109,17425,64172.36,2024
+9000000634,Provider_HCP0634,Synthetic,MI City,MI,Pulmonology,Nexoral,nexoral,Competitor A,94,11,6204,74106.69,2024
+9000000634,Provider_HCP0634,Synthetic,MI City,MI,Pulmonology,Vexpro,vexpro,Competitor B,22,12,1232,4011.33,2024
+9000000635,Provider_HCP0635,Synthetic,AZ City,AZ,Family Practice,Nexoral,nexoral,Competitor A,35,26,3150,41844.46,2024
+9000000635,Provider_HCP0635,Synthetic,AZ City,AZ,Family Practice,Vexpro,vexpro,Competitor B,142,14,7242,36928.42,2024
+9000000636,Provider_HCP0636,Synthetic,PA City,PA,Endocrinology,Vexpro,vexpro,Competitor B,208,202,8736,43695.29,2024
+9000000637,Provider_HCP0637,Synthetic,PA City,PA,Oncology/Hematology,Nexoral,nexoral,Competitor A,236,170,19588,93234.45,2024
+9000000637,Provider_HCP0637,Synthetic,PA City,PA,Oncology/Hematology,Vexpro,vexpro,Competitor B,253,18,18975,93379.23,2024
+9000000638,Provider_HCP0638,Synthetic,FL City,FL,Oncology/Hematology,Vexpro,vexpro,Competitor B,84,35,2520,37837.48,2024
+9000000638,Provider_HCP0638,Synthetic,FL City,FL,Oncology/Hematology,Roventra,roventra,Launch product,123,53,5904,22801.43,2024
+9000000638,Provider_HCP0638,Synthetic,FL City,FL,Oncology/Hematology,Nexoral,nexoral,Competitor A,87,72,4002,18009.56,2024
+9000000639,Provider_HCP0639,Synthetic,WA City,WA,Cardiology,Roventra,roventra,Launch product,139,137,7645,96404.58,2024
+9000000639,Provider_HCP0639,Synthetic,WA City,WA,Cardiology,Vexpro,vexpro,Competitor B,92,14,4048,84502.22,2024
+9000000640,Provider_HCP0640,Synthetic,FL City,FL,Family Practice,Nexoral,nexoral,Competitor A,282,251,18048,295717.09,2024
+9000000640,Provider_HCP0640,Synthetic,FL City,FL,Family Practice,Vexpro,vexpro,Competitor B,279,258,25110,111625.08,2024
+9000000641,Provider_HCP0641,Synthetic,IL City,IL,Cardiology,Nexoral,nexoral,Competitor A,65,21,4615,65519.81,2024
+9000000641,Provider_HCP0641,Synthetic,IL City,IL,Cardiology,Vexpro,vexpro,Competitor B,262,130,17030,66093.48,2024
+9000000642,Provider_HCP0642,Synthetic,CA City,CA,Family Practice,Vexpro,vexpro,Competitor B,99,84,6930,42167.76,2024
+9000000643,Provider_HCP0643,Synthetic,NJ City,NJ,Family Practice,Roventra,roventra,Launch product,191,28,6494,26009.65,2024
+9000000644,Provider_HCP0644,Synthetic,NJ City,NJ,Pulmonology,Vexpro,vexpro,Competitor B,213,167,16614,27812.12,2024
+9000000645,Provider_HCP0645,Synthetic,NY City,NY,Rheumatology,Nexoral,nexoral,Competitor A,230,29,19090,177458.21,2024
+9000000645,Provider_HCP0645,Synthetic,NY City,NY,Rheumatology,Vexpro,vexpro,Competitor B,46,46,2208,29591.26,2024
+9000000646,Provider_HCP0646,Synthetic,PA City,PA,Pulmonology,Vexpro,vexpro,Competitor B,87,29,3045,27023.62,2024
+9000000646,Provider_HCP0646,Synthetic,PA City,PA,Pulmonology,Nexoral,nexoral,Competitor A,83,47,7387,88983.09,2024
+9000000647,Provider_HCP0647,Synthetic,NY City,NY,Endocrinology,Nexoral,nexoral,Competitor A,291,275,17751,344343.88,2024
+9000000648,Provider_HCP0648,Synthetic,PA City,PA,Family Practice,Vexpro,vexpro,Competitor B,29,28,1247,6791.87,2024
+9000000648,Provider_HCP0648,Synthetic,PA City,PA,Family Practice,Nexoral,nexoral,Competitor A,236,218,20768,69614.42,2024
+9000000649,Provider_HCP0649,Synthetic,TX City,TX,Endocrinology,Nexoral,nexoral,Competitor A,93,87,7161,32659.97,2024
+9000000649,Provider_HCP0649,Synthetic,TX City,TX,Endocrinology,Vexpro,vexpro,Competitor B,98,35,4508,103215.01,2024
+9000000650,Provider_HCP0650,Synthetic,OH City,OH,Endocrinology,Nexoral,nexoral,Competitor A,199,148,7960,171214.96,2024
+9000000651,Provider_HCP0651,Synthetic,MI City,MI,Family Practice,Vexpro,vexpro,Competitor B,271,43,13279,255523.54,2024
+9000000651,Provider_HCP0651,Synthetic,MI City,MI,Family Practice,Nexoral,nexoral,Competitor A,140,136,4340,15060.54,2024
+9000000652,Provider_HCP0652,Synthetic,WA City,WA,Endocrinology,Roventra,roventra,Launch product,196,100,5880,188183.83,2024
+9000000653,Provider_HCP0653,Synthetic,NY City,NY,Family Practice,Roventra,roventra,Launch product,11,11,902,3890.03,2024
+9000000653,Provider_HCP0653,Synthetic,NY City,NY,Family Practice,Vexpro,vexpro,Competitor B,108,20,4644,57959.92,2024
+9000000653,Provider_HCP0653,Synthetic,NY City,NY,Family Practice,Nexoral,nexoral,Competitor A,31,14,1736,7685.94,2024
+9000000654,Provider_HCP0654,Synthetic,NJ City,NJ,Oncology/Hematology,Vexpro,vexpro,Competitor B,284,75,9940,246299.27,2024
+9000000654,Provider_HCP0654,Synthetic,NJ City,NJ,Oncology/Hematology,Nexoral,nexoral,Competitor A,218,202,13952,57686.54,2024
+9000000655,Provider_HCP0655,Synthetic,TX City,TX,Pulmonology,Roventra,roventra,Launch product,191,160,15853,58997.75,2024
+9000000655,Provider_HCP0655,Synthetic,TX City,TX,Pulmonology,Vexpro,vexpro,Competitor B,280,163,10360,242210.73,2024
+9000000655,Provider_HCP0655,Synthetic,TX City,TX,Pulmonology,Nexoral,nexoral,Competitor A,14,13,1036,6309.51,2024
+9000000656,Provider_HCP0656,Synthetic,GA City,GA,Pulmonology,Vexpro,vexpro,Competitor B,71,30,3053,81701.59,2024
+9000000656,Provider_HCP0656,Synthetic,GA City,GA,Pulmonology,Nexoral,nexoral,Competitor A,252,70,19656,49069.55,2024
+9000000657,Provider_HCP0657,Synthetic,PA City,PA,Rheumatology,Nexoral,nexoral,Competitor A,296,145,26640,208799.15,2024
+9000000657,Provider_HCP0657,Synthetic,PA City,PA,Rheumatology,Roventra,roventra,Launch product,34,34,1292,4880.88,2024
+9000000658,Provider_HCP0658,Synthetic,NJ City,NJ,Cardiology,Nexoral,nexoral,Competitor A,84,42,6132,17095.83,2024
+9000000659,Provider_HCP0659,Synthetic,MI City,MI,Oncology/Hematology,Vexpro,vexpro,Competitor B,234,81,8424,195104.85,2024
+9000000660,Provider_HCP0660,Synthetic,IL City,IL,Cardiology,Nexoral,nexoral,Competitor A,209,53,13585,101846.78,2024
+9000000661,Provider_HCP0661,Synthetic,GA City,GA,Pulmonology,Nexoral,nexoral,Competitor A,193,71,8685,124776.76,2024
+9000000661,Provider_HCP0661,Synthetic,GA City,GA,Pulmonology,Roventra,roventra,Launch product,113,20,5763,76863.61,2024
+9000000662,Provider_HCP0662,Synthetic,GA City,GA,Cardiology,Nexoral,nexoral,Competitor A,259,231,17612,297182.3,2024
+9000000663,Provider_HCP0663,Synthetic,PA City,PA,Family Practice,Nexoral,nexoral,Competitor A,275,82,14025,96181.07,2024
+9000000664,Provider_HCP0664,Synthetic,GA City,GA,Cardiology,Nexoral,nexoral,Competitor A,43,14,1935,23461.42,2024
+9000000665,Provider_HCP0665,Synthetic,NJ City,NJ,Oncology/Hematology,Vexpro,vexpro,Competitor B,170,142,11900,148167.07,2024
+9000000666,Provider_HCP0666,Synthetic,IL City,IL,Oncology/Hematology,Vexpro,vexpro,Competitor B,121,81,7865,127368.62,2024
+9000000666,Provider_HCP0666,Synthetic,IL City,IL,Oncology/Hematology,Nexoral,nexoral,Competitor A,78,38,6864,30701.84,2024

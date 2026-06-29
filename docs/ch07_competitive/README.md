@@ -1,24 +1,30 @@
 # Chapter 7: Competitive Intelligence and Market Access
 
-Welcome to Chapter 7! This chapter distinguishes payer access barriers from adoption gaps—two different problems requiring different solutions.
+Generate the Chapter 7 supplemental data:
 
-## What You'll Learn
+```bash
+uv run python ch07_competitive/generation_modules/generate_ch07_data.py
+```
 
-In this chapter, you'll discover:
-- **Effective-dated access landscape** - Map coverage, restrictions, and utilization management across payer-region cells
-- **Plan coverage and covered lives** - Calculate different access measures with proper weighting and denominators
-- **Prescription reconstruction** - Trace patient attempts through approval, denial, and fulfillment outcomes
-- **Corrected first-treatment share** - Measure Roventra uptake with uncertainty, corrected for treatment washout
-- **Access vs. adoption gaps** - Identify whether payer controls or product adoption drive observed patterns
-- **Decision tables** - Build traceable evidence tables with policy state, exposure, outcome, start count, owner, and rule version
-- **Payer-region strategy** - Route evidence to market access (for coverage issues) vs. adoption teams (for demand issues)
+Run the analysis and figures:
 
-## Read the Full Chapter
+```bash
+uv run python ch07_competitive/scripts/run_analysis.py
+uv run python ch07_competitive/scripts/build_figures.py
+```
 
-👉 **[Start reading Chapter 7: Competitive Intelligence and Market Access](ch07_competitive_intelligence_market_access.md)**
+Build and execute the 2 companion notebooks:
 
-Also available:
-- 📓 **[Walkthrough Notebook](chapter7_walkthrough.ipynb)** - Interactive Python notebook with step-by-step code examples
-- 🧪 **[Exercise Solutions](exercise_solutions.ipynb)** - Solutions to chapter exercises
+```bash
+uv run python ch07_competitive/scripts/build_notebooks.py
+uv run jupyter nbconvert --to notebook --execute --inplace ch07_competitive/ch07_walkthrough.ipynb
+uv run jupyter nbconvert --to notebook --execute --inplace ch07_competitive/ch07_exercise_solutions.ipynb
+```
 
-This chapter teaches you to move from "Why aren't patients starting Roventra?" to "Here's the access barrier, here's the plan-by-plan evidence, and here's who owns the fix."
+Run the publication checks:
+
+```bash
+uv run pytest tests/test_ch07_competitive.py -q
+uv run ruff check ch07_competitive tests/test_ch07_competitive.py
+uv run python ch07_competitive/scripts/verify_chapter_blocks.py
+```

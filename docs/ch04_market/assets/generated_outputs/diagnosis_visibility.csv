@@ -1,0 +1,6 @@
+measure,patient_count
+True condition patients,9308
+True patients with any launch diagnosis code,8058
+Other-condition patients with any launch diagnosis code,155
+True positives in paid-claims phenotype,8058
+False positives in paid-claims phenotype,155

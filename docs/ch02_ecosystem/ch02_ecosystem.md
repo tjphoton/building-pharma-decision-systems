@@ -1,6 +1,6 @@
 # Chapter 2: The Commercialization Operating System
 
-On June 12, 2024, HCP0280 writes a Roventra prescription order for PAT02034 at ACC089. Treatment begins only after the office, PAY002, and the specialty pharmacy complete their parts of the path. 
+On June 12, 2024, HCP0280 writes a Roventra prescription order for PAT02034 at ACC089. Treatment begins only after the office, PAY002, and the specialty pharmacy complete their parts of the path.
 
 You will map the external checkpoints and the internal launch organization around them, then use PAT02034's path to classify an observed event, identify the external decision owner, route addressable friction to the right internal function.
 
@@ -63,7 +63,7 @@ The path creates partial records across separate operational systems. The same e
 
 PAT02034's path illustrates the separation. The EHR order is dated June 12, 2024. The specialty-pharmacy referral opens June 13. Authorization status is recorded as approved on June 18. A pharmacy claim is pended on July 2, paid on July 9, and followed by shipment on July 10. These dates describe distinct operational events in 2024.
 
-No single source covers the full path or the full patient population. Coverage scope, arrival schedule, and identifier format differ across EHR, pharmacy, hub, CRM, and formulary files; joining them into a patient-path view requires explicit rules. The synthetic data package in the next chapeter builds these records.
+No single source covers the full path or the full patient population. Coverage scope, arrival schedule, and identifier format differ across EHR, pharmacy, hub, CRM, and formulary files; joining them into a patient-path view requires explicit rules. The synthetic data package in the next chapter builds these records.
 
 ## 2.4 Summary
 

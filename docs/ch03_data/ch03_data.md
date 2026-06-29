@@ -14,7 +14,7 @@ By the end of this chapter you will be able to:
 - Recognize two pre-analysis data issues and apply the correct handling for each
 
 
-> **Note: ** Roventra is a fictional Type 2 diabetes (T2D) therapy modeled as a specialty-managed agent: prescribed mainly by endocrinologists and routed through specialty pharmacy under prior authorization and step therapy, which is why PAT02034's trace runs through an endocrinology practice rather than primary care.
+> **Note:** Roventra is a fictional Type 2 diabetes (T2D) therapy modeled as a specialty-managed agent: prescribed mainly by endocrinologists and routed through specialty pharmacy under prior authorization and step therapy, which is why PAT02034's trace runs through an endocrinology practice rather than primary care.
 
 ## 3.1 The Pharmaceutical Data Sources
 
@@ -36,7 +36,7 @@ The synthetic datasets here replace that licensed data with a transparent, rule-
 
 > **Note:** In production, vendor data usually lives in a cloud warehouse or database such as Snowflake, GCP BigQuery, or AWS Redshift, and analysts query it with SQL. For this book, we flatten the package into CSV files so the examples run locally on a laptop without warehouse credentials, network access, or privacy-controlled infrastructure. The data are synthetic and created for teaching, not for operational use.
 
-The full file inventory and field reference are in [Appendix 3A](ch03_appendix.md). Executable scripts are in `ch03_data/scripts/`. Run the code in order, or open [`chapter3_walkthrough.ipynb`](chapter3_walkthrough.ipynb) to execute it as a notebook.
+The full file inventory and field reference are in [Appendix 3A](ch03_appendix.md). Executable scripts are in `ch03_data/scripts/`. Run the code in order, or open [`ch03_walkthrough.ipynb`](ch03_walkthrough.ipynb) to execute it as a notebook.
 
 Set up the environment once from the project root:
 
@@ -595,7 +595,7 @@ Each exercise is solvable with the generated data and fewer than twenty lines of
 
 3. **Map the maturity curve.** The §3.4.1 example used December 2024. Using both `medical_claims.csv` (early snapshot) and `medical_claims_mature.csv` (mature), compute the endocrinology T2D completeness percentage for every service month in 2024. Which three months are most incomplete in the early snapshot? At what completeness threshold would you set the maturity cutoff if your publication lag is two weeks? What months would be excluded at that threshold, and how would that affect a full-year trend analysis?
 
-Two companion notebooks ship with the chapter: [`chapter3_walkthrough.ipynb`](chapter3_walkthrough.ipynb) executes every section in sequence, and [`exercise_solutions.ipynb`](exercise_solutions.ipynb) works all three exercises with full discussion. Attempt the exercises before consulting the solutions.
+Two companion notebooks ship with the chapter: [`ch03_walkthrough.ipynb`](ch03_walkthrough.ipynb) executes every section in sequence, and [`ch03_exercise_solutions.ipynb`](ch03_exercise_solutions.ipynb) works all three exercises with full discussion. Attempt the exercises before consulting the solutions.
 
 The market sizing analysis uses the synthetic patients, claims, and lab results to build the opportunity funnel. PAT02034 returns in the targeting analysis; other traced patients enter as therapy-switch and undiagnosed-candidate patterns call for specific records.
 

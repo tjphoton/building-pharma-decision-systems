@@ -1,0 +1,14 @@
+history_id,plan_id,plan_name,product_name,quarter,effective_date,prior_tier,new_tier,prior_prior_authorization,new_prior_authorization,prior_step_therapy,new_step_therapy,prior_quantity_limit,new_quantity_limit,prior_specialty_pharmacy,new_specialty_pharmacy,change_type
+FH000001,PAY001,Northeast Commercial Plan 1,Vexpro,2024-Q1,2024-01-01,Specialty,Specialty,Yes,No,No,No,Yes,Yes,No,No,Restriction change
+FH000003,PAY002,South Commercial Plan 2,Nexoral,2024-Q1,2024-01-01,Tier 2,Tier 1,Yes,Yes,Yes,Yes,No,No,Yes,Yes,Tier change
+FH000004,PAY002,South Commercial Plan 2,Nexoral,2024-Q4,2024-10-01,Tier 1,Tier 1,Yes,No,Yes,Yes,No,No,Yes,Yes,Restriction change
+FH000005,PAY003,Midwest Commercial Plan 3,Nexoral,2024-Q1,2024-01-01,Tier 1,Tier 1,No,Yes,Yes,Yes,No,No,Yes,Yes,Restriction change
+FH000006,PAY004,Northeast Medicare Advantage Plan 4,Roventra,2024-Q1,2024-01-01,Tier 2,Tier 2,Yes,Yes,No,No,No,Yes,Yes,Yes,Restriction change
+FH000007,PAY004,Northeast Medicare Advantage Plan 4,Roventra,2024-Q2,2024-04-01,Tier 2,Tier 2,Yes,Yes,No,No,Yes,No,Yes,Yes,Restriction change
+FH000008,PAY005,South Medicare Advantage Plan 5,Roventra,2024-Q1,2024-01-01,Specialty,Specialty,Yes,Yes,No,No,No,No,Yes,No,Restriction change
+FH000009,PAY005,South Medicare Advantage Plan 5,Roventra,2024-Q3,2024-07-01,Specialty,Specialty,Yes,Yes,No,No,No,Yes,No,No,Restriction change
+FH000010,PAY005,South Medicare Advantage Plan 5,Nexoral,2024-Q2,2024-04-01,Tier 2,Tier 2,Yes,Yes,Yes,Yes,No,No,Yes,No,Restriction change
+FH000011,PAY005,South Medicare Advantage Plan 5,Nexoral,2024-Q3,2024-07-01,Tier 2,Tier 2,Yes,Yes,Yes,No,No,No,No,No,Restriction change
+FH000012,PAY005,South Medicare Advantage Plan 5,Vexpro,2024-Q2,2024-04-01,Tier 2,Tier 2,No,No,No,Yes,Yes,Yes,Yes,Yes,Restriction change
+FH000013,PAY008,West Commercial Plan 8,Roventra,2024-Q2,2024-04-01,Tier 1,Tier 1,Yes,Yes,No,No,Yes,Yes,No,Yes,Restriction change
+FH000014,PAY008,West Commercial Plan 8,Vexpro,2024-Q2,2024-04-01,Tier 2,Tier 2,No,No,No,Yes,Yes,Yes,No,No,Restriction change

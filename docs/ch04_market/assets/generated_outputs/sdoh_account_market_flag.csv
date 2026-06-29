@@ -1,0 +1,21 @@
+account_id,area_id,sdoh_barrier_quintile,true_condition_patients,observed_diagnosed,estimated_unobserved,market_review,diagnosis_pathway_flag
+ACCT18,AREA18,5,49,21,28,Yes,Review diagnosis pathway coverage
+ACCT20,AREA20,5,50,23,27,Yes,Review diagnosis pathway coverage
+ACCT13,AREA13,4,45,19,26,Yes,Review diagnosis pathway coverage
+ACCT16,AREA16,4,52,26,26,Yes,Review diagnosis pathway coverage
+ACCT17,AREA17,5,54,28,26,Yes,Review diagnosis pathway coverage
+ACCT19,AREA19,5,49,25,24,Yes,Review diagnosis pathway coverage
+ACCT15,AREA15,4,43,23,20,Yes,Review diagnosis pathway coverage
+ACCT10,AREA10,3,58,26,32,No,Standard planning
+ACCT12,AREA12,3,66,42,24,No,Standard planning
+ACCT06,AREA06,2,42,26,16,No,Standard planning
+ACCT11,AREA11,3,50,34,16,No,Standard planning
+ACCT07,AREA07,2,45,30,15,No,Standard planning
+ACCT04,AREA04,1,45,32,13,No,Standard planning
+ACCT09,AREA09,3,42,29,13,No,Standard planning
+ACCT14,AREA14,4,44,31,13,No,Standard planning
+ACCT05,AREA05,2,46,35,11,No,Standard planning
+ACCT08,AREA08,2,54,43,11,No,Standard planning
+ACCT01,AREA01,1,41,32,9,No,Standard planning
+ACCT02,AREA02,1,43,35,8,No,Standard planning
+ACCT03,AREA03,1,37,30,7,No,Standard planning
