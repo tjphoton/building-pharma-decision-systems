@@ -34,39 +34,46 @@ print(f"Planning HCP-account rows: {len(results['channel_plan']):,}")
     Planning HCP-account rows: 158
 
 
-## 1. Count email opens as meaningful responses
+## 1. Audit the snapshot boundary
 
 
 
 ```python
-from ch08_omnichannel.scripts.features import build_snapshot_panel
-from ch08_omnichannel.scripts.modeling import fit_response_model
-from ch08_omnichannel.scripts.run_analysis import load_inputs
-
 ledger = results["event_ledger"].copy()
-ledger.loc[
-    ledger.channel.eq("Email") & ledger.response_type.eq("Opened"),
-    "meaningful_response",
-] = True
-inputs = load_inputs(ROOT)
-panel = build_snapshot_panel(
-    ledger, inputs["hcp_features"], inputs["hcp_segments"],
-    inputs["engagement_signals"], inputs["account_targets"],
-    inputs["account_actions"],
-)
-loose = fit_response_model(panel)
-print(loose["model_metrics"].query("split == 'test'"))
+panel = results["snapshot_panel"].copy()
+row = panel.loc[
+    panel.npi.eq("9000000280")
+    & panel.snapshot_date.eq("2025-02-28")
+].iloc[0]
+events = ledger.loc[ledger.npi.eq("9000000280")].copy()
+history = events.loc[
+    events.event_date.between(row.snapshot_date - pd.Timedelta(days=89), row.snapshot_date)
+]
+future = events.loc[
+    events.event_date.gt(row.snapshot_date)
+    & events.event_date.le(row.outcome_end)
+]
+audit = pd.DataFrame([
+    ("snapshot_date", row.snapshot_date.date()),
+    ("outcome_end", row.outcome_end.date()),
+    ("prior_90_day_events", len(history)),
+    ("snapshot_total_pressure_90", int(row.total_pressure_90)),
+    ("future_events", len(future)),
+    ("snapshot_future_response", int(row.future_response)),
+])
+print(audit.to_string(index=False, header=False))
 
 ```
 
-      split  snapshots  responses  response_rate   roc_auc  average_precision  \
-    2  test        316        159       0.503165  0.696311           0.686603   
-    
-       brier_score  base_rate_brier  
-    2     0.241479         0.270875  
+                 snapshot_date 2025-02-28
+                   outcome_end 2025-03-28
+           prior_90_day_events          3
+    snapshot_total_pressure_90          3
+                 future_events          0
+      snapshot_future_response          0
 
 
-Judgment: the larger label includes machine-open noise. A higher event count weakens the response definition.
+Judgment: the feature count and outcome count come from different sides of the snapshot date. A response model that reads future events as features would leak the answer into the score.
 
 
 ## 2. Rank by uplift instead of response
@@ -109,64 +116,39 @@ print(f"only in the uplift ranking: {len(top_uplift - top_response)}")
     only in the uplift ranking: 16
 
 
-Judgment: the two rankings disagree because predicted response and uplift answer separate questions. An HCP-account row with routine response momentum is a weak use of a scarce invitation. Rank scarce programs by estimated uplift, then confirm with a holdout.
+Judgment: the two rankings disagree because predicted response and uplift answer separate questions. An HCP-account row with routine response momentum is a weak use of a scarce invitation. Rank scarce programs by estimated uplift, then flag the change for experimental confirmation.
 
 
-## 3. Create a registered holdout assignment
+## 3. Stress-test channel economics
 
 
 
 ```python
-eligible = results["channel_plan"].loc[
-    results["channel_plan"].recommended_action.isin(
-        ["Email follow-up", "Peer-program invitation", "Speaker-program invitation"]
-    ),
-    ["npi", "account_id", "recommended_action"],
-].copy()
-eligible["assignment"] = (
-    eligible.sample(frac=1, random_state=20260622)
-    .reset_index()
-    .index.map(lambda i: "Action" if i % 2 == 0 else "Holdout")
+econ = results["channel_economics"].copy()
+stress = econ.loc[econ.channel.isin(["Email", "Paid media"])].copy()
+stress.loc[stress.channel.eq("Email"), "unit_cost"] *= 2
+stress.loc[stress.channel.eq("Paid media"), "incremental_per_touch"] *= 0.5
+stress["cost_per_incremental_response"] = (
+    stress.unit_cost / stress.incremental_per_touch
 )
-eligible["outcome"] = "Meaningful response in 28 days"
-print(eligible)
+stress["unit_cost"] = stress.unit_cost.map(lambda x: f"${x:,.2f}")
+stress["incremental_per_touch"] = stress.incremental_per_touch.map(
+    lambda x: f"{x * 100:+.1f} pp"
+)
+stress["cost_per_incremental_response"] = (
+    stress.cost_per_incremental_response.map(lambda x: f"${x:,.0f}")
+)
+print(stress[[
+    "channel", "unit_cost", "incremental_per_touch",
+    "cost_per_incremental_response",
+]].to_string(index=False))
 
 ```
 
-                npi account_id          recommended_action assignment  \
-    35   9000000650     ACC210             Email follow-up     Action   
-    36   9000000406     ACC028             Email follow-up    Holdout   
-    37   9000000174     ACC032             Email follow-up     Action   
-    38   9000000658     ACC085             Email follow-up    Holdout   
-    39   9000000026     ACC226             Email follow-up     Action   
-    40   9000000522     ACC099             Email follow-up    Holdout   
-    103  9000000239     ACC009     Peer-program invitation     Action   
-    104  9000000110     ACC180     Peer-program invitation    Holdout   
-    105  9000000648     ACC199     Peer-program invitation     Action   
-    106  9000000082     ACC027     Peer-program invitation    Holdout   
-    107  9000000205     ACC229     Peer-program invitation     Action   
-    108  9000000128     ACC160  Speaker-program invitation    Holdout   
-    109  9000000204     ACC153  Speaker-program invitation     Action   
-    110  9000000232     ACC191  Speaker-program invitation    Holdout   
-    111  9000000578     ACC142  Speaker-program invitation     Action   
-    
-                                outcome  
-    35   Meaningful response in 28 days  
-    36   Meaningful response in 28 days  
-    37   Meaningful response in 28 days  
-    38   Meaningful response in 28 days  
-    39   Meaningful response in 28 days  
-    40   Meaningful response in 28 days  
-    103  Meaningful response in 28 days  
-    104  Meaningful response in 28 days  
-    105  Meaningful response in 28 days  
-    106  Meaningful response in 28 days  
-    107  Meaningful response in 28 days  
-    108  Meaningful response in 28 days  
-    109  Meaningful response in 28 days  
-    110  Meaningful response in 28 days  
-    111  Meaningful response in 28 days  
+       channel unit_cost incremental_per_touch cost_per_incremental_response
+         Email     $0.50               +1.4 pp                           $35
+    Paid media     $1.40               +0.5 pp                          $285
 
 
-Judgment: register eligibility, assignment, the 28-day meaningful-response outcome, and post-assignment exclusions before execution.
+Judgment: email remains cheaper per incremental response after its cost doubles, while paid media becomes less attractive when its lift assumption weakens. Cost, lift, and credit must be read together.
 

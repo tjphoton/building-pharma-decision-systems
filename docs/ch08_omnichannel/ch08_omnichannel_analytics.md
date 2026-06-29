@@ -2,7 +2,7 @@
 
 The HCP targeting provides account priority, access flags, and field capacity. The commercial decision now is: what engagement action should run in the next 4 weeks, and on which channel?
 
-In this chapter, you follow 2 HCPs, HCP0280 and HCP0389, to build the event ledger that unifies ten communication channel systems into a trusted record, a response model that predict responses, an attribution analysis that identifies which past channels are associated with response, uplift analysis that tests whether those channels actually caused it, channel economics that convert causal estimates into cost per incremental response, a governed channel plan, and a measurement contract that feeds the next-best-action engine in the next chapter.
+In this chapter, you follow 2 HCPs, HCP0280 and HCP0389, to build the event ledger that unifies 10 communication channel systems into a trusted record, a response model that predicts response, attribution analysis that identifies which past channels are associated with response, uplift analysis that tests whether those channels actually caused it, channel economics that converts causal estimates into cost per incremental response, and a governed channel-plan state that feeds the next-best-action engine.
 
 Open [`ch08_walkthrough.ipynb`](ch08_walkthrough.ipynb), or run the blocks below from the repository root.
 
@@ -610,8 +610,8 @@ The channel plan closes the omnichannel analysis and hands a dated state to the 
 
 ## 8.6 Exercises
 
-1. **Change the response definition.** Use the event ledger. Count email opens as meaningful responses, rebuild the snapshot panel, and compare the test response rate and lift table. State whether the added events represent a stronger signal or a looser label. (The event ledger and the response model.)
+1. **Audit the snapshot boundary.** Use the event ledger and snapshot panel. For HCP0280 on February 28, 2025, count prior 90-day events, count future events in the next 28 days, and compare those counts with the snapshot row. State why the response model must keep past features and future outcomes on opposite sides of the snapshot date. (Past state and later outcome.)
 2. **Rank by uplift.** Use the uplift output. Select the 16 promotional slots by estimated uplift, then compare which HCP-account rows enter the plan under the response-ranked version. State which rows drop out and why a sure-thing responder might be a weak use of a scarce program invitation. (Incrementality.)
-3. **Design a holdout.** Use the measurement contract. Select the HCP-account rows eligible for email, peer-program, or speaker-program follow-up, assign 50% to holdout with a fixed seed, and produce an assignment table in fewer than 20 lines. Name the primary outcome, window, and exclusion rule you would register before execution. (The measurement contract.)
+3. **Stress-test channel economics.** Use the channel economics table. Double the unit cost of email and cut paid media's incremental response by half, then recompute cost per incremental response for both channels. State whether the ranking changes and which assumption drives the change. (Credit, lift, and cost.)
 
 Worked solutions are in [`ch08_exercise_solutions.ipynb`](ch08_exercise_solutions.ipynb). Each solution ends with the judgment an analyst should record for real data.
