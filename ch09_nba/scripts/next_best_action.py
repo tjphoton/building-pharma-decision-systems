@@ -243,7 +243,7 @@ def generate_candidates(state: pd.DataFrame) -> pd.DataFrame:
                 "Field conversation",
                 promo_ok and gate["priority"] and field_capacity,
                 PRECEDENCE["Field conversation"],
-                "Priority relationship with permitted field capacity",
+                "Priority HCP-account row with permitted field capacity",
             ),
             (
                 "Program invitation",
@@ -272,7 +272,7 @@ def generate_candidates(state: pd.DataFrame) -> pd.DataFrame:
                 "Monitor",
                 not suppressed and not access_route,
                 PRECEDENCE["Monitor"],
-                "Eligible relationship without a stronger action signal",
+                "Eligible HCP-account row without a stronger action signal",
             ),
         ]
         for action, eligible, precedence, reason in menu:
@@ -532,7 +532,7 @@ def reward_overlap(candidates: pd.DataFrame, top_k: int = 20) -> pd.DataFrame:
     top_uplift = set(promotional.nsmallest(top_k, "rank_by_uplift")["npi"])
     return pd.DataFrame(
         [
-            {"metric": "Promotional-eligible relationships", "value": float(len(promotional))},
+            {"metric": "Promotional-eligible HCP-account rows", "value": float(len(promotional))},
             {"metric": "Spearman response vs uplift", "value": round(rho, 3)},
             {"metric": f"Top-{top_k} shared by both rankings", "value": float(len(top_response & top_uplift))},
             {"metric": f"Top-{top_k} only in response ranking", "value": float(len(top_response - top_uplift))},
@@ -819,8 +819,8 @@ def precedence_experiment_design(recommendations: pd.DataFrame) -> pd.DataFrame:
             {"parameter": "Minimum detectable effect", "value": MINIMUM_DETECTABLE_EFFECT},
             {"parameter": "Power", "value": POWER_TARGET},
             {"parameter": "Two-sided alpha", "value": ALPHA},
-            {"parameter": "Required relationships per arm", "value": per_arm},
-            {"parameter": "Eligible relationships this cycle", "value": eligible},
+            {"parameter": "Required HCP-account rows per arm", "value": per_arm},
+            {"parameter": "Eligible HCP-account rows this cycle", "value": eligible},
             {"parameter": "Cycles to reach both arms", "value": cycles},
         ]
     )

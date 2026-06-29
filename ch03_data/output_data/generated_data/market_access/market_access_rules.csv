@@ -1,0 +1,97 @@
+access_rule_id,payer_id,payer_type,region,product_name,coverage_status,prior_authorization,step_edit,specialty_pharmacy_required,effective_start,effective_end
+AR000001,PAY001,Commercial,Northeast,Roventra,Covered with Step Edit,No,Yes,Yes,2024-01-01,2025-12-31
+AR000002,PAY001,Commercial,South,Roventra,Covered with Step Edit,No,Yes,Yes,2024-01-01,2025-12-31
+AR000003,PAY001,Commercial,Midwest,Roventra,Covered with Step Edit,No,Yes,Yes,2024-01-01,2025-12-31
+AR000004,PAY001,Commercial,West,Roventra,Covered with Step Edit,No,Yes,Yes,2024-01-01,2025-12-31
+AR000005,PAY001,Commercial,Northeast,Nexoral,Non-covered,No,No,Yes,2024-01-01,2025-12-31
+AR000006,PAY001,Commercial,South,Nexoral,Non-covered,No,No,Yes,2024-01-01,2025-12-31
+AR000007,PAY001,Commercial,Midwest,Nexoral,Non-covered,No,No,Yes,2024-01-01,2025-12-31
+AR000008,PAY001,Commercial,West,Nexoral,Non-covered,No,No,Yes,2024-01-01,2025-12-31
+AR000009,PAY001,Commercial,Northeast,Vexpro,Non-covered,No,No,No,2024-01-01,2025-12-31
+AR000010,PAY001,Commercial,South,Vexpro,Non-covered,No,No,No,2024-01-01,2025-12-31
+AR000011,PAY001,Commercial,Midwest,Vexpro,Non-covered,No,No,No,2024-01-01,2025-12-31
+AR000012,PAY001,Commercial,West,Vexpro,Non-covered,No,No,No,2024-01-01,2025-12-31
+AR000013,PAY002,Commercial,Northeast,Roventra,Non-covered,Yes,Yes,Yes,2024-01-01,2025-12-31
+AR000014,PAY002,Commercial,South,Roventra,Non-covered,Yes,Yes,Yes,2024-01-01,2025-12-31
+AR000015,PAY002,Commercial,Midwest,Roventra,Non-covered,Yes,Yes,Yes,2024-01-01,2025-12-31
+AR000016,PAY002,Commercial,West,Roventra,Non-covered,Yes,Yes,Yes,2024-01-01,2025-12-31
+AR000017,PAY002,Commercial,Northeast,Nexoral,Covered with Step Edit,No,Yes,Yes,2024-01-01,2025-12-31
+AR000018,PAY002,Commercial,South,Nexoral,Covered with Step Edit,No,Yes,Yes,2024-01-01,2025-12-31
+AR000019,PAY002,Commercial,Midwest,Nexoral,Covered with Step Edit,No,Yes,Yes,2024-01-01,2025-12-31
+AR000020,PAY002,Commercial,West,Nexoral,Covered with Step Edit,No,Yes,Yes,2024-01-01,2025-12-31
+AR000021,PAY002,Commercial,Northeast,Vexpro,Covered,No,No,Yes,2024-01-01,2025-12-31
+AR000022,PAY002,Commercial,South,Vexpro,Covered,No,No,Yes,2024-01-01,2025-12-31
+AR000023,PAY002,Commercial,Midwest,Vexpro,Covered,No,No,Yes,2024-01-01,2025-12-31
+AR000024,PAY002,Commercial,West,Vexpro,Covered,No,No,Yes,2024-01-01,2025-12-31
+AR000025,PAY003,Commercial,Northeast,Roventra,Covered with PA,Yes,No,Yes,2024-01-01,2025-12-31
+AR000026,PAY003,Commercial,South,Roventra,Covered with PA,Yes,No,Yes,2024-01-01,2025-12-31
+AR000027,PAY003,Commercial,Midwest,Roventra,Covered with PA,Yes,No,Yes,2024-01-01,2025-12-31
+AR000028,PAY003,Commercial,West,Roventra,Covered with PA,Yes,No,Yes,2024-01-01,2025-12-31
+AR000029,PAY003,Commercial,Northeast,Nexoral,Covered with PA,Yes,Yes,Yes,2024-01-01,2025-12-31
+AR000030,PAY003,Commercial,South,Nexoral,Covered with PA,Yes,Yes,Yes,2024-01-01,2025-12-31
+AR000031,PAY003,Commercial,Midwest,Nexoral,Covered with PA,Yes,Yes,Yes,2024-01-01,2025-12-31
+AR000032,PAY003,Commercial,West,Nexoral,Covered with PA,Yes,Yes,Yes,2024-01-01,2025-12-31
+AR000033,PAY003,Commercial,Northeast,Vexpro,Non-covered,No,No,No,2024-01-01,2025-12-31
+AR000034,PAY003,Commercial,South,Vexpro,Non-covered,No,No,No,2024-01-01,2025-12-31
+AR000035,PAY003,Commercial,Midwest,Vexpro,Non-covered,No,No,No,2024-01-01,2025-12-31
+AR000036,PAY003,Commercial,West,Vexpro,Non-covered,No,No,No,2024-01-01,2025-12-31
+AR000037,PAY004,Medicare Advantage,Northeast,Roventra,Covered with PA,Yes,No,Yes,2024-01-01,2025-12-31
+AR000038,PAY004,Medicare Advantage,South,Roventra,Covered with PA,Yes,No,Yes,2024-01-01,2025-12-31
+AR000039,PAY004,Medicare Advantage,Midwest,Roventra,Covered with PA,Yes,No,Yes,2024-01-01,2025-12-31
+AR000040,PAY004,Medicare Advantage,West,Roventra,Covered with PA,Yes,No,Yes,2024-01-01,2025-12-31
+AR000041,PAY004,Medicare Advantage,Northeast,Nexoral,Covered with PA,Yes,No,Yes,2024-01-01,2025-12-31
+AR000042,PAY004,Medicare Advantage,South,Nexoral,Covered with PA,Yes,No,Yes,2024-01-01,2025-12-31
+AR000043,PAY004,Medicare Advantage,Midwest,Nexoral,Covered with PA,Yes,No,Yes,2024-01-01,2025-12-31
+AR000044,PAY004,Medicare Advantage,West,Nexoral,Covered with PA,Yes,No,Yes,2024-01-01,2025-12-31
+AR000045,PAY004,Medicare Advantage,Northeast,Vexpro,Covered with PA,Yes,No,No,2024-01-01,2025-12-31
+AR000046,PAY004,Medicare Advantage,South,Vexpro,Covered with PA,Yes,No,No,2024-01-01,2025-12-31
+AR000047,PAY004,Medicare Advantage,Midwest,Vexpro,Covered with PA,Yes,No,No,2024-01-01,2025-12-31
+AR000048,PAY004,Medicare Advantage,West,Vexpro,Covered with PA,Yes,No,No,2024-01-01,2025-12-31
+AR000049,PAY005,Medicare Advantage,Northeast,Roventra,Non-covered,Yes,No,No,2024-01-01,2025-12-31
+AR000050,PAY005,Medicare Advantage,South,Roventra,Non-covered,Yes,No,No,2024-01-01,2025-12-31
+AR000051,PAY005,Medicare Advantage,Midwest,Roventra,Non-covered,Yes,No,No,2024-01-01,2025-12-31
+AR000052,PAY005,Medicare Advantage,West,Roventra,Non-covered,Yes,No,No,2024-01-01,2025-12-31
+AR000053,PAY005,Medicare Advantage,Northeast,Nexoral,Covered with PA,Yes,No,No,2024-01-01,2025-12-31
+AR000054,PAY005,Medicare Advantage,South,Nexoral,Covered with PA,Yes,No,No,2024-01-01,2025-12-31
+AR000055,PAY005,Medicare Advantage,Midwest,Nexoral,Covered with PA,Yes,No,No,2024-01-01,2025-12-31
+AR000056,PAY005,Medicare Advantage,West,Nexoral,Covered with PA,Yes,No,No,2024-01-01,2025-12-31
+AR000057,PAY005,Medicare Advantage,Northeast,Vexpro,Covered with Step Edit,No,Yes,Yes,2024-01-01,2025-12-31
+AR000058,PAY005,Medicare Advantage,South,Vexpro,Covered with Step Edit,No,Yes,Yes,2024-01-01,2025-12-31
+AR000059,PAY005,Medicare Advantage,Midwest,Vexpro,Covered with Step Edit,No,Yes,Yes,2024-01-01,2025-12-31
+AR000060,PAY005,Medicare Advantage,West,Vexpro,Covered with Step Edit,No,Yes,Yes,2024-01-01,2025-12-31
+AR000061,PAY006,Medicare Part D,Northeast,Roventra,Covered with PA,Yes,Yes,Yes,2024-01-01,2025-12-31
+AR000062,PAY006,Medicare Part D,South,Roventra,Covered with PA,Yes,Yes,Yes,2024-01-01,2025-12-31
+AR000063,PAY006,Medicare Part D,Midwest,Roventra,Covered with PA,Yes,Yes,Yes,2024-01-01,2025-12-31
+AR000064,PAY006,Medicare Part D,West,Roventra,Covered with PA,Yes,Yes,Yes,2024-01-01,2025-12-31
+AR000065,PAY006,Medicare Part D,Northeast,Nexoral,Covered with PA,Yes,No,Yes,2024-01-01,2025-12-31
+AR000066,PAY006,Medicare Part D,South,Nexoral,Covered with PA,Yes,No,Yes,2024-01-01,2025-12-31
+AR000067,PAY006,Medicare Part D,Midwest,Nexoral,Covered with PA,Yes,No,Yes,2024-01-01,2025-12-31
+AR000068,PAY006,Medicare Part D,West,Nexoral,Covered with PA,Yes,No,Yes,2024-01-01,2025-12-31
+AR000069,PAY006,Medicare Part D,Northeast,Vexpro,Covered with Step Edit,No,Yes,No,2024-01-01,2025-12-31
+AR000070,PAY006,Medicare Part D,South,Vexpro,Covered with Step Edit,No,Yes,No,2024-01-01,2025-12-31
+AR000071,PAY006,Medicare Part D,Midwest,Vexpro,Covered with Step Edit,No,Yes,No,2024-01-01,2025-12-31
+AR000072,PAY006,Medicare Part D,West,Vexpro,Covered with Step Edit,No,Yes,No,2024-01-01,2025-12-31
+AR000073,PAY007,Medicaid,Northeast,Roventra,Covered with PA,Yes,Yes,Yes,2024-01-01,2025-12-31
+AR000074,PAY007,Medicaid,South,Roventra,Covered with PA,Yes,Yes,Yes,2024-01-01,2025-12-31
+AR000075,PAY007,Medicaid,Midwest,Roventra,Covered with PA,Yes,Yes,Yes,2024-01-01,2025-12-31
+AR000076,PAY007,Medicaid,West,Roventra,Covered with PA,Yes,Yes,Yes,2024-01-01,2025-12-31
+AR000077,PAY007,Medicaid,Northeast,Nexoral,Non-covered,Yes,No,No,2024-01-01,2025-12-31
+AR000078,PAY007,Medicaid,South,Nexoral,Non-covered,Yes,No,No,2024-01-01,2025-12-31
+AR000079,PAY007,Medicaid,Midwest,Nexoral,Non-covered,Yes,No,No,2024-01-01,2025-12-31
+AR000080,PAY007,Medicaid,West,Nexoral,Non-covered,Yes,No,No,2024-01-01,2025-12-31
+AR000081,PAY007,Medicaid,Northeast,Vexpro,Covered,No,No,Yes,2024-01-01,2025-12-31
+AR000082,PAY007,Medicaid,South,Vexpro,Covered,No,No,Yes,2024-01-01,2025-12-31
+AR000083,PAY007,Medicaid,Midwest,Vexpro,Covered,No,No,Yes,2024-01-01,2025-12-31
+AR000084,PAY007,Medicaid,West,Vexpro,Covered,No,No,Yes,2024-01-01,2025-12-31
+AR000085,PAY008,Commercial,Northeast,Roventra,Covered with PA,Yes,No,Yes,2024-01-01,2025-12-31
+AR000086,PAY008,Commercial,South,Roventra,Covered with PA,Yes,No,Yes,2024-01-01,2025-12-31
+AR000087,PAY008,Commercial,Midwest,Roventra,Covered with PA,Yes,No,Yes,2024-01-01,2025-12-31
+AR000088,PAY008,Commercial,West,Roventra,Covered with PA,Yes,No,Yes,2024-01-01,2025-12-31
+AR000089,PAY008,Commercial,Northeast,Nexoral,Non-covered,Yes,No,No,2024-01-01,2025-12-31
+AR000090,PAY008,Commercial,South,Nexoral,Non-covered,Yes,No,No,2024-01-01,2025-12-31
+AR000091,PAY008,Commercial,Midwest,Nexoral,Non-covered,Yes,No,No,2024-01-01,2025-12-31
+AR000092,PAY008,Commercial,West,Nexoral,Non-covered,Yes,No,No,2024-01-01,2025-12-31
+AR000093,PAY008,Commercial,Northeast,Vexpro,Covered with Step Edit,No,Yes,No,2024-01-01,2025-12-31
+AR000094,PAY008,Commercial,South,Vexpro,Covered with Step Edit,No,Yes,No,2024-01-01,2025-12-31
+AR000095,PAY008,Commercial,Midwest,Vexpro,Covered with Step Edit,No,Yes,No,2024-01-01,2025-12-31
+AR000096,PAY008,Commercial,West,Vexpro,Covered with Step Edit,No,Yes,No,2024-01-01,2025-12-31

@@ -1,0 +1,525 @@
+{
+  "description": "Synthetic pharmaceutical data package for Chapter 3",
+  "schema_version": "2026-06-15",
+  "generated_at_utc": "2026-06-22T19:23:51+00:00",
+  "generator_root": "/Users/qiu/Projects/hands-on-pharma-decision-science/ch03_data",
+  "generator_version": {
+    "git_commit": "e5c612d97c29b325d8a85bd61c1218e801a683ab",
+    "git_commit_source": "git rev-parse HEAD"
+  },
+  "run_config": {
+    "seed": 20260609,
+    "patients_requested": 20000,
+    "output_dir": "/Users/qiu/Projects/hands-on-pharma-decision-science/ch03_data/output_data/generated_data",
+    "early_snapshot_cutoff": "2025-01-05",
+    "diagnosis_dict": null,
+    "drug_dict": null,
+    "invoked_at_local": "2026-06-22T15:23:51"
+  },
+  "scenario_settings": {
+    "default_seed": 20260609,
+    "claims_per_patient_range": [
+      1,
+      4
+    ],
+    "launch_patient_treatment_probability": 0.68,
+    "nonlaunch_patient_treatment_probability_range": [
+      0,
+      4
+    ],
+    "launch_diagnosis_documentation_rate": 0.86,
+    "launch_diagnosis_false_positive_rate": 0.015,
+    "missing_ndc_mapping_rate": 0.05,
+    "formulary_quarterly_change_rate": 0.2,
+    "specialty_case_probability_given_launch_attempt": 0.82
+  },
+  "folders": {
+    "reference": "Shared lookup tables and code dictionaries",
+    "claims_medical": "Medical claims (headers and service lines)",
+    "claims_pharmacy": "Pharmacy claims",
+    "claims_lab": "Lab results",
+    "specialty_pharmacy": "Specialty pharmacy hub events",
+    "crm_veeva": "CRM interactions and territory alignment",
+    "digital_engagement": "Digital engagement events",
+    "market_access": "Market access rules",
+    "formulary": "Formulary rules",
+    "open_payments": "Synthetic Open Payments-style records",
+    "cms_part_d": "Synthetic Medicare Part D prescriber summaries"
+  },
+  "reference_sources": {
+    "diagnosis_codes": "built-in synthetic dictionary",
+    "drug_codes": "built-in synthetic dictionary"
+  },
+  "counts": {
+    "patients": 20000,
+    "providers": 666,
+    "accounts": 250,
+    "payers": 8,
+    "products": 3
+  },
+  "table_contracts": {
+    "reference/patients.csv": {
+      "row_count": 20000,
+      "columns": [
+        "patient_id",
+        "state",
+        "region",
+        "age_band",
+        "sex",
+        "true_launch_condition"
+      ],
+      "file_sha256": "e30ab050f21125644bca14428dc548aa00beb0a33d805adc51920070ae71ec0b"
+    },
+    "reference/patient_enrollments.csv": {
+      "row_count": 1,
+      "columns": [
+        "patient_id",
+        "eligibility_start_date",
+        "eligibility_end_date",
+        "payer_id",
+        "payer_type",
+        "has_medical_coverage",
+        "has_pharmacy_coverage",
+        "product_type"
+      ],
+      "file_sha256": "59d719e9df6d5cb250f6097c38ab4b14559b572cbf7d3dc77092a5b9a430aeeb"
+    },
+    "reference/providers.csv": {
+      "row_count": 666,
+      "columns": [
+        "npi",
+        "specialty_1",
+        "specialty_2",
+        "provider_state",
+        "provider_type",
+        "credential",
+        "primary_facility_npi"
+      ],
+      "file_sha256": "a6918f844c2c82b480336df2d0cc67e1381456e4d56a458f47a29a0a0fa4f848"
+    },
+    "reference/hcp_targets.csv": {
+      "row_count": 666,
+      "columns": [
+        "npi",
+        "account_id",
+        "territory",
+        "state",
+        "region",
+        "specialty_1"
+      ],
+      "file_sha256": "6d39063241cc9e38310c242e35e9dc2c8c3285099b0f021afb456718ba61fa21"
+    },
+    "reference/accounts.csv": {
+      "row_count": 250,
+      "columns": [
+        "account_id",
+        "account_name",
+        "account_type",
+        "city",
+        "state",
+        "region",
+        "territory",
+        "capacity"
+      ],
+      "file_sha256": "c5d3ebd91f6db431275f0430a91f0aaf7e0dfa277443b8ecd65eacb1387bed4f"
+    },
+    "reference/payers.csv": {
+      "row_count": 8,
+      "columns": [
+        "payer_id",
+        "payer_name",
+        "payer_type",
+        "region"
+      ],
+      "file_sha256": "ba49e259b178d0f81c326dfcf35b9d4a60f0bbcac9ed08a60b080a6c7648a759"
+    },
+    "reference/products.csv": {
+      "row_count": 3,
+      "columns": [
+        "product_name",
+        "brand_generic",
+        "therapy_area"
+      ],
+      "file_sha256": "26a7d3216fb218c1af444d0f3c785489a546756f6896a28fe9b6bbe998198882"
+    },
+    "reference/diagnosis_codes.csv": {
+      "row_count": 12,
+      "columns": [
+        "CODE",
+        "CODE_ORIG",
+        "CODE_DESCRIPTION"
+      ],
+      "file_sha256": "59d1fe36a62188488dc6565938052bbd11164f562ba3f5001fd5c48e511e74aa"
+    },
+    "reference/ndc_codes.csv": {
+      "row_count": 4,
+      "columns": [
+        "ndc",
+        "brand_generic",
+        "drug_name",
+        "ingredient"
+      ],
+      "file_sha256": "dfdfa4ff04a8223876027fc4f2fc7b14ecbcedebd704dddbfaf42a73400360d4"
+    },
+    "claims_medical/medical_claims.csv": {
+      "row_count": 44567,
+      "columns": [
+        "encounter_id",
+        "patient_id",
+        "claim_type",
+        "claim_date",
+        "admitting_diagnosis",
+        "diagnosis_1",
+        "diagnosis_2",
+        "diagnosis_3",
+        "diagnosis_4",
+        "diagnosis_5",
+        "diagnosis_6",
+        "diagnosis_7",
+        "diagnosis_8",
+        "diagnosis_9",
+        "diagnosis_10",
+        "icd_procedure_1",
+        "icd_procedure_2",
+        "icd_procedure_3",
+        "patient_gender",
+        "patient_state",
+        "coverage_type",
+        "rendering_npi",
+        "attending_npi",
+        "referring_npi",
+        "facility_npi",
+        "payer_id"
+      ],
+      "date_ranges": {
+        "claim_date": {
+          "min": "2024-01-01",
+          "max": "2025-01-03"
+        }
+      },
+      "file_sha256": "63871152229d9c8bf02e1a556251bd0c94b27440b8ce3f009d2e10eeb130bd49"
+    },
+    "claims_medical/medical_claims_mature.csv": {
+      "row_count": 49882,
+      "columns": [
+        "encounter_id",
+        "patient_id",
+        "claim_type",
+        "claim_date",
+        "admitting_diagnosis",
+        "diagnosis_1",
+        "diagnosis_2",
+        "diagnosis_3",
+        "diagnosis_4",
+        "diagnosis_5",
+        "diagnosis_6",
+        "diagnosis_7",
+        "diagnosis_8",
+        "diagnosis_9",
+        "diagnosis_10",
+        "icd_procedure_1",
+        "icd_procedure_2",
+        "icd_procedure_3",
+        "patient_gender",
+        "patient_state",
+        "coverage_type",
+        "rendering_npi",
+        "attending_npi",
+        "referring_npi",
+        "facility_npi",
+        "payer_id"
+      ],
+      "date_ranges": {
+        "claim_date": {
+          "min": "2024-01-01",
+          "max": "2025-01-31"
+        }
+      },
+      "file_sha256": "e40059b7dd5c41c4b04f587e970618c638b91f6dd4a01677e55abbd83901d132"
+    },
+    "claims_medical/service_lines.csv": {
+      "row_count": 62285,
+      "columns": [
+        "encounter_id",
+        "patient_id",
+        "line_number",
+        "service_from",
+        "service_to",
+        "procedure_code",
+        "place_of_service",
+        "line_diagnosis_1",
+        "line_diagnosis_2",
+        "units",
+        "line_charge"
+      ],
+      "date_ranges": {
+        "service_from": {
+          "min": "2024-01-01",
+          "max": "2025-01-31"
+        }
+      },
+      "file_sha256": "88b597d26ecdda015d906930a55364531371c5597195847d830a163cf860115a"
+    },
+    "claims_pharmacy/pharmacy_claims.csv": {
+      "row_count": 46055,
+      "columns": [
+        "claim_id",
+        "patient_id",
+        "patient_state",
+        "prescriber_npi",
+        "primary_care_npi",
+        "date_of_service",
+        "rx_written_date",
+        "transaction_type",
+        "ndc",
+        "ndc_prescribed",
+        "refills_authorized",
+        "diagnosis_code",
+        "qty_prescribed",
+        "qty_dispensed",
+        "fill_number",
+        "days_supply",
+        "patient_pay",
+        "plan_pay",
+        "reject_code",
+        "payer_id"
+      ],
+      "date_ranges": {
+        "date_of_service": {
+          "min": "2024-01-01",
+          "max": "2025-01-31"
+        }
+      },
+      "file_sha256": "01c14e5ca64ce4d86a6323fdf478361236f83868b32e0879b352108e35ed61a5"
+    },
+    "claims_lab/lab_results.csv": {
+      "row_count": 55815,
+      "columns": [
+        "lab_id",
+        "patient_id",
+        "service_date",
+        "loinc_code",
+        "test_name",
+        "result",
+        "result_unit",
+        "ref_low",
+        "ref_high",
+        "abnormal_flag",
+        "ordering_npi",
+        "diagnosis_1"
+      ],
+      "date_ranges": {
+        "service_date": {
+          "min": "2024-01-01",
+          "max": "2025-01-31"
+        }
+      },
+      "file_sha256": "b9de0781e92e04229757ba89ecc10110d0046a78a68c5951251b6abf233e3de9"
+    },
+    "specialty_pharmacy/sp_events.csv": {
+      "row_count": 6096,
+      "columns": [
+        "event_id",
+        "patient_id",
+        "prescriber_npi",
+        "product_ndc",
+        "referral_date",
+        "hub_status",
+        "status_date",
+        "ship_date",
+        "days_supply",
+        "dispense_status",
+        "copay_assistance",
+        "discontinue_reason"
+      ],
+      "date_ranges": {
+        "referral_date": {
+          "min": "2024-02-01",
+          "max": "2024-12-26"
+        },
+        "status_date": {
+          "min": "2024-02-03",
+          "max": "2025-01-02"
+        }
+      },
+      "file_sha256": "15c69ee5e2bd397a0b82327ca76baa3821d87f8cc42c17995922cd5ea6c743be"
+    },
+    "crm_veeva/crm_interactions.csv": {
+      "row_count": 3359,
+      "columns": [
+        "interaction_id",
+        "interaction_date",
+        "rep_id",
+        "hcp_npi",
+        "account_id",
+        "territory",
+        "product_name",
+        "channel",
+        "detail_topic",
+        "call_outcome",
+        "duration_min",
+        "sample_qty",
+        "consent_status"
+      ],
+      "date_ranges": {
+        "interaction_date": {
+          "min": "2024-01-01",
+          "max": "2025-01-31"
+        }
+      },
+      "file_sha256": "bd6a6f9efcf634eaa39e94a3787de00c6ebb3f9390aa97c6d96a3e49bbb96808"
+    },
+    "crm_veeva/territory_alignment.csv": {
+      "row_count": 8,
+      "columns": [
+        "territory",
+        "rep_id",
+        "region",
+        "n_accounts_aligned",
+        "n_hcps_aligned",
+        "target_calls_per_month",
+        "target_coverage_pct"
+      ],
+      "file_sha256": "ac52221b96c84e7931d53d992a7739ac4bb917e911ff4d1feacf88313e6ee206"
+    },
+    "digital_engagement/digital_engagement.csv": {
+      "row_count": 1095,
+      "columns": [
+        "digital_event_id",
+        "event_date",
+        "hcp_npi",
+        "account_id",
+        "territory",
+        "product_name",
+        "channel",
+        "content_topic",
+        "open_flag",
+        "click_flag",
+        "webinar_attended"
+      ],
+      "date_ranges": {
+        "event_date": {
+          "min": "2024-01-01",
+          "max": "2025-01-31"
+        }
+      },
+      "file_sha256": "fd7170c5d13e109212b0dc0d6661429e02f294def4f4ae251e55f7f7930ed13a"
+    },
+    "market_access/market_access_rules.csv": {
+      "row_count": 96,
+      "columns": [
+        "access_rule_id",
+        "payer_id",
+        "payer_type",
+        "region",
+        "product_name",
+        "coverage_status",
+        "prior_authorization",
+        "step_edit",
+        "specialty_pharmacy_required",
+        "effective_start",
+        "effective_end"
+      ],
+      "date_ranges": {
+        "effective_start": {
+          "min": "2024-01-01",
+          "max": "2024-01-01"
+        },
+        "effective_end": {
+          "min": "2025-12-31",
+          "max": "2025-12-31"
+        }
+      },
+      "file_sha256": "a8a0e00f89e99eaac17275296523cebd891360e3a43191dfcb455a06274749b4"
+    },
+    "formulary/formulary_status.csv": {
+      "row_count": 24,
+      "columns": [
+        "formulary_id",
+        "plan_id",
+        "plan_name",
+        "product_name",
+        "tier",
+        "prior_authorization",
+        "step_therapy",
+        "quantity_limit",
+        "specialty_pharmacy",
+        "effective_start",
+        "effective_end"
+      ],
+      "date_ranges": {
+        "effective_start": {
+          "min": "2024-01-01",
+          "max": "2024-01-01"
+        },
+        "effective_end": {
+          "min": "2025-12-31",
+          "max": "2025-12-31"
+        }
+      },
+      "file_sha256": "4c40730a1accd2323af2b6e693508e1fb91a1384b6d55b5d2189d3892a87e3e3"
+    },
+    "formulary/formulary_history.csv": {
+      "row_count": 13,
+      "columns": [
+        "history_id",
+        "plan_id",
+        "plan_name",
+        "product_name",
+        "quarter",
+        "effective_date",
+        "prior_tier",
+        "new_tier",
+        "prior_prior_authorization",
+        "new_prior_authorization",
+        "prior_step_therapy",
+        "new_step_therapy",
+        "prior_quantity_limit",
+        "new_quantity_limit",
+        "prior_specialty_pharmacy",
+        "new_specialty_pharmacy",
+        "change_type"
+      ],
+      "date_ranges": {
+        "effective_date": {
+          "min": "2024-01-01",
+          "max": "2024-10-01"
+        }
+      },
+      "file_sha256": "8adbc54e72d18b8f5bd2a5262327cd54ca1ae996a3b33c2a3c9a9640db0480e2"
+    },
+    "open_payments/open_payments.csv": {
+      "row_count": 783,
+      "columns": [
+        "npi",
+        "company_name",
+        "payment_year",
+        "payment_category",
+        "payment_amount",
+        "is_kol"
+      ],
+      "file_sha256": "a4b934365eb935e11940a7f19d915b2b4d43112bd1dd8b910980c898ff8ba31f"
+    },
+    "cms_part_d/prescriber_summary.csv": {
+      "row_count": 1057,
+      "columns": [
+        "prscrbr_npi",
+        "prscrbr_last_org_name",
+        "prscrbr_first_name",
+        "prscrbr_city",
+        "prscrbr_state_abrvtn",
+        "prscrbr_type",
+        "drug_name",
+        "generic_name",
+        "drug_class",
+        "tot_clms",
+        "tot_benes",
+        "tot_day_suply",
+        "tot_drug_cst",
+        "year"
+      ],
+      "file_sha256": "a5ba248f18f128d32b2f350d4628d5ea6d4b836792220ca5cb50d5f6faa0d0ef"
+    }
+  },
+  "manifest_sha256": "fad16108697c82816b3f89debfb5101daa06ece7e4abfc57d5f4096ed72047d0"
+}

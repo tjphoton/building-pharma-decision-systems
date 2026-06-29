@@ -11,10 +11,10 @@
         <link rel="canonical" href="https://tjphoton.github.io/building-pharma-decision-systems/ch05_journey/ch05_patient_journey/">
       
       
-        <link rel="prev" href="../../ch04_market/exercise_solutions/">
+        <link rel="prev" href="../../ch04_market/ch04_exercise_solutions/">
       
       
-        <link rel="next" href="../chapter5_walkthrough/">
+        <link rel="next" href="../ch05_walkthrough/">
       
       
         
@@ -584,7 +584,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ch03_data/chapter3_walkthrough/" class="md-nav__link">
+      <a href="../../ch03_data/ch03_walkthrough/" class="md-nav__link">
         
   
   
@@ -612,7 +612,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ch03_data/exercise_solutions/" class="md-nav__link">
+      <a href="../../ch03_data/ch03_exercise_solutions/" class="md-nav__link">
         
   
   
@@ -730,7 +730,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ch04_market/chapter4_walkthrough/" class="md-nav__link">
+      <a href="../../ch04_market/ch04_walkthrough/" class="md-nav__link">
         
   
   
@@ -758,7 +758,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ch04_market/exercise_solutions/" class="md-nav__link">
+      <a href="../../ch04_market/ch04_exercise_solutions/" class="md-nav__link">
         
   
   
@@ -1207,7 +1207,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../chapter5_walkthrough/" class="md-nav__link">
+      <a href="../ch05_walkthrough/" class="md-nav__link">
         
   
   
@@ -1235,7 +1235,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../exercise_solutions/" class="md-nav__link">
+      <a href="../ch05_exercise_solutions/" class="md-nav__link">
         
   
   
@@ -1353,7 +1353,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ch06_hcp/chapter6_walkthrough/" class="md-nav__link">
+      <a href="../../ch06_hcp/ch06_walkthrough/" class="md-nav__link">
         
   
   
@@ -1381,7 +1381,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ch06_hcp/exercise_solutions/" class="md-nav__link">
+      <a href="../../ch06_hcp/ch06_exercise_solutions/" class="md-nav__link">
         
   
   
@@ -1499,7 +1499,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ch07_competitive/chapter7_walkthrough/" class="md-nav__link">
+      <a href="../../ch07_competitive/ch07_walkthrough/" class="md-nav__link">
         
   
   
@@ -1527,7 +1527,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ch07_competitive/exercise_solutions/" class="md-nav__link">
+      <a href="../../ch07_competitive/ch07_exercise_solutions/" class="md-nav__link">
         
   
   
@@ -1645,7 +1645,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ch08_omnichannel/chapter8_walkthrough/" class="md-nav__link">
+      <a href="../../ch08_omnichannel/ch08_walkthrough/" class="md-nav__link">
         
   
   
@@ -1673,7 +1673,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ch08_omnichannel/exercise_solutions/" class="md-nav__link">
+      <a href="../../ch08_omnichannel/ch08_exercise_solutions/" class="md-nav__link">
         
   
   
@@ -2033,7 +2033,7 @@
 <p>The market-sizing analysis estimated 8.1 million diagnosed, age-eligible, untreated patients and 1.0 million expected Roventra starts. The launch team now needs to convert that opportunity into an operating plan: when treatment starts occur, which products patients start, how often treatment changes, and how long patients remain on therapy.</p>
 <p>This chapter covers building a diagnosis-indexed cohort, constructing and testing line-of-therapy rules, estimating time to treatment with censoring and competing events, and measuring persistence and adherence.</p>
 <p>Before running any chapter listing, execute <code>uv run python ch05_journey/scripts/run_analysis.py</code> from the repository root. The script writes the journey evidence package to <code>ch05_journey/assets/generated_outputs</code>: cohort attrition, treatment episodes, line-of-therapy records, washout comparisons, initiation and persistence curves, adherence records, and the rule-sensitivity grid. Every analysis below reads from those files. </p>
-<p>Open <a href="../chapter5_walkthrough.ipynb"><code>chapter5_walkthrough.ipynb</code></a> to execute the chapter as one sequence.</p>
+<p>Open <a href="../ch05_walkthrough.ipynb"><code>ch05_walkthrough.ipynb</code></a> to execute the chapter as one sequence.</p>
 <h2 id="51-define-the-journey">5.1 Define the Journey</h2>
 <p>The cohort follows the new-user design from pharmacoepidemiology (<a href="https://doi.org/10.1093/aje/kwg231">Ray, 2003</a>). The first qualifying diagnosis during the patient's observable coverage becomes the index event. The design requires 180 covered days before that date to look back through the enrollment window for earlier qualifying diagnoses. Patient journey and line-of-therapy analyses also require at least 90 observable days after index. Time-to-treatment analysis does not have any of these requirement.</p>
 <blockquote>
@@ -3070,7 +3070,7 @@ higher basket PDC than index-product PDC: 36 patients
 <li><strong>Choose the adherence product scope.</strong> Join index-product and market-basket PDC, identify the patients whose values differ, and inspect the treatment products for the patient with the largest increase. State which PDC belongs in a brand continuity report and which belongs in a condition-treatment continuity report. See section 5.4.</li>
 <li><strong>Stress-test the data cutoff.</strong> Rebuild the cohort and line-1 results with the study end moved from 2024-12-31 to the raw data edge on 2025-01-31. Compare cohort size, discontinued share, and censored share, then explain why the less mature cutoff changes the result. See sections 5.1 and 5.4.</li>
 </ol>
-<p>Worked solutions are in <a href="../exercise_solutions.ipynb"><code>exercise_solutions.ipynb</code></a>. Each solution ends with the judgment the analyst should document for real data.</p>
+<p>Worked solutions are in <a href="../ch05_exercise_solutions.ipynb"><code>ch05_exercise_solutions.ipynb</code></a>. Each solution ends with the judgment the analyst should document for real data.</p>
 <p>The HCP and account targeting analysis carries the patient and treatment evidence into field planning. It asks where the observed opportunity sits, which customers are actionable, and what the field team should do next.</p>
 
 

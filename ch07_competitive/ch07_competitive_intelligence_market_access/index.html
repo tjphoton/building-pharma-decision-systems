@@ -11,10 +11,10 @@
         <link rel="canonical" href="https://tjphoton.github.io/building-pharma-decision-systems/ch07_competitive/ch07_competitive_intelligence_market_access/">
       
       
-        <link rel="prev" href="../../ch06_hcp/exercise_solutions/">
+        <link rel="prev" href="../../ch06_hcp/ch06_exercise_solutions/">
       
       
-        <link rel="next" href="../chapter7_walkthrough/">
+        <link rel="next" href="../ch07_walkthrough/">
       
       
         
@@ -584,7 +584,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ch03_data/chapter3_walkthrough/" class="md-nav__link">
+      <a href="../../ch03_data/ch03_walkthrough/" class="md-nav__link">
         
   
   
@@ -612,7 +612,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ch03_data/exercise_solutions/" class="md-nav__link">
+      <a href="../../ch03_data/ch03_exercise_solutions/" class="md-nav__link">
         
   
   
@@ -730,7 +730,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ch04_market/chapter4_walkthrough/" class="md-nav__link">
+      <a href="../../ch04_market/ch04_walkthrough/" class="md-nav__link">
         
   
   
@@ -758,7 +758,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ch04_market/exercise_solutions/" class="md-nav__link">
+      <a href="../../ch04_market/ch04_exercise_solutions/" class="md-nav__link">
         
   
   
@@ -876,7 +876,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ch05_journey/chapter5_walkthrough/" class="md-nav__link">
+      <a href="../../ch05_journey/ch05_walkthrough/" class="md-nav__link">
         
   
   
@@ -904,7 +904,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ch05_journey/exercise_solutions/" class="md-nav__link">
+      <a href="../../ch05_journey/ch05_exercise_solutions/" class="md-nav__link">
         
   
   
@@ -1022,7 +1022,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ch06_hcp/chapter6_walkthrough/" class="md-nav__link">
+      <a href="../../ch06_hcp/ch06_walkthrough/" class="md-nav__link">
         
   
   
@@ -1050,7 +1050,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ch06_hcp/exercise_solutions/" class="md-nav__link">
+      <a href="../../ch06_hcp/ch06_exercise_solutions/" class="md-nav__link">
         
   
   
@@ -1350,7 +1350,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../chapter7_walkthrough/" class="md-nav__link">
+      <a href="../ch07_walkthrough/" class="md-nav__link">
         
   
   
@@ -1378,7 +1378,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../exercise_solutions/" class="md-nav__link">
+      <a href="../ch07_exercise_solutions/" class="md-nav__link">
         
   
   
@@ -1496,7 +1496,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ch08_omnichannel/chapter8_walkthrough/" class="md-nav__link">
+      <a href="../../ch08_omnichannel/ch08_walkthrough/" class="md-nav__link">
         
   
   
@@ -1524,7 +1524,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ch08_omnichannel/exercise_solutions/" class="md-nav__link">
+      <a href="../../ch08_omnichannel/ch08_exercise_solutions/" class="md-nav__link">
         
   
   
@@ -1734,7 +1734,7 @@
 <h1 id="chapter-7-competitive-intelligence-and-market-access">Chapter 7: Competitive Intelligence and Market Access</h1>
 <p>Roventra's market share is uneven across the country. In some payer-region cells it converts new patients well; in others it stalls. The brand team wants to know why. When patients cannot get the drug, market access has to renegotiate coverage terms with the plan. When coverage is workable and prescribers still pick a competitor first, field analytics has to investigate adoption. Both problems look the same on the surface: low Roventra share. Observed share alone cannot separate an access barrier from an adoption gap.</p>
 <p>The evidence comes from assembling an effective-dated access landscape, counting new starts with the prescription-volume measures, turning raw pharmacy transactions into clean prescription attempts, estimating corrected competitive share with its uncertainty, and measuring a real formulary change against a control to attribute the gain.</p>
-<p>The analysis reuses the synthetic data source and the derived journey and HCP-account outputs, and adds two new tables: a plan-region enrollment count and a weekly formulary-event panel, including the planted PAY004 effect. Open <a href="../chapter7_walkthrough.ipynb"><code>chapter7_walkthrough.ipynb</code></a>, or run through the shared analysis entry point.</p>
+<p>The analysis reuses the synthetic data source and the derived journey and HCP-account outputs, and adds two new tables: a plan-region enrollment count and a weekly formulary-event panel, including the planted PAY004 effect. Open <a href="../ch07_walkthrough.ipynb"><code>ch07_walkthrough.ipynb</code></a>, or run through the shared analysis entry point.</p>
 <h2 id="71-generate-teaching-datasets">7.1 Generate Teaching Datasets</h2>
 <p>Run the blocks in order from the repository root. Generate the supplemental data first:</p>
 <div class="highlight"><pre><span></span><code>uv<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>ch07_competitive/generation_modules/generate_ch07_data.py
@@ -1746,7 +1746,7 @@
 Wrote Chapter 7-only data to ch07_competitive/data/generated
 </code></pre></div>
 <p>The block below loads every input.</p>
-<p><code>run_analysis()</code> in <code>run_analysis.py</code> orchestrates the full Chapter 7 evidence pipeline—calling <code>build_policy()</code> and <code>covered_lives_summary()</code> from <code>policy.py</code>, <code>build_attempts()</code> from <code>transactions.py</code>, <code>build_competitive_starts()</code> from <code>cohort.py</code>, <code>payer_region_decisions()</code> from <code>decomposition.py</code>, and <code>controlled_its()</code> and <code>synthetic_control()</code> from <code>formulary_event.py</code>—and returns the complete <code>results</code> dictionary that every subsequent listing reads. Listing 7.1 calls it here.</p>
+<p><code>run_analysis()</code> in <code>run_analysis.py</code> orchestrates the full Chapter 7 evidence pipeline. It calls <code>build_policy()</code> and <code>covered_lives_summary()</code> from <code>policy.py</code>, <code>build_attempts()</code> from <code>transactions.py</code>, <code>build_competitive_starts()</code> from <code>cohort.py</code>, <code>payer_region_decisions()</code> from <code>decomposition.py</code>, and <code>controlled_its()</code> and <code>synthetic_control()</code> from <code>formulary_event.py</code>, then returns the complete <code>results</code> dictionary that every subsequent listing reads. Listing 7.1 calls it here.</p>
 <p><strong>Listing 7.1</strong>: Load the shared analysis results</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
@@ -2153,7 +2153,7 @@ Donor weights: PAY003=0.547, PAY006=0.000, PAY008=0.453
 <li><strong>Trace an attempt.</strong> Pick 1 patient with a PENDED transaction from <code>results["prescription_attempts"]</code>, print the full transaction chain, and classify the final attempt outcome. State which raw row count would overstate access friction and why.</li>
 <li><strong>Change the decision rule.</strong> Use Section 7.4. Move the adoption benchmark from 82% to 80%, rerun the payer-region decisions, and compare the actions. State whether the underlying evidence changed or only the operating policy changed.</li>
 </ol>
-<p>Worked solutions are in <a href="../exercise_solutions.ipynb"><code>exercise_solutions.ipynb</code></a>. Each solution ends with the judgment an analyst should record for real data.</p>
+<p>Worked solutions are in <a href="../ch07_exercise_solutions.ipynb"><code>ch07_exercise_solutions.ipynb</code></a>. Each solution ends with the judgment an analyst should record for real data.</p>
 <p>The contact-sequence and channel-response analysis reads the access and adoption routing into the engagement plan.</p>
 
 

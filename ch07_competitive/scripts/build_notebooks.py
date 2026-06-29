@@ -343,8 +343,8 @@ print(alternative.to_string())
 
 def main() -> None:
     targets = {
-        CHAPTER_DIR / "chapter7_walkthrough.ipynb": walkthrough(),
-        CHAPTER_DIR / "exercise_solutions.ipynb": exercise_solutions(),
+        CHAPTER_DIR / "ch07_walkthrough.ipynb": walkthrough(),
+        CHAPTER_DIR / "ch07_exercise_solutions.ipynb": exercise_solutions(),
     }
     for path, notebook in targets.items():
         nbf.write(notebook, path)

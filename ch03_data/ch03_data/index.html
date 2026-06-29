@@ -777,7 +777,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../chapter3_walkthrough/" class="md-nav__link">
+      <a href="../ch03_walkthrough/" class="md-nav__link">
         
   
   
@@ -805,7 +805,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../exercise_solutions/" class="md-nav__link">
+      <a href="../ch03_exercise_solutions/" class="md-nav__link">
         
   
   
@@ -923,7 +923,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ch04_market/chapter4_walkthrough/" class="md-nav__link">
+      <a href="../../ch04_market/ch04_walkthrough/" class="md-nav__link">
         
   
   
@@ -951,7 +951,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ch04_market/exercise_solutions/" class="md-nav__link">
+      <a href="../../ch04_market/ch04_exercise_solutions/" class="md-nav__link">
         
   
   
@@ -1069,7 +1069,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ch05_journey/chapter5_walkthrough/" class="md-nav__link">
+      <a href="../../ch05_journey/ch05_walkthrough/" class="md-nav__link">
         
   
   
@@ -1097,7 +1097,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ch05_journey/exercise_solutions/" class="md-nav__link">
+      <a href="../../ch05_journey/ch05_exercise_solutions/" class="md-nav__link">
         
   
   
@@ -1215,7 +1215,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ch06_hcp/chapter6_walkthrough/" class="md-nav__link">
+      <a href="../../ch06_hcp/ch06_walkthrough/" class="md-nav__link">
         
   
   
@@ -1243,7 +1243,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ch06_hcp/exercise_solutions/" class="md-nav__link">
+      <a href="../../ch06_hcp/ch06_exercise_solutions/" class="md-nav__link">
         
   
   
@@ -1361,7 +1361,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ch07_competitive/chapter7_walkthrough/" class="md-nav__link">
+      <a href="../../ch07_competitive/ch07_walkthrough/" class="md-nav__link">
         
   
   
@@ -1389,7 +1389,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ch07_competitive/exercise_solutions/" class="md-nav__link">
+      <a href="../../ch07_competitive/ch07_exercise_solutions/" class="md-nav__link">
         
   
   
@@ -1507,7 +1507,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ch08_omnichannel/chapter8_walkthrough/" class="md-nav__link">
+      <a href="../../ch08_omnichannel/ch08_walkthrough/" class="md-nav__link">
         
   
   
@@ -1535,7 +1535,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../ch08_omnichannel/exercise_solutions/" class="md-nav__link">
+      <a href="../../ch08_omnichannel/ch08_exercise_solutions/" class="md-nav__link">
         
   
   
@@ -1766,7 +1766,7 @@
 <li>Recognize two pre-analysis data issues and apply the correct handling for each</li>
 </ul>
 <blockquote>
-<p>**Note: ** Roventra is a fictional Type 2 diabetes (T2D) therapy modeled as a specialty-managed agent: prescribed mainly by endocrinologists and routed through specialty pharmacy under prior authorization and step therapy, which is why PAT02034's trace runs through an endocrinology practice rather than primary care.</p>
+<p><strong>Note:</strong> Roventra is a fictional Type 2 diabetes (T2D) therapy modeled as a specialty-managed agent: prescribed mainly by endocrinologists and routed through specialty pharmacy under prior authorization and step therapy, which is why PAT02034's trace runs through an endocrinology practice rather than primary care.</p>
 </blockquote>
 <h2 id="31-the-pharmaceutical-data-sources">3.1 The Pharmaceutical Data Sources</h2>
 <p>Pharmaceutical commercial data scientists work daily with three categories of data: longitudinal datasets from vendors, internal company records, and public reference data.</p>
@@ -1780,7 +1780,7 @@
 <blockquote>
 <p><strong>Note:</strong> In production, vendor data usually lives in a cloud warehouse or database such as Snowflake, GCP BigQuery, or AWS Redshift, and analysts query it with SQL. For this book, we flatten the package into CSV files so the examples run locally on a laptop without warehouse credentials, network access, or privacy-controlled infrastructure. The data are synthetic and created for teaching, not for operational use.</p>
 </blockquote>
-<p>The full file inventory and field reference are in <a href="../ch03_appendix/">Appendix 3A</a>. Executable scripts are in <code>ch03_data/scripts/</code>. Run the code in order, or open <a href="../chapter3_walkthrough.ipynb"><code>chapter3_walkthrough.ipynb</code></a> to execute it as a notebook.</p>
+<p>The full file inventory and field reference are in <a href="../ch03_appendix/">Appendix 3A</a>. Executable scripts are in <code>ch03_data/scripts/</code>. Run the code in order, or open <a href="../ch03_walkthrough.ipynb"><code>ch03_walkthrough.ipynb</code></a> to execute it as a notebook.</p>
 <p>Set up the environment once from the project root:</p>
 <div class="highlight"><pre><span></span><code>uv<span class="w"> </span>sync
 </code></pre></div>
@@ -2241,7 +2241,7 @@ RXCL0000226  90000-1002-11 90000-1002-12              Nexoral
 <p><strong>Map the maturity curve.</strong> The §3.4.1 example used December 2024. Using both <code>medical_claims.csv</code> (early snapshot) and <code>medical_claims_mature.csv</code> (mature), compute the endocrinology T2D completeness percentage for every service month in 2024. Which three months are most incomplete in the early snapshot? At what completeness threshold would you set the maturity cutoff if your publication lag is two weeks? What months would be excluded at that threshold, and how would that affect a full-year trend analysis?</p>
 </li>
 </ol>
-<p>Two companion notebooks ship with the chapter: <a href="../chapter3_walkthrough.ipynb"><code>chapter3_walkthrough.ipynb</code></a> executes every section in sequence, and <a href="../exercise_solutions.ipynb"><code>exercise_solutions.ipynb</code></a> works all three exercises with full discussion. Attempt the exercises before consulting the solutions.</p>
+<p>Two companion notebooks ship with the chapter: <a href="../ch03_walkthrough.ipynb"><code>ch03_walkthrough.ipynb</code></a> executes every section in sequence, and <a href="../ch03_exercise_solutions.ipynb"><code>ch03_exercise_solutions.ipynb</code></a> works all three exercises with full discussion. Attempt the exercises before consulting the solutions.</p>
 <p>The market sizing analysis uses the synthetic patients, claims, and lab results to build the opportunity funnel. PAT02034 returns in the targeting analysis; other traced patients enter as therapy-switch and undiagnosed-candidate patterns call for specific records.</p>
 <hr />
 <p><em>Field reference tables for all source types are in <a href="../ch03_appendix/">Appendix 3A</a>.</em></p>

@@ -1,0 +1,1058 @@
+prscrbr_type,drug_name,tot_clms,tot_benes,tot_drug_cst,data_source,source_url,extract_year,source_mode,schema_version,retrieved_at_utc
+Pulmonology,Nexoral,72,23,66202.28,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Roventra,71,19,73114.83,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,222,122,202842.68,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Vexpro,73,36,48546.72,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,236,208,77587.05,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,92,51,12461.21,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,198,197,171431.07,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,88,54,24384.62,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Roventra,234,150,163004.8,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Vexpro,116,115,59774.9,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Roventra,16,11,11109.8,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Nexoral,74,23,88511.72,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Nexoral,238,124,35682.46,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Roventra,107,13,18380.06,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Nexoral,248,47,197647.19,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Vexpro,54,15,37888.78,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Roventra,249,45,238135.79,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Nexoral,13,13,15290.2,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Roventra,227,16,100115.21,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,88,53,41362.27,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,83,42,25087.35,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Vexpro,258,38,35730.15,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Vexpro,248,103,257671.3,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,195,62,131188.52,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,228,77,258176.59,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Roventra,295,168,187770.92,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,290,285,70954.67,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,19,13,5729.04,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Nexoral,57,30,5116.54,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,226,113,167660.42,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,249,159,121463.86,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,254,122,244272.98,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,201,14,228149.15,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Roventra,186,126,138411.73,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,209,84,143954.31,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,127,46,91179.89,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,26,13,5577.14,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Nexoral,97,50,23066.72,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Vexpro,151,143,82343.82,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Roventra,268,98,71337.44,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,145,143,166905.72,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Vexpro,74,46,44591.05,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,90,41,14476.5,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,281,196,272698.94,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Vexpro,255,49,278090.88,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,35,24,39460.08,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,52,49,50211.83,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,110,18,29229.85,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,57,41,12064.73,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,176,135,45266.6,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,87,22,99970.81,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Vexpro,235,149,73448.48,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,250,221,252135.21,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,248,82,162595.4,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,25,23,20878.02,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,250,228,191731.28,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Roventra,52,21,48594.46,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,96,34,23706.56,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,113,96,54546.51,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,35,33,40397.19,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Roventra,137,128,44021.58,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,185,24,176052.02,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Roventra,234,149,263754.81,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,41,25,44949.68,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,181,94,202376.33,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Roventra,61,57,57471.48,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,264,252,246199.64,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,219,53,30355.48,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Nexoral,220,126,89364.51,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Vexpro,268,156,125239.59,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,43,13,12818.97,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Nexoral,197,50,156906.89,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Roventra,124,41,74828.79,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,76,13,23311.81,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,184,116,124075.33,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Roventra,278,259,81672.93,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,189,115,194014.28,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Vexpro,291,224,227852.23,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Nexoral,216,115,128924.7,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Vexpro,29,16,15016.31,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Roventra,189,21,100765.19,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Vexpro,261,168,175193.12,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Nexoral,191,36,23467.69,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Nexoral,22,14,25132.26,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Vexpro,233,167,176050.84,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,66,41,75456.3,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Roventra,264,211,70007.45,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Vexpro,154,123,143824.76,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Nexoral,174,165,178780.76,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Vexpro,42,24,8853.03,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Roventra,121,43,89399.06,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,83,82,83618.38,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,158,54,90887.23,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Roventra,30,23,23795.06,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Vexpro,171,48,15783.95,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Nexoral,130,28,68436.64,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,186,170,145080.08,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,172,102,200594.16,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,22,16,13638.24,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Vexpro,291,130,338232.56,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,276,257,156653.08,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Roventra,38,29,14292.8,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,78,18,83621.97,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,34,22,3161.6,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Roventra,146,67,170430.53,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Nexoral,228,138,24911.09,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Vexpro,136,120,130142.88,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,72,40,42229.14,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Roventra,287,193,122990.67,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,297,114,211821.73,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Vexpro,70,30,16619.19,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,168,144,14796.03,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Vexpro,164,125,63264.91,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Vexpro,293,129,65293.79,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,152,137,15605.26,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,148,85,163113.72,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,186,138,123956.08,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Roventra,188,36,44516.14,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,44,32,16254.58,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,12,12,6749.15,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Roventra,82,22,74140.0,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,126,66,102494.93,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,62,21,12020.53,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Roventra,133,109,36019.68,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,86,12,68916.42,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Roventra,231,170,51255.82,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Roventra,280,149,322550.56,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Roventra,202,44,84606.28,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Vexpro,256,208,126101.36,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,236,191,280544.27,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Vexpro,244,44,121203.32,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Nexoral,70,29,16768.67,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,38,35,31020.95,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Vexpro,278,133,192984.55,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,115,68,76153.99,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Nexoral,125,104,116368.21,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Roventra,217,148,237975.1,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Vexpro,211,42,24950.69,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Nexoral,237,99,226389.43,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Roventra,74,12,22019.85,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,15,15,5938.63,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Roventra,227,219,257587.23,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Vexpro,82,16,38278.73,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Roventra,222,152,68743.08,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,283,240,314435.45,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,238,219,196909.54,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Roventra,272,98,34762.01,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,52,35,22099.54,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Roventra,300,281,272393.35,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Roventra,100,73,89818.33,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Nexoral,42,41,11121.7,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,110,13,21178.66,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,97,13,76719.03,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,256,124,302639.68,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,66,64,44090.2,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Roventra,109,96,67604.9,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Nexoral,110,25,53475.35,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,161,117,17762.69,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Roventra,250,172,263140.48,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,172,158,117366.33,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,100,83,68304.06,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Roventra,142,141,112575.43,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Vexpro,200,110,209808.11,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Nexoral,41,17,36238.89,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Vexpro,62,18,57903.34,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Roventra,211,91,168379.85,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Nexoral,237,192,255698.88,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Vexpro,127,46,19874.1,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,231,45,80403.53,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Vexpro,130,69,54730.14,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,115,71,102852.94,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,153,17,97242.71,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,66,49,62494.06,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,20,13,18819.93,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,161,158,75086.72,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,62,37,72097.15,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Nexoral,99,27,113549.62,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,212,31,101642.54,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Roventra,277,30,189724.93,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Vexpro,53,43,54013.64,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Roventra,76,32,22296.61,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Vexpro,24,14,11354.81,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Nexoral,91,61,19477.42,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Roventra,220,83,17912.11,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,298,177,93925.71,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Vexpro,59,42,52743.72,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Nexoral,188,154,70204.86,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,269,202,212868.98,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,39,27,44804.84,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Vexpro,115,14,107994.47,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Nexoral,270,24,262897.59,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,122,73,79581.61,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Vexpro,131,97,25614.87,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,15,11,2978.12,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,283,135,176764.33,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Roventra,138,130,64686.84,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Nexoral,47,34,20012.2,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Vexpro,120,119,43896.96,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Nexoral,17,17,5985.42,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Roventra,46,35,33439.33,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Vexpro,108,77,94210.77,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Vexpro,81,29,52238.79,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Roventra,235,92,247295.85,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,19,14,16477.59,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Roventra,267,80,294701.25,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,90,43,11281.74,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,213,110,248198.87,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,190,33,119584.52,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Nexoral,192,12,34470.49,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Vexpro,224,68,141974.09,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Nexoral,49,23,9422.23,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Vexpro,54,26,61169.35,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Roventra,138,69,109120.06,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Roventra,141,31,144080.97,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,59,34,31760.68,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Roventra,20,19,4488.76,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,180,69,134452.41,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Nexoral,271,28,285280.69,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,85,46,65286.09,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,87,73,65822.47,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,75,74,84128.58,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Roventra,146,109,99598.29,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Vexpro,189,129,138946.22,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,25,15,21536.07,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,91,84,8060.03,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,80,59,30639.46,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Roventra,245,188,59094.05,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Nexoral,109,44,98987.36,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Nexoral,201,66,157376.61,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,241,231,161525.74,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Vexpro,251,221,217256.34,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Roventra,223,138,192176.02,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Vexpro,126,67,63626.55,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,129,58,26567.01,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,19,13,20551.79,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,35,19,30673.08,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Roventra,265,120,307260.13,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,127,72,108881.2,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,243,232,136914.02,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Vexpro,168,69,22155.51,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,199,27,90265.74,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,26,13,12717.29,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Roventra,126,37,14947.35,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,226,186,120878.32,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Nexoral,41,11,23669.29,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Roventra,126,113,60021.27,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,190,27,141227.49,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,229,206,47577.1,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,67,65,56881.26,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,150,131,106535.29,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,124,47,94125.95,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Vexpro,285,78,97785.64,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Roventra,54,38,16163.11,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Vexpro,256,65,191993.48,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Nexoral,45,33,25226.33,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,265,177,40979.9,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,260,73,44583.12,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Roventra,214,174,61407.51,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,134,24,103264.58,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Roventra,150,90,114037.75,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,262,200,111151.51,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Vexpro,142,119,62857.06,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Roventra,71,20,28476.39,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,121,11,65926.87,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,252,156,287290.2,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,133,26,45178.08,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Vexpro,206,71,53833.02,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Vexpro,45,25,18767.29,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,175,143,170773.08,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Vexpro,207,183,21191.6,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,284,83,88755.73,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,101,73,50876.1,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,171,76,33869.02,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,56,54,58644.09,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Vexpro,66,18,14417.84,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Vexpro,152,92,60566.58,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Nexoral,207,77,238540.2,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,140,50,121236.2,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,276,242,78542.08,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,224,40,114990.99,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Nexoral,125,116,114952.31,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Roventra,218,210,145447.58,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Nexoral,170,169,58945.3,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Roventra,57,55,30393.29,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Vexpro,141,40,29715.05,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Nexoral,98,11,51807.39,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Roventra,143,55,156314.63,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Vexpro,47,35,46064.13,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,118,50,101336.89,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,185,178,179586.69,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Vexpro,266,113,129461.04,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Nexoral,208,64,176467.75,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,32,22,8958.89,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,57,47,22369.82,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,207,165,18314.62,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Nexoral,55,29,53691.59,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,157,112,152665.57,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,147,127,102427.78,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Vexpro,81,51,77345.71,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,168,146,26900.0,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Roventra,14,14,8816.4,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Vexpro,281,223,43734.23,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Roventra,117,50,57272.27,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,47,38,18965.29,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Roventra,292,275,349230.55,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Roventra,111,25,58896.57,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Vexpro,143,121,135581.84,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Nexoral,41,29,46494.82,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,218,108,236964.16,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,192,85,206816.46,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Nexoral,117,39,104139.55,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Vexpro,52,42,18289.62,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Roventra,206,12,26813.36,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Nexoral,205,87,59595.65,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Nexoral,168,128,46927.04,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Vexpro,171,128,85310.43,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,238,76,193468.41,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,267,39,129926.55,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Vexpro,142,102,72924.39,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,199,130,119894.55,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,280,166,116300.39,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Roventra,124,119,80388.96,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,242,115,176926.74,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Roventra,220,165,246814.65,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Vexpro,173,84,122182.6,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Roventra,137,26,138094.47,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Roventra,278,55,233628.81,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Vexpro,244,158,291046.75,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Roventra,153,44,110794.08,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Roventra,161,143,89613.13,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,156,71,70875.18,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Vexpro,27,26,29128.39,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,95,30,8691.46,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,180,29,112292.97,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,107,51,14788.41,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,184,59,211647.07,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,235,155,159164.57,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Roventra,210,174,240145.32,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,89,31,66293.19,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Roventra,142,74,120876.62,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Vexpro,56,40,52573.06,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,20,12,16642.19,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Vexpro,160,52,14756.15,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Nexoral,130,32,10420.62,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Roventra,263,202,134026.62,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Roventra,21,21,8126.33,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,257,100,110470.98,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Roventra,108,44,110973.84,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,51,20,13280.25,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Roventra,156,93,136620.16,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,275,250,31406.4,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Nexoral,156,36,75956.41,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Vexpro,277,127,330110.15,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Nexoral,107,24,110864.01,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,147,85,24647.07,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,225,103,45568.44,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Nexoral,81,48,28011.95,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Vexpro,192,188,53397.88,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Nexoral,97,16,19640.43,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Vexpro,127,21,68585.24,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Nexoral,230,145,196777.94,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Nexoral,21,17,22244.47,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,100,93,57027.5,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,281,132,78506.62,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Roventra,91,67,49074.53,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,24,12,19142.45,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,187,21,43781.96,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Nexoral,248,56,207078.92,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,277,102,133245.77,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Roventra,250,39,231381.66,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Roventra,137,53,100344.38,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Vexpro,169,62,36433.51,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Roventra,201,99,120435.68,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,87,45,89205.74,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,258,157,117859.94,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Nexoral,220,174,182303.71,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Vexpro,146,112,64742.78,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Roventra,47,39,30484.43,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Roventra,13,11,4888.53,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Nexoral,192,115,50796.92,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Roventra,295,155,149232.33,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,170,81,180566.71,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Nexoral,282,127,208543.51,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Vexpro,170,12,172896.5,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Nexoral,151,59,84302.09,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Vexpro,37,11,37897.54,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,27,17,15297.44,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,219,176,153595.19,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Vexpro,99,30,114643.29,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,46,28,6841.5,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Nexoral,244,238,183377.51,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Vexpro,185,179,19840.07,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,222,203,117518.61,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Nexoral,149,120,84638.55,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Vexpro,16,12,10670.78,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Nexoral,126,124,11187.57,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Roventra,170,85,166002.87,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Roventra,99,41,97863.3,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Vexpro,32,11,20267.48,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,81,81,15764.84,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Roventra,31,21,33475.24,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,101,57,103448.26,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Roventra,122,54,113640.25,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,236,138,254045.01,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Roventra,108,60,118533.78,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,37,30,18462.82,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Roventra,142,85,33249.55,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,268,162,49348.85,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,231,143,212848.59,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Roventra,277,272,127892.03,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,266,157,172474.84,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Roventra,266,246,189260.08,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,12,11,6273.73,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Nexoral,43,39,28152.79,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,78,69,38366.72,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Nexoral,208,134,166001.7,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Vexpro,241,28,69308.67,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Vexpro,299,194,60308.52,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,273,24,302114.24,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,154,146,90876.84,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,261,79,249192.48,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Nexoral,54,41,26315.58,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Roventra,222,42,20961.79,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Roventra,95,72,48008.61,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Vexpro,113,68,122983.71,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Roventra,246,33,204446.43,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,201,163,226074.02,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Roventra,122,60,116957.99,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Roventra,145,92,124831.55,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,149,32,49274.13,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Roventra,241,11,111561.73,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Vexpro,294,108,325067.52,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Nexoral,81,60,75974.37,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,53,15,34871.57,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Roventra,292,253,124128.95,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,79,22,65856.73,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,179,111,125876.6,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,77,24,26960.79,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Roventra,272,164,214352.12,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Roventra,275,250,316125.37,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Vexpro,266,57,244814.72,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Vexpro,55,48,24516.99,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Nexoral,163,79,176798.14,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,184,183,76449.17,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,110,95,114595.78,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,227,125,172175.0,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Roventra,74,63,23469.73,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Roventra,103,61,79974.75,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Vexpro,67,34,57848.85,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Nexoral,112,105,95988.23,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Roventra,279,152,183208.73,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Vexpro,239,96,172888.23,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,271,91,117743.59,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,63,26,21193.11,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,279,178,258225.53,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Vexpro,34,19,19147.07,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Nexoral,81,59,21215.73,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,11,11,7168.78,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,261,210,198111.06,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,153,35,52886.11,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,210,172,99081.27,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,167,68,45891.62,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,251,63,130020.87,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Roventra,248,110,219319.42,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,74,33,86577.46,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Nexoral,236,173,109010.9,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,112,102,64715.43,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Vexpro,179,17,20549.97,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Vexpro,173,75,35131.26,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Nexoral,22,13,24273.93,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Vexpro,214,130,29992.88,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Vexpro,214,191,239509.64,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,108,80,113641.96,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Roventra,288,169,91087.75,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Nexoral,156,47,103143.27,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Roventra,292,143,253524.86,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,288,11,40578.06,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Roventra,21,17,15699.1,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Vexpro,53,48,55846.32,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,62,23,52915.9,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Roventra,24,20,13967.3,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,241,240,281759.24,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Vexpro,56,27,57678.27,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,266,155,218992.98,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,127,84,145297.51,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Roventra,20,12,22866.79,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,255,16,204288.94,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Roventra,48,28,19561.4,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,247,202,277076.55,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Vexpro,115,14,65254.44,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,271,109,269679.64,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Roventra,106,80,28537.34,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Vexpro,107,24,92440.91,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Roventra,46,26,13038.48,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Vexpro,111,39,124167.67,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,244,114,198682.44,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,232,179,138336.97,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Roventra,249,128,135307.79,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,185,34,166831.86,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Roventra,115,101,13653.56,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Vexpro,92,78,41181.35,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,108,40,42499.26,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,208,65,224607.28,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,241,83,188637.43,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,277,96,165704.25,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,212,104,32602.25,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,152,31,13817.24,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Roventra,77,77,46017.76,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Roventra,218,129,170036.1,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,276,151,257680.8,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,265,227,111944.91,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,250,234,293778.07,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,122,15,59200.45,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Vexpro,25,11,7932.15,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Nexoral,263,85,216372.9,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Roventra,292,172,252616.4,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,86,13,50768.94,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Roventra,151,80,179280.93,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Nexoral,81,28,77315.47,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Roventra,68,57,62352.76,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Nexoral,89,18,80578.84,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Nexoral,33,24,20821.9,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Vexpro,78,20,31693.15,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Nexoral,128,116,23918.91,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Roventra,95,72,54192.51,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Roventra,203,67,147017.11,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,24,20,20086.81,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Vexpro,193,24,52051.14,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,170,66,148798.12,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Roventra,116,59,39704.92,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,66,66,49083.82,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,260,152,219380.14,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,78,44,66052.0,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,38,24,13883.11,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Nexoral,36,23,38616.27,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,284,187,116630.52,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Roventra,119,46,109605.42,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,197,85,27195.66,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,41,35,19146.92,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Roventra,259,183,138238.63,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,239,94,255866.39,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,246,80,240277.09,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,281,196,117583.32,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Nexoral,147,26,72148.6,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Vexpro,237,62,161139.63,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Roventra,294,83,152310.2,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,30,18,5977.91,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,78,38,51017.6,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,27,12,15265.94,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,283,207,216842.29,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Nexoral,246,89,198404.04,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,39,28,32705.63,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,170,149,119474.08,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,39,28,11987.46,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Roventra,77,15,41868.13,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Nexoral,214,100,117417.32,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,155,43,108751.84,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,73,48,58658.92,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Roventra,94,30,88863.24,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,98,41,17188.39,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Roventra,168,135,32551.01,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,289,37,271279.37,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Vexpro,191,88,174654.59,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Nexoral,95,77,70979.76,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Vexpro,268,94,139288.71,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Roventra,86,46,66238.7,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Vexpro,45,20,47833.01,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,23,14,11426.56,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Vexpro,293,80,151731.88,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,117,13,138125.05,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Vexpro,53,24,17576.82,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Vexpro,251,95,67526.94,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Vexpro,94,46,64371.13,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Nexoral,284,96,47508.95,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,127,42,37390.44,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Vexpro,238,52,231015.64,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,178,109,87275.69,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Vexpro,135,28,35293.74,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,300,179,101147.76,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,64,15,17856.1,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Roventra,82,68,88954.84,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Nexoral,104,77,120884.45,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Vexpro,200,101,62830.79,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Roventra,260,118,253419.83,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,246,45,88209.07,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Nexoral,226,122,162917.02,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Vexpro,104,76,20654.24,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Nexoral,267,77,293877.74,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Vexpro,143,18,89820.61,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,136,39,103921.22,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Roventra,97,21,39907.35,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,182,54,174228.48,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Nexoral,177,174,169483.31,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Vexpro,148,68,109956.13,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,95,57,65245.15,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Vexpro,268,98,64081.27,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Roventra,196,190,168906.51,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,235,103,104348.11,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Vexpro,159,24,90419.86,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,137,29,29478.67,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,270,21,224581.07,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Roventra,80,49,46298.6,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,151,57,16260.14,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,102,32,97726.13,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Roventra,211,136,115733.92,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Vexpro,75,60,31970.92,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Nexoral,54,45,16380.29,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Nexoral,58,51,39307.0,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Vexpro,177,49,59762.37,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Vexpro,83,12,81373.46,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Nexoral,146,140,136360.68,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Vexpro,287,246,183845.28,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,108,87,66176.12,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Nexoral,246,79,35404.28,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Nexoral,266,99,22612.67,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Roventra,258,70,268942.3,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Nexoral,116,18,41372.77,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Vexpro,236,229,257076.13,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,120,27,33066.39,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Roventra,189,153,138509.12,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,175,109,51021.83,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,52,28,16605.44,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Roventra,223,170,73951.24,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Nexoral,227,136,28489.06,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Vexpro,207,158,83966.7,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Roventra,155,127,21412.16,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,79,34,41788.04,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Roventra,112,85,20391.45,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,280,166,60899.97,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,121,103,18350.7,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Nexoral,199,77,51653.28,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,222,200,208233.46,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Roventra,274,233,268342.85,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Roventra,103,46,35938.96,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,64,39,10796.1,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,234,81,280794.89,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,75,41,65837.54,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,254,136,177593.38,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,102,27,121983.81,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Roventra,41,31,43776.52,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Roventra,89,53,27552.14,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,211,46,134572.98,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Vexpro,144,24,29366.56,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,57,43,18303.67,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Roventra,147,23,24147.57,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,108,105,127713.29,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,172,35,199291.89,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,264,196,316061.19,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Vexpro,12,11,5162.39,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Nexoral,298,155,215343.84,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,129,94,35512.58,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Vexpro,199,31,200721.64,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Nexoral,82,61,82506.22,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Roventra,208,103,189880.3,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,43,27,13262.24,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Vexpro,76,55,27758.48,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Roventra,185,168,181347.68,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,209,40,144585.12,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,52,27,50013.48,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Vexpro,155,20,24496.95,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Nexoral,71,37,31257.65,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Roventra,114,12,100519.09,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,114,81,116724.07,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,206,106,115119.86,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Vexpro,146,97,78193.21,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Vexpro,211,94,113902.29,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Roventra,186,27,18945.74,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Vexpro,209,206,233893.92,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,255,180,214461.01,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,209,165,150774.3,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,24,17,15820.66,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Roventra,295,209,168970.2,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Vexpro,60,52,17154.78,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Vexpro,239,122,78384.27,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,150,66,119212.97,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,203,88,61329.72,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,203,135,118687.73,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,86,65,37441.96,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,112,30,131080.32,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,96,66,84988.01,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,254,80,110903.86,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Vexpro,198,99,188400.23,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Nexoral,225,175,249310.67,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Roventra,253,196,51949.5,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Vexpro,158,134,70203.5,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Roventra,225,43,162276.2,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Vexpro,62,51,67481.67,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,119,72,28675.94,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,62,27,7914.79,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,64,42,48443.93,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Vexpro,75,64,23162.2,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Roventra,197,178,17059.9,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,276,276,177179.08,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Roventra,18,11,2194.41,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,161,144,188504.5,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Roventra,299,64,349891.5,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,24,18,15593.8,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,297,49,67363.53,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Roventra,23,18,12200.36,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Nexoral,265,71,251382.62,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Roventra,211,207,95124.86,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,210,27,204179.42,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,93,88,96165.78,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Roventra,133,36,147259.07,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,245,104,186560.55,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Roventra,250,125,122400.77,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,112,100,118233.27,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,60,36,57078.4,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,295,126,182909.16,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Nexoral,220,211,207967.48,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Vexpro,172,38,62847.93,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Nexoral,118,78,66642.92,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,66,63,65557.96,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,22,12,20618.19,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,248,197,106078.25,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Nexoral,188,132,115934.11,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Vexpro,165,67,129812.1,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Roventra,100,17,38689.14,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,162,42,32452.97,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,17,15,8908.95,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Vexpro,238,207,82564.01,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,281,130,270695.7,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Vexpro,201,132,140522.44,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,287,200,54973.53,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,145,13,88336.15,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Nexoral,126,39,53332.19,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,44,30,30019.69,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Roventra,30,19,21578.48,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,202,122,72153.93,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,280,264,45196.36,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,226,190,220124.86,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Nexoral,45,14,24022.11,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Vexpro,166,125,123696.81,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,33,27,21291.57,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,267,12,24028.55,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Vexpro,16,16,3887.45,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,204,189,233772.39,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,177,86,194140.14,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Nexoral,285,266,27341.42,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Vexpro,44,31,26362.14,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,86,70,101788.72,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,80,20,62857.27,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Nexoral,231,24,239833.18,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Vexpro,237,93,157999.14,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Roventra,252,143,58410.17,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Roventra,17,14,18375.66,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,45,14,51098.05,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,149,128,174826.48,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,141,64,91841.86,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,286,112,292791.69,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,123,17,139321.02,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,244,34,154600.72,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Nexoral,183,32,209168.25,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Roventra,31,19,35808.86,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Nexoral,137,11,155841.27,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Nexoral,166,86,64420.09,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Vexpro,55,30,26239.09,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Nexoral,248,221,284999.93,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Vexpro,235,118,247803.32,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,271,142,221002.44,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Roventra,211,28,159616.3,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Vexpro,224,152,111420.18,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Nexoral,147,100,116205.1,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Roventra,234,55,127291.51,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Vexpro,289,273,114912.88,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Roventra,87,29,33179.41,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Vexpro,281,71,174160.04,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Nexoral,152,58,49383.61,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Vexpro,68,27,46560.12,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Roventra,158,135,161149.06,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Vexpro,45,18,30198.23,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,98,74,103050.45,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Roventra,50,13,54571.18,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Nexoral,19,19,14327.19,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Vexpro,240,47,260563.29,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,112,80,65728.24,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,63,35,40254.65,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,200,86,177506.4,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Roventra,289,159,93345.51,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Roventra,59,22,9931.01,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,13,11,8823.71,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Vexpro,214,120,229528.83,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Nexoral,299,75,136205.41,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,272,259,112776.34,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Vexpro,280,57,289452.45,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Nexoral,22,22,22631.22,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,154,116,64625.95,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Roventra,272,80,152850.57,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,63,29,42142.84,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,103,26,71948.49,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,225,114,146022.99,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Vexpro,123,122,21115.01,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Nexoral,299,175,307436.61,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,183,90,195208.83,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Roventra,146,78,23558.23,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,93,74,18579.62,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Vexpro,65,49,49789.07,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Nexoral,195,74,88878.25,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Vexpro,230,66,241459.1,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,160,41,53250.48,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Roventra,13,13,6403.25,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,198,131,177796.14,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Roventra,171,122,152289.31,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Vexpro,109,12,36669.37,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Roventra,249,58,228653.63,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,129,63,71766.07,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Nexoral,260,175,193128.52,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Roventra,177,114,55399.41,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Roventra,225,198,128206.44,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Nexoral,291,273,249468.8,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Roventra,134,51,103163.3,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Roventra,274,240,91055.64,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,79,65,48020.02,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,15,12,13822.88,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,284,96,265527.45,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Vexpro,137,105,116660.98,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Roventra,225,73,164440.31,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,237,23,137136.8,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Nexoral,160,101,164869.03,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Nexoral,215,186,215951.26,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Roventra,107,13,68862.17,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Roventra,137,103,63707.42,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,291,260,140349.77,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,53,27,51175.83,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Roventra,51,39,15622.45,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Roventra,69,65,27526.61,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,270,62,299863.2,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Nexoral,245,125,262139.57,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Vexpro,20,12,22671.27,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,19,18,9112.6,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Nexoral,154,146,16879.27,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Nexoral,195,63,35652.15,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,114,106,44313.34,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Vexpro,22,19,19046.6,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,132,129,90634.76,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Roventra,263,213,214935.65,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,102,38,111023.78,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,148,11,79136.98,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,245,128,71446.11,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Vexpro,182,152,43674.72,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Nexoral,151,51,47414.42,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Nexoral,147,12,60875.15,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Roventra,110,89,60751.27,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Vexpro,103,42,100755.13,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Vexpro,148,122,93884.52,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Vexpro,136,119,103296.05,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Nexoral,292,19,221229.59,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Vexpro,153,46,34740.9,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,170,59,77692.03,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Roventra,126,92,71852.97,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Roventra,220,25,192026.94,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,140,23,88710.63,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Vexpro,298,257,31620.88,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,48,25,20272.4,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Vexpro,44,40,37027.85,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Nexoral,274,160,276710.64,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,104,104,35006.25,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,32,19,28567.09,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,45,26,52888.85,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,298,175,91910.79,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Vexpro,204,44,195227.55,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Vexpro,152,115,116984.39,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Roventra,157,74,184781.36,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Nexoral,256,64,240255.13,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,161,131,16887.88,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,28,11,28520.19,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,32,21,33738.03,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,155,27,23743.37,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,242,98,135718.58,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Roventra,203,33,144118.19,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,13,12,6264.64,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,180,70,106627.72,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Vexpro,51,31,60799.36,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Nexoral,220,168,33972.73,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Roventra,152,151,169040.54,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Vexpro,53,42,9019.44,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Roventra,53,29,5349.93,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Vexpro,252,214,188794.07,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Vexpro,114,69,55752.83,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Vexpro,182,107,174636.64,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Roventra,118,51,23110.11,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Nexoral,75,55,44780.13,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,127,35,74946.74,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Roventra,48,40,25850.16,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,38,31,11179.42,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Vexpro,111,57,78183.22,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Nexoral,257,81,255150.63,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Vexpro,255,113,96173.33,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Vexpro,90,45,46310.73,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Roventra,201,85,234039.9,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,277,193,312023.25,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,98,68,62463.7,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Nexoral,277,159,234476.96,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Vexpro,101,74,18051.75,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,269,220,87443.16,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Nexoral,161,108,179978.59,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,238,127,183025.95,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Vexpro,72,72,36964.95,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,125,34,58064.62,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Roventra,110,104,48753.76,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,252,117,53727.07,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,265,102,232896.03,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,119,71,16139.28,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Nexoral,200,41,197158.68,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Roventra,151,107,76893.11,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,38,18,23363.63,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Roventra,38,16,35252.68,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,52,15,43462.97,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,237,159,52862.85,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Nexoral,190,136,126256.11,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,88,77,83344.48,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Roventra,13,13,4344.29,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Vexpro,17,15,8037.5,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Roventra,270,219,137523.37,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Roventra,105,86,81383.18,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,206,200,119626.6,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Roventra,147,119,114772.55,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Nexoral,228,190,199018.11,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,30,11,13917.25,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,59,27,18469.86,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Vexpro,249,172,65077.37,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,299,82,333031.83,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,54,26,47634.39,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Nexoral,185,169,127287.95,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,169,82,123093.26,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,254,132,180882.07,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Vexpro,207,82,122536.47,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,224,94,186855.85,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,217,51,123641.62,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,180,39,114837.56,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,94,66,49872.13,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Vexpro,154,12,23397.46,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Roventra,37,11,5904.47,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,289,269,57783.42,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,28,20,28841.71,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Roventra,53,33,62125.32,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,188,126,202842.98,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,203,32,138858.4,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,111,25,123619.71,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Roventra,164,15,187814.33,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,149,31,136180.61,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,42,25,29771.87,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,125,103,110865.93,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,95,49,87564.15,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Roventra,234,215,105660.76,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Vexpro,214,183,91116.49,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Roventra,51,43,60392.33,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,179,77,25102.94,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Vexpro,159,13,107902.6,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Vexpro,123,56,101358.25,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Nexoral,14,14,10420.61,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,33,24,31181.04,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Roventra,91,48,57021.4,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Vexpro,284,212,136738.59,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Vexpro,108,84,62211.62,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,135,70,29462.11,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Roventra,106,51,122891.27,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,124,13,47041.04,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,185,184,28817.51,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Vexpro,226,166,99336.56,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Nexoral,96,22,33548.71,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Roventra,161,90,15493.72,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,173,148,94141.05,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,127,93,133411.9,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,77,51,78727.1,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,187,149,144947.68,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Roventra,224,213,30405.63,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Vexpro,233,143,91650.54,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Vexpro,69,21,52545.19,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Nexoral,262,99,239023.93,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,23,16,20647.52,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,101,35,22788.79,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,119,92,42462.15,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,245,151,264654.9,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Vexpro,248,32,291546.32,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,59,12,15638.32,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Vexpro,117,53,56829.76,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Nexoral,289,122,277546.99,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Vexpro,169,156,163203.17,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,68,65,11303.0,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,268,82,250992.68,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Vexpro,205,78,205153.22,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Nexoral,234,175,241991.26,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Nexoral,142,121,43459.28,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Vexpro,205,123,21107.55,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Roventra,112,105,61920.5,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Nexoral,217,105,31497.64,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Vexpro,278,128,198943.69,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Roventra,197,163,38105.24,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,149,31,55508.78,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Vexpro,178,57,204902.46,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Vexpro,116,18,130820.37,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Nexoral,147,14,123487.31,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Vexpro,20,16,20699.86,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Roventra,263,253,26155.17,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,250,134,170702.59,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Roventra,137,134,81399.99,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Vexpro,36,23,12814.5,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,68,30,68417.12,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,18,13,13254.49,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Roventra,291,40,293663.37,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,205,109,64172.36,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Nexoral,94,11,74106.69,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Vexpro,22,12,4011.33,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,35,26,41844.46,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,142,14,36928.42,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Vexpro,208,202,43695.29,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,236,170,93234.45,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,253,18,93379.23,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,84,35,37837.48,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Roventra,123,53,22801.43,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,87,72,18009.56,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Roventra,139,137,96404.58,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Vexpro,92,14,84502.22,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,282,251,295717.09,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,279,258,111625.08,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Nexoral,65,21,65519.81,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Vexpro,262,130,66093.48,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,99,84,42167.76,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Roventra,191,28,26009.65,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Vexpro,213,167,27812.12,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Nexoral,230,29,177458.21,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Vexpro,46,46,29591.26,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Vexpro,87,29,27023.62,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Nexoral,83,47,88983.09,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,291,275,344343.88,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,29,28,6791.87,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,236,218,69614.42,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,93,87,32659.97,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Vexpro,98,35,103215.01,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Nexoral,199,148,171214.96,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,271,43,255523.54,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,140,136,15060.54,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Endocrinology,Roventra,196,100,188183.83,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Roventra,11,11,3890.03,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Vexpro,108,20,57959.92,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,31,14,7685.94,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,284,75,246299.27,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,218,202,57686.54,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Roventra,191,160,58997.75,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Vexpro,280,163,242210.73,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Nexoral,14,13,6309.51,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Vexpro,71,30,81701.59,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Nexoral,252,70,49069.55,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Nexoral,296,145,208799.15,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Rheumatology,Roventra,34,34,4880.88,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Nexoral,84,42,17095.83,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,234,81,195104.85,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Nexoral,209,53,101846.78,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Nexoral,193,71,124776.76,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Pulmonology,Roventra,113,20,76863.61,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Nexoral,259,231,297182.3,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Family Practice,Nexoral,275,82,96181.07,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Cardiology,Nexoral,43,14,23461.42,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,170,142,148167.07,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Vexpro,121,81,127368.62,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00
+Oncology/Hematology,Nexoral,78,38,30701.84,synthetic proxy,local generated Chapter 3 data,2024,dry_run,2026-06-11,2026-06-17T06:25:03+00:00

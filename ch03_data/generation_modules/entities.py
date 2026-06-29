@@ -486,6 +486,14 @@ def build_entities(
     for p in providers:
         account_providers[p["account_id"]].append(p)
 
+    # Build Primary Care pool for referral network generation.
+    # 20 super-referrers are designated by sorting PC providers by NPI (reproducible)
+    # and taking the first 20 (pc_sorted[:20]); biased selection in patient assignment
+    # gives them higher patient counts, creating useful betweenness centrality in the
+    # referral graph that Chapter 6's network analysis depends on.
+    pc_providers = [p for p in providers if p["specialty"] == "Primary Care"]
+    pc_sorted = sorted(pc_providers, key=lambda p: p["npi"])
+
     for i in range(1, n_patients + 1):
         account = rng.choice(accounts)
         provider_pool = account_providers[account["account_id"]] or providers
@@ -500,11 +508,37 @@ def build_entities(
         )
         coverage_start = date(2023, rng.randint(1, 12), rng.randint(1, 28))
         coverage_end = date(2025, rng.randint(1, 12), rng.randint(1, 28))
+
+        # Assign a separate primary_care_npi for patients whose prescriber is a specialist.
+        # Uses hash-based selection (not the main RNG) so the shared seed stream is
+        # unchanged and ch03–ch06 outputs remain identical after this change.
+        # 35% of specialist patients are routed through a super-referrer PCP to produce
+        # high-betweenness bridge nodes in the referral graph.
+        patient_id_str = f"PAT{i:0{pat_width}d}"
+        if hcp["specialty"] == "Primary Care" or not pc_providers:
+            primary_care_npi = ""
+        else:
+            _h1 = int.from_bytes(
+                hashlib.sha256(f"pcp-assign:{patient_id_str}".encode()).digest()[:8], "big"
+            )
+            _frac = _h1 / 2**64
+            if _frac < 0.35:
+                _h2 = int.from_bytes(
+                    hashlib.sha256(f"pcp-super:{patient_id_str}".encode()).digest()[:8], "big"
+                )
+                primary_care_npi = pc_sorted[_h2 % 20]["npi"]
+            else:
+                _h2 = int.from_bytes(
+                    hashlib.sha256(f"pcp-any:{patient_id_str}".encode()).digest()[:8], "big"
+                )
+                primary_care_npi = pc_providers[_h2 % len(pc_providers)]["npi"]
+
         patients.append(
             {
                 "patient_id": f"PAT{i:0{pat_width}d}",
                 "account_id": account["account_id"],
                 "prescriber_npi": hcp["npi"],
+                "primary_care_npi": primary_care_npi,
                 "payer_id": payer["payer_id"],
                 "state": state[1],
                 "region": account["region"],

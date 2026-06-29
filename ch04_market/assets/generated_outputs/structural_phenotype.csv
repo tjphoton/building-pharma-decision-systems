@@ -1,0 +1,3 @@
+phenotype,diagnosed_sample,untreated_sample,untreated_population,reachable_opportunity
+base_phenotype,8213,2278,8110331.0,3420603.0
+strict_phenotype,6008,1607,7836880.0,3297962.0

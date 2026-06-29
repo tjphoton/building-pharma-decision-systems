@@ -10,6 +10,8 @@ import numpy as np
 import pandas as pd
 
 from ch07_competitive.generation_modules.ch07_config import (
+    ACCESS_HISTORY_PAYER,
+    ACCESS_HISTORY_REGION,
     ANALYSIS_DATE,
     BRAND,
     DATA_CUTOFF,
@@ -78,6 +80,54 @@ def _plan_region_enrollment(
     return cells
 
 
+def _access_history(access: pd.DataFrame) -> pd.DataFrame:
+    """Expand one cell into an effective-dated access history.
+
+    Every cell passes through with its single source record. The demonstration
+    cell gains two earlier records so the as-of-date selection has something to
+    choose among: covered in January, step edit in July, non-covered in October.
+    The record in force on the analysis date is the original source row, so the
+    landscape on that date, and every downstream measure, is unchanged.
+    """
+
+    is_demo = (
+        access["payer_id"].eq(ACCESS_HISTORY_PAYER)
+        & access["region"].eq(ACCESS_HISTORY_REGION)
+        & access["product_name"].eq(BRAND)
+    )
+    others = access.loc[~is_demo].copy()
+    active = access.loc[is_demo].iloc[0].to_dict()
+    history = [
+        {
+            **active,
+            "access_rule_id": f"{active['access_rule_id']}-H1",
+            "coverage_status": "Covered",
+            "prior_authorization": "No",
+            "step_edit": "No",
+            "specialty_pharmacy_required": "No",
+            "effective_start": "2024-01-01",
+            "effective_end": "2024-06-30",
+        },
+        {
+            **active,
+            "access_rule_id": f"{active['access_rule_id']}-H2",
+            "coverage_status": "Covered",
+            "prior_authorization": "No",
+            "step_edit": "Yes",
+            "specialty_pharmacy_required": "No",
+            "effective_start": "2024-07-01",
+            "effective_end": "2024-09-30",
+        },
+        {**active, "effective_start": "2024-10-01", "effective_end": "2025-12-31"},
+    ]
+    out = pd.concat(
+        [others, pd.DataFrame(history)[access.columns]], ignore_index=True
+    )
+    return out.sort_values(
+        ["payer_id", "region", "product_name", "effective_start"]
+    ).reset_index(drop=True)
+
+
 def _event_panel(rng: np.random.Generator) -> pd.DataFrame:
     """Generate a controlled weekly formulary-event panel.
 
@@ -143,6 +193,7 @@ def generate(repo_root: Path, output_dir: Path) -> dict[str, pd.DataFrame]:
     payers = pd.read_csv(paths["payers"])
     access = pd.read_csv(paths["access"])
     tables = {
+        "access_history": _access_history(access),
         "plan_region_enrollment": _plan_region_enrollment(payers, access, rng),
         "formulary_event_panel": _event_panel(rng),
     }
@@ -170,6 +221,7 @@ def generate(repo_root: Path, output_dir: Path) -> dict[str, pd.DataFrame]:
         "data_cutoff": DATA_CUTOFF,
         "source_maturity_date": SOURCE_MATURITY_DATE,
         "source_types": {
+            "access_history": "synthetic effective-dated access with planted history",
             "plan_region_enrollment": "synthetic",
             "formulary_event_panel": "synthetic planted-effect panel",
             "upstream_claims": "synthetic",

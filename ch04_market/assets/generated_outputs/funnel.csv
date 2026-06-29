@@ -1,0 +1,6 @@
+stage,sample_count,population_estimate,estimate_type
+Diagnosed population (calibrated),8213.0,29216614.0,count
+Age-eligible (35 or older),6998.0,24895896.105695017,count
+Untreated opportunity,2278.0,8110331.224285105,count
+Access-adjusted reachable opportunity,,3420603.173038611,expected count
+Expected starts at selected conversion,,855150.7932596528,expected count

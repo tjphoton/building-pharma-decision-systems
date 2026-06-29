@@ -1,0 +1,4 @@
+scenario,lag_months,eligible_patient_count,calibrated_population,pct_of_full
+Full matured claims (no lag),0,2278,8110331.0,1.0
+Claims at 4-month maturity,4,1518,5406887.0,0.6667
+Missing (claims not yet received),4,760,2703444.0,0.3333

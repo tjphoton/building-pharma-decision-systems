@@ -580,7 +580,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ch03_data/chapter3_walkthrough/" class="md-nav__link">
+      <a href="../ch03_data/ch03_walkthrough/" class="md-nav__link">
         
   
   
@@ -608,7 +608,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ch03_data/exercise_solutions/" class="md-nav__link">
+      <a href="../ch03_data/ch03_exercise_solutions/" class="md-nav__link">
         
   
   
@@ -726,7 +726,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ch04_market/chapter4_walkthrough/" class="md-nav__link">
+      <a href="../ch04_market/ch04_walkthrough/" class="md-nav__link">
         
   
   
@@ -754,7 +754,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ch04_market/exercise_solutions/" class="md-nav__link">
+      <a href="../ch04_market/ch04_exercise_solutions/" class="md-nav__link">
         
   
   
@@ -872,7 +872,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ch05_journey/chapter5_walkthrough/" class="md-nav__link">
+      <a href="../ch05_journey/ch05_walkthrough/" class="md-nav__link">
         
   
   
@@ -900,7 +900,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ch05_journey/exercise_solutions/" class="md-nav__link">
+      <a href="../ch05_journey/ch05_exercise_solutions/" class="md-nav__link">
         
   
   
@@ -1018,7 +1018,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ch06_hcp/chapter6_walkthrough/" class="md-nav__link">
+      <a href="../ch06_hcp/ch06_walkthrough/" class="md-nav__link">
         
   
   
@@ -1046,7 +1046,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ch06_hcp/exercise_solutions/" class="md-nav__link">
+      <a href="../ch06_hcp/ch06_exercise_solutions/" class="md-nav__link">
         
   
   
@@ -1164,7 +1164,7 @@
   
   
     <li class="md-nav__item">
-      <a href="chapter7_walkthrough/" class="md-nav__link">
+      <a href="ch07_walkthrough/" class="md-nav__link">
         
   
   
@@ -1192,7 +1192,7 @@
   
   
     <li class="md-nav__item">
-      <a href="exercise_solutions/" class="md-nav__link">
+      <a href="ch07_exercise_solutions/" class="md-nav__link">
         
   
   
@@ -1310,7 +1310,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ch08_omnichannel/chapter8_walkthrough/" class="md-nav__link">
+      <a href="../ch08_omnichannel/ch08_walkthrough/" class="md-nav__link">
         
   
   
@@ -1338,7 +1338,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ch08_omnichannel/exercise_solutions/" class="md-nav__link">
+      <a href="../ch08_omnichannel/ch08_exercise_solutions/" class="md-nav__link">
         
   
   
@@ -1386,36 +1386,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#what-youll-learn" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        What You'll Learn
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#read-the-full-chapter" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Read the Full Chapter
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1435,22 +1405,23 @@
 
 
 <h1 id="chapter-7-competitive-intelligence-and-market-access">Chapter 7: Competitive Intelligence and Market Access</h1>
-<p>Welcome to Chapter 7! This chapter distinguishes payer access barriers from adoption gaps—two different problems requiring different solutions.</p>
-<h2 id="what-youll-learn">What You'll Learn</h2>
-<p>In this chapter, you'll discover:
-- <strong>Effective-dated access landscape</strong> - Map coverage, restrictions, and utilization management across payer-region cells
-- <strong>Plan coverage and covered lives</strong> - Calculate different access measures with proper weighting and denominators
-- <strong>Prescription reconstruction</strong> - Trace patient attempts through approval, denial, and fulfillment outcomes
-- <strong>Corrected first-treatment share</strong> - Measure Roventra uptake with uncertainty, corrected for treatment washout
-- <strong>Access vs. adoption gaps</strong> - Identify whether payer controls or product adoption drive observed patterns
-- <strong>Decision tables</strong> - Build traceable evidence tables with policy state, exposure, outcome, start count, owner, and rule version
-- <strong>Payer-region strategy</strong> - Route evidence to market access (for coverage issues) vs. adoption teams (for demand issues)</p>
-<h2 id="read-the-full-chapter">Read the Full Chapter</h2>
-<p>👉 <strong><a href="ch07_competitive_intelligence_market_access/">Start reading Chapter 7: Competitive Intelligence and Market Access</a></strong></p>
-<p>Also available:
-- 📓 <strong><a href="chapter7_walkthrough.ipynb">Walkthrough Notebook</a></strong> - Interactive Python notebook with step-by-step code examples
-- 🧪 <strong><a href="exercise_solutions.ipynb">Exercise Solutions</a></strong> - Solutions to chapter exercises</p>
-<p>This chapter teaches you to move from "Why aren't patients starting Roventra?" to "Here's the access barrier, here's the plan-by-plan evidence, and here's who owns the fix."</p>
+<p>Generate the Chapter 7 supplemental data:</p>
+<div class="highlight"><pre><span></span><code>uv<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>ch07_competitive/generation_modules/generate_ch07_data.py
+</code></pre></div>
+<p>Run the analysis and figures:</p>
+<div class="highlight"><pre><span></span><code>uv<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>ch07_competitive/scripts/run_analysis.py
+uv<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>ch07_competitive/scripts/build_figures.py
+</code></pre></div>
+<p>Build and execute the 2 companion notebooks:</p>
+<div class="highlight"><pre><span></span><code>uv<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>ch07_competitive/scripts/build_notebooks.py
+uv<span class="w"> </span>run<span class="w"> </span>jupyter<span class="w"> </span>nbconvert<span class="w"> </span>--to<span class="w"> </span>notebook<span class="w"> </span>--execute<span class="w"> </span>--inplace<span class="w"> </span>ch07_competitive/ch07_walkthrough.ipynb
+uv<span class="w"> </span>run<span class="w"> </span>jupyter<span class="w"> </span>nbconvert<span class="w"> </span>--to<span class="w"> </span>notebook<span class="w"> </span>--execute<span class="w"> </span>--inplace<span class="w"> </span>ch07_competitive/ch07_exercise_solutions.ipynb
+</code></pre></div>
+<p>Run the publication checks:</p>
+<div class="highlight"><pre><span></span><code>uv<span class="w"> </span>run<span class="w"> </span>pytest<span class="w"> </span>tests/test_ch07_competitive.py<span class="w"> </span>-q
+uv<span class="w"> </span>run<span class="w"> </span>ruff<span class="w"> </span>check<span class="w"> </span>ch07_competitive<span class="w"> </span>tests/test_ch07_competitive.py
+uv<span class="w"> </span>run<span class="w"> </span>python<span class="w"> </span>ch07_competitive/scripts/verify_chapter_blocks.py
+</code></pre></div>
 
 
 

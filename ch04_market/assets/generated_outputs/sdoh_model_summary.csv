@@ -1,0 +1,3 @@
+model,auc,top_decile_patients,top_decile_precision_pct,true_patients_selected,high_barrier_true_patients,high_barrier_selected_share_pct
+Claims only,0.772,181,57.5,104,36,34.3
+Claims + SDOH,0.805,181,60.8,110,64,63.5

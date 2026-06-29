@@ -1,0 +1,25 @@
+formulary_id,plan_id,plan_name,product_name,tier,prior_authorization,step_therapy,quantity_limit,specialty_pharmacy,effective_start,effective_end
+F000001,PAY001,Northeast Commercial Plan 1,Roventra,Tier 3,No,Yes,No,Yes,2024-01-01,2025-12-31
+F000002,PAY001,Northeast Commercial Plan 1,Nexoral,Specialty,No,No,Yes,Yes,2024-01-01,2025-12-31
+F000003,PAY001,Northeast Commercial Plan 1,Vexpro,Specialty,No,No,Yes,No,2024-01-01,2025-12-31
+F000004,PAY002,South Commercial Plan 2,Roventra,Specialty,Yes,Yes,Yes,Yes,2024-01-01,2025-12-31
+F000005,PAY002,South Commercial Plan 2,Nexoral,Tier 1,No,Yes,No,Yes,2024-01-01,2025-12-31
+F000006,PAY002,South Commercial Plan 2,Vexpro,Tier 1,No,No,No,Yes,2024-01-01,2025-12-31
+F000007,PAY003,Midwest Commercial Plan 3,Roventra,Tier 2,Yes,No,No,Yes,2024-01-01,2025-12-31
+F000008,PAY003,Midwest Commercial Plan 3,Nexoral,Tier 1,Yes,Yes,No,Yes,2024-01-01,2025-12-31
+F000009,PAY003,Midwest Commercial Plan 3,Vexpro,Specialty,No,No,No,No,2024-01-01,2025-12-31
+F000010,PAY004,Northeast Medicare Advantage Plan 4,Roventra,Tier 2,Yes,No,No,Yes,2024-01-01,2025-12-31
+F000011,PAY004,Northeast Medicare Advantage Plan 4,Nexoral,Tier 2,Yes,No,Yes,Yes,2024-01-01,2025-12-31
+F000012,PAY004,Northeast Medicare Advantage Plan 4,Vexpro,Tier 1,Yes,No,No,No,2024-01-01,2025-12-31
+F000013,PAY005,South Medicare Advantage Plan 5,Roventra,Specialty,Yes,No,Yes,No,2024-01-01,2025-12-31
+F000014,PAY005,South Medicare Advantage Plan 5,Nexoral,Tier 2,Yes,No,No,No,2024-01-01,2025-12-31
+F000015,PAY005,South Medicare Advantage Plan 5,Vexpro,Tier 2,No,Yes,Yes,Yes,2024-01-01,2025-12-31
+F000016,PAY006,Midwest Medicare Part D Plan 6,Roventra,Tier 1,Yes,Yes,No,Yes,2024-01-01,2025-12-31
+F000017,PAY006,Midwest Medicare Part D Plan 6,Nexoral,Tier 3,Yes,No,No,Yes,2024-01-01,2025-12-31
+F000018,PAY006,Midwest Medicare Part D Plan 6,Vexpro,Tier 2,No,Yes,No,No,2024-01-01,2025-12-31
+F000019,PAY007,West Medicaid Plan 7,Roventra,Tier 3,Yes,Yes,Yes,Yes,2024-01-01,2025-12-31
+F000020,PAY007,West Medicaid Plan 7,Nexoral,Specialty,Yes,No,Yes,No,2024-01-01,2025-12-31
+F000021,PAY007,West Medicaid Plan 7,Vexpro,Tier 2,No,No,No,Yes,2024-01-01,2025-12-31
+F000022,PAY008,West Commercial Plan 8,Roventra,Tier 1,Yes,No,Yes,Yes,2024-01-01,2025-12-31
+F000023,PAY008,West Commercial Plan 8,Nexoral,Specialty,Yes,No,No,No,2024-01-01,2025-12-31
+F000024,PAY008,West Commercial Plan 8,Vexpro,Tier 2,No,Yes,Yes,No,2024-01-01,2025-12-31

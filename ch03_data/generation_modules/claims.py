@@ -9,6 +9,35 @@ from .data_noise import apply_ndc_variation, claim_lag_days
 from .entities import EntityBundle, PROBLEM_LIST_CODES, rand_date
 
 
+SPECIALIST_SPECIALTIES = frozenset({
+    "Oncology", "Cardiology", "Endocrinology", "Rheumatology", "Pulmonology"
+})
+
+
+def _referring_npi(
+    encounter_id: int,
+    rendering_npi: str,
+    primary_care_npi: str,
+    npi_specialty: dict[str, str],
+    claim_index: int,
+) -> str:
+    """Return referring_npi for specialist encounters when a PCP is assigned.
+
+    Uses hash-based (not RNG-based) probability so the main RNG stream is unchanged
+    and ch03–ch06 outputs remain identical after this feature is added.
+    First encounter (index 0): 80 % probability of carrying the referring NPI.
+    Follow-up encounters: 30 % probability.
+    """
+    if not primary_care_npi:
+        return ""
+    if npi_specialty.get(rendering_npi, "") not in SPECIALIST_SPECIALTIES:
+        return ""
+    digest = hashlib.sha256(f"ref-npi:{encounter_id}:{claim_index}".encode()).digest()
+    frac = int.from_bytes(digest[:8], "big") / 2**64
+    threshold = 0.80 if claim_index == 0 else 0.30
+    return primary_care_npi if frac < threshold else ""
+
+
 CLAIM_CODES_BY_BUCKET = {
     "Launch condition": ["E11.9", "E11.65", "E11.40"],
     "Oncology": ["C34.10", "C34.90", "Z85.118"],
@@ -58,6 +87,7 @@ def generate_medical_headers(
     to produce two snapshot files. That field is stripped before writing to CSV.
     """
     payer_type_map: dict[str, str] = {p["payer_id"]: p["payer_type"] for p in bundle.payers}
+    npi_specialty: dict[str, str] = {p["npi"]: p["specialty"] for p in bundle.providers}
 
     start = date(2024, 1, 1)
     end = date(2025, 1, 31)
@@ -107,6 +137,7 @@ def generate_medical_headers(
         ]
         diagnosis_by_code = {row["CODE"]: row for row in bundle.diagnosis_codes}
 
+        primary_care_npi: str = patient.get("primary_care_npi", "")
         claim_count = rng.randint(1, 4)
         for claim_index in range(claim_count):
             diag = rng.choice(diagnosis_rows)
@@ -173,7 +204,10 @@ def generate_medical_headers(
                     "coverage_type": payer_type,
                     "rendering_npi": rendering_npi,
                     "attending_npi": rendering_npi if claim_type == "Institutional" else "",
-                    "referring_npi": "",
+                    "referring_npi": _referring_npi(
+                        encounter_id, rendering_npi, primary_care_npi,
+                        npi_specialty, claim_index,
+                    ),
                     "facility_npi": "",
                     "payer_id": patient["payer_id"],
                     # Internal field used for snapshot filtering — not written to CSV

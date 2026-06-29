@@ -1,0 +1,5 @@
+region,national_diagnosed_prevalence,us_adult_20_plus_population,regional_allocation_share,target_diagnosed_population,observed_diagnosed_patients,population_weight
+Northeast,0.113,258554106,0.17393955664696567,5081925,1945,2612.8
+South,0.113,258554106,0.3804895306388281,11116615,2405,4622.3
+Midwest,0.113,258554106,0.20828808792398118,6085473,2073,2935.6
+West,0.113,258554106,0.237282824790225,6932601,1790,3873.0

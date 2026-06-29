@@ -1,0 +1,3 @@
+pairing,source_a_count,source_b_count,overlap_count,chapman_estimate,standard_error,ci_95_low,ci_95_high,naive_union_estimate,capture_efficiency_a,capture_efficiency_b
+Contaminated: medical dx x paid drug class,8213,13633,6943,16126.5,53.3,16022.1,16231.0,14903,0.5093,0.8454
+Condition-specific: medical dx x paid Roventra,8213,6401,5541,9487.6,26.6,9435.4,9539.9,9073,0.8657,0.6747
