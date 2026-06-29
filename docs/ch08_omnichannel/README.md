@@ -18,8 +18,8 @@ In this chapter, you'll discover:
 👉 **[Start reading Chapter 8: Omnichannel Analytics](ch08_omnichannel_analytics.md)**
 
 Also available:
-- 📓 **[Walkthrough Notebook](chapter8_walkthrough.ipynb)** - Interactive Python notebook with step-by-step code examples
-- 🧪 **[Exercise Solutions](exercise_solutions.ipynb)** - Solutions to chapter exercises
+- 📓 **[Walkthrough Notebook](ch08_walkthrough.ipynb)** - Interactive Python notebook with step-by-step code examples
+- 🧪 **[Exercise Solutions](ch08_exercise_solutions.ipynb)** - Solutions to chapter exercises
 
 This chapter teaches you to move from "Which channels work?" to "Which channel combinations work best for this HCP, at this time, under this access state, and at what cost per incremental outcome?"
 

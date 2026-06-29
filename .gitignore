@@ -1,5 +1,6 @@
 # MkDocs
 site/
+_site/
 .mkdocs/
 
 # Python

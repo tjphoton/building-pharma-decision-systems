@@ -27,8 +27,8 @@ jobs:
 
       - name: Convert Jupyter notebooks to Markdown
         run: |
-          jupyter nbconvert --to markdown docs/ch03_data/chapter3_walkthrough.ipynb --output-dir=docs/ch03_data
-          jupyter nbconvert --to markdown docs/ch03_data/exercise_solutions.ipynb --output-dir=docs/ch03_data
+          jupyter nbconvert --to markdown docs/ch03_data/ch03_walkthrough.ipynb --output-dir=docs/ch03_data
+          jupyter nbconvert --to markdown docs/ch03_data/ch03_exercise_solutions.ipynb --output-dir=docs/ch03_data
 
       - name: Build documentation
         run: mkdocs build

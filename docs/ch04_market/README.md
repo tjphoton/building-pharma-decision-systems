@@ -17,7 +17,7 @@ In this chapter, you'll discover:
 👉 **[Start reading Chapter 4: Market Sizing and Patient Populations](ch04_market_sizing.md)**
 
 Also available:
-- 📓 **[Walkthrough Notebook](chapter4_walkthrough.md)** - Interactive Python notebook with step-by-step code examples
-- 🧪 **[Exercise Solutions](exercise_solutions.md)** - Solutions to chapter exercises
+- 📓 **[Walkthrough Notebook](ch04_walkthrough.md)** - Interactive Python notebook with step-by-step code examples
+- 🧪 **[Exercise Solutions](ch04_exercise_solutions.md)** - Solutions to chapter exercises
 
 This chapter teaches you to move from "How big is the market?" to "How many eligible patients does each account have?" with a defensible calculation backed by data and assumptions you can audit.

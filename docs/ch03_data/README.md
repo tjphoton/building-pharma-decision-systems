@@ -17,5 +17,5 @@ In this chapter, you'll discover:
 
 Also available:
 - 📋 **[Appendix 3A: Data Specifications](ch03_appendix.md)**
-- 📓 **[Walkthrough Notebook](chapter3_walkthrough.md)** - Interactive Python notebook with step-by-step examples
-- 🧪 **[Exercise Solutions](exercise_solutions.md)** - Solutions to chapter exercises
+- 📓 **[Walkthrough Notebook](ch03_walkthrough.md)** - Interactive Python notebook with step-by-step examples
+- 🧪 **[Exercise Solutions](ch03_exercise_solutions.md)** - Solutions to chapter exercises

@@ -24,5 +24,5 @@ uv run python ch05_journey/scripts/run_analysis.py
 uv run python ch05_journey/scripts/build_figures.py
 ```
 
-See [`scripts/README.md`](scripts/README.md) for the module layout and the
-scenario constants behind the sequencing rules.
+The scripts in this folder hold the module layout and the scenario constants
+behind the sequencing rules.

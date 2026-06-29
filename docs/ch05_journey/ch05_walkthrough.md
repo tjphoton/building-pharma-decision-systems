@@ -462,4 +462,4 @@ At day 90, 60.6% remain on the initial regimen. Among patients with at least 90 
 2. **Choose the adherence product scope** by inspecting patients whose basket PDC exceeds index-product PDC.
 3. **Stress-test the data cutoff** by moving `study_end` to 2025-01-31 and measuring the maturity artifact.
 
-Worked answers with discussion: [`exercise_solutions.ipynb`](exercise_solutions.ipynb).
+Worked answers with discussion: [`ch05_exercise_solutions.ipynb`](ch05_exercise_solutions.ipynb).
