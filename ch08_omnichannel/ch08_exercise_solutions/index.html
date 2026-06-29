@@ -1402,10 +1402,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-count-email-opens-as-meaningful-responses" class="md-nav__link">
+  <a href="#1-audit-the-snapshot-boundary" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Count email opens as meaningful responses
+        1. Audit the snapshot boundary
       
     </span>
   </a>
@@ -1424,10 +1424,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-create-a-registered-holdout-assignment" class="md-nav__link">
+  <a href="#3-stress-test-channel-economics" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Create a registered holdout assignment
+        3. Stress-test channel economics
       
     </span>
   </a>
@@ -1477,10 +1477,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-count-email-opens-as-meaningful-responses" class="md-nav__link">
+  <a href="#1-audit-the-snapshot-boundary" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Count email opens as meaningful responses
+        1. Audit the snapshot boundary
       
     </span>
   </a>
@@ -1499,10 +1499,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-create-a-registered-holdout-assignment" class="md-nav__link">
+  <a href="#3-stress-test-channel-economics" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Create a registered holdout assignment
+        3. Stress-test channel economics
       
     </span>
   </a>
@@ -1557,32 +1557,39 @@
 HCP-account snapshots: 1,422
 Planning HCP-account rows: 158
 </code></pre></div>
-<h2 id="1-count-email-opens-as-meaningful-responses">1. Count email opens as meaningful responses</h2>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">ch08_omnichannel.scripts.features</span><span class="w"> </span><span class="kn">import</span> <span class="n">build_snapshot_panel</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">ch08_omnichannel.scripts.modeling</span><span class="w"> </span><span class="kn">import</span> <span class="n">fit_response_model</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">ch08_omnichannel.scripts.run_analysis</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_inputs</span>
-
-<span class="n">ledger</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;event_ledger&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">ledger</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
-    <span class="n">ledger</span><span class="o">.</span><span class="n">channel</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s2">&quot;Email&quot;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">ledger</span><span class="o">.</span><span class="n">response_type</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s2">&quot;Opened&quot;</span><span class="p">),</span>
-    <span class="s2">&quot;meaningful_response&quot;</span><span class="p">,</span>
-<span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="n">inputs</span> <span class="o">=</span> <span class="n">load_inputs</span><span class="p">(</span><span class="n">ROOT</span><span class="p">)</span>
-<span class="n">panel</span> <span class="o">=</span> <span class="n">build_snapshot_panel</span><span class="p">(</span>
-    <span class="n">ledger</span><span class="p">,</span> <span class="n">inputs</span><span class="p">[</span><span class="s2">&quot;hcp_features&quot;</span><span class="p">],</span> <span class="n">inputs</span><span class="p">[</span><span class="s2">&quot;hcp_segments&quot;</span><span class="p">],</span>
-    <span class="n">inputs</span><span class="p">[</span><span class="s2">&quot;engagement_signals&quot;</span><span class="p">],</span> <span class="n">inputs</span><span class="p">[</span><span class="s2">&quot;account_targets&quot;</span><span class="p">],</span>
-    <span class="n">inputs</span><span class="p">[</span><span class="s2">&quot;account_actions&quot;</span><span class="p">],</span>
-<span class="p">)</span>
-<span class="n">loose</span> <span class="o">=</span> <span class="n">fit_response_model</span><span class="p">(</span><span class="n">panel</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">loose</span><span class="p">[</span><span class="s2">&quot;model_metrics&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;split == &#39;test&#39;&quot;</span><span class="p">))</span>
+<h2 id="1-audit-the-snapshot-boundary">1. Audit the snapshot boundary</h2>
+<div class="highlight"><pre><span></span><code><span class="n">ledger</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;event_ledger&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">panel</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;snapshot_panel&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">row</span> <span class="o">=</span> <span class="n">panel</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
+    <span class="n">panel</span><span class="o">.</span><span class="n">npi</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s2">&quot;9000000280&quot;</span><span class="p">)</span>
+    <span class="o">&amp;</span> <span class="n">panel</span><span class="o">.</span><span class="n">snapshot_date</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s2">&quot;2025-02-28&quot;</span><span class="p">)</span>
+<span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">events</span> <span class="o">=</span> <span class="n">ledger</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">ledger</span><span class="o">.</span><span class="n">npi</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s2">&quot;9000000280&quot;</span><span class="p">)]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">history</span> <span class="o">=</span> <span class="n">events</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
+    <span class="n">events</span><span class="o">.</span><span class="n">event_date</span><span class="o">.</span><span class="n">between</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">snapshot_date</span> <span class="o">-</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">89</span><span class="p">),</span> <span class="n">row</span><span class="o">.</span><span class="n">snapshot_date</span><span class="p">)</span>
+<span class="p">]</span>
+<span class="n">future</span> <span class="o">=</span> <span class="n">events</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
+    <span class="n">events</span><span class="o">.</span><span class="n">event_date</span><span class="o">.</span><span class="n">gt</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">snapshot_date</span><span class="p">)</span>
+    <span class="o">&amp;</span> <span class="n">events</span><span class="o">.</span><span class="n">event_date</span><span class="o">.</span><span class="n">le</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">outcome_end</span><span class="p">)</span>
+<span class="p">]</span>
+<span class="n">audit</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span>
+    <span class="p">(</span><span class="s2">&quot;snapshot_date&quot;</span><span class="p">,</span> <span class="n">row</span><span class="o">.</span><span class="n">snapshot_date</span><span class="o">.</span><span class="n">date</span><span class="p">()),</span>
+    <span class="p">(</span><span class="s2">&quot;outcome_end&quot;</span><span class="p">,</span> <span class="n">row</span><span class="o">.</span><span class="n">outcome_end</span><span class="o">.</span><span class="n">date</span><span class="p">()),</span>
+    <span class="p">(</span><span class="s2">&quot;prior_90_day_events&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">history</span><span class="p">)),</span>
+    <span class="p">(</span><span class="s2">&quot;snapshot_total_pressure_90&quot;</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">total_pressure_90</span><span class="p">)),</span>
+    <span class="p">(</span><span class="s2">&quot;future_events&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">future</span><span class="p">)),</span>
+    <span class="p">(</span><span class="s2">&quot;snapshot_future_response&quot;</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">future_response</span><span class="p">)),</span>
+<span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">audit</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>  split  snapshots  responses  response_rate   roc_auc  average_precision  \
-2  test        316        159       0.503165  0.696311           0.686603
-
-   brier_score  base_rate_brier  
-2     0.241479         0.270875
+<div class="highlight"><pre><span></span><code>             snapshot_date 2025-02-28
+               outcome_end 2025-03-28
+       prior_90_day_events          3
+snapshot_total_pressure_90          3
+             future_events          0
+  snapshot_future_response          0
 </code></pre></div>
-<p>Judgment: the larger label includes machine-open noise. A higher event count weakens the response definition.</p>
+<p>Judgment: the feature count and outcome count come from different sides of the snapshot date. A response model that reads future events as features would leak the answer into the score.</p>
 <h2 id="2-rank-by-uplift-instead-of-response">2. Rank by uplift instead of response</h2>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LogisticRegression</span>
 
@@ -1616,57 +1623,32 @@ Planning HCP-account rows: 158
 only in the response ranking: 16
 only in the uplift ranking: 16
 </code></pre></div>
-<p>Judgment: the two rankings disagree because predicted response and uplift answer separate questions. An HCP-account row with routine response momentum is a weak use of a scarce invitation. Rank scarce programs by estimated uplift, then confirm with a holdout.</p>
-<h2 id="3-create-a-registered-holdout-assignment">3. Create a registered holdout assignment</h2>
-<div class="highlight"><pre><span></span><code><span class="n">eligible</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;channel_plan&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
-    <span class="n">results</span><span class="p">[</span><span class="s2">&quot;channel_plan&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">recommended_action</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span>
-        <span class="p">[</span><span class="s2">&quot;Email follow-up&quot;</span><span class="p">,</span> <span class="s2">&quot;Peer-program invitation&quot;</span><span class="p">,</span> <span class="s2">&quot;Speaker-program invitation&quot;</span><span class="p">]</span>
-    <span class="p">),</span>
-    <span class="p">[</span><span class="s2">&quot;npi&quot;</span><span class="p">,</span> <span class="s2">&quot;account_id&quot;</span><span class="p">,</span> <span class="s2">&quot;recommended_action&quot;</span><span class="p">],</span>
-<span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">eligible</span><span class="p">[</span><span class="s2">&quot;assignment&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="n">eligible</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">frac</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">20260622</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-    <span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">i</span><span class="p">:</span> <span class="s2">&quot;Action&quot;</span> <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="s2">&quot;Holdout&quot;</span><span class="p">)</span>
+<p>Judgment: the two rankings disagree because predicted response and uplift answer separate questions. An HCP-account row with routine response momentum is a weak use of a scarce invitation. Rank scarce programs by estimated uplift, then flag the change for experimental confirmation.</p>
+<h2 id="3-stress-test-channel-economics">3. Stress-test channel economics</h2>
+<div class="highlight"><pre><span></span><code><span class="n">econ</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;channel_economics&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">stress</span> <span class="o">=</span> <span class="n">econ</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">econ</span><span class="o">.</span><span class="n">channel</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s2">&quot;Email&quot;</span><span class="p">,</span> <span class="s2">&quot;Paid media&quot;</span><span class="p">])]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">stress</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">stress</span><span class="o">.</span><span class="n">channel</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s2">&quot;Email&quot;</span><span class="p">),</span> <span class="s2">&quot;unit_cost&quot;</span><span class="p">]</span> <span class="o">*=</span> <span class="mi">2</span>
+<span class="n">stress</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">stress</span><span class="o">.</span><span class="n">channel</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s2">&quot;Paid media&quot;</span><span class="p">),</span> <span class="s2">&quot;incremental_per_touch&quot;</span><span class="p">]</span> <span class="o">*=</span> <span class="mf">0.5</span>
+<span class="n">stress</span><span class="p">[</span><span class="s2">&quot;cost_per_incremental_response&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">stress</span><span class="o">.</span><span class="n">unit_cost</span> <span class="o">/</span> <span class="n">stress</span><span class="o">.</span><span class="n">incremental_per_touch</span>
 <span class="p">)</span>
-<span class="n">eligible</span><span class="p">[</span><span class="s2">&quot;outcome&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Meaningful response in 28 days&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">eligible</span><span class="p">)</span>
+<span class="n">stress</span><span class="p">[</span><span class="s2">&quot;unit_cost&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stress</span><span class="o">.</span><span class="n">unit_cost</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;$</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">,.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">stress</span><span class="p">[</span><span class="s2">&quot;incremental_per_touch&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stress</span><span class="o">.</span><span class="n">incremental_per_touch</span><span class="o">.</span><span class="n">map</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="si">:</span><span class="s2">+.1f</span><span class="si">}</span><span class="s2"> pp&quot;</span>
+<span class="p">)</span>
+<span class="n">stress</span><span class="p">[</span><span class="s2">&quot;cost_per_incremental_response&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">stress</span><span class="o">.</span><span class="n">cost_per_incremental_response</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;$</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">,.0f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stress</span><span class="p">[[</span>
+    <span class="s2">&quot;channel&quot;</span><span class="p">,</span> <span class="s2">&quot;unit_cost&quot;</span><span class="p">,</span> <span class="s2">&quot;incremental_per_touch&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;cost_per_incremental_response&quot;</span><span class="p">,</span>
+<span class="p">]]</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>            npi account_id          recommended_action assignment  \
-35   9000000650     ACC210             Email follow-up     Action   
-36   9000000406     ACC028             Email follow-up    Holdout   
-37   9000000174     ACC032             Email follow-up     Action   
-38   9000000658     ACC085             Email follow-up    Holdout   
-39   9000000026     ACC226             Email follow-up     Action   
-40   9000000522     ACC099             Email follow-up    Holdout   
-103  9000000239     ACC009     Peer-program invitation     Action   
-104  9000000110     ACC180     Peer-program invitation    Holdout   
-105  9000000648     ACC199     Peer-program invitation     Action   
-106  9000000082     ACC027     Peer-program invitation    Holdout   
-107  9000000205     ACC229     Peer-program invitation     Action   
-108  9000000128     ACC160  Speaker-program invitation    Holdout   
-109  9000000204     ACC153  Speaker-program invitation     Action   
-110  9000000232     ACC191  Speaker-program invitation    Holdout   
-111  9000000578     ACC142  Speaker-program invitation     Action
-
-                            outcome  
-35   Meaningful response in 28 days  
-36   Meaningful response in 28 days  
-37   Meaningful response in 28 days  
-38   Meaningful response in 28 days  
-39   Meaningful response in 28 days  
-40   Meaningful response in 28 days  
-103  Meaningful response in 28 days  
-104  Meaningful response in 28 days  
-105  Meaningful response in 28 days  
-106  Meaningful response in 28 days  
-107  Meaningful response in 28 days  
-108  Meaningful response in 28 days  
-109  Meaningful response in 28 days  
-110  Meaningful response in 28 days  
-111  Meaningful response in 28 days
+<div class="highlight"><pre><span></span><code>   channel unit_cost incremental_per_touch cost_per_incremental_response
+     Email     $0.50               +1.4 pp                           $35
+Paid media     $1.40               +0.5 pp                          $285
 </code></pre></div>
-<p>Judgment: register eligibility, assignment, the 28-day meaningful-response outcome, and post-assignment exclusions before execution.</p>
+<p>Judgment: email remains cheaper per incremental response after its cost doubles, while paid media becomes less attractive when its lift assumption weakens. Cost, lift, and credit must be read together.</p>
 
 
 
