@@ -193,7 +193,7 @@ def run_analysis(repo_root: Path) -> dict[str, pd.DataFrame]:
         model_results["scored_snapshots"],
         plan,
         ANALYSIS_DATE,
-        ["9000000280", "9000000389", "9000000582"],
+        ["9000000522", "9000000567", "9000000406"],
     )
     return {
         "event_ledger": ledger,

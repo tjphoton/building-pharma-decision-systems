@@ -11,6 +11,10 @@
         <link rel="canonical" href="https://tjphoton.github.io/building-pharma-decision-systems/ch09_nba/ch09_walkthrough/">
       
       
+        <link rel="prev" href="../ch09_next_best_action/">
+      
+      
+        <link rel="next" href="../ch09_exercise_solutions/">
       
       
         
@@ -21,7 +25,7 @@
     
     
       
-        <title>Next Best Action - Building Pharmaceutical Decision Systems</title>
+        <title>Walkthrough Notebook - Building Pharmaceutical Decision Systems</title>
       
     
     
@@ -116,7 +120,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Next Best Action
+              Walkthrough Notebook
             
           </span>
         </div>
@@ -1366,6 +1370,322 @@
   
 
     
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 9
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 9
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch09_next_best_action/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Next Best Action: Precision in the Patient Moment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Walkthrough Notebook
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Walkthrough Notebook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#build-the-recommendation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Build the recommendation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-the-candidate-menu-and-gates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Build the candidate menu and gates
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summarize-the-gates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summarize the gates
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#select-one-action" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Select one action
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set-the-expiration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Set the expiration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-recommendation-contract" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The recommendation contract
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reward-design-response-and-uplift" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reward design: response and uplift
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exploration-with-a-contextual-bandit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exploration with a contextual bandit
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#off-policy-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Off-policy evaluation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-experiment-that-would-settle-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The experiment that would settle it
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch09_exercise_solutions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercise Solutions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -1393,10 +1713,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#candidate-set" class="md-nav__link">
+  <a href="#build-the-recommendation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Candidate set
+        Build the recommendation
       
     </span>
   </a>
@@ -1404,10 +1724,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#eligibility-gates" class="md-nav__link">
+  <a href="#build-the-candidate-menu-and-gates" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Eligibility gates
+        Build the candidate menu and gates
       
     </span>
   </a>
@@ -1415,10 +1735,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#policy-precedence" class="md-nav__link">
+  <a href="#summarize-the-gates" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Policy precedence
+        Summarize the gates
       
     </span>
   </a>
@@ -1426,10 +1746,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#reward-design-response-and-uplift" class="md-nav__link">
+  <a href="#select-one-action" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Reward design: response and uplift
+        Select one action
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set-the-expiration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Set the expiration
       
     </span>
   </a>
@@ -1448,21 +1779,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#rejected-alternative-audit" class="md-nav__link">
+  <a href="#reward-design-response-and-uplift" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Rejected-alternative audit
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#lifecycle-and-expiration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Lifecycle and expiration
+        Reward design: response and uplift
       
     </span>
   </a>
@@ -1481,10 +1801,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#off-policy-evaluation-of-an-alternative-policy" class="md-nav__link">
+  <a href="#off-policy-evaluation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Off-policy evaluation of an alternative policy
+        Off-policy evaluation
       
     </span>
   </a>
@@ -1534,7 +1854,7 @@
 
 
 <h1 id="next-best-action">Next Best Action</h1>
-<p>Turn the omnichannel channel-plan state into one governed recommendation per HCP-account row. Generate a candidate menu, gate it, resolve by precedence, rank inside the gates with response and uplift, attach a recommendation contract, then add a bandit, an off-policy check, and the experiment that would settle the policy question. The carried case is HCP0280 at account ACC089.</p>
+<p>Start from the channel-plan state and turn it into one released action. For each HCP-account row, the engine lists the plausible actions, removes the ones that are not allowed, chooses the highest-priority action that remains, and writes the reason, measurement hook, and expiration on the row. Then the chapter asks 3 harder questions: how to rank capacity-constrained actions, how to explore safely when the policy is uncertain, and how to test a new policy before changing live execution. The carried case is HCP0280 at account ACC089.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
@@ -1555,25 +1875,73 @@
 <div class="highlight"><pre><span></span><code>Recommendations: 158
 Candidates: 1106
 </code></pre></div>
-<h2 id="candidate-set">Candidate set</h2>
+<h2 id="build-the-recommendation">Build the recommendation</h2>
+<p><code>run_analysis()</code> is the wrapper for the whole analysis. It reruns the omnichannel analysis, builds the recommendation state, calls the NBA functions in order, and returns the <code>results</code> dictionary used below.</p>
+<p>Recommendation path:</p>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Function</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Load the HCP-account state</td>
+<td><code>load_state()</code></td>
+<td><code>results["state"]</code></td>
+</tr>
+<tr>
+<td>Build the action menu and gates</td>
+<td><code>generate_candidates()</code></td>
+<td><code>results["action_candidates"]</code></td>
+</tr>
+<tr>
+<td>Count gate outcomes</td>
+<td><code>gate_summary()</code></td>
+<td><code>results["gate_summary"]</code></td>
+</tr>
+<tr>
+<td>Select the released action and write contract fields</td>
+<td><code>select_recommendations()</code></td>
+<td><code>results["recommendations"]</code></td>
+</tr>
+<tr>
+<td>Count released actions</td>
+<td><code>recommendation_summary()</code></td>
+<td><code>results["recommendation_summary"]</code></td>
+</tr>
+<tr>
+<td>Measure refresh timing</td>
+<td><code>expiration_analysis()</code></td>
+<td><code>results["expiration_analysis"]</code></td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Figure 9.1. HCP0280 starts with 7 candidate actions; the gate removes access, field, and program actions, then precedence selects approved email and records the rejected alternatives. Synthetic data." src="../assets/figures/figure_9_1_decision_engine.svg" /></p>
+<p><em>Figure 9.1. HCP0280 starts with 7 candidate actions; the gate removes access, field, and program actions, then precedence selects approved email and records the rejected alternatives. Synthetic data.</em></p>
+<h2 id="build-the-candidate-menu-and-gates">Build the candidate menu and gates</h2>
+<p><code>generate_candidates()</code> builds the 7-action menu and applies the gates. The omnichannel analysis supplies the current state for each HCP-account row. The NBA engine applies the same fixed menu to every row and checks which actions are eligible under the rules.</p>
 <div class="highlight"><pre><span></span><code><span class="n">candidates</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;action_candidates&quot;</span><span class="p">]</span>
-<span class="n">trace</span> <span class="o">=</span> <span class="n">candidates</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">candidates</span><span class="o">.</span><span class="n">npi</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s2">&quot;9000000280&quot;</span><span class="p">)]</span>
+<span class="n">trace</span> <span class="o">=</span> <span class="n">candidates</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">candidates</span><span class="o">.</span><span class="n">npi</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s2">&quot;9000000280&quot;</span><span class="p">)]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span>
+    <span class="s2">&quot;policy_precedence&quot;</span>
+<span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">trace</span><span class="p">[[</span>
     <span class="s2">&quot;candidate_action&quot;</span><span class="p">,</span> <span class="s2">&quot;eligible&quot;</span><span class="p">,</span> <span class="s2">&quot;policy_precedence&quot;</span><span class="p">,</span> <span class="s2">&quot;reason_code&quot;</span>
 <span class="p">]]</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>           candidate_action  eligible  policy_precedence                                                  reason_code
-                  No action      True                 90                  No higher-precedence eligible action passed
            Access follow-up     False                 10                   Account evidence points to access friction
          Field conversation     False                 20       Priority HCP-account row with permitted field capacity
          Program invitation     False                 25   Prior live-program attendance supports a repeat invitation
              Approved email      True                 30  Available email frequency with a priority or digital signal
 Continue responsive content      True                 40 Meaningful digital response without a higher-priority action
                     Monitor      True                 80    Eligible HCP-account row without a stronger action signal
+                  No action      True                 90                  No higher-precedence eligible action passed
 </code></pre></div>
-<p><img alt="Figure 9.1. HCP0280 starts with 7 candidates; the gate removes access, field, and program actions, then precedence selects approved email and records the rejected alternatives. Synthetic data." src="../assets/figures/figure_9_1_decision_engine.svg" /></p>
-<p><em>Figure 9.1. HCP0280 starts with 7 candidates; the gate removes access, field, and program actions, then precedence selects approved email and records the rejected alternatives. Synthetic data.</em></p>
-<h2 id="eligibility-gates">Eligibility gates</h2>
+<h2 id="summarize-the-gates">Summarize the gates</h2>
+<p>The gates are applied inside <code>generate_candidates()</code>. <code>gate_summary()</code> counts the main outcomes across all candidates.</p>
 <div class="highlight"><pre><span></span><code><span class="n">reasons</span> <span class="o">=</span> <span class="p">[</span>
     <span class="s2">&quot;Suppressed&quot;</span><span class="p">,</span> <span class="s2">&quot;Access route first&quot;</span><span class="p">,</span> <span class="s2">&quot;Not priority&quot;</span><span class="p">,</span>
     <span class="s2">&quot;No live-program signal&quot;</span><span class="p">,</span> <span class="s2">&quot;Passed&quot;</span><span class="p">,</span>
@@ -1588,7 +1956,7 @@ Continue responsive content      True                 40 Meaningful digital resp
 No live-program signal                  36
                 Passed                 397
 </code></pre></div>
-<h2 id="policy-precedence">Policy precedence</h2>
+<h2 id="select-one-action">Select one action</h2>
 <div class="highlight"><pre><span></span><code><span class="n">summary</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;recommendation_summary&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="n">summary</span><span class="p">[</span><span class="s2">&quot;mean_predicted_response&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">summary</span><span class="o">.</span><span class="n">mean_predicted_response</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">summary</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
@@ -1602,10 +1970,43 @@ No live-program signal                  36
 Continue responsive content                6                0                    0.695
          Field conversation                3                3                    0.615
 </code></pre></div>
-<p><img alt="Figure 9.2. The engine reduces 1,106 candidates to 397 eligible candidates and 158 selected actions, with most released rows going to no action, access follow-up, and program invitation. Synthetic data." src="../assets/figures/figure_9_2_recommendation_funnel.svg" /></p>
-<p><em>Figure 9.2. The engine reduces 1,106 candidates to 397 eligible candidates and 158 selected actions, with most released rows going to no action, access follow-up, and program invitation. Synthetic data.</em></p>
+<h2 id="set-the-expiration">Set the expiration</h2>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;expiration_analysis&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>                      metric  value
+  Median days between events 12.000
+    Mean days between events 17.300
+Share of gaps within 14 days  0.573
+Share of gaps within 30 days  0.828
+</code></pre></div>
+<p><img alt="Figure 9.2. The cumulative refresh curve shows that 57% of HCP-account event gaps close within 14 days and 83% close within 30 days. Synthetic data." src="../assets/figures/figure_9_2_expiration.svg" /></p>
+<p><em>Figure 9.2. The cumulative refresh curve shows that 57% of HCP-account event gaps close within 14 days and 83% close within 30 days. Synthetic data.</em></p>
+<h2 id="the-recommendation-contract">The recommendation contract</h2>
+<p>The contract row below is read from <code>results["recommendations"]</code>, which <code>select_recommendations()</code> already produced in the selection step.</p>
+<div class="highlight"><pre><span></span><code><span class="n">recommendations</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;recommendations&quot;</span><span class="p">]</span>
+<span class="n">row</span> <span class="o">=</span> <span class="n">recommendations</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">recommendations</span><span class="o">.</span><span class="n">npi</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s2">&quot;9000000280&quot;</span><span class="p">)]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="p">[</span>
+    <span class="s2">&quot;recommendation_id&quot;</span><span class="p">,</span> <span class="s2">&quot;account_id&quot;</span><span class="p">,</span> <span class="s2">&quot;recommended_action&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;recommended_channel&quot;</span><span class="p">,</span> <span class="s2">&quot;reason_code&quot;</span><span class="p">,</span> <span class="s2">&quot;expected_result&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;measurement_hook&quot;</span><span class="p">,</span> <span class="s2">&quot;recommendation_date&quot;</span><span class="p">,</span> <span class="s2">&quot;expires_on&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;review_required&quot;</span><span class="p">,</span>
+<span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">field</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="n">field</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>recommendation_id: NBA00131
+account_id: ACC089
+recommended_action: Approved email
+recommended_channel: Email
+reason_code: Available email frequency with a priority or digital signal
+expected_result: Deliver approved content and earn a click
+measurement_hook: Delivery and click
+recommendation_date: 2025-02-28 00:00:00
+expires_on: 2025-03-14 00:00:00
+review_required: False
+</code></pre></div>
 <h2 id="reward-design-response-and-uplift">Reward design: response and uplift</h2>
-<p>The response and uplift models are fixed inputs from the channel analysis. The NBA engine uses them for a different decision: which reward should rank scarce eligible actions after gates and precedence. Response ranks likely engagement. Uplift ranks expected incremental change.</p>
+<p>The release engine has already selected one action per HCP-account row. HCP0280 gets approved email because it is the first eligible action in the policy order. Email is the broad, low-cost engagement action in this menu. Program invitations and field conversations consume scarcer resources: seats, field time, follow-up effort, and compliance review.</p>
+<p>Resource limits add a second question before deployment. The limit may be capacity, cost, or operational burden. If the field team has fewer slots than field-eligible rows, or a program team has fewer seats than program-eligible rows, uplift ranks rows inside that eligible tier. Response still describes baseline likelihood for broad email-style engagement. A production engine that must cap a costly program or field tier would apply the uplift ranking before release, then rerun the same gates and recommendation contract.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;reward_overlap&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>                               metric  value
@@ -1628,97 +2029,41 @@ Promotional-eligible HCP-account rows  51.00
 9000000650     Approved email               0.803             0.052                 5              37
 9000000406 Program invitation               0.802             0.056                 6              36
 </code></pre></div>
-<p><img alt="Figure 9.3. Promotional-eligible rows split into high-response sure things and higher-uplift persuadable rows; HCP0204 shows why response alone can waste a scarce program slot. Synthetic data." src="../assets/figures/figure_9_3_reward_design.svg" /></p>
-<p><em>Figure 9.3. Promotional-eligible rows split into high-response sure things and higher-uplift persuadable rows; HCP0204 shows why response alone can waste a scarce program slot. Synthetic data.</em></p>
-<h2 id="the-recommendation-contract">The recommendation contract</h2>
-<div class="highlight"><pre><span></span><code><span class="n">recommendations</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;recommendations&quot;</span><span class="p">]</span>
-<span class="n">row</span> <span class="o">=</span> <span class="n">recommendations</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">recommendations</span><span class="o">.</span><span class="n">npi</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s2">&quot;9000000280&quot;</span><span class="p">)]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="p">[</span>
-    <span class="s2">&quot;recommendation_id&quot;</span><span class="p">,</span> <span class="s2">&quot;account_id&quot;</span><span class="p">,</span> <span class="s2">&quot;recommended_action&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;recommended_channel&quot;</span><span class="p">,</span> <span class="s2">&quot;reason_code&quot;</span><span class="p">,</span> <span class="s2">&quot;expected_result&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;measurement_hook&quot;</span><span class="p">,</span> <span class="s2">&quot;recommendation_date&quot;</span><span class="p">,</span> <span class="s2">&quot;expires_on&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;review_required&quot;</span><span class="p">,</span>
-<span class="p">]:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">field</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="n">field</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>recommendation_id: NBA00131
-account_id: ACC089
-recommended_action: Approved email
-recommended_channel: Email
-reason_code: Available email frequency with a priority or digital signal
-expected_result: Deliver approved content and earn a click
-measurement_hook: Delivery and click
-recommendation_date: 2025-02-28 00:00:00
-expires_on: 2025-03-14 00:00:00
-review_required: False
-</code></pre></div>
-<h2 id="rejected-alternative-audit">Rejected-alternative audit</h2>
-<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;audit_summary&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>             candidate_status  candidates
-                   Ineligible         709
-Eligible but lower precedence         239
-                     Selected         158
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="n">audit</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;candidate_audit&quot;</span><span class="p">]</span>
-<span class="n">trace</span> <span class="o">=</span> <span class="n">audit</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">audit</span><span class="o">.</span><span class="n">npi</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s2">&quot;9000000280&quot;</span><span class="p">)]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">trace</span><span class="p">[[</span>
-    <span class="s2">&quot;candidate_action&quot;</span><span class="p">,</span> <span class="s2">&quot;candidate_status&quot;</span><span class="p">,</span> <span class="s2">&quot;policy_precedence&quot;</span>
-<span class="p">]]</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>           candidate_action              candidate_status  policy_precedence
-                  No action Eligible but lower precedence                 90
-           Access follow-up                    Ineligible                 10
-         Field conversation                    Ineligible                 20
-         Program invitation                    Ineligible                 25
-             Approved email                      Selected                 30
-Continue responsive content Eligible but lower precedence                 40
-                    Monitor Eligible but lower precedence                 80
-</code></pre></div>
-<p><img alt="Figure 9.4. Each candidate action is split into selected, eligible but lower precedence, or ineligible status, making rejected alternatives visible by action type. Synthetic data." src="../assets/figures/figure_9_4_candidate_audit.svg" /></p>
-<p><em>Figure 9.4. Each candidate action is split into selected, eligible but lower precedence, or ineligible status, making rejected alternatives visible by action type. Synthetic data.</em></p>
-<h2 id="lifecycle-and-expiration">Lifecycle and expiration</h2>
-<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;expiration_analysis&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>                      metric  value
-  Median days between events 12.000
-    Mean days between events 17.300
-Share of gaps within 14 days  0.573
-Share of gaps within 30 days  0.828
-</code></pre></div>
-<p><img alt="Figure 9.5. The cumulative refresh curve shows that 57% of HCP-account event gaps close within 14 days and 83% close within 30 days. Synthetic data." src="../assets/figures/figure_9_5_expiration.svg" /></p>
-<p><em>Figure 9.5. The cumulative refresh curve shows that 57% of HCP-account event gaps close within 14 days and 83% close within 30 days. Synthetic data.</em></p>
+<p><img alt="Figure 9.3. The gold band marks the top 20 rows by p0, the green region marks the top 20 rows by uplift, and no HCP-account row sits in both groups. Synthetic data." src="../assets/figures/figure_9_3_reward_design.svg" /></p>
+<p><em>Figure 9.3. The gold band marks the top 20 rows by p0, the green region marks the top 20 rows by uplift, and no HCP-account row sits in both groups. Synthetic data.</em></p>
 <h2 id="exploration-with-a-contextual-bandit">Exploration with a contextual bandit</h2>
+<p>Each action curve starts from 2 counts. <code>successes</code> is the number of logged rows where the action was taken and the later response was 1. <code>failures</code> is the number where the action was taken and the later response was 0. Thompson sampling uses <code>Beta(successes + 1, failures + 1)</code>, draws once from each action curve, and gives the row to the action with the highest draw.</p>
+<p>Cold start is the data condition: little history leaves wide curves. Exploration is the behavior: an uncertain action can still win a draw.</p>
 <div class="highlight"><pre><span></span><code><span class="n">exploration</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;thompson_exploration&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">exploration</span><span class="p">[[</span>
-    <span class="s2">&quot;context_bucket&quot;</span><span class="p">,</span> <span class="s2">&quot;logged_action&quot;</span><span class="p">,</span> <span class="s2">&quot;snapshots&quot;</span><span class="p">,</span> <span class="s2">&quot;posterior_mean&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;posterior_sd&quot;</span><span class="p">,</span> <span class="s2">&quot;explore_share&quot;</span>
+    <span class="s2">&quot;context_bucket&quot;</span><span class="p">,</span> <span class="s2">&quot;logged_action&quot;</span><span class="p">,</span> <span class="s2">&quot;successes&quot;</span><span class="p">,</span> <span class="s2">&quot;failures&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;posterior_mean&quot;</span><span class="p">,</span> <span class="s2">&quot;posterior_sd&quot;</span><span class="p">,</span> <span class="s2">&quot;explore_share&quot;</span>
 <span class="p">]]</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>    context_bucket      logged_action  snapshots  posterior_mean  posterior_sd  explore_share
-Digital-responsive Field conversation         96           0.633         0.048          0.736
-Digital-responsive     Approved email        141           0.594         0.041          0.264
-Digital-responsive          No action         79           0.383         0.054          0.000
+<div class="highlight"><pre><span></span><code>    context_bucket      logged_action  successes  failures  posterior_mean  posterior_sd  explore_share
+Digital-responsive Field conversation         61        35           0.633         0.048          0.736
+Digital-responsive     Approved email         84        57           0.594         0.041          0.264
+Digital-responsive          No action         30        49           0.383         0.054          0.000
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="n">cold</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;thompson_cold_start&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">cold</span><span class="p">[[</span>
-    <span class="s2">&quot;context_bucket&quot;</span><span class="p">,</span> <span class="s2">&quot;logged_action&quot;</span><span class="p">,</span> <span class="s2">&quot;snapshots&quot;</span><span class="p">,</span> <span class="s2">&quot;posterior_mean&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;posterior_sd&quot;</span><span class="p">,</span> <span class="s2">&quot;explore_share&quot;</span>
+    <span class="s2">&quot;context_bucket&quot;</span><span class="p">,</span> <span class="s2">&quot;logged_action&quot;</span><span class="p">,</span> <span class="s2">&quot;successes&quot;</span><span class="p">,</span> <span class="s2">&quot;failures&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;posterior_mean&quot;</span><span class="p">,</span> <span class="s2">&quot;posterior_sd&quot;</span><span class="p">,</span> <span class="s2">&quot;explore_share&quot;</span>
 <span class="p">]]</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>    context_bucket      logged_action  snapshots  posterior_mean  posterior_sd  explore_share
-Digital-responsive     Approved email         35           0.568         0.080          0.372
-Digital-responsive Field conversation         20           0.545         0.104          0.307
-Digital-responsive          No action         20           0.545         0.104          0.320
+<div class="highlight"><pre><span></span><code>    context_bucket      logged_action  successes  failures  posterior_mean  posterior_sd  explore_share
+Digital-responsive     Approved email         20        15           0.568         0.080          0.372
+Digital-responsive Field conversation         11         9           0.545         0.104          0.307
+Digital-responsive          No action         11         9           0.545         0.104          0.320
 </code></pre></div>
-<p><img alt="Figure 9.6. For digital-responsive rows, cold-start action posteriors overlap and Thompson sampling explores; with full history, field conversation separates from no action while email remains plausible. Synthetic data." src="../assets/figures/figure_9_6_thompson.svg" /></p>
-<p><em>Figure 9.6. For digital-responsive rows, cold-start action posteriors overlap and Thompson sampling explores; with full history, field conversation separates from no action while email remains plausible. Synthetic data.</em></p>
-<h2 id="off-policy-evaluation-of-an-alternative-policy">Off-policy evaluation of an alternative policy</h2>
-<p>The current NBA policy uses suppression, access, promotion, monitoring, and no-action precedence to release one action per HCP-account row. The digital-first variant keeps the same gates but puts approved email ahead of field conversation for priority rows with a high response score.</p>
-<p>Each historical decision row has context at the decision date, the action the old policy released, and the meaningful response observed in the following recommendation window. Off-policy evaluation replays the candidate policy on that same context. Matched rows carry observed reward for the candidate action; disagreements show where the log has no observed reward for what the candidate would have done.</p>
-<p><img alt="Figure 9.7. Off-policy evaluation replays a candidate policy on historical NBA decisions and estimates the expected response for the full strategy before deployment. Synthetic data." src="../assets/figures/figure_9_7_ope_policy_replay.svg" /></p>
-<p><em>Figure 9.7. Off-policy evaluation replays a candidate policy on historical NBA decisions and estimates the expected response for the full strategy before deployment. Synthetic data.</em></p>
-<p>IPS and SNIPS use matched historical rewards with propensity weights. The direct method scores candidate actions with a reward model. Doubly robust estimation starts with the reward model and adds a weighted correction from matched logged rewards.</p>
+<p><img alt="Figure 9.4. For digital-responsive rows, cold-start curves overlap and draw wins spread across actions; full-history curves separate and field conversation wins most draws. Synthetic data." src="../assets/figures/figure_9_4_thompson.svg" /></p>
+<p><em>Figure 9.4. For digital-responsive rows, cold-start curves overlap and draw wins spread across actions; full-history curves separate and field conversation wins most draws. Synthetic data.</em></p>
+<h2 id="off-policy-evaluation">Off-policy evaluation</h2>
+<p>The current NBA policy puts field conversation ahead of approved email for priority rows. The digital-first variant keeps the same gates but changes that one choice.</p>
+<p>Off-policy evaluation replays the candidate policy on historical rows. When the candidate chooses the same action as the log, the later response is usable evidence. When it chooses a different action, the log cannot directly tell us what would have happened under that new action.</p>
+<p><img alt="Figure 9.5. Uplift estimates action effect for a row, while off-policy evaluation replays a candidate decision rule on historical rows and estimates policy value before deployment. Synthetic data." src="../assets/figures/figure_9_5_ope_policy_replay.svg" /></p>
+<p><em>Figure 9.5. Uplift estimates action effect for a row, while off-policy evaluation replays a candidate decision rule on historical rows and estimates policy value before deployment. Synthetic data.</em></p>
+<p>IPS reweights matched historical rewards. SNIPS uses a normalized version of those same weights. The direct method scores candidate actions with a reward model. Doubly robust starts with the model prediction, then corrects it with matched historical rewards.</p>
 <div class="highlight"><pre><span></span><code><span class="n">policy</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;off_policy_evaluation&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="n">policy</span><span class="p">[</span><span class="s2">&quot;estimated_response_rate&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">policy</span><span class="o">.</span><span class="n">estimated_response_rate</span><span class="o">.</span><span class="n">map</span><span class="p">(</span>
     <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -1745,7 +2090,7 @@ Eligible HCP-account rows this cycle  112.000
            Cycles to reach both arms   27.000
 </code></pre></div>
 <h2 id="conclusion">Conclusion</h2>
-<p>The engine turns a dated state into one auditable action per HCP-account row: a candidate menu, hard eligibility gates, precedence, response and uplift ranking inside the gates, and a recommendation contract with every rejected alternative recorded. The bandit explores only where the posteriors overlap, off-policy evaluation screens a new policy before a live test, and the experiment design shows the eligible population must be pooled across cycles to reach power. For HCP0280 the governed recommendation is approved email.</p>
+<p>The engine turns a dated state into one auditable action per HCP-account row. It builds the candidate menu, removes ineligible actions, applies policy order, and writes the recommendation contract onto the row. Then it shows how to rank capacity-constrained actions, explore safely, and screen a new policy before a live test. For HCP0280 the governed recommendation is approved email.</p>
 
 
 

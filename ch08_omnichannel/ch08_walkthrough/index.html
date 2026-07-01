@@ -1529,6 +1529,152 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 9
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 9
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch09_nba/ch09_next_best_action/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Next Best Action: Precision in the Patient Moment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch09_nba/ch09_walkthrough/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Walkthrough Notebook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch09_nba/ch09_exercise_solutions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercise Solutions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -2033,14 +2179,14 @@ observed_uplift_bottom_quartile   7.3%
 <span class="nb">print</span><span class="p">(</span><span class="n">aff</span><span class="p">)</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>          npi digital_response_rate field_response_rate   channel_affinity  \
-0  9000000280                   26%                 84%    Field responder   
-1  9000000389                   77%                 32%  Digital responder   
-2  9000000582                   12%                 88%    Field responder
+0  9000000522                   80%                 20%  Digital responder   
+1  9000000567                   24%                 78%    Field responder   
+2  9000000406                   70%                 14%  Digital responder
 
   last_response_channel recommended_channel  
-0                   Web                None  
-1                 Field                None  
-2                 Field                None
+0                 Email               Email  
+1                 Phone               Field  
+2                 Email               Email
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="n">plan</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;plan_summary&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="n">plan</span><span class="p">[</span><span class="s2">&quot;mean_score&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">plan</span><span class="o">.</span><span class="n">mean_predicted_response</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>

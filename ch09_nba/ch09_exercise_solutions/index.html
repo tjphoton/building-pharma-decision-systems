@@ -11,6 +11,8 @@
         <link rel="canonical" href="https://tjphoton.github.io/building-pharma-decision-systems/ch09_nba/ch09_exercise_solutions/">
       
       
+        <link rel="prev" href="../ch09_walkthrough/">
+      
       
       
         
@@ -21,7 +23,7 @@
     
     
       
-        <title>Next Best Action: Exercise Solutions - Building Pharmaceutical Decision Systems</title>
+        <title>Exercise Solutions - Building Pharmaceutical Decision Systems</title>
       
     
     
@@ -116,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Next Best Action: Exercise Solutions
+              Exercise Solutions
             
           </span>
         </div>
@@ -1366,6 +1368,234 @@
   
 
     
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 9
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Chapter 9
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch09_next_best_action/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Next Best Action: Precision in the Patient Moment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch09_walkthrough/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Walkthrough Notebook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercise Solutions
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercise Solutions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-reverse-field-and-email-precedence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Reverse field and email precedence
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-rank-a-capacity-constrained-tier-by-uplift" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Rank a capacity-constrained tier by uplift
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-design-the-precedence-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Design the precedence test
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -1404,10 +1634,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-rank-a-tier-by-uplift" class="md-nav__link">
+  <a href="#2-rank-a-capacity-constrained-tier-by-uplift" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Rank a tier by uplift
+        2. Rank a capacity-constrained tier by uplift
       
     </span>
   </a>
@@ -1493,8 +1723,8 @@ Candidates: 1106
 9000000128      Program invitation             Approved email
 9000000239      Program invitation             Approved email
 </code></pre></div>
-<p>Judgment: the original ordering puts field conversation ahead of email because the field team carries priority-account execution. Swapping it spends scarce field capacity only after email, which a field leader should authorize explicitly, not a default.</p>
-<h2 id="2-rank-a-tier-by-uplift">2. Rank a tier by uplift</h2>
+<p>Judgment: the original ordering puts field conversation ahead of email because the field team carries priority-account execution. Swapping it spends constrained field capacity only after email, which a field leader should authorize explicitly, not a default.</p>
+<h2 id="2-rank-a-capacity-constrained-tier-by-uplift">2. Rank a capacity-constrained tier by uplift</h2>
 <div class="highlight"><pre><span></span><code><span class="n">candidates</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;action_candidates&quot;</span><span class="p">]</span>
 <span class="n">field_eligible</span> <span class="o">=</span> <span class="n">candidates</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
     <span class="n">candidates</span><span class="o">.</span><span class="n">eligible</span> <span class="o">&amp;</span> <span class="n">candidates</span><span class="o">.</span><span class="n">candidate_action</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="s2">&quot;Field conversation&quot;</span><span class="p">)</span>
@@ -1515,7 +1745,7 @@ top-3 by response: [&#39;9000000136&#39;, &#39;9000000273&#39;, &#39;9000000389&
 top-3 by uplift:   [&#39;9000000136&#39;, &#39;9000000273&#39;, &#39;9000000389&#39;]
 in response top-3 only: []
 </code></pre></div>
-<p>Judgment: a row the response ranking calls and the uplift ranking does not is a likely responder regardless of the call. Spending a scarce field slot there buys little incremental change. Rank scarce field slots by uplift and confirm with a holdout.</p>
+<p>Judgment: a row the response ranking calls and the uplift ranking does not is a likely responder regardless of the call. Spending a capped field slot there buys little incremental change. Rank capacity-constrained field slots by uplift and confirm with a holdout.</p>
 <h2 id="3-design-the-precedence-test">3. Design the precedence test</h2>
 <div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="s2">&quot;experiment_design&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
 </code></pre></div>
