@@ -1,6 +1,6 @@
 # Next Best Action
 
-Turn the omnichannel channel-plan state into one governed recommendation per HCP-account row. Generate a candidate menu, gate it, resolve by precedence, rank inside the gates with response and uplift, attach a recommendation contract, then add a bandit, an off-policy check, and the experiment that would settle the policy question. The carried case is HCP0280 at account ACC089.
+Start from the channel-plan state and turn it into one released action. For each HCP-account row, the engine lists the plausible actions, removes the ones that are not allowed, chooses the highest-priority action that remains, and writes the reason, measurement hook, and expiration on the row. Then the chapter asks 3 harder questions: how to rank capacity-constrained actions, how to explore safely when the policy is uncertain, and how to test a new policy before changing live execution. The carried case is HCP0280 at account ACC089.
 
 
 
@@ -28,13 +28,40 @@ print(f"Candidates: {len(results['action_candidates'])}")
     Candidates: 1106
 
 
-## Candidate set
+## Build the recommendation
+
+
+`run_analysis()` is the wrapper for the whole analysis. It reruns the omnichannel analysis, builds the recommendation state, calls the NBA functions in order, and returns the `results` dictionary used below.
+
+Recommendation path:
+
+| Step | Function | Output |
+| --- | --- | --- |
+| Load the HCP-account state | `load_state()` | `results["state"]` |
+| Build the action menu and gates | `generate_candidates()` | `results["action_candidates"]` |
+| Count gate outcomes | `gate_summary()` | `results["gate_summary"]` |
+| Select the released action and write contract fields | `select_recommendations()` | `results["recommendations"]` |
+| Count released actions | `recommendation_summary()` | `results["recommendation_summary"]` |
+| Measure refresh timing | `expiration_analysis()` | `results["expiration_analysis"]` |
+
+
+![Figure 9.1. HCP0280 starts with 7 candidate actions; the gate removes access, field, and program actions, then precedence selects approved email and records the rejected alternatives. Synthetic data.](assets/figures/figure_9_1_decision_engine.svg)
+
+*Figure 9.1. HCP0280 starts with 7 candidate actions; the gate removes access, field, and program actions, then precedence selects approved email and records the rejected alternatives. Synthetic data.*
+
+
+## Build the candidate menu and gates
+
+
+`generate_candidates()` builds the 7-action menu and applies the gates. The omnichannel analysis supplies the current state for each HCP-account row. The NBA engine applies the same fixed menu to every row and checks which actions are eligible under the rules.
 
 
 
 ```python
 candidates = results["action_candidates"]
-trace = candidates.loc[candidates.npi.eq("9000000280")]
+trace = candidates.loc[candidates.npi.eq("9000000280")].sort_values(
+    "policy_precedence"
+)
 print(trace[[
     "candidate_action", "eligible", "policy_precedence", "reason_code"
 ]].to_string(index=False))
@@ -42,21 +69,19 @@ print(trace[[
 ```
 
                candidate_action  eligible  policy_precedence                                                  reason_code
-                      No action      True                 90                  No higher-precedence eligible action passed
                Access follow-up     False                 10                   Account evidence points to access friction
              Field conversation     False                 20       Priority HCP-account row with permitted field capacity
              Program invitation     False                 25   Prior live-program attendance supports a repeat invitation
                  Approved email      True                 30  Available email frequency with a priority or digital signal
     Continue responsive content      True                 40 Meaningful digital response without a higher-priority action
                         Monitor      True                 80    Eligible HCP-account row without a stronger action signal
+                      No action      True                 90                  No higher-precedence eligible action passed
 
 
-![Figure 9.1. HCP0280 starts with 7 candidates; the gate removes access, field, and program actions, then precedence selects approved email and records the rejected alternatives. Synthetic data.](assets/figures/figure_9_1_decision_engine.svg)
-
-*Figure 9.1. HCP0280 starts with 7 candidates; the gate removes access, field, and program actions, then precedence selects approved email and records the rejected alternatives. Synthetic data.*
+## Summarize the gates
 
 
-## Eligibility gates
+The gates are applied inside `generate_candidates()`. `gate_summary()` counts the main outcomes across all candidates.
 
 
 
@@ -78,7 +103,7 @@ print(gate_summary.loc[reasons].reset_index().to_string(index=False))
                     Passed                 397
 
 
-## Policy precedence
+## Select one action
 
 
 
@@ -99,14 +124,64 @@ print(summary.to_string(index=False))
              Field conversation                3                3                    0.615
 
 
-![Figure 9.2. The engine reduces 1,106 candidates to 397 eligible candidates and 158 selected actions, with most released rows going to no action, access follow-up, and program invitation. Synthetic data.](assets/figures/figure_9_2_recommendation_funnel.svg)
+## Set the expiration
 
-*Figure 9.2. The engine reduces 1,106 candidates to 397 eligible candidates and 158 selected actions, with most released rows going to no action, access follow-up, and program invitation. Synthetic data.*
+
+
+```python
+print(results["expiration_analysis"].to_string(index=False))
+
+```
+
+                          metric  value
+      Median days between events 12.000
+        Mean days between events 17.300
+    Share of gaps within 14 days  0.573
+    Share of gaps within 30 days  0.828
+
+
+![Figure 9.2. The cumulative refresh curve shows that 57% of HCP-account event gaps close within 14 days and 83% close within 30 days. Synthetic data.](assets/figures/figure_9_2_expiration.svg)
+
+*Figure 9.2. The cumulative refresh curve shows that 57% of HCP-account event gaps close within 14 days and 83% close within 30 days. Synthetic data.*
+
+
+## The recommendation contract
+
+
+The contract row below is read from `results["recommendations"]`, which `select_recommendations()` already produced in the selection step.
+
+
+
+```python
+recommendations = results["recommendations"]
+row = recommendations.loc[recommendations.npi.eq("9000000280")].iloc[0]
+for field in [
+    "recommendation_id", "account_id", "recommended_action",
+    "recommended_channel", "reason_code", "expected_result",
+    "measurement_hook", "recommendation_date", "expires_on",
+    "review_required",
+]:
+    print(f"{field}: {row[field]}")
+
+```
+
+    recommendation_id: NBA00131
+    account_id: ACC089
+    recommended_action: Approved email
+    recommended_channel: Email
+    reason_code: Available email frequency with a priority or digital signal
+    expected_result: Deliver approved content and earn a click
+    measurement_hook: Delivery and click
+    recommendation_date: 2025-02-28 00:00:00
+    expires_on: 2025-03-14 00:00:00
+    review_required: False
 
 
 ## Reward design: response and uplift
 
-The response and uplift models are fixed inputs from the channel analysis. The NBA engine uses them for a different decision: which reward should rank scarce eligible actions after gates and precedence. Response ranks likely engagement. Uplift ranks expected incremental change.
+The release engine has already selected one action per HCP-account row. HCP0280 gets approved email because it is the first eligible action in the policy order. Email is the broad, low-cost engagement action in this menu. Program invitations and field conversations consume scarcer resources: seats, field time, follow-up effort, and compliance review.
+
+Resource limits add a second question before deployment. The limit may be capacity, cost, or operational burden. If the field team has fewer slots than field-eligible rows, or a program team has fewer seats than program-eligible rows, uplift ranks rows inside that eligible tier. Response still describes baseline likelihood for broad email-style engagement. A production engine that must cap a costly program or field tier would apply the uplift ranking before release, then rerun the same gates and recommendation contract.
 
 
 
@@ -141,155 +216,70 @@ print(reward[[
     9000000406 Program invitation               0.802             0.056                 6              36
 
 
-![Figure 9.3. Promotional-eligible rows split into high-response sure things and higher-uplift persuadable rows; HCP0204 shows why response alone can waste a scarce program slot. Synthetic data.](assets/figures/figure_9_3_reward_design.svg)
+![Figure 9.3. The gold band marks the top 20 rows by p0, the green region marks the top 20 rows by uplift, and no HCP-account row sits in both groups. Synthetic data.](assets/figures/figure_9_3_reward_design.svg)
 
-*Figure 9.3. Promotional-eligible rows split into high-response sure things and higher-uplift persuadable rows; HCP0204 shows why response alone can waste a scarce program slot. Synthetic data.*
-
-
-## The recommendation contract
-
-
-
-```python
-recommendations = results["recommendations"]
-row = recommendations.loc[recommendations.npi.eq("9000000280")].iloc[0]
-for field in [
-    "recommendation_id", "account_id", "recommended_action",
-    "recommended_channel", "reason_code", "expected_result",
-    "measurement_hook", "recommendation_date", "expires_on",
-    "review_required",
-]:
-    print(f"{field}: {row[field]}")
-
-```
-
-    recommendation_id: NBA00131
-    account_id: ACC089
-    recommended_action: Approved email
-    recommended_channel: Email
-    reason_code: Available email frequency with a priority or digital signal
-    expected_result: Deliver approved content and earn a click
-    measurement_hook: Delivery and click
-    recommendation_date: 2025-02-28 00:00:00
-    expires_on: 2025-03-14 00:00:00
-    review_required: False
-
-
-## Rejected-alternative audit
-
-
-
-```python
-print(results["audit_summary"].to_string(index=False))
-
-```
-
-                 candidate_status  candidates
-                       Ineligible         709
-    Eligible but lower precedence         239
-                         Selected         158
-
-
-
-```python
-audit = results["candidate_audit"]
-trace = audit.loc[audit.npi.eq("9000000280")]
-print(trace[[
-    "candidate_action", "candidate_status", "policy_precedence"
-]].to_string(index=False))
-
-```
-
-               candidate_action              candidate_status  policy_precedence
-                      No action Eligible but lower precedence                 90
-               Access follow-up                    Ineligible                 10
-             Field conversation                    Ineligible                 20
-             Program invitation                    Ineligible                 25
-                 Approved email                      Selected                 30
-    Continue responsive content Eligible but lower precedence                 40
-                        Monitor Eligible but lower precedence                 80
-
-
-![Figure 9.4. Each candidate action is split into selected, eligible but lower precedence, or ineligible status, making rejected alternatives visible by action type. Synthetic data.](assets/figures/figure_9_4_candidate_audit.svg)
-
-*Figure 9.4. Each candidate action is split into selected, eligible but lower precedence, or ineligible status, making rejected alternatives visible by action type. Synthetic data.*
-
-
-## Lifecycle and expiration
-
-
-
-```python
-print(results["expiration_analysis"].to_string(index=False))
-
-```
-
-                          metric  value
-      Median days between events 12.000
-        Mean days between events 17.300
-    Share of gaps within 14 days  0.573
-    Share of gaps within 30 days  0.828
-
-
-![Figure 9.5. The cumulative refresh curve shows that 57% of HCP-account event gaps close within 14 days and 83% close within 30 days. Synthetic data.](assets/figures/figure_9_5_expiration.svg)
-
-*Figure 9.5. The cumulative refresh curve shows that 57% of HCP-account event gaps close within 14 days and 83% close within 30 days. Synthetic data.*
+*Figure 9.3. The gold band marks the top 20 rows by p0, the green region marks the top 20 rows by uplift, and no HCP-account row sits in both groups. Synthetic data.*
 
 
 ## Exploration with a contextual bandit
+
+
+Each action curve starts from 2 counts. `successes` is the number of logged rows where the action was taken and the later response was 1. `failures` is the number where the action was taken and the later response was 0. Thompson sampling uses `Beta(successes + 1, failures + 1)`, draws once from each action curve, and gives the row to the action with the highest draw.
+
+Cold start is the data condition: little history leaves wide curves. Exploration is the behavior: an uncertain action can still win a draw.
 
 
 
 ```python
 exploration = results["thompson_exploration"].copy()
 print(exploration[[
-    "context_bucket", "logged_action", "snapshots", "posterior_mean",
-    "posterior_sd", "explore_share"
+    "context_bucket", "logged_action", "successes", "failures",
+    "posterior_mean", "posterior_sd", "explore_share"
 ]].to_string(index=False))
 
 ```
 
-        context_bucket      logged_action  snapshots  posterior_mean  posterior_sd  explore_share
-    Digital-responsive Field conversation         96           0.633         0.048          0.736
-    Digital-responsive     Approved email        141           0.594         0.041          0.264
-    Digital-responsive          No action         79           0.383         0.054          0.000
+        context_bucket      logged_action  successes  failures  posterior_mean  posterior_sd  explore_share
+    Digital-responsive Field conversation         61        35           0.633         0.048          0.736
+    Digital-responsive     Approved email         84        57           0.594         0.041          0.264
+    Digital-responsive          No action         30        49           0.383         0.054          0.000
 
 
 
 ```python
 cold = results["thompson_cold_start"].copy()
 print(cold[[
-    "context_bucket", "logged_action", "snapshots", "posterior_mean",
-    "posterior_sd", "explore_share"
+    "context_bucket", "logged_action", "successes", "failures",
+    "posterior_mean", "posterior_sd", "explore_share"
 ]].to_string(index=False))
 
 ```
 
-        context_bucket      logged_action  snapshots  posterior_mean  posterior_sd  explore_share
-    Digital-responsive     Approved email         35           0.568         0.080          0.372
-    Digital-responsive Field conversation         20           0.545         0.104          0.307
-    Digital-responsive          No action         20           0.545         0.104          0.320
+        context_bucket      logged_action  successes  failures  posterior_mean  posterior_sd  explore_share
+    Digital-responsive     Approved email         20        15           0.568         0.080          0.372
+    Digital-responsive Field conversation         11         9           0.545         0.104          0.307
+    Digital-responsive          No action         11         9           0.545         0.104          0.320
 
 
-![Figure 9.6. For digital-responsive rows, cold-start action posteriors overlap and Thompson sampling explores; with full history, field conversation separates from no action while email remains plausible. Synthetic data.](assets/figures/figure_9_6_thompson.svg)
+![Figure 9.4. For digital-responsive rows, cold-start curves overlap and draw wins spread across actions; full-history curves separate and field conversation wins most draws. Synthetic data.](assets/figures/figure_9_4_thompson.svg)
 
-*Figure 9.6. For digital-responsive rows, cold-start action posteriors overlap and Thompson sampling explores; with full history, field conversation separates from no action while email remains plausible. Synthetic data.*
-
-
-## Off-policy evaluation of an alternative policy
+*Figure 9.4. For digital-responsive rows, cold-start curves overlap and draw wins spread across actions; full-history curves separate and field conversation wins most draws. Synthetic data.*
 
 
-The current NBA policy uses suppression, access, promotion, monitoring, and no-action precedence to release one action per HCP-account row. The digital-first variant keeps the same gates but puts approved email ahead of field conversation for priority rows with a high response score.
-
-Each historical decision row has context at the decision date, the action the old policy released, and the meaningful response observed in the following recommendation window. Off-policy evaluation replays the candidate policy on that same context. Matched rows carry observed reward for the candidate action; disagreements show where the log has no observed reward for what the candidate would have done.
+## Off-policy evaluation
 
 
-![Figure 9.7. Off-policy evaluation replays a candidate policy on historical NBA decisions and estimates the expected response for the full strategy before deployment. Synthetic data.](assets/figures/figure_9_7_ope_policy_replay.svg)
+The current NBA policy puts field conversation ahead of approved email for priority rows. The digital-first variant keeps the same gates but changes that one choice.
 
-*Figure 9.7. Off-policy evaluation replays a candidate policy on historical NBA decisions and estimates the expected response for the full strategy before deployment. Synthetic data.*
+Off-policy evaluation replays the candidate policy on historical rows. When the candidate chooses the same action as the log, the later response is usable evidence. When it chooses a different action, the log cannot directly tell us what would have happened under that new action.
 
 
-IPS and SNIPS use matched historical rewards with propensity weights. The direct method scores candidate actions with a reward model. Doubly robust estimation starts with the reward model and adds a weighted correction from matched logged rewards.
+![Figure 9.5. Uplift estimates action effect for a row, while off-policy evaluation replays a candidate decision rule on historical rows and estimates policy value before deployment. Synthetic data.](assets/figures/figure_9_5_ope_policy_replay.svg)
+
+*Figure 9.5. Uplift estimates action effect for a row, while off-policy evaluation replays a candidate decision rule on historical rows and estimates policy value before deployment. Synthetic data.*
+
+
+IPS reweights matched historical rewards. SNIPS uses a normalized version of those same weights. The direct method scores candidate actions with a reward model. Doubly robust starts with the model prediction, then corrects it with matched historical rewards.
 
 
 
@@ -331,5 +321,5 @@ print(results["experiment_design"].to_string(index=False))
 
 ## Conclusion
 
-The engine turns a dated state into one auditable action per HCP-account row: a candidate menu, hard eligibility gates, precedence, response and uplift ranking inside the gates, and a recommendation contract with every rejected alternative recorded. The bandit explores only where the posteriors overlap, off-policy evaluation screens a new policy before a live test, and the experiment design shows the eligible population must be pooled across cycles to reach power. For HCP0280 the governed recommendation is approved email.
+The engine turns a dated state into one auditable action per HCP-account row. It builds the candidate menu, removes ineligible actions, applies policy order, and writes the recommendation contract onto the row. Then it shows how to rank capacity-constrained actions, explore safely, and screen a new policy before a live test. For HCP0280 the governed recommendation is approved email.
 

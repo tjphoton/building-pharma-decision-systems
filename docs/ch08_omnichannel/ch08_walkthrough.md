@@ -467,14 +467,14 @@ print(aff)
 ```
 
               npi digital_response_rate field_response_rate   channel_affinity  \
-    0  9000000280                   26%                 84%    Field responder   
-    1  9000000389                   77%                 32%  Digital responder   
-    2  9000000582                   12%                 88%    Field responder   
+    0  9000000522                   80%                 20%  Digital responder   
+    1  9000000567                   24%                 78%    Field responder   
+    2  9000000406                   70%                 14%  Digital responder   
     
       last_response_channel recommended_channel  
-    0                   Web                None  
-    1                 Field                None  
-    2                 Field                None  
+    0                 Email               Email  
+    1                 Phone               Field  
+    2                 Email               Email  
 
 
 

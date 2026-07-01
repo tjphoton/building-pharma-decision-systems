@@ -61,10 +61,10 @@ print(merged.loc[changed].head().to_string(index=False))
     9000000239      Program invitation             Approved email
 
 
-Judgment: the original ordering puts field conversation ahead of email because the field team carries priority-account execution. Swapping it spends scarce field capacity only after email, which a field leader should authorize explicitly, not a default.
+Judgment: the original ordering puts field conversation ahead of email because the field team carries priority-account execution. Swapping it spends constrained field capacity only after email, which a field leader should authorize explicitly, not a default.
 
 
-## 2. Rank a tier by uplift
+## 2. Rank a capacity-constrained tier by uplift
 
 
 
@@ -92,7 +92,7 @@ print(f"in response top-3 only: {sorted(by_response - by_uplift)}")
     in response top-3 only: []
 
 
-Judgment: a row the response ranking calls and the uplift ranking does not is a likely responder regardless of the call. Spending a scarce field slot there buys little incremental change. Rank scarce field slots by uplift and confirm with a holdout.
+Judgment: a row the response ranking calls and the uplift ranking does not is a likely responder regardless of the call. Spending a capped field slot there buys little incremental change. Rank capacity-constrained field slots by uplift and confirm with a holdout.
 
 
 ## 3. Design the precedence test

@@ -25,6 +25,8 @@ HIGH_PRESSURE_MIN = 5
 EMAIL_FREQUENCY_CAP = 2
 EXPLORE_EPSILON = 0.10
 SEED = 20260625
+THOMPSON_DRAWS = 1_000_000
+THOMPSON_SEED = 20260630
 
 # Minimum detectable effect, power, and baseline for the precedence experiment.
 MINIMUM_DETECTABLE_EFFECT = 0.05
@@ -651,7 +653,7 @@ def _base_logged_actions(panel: pd.DataFrame) -> pd.DataFrame:
 
 def thompson_exploration(
     panel: pd.DataFrame,
-    seed: int = SEED,
+    seed: int = THOMPSON_SEED,
     months: int | None = None,
     focus_context: str | None = None,
 ) -> pd.DataFrame:
@@ -688,12 +690,12 @@ def thompson_exploration(
     draws = rng.beta(
         arms["alpha"].to_numpy()[:, None],
         arms["beta"].to_numpy()[:, None],
-        size=(len(arms), 2_000),
+        size=(len(arms), THOMPSON_DRAWS),
     )
     arms["explore_share"] = (draws == draws.max(axis=0)).mean(axis=1)
     arms["posterior_mean"] = arms["posterior_mean"].round(3)
     arms["posterior_sd"] = arms["posterior_sd"].round(3)
-    arms["explore_share"] = arms["explore_share"].round(3)
+    arms["explore_share"] = arms["explore_share"].round(6)
     return arms.sort_values("posterior_mean", ascending=False).reset_index(drop=True)
 
 
@@ -865,7 +867,7 @@ def run_analysis(repo_root: Path = ROOT) -> dict[str, pd.DataFrame]:
         "expiration_analysis": expiration_analysis(ch08["event_ledger"]),
         "thompson_exploration": thompson_exploration(panel, focus_context=focus_context),
         "thompson_cold_start": thompson_exploration(
-            panel, months=2, focus_context=focus_context
+            panel, months=1, focus_context=focus_context
         ),
         "thompson_beta_params": thompson_beta_params(panel),
         "off_policy_evaluation": off_policy_evaluation(panel),

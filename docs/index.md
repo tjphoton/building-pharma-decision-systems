@@ -91,13 +91,14 @@ The first half covers foundational methods: market sizing, patient journeys, HCP
 | 6 | [HCP Targeting](ch06_hcp/ch06_hcp_targeting.md) | Draft completed | [Walkthrough](ch06_hcp/ch06_walkthrough.md) | [Exercises](ch06_hcp/ch06_exercise_solutions.md) |
 | 7 | [Competitive Intelligence and Market Access](ch07_competitive/ch07_competitive_intelligence_market_access.md) | Draft completed | [Walkthrough](ch07_competitive/ch07_walkthrough.md) | [Exercises](ch07_competitive/ch07_exercise_solutions.md) |
 | 8 | [Omnichannel Analytics](ch08_omnichannel/ch08_omnichannel_analytics.md) | Draft completed | [Walkthrough](ch08_omnichannel/ch08_walkthrough.md) | [Exercises](ch08_omnichannel/ch08_exercise_solutions.md) |
-| 9 | Next Best Action | In progress | | |
-| 10 | Experimental Design and Incrementality | In progress | | |
-| 11 | Real-World Evidence and Causal Inference | In progress | | |
-| 12 | MMM and Unified Measurement | In progress | | |
-| 13 | Resource Allocation and Optimization | In progress | | |
-| 14 | AI Decision Intelligence | In progress | | |
-| 15 | Capstone Case Studies | In progress | | |
+| 9 | [Next Best Action](ch09_nba/ch09_next_best_action.md) | In progress | [Walkthrough](ch09_nba/ch09_walkthrough.md) | [Exercises](ch09_nba/ch09_exercise_solutions.md) |
+| 10 | Randomized Experiments and Incrementality | In progress | | |
+| 11 | Natural Experiments and Quasi-Experimental Designs | In progress | | |
+| 12 | Observational Causal Inference and Real-World Evidence | In progress | | |
+| 13 | MMM and Unified Measurement | In progress | | |
+| 14 | Resource Allocation and Optimization | In progress | | |
+| 15 | AI Decision Intelligence | In progress | | |
+| 16 | Capstone Case Studies | In progress | | |
 
 ---
 
@@ -107,14 +108,14 @@ The chapters build on each other, but readers with an immediate decision problem
 
 | If the immediate need is... | Start with... | Then connect to... |
 | --- | --- | --- |
-| Launch opportunity sizing | Chapters 2, 4, and 7 | Chapters 6 and 13 |
-| Patient journey analysis | Chapters 3 and 5 | Chapters 6, 7, and 10 |
-| Real-world evidence | Chapters 3 and 5 | Chapters 10 and 11 |
-| HCP targeting | Chapter 6 | Chapters 7, 8, 9, and 10 |
-| Omnichannel planning | Chapters 8 and 9 | Chapters 10 and 12 |
-| Campaign measurement | Chapters 10 and 11 | Chapters 12 and 13 |
-| Budget allocation | Chapters 12 and 13 | Chapter 14 |
-| Commercial AI and decision engines | Chapter 14 | Chapters 3, 6, 9, 10, 11, and 13 |
+| Launch opportunity sizing | Chapters 2, 4, and 7 | Chapter 6 |
+| Patient journey analysis | Chapters 3 and 5 | Chapters 6 and 7 |
+| Real-world evidence | Chapters 3 and 5 | Chapters 10, 11, and 12 |
+| HCP targeting | Chapter 6 | Chapters 7, 8, and 9 |
+| Omnichannel planning | Chapters 8 and 9 | Chapters 10 and 13 |
+| Campaign measurement | Chapters 10, 11, and 12 | Chapters 13 and 14 |
+| Budget allocation | Chapters 13 and 14 | Chapter 15 |
+| Commercial AI and decision engines | Chapter 15 | Chapters 3, 6, 9, 10, 11, 12, and 14 |
 
 ---
 
@@ -131,34 +132,6 @@ All examples run against a single fictional launch. Using a consistent case acro
 | HCP | `HCP0280` | The prescriber: a targeting priority and measurement unit |
 | Account | `ACC089` | The clinic where field prioritization and call planning occur |
 | Payer | `PAY002` | The organization whose formulary decisions shape patient access |
-
----
-
-## Repository Layout
-
-```
-ch01_intro/          Chapter 1 manuscript
-ch02_ecosystem/      Chapter 2 manuscript and appendix
-ch03_data/           Chapter 3 manuscript, notebook, exercises, appendix
-ch04_market/         Chapter 4 manuscript, notebook, exercises, appendix
-ch05_journey/        Chapter 5 manuscript, notebook, exercises
-ch06_hcp/            Chapter 6 manuscript, notebook, exercises
-ch07_competitive/    Chapter 7 manuscript, notebook, exercises
-ch08_omnichannel/    Chapter 8 manuscript, notebook, exercises
-tests/               Regression tests for generated data and analysis
-pyproject.toml       Python dependencies (managed by uv)
-```
-
-Generated datasets are not tracked. Each analytical walkthrough notebook regenerates the data it needs.
-
----
-
-## Supporting Material
-
-| Reference | Purpose |
-| --- | --- |
-| [Appendix 2A: Launch Team Role Reference](ch02_ecosystem/ch02_appendix.md) | Cross-functional commercial roles and responsibilities |
-| [Appendix 3A: Data Specifications](ch03_data/ch03_appendix.md) | Synthetic dataset schema, field definitions, and generation rules |
 
 ---
 
