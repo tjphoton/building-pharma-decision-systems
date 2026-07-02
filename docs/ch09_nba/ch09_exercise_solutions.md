@@ -1,6 +1,6 @@
 # Next Best Action: Exercise Solutions
 
-Each solution ends with the judgment that belongs in a real-data review.
+These solutions use the same generated results as the walkthrough and end with the production judgment an analyst should make.
 
 
 
@@ -16,105 +16,81 @@ sys.path.insert(0, str(ROOT))
 
 from ch09_nba.scripts.next_best_action import run_analysis  # noqa: E402
 
-pd.set_option("display.width", 200)
+pd.set_option("display.width", 220)
 pd.set_option("display.max_columns", None)
 results = run_analysis(ROOT)
 print(f"Recommendations: {len(results['recommendations'])}")
-print(f"Candidates: {len(results['action_candidates'])}")
+print(f"Candidates after content expansion: {len(results['candidate_audit'])}")
 
 ```
 
     Recommendations: 158
-    Candidates: 1106
+    Candidates after content expansion: 1896
 
 
-## 1. Reverse field and email precedence
-
-
-
-```python
-import ch09_nba.scripts.next_best_action as nba
-
-original = dict(nba.PRECEDENCE)
-nba.PRECEDENCE["Field conversation"] = original["Approved email"]
-nba.PRECEDENCE["Approved email"] = original["Field conversation"]
-swapped_candidates = nba.generate_candidates(results["state"])
-swapped = nba.select_recommendations(results["state"], swapped_candidates)
-nba.PRECEDENCE.update(original)
-
-merged = results["recommendations"][["npi", "recommended_action"]].merge(
-    swapped[["npi", "recommended_action"]],
-    on="npi", suffixes=("_base", "_swapped"),
-)
-changed = merged.recommended_action_base.ne(merged.recommended_action_swapped)
-print(f"HCP-account rows that change action: {int(changed.sum())}")
-print(merged.loc[changed].head().to_string(index=False))
-
-```
-
-    HCP-account rows that change action: 29
-           npi recommended_action_base recommended_action_swapped
-    9000000136      Field conversation             Approved email
-    9000000389      Field conversation             Approved email
-    9000000273      Field conversation             Approved email
-    9000000128      Program invitation             Approved email
-    9000000239      Program invitation             Approved email
-
-
-Judgment: the original ordering puts field conversation ahead of email because the field team carries priority-account execution. Swapping it spends constrained field capacity only after email, which a field leader should authorize explicitly, not a default.
-
-
-## 2. Rank a capacity-constrained tier by uplift
+## 1. Content asset that passes but cannot release
 
 
 
 ```python
-candidates = results["action_candidates"]
-field_eligible = candidates.loc[
-    candidates.eligible & candidates.candidate_action.eq("Field conversation")
-].drop_duplicates("npi").copy()
-by_response = set(
-    field_eligible.sort_values("predicted_response", ascending=False).head(3).npi
-)
-by_uplift = set(
-    field_eligible.sort_values("estimated_uplift", ascending=False).head(3).npi
-)
-print(f"field-eligible relationships: {len(field_eligible)}")
-print(f"top-3 by response: {sorted(by_response)}")
-print(f"top-3 by uplift:   {sorted(by_uplift)}")
-print(f"in response top-3 only: {sorted(by_response - by_uplift)}")
+trace = results["hcp0280_content_trace"]
+blocked_after_content = trace.loc[
+    trace["content_gate_reason"].eq("Passed") & trace["eligible"].eq(False),
+    ["candidate_action", "content_id", "content_gate_reason", "eligible"],
+]
+print(blocked_after_content.to_string(index=False))
 
 ```
 
-    field-eligible relationships: 3
-    top-3 by response: ['9000000136', '9000000273', '9000000389']
-    top-3 by uplift:   ['9000000136', '9000000273', '9000000389']
-    in response top-3 only: []
+      candidate_action            content_id content_gate_reason  eligible
+    Field conversation    CNT_FIELD_GUIDE_01              Passed     False
+    Program invitation CNT_PROGRAM_INVITE_01              Passed     False
 
 
-Judgment: a row the response ranking calls and the uplift ranking does not is a likely responder regardless of the call. Spending a capped field slot there buys little incremental change. Rank capacity-constrained field slots by uplift and confirm with a holdout.
+Judgment: passing the content gate is necessary but not sufficient. Field conversation still needs the priority tier, and program invitation still needs the live-program signal.
 
 
-## 3. Design the precedence test
+## 2. Stable program rows across 3 rankings
 
 
 
 ```python
-print(results["experiment_design"].to_string(index=False))
+program = results["reward_candidates"].loc[
+    results["reward_candidates"]["candidate_action"].eq("Program invitation")
+].copy()
+top_response = set(program.nsmallest(10, "rank_by_response")["npi"])
+top_uplift = set(program.nsmallest(10, "rank_by_uplift")["npi"])
+top_value = set(program.nsmallest(10, "rank_by_value")["npi"])
+stable = sorted(top_response & top_uplift & top_value)
+print(f"stable across all 3 top-10 lists: {len(stable)}")
+print(stable)
 
 ```
 
-                               parameter    value
-                  Baseline response rate    0.598
-               Minimum detectable effect    0.050
-                                   Power    0.800
-                         Two-sided alpha    0.050
-       Required HCP-account rows per arm 1474.000
-    Eligible HCP-account rows this cycle  112.000
-               Cycles to reach both arms   27.000
+    stable across all 3 top-10 lists: 3
+    ['9000000174', '9000000232', '9000000239']
 
 
-Solution: randomize at the HCP-account row, because the action is delivered to that row. The control arm runs the current precedence; the treatment arm runs the digital-first variant. The primary outcome is meaningful response within the 14-day recommendation window, and the design needs about 1,474 HCP-account rows per arm, which means pooling across roughly 27 cycles or several geographies.
+Judgment: when capacity is capped, value ranking is the right release rule because it accounts for incremental effect, cost, and fatigue risk.
 
-Judgment: before trusting the doubly-robust off-policy estimate, require one real-world source the logs do not contain, such as a small live holdout that confirms the logging propensities were recorded correctly.
+
+## 3. Fields needed before replay is trusted
+
+
+
+```python
+controls = results["model_risk_controls"]
+print(controls.to_string(index=False))
+
+```
+
+               control                          failure_it_catches                              release_requirement
+     Policy versioning               Unknown rule set in execution policy_version and rule_set_version on every row
+         Content audit             Expired or wrong-audience asset            approved content ID with active dates
+    Propensity logging                     Unusable offline replay  logged action probability when exploration runs
+        Overlap review Candidate policy outside historical support   match rate, ESS, and max weight before rollout
+    Execution feedback       Recommendations ignored or overridden         status and override reason after release
+
+
+Judgment: the replay needs decision-time content eligibility, consent status, eligible action set, logged action probability, outcome window, execution status, and override reason. Missing any of those fields weakens the evidence.
 

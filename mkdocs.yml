@@ -68,7 +68,7 @@ nav:
       - "Omnichannel Analytics: Planning and Attribution": ch08_omnichannel/ch08_omnichannel_analytics.md
       - Walkthrough Notebook: ch08_omnichannel/ch08_walkthrough.md
       - Exercise Solutions: ch08_omnichannel/ch08_exercise_solutions.md
-  # - Chapter 9:
-  #     - "Next Best Action: Precision in the Patient Moment": ch09_nba/ch09_next_best_action.md
-  #     - Walkthrough Notebook: ch09_nba/ch09_walkthrough.md
-  #     - Exercise Solutions: ch09_nba/ch09_exercise_solutions.md
+  - Chapter 9:
+      - "Next Best Action: Precision in the Patient Moment": ch09_nba/ch09_next_best_action.md
+      - Walkthrough Notebook: ch09_nba/ch09_walkthrough.md
+      - Exercise Solutions: ch09_nba/ch09_exercise_solutions.md

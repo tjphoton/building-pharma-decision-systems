@@ -1,6 +1,6 @@
 # Next Best Action
 
-Start from the channel-plan state and turn it into one released action. For each HCP-account row, the engine lists the plausible actions, removes the ones that are not allowed, chooses the highest-priority action that remains, and writes the reason, measurement hook, and expiration on the row. Then the chapter asks 3 harder questions: how to rank capacity-constrained actions, how to explore safely when the policy is uncertain, and how to test a new policy before changing live execution. The carried case is HCP0280 at account ACC089.
+Build a governed release layer that turns the omnichannel HCP-account state into one executable recommendation. The walkthrough follows the same objects as the manuscript: state, candidates, content gates, contract, expiration, constrained value ranking, logged policy data, replay diagnostics, test design, and execution feedback.
 
 
 
@@ -16,123 +16,222 @@ sys.path.insert(0, str(ROOT))
 
 from ch09_nba.scripts.next_best_action import run_analysis  # noqa: E402
 
-pd.set_option("display.width", 200)
+pd.set_option("display.width", 220)
 pd.set_option("display.max_columns", None)
 results = run_analysis(ROOT)
 print(f"Recommendations: {len(results['recommendations'])}")
-print(f"Candidates: {len(results['action_candidates'])}")
+print(f"Candidates after content expansion: {len(results['candidate_audit'])}")
 
 ```
 
     Recommendations: 158
-    Candidates: 1106
+    Candidates after content expansion: 1896
 
 
-## Build the recommendation
+## 9.1 Build The NBA Recommendation Engine
 
 
-`run_analysis()` is the wrapper for the whole analysis. It reruns the omnichannel analysis, builds the recommendation state, calls the NBA functions in order, and returns the `results` dictionary used below.
-
-Recommendation path:
-
-| Step | Function | Output |
-| --- | --- | --- |
-| Load the HCP-account state | `load_state()` | `results["state"]` |
-| Build the action menu and gates | `generate_candidates()` | `results["action_candidates"]` |
-| Count gate outcomes | `gate_summary()` | `results["gate_summary"]` |
-| Select the released action and write contract fields | `select_recommendations()` | `results["recommendations"]` |
-| Count released actions | `recommendation_summary()` | `results["recommendation_summary"]` |
-| Measure refresh timing | `expiration_analysis()` | `results["expiration_analysis"]` |
-
-
-![Figure 9.1. HCP0280 starts with 7 candidate actions; the gate removes access, field, and program actions, then precedence selects approved email and records the rejected alternatives. Synthetic data.](assets/figures/figure_9_1_decision_engine.svg)
-
-*Figure 9.1. HCP0280 starts with 7 candidate actions; the gate removes access, field, and program actions, then precedence selects approved email and records the rejected alternatives. Synthetic data.*
-
-
-## Build the candidate menu and gates
-
-
-`generate_candidates()` builds the 7-action menu and applies the gates. The omnichannel analysis supplies the current state for each HCP-account row. The NBA engine applies the same fixed menu to every row and checks which actions are eligible under the rules.
+### Object model
 
 
 
 ```python
-candidates = results["action_candidates"]
-trace = candidates.loc[candidates.npi.eq("9000000280")].sort_values(
-    "policy_precedence"
-)
-print(trace[[
-    "candidate_action", "eligible", "policy_precedence", "reason_code"
-]].to_string(index=False))
+print(results["nba_object_model"].to_string(index=False))
 
 ```
 
-               candidate_action  eligible  policy_precedence                                                  reason_code
-               Access follow-up     False                 10                   Account evidence points to access friction
-             Field conversation     False                 20       Priority HCP-account row with permitted field capacity
-             Program invitation     False                 25   Prior live-program attendance supports a repeat invitation
-                 Approved email      True                 30  Available email frequency with a priority or digital signal
-    Continue responsive content      True                 40 Meaningful digital response without a higher-priority action
-                        Monitor      True                 80    Eligible HCP-account row without a stronger action signal
-                      No action      True                 90                  No higher-precedence eligible action passed
+           object               record_level                                       job                           example_fields
+            state           HCP-account-date     Current facts available to the engine permission, access state, response score
+        candidate HCP-account-action-content        Every action the policy considered        action, channel, content ID, gate
+         contract    released recommendation Executable row sent to downstream systems  reason, timing, measurement, expiration
+       policy log        historical decision          Evidence for learning and replay      logged action, probability, outcome
+    execution log    released recommendation    Last-mile adoption and override record   status, override reason, feedback time
 
 
-## Summarize the gates
-
-
-The gates are applied inside `generate_candidates()`. `gate_summary()` counts the main outcomes across all candidates.
+### Load the state
 
 
 
 ```python
-reasons = [
-    "Suppressed", "Access route first", "Not priority",
-    "No live-program signal", "Passed",
+row = results["state"].loc[results["state"].npi.eq("9000000280")].iloc[0]
+for field in [
+    "npi", "account_id", "territory", "account_action",
+    "competitive_action", "contact_permission_status", "pressure_band",
+    "total_pressure_30", "predicted_response", "digital_signal",
+    "field_signal", "live_program_signal", "priority_flag", "context_bucket",
+]:
+    print(f"{field}: {row[field]}")
+
+```
+
+    npi: 9000000280
+    account_id: ACC089
+    territory: T02
+    account_action: Monitor
+    competitive_action: Defend and learn
+    contact_permission_status: Allowed
+    pressure_band: Low
+    total_pressure_30: 1
+    predicted_response: 0.4962414873343488
+    digital_signal: True
+    field_signal: True
+    live_program_signal: False
+    priority_flag: False
+    context_bucket: Digital-responsive
+
+
+### Build the candidate menu
+
+
+
+```python
+trace = results["hcp0280_rejected_alternatives"][[
+    "candidate_action", "content_id", "policy_precedence",
+    "candidate_status", "binding_gate"
+]].copy()
+print(trace.to_string(index=False))
+
+```
+
+               candidate_action               content_id  policy_precedence              candidate_status    binding_gate
+                      No action                                           1                    Ineligible  not_suppressed
+               Access follow-up                                          10                    Ineligible no_access_route
+             Field conversation     CNT_FIELD_EXPIRED_02                 20                    Ineligible    not_priority
+             Field conversation       CNT_FIELD_GUIDE_01                 20                    Ineligible    not_priority
+             Program invitation    CNT_PROGRAM_INVITE_01                 25                    Ineligible  program_signal
+             Program invitation CNT_PROGRAM_WRONG_AUD_02                 25                    Ineligible  program_signal
+                 Approved email      CNT_EMAIL_ACCESS_01                 30                      Selected          passed
+                 Approved email       CNT_EMAIL_DRAFT_03                 30                    Ineligible         content
+                 Approved email     CNT_EMAIL_EXPIRED_02                 30                    Ineligible         content
+    Continue responsive content       CNT_WEB_ACCOUNT_02                 40                    Ineligible         content
+    Continue responsive content          CNT_WEB_RESP_01                 40 Eligible but lower precedence          passed
+                        Monitor                                          80 Eligible but lower precedence          passed
+
+
+![Figure 9.1. HCP0280 candidate trace across action, binding gate, content asset, and final status. Synthetic data.](assets/figures/figure_9_1_governed_engine.svg)
+
+*Figure 9.1. HCP0280 candidate trace across action, binding gate, content asset, and final status. Synthetic data.*
+
+
+
+```python
+content = results["hcp0280_content_trace"][[
+    "candidate_action", "content_id", "mlr_status", "audience",
+    "approved_channel", "content_gate_reason", "eligible"
+]].copy()
+print(content.to_string(index=False))
+
+```
+
+               candidate_action               content_id mlr_status audience approved_channel  content_gate_reason  eligible
+                 Approved email      CNT_EMAIL_ACCESS_01   Approved      HCP            Email               Passed      True
+                 Approved email       CNT_EMAIL_DRAFT_03      Draft      HCP            Email Content not approved     False
+                 Approved email     CNT_EMAIL_EXPIRED_02   Approved      HCP            Email      Content expired     False
+    Continue responsive content       CNT_WEB_ACCOUNT_02   Approved  Account              Web    Audience mismatch     False
+    Continue responsive content          CNT_WEB_RESP_01   Approved      HCP              Web               Passed      True
+             Field conversation     CNT_FIELD_EXPIRED_02   Approved      HCP            Field      Content expired     False
+             Field conversation       CNT_FIELD_GUIDE_01   Approved      HCP            Field               Passed     False
+             Program invitation    CNT_PROGRAM_INVITE_01   Approved      HCP          Program               Passed     False
+             Program invitation CNT_PROGRAM_WRONG_AUD_02   Approved  Account          Program    Audience mismatch     False
+
+
+### Apply the gates
+
+
+
+```python
+gate = results["gate_summary_by_gate"].head(8).copy()
+print(gate.to_string(index=False))
+
+```
+
+       binding_gate  blocked_candidates  affected_hcp_account_rows     example_action
+         suppressed                 506                         46   Access follow-up
+       access_route                 350                         35 Field conversation
+            content                 167                         57     Approved email
+       not_priority                 138                         69 Field conversation
+     not_suppressed                 112                        112          No action
+    no_email_signal                  81                         27     Approved email
+    no_access_route                  77                         77   Access follow-up
+     program_signal                  72                         36 Program invitation
+
+
+![Figure 9.2. Largest binding gates across the expanded candidate table. Synthetic data.](assets/figures/figure_9_2_gate_summary.svg)
+
+*Figure 9.2. Largest binding gates across the expanded candidate table. Synthetic data.*
+
+
+### Write the recommendation contract
+
+
+
+```python
+print(results["recommendation_contract_dictionary"].to_string(index=False))
+
+```
+
+                  field             question_answered                                why_it_matters
+     recommended_action      What should happen next?                   Execution role and workload
+    recommended_channel       Where should it happen?        CRM, email, program, or access routing
+             content_id Which approved asset is used? MLR, indication, audience, and expiry control
+            reason_code Why was this action selected?                          User trust and audit
+       measurement_hook  What must be observed later?                   Learning and accountability
+             expires_on        When is the row stale?              Prevents outdated action release
+         policy_version   Which rule set produced it?                Rollback and model-risk review
+
+
+
+```python
+row = results["recommendation_contract"].iloc[0]
+fields = [
+    "recommendation_id", "recommended_action", "recommended_channel",
+    "content_id", "content_family", "reason_code", "measurement_hook",
+    "policy_version", "rule_set_version", "model_version",
+    "expected_incremental_value", "expires_on", "review_required",
 ]
-gate_summary = results["gate_summary"].set_index("ineligibility_reason")
-print(gate_summary.loc[reasons].reset_index().to_string(index=False))
+for field in fields:
+    value = row[field]
+    if field == "expected_incremental_value":
+        value = f"{value:.2f}"
+    print(f"{field}: {value}")
 
 ```
 
-      ineligibility_reason  blocked_candidates
-                Suppressed                 276
-        Access route first                 175
-              Not priority                  69
-    No live-program signal                  36
-                    Passed                 397
+    recommendation_id: NBA00071
+    recommended_action: Approved email
+    recommended_channel: Email
+    content_id: CNT_EMAIL_ACCESS_01
+    content_family: Access support
+    reason_code: Available email frequency with a qualifying signal
+    measurement_hook: Delivery; click; qualified follow-up
+    policy_version: nba_policy_2025_02_v2
+    rule_set_version: nba_rules_2025_02_v2
+    model_version: omni_response_2025_02_v1
+    expected_incremental_value: 707.07
+    expires_on: 2025-03-14 00:00:00
+    review_required: False
 
 
-## Select one action
+### Set the expiration
 
 
 
 ```python
-summary = results["recommendation_summary"].copy()
-summary["mean_predicted_response"] = summary.mean_predicted_response.round(3)
-print(summary.to_string(index=False))
-
-```
-
-             recommended_action  recommendations  review_required  mean_predicted_response
-                      No action               46                0                    0.510
-               Access follow-up               35               35                    0.665
-             Program invitation               35                0                    0.670
-                        Monitor               20                0                    0.506
-                 Approved email               13                0                    0.634
-    Continue responsive content                6                0                    0.695
-             Field conversation                3                3                    0.615
-
-
-## Set the expiration
-
-
-
-```python
+print(results["expiration_policy"].to_string(index=False))
+print()
 print(results["expiration_analysis"].to_string(index=False))
 
 ```
 
+               candidate_action  default_ttl_days  stale_when                              refresh_trigger
+                      No action                14 TTL reached           Permission or access state changes
+               Access follow-up                 7 TTL reached         Access-state change or resolved case
+             Field conversation                21 TTL reached          Completed call or territory refresh
+             Program invitation                10 TTL reached Seat date, attendance, or new access barrier
+                 Approved email                14 TTL reached   Content expiry, opt-out, or new engagement
+    Continue responsive content                14 TTL reached       Content expiry or new digital response
+                        Monitor                30 TTL reached    Material evidence change or cycle refresh
+    
                           metric  value
       Median days between events 12.000
         Mean days between events 17.300
@@ -140,186 +239,244 @@ print(results["expiration_analysis"].to_string(index=False))
     Share of gaps within 30 days  0.828
 
 
-![Figure 9.2. The cumulative refresh curve shows that 57% of HCP-account event gaps close within 14 days and 83% close within 30 days. Synthetic data.](assets/figures/figure_9_2_expiration.svg)
+![Figure 9.3. Evidence refresh curve: cumulative share of inter-event gaps by days elapsed. Synthetic data.](assets/figures/figure_9_3_expiration_policy.svg)
 
-*Figure 9.2. The cumulative refresh curve shows that 57% of HCP-account event gaps close within 14 days and 83% close within 30 days. Synthetic data.*
-
-
-## The recommendation contract
+*Figure 9.3. Evidence refresh curve: cumulative share of inter-event gaps by days elapsed. Synthetic data.*
 
 
-The contract row below is read from `results["recommendations"]`, which `select_recommendations()` already produced in the selection step.
+## 9.2 Improve The Baseline Engine
+
+
+### Rank resource-constrained actions
 
 
 
 ```python
-recommendations = results["recommendations"]
-row = recommendations.loc[recommendations.npi.eq("9000000280")].iloc[0]
-for field in [
-    "recommendation_id", "account_id", "recommended_action",
-    "recommended_channel", "reason_code", "expected_result",
-    "measurement_hook", "recommendation_date", "expires_on",
-    "review_required",
+value = results["value_components_trace"].copy()
+for column in [
+    "predicted_response", "p_no_action", "p_action",
+    "estimated_uplift_action", "fatigue_risk",
 ]:
-    print(f"{field}: {row[field]}")
+    value[column] = value[column].round(3)
+value["expected_incremental_value"] = value["expected_incremental_value"].round(1)
+print(value.to_string(index=False))
 
 ```
 
-    recommendation_id: NBA00131
-    account_id: ACC089
-    recommended_action: Approved email
-    recommended_channel: Email
-    reason_code: Available email frequency with a priority or digital signal
-    expected_result: Deliver approved content and earn a click
-    measurement_hook: Delivery and click
-    recommendation_date: 2025-02-28 00:00:00
-    expires_on: 2025-03-14 00:00:00
-    review_required: False
-
-
-## Reward design: response and uplift
-
-The release engine has already selected one action per HCP-account row. HCP0280 gets approved email because it is the first eligible action in the policy order. Email is the broad, low-cost engagement action in this menu. Program invitations and field conversations consume scarcer resources: seats, field time, follow-up effort, and compliance review.
-
-Resource limits add a second question before deployment. The limit may be capacity, cost, or operational burden. If the field team has fewer slots than field-eligible rows, or a program team has fewer seats than program-eligible rows, uplift ranks rows inside that eligible tier. Response still describes baseline likelihood for broad email-style engagement. A production engine that must cap a costly program or field tier would apply the uplift ranking before release, then rerun the same gates and recommendation contract.
+             example        npi account_id  predicted_response  p_no_action  p_action  estimated_uplift_action  unit_cost  fatigue_risk  expected_incremental_value
+    Highest response 9000000128     ACC160               0.844        0.764     0.954                    0.190      340.0          0.01                       418.0
+       Highest value 9000000389     ACC155               0.593        0.483     0.748                    0.265      340.0          0.01                       718.0
 
 
 
 ```python
-print(results["reward_overlap"].to_string(index=False))
+reward = results["reward_overlap"].copy()
+allocation = results["constrained_allocation_summary"].copy()
+allocation[[
+    "mean_predicted_response", "mean_estimated_uplift",
+    "expected_incremental_value",
+]] = allocation[[
+    "mean_predicted_response", "mean_estimated_uplift",
+    "expected_incremental_value",
+]].round(3)
+print(reward.to_string(index=False))
+print()
+print(allocation.to_string(index=False))
 
 ```
 
                                    metric  value
-    Promotional-eligible HCP-account rows  51.00
-              Spearman response vs uplift  -0.78
-           Top-20 shared by both rankings   1.00
-          Top-20 only in response ranking  19.00
+    Promotional-eligible HCP-account rows 79.000
+               Spearman response vs value  0.085
+           Top-20 shared by both rankings  4.000
+          Top-20 only in response ranking  7.000
+    
+    allocation_rule  released_slots  mean_predicted_response  mean_estimated_uplift  expected_incremental_value  shared_rows   candidate_action
+    response_ranked              10                    0.797                  0.195                      4380.0            3 Program invitation
+       value_ranked              10                    0.718                  0.223                      5500.0            3 Program invitation
+
+
+### Explore safely
 
 
 
 ```python
-reward = results["reward_candidates"].copy()
-print(reward[[
-    "npi", "candidate_action", "predicted_response",
-    "estimated_uplift", "rank_by_response", "rank_by_uplift"
-]].head(6).round(3).to_string(index=False))
+history = results["logged_policy_history"][[
+    "snapshot_id", "context_bucket", "eligible_actions",
+    "base_policy_action", "logged_action",
+    "logged_probability", "exploration_flag",
+]].head(5).copy()
+history["logged_probability"] = history["logged_probability"].round(3)
+print(history.to_string(index=False))
 
 ```
 
-           npi   candidate_action  predicted_response  estimated_uplift  rank_by_response  rank_by_uplift
-    9000000128 Program invitation               0.844             0.039                 1              45
-    9000000239 Program invitation               0.839             0.041                 2              43
-    9000000204 Program invitation               0.831             0.024                 3              50
-    9000000232 Program invitation               0.828             0.036                 4              48
-    9000000650     Approved email               0.803             0.052                 5              37
-    9000000406 Program invitation               0.802             0.056                 6              36
-
-
-![Figure 9.3. The gold band marks the top 20 rows by p0, the green region marks the top 20 rows by uplift, and no HCP-account row sits in both groups. Synthetic data.](assets/figures/figure_9_3_reward_design.svg)
-
-*Figure 9.3. The gold band marks the top 20 rows by p0, the green region marks the top 20 rows by uplift, and no HCP-account row sits in both groups. Synthetic data.*
-
-
-## Exploration with a contextual bandit
-
-
-Each action curve starts from 2 counts. `successes` is the number of logged rows where the action was taken and the later response was 1. `failures` is the number where the action was taken and the later response was 0. Thompson sampling uses `Beta(successes + 1, failures + 1)`, draws once from each action curve, and gives the row to the action with the highest draw.
-
-Cold start is the data condition: little history leaves wide curves. Exploration is the behavior: an uncertain action can still win a draw.
+    snapshot_id     context_bucket                                                         eligible_actions base_policy_action    logged_action  logged_probability  exploration_flag
+      SNAP00001    Program-history Program invitation; Approved email; Continue responsive content; Monitor     Approved email   Approved email               0.925             False
+      SNAP00002 Digital-responsive                                                         Access follow-up   Access follow-up Access follow-up               1.000             False
+      SNAP00003   Field-responsive                                                                No action          No action        No action               1.000             False
+      SNAP00004    Program-history Program invitation; Approved email; Continue responsive content; Monitor     Approved email   Approved email               0.925             False
+      SNAP00005 Digital-responsive                                                         Access follow-up   Access follow-up Access follow-up               1.000             False
 
 
 
 ```python
-exploration = results["thompson_exploration"].copy()
-print(exploration[[
-    "context_bucket", "logged_action", "successes", "failures",
-    "posterior_mean", "posterior_sd", "explore_share"
-]].to_string(index=False))
+exploration = results["thompson_exploration"][[
+    "logged_action", "snapshots", "successes", "failures",
+    "posterior_mean", "posterior_sd", "explore_share",
+]].copy()
+exploration[[
+    "posterior_mean", "posterior_sd", "explore_share",
+]] = exploration[[
+    "posterior_mean", "posterior_sd", "explore_share",
+]].round(3)
+print(exploration.to_string(index=False))
+print()
+decision = results["thompson_decision_log"].copy()
+decision["logged_probability"] = decision["logged_probability"].round(3)
+print(decision.to_string(index=False))
 
 ```
 
-        context_bucket      logged_action  successes  failures  posterior_mean  posterior_sd  explore_share
-    Digital-responsive Field conversation         61        35           0.633         0.048          0.736
-    Digital-responsive     Approved email         84        57           0.594         0.041          0.264
-    Digital-responsive          No action         30        49           0.383         0.054          0.000
+                  logged_action  snapshots  successes  failures  posterior_mean  posterior_sd  explore_share
+                        Monitor          7          5         2           0.667         0.149          0.484
+               Access follow-up         90         58        32           0.641         0.050          0.212
+    Continue responsive content         23         15         8           0.640         0.094          0.281
+                 Approved email        117         67        50           0.571         0.045          0.023
+                      No action         79         30        49           0.383         0.054          0.000
+    
+           npi account_id     context_bucket                                        eligible_arms base_policy_action selected_arm  logged_probability  exploration_flag        policy_version
+    9000000280     ACC089 Digital-responsive Approved email; Continue responsive content; Monitor     Approved email      Monitor               0.484              True nba_policy_2025_02_v2
+
+
+![Figure 9.4. Left: posterior mean and one SD per action. Right: share of Thompson draws each arm wins. Synthetic data.](assets/figures/figure_9_4_thompson.svg)
+
+*Figure 9.4. Left: posterior mean and one SD per action. Right: share of Thompson draws each arm wins. Synthetic data.*
+
+
+## 9.3 Evaluate A New Policy Offline
+
+
+### 9.3.1 Replay The Candidate Policy
 
 
 
 ```python
-cold = results["thompson_cold_start"].copy()
-print(cold[[
-    "context_bucket", "logged_action", "successes", "failures",
-    "posterior_mean", "posterior_sd", "explore_share"
-]].to_string(index=False))
+trace = results["ope_replay_trace"].copy()
+for column in [
+    "logged_probability", "inverse_weight",
+    "model_candidate_response", "dr_contribution",
+]:
+    trace[column] = trace[column].round(3)
+print(trace.to_string(index=False))
 
 ```
 
-        context_bucket      logged_action  successes  failures  posterior_mean  posterior_sd  explore_share
-    Digital-responsive     Approved email         20        15           0.568         0.080          0.372
-    Digital-responsive Field conversation         11         9           0.545         0.104          0.307
-    Digital-responsive          No action         11         9           0.545         0.104          0.320
-
-
-![Figure 9.4. For digital-responsive rows, cold-start curves overlap and draw wins spread across actions; full-history curves separate and field conversation wins most draws. Synthetic data.](assets/figures/figure_9_4_thompson.svg)
-
-*Figure 9.4. For digital-responsive rows, cold-start curves overlap and draw wins spread across actions; full-history curves separate and field conversation wins most draws. Synthetic data.*
-
-
-## Off-policy evaluation
-
-
-The current NBA policy puts field conversation ahead of approved email for priority rows. The digital-first variant keeps the same gates but changes that one choice.
-
-Off-policy evaluation replays the candidate policy on historical rows. When the candidate chooses the same action as the log, the later response is usable evidence. When it chooses a different action, the log cannot directly tell us what would have happened under that new action.
-
-
-![Figure 9.5. Uplift estimates action effect for a row, while off-policy evaluation replays a candidate decision rule on historical rows and estimates policy value before deployment. Synthetic data.](assets/figures/figure_9_5_ope_policy_replay.svg)
-
-*Figure 9.5. Uplift estimates action effect for a row, while off-policy evaluation replays a candidate decision rule on historical rows and estimates policy value before deployment. Synthetic data.*
-
-
-IPS reweights matched historical rewards. SNIPS uses a normalized version of those same weights. The direct method scores candidate actions with a reward model. Doubly robust starts with the model prediction, then corrects it with matched historical rewards.
+    snapshot_id     context_bucket               logged_action candidate_action  logged_probability  future_response  matched  inverse_weight  model_candidate_response  dr_contribution
+      SNAP00001    Program-history              Approved email   Approved email               0.925                1     True           1.081                     0.584            1.034
+      SNAP00002 Digital-responsive            Access follow-up Access follow-up               1.000                1     True           1.000                     0.646            1.000
+      SNAP00003   Field-responsive                   No action        No action               1.000                1     True           1.000                     0.374            1.000
+      SNAP00043 Digital-responsive Continue responsive content   Approved email               0.033                0    False           0.000                     0.846            0.846
+      SNAP00114 Digital-responsive Continue responsive content   Approved email               0.033                0    False           0.000                     0.545            0.545
 
 
 
 ```python
-policy = results["off_policy_evaluation"].copy()
-policy["estimated_response_rate"] = policy.estimated_response_rate.map(
-    lambda x: f"{x:.1%}"
-)
-policy["effective_sample_size"] = policy.effective_sample_size.round(1)
-print(policy.to_string(index=False))
+ope = results["off_policy_evaluation"].copy()
+ope[[
+    "estimated_response_rate", "match_rate",
+    "effective_sample_size", "max_weight",
+]] = ope[[
+    "estimated_response_rate", "match_rate",
+    "effective_sample_size", "max_weight",
+]].round(3)
+print(ope[["policy", "estimator", "estimated_response_rate"]].to_string(index=False))
+print()
+diag = ope.loc[ope["policy"].eq("digital_first")].iloc[0]
+print("digital_first overlap diagnostics:")
+print(f"  matched_snapshots:     {diag['matched_snapshots']}")
+print(f"  match_rate:            {diag['match_rate']}")
+print(f"  effective_sample_size: {diag['effective_sample_size']}")
+print(f"  max_weight:            {diag['max_weight']}")
+print(f"  overlap_warning:       {diag['overlap_warning']}")
 
 ```
 
-           policy      estimator estimated_response_rate  matched_snapshots  effective_sample_size
-    logged_policy on_policy_mean                   57.3%               1422                 1422.0
-    digital_first            ips                   54.7%               1263                 1262.1
-    digital_first          snips                   56.7%               1263                 1262.1
-    digital_first  doubly_robust                   57.4%               1263                 1262.1
+           policy      estimator  estimated_response_rate
+    logged_policy on_policy_mean                    0.573
+    digital_first            ips                    0.575
+    digital_first          snips                    0.573
+    digital_first  direct_method                    0.574
+    digital_first  doubly_robust                    0.573
+    
+    digital_first overlap diagnostics:
+      matched_snapshots:     1392
+      match_rate:            0.979
+      effective_sample_size: 1390.472
+      max_weight:            1.081
+      overlap_warning:       Overlap acceptable
 
 
-## The experiment that would settle it
+### 9.3.2 Design The Live Test
 
 
 
 ```python
-print(results["experiment_design"].to_string(index=False))
+design = results["experiment_design"].copy()
+for _, r in design.iterrows():
+    if r["parameter"] == "Guardrail outcomes":
+        items = r["value"].split("; ")
+        print(f"{'Guardrail outcomes':>36} {items[0]}")
+        for item in items[1:]:
+            print(f"{'':>37}{item}")
+    else:
+        print(f"{r['parameter']:>36} {r['value']}")
 
 ```
 
-                               parameter    value
-                  Baseline response rate    0.598
-               Minimum detectable effect    0.050
-                                   Power    0.800
-                         Two-sided alpha    0.050
-       Required HCP-account rows per arm 1474.000
-    Eligible HCP-account rows this cycle  112.000
-               Cycles to reach both arms   27.000
+                      Randomization unit HCP-account row
+                          Control policy Current precedence
+                        Candidate policy Digital-first precedence
+                         Primary outcome Meaningful response
+                 Measurement window days 14
+                      Guardrail outcomes Opt-out
+                                         stale row
+                                         field burden
+                                         access delay
+                  Baseline response rate 0.654
+               Minimum detectable effect 0.05
+                                   Power 0.8
+                         Two-sided alpha 0.05
+       Required HCP-account rows per arm 1367
+    Eligible HCP-account rows this cycle 112
+                           Cycles needed 25
 
 
-## Conclusion
+## 9.4 More NBA Decisions
 
-The engine turns a dated state into one auditable action per HCP-account row. It builds the candidate menu, removes ineligible actions, applies policy order, and writes the recommendation contract onto the row. Then it shows how to rank capacity-constrained actions, explore safely, and screen a new policy before a live test. For HCP0280 the governed recommendation is approved email.
+
+### 9.4.1 Operate The Last Mile
+
+
+
+```python
+feedback = results["execution_feedback_summary"].copy()
+feedback["share"] = feedback["share"].round(3)
+print(feedback.to_string(index=False))
+print()
+print(results["override_reason_summary"].to_string(index=False))
+
+```
+
+            execution_status  recommendations  share
+                    Executed              117  0.741
+                     Expired               17  0.108
+         Viewed not executed               13  0.082
+                  Overridden                9  0.057
+    Suppressed after release                2  0.013
+    
+          override_reason  recommendations     example_action
+    Access issue resolved                5   Access follow-up
+          HCP unavailable                3 Program invitation
+         Content mismatch                1     Approved email
 
