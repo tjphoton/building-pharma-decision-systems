@@ -156,6 +156,14 @@ CHANNEL_UNIT_COST = {
     "Account support": 130.0,
 }
 
+# --- Scenario value of one incremental meaningful response (USD) --------------
+# The same planning constant the next-best-action engine uses: one incremental
+# meaningful prescriber response carries an estimated net TRx value of $4,000.
+# This is a documented scenario assumption, not a measured quantity. The value
+# bridge multiplies modeled incremental response per touch by this constant so
+# channel cost and channel return land in the same dollar unit.
+RESPONSE_VALUE = 4_000.0
+
 CHANNELS = tuple(CHANNEL_METADATA)
 TOPICS = (
     "Clinical evidence",

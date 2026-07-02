@@ -94,7 +94,31 @@ print(ledger.loc[ledger.npi.eq("9000000280"), cols].tail(3))
     1692 2025-02-10     Web  Qualified action                 True
 
 
-## Descriptive: contact volume and selection
+## Descriptive: reach, overlap, and saturation
+
+
+The reach table crosses the two largest channel families. The response column mixes who was chosen with what the contact did: the field team calls on the HCPs it expects to answer.
+
+
+
+```python
+overlap = results["reach_overlap"].copy()
+overlap["share"] = overlap.share.map(lambda x: f"{x:.1%}")
+overlap["response"] = overlap.future_response_rate.map(lambda x: f"{x:.1%}")
+print(overlap[[
+    "reach_group", "rows", "share", "response",
+]].to_string(index=False))
+
+```
+
+          reach_group  rows share response
+    Field and digital    67 42.4%    67.2%
+         Digital only    46 29.1%    52.2%
+           Field only    16 10.1%    43.8%
+              Neither    29 18.4%     3.4%
+
+
+The saturation table splits selection from return. The adjusted gain of one more touch shrinks from 7.7 to 5.5 points as contact rises.
 
 
 
@@ -116,6 +140,11 @@ print(sat[[
     3             3        175          65.7%          68.2%                   7.1%
     4             4         83          69.9%          74.6%                   6.3%
     5            5+         38          68.4%          80.0%                   5.5%
+
+
+![Figure 8.2. Observed response rises steeply then flattens because higher-contact bands hold more responsive HCPs; the adjusted curve moves the same full population across contact levels, and its marginal gain shrinks from 7.7 to 5.5 points. Synthetic data.](assets/figures/figure_8_2_diminishing_returns.svg)
+
+*Figure 8.2. Observed response rises steeply then flattens because higher-contact bands hold more responsive HCPs; the adjusted curve moves the same full population across contact levels, and its marginal gain shrinks from 7.7 to 5.5 points. Synthetic data.*
 
 
 ## Predictive: past state and later outcome
@@ -265,6 +294,26 @@ print(features[["feature", "coefficient", "odds_ratio"]])
     4            field_responses_90      +0.098       1.10
 
 
+The calibration table checks the probability scale the channel plan multiplies into expected responses. The ordering holds in every bin; the lowest bin is optimistic.
+
+
+
+```python
+cal = results["calibration"].copy()
+cal["mean_predicted"] = cal.mean_predicted.map(lambda x: f"{x:.1%}")
+cal["observed_rate"] = cal.observed_rate.map(lambda x: f"{x:.1%}")
+print(cal.to_string(index=False))
+
+```
+
+     bin_order  snapshots mean_predicted observed_rate
+             1         64          40.7%         23.4%
+             2         63          52.9%         36.5%
+             3         63          61.3%         44.4%
+             4         63          68.8%         65.1%
+             5         63          78.5%         73.0%
+
+
 The field-then-digital order effect is real and modest: two explicit order features move test AUC from 0.707 to 0.714.
 
 
@@ -348,9 +397,9 @@ print(markov)
 The T-learner treats prior live-program action as the action and next-28-day meaningful response as the outcome. It fits one response model on HCP-account rows with prior live-program action and one on rows without it, then scores every row under both models. The difference is estimated uplift.
 
 
-![Figure 8.2. Four HCP behavioral types in uplift modeling. Arrows show how action changes predicted response: persuadable rows move up, sure things stay high, lost causes stay low, and sleeping dogs move down.](assets/figures/figure_8_2_uplift_segments.png)
+![Figure 8.3. Four HCP behavioral types in uplift modeling. Arrows show how action changes predicted response: persuadable rows move up, sure things stay high, lost causes stay low, and sleeping dogs move down.](assets/figures/figure_8_3_uplift_segments.png)
 
-*Figure 8.2. Four HCP behavioral types in uplift modeling. Arrows show how action changes predicted response: persuadable rows move up, sure things stay high, lost causes stay low, and sleeping dogs move down.*
+*Figure 8.3. Four HCP behavioral types in uplift modeling. Arrows show how action changes predicted response: persuadable rows move up, sure things stay high, lost causes stay low, and sleeping dogs move down.*
 
 
 
@@ -377,29 +426,33 @@ print(segments)
     4                              0.708292        4.3%  
 
 
+The diagnostics quantify selection: attended rows show a 17.0-point raw gap, while the covariate-adjusted mean uplift is 9.1 points. Nearly half of the raw gap was who attends, not what attendance does.
+
+
 
 ```python
 ranking = results["uplift_ranking_comparison"].copy()
 for col in ["mean_baseline_response", "mean_estimated_uplift"]:
     ranking[col] = ranking[col].map(lambda x: f"{x:.1%}")
-print(ranking)
+ranking = ranking.rename(columns={
+    "mean_baseline_response": "mean_baseline",
+    "mean_estimated_uplift": "mean_uplift",
+    "rows_shared_with_other_ranking": "shared_rows",
+})
+print(ranking.to_string(index=False))
 print()
 diagnostics = results["uplift_diagnostics"].copy()
 for col in [c for c in diagnostics.columns if "snapshots" not in c]:
     diagnostics[col] = diagnostics[col].map(lambda x: f"{x:.1%}")
-print(diagnostics.T)
+print(diagnostics.T.rename(columns={0: "value"}))
 
 ```
 
-               ranking  selected mean_baseline_response mean_estimated_uplift  \
-    0  response_ranked       284                  72.4%                  5.7%   
-    1    uplift_ranked       284                  42.9%                 14.1%   
+            ranking  selected mean_baseline mean_uplift  shared_rows
+    response_ranked       284         72.4%        5.7%            3
+      uplift_ranked       284         42.9%       14.1%            3
     
-       rows_shared_with_other_ranking  
-    0                               3  
-    1                               3  
-    
-                                         0
+                                     value
     treated_snapshots                  782
     control_snapshots                  640
     naive_treated_minus_control      17.0%
@@ -408,14 +461,14 @@ print(diagnostics.T)
     observed_uplift_bottom_quartile   7.3%
 
 
-![Figure 8.3. A T-learner scores the same HCP-account row with action and control models, subtracts p0 from p1, and ranks rows by uplift. Synthetic data.](assets/figures/figure_8_3_t_learner.png)
+![Figure 8.4. A T-learner scores the same HCP-account row with action and control models, subtracts p0 from p1, and ranks rows by uplift. Synthetic data.](assets/figures/figure_8_4_t_learner.png)
 
-*Figure 8.3. A T-learner scores the same HCP-account row with action and control models, subtracts p0 from p1, and ranks rows by uplift. Synthetic data.*
+*Figure 8.4. A T-learner scores the same HCP-account row with action and control models, subtracts p0 from p1, and ranks rows by uplift. Synthetic data.*
 
 
-![Figure 8.4. Each point is one HCP-account snapshot plotted by its control-model score and action-model score. Color shows estimated uplift. Synthetic data.](assets/figures/figure_8_4_uplift.svg)
+![Figure 8.5. Each point is one HCP-account snapshot plotted by its control-model score and action-model score. Color shows estimated uplift. Synthetic data.](assets/figures/figure_8_5_uplift.svg)
 
-*Figure 8.4. Each point is one HCP-account snapshot plotted by its control-model score and action-model score. Color shows estimated uplift. Synthetic data.*
+*Figure 8.5. Each point is one HCP-account snapshot plotted by its control-model score and action-model score. Color shows estimated uplift. Synthetic data.*
 
 
 ## Causal: credit, lift, and cost
@@ -449,9 +502,44 @@ print(econ[[
     9  Account support   4.9%     -1.3 pp    $130.00              no lift
 
 
-![Figure 8.5. Email, field, and web look different once path credit, adjusted lift, and cost per incremental response are read together. Synthetic data.](assets/figures/figure_8_5_cost_per_incremental.svg)
+![Figure 8.6. Email, field, and web look different once path credit, adjusted lift, and cost per incremental response are read together. Synthetic data.](assets/figures/figure_8_6_cost_per_incremental.svg)
 
-*Figure 8.5. Email, field, and web look different once path credit, adjusted lift, and cost per incremental response are read together. Synthetic data.*
+*Figure 8.6. Email, field, and web look different once path credit, adjusted lift, and cost per incremental response are read together. Synthetic data.*
+
+
+The value bridge converts lift into dollars per touch against the $4,000 scenario value of one incremental meaningful response, the same constant the next-best-action engine uses. A touch pays for itself when its lift exceeds unit cost divided by $4,000.
+
+
+
+```python
+bridge = results["channel_value_bridge"].copy()
+bridge["lift"] = bridge.incremental_per_touch.map(lambda x: f"{x * 100:+.1f} pp")
+bridge["value_per_touch"] = bridge.expected_value_per_touch.map(
+    lambda x: f"${x:,.0f}" if pd.notna(x) else "not measurable"
+)
+bridge["unit_cost"] = bridge.unit_cost.map(lambda x: f"${x:,.2f}")
+bridge["net_per_touch"] = bridge.net_value_per_touch.map(
+    lambda x: f"${x:,.0f}" if pd.notna(x) else "not measurable"
+)
+bridge["breakeven_lift"] = bridge.breakeven_lift.map(lambda x: f"{x * 100:.2f} pp")
+print(bridge[[
+    "channel", "lift", "value_per_touch", "unit_cost",
+    "net_per_touch", "breakeven_lift",
+]].to_string(index=False))
+
+```
+
+            channel    lift value_per_touch unit_cost  net_per_touch breakeven_lift
+              Email +1.4 pp             $58     $0.25            $57        0.01 pp
+         Paid media +1.0 pp             $39     $1.40            $38        0.03 pp
+              Field +1.9 pp             $75   $225.00          $-150        5.62 pp
+       Peer program +1.4 pp             $56   $340.00          $-284        8.50 pp
+         Conference +4.4 pp            $175   $760.00          $-585       19.00 pp
+                Web +0.0 pp  not measurable     $0.12 not measurable        0.00 pp
+              Phone -2.2 pp  not measurable    $28.00 not measurable        0.70 pp
+    Speaker program -0.9 pp  not measurable $1,150.00 not measurable       28.75 pp
+        Direct mail -2.4 pp  not measurable     $2.60 not measurable        0.07 pp
+    Account support -1.3 pp  not measurable   $130.00 not measurable        3.25 pp
 
 
 ## Prescriptive: channel policy and the plan
@@ -462,19 +550,21 @@ print(econ[[
 aff = results["channel_affinity"].copy()
 for col in ["digital_response_rate", "field_response_rate"]:
     aff[col] = aff[col].map(lambda x: f"{x:.0%}")
-print(aff)
+aff = aff.rename(columns={
+    "digital_response_rate": "digital_rate",
+    "field_response_rate": "field_rate",
+})
+print(aff[[
+    "npi", "digital_rate", "field_rate",
+    "channel_affinity", "recommended_channel",
+]].to_string(index=False))
 
 ```
 
-              npi digital_response_rate field_response_rate   channel_affinity  \
-    0  9000000522                   80%                 20%  Digital responder   
-    1  9000000567                   24%                 78%    Field responder   
-    2  9000000406                   70%                 14%  Digital responder   
-    
-      last_response_channel recommended_channel  
-    0                 Email               Email  
-    1                 Phone               Field  
-    2                 Email               Email  
+           npi digital_rate field_rate  channel_affinity recommended_channel
+    9000000522          80%        20% Digital responder               Email
+    9000000567          24%        78%   Field responder               Field
+    9000000406          70%        14% Digital responder               Email
 
 
 
@@ -520,24 +610,29 @@ print(value[[
 
 
 ```python
-ids = ["9000000174", "9000000239", "9000000280", "9000000430", "9000000469"]
+ids = ["9000000174", "9000000239", "9000000280",
+       "9000000389", "9000000430", "9000000469"]
 cols = ["npi", "account_id", "recommended_action", "reason_code"]
 traces = results["channel_plan"].loc[
     results["channel_plan"].npi.isin(ids), cols
 ].sort_values("npi").reset_index(drop=True)
-print(traces)
+print(traces.to_string(index=False))
 
 ```
 
-              npi account_id       recommended_action                       reason_code
-    0  9000000174     ACC032          Email follow-up  CAPACITY_RANKED_DIGITAL_RESPONSE
-    1  9000000239     ACC009  Peer-program invitation     CAPACITY_RANKED_PEER_RESPONSE
-    2  9000000280     ACC089                  Observe     OBSERVE_BELOW_CAPACITY_CUTOFF
-    3  9000000430     ACC189      Access coordination             ROUTE_ACCESS_BOUNDARY
-    4  9000000469     ACC121                 Suppress               SUPPRESS_PERMISSION
+           npi account_id      recommended_action                      reason_code
+    9000000174     ACC032         Email follow-up CAPACITY_RANKED_DIGITAL_RESPONSE
+    9000000239     ACC009 Peer-program invitation    CAPACITY_RANKED_PEER_RESPONSE
+    9000000280     ACC089                 Observe    OBSERVE_BELOW_CAPACITY_CUTOFF
+    9000000389     ACC155                 Observe    OBSERVE_BELOW_CAPACITY_CUTOFF
+    9000000430     ACC189     Access coordination            ROUTE_ACCESS_BOUNDARY
+    9000000469     ACC121                Suppress              SUPPRESS_PERMISSION
+
+
+HCP0389 lands in observation at a 59.3% predicted response. Response-ranked capacity leaves rows like this behind; the next-best-action engine revisits the same state with expected incremental value and reaches a different answer for exactly this row.
 
 
 ## Conclusion
 
-The ledger preserves channel meaning, the contact-volume curve shows that raw response rises mostly from selection, and the temporal test limits leakage. Attribution credits field and email near 17% each, while the cost view shows very different economics: about $17 per incremental response on email and $12,049 on field. The rule set keeps permission, access, pressure, and capacity ahead of response signals, routes each action to the HCP's own responsive channel, and releases 16 promotional rows with a reason code, cycle cap, measurement hook, rule-set version, and refresh date. That dated state becomes the input to the next-best-action engine.
+The ledger preserves channel meaning, the reach and saturation tables show that raw response rises mostly from selection, and the temporal test limits leakage. Attribution credits field and email about 17% each, while the cost view shows very different economics: about $17 per incremental response on email and $12,049 on field, and the value bridge prices the average field touch below its $225 cost at the $4,000 scenario response value. The rule set keeps permission, access, pressure, and capacity ahead of response signals, routes each action to the HCP's own responsive channel, and releases 16 promotional rows with a reason code, cycle cap, measurement hook, rule-set version, and refresh date. That dated state becomes the input to the next-best-action engine.
 

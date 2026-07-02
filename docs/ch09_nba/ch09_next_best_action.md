@@ -95,6 +95,8 @@ context_bucket: Digital-responsive
 
 The state already blocks several actions. Contact is allowed (permission status). Access follow-up has no route (account action is Monitor). Field conversation requires priority status (false here). Program invitation requires a live program signal (false here). Approved email is still plausible because the row has a digital signal and low contact burden.
 
+The snapshot layer can carry additional HCP context signals alongside these. TRx potential decile, recent external congress or symposium attendance, MSL visit recency, and an estimate of eligible patients in the HCP's panel are all signals that belong in the state table. They could slot into `feature_columns` in `build_nba_state()` and enrich the reward model's context.
+
 ### 9.1.2 Build and Gate the Candidate Menu
 
 The NBA engine first builds the candidate menu by listing the actions that the policy is allowed to consider for this HCP-account row:
@@ -316,9 +318,9 @@ The baseline engine has selected one action per HCP-account row. The next two im
 
 The omnichannel plan scored each HCP-account row by predicted response probability and used that score to allocate channel capacity. Response probability is the right input when capacity is not the binding constraint. For program invitations, field visits, and access follow-up work, it is not: response probability is the wrong ranking signal for constrained actions.
 
-The reason is counterfactual. Response probability answers the question "who is likely to respond?" It does not answer "who is likely to respond because of this action?" An HCP with a 0.84 response probability may have reached that level organically. Spending a scarce program slot on that row wastes the invitation. A row at 0.59 response probability with a 0.26 uplift generates more incremental response per slot.
+The reason is counterfactual. Response probability answers the question "who is likely to respond?" It does not answer "who is likely to respond because of this action?" An HCP with a 0.84 response probability may have reached that level organically. Spending a scarce program slot on that row wastes the invitation. A row at 0.59 response probability with a 0.26 uplift generates more incremental TRx lift per slot.
 
-Email is cheap and broad enough that response-based ranking is a reasonable default. Program invitations, field conversations, and access follow-up work have explicit capacity constraints. For these, the NBA engine should rank by expected incremental value: uplift times response value, minus cost and fatigue penalty.
+Email is cheap and broad enough that response-based ranking is a reasonable default. Program invitations, field conversations, and access follow-up work have explicit capacity constraints. For these, the NBA engine should rank by expected incremental value: estimated TRx lift times the net revenue value of an incremental prescriber response, minus cost and fatigue penalty.
 
 `multi_action_uplift_table()` in `next_best_action.py` scores email, field, and program for each HCP-account row and identifies the best action by incremental value. HCP0280 is the carried case. High-email is the row where email delivers the highest uplift in the population. High-field is the row where field conversation delivers the highest uplift. Listing 9.8 shows all three.
 
@@ -353,7 +355,9 @@ The value calculation breaks each action score into 4 pieces:
 - `p_no_action`: expected response if no action is taken
 - `p_action`: expected response under the candidate action
 - `estimated_uplift_action`: `p_action - p_no_action`
-- `expected_incremental_value`: uplift times response value, minus cost and fatigue penalty
+- `expected_incremental_value`: estimated TRx lift times the net revenue value of an incremental prescriber response, minus cost and fatigue penalty
+
+An eligible patient estimate can further weight the value calculation: an HCP with a large panel of qualifying patients generates more expected incremental TRx per action than one with few, even at identical uplift. A competitive recency signal, days since a competitor published new evidence, can similarly shift the urgency of an MSL scientific discussion relative to a standard approved email.
 
 `value_components_trace()` in `next_best_action.py` selects 2 program-invitation examples from `results["reward_candidates"]`: the highest-response row and the highest-value row. Listing 9.9 shows why they differ.
 
@@ -383,7 +387,7 @@ fatigue_risk                           0.01           0.01
 expected_incremental_value            418.0          718.0
 ```
 
-The highest-response HCP has a predicted response of 0.844. Its estimated uplift is 0.190, and its expected incremental value is 418. The highest-value HCP has lower predicted response at 0.593, but uplift is 0.265 and expected value is 718. The response ranking would spend the scarce program slot on the row that looks most likely to respond. The value ranking spends it where the action changes more.
+The highest-response HCP has a predicted response of 0.844. Its estimated TRx lift is 0.190, and its expected incremental value is 418. The highest-value HCP has lower predicted response at 0.593, but TRx lift is 0.265 and expected incremental value is 718. The response ranking would spend the scarce program slot on the row that looks most likely to respond. The value ranking spends it where the action drives more incremental TRx.
 
 ### 9.2.2 Explore Safely
 
