@@ -38,10 +38,12 @@ from ch08_omnichannel.scripts.event_ledger import (  # noqa: E402
 from ch08_omnichannel.scripts.economics import (  # noqa: E402
     channel_affinity_trace,
     channel_economics,
+    channel_value_bridge,
 )
 from ch08_omnichannel.scripts.features import (  # noqa: E402
     build_snapshot_panel,
     pressure_response_summary,
+    reach_overlap_summary,
     response_shrinkage_summary,
     saturation_summary,
 )
@@ -170,6 +172,7 @@ def run_analysis(repo_root: Path) -> dict[str, pd.DataFrame]:
     )
     pressure = pressure_response_summary(panel)
     saturation = saturation_summary(panel)
+    reach_overlap = reach_overlap_summary(panel, ANALYSIS_DATE)
     model_results = fit_response_model(panel)
     sequence_detail, sequence_summary, transitions = observed_sequences(
         ledger,
@@ -202,7 +205,9 @@ def run_analysis(repo_root: Path) -> dict[str, pd.DataFrame]:
         "snapshot_panel": panel,
         "pressure_response": pressure,
         "saturation": saturation,
+        "reach_overlap": reach_overlap,
         "channel_economics": economics,
+        "channel_value_bridge": channel_value_bridge(economics),
         "channel_affinity": affinity_trace,
         **model_results,
         "response_shrinkage": response_shrinkage_summary(

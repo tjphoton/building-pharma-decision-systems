@@ -1387,10 +1387,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#descriptive-contact-volume-and-selection" class="md-nav__link">
+  <a href="#descriptive-reach-overlap-and-saturation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Descriptive: contact volume and selection
+        Descriptive: reach, overlap, and saturation
       
     </span>
   </a>
@@ -1713,10 +1713,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#descriptive-contact-volume-and-selection" class="md-nav__link">
+  <a href="#descriptive-reach-overlap-and-saturation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Descriptive: contact volume and selection
+        Descriptive: reach, overlap, and saturation
       
     </span>
   </a>
@@ -1900,7 +1900,22 @@ Account support     147               145                    96    66.2%
 1691 2025-01-24   Email            Opened                False
 1692 2025-02-10     Web  Qualified action                 True
 </code></pre></div>
-<h2 id="descriptive-contact-volume-and-selection">Descriptive: contact volume and selection</h2>
+<h2 id="descriptive-reach-overlap-and-saturation">Descriptive: reach, overlap, and saturation</h2>
+<p>The reach table crosses the two largest channel families. The response column mixes who was chosen with what the contact did: the field team calls on the HCPs it expects to answer.</p>
+<div class="highlight"><pre><span></span><code><span class="n">overlap</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;reach_overlap&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">overlap</span><span class="p">[</span><span class="s2">&quot;share&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">overlap</span><span class="o">.</span><span class="n">share</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">overlap</span><span class="p">[</span><span class="s2">&quot;response&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">overlap</span><span class="o">.</span><span class="n">future_response_rate</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">overlap</span><span class="p">[[</span>
+    <span class="s2">&quot;reach_group&quot;</span><span class="p">,</span> <span class="s2">&quot;rows&quot;</span><span class="p">,</span> <span class="s2">&quot;share&quot;</span><span class="p">,</span> <span class="s2">&quot;response&quot;</span><span class="p">,</span>
+<span class="p">]]</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>      reach_group  rows share response
+Field and digital    67 42.4%    67.2%
+     Digital only    46 29.1%    52.2%
+       Field only    16 10.1%    43.8%
+          Neither    29 18.4%     3.4%
+</code></pre></div>
+<p>The saturation table splits selection from return. The adjusted gain of one more touch shrinks from 7.7 to 5.5 points as contact rises.</p>
 <div class="highlight"><pre><span></span><code><span class="n">sat</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;saturation&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;observed_reach&quot;</span><span class="p">,</span> <span class="s2">&quot;adjusted_reach&quot;</span><span class="p">,</span> <span class="s2">&quot;adjusted_marginal_gain&quot;</span><span class="p">]:</span>
     <span class="n">sat</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">sat</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">notna</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
@@ -1917,6 +1932,8 @@ Account support     147               145                    96    66.2%
 4             4         83          69.9%          74.6%                   6.3%
 5            5+         38          68.4%          80.0%                   5.5%
 </code></pre></div>
+<p><img alt="Figure 8.2. Observed response rises steeply then flattens because higher-contact bands hold more responsive HCPs; the adjusted curve moves the same full population across contact levels, and its marginal gain shrinks from 7.7 to 5.5 points. Synthetic data." src="../assets/figures/figure_8_2_diminishing_returns.svg" /></p>
+<p><em>Figure 8.2. Observed response rises steeply then flattens because higher-contact bands hold more responsive HCPs; the adjusted curve moves the same full population across contact levels, and its marginal gain shrinks from 7.7 to 5.5 points. Synthetic data.</em></p>
 <h2 id="predictive-past-state-and-later-outcome">Predictive: past state and later outcome</h2>
 <div class="highlight"><pre><span></span><code><span class="n">panel</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;snapshot_panel&quot;</span><span class="p">]</span>
 <span class="n">row</span> <span class="o">=</span> <span class="n">panel</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
@@ -2035,6 +2052,19 @@ Later meaningful response: 0
 3              last_channel=Web      +0.106       1.11
 4            field_responses_90      +0.098       1.10
 </code></pre></div>
+<p>The calibration table checks the probability scale the channel plan multiplies into expected responses. The ordering holds in every bin; the lowest bin is optimistic.</p>
+<div class="highlight"><pre><span></span><code><span class="n">cal</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;calibration&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">cal</span><span class="p">[</span><span class="s2">&quot;mean_predicted&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cal</span><span class="o">.</span><span class="n">mean_predicted</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">cal</span><span class="p">[</span><span class="s2">&quot;observed_rate&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cal</span><span class="o">.</span><span class="n">observed_rate</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cal</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code> bin_order  snapshots mean_predicted observed_rate
+         1         64          40.7%         23.4%
+         2         63          52.9%         36.5%
+         3         63          61.3%         44.4%
+         4         63          68.8%         65.1%
+         5         63          78.5%         73.0%
+</code></pre></div>
 <p>The field-then-digital order effect is real and modest: two explicit order features move test AUC from 0.707 to 0.714.</p>
 <div class="highlight"><pre><span></span><code><span class="n">contrast</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;field_then_digital_contrast&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="n">contrast</span><span class="p">[</span><span class="s2">&quot;future_response_rate&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">contrast</span><span class="o">.</span><span class="n">future_response_rate</span><span class="o">.</span><span class="n">map</span><span class="p">(</span>
@@ -2095,8 +2125,8 @@ Account support    1.9   3.8     3.2    4.0
 </code></pre></div>
 <h2 id="causal-who-responds-because-of-us-uplift">Causal: who responds because of us (uplift)</h2>
 <p>The T-learner treats prior live-program action as the action and next-28-day meaningful response as the outcome. It fits one response model on HCP-account rows with prior live-program action and one on rows without it, then scores every row under both models. The difference is estimated uplift.</p>
-<p><img alt="Figure 8.2. Four HCP behavioral types in uplift modeling. Arrows show how action changes predicted response: persuadable rows move up, sure things stay high, lost causes stay low, and sleeping dogs move down." src="../assets/figures/figure_8_2_uplift_segments.png" /></p>
-<p><em>Figure 8.2. Four HCP behavioral types in uplift modeling. Arrows show how action changes predicted response: persuadable rows move up, sure things stay high, lost causes stay low, and sleeping dogs move down.</em></p>
+<p><img alt="Figure 8.3. Four HCP behavioral types in uplift modeling. Arrows show how action changes predicted response: persuadable rows move up, sure things stay high, lost causes stay low, and sleeping dogs move down." src="../assets/figures/figure_8_3_uplift_segments.png" /></p>
+<p><em>Figure 8.3. Four HCP behavioral types in uplift modeling. Arrows show how action changes predicted response: persuadable rows move up, sure things stay high, lost causes stay low, and sleeping dogs move down.</em></p>
 <div class="highlight"><pre><span></span><code><span class="n">segments</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;uplift_segment_summary&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;mean_uplift&quot;</span><span class="p">,</span> <span class="s2">&quot;response_rate&quot;</span><span class="p">,</span> <span class="s2">&quot;mean_baseline_response&quot;</span><span class="p">]:</span>
     <span class="n">segments</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">segments</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -2116,25 +2146,27 @@ Account support    1.9   3.8     3.2    4.0
 3                              0.658259        7.0%  
 4                              0.708292        4.3%
 </code></pre></div>
+<p>The diagnostics quantify selection: attended rows show a 17.0-point raw gap, while the covariate-adjusted mean uplift is 9.1 points. Nearly half of the raw gap was who attends, not what attendance does.</p>
 <div class="highlight"><pre><span></span><code><span class="n">ranking</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;uplift_ranking_comparison&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;mean_baseline_response&quot;</span><span class="p">,</span> <span class="s2">&quot;mean_estimated_uplift&quot;</span><span class="p">]:</span>
     <span class="n">ranking</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">ranking</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">ranking</span><span class="p">)</span>
+<span class="n">ranking</span> <span class="o">=</span> <span class="n">ranking</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span>
+    <span class="s2">&quot;mean_baseline_response&quot;</span><span class="p">:</span> <span class="s2">&quot;mean_baseline&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;mean_estimated_uplift&quot;</span><span class="p">:</span> <span class="s2">&quot;mean_uplift&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;rows_shared_with_other_ranking&quot;</span><span class="p">:</span> <span class="s2">&quot;shared_rows&quot;</span><span class="p">,</span>
+<span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ranking</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">()</span>
 <span class="n">diagnostics</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;uplift_diagnostics&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">diagnostics</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="s2">&quot;snapshots&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">c</span><span class="p">]:</span>
     <span class="n">diagnostics</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">diagnostics</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">diagnostics</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">diagnostics</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;value&quot;</span><span class="p">}))</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>           ranking  selected mean_baseline_response mean_estimated_uplift  \
-0  response_ranked       284                  72.4%                  5.7%   
-1    uplift_ranked       284                  42.9%                 14.1%
+<div class="highlight"><pre><span></span><code>        ranking  selected mean_baseline mean_uplift  shared_rows
+response_ranked       284         72.4%        5.7%            3
+  uplift_ranked       284         42.9%       14.1%            3
 
-   rows_shared_with_other_ranking  
-0                               3  
-1                               3
-
-                                     0
+                                 value
 treated_snapshots                  782
 control_snapshots                  640
 naive_treated_minus_control      17.0%
@@ -2142,10 +2174,10 @@ mean_estimated_uplift             9.1%
 observed_uplift_top_quartile     14.4%
 observed_uplift_bottom_quartile   7.3%
 </code></pre></div>
-<p><img alt="Figure 8.3. A T-learner scores the same HCP-account row with action and control models, subtracts p0 from p1, and ranks rows by uplift. Synthetic data." src="../assets/figures/figure_8_3_t_learner.png" /></p>
-<p><em>Figure 8.3. A T-learner scores the same HCP-account row with action and control models, subtracts p0 from p1, and ranks rows by uplift. Synthetic data.</em></p>
-<p><img alt="Figure 8.4. Each point is one HCP-account snapshot plotted by its control-model score and action-model score. Color shows estimated uplift. Synthetic data." src="../assets/figures/figure_8_4_uplift.svg" /></p>
-<p><em>Figure 8.4. Each point is one HCP-account snapshot plotted by its control-model score and action-model score. Color shows estimated uplift. Synthetic data.</em></p>
+<p><img alt="Figure 8.4. A T-learner scores the same HCP-account row with action and control models, subtracts p0 from p1, and ranks rows by uplift. Synthetic data." src="../assets/figures/figure_8_4_t_learner.png" /></p>
+<p><em>Figure 8.4. A T-learner scores the same HCP-account row with action and control models, subtracts p0 from p1, and ranks rows by uplift. Synthetic data.</em></p>
+<p><img alt="Figure 8.5. Each point is one HCP-account snapshot plotted by its control-model score and action-model score. Color shows estimated uplift. Synthetic data." src="../assets/figures/figure_8_5_uplift.svg" /></p>
+<p><em>Figure 8.5. Each point is one HCP-account snapshot plotted by its control-model score and action-model score. Color shows estimated uplift. Synthetic data.</em></p>
 <h2 id="causal-credit-lift-and-cost">Causal: credit, lift, and cost</h2>
 <div class="highlight"><pre><span></span><code><span class="n">econ</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;channel_economics&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="n">econ</span><span class="p">[</span><span class="s2">&quot;credit&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">econ</span><span class="o">.</span><span class="n">markov_credit</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
@@ -2170,23 +2202,53 @@ observed_uplift_bottom_quartile   7.3%
 8       Paid media   6.4%     +1.0 pp      $1.40                 $142
 9  Account support   4.9%     -1.3 pp    $130.00              no lift
 </code></pre></div>
-<p><img alt="Figure 8.5. Email, field, and web look different once path credit, adjusted lift, and cost per incremental response are read together. Synthetic data." src="../assets/figures/figure_8_5_cost_per_incremental.svg" /></p>
-<p><em>Figure 8.5. Email, field, and web look different once path credit, adjusted lift, and cost per incremental response are read together. Synthetic data.</em></p>
+<p><img alt="Figure 8.6. Email, field, and web look different once path credit, adjusted lift, and cost per incremental response are read together. Synthetic data." src="../assets/figures/figure_8_6_cost_per_incremental.svg" /></p>
+<p><em>Figure 8.6. Email, field, and web look different once path credit, adjusted lift, and cost per incremental response are read together. Synthetic data.</em></p>
+<p>The value bridge converts lift into dollars per touch against the $4,000 scenario value of one incremental meaningful response, the same constant the next-best-action engine uses. A touch pays for itself when its lift exceeds unit cost divided by $4,000.</p>
+<div class="highlight"><pre><span></span><code><span class="n">bridge</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;channel_value_bridge&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">bridge</span><span class="p">[</span><span class="s2">&quot;lift&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">bridge</span><span class="o">.</span><span class="n">incremental_per_touch</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="si">:</span><span class="s2">+.1f</span><span class="si">}</span><span class="s2"> pp&quot;</span><span class="p">)</span>
+<span class="n">bridge</span><span class="p">[</span><span class="s2">&quot;value_per_touch&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">bridge</span><span class="o">.</span><span class="n">expected_value_per_touch</span><span class="o">.</span><span class="n">map</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;$</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">,.0f</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">notna</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">else</span> <span class="s2">&quot;not measurable&quot;</span>
+<span class="p">)</span>
+<span class="n">bridge</span><span class="p">[</span><span class="s2">&quot;unit_cost&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">bridge</span><span class="o">.</span><span class="n">unit_cost</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;$</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">,.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">bridge</span><span class="p">[</span><span class="s2">&quot;net_per_touch&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">bridge</span><span class="o">.</span><span class="n">net_value_per_touch</span><span class="o">.</span><span class="n">map</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;$</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">,.0f</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">notna</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">else</span> <span class="s2">&quot;not measurable&quot;</span>
+<span class="p">)</span>
+<span class="n">bridge</span><span class="p">[</span><span class="s2">&quot;breakeven_lift&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">bridge</span><span class="o">.</span><span class="n">breakeven_lift</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> pp&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bridge</span><span class="p">[[</span>
+    <span class="s2">&quot;channel&quot;</span><span class="p">,</span> <span class="s2">&quot;lift&quot;</span><span class="p">,</span> <span class="s2">&quot;value_per_touch&quot;</span><span class="p">,</span> <span class="s2">&quot;unit_cost&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;net_per_touch&quot;</span><span class="p">,</span> <span class="s2">&quot;breakeven_lift&quot;</span><span class="p">,</span>
+<span class="p">]]</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>        channel    lift value_per_touch unit_cost  net_per_touch breakeven_lift
+          Email +1.4 pp             $58     $0.25            $57        0.01 pp
+     Paid media +1.0 pp             $39     $1.40            $38        0.03 pp
+          Field +1.9 pp             $75   $225.00          $-150        5.62 pp
+   Peer program +1.4 pp             $56   $340.00          $-284        8.50 pp
+     Conference +4.4 pp            $175   $760.00          $-585       19.00 pp
+            Web +0.0 pp  not measurable     $0.12 not measurable        0.00 pp
+          Phone -2.2 pp  not measurable    $28.00 not measurable        0.70 pp
+Speaker program -0.9 pp  not measurable $1,150.00 not measurable       28.75 pp
+    Direct mail -2.4 pp  not measurable     $2.60 not measurable        0.07 pp
+Account support -1.3 pp  not measurable   $130.00 not measurable        3.25 pp
+</code></pre></div>
 <h2 id="prescriptive-channel-policy-and-the-plan">Prescriptive: channel policy and the plan</h2>
 <div class="highlight"><pre><span></span><code><span class="n">aff</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;channel_affinity&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;digital_response_rate&quot;</span><span class="p">,</span> <span class="s2">&quot;field_response_rate&quot;</span><span class="p">]:</span>
     <span class="n">aff</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">aff</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.0%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">aff</span><span class="p">)</span>
+<span class="n">aff</span> <span class="o">=</span> <span class="n">aff</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span>
+    <span class="s2">&quot;digital_response_rate&quot;</span><span class="p">:</span> <span class="s2">&quot;digital_rate&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;field_response_rate&quot;</span><span class="p">:</span> <span class="s2">&quot;field_rate&quot;</span><span class="p">,</span>
+<span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">aff</span><span class="p">[[</span>
+    <span class="s2">&quot;npi&quot;</span><span class="p">,</span> <span class="s2">&quot;digital_rate&quot;</span><span class="p">,</span> <span class="s2">&quot;field_rate&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;channel_affinity&quot;</span><span class="p">,</span> <span class="s2">&quot;recommended_channel&quot;</span><span class="p">,</span>
+<span class="p">]]</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>          npi digital_response_rate field_response_rate   channel_affinity  \
-0  9000000522                   80%                 20%  Digital responder   
-1  9000000567                   24%                 78%    Field responder   
-2  9000000406                   70%                 14%  Digital responder
-
-  last_response_channel recommended_channel  
-0                 Email               Email  
-1                 Phone               Field  
-2                 Email               Email
+<div class="highlight"><pre><span></span><code>       npi digital_rate field_rate  channel_affinity recommended_channel
+9000000522          80%        20% Digital responder               Email
+9000000567          24%        78%   Field responder               Field
+9000000406          70%        14% Digital responder               Email
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="n">plan</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;plan_summary&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="n">plan</span><span class="p">[</span><span class="s2">&quot;mean_score&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">plan</span><span class="o">.</span><span class="n">mean_predicted_response</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -2219,22 +2281,25 @@ observed_uplift_bottom_quartile   7.3%
 0              model_ranked                16              12.03      75.2%
 1  territory_order_baseline                16              11.41      71.3%
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="n">ids</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;9000000174&quot;</span><span class="p">,</span> <span class="s2">&quot;9000000239&quot;</span><span class="p">,</span> <span class="s2">&quot;9000000280&quot;</span><span class="p">,</span> <span class="s2">&quot;9000000430&quot;</span><span class="p">,</span> <span class="s2">&quot;9000000469&quot;</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="n">ids</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;9000000174&quot;</span><span class="p">,</span> <span class="s2">&quot;9000000239&quot;</span><span class="p">,</span> <span class="s2">&quot;9000000280&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;9000000389&quot;</span><span class="p">,</span> <span class="s2">&quot;9000000430&quot;</span><span class="p">,</span> <span class="s2">&quot;9000000469&quot;</span><span class="p">]</span>
 <span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;npi&quot;</span><span class="p">,</span> <span class="s2">&quot;account_id&quot;</span><span class="p">,</span> <span class="s2">&quot;recommended_action&quot;</span><span class="p">,</span> <span class="s2">&quot;reason_code&quot;</span><span class="p">]</span>
 <span class="n">traces</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;channel_plan&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
     <span class="n">results</span><span class="p">[</span><span class="s2">&quot;channel_plan&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">npi</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">ids</span><span class="p">),</span> <span class="n">cols</span>
 <span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;npi&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">traces</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">traces</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>          npi account_id       recommended_action                       reason_code
-0  9000000174     ACC032          Email follow-up  CAPACITY_RANKED_DIGITAL_RESPONSE
-1  9000000239     ACC009  Peer-program invitation     CAPACITY_RANKED_PEER_RESPONSE
-2  9000000280     ACC089                  Observe     OBSERVE_BELOW_CAPACITY_CUTOFF
-3  9000000430     ACC189      Access coordination             ROUTE_ACCESS_BOUNDARY
-4  9000000469     ACC121                 Suppress               SUPPRESS_PERMISSION
+<div class="highlight"><pre><span></span><code>       npi account_id      recommended_action                      reason_code
+9000000174     ACC032         Email follow-up CAPACITY_RANKED_DIGITAL_RESPONSE
+9000000239     ACC009 Peer-program invitation    CAPACITY_RANKED_PEER_RESPONSE
+9000000280     ACC089                 Observe    OBSERVE_BELOW_CAPACITY_CUTOFF
+9000000389     ACC155                 Observe    OBSERVE_BELOW_CAPACITY_CUTOFF
+9000000430     ACC189     Access coordination            ROUTE_ACCESS_BOUNDARY
+9000000469     ACC121                Suppress              SUPPRESS_PERMISSION
 </code></pre></div>
+<p>HCP0389 lands in observation at a 59.3% predicted response. Response-ranked capacity leaves rows like this behind; the next-best-action engine revisits the same state with expected incremental value and reaches a different answer for exactly this row.</p>
 <h2 id="conclusion">Conclusion</h2>
-<p>The ledger preserves channel meaning, the contact-volume curve shows that raw response rises mostly from selection, and the temporal test limits leakage. Attribution credits field and email near 17% each, while the cost view shows very different economics: about $17 per incremental response on email and $12,049 on field. The rule set keeps permission, access, pressure, and capacity ahead of response signals, routes each action to the HCP's own responsive channel, and releases 16 promotional rows with a reason code, cycle cap, measurement hook, rule-set version, and refresh date. That dated state becomes the input to the next-best-action engine.</p>
+<p>The ledger preserves channel meaning, the reach and saturation tables show that raw response rises mostly from selection, and the temporal test limits leakage. Attribution credits field and email about 17% each, while the cost view shows very different economics: about $17 per incremental response on email and $12,049 on field, and the value bridge prices the average field touch below its $225 cost at the $4,000 scenario response value. The rule set keeps permission, access, pressure, and capacity ahead of response signals, routes each action to the HCP's own responsive channel, and releases 16 promotional rows with a reason code, cycle cap, measurement hook, rule-set version, and refresh date. That dated state becomes the input to the next-best-action engine.</p>
 
 
 

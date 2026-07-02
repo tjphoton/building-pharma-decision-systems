@@ -416,6 +416,52 @@ def saturation_summary(panel: pd.DataFrame, cap_threshold: float = 0.05) -> pd.D
     ]
 
 
+def reach_overlap_summary(
+    panel: pd.DataFrame,
+    analysis_date: pd.Timestamp,
+) -> pd.DataFrame:
+    """Cross the two largest channel families into a reach overlap view.
+
+    At the analysis snapshot, each HCP-account row either had a field touch in the
+    prior 90 days or did not, and either had a digital touch (email, web, or paid
+    media) or did not. The four cells show how much of the planning population each
+    engagement mix covers and how often each mix is followed by a meaningful
+    response in the next 28 days. The response column is descriptive: the same
+    selection effect quantified by the saturation table applies here.
+    """
+
+    latest = panel.loc[panel["snapshot_date"].eq(analysis_date)].copy()
+    field = latest["field_frequency_90"].gt(0)
+    digital = (
+        latest["email_frequency_90"]
+        + latest["web_frequency_90"]
+        + latest["paid_frequency_90"]
+    ).gt(0)
+    latest["reach_group"] = np.select(
+        [field & digital, field & ~digital, ~field & digital],
+        ["Field and digital", "Field only", "Digital only"],
+        default="Neither",
+    )
+    summary = (
+        latest.groupby("reach_group", as_index=False)
+        .agg(
+            rows=("npi", "size"),
+            future_response_rate=("future_response", "mean"),
+        )
+    )
+    summary["share"] = summary["rows"] / summary["rows"].sum()
+    order = ["Field and digital", "Digital only", "Field only", "Neither"]
+    summary["order"] = summary["reach_group"].map(
+        {name: position for position, name in enumerate(order)}
+    )
+    return (
+        summary.sort_values("order")
+        .drop(columns="order")
+        [["reach_group", "rows", "share", "future_response_rate"]]
+        .reset_index(drop=True)
+    )
+
+
 def response_shrinkage_summary(panel: pd.DataFrame) -> pd.DataFrame:
     """Show how sparse observed response rates shrink toward the channel mean."""
 

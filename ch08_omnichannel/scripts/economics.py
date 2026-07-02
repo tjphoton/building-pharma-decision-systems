@@ -17,6 +17,7 @@ from sklearn.linear_model import LogisticRegression
 from ch08_omnichannel.generation_modules.ch08_config import (
     CHANNEL_METADATA,
     CHANNEL_UNIT_COST,
+    RESPONSE_VALUE,
 )
 
 
@@ -85,6 +86,45 @@ def channel_economics(
     result = pd.DataFrame(rows)
     return result.sort_values("markov_credit", ascending=False).reset_index(
         drop=True
+    )
+
+
+def channel_value_bridge(economics: pd.DataFrame) -> pd.DataFrame:
+    """Convert incremental response per touch into expected value per touch.
+
+    A meaningful response is a proximal outcome; the terminal outcome is the
+    prescription. One incremental meaningful response carries the scenario value
+    RESPONSE_VALUE in net TRx terms, the same constant the next-best-action engine
+    uses, so a channel's modeled lift and its unit cost land in the same dollar
+    unit. The breakeven lift is the response change one touch must buy to cover
+    its own cost. Channels without measurable lift keep their breakeven but show
+    no value estimate: an unmeasurable observational effect is not a measured
+    zero.
+    """
+
+    work = economics.copy()
+    work["expected_value_per_touch"] = (
+        work["incremental_per_touch"] * RESPONSE_VALUE
+    )
+    work["net_value_per_touch"] = (
+        work["expected_value_per_touch"] - work["unit_cost"]
+    )
+    work.loc[
+        ~work["measurable_incremental"],
+        ["expected_value_per_touch", "net_value_per_touch"],
+    ] = np.nan
+    work["breakeven_lift"] = work["unit_cost"] / RESPONSE_VALUE
+    return (
+        work.sort_values("net_value_per_touch", ascending=False)[
+            [
+                "channel",
+                "incremental_per_touch",
+                "unit_cost",
+                "expected_value_per_touch",
+                "net_value_per_touch",
+                "breakeven_lift",
+            ]
+        ].reset_index(drop=True)
     )
 
 
