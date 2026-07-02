@@ -2,6 +2,8 @@
 
 **A practical guide to pharmaceutical commercial analytics, from raw data to defensible action.**
 
+Book link: https://tjphoton.github.io/building-pharma-decision-systems/
+
 Pharmaceutical companies have no shortage of data. The harder problem is deciding what to do with it. A forecast may size a market, but a launch team still has to decide where to focus. A targeting model may rank physicians, but a field leader still has to decide which accounts deserve attention and why. A campaign report may show a lift in prescriptions, but a brand team still has to judge whether the campaign caused the change.
 
 No single book covers the full path: from commercial data infrastructure through patient journeys, targeting, competitive intelligence, omnichannel measurement, causal inference, and AI-supported decision engines. This is the book I wish I had before I learned these topics the hard way.
@@ -78,44 +80,6 @@ Run the notebooks in order within each analytical chapter. Data generation is ha
 | Part 4 | Decision engines | Allocate resources and build governed recommendation systems |
 
 The first half covers foundational methods: market sizing, patient journeys, HCP targeting, and competitive intelligence. The second half adds omnichannel measurement, real-world evidence, causal inference, machine learning for treatment-effect estimation, and fine-tuned language models for AI decision support. Every method, including the advanced ones, is demonstrated with working Python and verified output.
-
-### Chapters
-
-| Chapter | Title | Status | Walkthrough | Exercises |
-| --- | --- | --- | --- | --- |
-| 1 | [A Medicine, a Market, and the Decisions Between Them](ch01_intro/ch01_introduction.md) | Draft completed | | |
-| 2 | [The Commercialization Operating System](ch02_ecosystem/ch02_ecosystem.md) | Draft completed | | |
-| 3 | [A Synthetic Lab for Real Pharma Questions](ch03_data/ch03_data.md) | Draft completed | [Walkthrough](ch03_data/ch03_walkthrough.md) | [Exercises](ch03_data/ch03_exercise_solutions.md) |
-| 4 | [Market Sizing and Patient Populations](ch04_market/ch04_market_sizing.md) | Draft completed | [Walkthrough](ch04_market/ch04_walkthrough.md) | [Exercises](ch04_market/ch04_exercise_solutions.md) |
-| 5 | [Building the Patient Journey](ch05_journey/ch05_patient_journey.md) | Draft completed | [Walkthrough](ch05_journey/ch05_walkthrough.md) | [Exercises](ch05_journey/ch05_exercise_solutions.md) |
-| 6 | [HCP Targeting](ch06_hcp/ch06_hcp_targeting.md) | Draft completed | [Walkthrough](ch06_hcp/ch06_walkthrough.md) | [Exercises](ch06_hcp/ch06_exercise_solutions.md) |
-| 7 | [Competitive Intelligence and Market Access](ch07_competitive/ch07_competitive_intelligence_market_access.md) | Draft completed | [Walkthrough](ch07_competitive/ch07_walkthrough.md) | [Exercises](ch07_competitive/ch07_exercise_solutions.md) |
-| 8 | [Omnichannel Analytics](ch08_omnichannel/ch08_omnichannel_analytics.md) | Draft completed | [Walkthrough](ch08_omnichannel/ch08_walkthrough.md) | [Exercises](ch08_omnichannel/ch08_exercise_solutions.md) |
-| 9 | [Next Best Action](ch09_nba/ch09_next_best_action.md) | In progress | [Walkthrough](ch09_nba/ch09_walkthrough.md) | [Exercises](ch09_nba/ch09_exercise_solutions.md) |
-| 10 | Randomized Experiments and Incrementality | In progress | | |
-| 11 | Natural Experiments and Quasi-Experimental Designs | In progress | | |
-| 12 | Observational Causal Inference and Real-World Evidence | In progress | | |
-| 13 | MMM and Unified Measurement | In progress | | |
-| 14 | Resource Allocation and Optimization | In progress | | |
-| 15 | AI Decision Intelligence | In progress | | |
-| 16 | Capstone Case Studies | In progress | | |
-
----
-
-## Navigate by Decision Need
-
-The chapters build on each other, but readers with an immediate decision problem can start with the most relevant section.
-
-| If the immediate need is... | Start with... | Then connect to... |
-| --- | --- | --- |
-| Launch opportunity sizing | Chapters 2, 4, and 7 | Chapter 6 |
-| Patient journey analysis | Chapters 3 and 5 | Chapters 6 and 7 |
-| Real-world evidence | Chapters 3 and 5 | Chapters 10, 11, and 12 |
-| HCP targeting | Chapter 6 | Chapters 7, 8, and 9 |
-| Omnichannel planning | Chapters 8 and 9 | Chapters 10 and 13 |
-| Campaign measurement | Chapters 10, 11, and 12 | Chapters 13 and 14 |
-| Budget allocation | Chapters 13 and 14 | Chapter 15 |
-| Commercial AI and decision engines | Chapter 15 | Chapters 3, 6, 9, 10, 11, 12, and 14 |
 
 ---
 
