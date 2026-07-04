@@ -14,11 +14,11 @@ It follows the complete fictional launch of **Roventra**, a once-daily oral medi
 
 ## What You Will Build
 
-- A linked synthetic pharmaceutical dataset that mirrors real claims, EHR, payer, CRM, and specialty pharmacy structures
-- Patient population funnels from true prevalence down to eligible, treated patients
+- A linked synthetic pharmaceutical dataset that mirrors claims, EHR, payer, CRM, and specialty pharmacy data
+- Patient population funnels from true prevalence to eligible, treated patients
 - Lines of therapy with explicit washout, switch, addition, and persistence rules
-- HCP targeting with transparent scoring, actionability filters, and field capacity allocation
-- Competitive intelligence: formulary position, payer access barriers, and corrected treatment share
+- HCP targeting with transparent scoring, action filters, and field capacity allocation
+- Competitive intelligence on formulary position, payer access barriers, and corrected treatment share
 - Omnichannel engagement plans, next-best-action recommendations, and incrementality tests
 - Causal inference models and marketing mix models for unified measurement
 - A resource allocation optimizer and a governed AI decision engine
@@ -27,11 +27,11 @@ It follows the complete fictional launch of **Roventra**, a once-daily oral medi
 
 ## Who This Is For
 
-**Commercial analysts and data scientists** in pharmaceutical companies who need to move from reporting to decision support. The book teaches the judgment layer: when a method is adequate, when it is not, and how to present a finding as a recommendation with a clear owner and measure of success.
+**Commercial analysts and data scientists** in pharmaceutical companies who need to move from reporting to decision support. The book focuses on the judgment layer: when a method is good enough, when it is not, and how to present a finding as a recommendation with a clear owner and measure of success.
 
-**Analytics engineers and BI teams** building commercial data platforms. The chapter on data infrastructure covers claim receipt lag, drug code mapping gaps, and data quality rules that protect downstream analysis.
+**Analytics engineers and BI teams** building commercial data platforms. The data chapter covers claim receipt lag, drug code mapping gaps, and data quality rules that protect downstream analysis.
 
-**Brand teams and commercial leaders** who review analytical recommendations and want to understand what the data can and cannot tell you about market opportunity, customer behavior, and campaign impact.
+**Brand teams and commercial leaders** who review analytical recommendations and want to understand what the data can and cannot tell them about market opportunity, customer behavior, and campaign impact.
 
 **Students and independent consultants** entering pharmaceutical commercial analytics. The book assumes no prior pharma experience and defines terms at first use.
 
@@ -41,7 +41,7 @@ It follows the complete fictional launch of **Roventra**, a once-daily oral medi
 - Familiarity with pandas and basic data manipulation
 - Basic understanding of statistical concepts (means, distributions, regression)
 
-No pharmaceutical industry background is required. No prior exposure to pharmaceutical data sources, commercial roles, or marketing experience is assumed.
+No pharmaceutical industry background is required. No prior exposure to pharma data sources, commercial roles, or marketing experience is assumed.
 
 ---
 
@@ -72,14 +72,15 @@ Run the notebooks in order within each analytical chapter. Data generation is ha
 
 ## Book Structure
 
+The book moves from foundations to execution. It starts with the launch context and data layer, then moves through market and customer understanding, engagement, measurement, and decision engines. Every method, including the advanced ones, is demonstrated with working Python and verified output.
+
 | Part | Focus | Decision capability |
 | --- | --- | --- |
-| Part 1 | Foundations | Frame a commercial problem and judge whether the data fit the decision |
-| Part 2 | Market and customer understanding | Find patient opportunity, explain treatment behavior, and identify actionable customers |
-| Part 3 | Engagement and measurement | Select channels, estimate incremental impact, and compare performance |
-| Part 4 | Decision engines | Allocate resources and build governed recommendation systems |
-
-The first half covers foundational methods: market sizing, patient journeys, HCP targeting, and competitive intelligence. The second half adds omnichannel measurement, real-world evidence, causal inference, machine learning for treatment-effect estimation, and fine-tuned language models for AI decision support. Every method, including the advanced ones, is demonstrated with working Python and verified output.
+| Part 1 | Foundations and data | Frame the launch problem and build the data base |
+| Part 2 | Market and customer understanding | Find patient opportunity and explain treatment behavior |
+| Part 3 | Engagement | Choose channels and define the next action |
+| Part 4 | Measurement and causal inference | Estimate impact and compare performance |
+| Part 5 | Decision engines | Allocate resources and govern recommendations |
 
 ---
 
