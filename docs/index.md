@@ -20,7 +20,7 @@ The book moves from foundations to execution. It starts with the launch context 
 | Part 2 | Market and customer understanding | Find patient opportunity and explain treatment behavior |
 | Part 3 | Engagement | Choose channels and define the next action |
 | Part 4 | Measurement and causal inference | Estimate impact and compare performance |
-| Part 5 | Decision engines | Allocate resources and govern recommendations |
+| Part 5 | Decision engines | Forecast, allocate resources, and govern recommendations |
 
 ## Table of Contents
 
@@ -169,9 +169,10 @@ The book moves from foundations to execution. It starts with the launch context 
 
 ### Part 5: Decision Engines
 
-<div style="margin-left: 1.5em;">Chapter 14. Resource Allocation and Optimization</div>
-<div style="margin-left: 1.5em;">Chapter 15. AI Decision Intelligence</div>
-<div style="margin-left: 1.5em;">Chapter 16. Capstone Case Studies</div>
+<div style="margin-left: 1.5em;">Chapter 14. Forecasting for Decision Making</div>
+<div style="margin-left: 1.5em;">Chapter 15. Resource Allocation and Optimization</div>
+<div style="margin-left: 1.5em;">Chapter 16. AI Decision Intelligence</div>
+<div style="margin-left: 1.5em;">Chapter 17. Capstone Case Studies</div>
 
 ---
 
