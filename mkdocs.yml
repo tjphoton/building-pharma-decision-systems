@@ -72,3 +72,7 @@ nav:
       - "Next Best Action: Precision in the Patient Moment": ch09_nba/ch09_next_best_action.md
       - Walkthrough Notebook: ch09_nba/ch09_walkthrough.md
       - Exercise Solutions: ch09_nba/ch09_exercise_solutions.md
+  - Chapter 14:
+      - "Forecasting from Launch to Loss of Exclusivity": ch14_forecasting/ch14_forecasting.md
+      - Walkthrough Notebook: ch14_forecasting/ch14_walkthrough.ipynb
+      - Exercise Solutions: ch14_forecasting/ch14_exercise_solutions.ipynb

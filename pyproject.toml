@@ -1,7 +1,7 @@
 [project]
 name = "hands-on-pharma-decision-science"
 version = "0.1.0"
-description = "Code and data for the Hands-On Pharma Decision Science book."
+description = "Code and data for Building Decision Systems: A Hands-On Playbook for Pharmaceutical Commercial Decision Science."
 requires-python = ">=3.11"
 dependencies = [
     "ipykernel>=6.29",
