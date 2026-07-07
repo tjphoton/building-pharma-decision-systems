@@ -11,8 +11,10 @@
         <link rel="canonical" href="https://tjphoton.github.io/building-pharma-decision-systems/ch14_forecasting/ch14_walkthrough/">
       
       
-        <link rel="prev" href="../../ch09_nba/ch09_exercise_solutions/">
+        <link rel="prev" href="../ch14_forecasting/">
       
+      
+        <link rel="next" href="../ch14_exercise_solutions/">
       
       
         
@@ -1578,7 +1580,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ch14_forecasting.md" class="md-nav__link">
+      <a href="../ch14_forecasting/" class="md-nav__link">
         
   
   
@@ -1780,7 +1782,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ch14_exercise_solutions.md" class="md-nav__link">
+      <a href="../ch14_exercise_solutions/" class="md-nav__link">
         
   
   
@@ -2035,7 +2037,7 @@ Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF
 50 2025-02-17  112.9  413.1
 51 2025-02-24  102.7  456.2
 </code></pre></div>
-<p><img alt="Figure 14.1. Roventra lifecycle series with launch, observed window, peak, and generic entry marked. Synthetic data." src="assets/figures/figure_14_1_lifecycle_series.svg" /></p>
+<p><img alt="Figure 14.1. Roventra lifecycle series with launch, observed window, peak, and generic entry marked. Synthetic data." src="../assets/figures/figure_14_1_lifecycle_series.svg" /></p>
 <p><em>Figure 14.1. Roventra lifecycle series with launch, observed window, peak, and generic entry marked. Synthetic data.</em></p>
 <h2 id="142-sizing-the-launch">14.2 Sizing the Launch</h2>
 <p><strong>Listing</strong>: The pre-launch funnel ceiling</p>
@@ -2064,13 +2066,13 @@ ceiling                  4680.00
 50  112.9           2996.6            1650.1
 51  102.7           3099.3            1680.9
 </code></pre></div>
-<p><img alt="Figure 14.2. Cumulative new starts and on-therapy stock over the observed window." src="assets/figures/figure_14_2_funnel_timeline.svg" /></p>
+<p><img alt="Figure 14.2. Cumulative new starts and on-therapy stock over the observed window." src="../assets/figures/figure_14_2_funnel_timeline.svg" /></p>
 <p><em>Figure 14.2. Cumulative new starts and on-therapy stock over the observed window.</em></p>
-<p><img alt="Figure 14.3. Prescriber innovation, imitation, and blended adoption shapes." src="assets/figures/figure_14_3_bass_toy_shapes.svg" /></p>
+<p><img alt="Figure 14.3. Prescriber innovation, imitation, and blended adoption shapes." src="../assets/figures/figure_14_3_bass_toy_shapes.svg" /></p>
 <p><em>Figure 14.3. Prescriber innovation, imitation, and blended adoption shapes.</em></p>
-<p><img alt="Figure 14.4. Comparable A and Comparable B normalized adoption shapes over 60 months, before selection." src="assets/figures/figure_14_4_analog_shapes.svg" /></p>
+<p><img alt="Figure 14.4. Comparable A and Comparable B normalized adoption shapes over 60 months, before selection." src="../assets/figures/figure_14_4_analog_shapes.svg" /></p>
 <p><em>Figure 14.4. Comparable A and Comparable B normalized adoption shapes over 60 months, before selection.</em></p>
-<p><img alt="Figure 14.5. Roventra's normalized uptake overlaid against both analog curves at 26 weeks (left) and 52 weeks (right)." src="assets/figures/figure_14_5_analog_selection_zoom.svg" /></p>
+<p><img alt="Figure 14.5. Roventra's normalized uptake overlaid against both analog curves at 26 weeks (left) and 52 weeks (right)." src="../assets/figures/figure_14_5_analog_selection_zoom.svg" /></p>
 <p><em>Figure 14.5. Roventra's normalized uptake overlaid against both analog curves at 26 weeks (left) and 52 weeks (right).</em></p>
 <p><strong>Listing</strong>: Fitting Bass diffusion to the observed launch data</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">forecasting</span><span class="w"> </span><span class="kn">import</span> <span class="n">fit_bass</span>
@@ -2087,18 +2089,18 @@ m                          8470.418
 time_to_peak_months          13.557
 peak_monthly_new_starts     550.468
 </code></pre></div>
-<p><img alt="Figure 14.6. Fitted Bass adoption curve against Roventra's observed cumulative NBRx, projected to month 20." src="assets/figures/figure_14_6_bass_fit.svg" /></p>
+<p><img alt="Figure 14.6. Fitted Bass adoption curve against Roventra's observed cumulative NBRx, projected to month 20." src="../assets/figures/figure_14_6_bass_fit.svg" /></p>
 <p><em>Figure 14.6. Fitted Bass adoption curve against Roventra's observed cumulative NBRx, projected to month 20.</em></p>
 <h2 id="143-in-market-demand">14.3 In-Market Demand</h2>
-<p><img alt="Figure 14.7. 52 weeks of observed prescribing: 44 weeks to train on, the last 8, shaded, held out and scored against." src="assets/figures/figure_14_7_opening_window.svg" /></p>
+<p><img alt="Figure 14.7. 52 weeks of observed prescribing: 44 weeks to train on, the last 8, shaded, held out and scored against." src="../assets/figures/figure_14_7_opening_window.svg" /></p>
 <p><em>Figure 14.7. 52 weeks of observed prescribing: 44 weeks to train on, the last 8, shaded, held out and scored against.</em></p>
-<p><img alt="Figure 14.8. The naive forecast against the held-out weeks: a flat line against a still-climbing launch." src="assets/figures/figure_14_8_baseline_naive.svg" /></p>
+<p><img alt="Figure 14.8. The naive forecast against the held-out weeks: a flat line against a still-climbing launch." src="../assets/figures/figure_14_8_baseline_naive.svg" /></p>
 <p><em>Figure 14.8. The naive forecast against the held-out weeks: a flat line against a still-climbing launch.</em></p>
-<p><img alt="Figure 14.9. Four backtest folds, each training on the gray span and testing on the darker span that immediately follows it." src="assets/figures/figure_14_9_backtest_schematic.svg" /></p>
+<p><img alt="Figure 14.9. Four backtest folds, each training on the gray span and testing on the darker span that immediately follows it." src="../assets/figures/figure_14_9_backtest_schematic.svg" /></p>
 <p><em>Figure 14.9. Four backtest folds, each training on the gray span and testing on the darker span that immediately follows it.</em></p>
-<p><img alt="Figure 14.10. The ETS forecast tracks the held-out weeks closely, level and trend alone." src="assets/figures/figure_14_10_ets_forecast.svg" /></p>
+<p><img alt="Figure 14.10. The ETS forecast tracks the held-out weeks closely, level and trend alone." src="../assets/figures/figure_14_10_ets_forecast.svg" /></p>
 <p><em>Figure 14.10. The ETS forecast tracks the held-out weeks closely, level and trend alone.</em></p>
-<p><img alt="Figure 14.11. SARIMA against the held-out weeks: a reasonable track that drifts slightly high late in the window." src="assets/figures/figure_14_11_sarima_forecast.svg" /></p>
+<p><img alt="Figure 14.11. SARIMA against the held-out weeks: a reasonable track that drifts slightly high late in the window." src="../assets/figures/figure_14_11_sarima_forecast.svg" /></p>
 <p><em>Figure 14.11. SARIMA against the held-out weeks: a reasonable track that drifts slightly high late in the window.</em></p>
 <p><strong>Listing</strong>: Prophet with and without the access and promotion covariates</p>
 <div class="highlight"><pre><span></span><code><span class="n">holdout</span> <span class="o">=</span> <span class="mi">8</span>
@@ -2179,9 +2181,9 @@ INFO:cmdstanpy:Chain [1] done processing
 [339.4 350.8 362.1]
 [308.7 319.2 329.7]
 </code></pre></div>
-<p><img alt="Figure 14.12. Prophet with and without the planned access and promotion covariates, against the held-out weeks." src="assets/figures/figure_14_12_prophet_forecast.svg" /></p>
+<p><img alt="Figure 14.12. Prophet with and without the planned access and promotion covariates, against the held-out weeks." src="../assets/figures/figure_14_12_prophet_forecast.svg" /></p>
 <p><em>Figure 14.12. Prophet with and without the planned access and promotion covariates, against the held-out weeks.</em></p>
-<p><img alt="Figure 14.13. Gradient-boosted trees against the held-out weeks: a nearly flat line against a still-climbing launch." src="assets/figures/figure_14_13_gbt_forecast.svg" /></p>
+<p><img alt="Figure 14.13. Gradient-boosted trees against the held-out weeks: a nearly flat line against a still-climbing launch." src="../assets/figures/figure_14_13_gbt_forecast.svg" /></p>
 <p><em>Figure 14.13. Gradient-boosted trees against the held-out weeks: a nearly flat line against a still-climbing launch.</em></p>
 <p><strong>Listing</strong>: Training the TFT across the territory panel</p>
 <div class="highlight"><pre><span></span><code><span class="n">holdout</span> <span class="o">=</span> <span class="mi">8</span>
@@ -2190,7 +2192,7 @@ INFO:cmdstanpy:Chain [1] done processing
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>[359.9 387.1 412.5 433.9 456.5 484.3 510.5 535.4]
 </code></pre></div>
-<p><img alt="Figure 14.14. The Temporal Fusion Transformer overshoots the held-out weeks and keeps climbing." src="assets/figures/figure_14_14_tft_forecast.svg" /></p>
+<p><img alt="Figure 14.14. The Temporal Fusion Transformer overshoots the held-out weeks and keeps climbing." src="../assets/figures/figure_14_14_tft_forecast.svg" /></p>
 <p><em>Figure 14.14. The Temporal Fusion Transformer overshoots the held-out weeks and keeps climbing.</em></p>
 <p><strong>Listing</strong>: Zero-shot forecasts from Chronos and TimesFM</p>
 <div class="highlight"><pre><span></span><code><span class="n">chronos_result</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;chronos_forecast&quot;</span><span class="p">]</span>
@@ -2201,7 +2203,7 @@ INFO:cmdstanpy:Chain [1] done processing
 <div class="highlight"><pre><span></span><code>[341.6 355.1 356.1 374.4 383.5 390.7 395.1 404.2]
 [344.3 354.7 368.9 378.9 375.4 389.2 401.8 405.6]
 </code></pre></div>
-<p><img alt="Figure 14.15. Chronos and TimesFM against the held-out weeks, with no training on Roventra data at all." src="assets/figures/figure_14_15_foundation_forecast.svg" /></p>
+<p><img alt="Figure 14.15. Chronos and TimesFM against the held-out weeks, with no training on Roventra data at all." src="../assets/figures/figure_14_15_foundation_forecast.svg" /></p>
 <p><em>Figure 14.15. Chronos and TimesFM against the held-out weeks, with no training on Roventra data at all.</em></p>
 <p><strong>Listing</strong>: The full accuracy scorecard</p>
 <div class="highlight"><pre><span></span><code><span class="n">scorecard</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;in_market_scorecard&quot;</span><span class="p">]</span>
@@ -2218,7 +2220,7 @@ INFO:cmdstanpy:Chain [1] done processing
 7             tft   73.0  0.195  0.194  1.49
 8             gbt  100.4  0.268  0.261  2.05
 </code></pre></div>
-<p><img alt="Figure 14.16. Every method against the held-out weeks, on one chart, colored to match its earlier dedicated figure." src="assets/figures/figure_14_16_foundation_vs_classical.svg" /></p>
+<p><img alt="Figure 14.16. Every method against the held-out weeks, on one chart, colored to match its earlier dedicated figure." src="../assets/figures/figure_14_16_foundation_vs_classical.svg" /></p>
 <p><em>Figure 14.16. Every method against the held-out weeks, on one chart, colored to match its earlier dedicated figure.</em></p>
 <p><strong>Listing</strong>: A calibrated interval around the ETS forecast</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">forecasting</span><span class="w"> </span><span class="kn">import</span> <span class="n">conformal_interval</span><span class="p">,</span> <span class="n">empirical_coverage</span>
@@ -2244,9 +2246,9 @@ horizon_step
 8                      417.9  336.6  499.3        81.4
 empirical coverage: 100%
 </code></pre></div>
-<p><img alt="Figure 14.17. The calibrated 80% interval around the ETS point forecast, with the actual holdout overlaid." src="assets/figures/figure_14_17_calibrated_fan_chart.svg" /></p>
+<p><img alt="Figure 14.17. The calibrated 80% interval around the ETS point forecast, with the actual holdout overlaid." src="../assets/figures/figure_14_17_calibrated_fan_chart.svg" /></p>
 <p><em>Figure 14.17. The calibrated 80% interval around the ETS point forecast, with the actual holdout overlaid.</em></p>
-<p><img alt="Figure 14.18. The ETS production forecast against the weeks that actually followed: a straight-line extrapolation against a launch approaching its peak." src="assets/figures/figure_14_18_production_refit.svg" /></p>
+<p><img alt="Figure 14.18. The ETS production forecast against the weeks that actually followed: a straight-line extrapolation against a launch approaching its peak." src="../assets/figures/figure_14_18_production_refit.svg" /></p>
 <p><em>Figure 14.18. The ETS production forecast against the weeks that actually followed: a straight-line extrapolation against a launch approaching its peak.</em></p>
 <h2 id="144-demand-supply-planning">14.4 Demand-Supply Planning</h2>
 <p><strong>Listing</strong>: Independent base forecasts by level</p>
@@ -2292,7 +2294,7 @@ WE-T3         7.3
 National              443.2      431.0     443.2  442.2
 Territory sum         431.0      431.0     443.2  442.2
 </code></pre></div>
-<p><img alt="Figure 14.19. Only reconciliation makes the national forecast match the sum of 12 territories; unreconciled leaves a visible gap, every reconciled method closes it, and each closes it at a different shared total." src="assets/figures/figure_14_19_forecast_hierarchy.svg" /></p>
+<p><img alt="Figure 14.19. Only reconciliation makes the national forecast match the sum of 12 territories; unreconciled leaves a visible gap, every reconciled method closes it, and each closes it at a different shared total." src="../assets/figures/figure_14_19_forecast_hierarchy.svg" /></p>
 <p><em>Figure 14.19. Only reconciliation makes the national forecast match the sum of 12 territories; unreconciled leaves a visible gap, every reconciled method closes it, and each closes it at a different shared total.</em></p>
 <p><strong>Listing</strong>: Safety stock and the order signal, national level</p>
 <div class="highlight"><pre><span></span><code><span class="n">demand_to_supply</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;demand_to_supply&quot;</span><span class="p">]</span>
@@ -2322,7 +2324,7 @@ WE-T2                   58.9          10.8         246.5
 WE-T3                    8.2           1.2          34.0
 </code></pre></div>
 <h2 id="145-loss-of-exclusivity">14.5 Loss of Exclusivity</h2>
-<p><img alt="Figure 14.20. A single half-life decay curve, reading fast in the early weeks and slow near its residual floor, with no break in the curve itself." src="assets/figures/figure_14_20_erosion_schematic.svg" /></p>
+<p><img alt="Figure 14.20. A single half-life decay curve, reading fast in the early weeks and slow near its residual floor, with no break in the curve itself." src="../assets/figures/figure_14_20_erosion_schematic.svg" /></p>
 <p><em>Figure 14.20. A single half-life decay curve, reading fast in the early weeks and slow near its residual floor, with no break in the curve itself.</em></p>
 <p><strong>Listing</strong>: Compare 2 analog erosion shapes from the same pre-entry level</p>
 <div class="highlight"><pre><span></span><code><span class="n">analog_erosion</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;analog_erosion_comparison&quot;</span><span class="p">]</span>
@@ -2338,7 +2340,7 @@ WE-T3                    8.2           1.2          34.0
                 12          77.7         169.4
                 52          20.6          71.2
 </code></pre></div>
-<p><img alt="Figure 14.21. Comparable erosion A and Comparable erosion B projected from the same pre-entry level." src="assets/figures/figure_14_21_analog_erosion_curves.svg" /></p>
+<p><img alt="Figure 14.21. Comparable erosion A and Comparable erosion B projected from the same pre-entry level." src="../assets/figures/figure_14_21_analog_erosion_curves.svg" /></p>
 <p><em>Figure 14.21. Comparable erosion A and Comparable erosion B projected from the same pre-entry level.</em></p>
 <p><strong>Listing</strong>: Fitting the decline on 20 weeks of post-entry data, then on 78</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">forecasting</span><span class="w"> </span><span class="kn">import</span> <span class="n">fit_erosion</span>
@@ -2361,7 +2363,7 @@ WE-T3                    8.2           1.2          34.0
 fit on 20 weeks             0.0010             10.7
 fit on 78 weeks             0.1028              9.0
 </code></pre></div>
-<p><img alt="Figure 14.22. Actual post-entry TRx, the analog erosion band, and the Chronos zero-shot cross-check, with the right panel zooming the tail." src="assets/figures/figure_14_22_erosion_curve.svg" /></p>
+<p><img alt="Figure 14.22. Actual post-entry TRx, the analog erosion band, and the Chronos zero-shot cross-check, with the right panel zooming the tail." src="../assets/figures/figure_14_22_erosion_curve.svg" /></p>
 <p><em>Figure 14.22. Actual post-entry TRx, the analog erosion band, and the Chronos zero-shot cross-check, with the right panel zooming the tail.</em></p>
 <h2 id="146-consensus-and-scenario-forecast">14.6 Consensus and Scenario Forecast</h2>
 <p><strong>Listing</strong>: An accuracy-weighted consensus</p>
@@ -2386,7 +2388,7 @@ fit on 78 weeks             0.1028              9.0
             7      507.8
             8      519.6
 </code></pre></div>
-<p><img alt="Figure 14.23. The consensus, blended from patient-based, ETS, and Chronos, sits inside ETS's own 80% interval and tracks the actual continuation more closely than ETS alone." src="assets/figures/figure_14_23_consensus_vs_actual.svg" /></p>
+<p><img alt="Figure 14.23. The consensus, blended from patient-based, ETS, and Chronos, sits inside ETS's own 80% interval and tracks the actual continuation more closely than ETS alone." src="../assets/figures/figure_14_23_consensus_vs_actual.svg" /></p>
 <p><em>Figure 14.23. The consensus, blended from patient-based, ETS, and Chronos, sits inside ETS's own 80% interval and tracks the actual continuation more closely than ETS alone.</em></p>
 <p><strong>Listing</strong>: The reconciliation waterfall</p>
 <div class="highlight"><pre><span></span><code><span class="n">consensus_waterfall</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;consensus_waterfall&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">({</span><span class="s2">&quot;running_total&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
@@ -2398,7 +2400,7 @@ fit on 78 weeks             0.1028              9.0
 2  Launch-support level confirmed          0.050         3737.0
 3           Competitor entry risk         -0.030         3624.9
 </code></pre></div>
-<p><img alt="Figure 14.24. From the analytics consensus to the committed number: each adjustment shown as both a volume delta and the percentage that produced it, against a reference line at the starting total." src="assets/figures/figure_14_24_consensus_waterfall.svg" /></p>
+<p><img alt="Figure 14.24. From the analytics consensus to the committed number: each adjustment shown as both a volume delta and the percentage that produced it, against a reference line at the starting total." src="../assets/figures/figure_14_24_consensus_waterfall.svg" /></p>
 <p><em>Figure 14.24. From the analytics consensus to the committed number: each adjustment shown as both a volume delta and the percentage that produced it, against a reference line at the starting total.</em></p>
 <p><strong>Listing</strong>: Low, Base, and High scenarios</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">forecasting</span><span class="w"> </span><span class="kn">import</span> <span class="n">scenario_forecast</span>
@@ -2410,7 +2412,7 @@ fit on 78 weeks             0.1028              9.0
 1     Base                 20000               0.78          0.3   4680.0
 2     High                 24000               0.85          0.4   8160.0
 </code></pre></div>
-<p><img alt="Figure 14.25. Low, Base, and High launch scenarios form a fan from explicit driver assumptions." src="assets/figures/figure_14_25_scenario_fan.svg" /></p>
+<p><img alt="Figure 14.25. Low, Base, and High launch scenarios form a fan from explicit driver assumptions." src="../assets/figures/figure_14_25_scenario_fan.svg" /></p>
 <p><em>Figure 14.25. Low, Base, and High launch scenarios form a fan from explicit driver assumptions.</em></p>
 <h2 id="147-a-forecasting-method-selection-field-guide">14.7 A Forecasting Method Selection Field Guide</h2>
 <p>Gather these inputs before reusing any method in this chapter on a live brand:</p>
