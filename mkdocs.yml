@@ -74,5 +74,5 @@ nav:
       - Exercise Solutions: ch09_nba/ch09_exercise_solutions.md
   - Chapter 14:
       - "Forecasting from Launch to Loss of Exclusivity": ch14_forecasting/ch14_forecasting.md
-      - Walkthrough Notebook: ch14_forecasting/ch14_walkthrough.ipynb
-      - Exercise Solutions: ch14_forecasting/ch14_exercise_solutions.ipynb
+      - Walkthrough Notebook: ch14_forecasting/ch14_walkthrough.md
+      - Exercise Solutions: ch14_forecasting/ch14_exercise_solutions.md
