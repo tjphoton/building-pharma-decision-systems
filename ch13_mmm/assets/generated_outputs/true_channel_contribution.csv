@@ -1,0 +1,6 @@
+channel,true_mean_weekly_contribution,true_contribution_share
+field,104.74,0.3806
+email,13.26,0.0482
+digital,28.99,0.1054
+paid_media,66.08,0.2401
+baseline (trend + seasonality + access event),62.1,0.2257

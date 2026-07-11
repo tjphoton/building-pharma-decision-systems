@@ -1,0 +1,2407 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://tjphoton.github.io/building-pharma-decision-systems/ch13_mmm/ch13_mmm_unified_measurement/">
+      
+      
+        <link rel="prev" href="../../coming_soon/ch12/">
+      
+      
+        <link rel="next" href="../../ch14_forecasting/ch14_forecasting/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Chapter 13 - Unified Measurement: Attribution, Experiments, and MMM - Building Pharmaceutical Decision Systems</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-75R972HVF8"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-75R972HVF8",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-75R972HVF8",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-13-unified-measurement-attribution-experiments-and-mmm" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Building Pharmaceutical Decision Systems" class="md-header__button md-logo" aria-label="Building Pharmaceutical Decision Systems" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Building Pharmaceutical Decision Systems
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter 13 - Unified Measurement: Attribution, Experiments, and MMM
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/tjphoton/building-pharma-decision-systems" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Building Pharmaceutical Decision Systems" class="md-nav__button md-logo" aria-label="Building Pharmaceutical Decision Systems" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Building Pharmaceutical Decision Systems
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/tjphoton/building-pharma-decision-systems" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch01_intro/ch01_introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 1 - A Medicine, a Market, and the Decisions Between Them
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch02_ecosystem/ch02_ecosystem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 2 - The Commercialization Operating System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch03_data/ch03_data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 3 - A Synthetic Lab for Real Pharma Questions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch04_market/ch04_market_sizing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 4 - Market Sizing and Patient Populations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch05_journey/ch05_patient_journey/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 5 - Building the Patient Journey: Treatment Patterns, Lines of Therapy, and Persistence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch06_hcp/ch06_hcp_targeting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 6 - HCP Targeting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch07_competitive/ch07_competitive_intelligence_market_access/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 7 - Competitive Intelligence and Market Access
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch08_omnichannel/ch08_omnichannel_analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 8 - Omnichannel Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch09_nba/ch09_next_best_action/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 9 - Next Best Action
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../coming_soon/ch10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 10 - Randomized Experiments and Incrementality (coming soon)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../coming_soon/ch11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 11 - Natural Experiments and Quasi-Experimental Designs (coming soon)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../coming_soon/ch12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 12 - Observational Causal Inference and Real-World Evidence (coming soon)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 13 - Unified Measurement: Attribution, Experiments, and MMM
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 13 - Unified Measurement: Attribution, Experiments, and MMM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#131-matching-measurement-method-to-decision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.1 Matching Measurement Method to Decision
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#132-build-the-mmm-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.2 Build The MMM Model
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="13.2 Build The MMM Model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1321-weekly-nrx-and-channel-activity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.2.1 Weekly NRx and Channel Activity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1322-carryover-adstock" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.2.2 Carryover: Adstock
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1323-diminishing-returns-hill-saturation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.2.3 Diminishing Returns: Hill Saturation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1324-fit-the-first-mmm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.2.4 Fit the First MMM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1325-digital-absorbs-the-access-event-lift" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.2.5 Digital Absorbs the Access-Event Lift
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#133-test-whether-the-fit-can-be-trusted" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.3 Test Whether the Fit Can Be Trusted
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="13.3 Test Whether the Fit Can Be Trusted">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1331-channel-variation-and-confounding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.3.1 Channel Variation and Confounding
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1332-add-baseline-controls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.3.2 Add Baseline Controls
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1333-calibrate-field-with-a-geo-holdout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.3.3 Calibrate Field with a Geo-Holdout
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1334-setting-each-channels-decision-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.3.4 Setting Each Channel's Decision Status
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1335-similar-fit-different-decomposition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.3.5 Similar Fit, Different Decomposition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1336-production-mmm-choice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.3.6 Production MMM Choice
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#134-build-the-unified-measurement-evidence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.4 Build The Unified Measurement Evidence
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="13.4 Build The Unified Measurement Evidence">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1341-one-channel-four-measurements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.4.1 One Channel, Four Measurements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1342-the-full-channel-measurement-evidence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.4.2 The Full Channel Measurement Evidence
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#135-set-the-budget-recommendation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.5 Set the Budget Recommendation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="13.5 Set the Budget Recommendation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1351-response-curves-marginal-roi-and-saturation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.5.1 Response Curves, Marginal ROI, and Saturation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1352-budget-optimization-and-the-unified-recommendation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.5.2 Budget Optimization and the Unified Recommendation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#136-operate-the-measurement-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.6 Operate The Measurement Loop
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#137-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.7 Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#138-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.8 Exercises
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch14_forecasting/ch14_forecasting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 14 - Forecasting from Launch to Loss of Exclusivity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../coming_soon/ch15/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 15. Resource Allocation and Optimization (coming soon)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../coming_soon/ch16/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 16. AI Decision Intelligence (coming soon)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../coming_soon/ch17/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 17. Capstone Case Studies (coming soon)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#131-matching-measurement-method-to-decision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.1 Matching Measurement Method to Decision
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#132-build-the-mmm-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.2 Build The MMM Model
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="13.2 Build The MMM Model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1321-weekly-nrx-and-channel-activity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.2.1 Weekly NRx and Channel Activity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1322-carryover-adstock" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.2.2 Carryover: Adstock
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1323-diminishing-returns-hill-saturation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.2.3 Diminishing Returns: Hill Saturation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1324-fit-the-first-mmm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.2.4 Fit the First MMM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1325-digital-absorbs-the-access-event-lift" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.2.5 Digital Absorbs the Access-Event Lift
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#133-test-whether-the-fit-can-be-trusted" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.3 Test Whether the Fit Can Be Trusted
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="13.3 Test Whether the Fit Can Be Trusted">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1331-channel-variation-and-confounding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.3.1 Channel Variation and Confounding
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1332-add-baseline-controls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.3.2 Add Baseline Controls
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1333-calibrate-field-with-a-geo-holdout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.3.3 Calibrate Field with a Geo-Holdout
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1334-setting-each-channels-decision-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.3.4 Setting Each Channel's Decision Status
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1335-similar-fit-different-decomposition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.3.5 Similar Fit, Different Decomposition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1336-production-mmm-choice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.3.6 Production MMM Choice
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#134-build-the-unified-measurement-evidence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.4 Build The Unified Measurement Evidence
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="13.4 Build The Unified Measurement Evidence">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1341-one-channel-four-measurements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.4.1 One Channel, Four Measurements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1342-the-full-channel-measurement-evidence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.4.2 The Full Channel Measurement Evidence
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#135-set-the-budget-recommendation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.5 Set the Budget Recommendation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="13.5 Set the Budget Recommendation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1351-response-curves-marginal-roi-and-saturation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.5.1 Response Curves, Marginal ROI, and Saturation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1352-budget-optimization-and-the-unified-recommendation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.5.2 Budget Optimization and the Unified Recommendation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#136-operate-the-measurement-loop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.6 Operate The Measurement Loop
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#137-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.7 Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#138-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13.8 Exercises
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="chapter-13-unified-measurement-attribution-experiments-and-mmm">Chapter 13: Unified Measurement: Attribution, Experiments, and MMM</h1>
+<p>Roventra has to set next year's spend across field, email, digital, and paid media. NRx moved during the year, but the weekly total does not show how much of that movement each channel actually caused. Without that NRx contribution split, the team cannot tell which channel should get more budget and which channel has already reached diminishing returns.</p>
+<p>The brand has multiple ways to measure what each channel is doing. Attribution is fast, refreshed every week, but it only shows correlation between a touchpoint and a prescription, not proof of cause. A randomized experiment or similar causal design proves cause, but only for the one channel, audience group, and time window it actually tested. MMM is the only read that covers the whole portfolio at once, estimating every channel's share of the swings in weekly NRx. The planning decision needs all of these measurement solutions: which channel should get more budget now, which channel has already hit the ceiling, and which channel needs a fresh test.</p>
+<p>In this chapter, we build the MMM read by hand, because portfolio allocation needs a response curve for every channel. We then read that MMM result alongside the attribution, experiment, and causal evidence already available for each channel from previous chapters. The final deliverable is a budget recommendation for each channel: how much its spend should change, what evidence backs that change decision, and what test should run next before it moves further.</p>
+<h2 id="131-matching-measurement-method-to-decision">13.1 Matching Measurement Method to Decision</h2>
+<p>This section discusses the consolidation of attribution(chapter 8), randomized experiments(chapter 10), natural experiments (chapter 11), and observational causal inference (chapter 12) already have taught in earlier chapters. We combine separate read from those methods into one portfolio budget call across field, email, digital, and paid media.</p>
+<p>Attribution reads a patient's or prescriber's recorded sequence of touchpoints and assigns each one partial credit for the prescriptions that follow. It refreshes weekly or faster, so it is the quickest read available, but the credit is a correlation: it flags which channels showed up before a response, not which one caused it. A channel with high recorded credit becomes the next candidate for a randomized test, and attribution also sanity-checks MMM's channel ranking once that model is fit. Uplift and response modeling work at the same observational level, scoring an individual's or segment's propensity to respond, and its output supplies candidate segments for randomized experiments.</p>
+<p>A randomized experiment tests one channel or action against a held-out population and produces a causal lift number for that test alone, on a timeline of weeks to a quarter; its result can anchor or calibrate an MMM prior for that channel. A geo-holdout does the same at the level of a market or geography, and its result anchors the MMM estimate for the tested channel. A natural experiment borrows causal strength from an external event the brand did not control, such as a formulary change, and its main job is to flag the confound MMM must control for.</p>
+<p>MMM reads channel activity and total NRx aggregated across the full portfolio and refresh on a planning cadence, quarterly to annual, so it is the only method that estimates every channel's contribution to the same outcome at once. That scope is also its weakness: MMM is observational and assumes no unmeasured confounder unless a causal anchor, known event control, or model-health check backs up its estimate for that channel. MMM's own output also flags which channels carry weak evidence or high error and need a test, closing the loop back to attribution and experiments.</p>
+<p><img alt="Figure 13.1. Unified measurement flow from evidence to budget: attribution, experiments, natural events, and MMM feed a comparability check, then a decision record, guardrails, the budget recommendation, and the next-test agenda." src="../assets/figures/figure_13_1_measurement_system_map.svg" /></p>
+<p><em>Figure 13.1. Unified measurement flow from evidence to budget: attribution, experiments, natural events, and MMM feed a comparability check, then a decision record, guardrails, the budget recommendation, and the next-test agenda.</em></p>
+<p>The unified measurement decision combines these reads into one status per channel, continuously updated as each method refreshes, and carries the strongest available evidence per channel. Table 13.1 maps each method to the decision.</p>
+<p><em>Table 13.1. What each measurement method is best suited to decide, and what it cannot decide alone.</em></p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Best decision it supports</th>
+<th>Should not decide alone</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Attribution (Chapter 8)</td>
+<td>Fast, granular channel-mix or creative optimization</td>
+<td>Portfolio budget moves; whether a channel is causal at all</td>
+</tr>
+<tr>
+<td>Uplift / response modeling (Chapter 8, 9)</td>
+<td>Targeting and next-best-action within a channel</td>
+<td>Cross-channel portfolio allocation</td>
+</tr>
+<tr>
+<td>Randomized experiment (Chapter 10)</td>
+<td>Whether one specific action causes lift, and how much</td>
+<td>Channels or populations outside the tested scope</td>
+</tr>
+<tr>
+<td>Geo-holdout / causal-impact read (Chapters 10 and 11)</td>
+<td>Calibrating one channel's response curve at a spend level</td>
+<td>Channels never included in a geo test</td>
+</tr>
+<tr>
+<td>Natural experiment / quasi-experimental read (Chapter 11)</td>
+<td>Estimating the effect of an event neither team controlled</td>
+<td>Routine channel budget decisions absent a comparable event</td>
+</tr>
+<tr>
+<td>Marketing mix model (MMM)</td>
+<td>Portfolio-level budget allocation across all channels at once</td>
+<td>Moving an unconstrained channel that has not cleared the model-health gate</td>
+</tr>
+<tr>
+<td>Unified measurement decision</td>
+<td>How much budget movement each channel's evidence currently supports</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>At the start of this chapter, the non-MMM evidence is already known, while the MMM status is still empty. Field has attribution, an experiment, and a geo-holdout. Email and paid media have attribution only. Digital has an authenticated-web proxy that can check scope but cannot calibrate the full digital spend lever. The formulary access event is a baseline control.</p>
+<p><em>Table 13.2. Decision evidence before the MMM fit.</em></p>
+<table>
+<thead>
+<tr>
+<th>Channel or record</th>
+<th>Evidence available now</th>
+<th>MMM status</th>
+<th>Allowed use before MMM</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>field</td>
+<td>Attribution, experiment, geo-holdout</td>
+<td>To be fit below</td>
+<td>Calibration anchor and later budget guardrail</td>
+</tr>
+<tr>
+<td>email</td>
+<td>Attribution only</td>
+<td>To be fit below</td>
+<td>Scope check and test candidate</td>
+</tr>
+<tr>
+<td>digital</td>
+<td>Authenticated-web attribution proxy</td>
+<td>To be fit below</td>
+<td>Proxy scope check and test candidate</td>
+</tr>
+<tr>
+<td>paid_media</td>
+<td>Attribution only</td>
+<td>To be fit below</td>
+<td>Scope check and test candidate</td>
+</tr>
+<tr>
+<td>portfolio baseline</td>
+<td>Natural-experiment access event</td>
+<td>Control term</td>
+<td>Baseline control only</td>
+</tr>
+</tbody>
+</table>
+<p>MMM reads a weekly aggregate series: channel activity and total NRx. Privacy rules, consent limits, and tighter data-use controls make person-level tracing harder to use and share, which is one reason MMM gets renewed attention. Its causal weakness is also visible. If two channels rise together, or a competitor launch, payer change, or seasonal pattern moves NRx during a spend flight, the model can credit a channel for movement it did not cause. We build the MMM model next, then carry its output into the guardrails every later budget move must follow.</p>
+<h2 id="132-build-the-mmm-model">13.2 Build The MMM Model</h2>
+<p>The portfolio budget needs a channel-level breakdown. This section builds the MMM model, starts with weekly NRx and channel activity, then turns that activity into response shapes the model can estimate.</p>
+<h3 id="1321-weekly-nrx-and-channel-activity">13.2.1 Weekly NRx and Channel Activity</h3>
+<p><code>generate_mmm_data()</code> in <code>data.py</code> builds 104 weeks of NRx and four promotion series: field calls, and dollar spend for email, digital, and paid media. The series has a linear trend, a 52-week seasonal cycle in underlying NRx, and one event: a formulary access win at week 60 that permanently raises baseline NRx. <code>true_channel_share()</code> in the same module reports the ground-truth weekly contribution each channel actually produced, computed from the parameters used to generate the data.</p>
+<p><strong>Listing 13.1</strong>: Build the weekly series and inspect its structure</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">data</span><span class="w"> </span><span class="kn">import</span> <span class="n">generate_mmm_data</span><span class="p">,</span> <span class="n">true_channel_share</span>
+
+<span class="n">weekly</span> <span class="o">=</span> <span class="n">generate_mmm_data</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Weekly series sample:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">weekly</span><span class="p">[[</span><span class="s2">&quot;week_index&quot;</span><span class="p">,</span> <span class="s2">&quot;nrx&quot;</span><span class="p">,</span> <span class="s2">&quot;calls_field&quot;</span><span class="p">,</span> <span class="s2">&quot;spend_field&quot;</span><span class="p">,</span> <span class="s2">&quot;spend_digital&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+
+<span class="n">truth</span> <span class="o">=</span> <span class="n">true_channel_share</span><span class="p">(</span><span class="n">weekly</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">truth</span><span class="p">[</span><span class="s2">&quot;component&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">truth</span><span class="p">[</span><span class="s2">&quot;channel&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span><span class="s2">&quot;baseline (trend + seasonality + access event)&quot;</span><span class="p">:</span> <span class="s2">&quot;baseline&quot;</span><span class="p">})</span>
+<span class="n">truth</span><span class="p">[</span><span class="s2">&quot;share_of_total_pct&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">truth</span><span class="p">[</span><span class="s2">&quot;true_contribution_share&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">True modeled contribution:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">truth</span><span class="p">[[</span><span class="s2">&quot;component&quot;</span><span class="p">,</span> <span class="s2">&quot;true_mean_weekly_contribution&quot;</span><span class="p">,</span> <span class="s2">&quot;share_of_total_pct&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Weekly series sample:
+ week_index   nrx  calls_field  spend_field  spend_digital
+          0 197.7         4.37        371.0           38.0
+          1 246.6         4.50        382.0           63.0
+          2 256.8         4.44        377.0           51.0
+          3 267.4         4.61        391.0           52.0
+          4 266.4         4.69        398.0           58.0
+
+True modeled contribution:
+  component  true_mean_weekly_contribution  share_of_total_pct
+      field                         104.74                38.1
+      email                          13.26                 4.8
+    digital                          28.99                10.5
+ paid_media                          66.08                24.0
+   baseline                          62.10                22.6
+</code></pre></div>
+<p>Field carries the largest true share of modeled weekly NRx, 38.1%, followed by paid media at 24.0% and baseline at 22.6%. Digital and email are smaller, 10.5% and 4.8%. None of the four fitting steps is allowed to see these numbers; they exist only to check the fitted model against known ground truth.</p>
+<p><img alt="Figure 13.2. Observed weekly NRx above weekly channel spend, with the formulary access event marked at week 60. Synthetic data." src="../assets/figures/figure_13_2_weekly_spend.svg" /></p>
+<p><em>Figure 13.2. Observed weekly NRx above weekly channel spend, with the formulary access event marked at week 60. Synthetic data.</em></p>
+<p>Figure 13.2 shows the main confound: digital ramps up a few weeks before the formulary access win and stays elevated afterward. Field cycles between roughly 3.6 and 5.0 calls a week, which translates to about $310 to $430 at $85 per call assumption. Email runs a low, near-flat base rate punctuated by six short campaign bursts; paid media runs its usual spring/summer flight but also carries one six-week dark interval, near-zero spend, and one off-season pulse outside its normal flight window; digital starts near $55, holds an early standalone test flight in weeks 18 through 28, then ramps up starting a few weeks before the formulary access event and stays elevated afterward, the same way a real brand team leans into a channel once payer access improves.</p>
+<h3 id="1322-carryover-adstock">13.2.2 Carryover: Adstock</h3>
+<p>A field visit's effect does not end when the rep leaves the office. The physician may recall the conversation for the next appropriate patient. Adstock captures that carryover with one geometric recursion:</p>
+<div class="arithmatex">\[
+A_t = S_t + d \cdot A_{t-1}
+\]</div>
+<p>Here, <code>A_t</code> is adstock in week <code>t</code>, <code>S_t</code> is spend in week <code>t</code>, <code>d</code> is the decay rate, and <code>A_{t-1}</code> is adstock from the prior week.</p>
+<p>Take a small five-week toy series, spend of $100, $50, $100, $50, $100, with decay 0.4:</p>
+<p><em>Table 13.3. Adstock carryover on a toy five-week series, decay = 0.4.</em></p>
+<table>
+<thead>
+<tr>
+<th>Week</th>
+<th style="text-align: right;">Spend</th>
+<th style="text-align: right;">Adstock</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">100.0</td>
+</tr>
+<tr>
+<td>2</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">50 + 0.4(100) = 90.0</td>
+</tr>
+<tr>
+<td>3</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">100 + 0.4(90) = 136.0</td>
+</tr>
+<tr>
+<td>4</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">50 + 0.4(136) = 104.4</td>
+</tr>
+<tr>
+<td>5</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">100 + 0.4(104.4) = 141.8</td>
+</tr>
+</tbody>
+</table>
+<p>Week 5's adstock, 141.8, is larger than week 5's own spend, 100, because prior weeks of spend are still partly in effect. A decay of 0 would return the raw spend series unchanged; a decay near 1 would make the channel's influence nearly permanent.</p>
+<p>The clearest way to see carryover is to isolate it: send a single $1 of spend through the recursion and watch how much of it is still there in later weeks.</p>
+<p><img alt="Figure 13.3. A single week's spend, traced forward through the adstock recursion at three decay rates." src="../assets/figures/figure_13_3_adstock_decay.svg" /></p>
+<p><em>Figure 13.3. A single week's spend, traced forward through the adstock recursion at three decay rates.</em></p>
+<p>At decay 0.1, a dollar spent this week is functionally gone within two or three weeks. At decay 0.7, more than a third of it is still influencing NRx five weeks later, and a visible trace remains past week 12.</p>
+<h3 id="1323-diminishing-returns-hill-saturation">13.2.3 Diminishing Returns: Hill Saturation</h3>
+<p>Adstock output passes through a Hill saturation function before it reaches the regression:</p>
+<div class="arithmatex">\[
+Hill(x; ec, slope) = \frac{1}{1 + \left(\frac{x}{ec}\right)^{-slope}}
+\]</div>
+<p>Here, <code>x</code> is the adstock input, <code>ec</code> is the half-saturation point EC50, the spend level at which a channel reaches half its maximum response, and <code>slope</code> controls how quickly the curve rises around EC50.</p>
+<p><img alt="Figure 13.4. Hill saturation curves at EC50 = 100 for three slope values, all crossing 50% response at EC50." src="../assets/figures/figure_13_4_hill_saturation.svg" /></p>
+<p><em>Figure 13.4. Hill saturation curves at EC50 = 100 for three slope values, all crossing 50% response at EC50.</em></p>
+<p>Every curve passes through the same point, half of maximum response at EC50. Below slope 1, gains come fast at low spend and level off early. At slope 2 or higher, the curve turns S-shaped: response barely moves below roughly half of EC50, accelerates through the middle, then flattens the same way a slope-1 curve does at high spend. A channel's recovered slope tells a brand team whether a little spend already produces a meaningful lift (low slope, fast early return) or whether it needs a minimum threshold of spend before it starts paying off at all (high slope, an S-shaped floor).</p>
+<p>This function is named for A.V. Hill's 1910 equation describing oxygen binding to hemoglobin: the same S-shaped saturation curve pharmacology uses for dose-response also describes the response of prescriptions to promotional dose.</p>
+<h3 id="1324-fit-the-first-mmm">13.2.4 Fit the First MMM</h3>
+<p>With the weekly spend series and weekly NRx data in hand, the first fit estimates the channel coefficients, decay rates, EC50 values, slopes, baseline, and noise together. This first fit is diagnostic: without a control for the known access event, it credits the wrong channel for NRx that the event actually caused.</p>
+<p>The model is a nonlinear regression of weekly NRx on adstocked, saturated channel spend:</p>
+<div class="arithmatex">\[
+z_{c,t} = x_{c,t} + \delta_c\, z_{c,t-1}
+\]</div>
+<div class="arithmatex">\[
+y_t = \beta_0 + \sum_{c=1}^{4} \beta_c \, \frac{1}{1 + \left(\frac{z_{c,t}}{k_c}\right)^{-s_c}} + \epsilon_t, \qquad \epsilon_t \sim \mathcal{N}(0, \sigma^2)
+\]</div>
+<p><span class="arithmatex">\(y_t\)</span> (<code>nrx</code>) is weekly NRx, <span class="arithmatex">\(x_{c,t}\)</span> (<code>spend_{ch}</code> or <code>calls_field</code>) is channel <span class="arithmatex">\(c\)</span>'s raw spend, <span class="arithmatex">\(z_{c,t}\)</span> is its adstocked spend with decay <span class="arithmatex">\(\delta_c\)</span> (<code>{channel}_decay</code>), <span class="arithmatex">\(\beta_0\)</span> (<code>baseline0</code>) is the baseline, <span class="arithmatex">\(\beta_c\)</span> (<code>{channel}_coef</code>) is channel <span class="arithmatex">\(c\)</span>'s coefficient, <span class="arithmatex">\(k_c\)</span> and <span class="arithmatex">\(s_c\)</span> (<code>{channel}_ec50</code>, <code>{channel}_slope</code>) are its Hill saturation parameters, and <span class="arithmatex">\(\epsilon_t\)</span> (<code>noise_sd</code>) is weekly noise. When controls are on, a trend term, two seasonality terms, and a formulary-event step add to <span class="arithmatex">\(\beta_0\)</span>.</p>
+<p>The full model has 22 parameters when controls are on: 2 global terms, baseline and noise; 16 channel terms, 4 per channel across 4 channels; 4 control terms, trend, seasonality sine, seasonality cosine, and access event.</p>
+<p>The model is fit with MCMC, short for Markov chain Monte Carlo, using random-walk Metropolis-Hastings in Python. Adstock and Hill make the weekly regression nonlinear, so there is no closed-form to solve in one step. MCMC helps by drawing many plausible parameter sets, checking each one against the weekly spend and NRx data, and keeping the ones that fit well enough to map out the full parameter posterior space.</p>
+<p>A frequentist fit of this same regression would search for the single coefficient vector that minimizes squared error and report a standard error from asymptotic theory around that one point. The Bayesian fit instead returns a distribution over plausible parameter vectors, weighted by how well each fits the data and by the priors below, which is what lets a data-starved channel lean on its prior instead of returning an unstable or undefined point estimate.</p>
+<p><code>fit_bayesian_mmm()</code> in <code>model.py</code> runs 4 independent chains from dispersed starting points drawn from the priors. Each prior encodes a reasonable channel-category assumption before the fit sees the weekly data.</p>
+<table>
+<thead>
+<tr>
+<th>Prior component</th>
+<th>What it controls</th>
+<th>Starting assumption</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Channel coefficient</td>
+<td>Channel response scale</td>
+<td>Centered at 60 NRx with wide uncertainty</td>
+</tr>
+<tr>
+<td>Decay</td>
+<td>Carryover from earlier activity</td>
+<td>Field and paid media can last longer than email and digital</td>
+</tr>
+<tr>
+<td>EC50</td>
+<td>Where the Hill curve reaches half its maximum</td>
+<td>Centered on each channel's observed average input</td>
+</tr>
+<tr>
+<td>Hill slope</td>
+<td>How quickly response rises near EC50</td>
+<td>Centered at 1.5</td>
+</tr>
+</tbody>
+</table>
+<p>Since the weekly data do not always separate channel effects cleanly, these priors provide good starting points. When a channel has little independent movement, the posterior can lean heavily on the prior and on any controls included in the model. Data analyst would center these priors on benchmarks, prior campaigns, or a comparable brand's fitted curve, while keeping the width wide enough that a strong signal in the data can override it.</p>
+<p>Each chain tunes its step size during warmup, then at every step proposes a new parameter vector by adding random noise to the current one and accepts or rejects it:</p>
+<div class="arithmatex">\[
+\log u &lt; \log p(\theta^\star \mid y) - \log p(\theta \mid y)
+\]</div>
+<p><span class="arithmatex">\(u\)</span> is a draw from Uniform(0, 1), <span class="arithmatex">\(\theta^\star\)</span> is the proposal, <span class="arithmatex">\(\theta\)</span> is the current value, and <span class="arithmatex">\(y\)</span> is the observed weekly data.</p>
+<p>A proposal with higher posterior density is always accepted. A worse proposal is accepted with probability equal to the posterior ratio, which lets the sampler move through the parameter space and fill in the posterior instead of stopping at one starting guess.</p>
+<p><strong>Listing 13.2</strong>: Fit the naive model and check convergence</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">model</span><span class="w"> </span><span class="kn">import</span> <span class="n">fit_bayesian_mmm</span><span class="p">,</span> <span class="n">posterior_summary</span>
+
+<span class="n">naive_draws</span> <span class="o">=</span> <span class="n">fit_bayesian_mmm</span><span class="p">(</span><span class="n">weekly</span><span class="p">,</span> <span class="n">use_controls</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">summary</span> <span class="o">=</span> <span class="n">posterior_summary</span><span class="p">(</span><span class="n">naive_draws</span><span class="p">)</span>
+<span class="n">coef</span> <span class="o">=</span> <span class="n">summary</span><span class="p">[</span><span class="n">summary</span><span class="o">.</span><span class="n">parameter</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;_coef&quot;</span><span class="p">)]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">coef</span><span class="p">[</span><span class="s2">&quot;channel&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">coef</span><span class="p">[</span><span class="s2">&quot;parameter&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;_coef&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">coef</span><span class="p">[</span><span class="s2">&quot;mean&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">coef</span><span class="p">[</span><span class="s2">&quot;posterior_mean&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">coef</span><span class="p">[</span><span class="s2">&quot;ci90&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;[&quot;</span> <span class="o">+</span> <span class="n">coef</span><span class="p">[</span><span class="s2">&quot;p5&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;, &quot;</span> <span class="o">+</span> <span class="n">coef</span><span class="p">[</span><span class="s2">&quot;p95&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;]&quot;</span>
+<span class="n">coef</span><span class="p">[</span><span class="s2">&quot;ess&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">coef</span><span class="p">[</span><span class="s2">&quot;ess&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">coef</span><span class="p">[[</span><span class="s2">&quot;channel&quot;</span><span class="p">,</span> <span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="s2">&quot;ci90&quot;</span><span class="p">,</span> <span class="s2">&quot;rhat&quot;</span><span class="p">,</span> <span class="s2">&quot;ess&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>   channel  mean          ci90  rhat  ess
+     field  54.6  [17.6, 93.0] 1.040  658
+     email  41.4  [27.8, 60.7] 1.034  696
+   digital 111.4 [90.6, 136.6] 1.007  674
+paid_media 107.9 [89.8, 141.5] 1.110  667
+</code></pre></div>
+<p>Each row's <code>mean</code> is the posterior mean of that channel's raw regression coefficient, not yet a weekly NRx number by itself, and not yet comparable across channels: field's coefficient is scaled to calls while the other three are scaled to dollars, and each channel also carries its own carryover and saturation curve. <code>rhat</code> checks that the four chains agree with each other, and <code>ess</code> checks how much independent information those draws actually carry. All four <code>rhat</code> values are close to 1.00, and every coefficient has more than 650 effective draws, enough to trust the coefficient estimate.</p>
+<p>The next listing translates these raw coefficients into an actual weekly NRx contribution per channel.</p>
+<h3 id="1325-digital-absorbs-the-access-event-lift">13.2.5 Digital Absorbs the Access-Event Lift</h3>
+<p>The naive fit explains every weekly NRx move with only the four channels' Hill curves, so any lift from trend, seasonality, or the formulary event has to land somewhere inside those four curves or the baseline term. Digital's spend happens to ramp up in the same weeks the formulary event permanently raises baseline NRx, and the naive fit reads that timing coincidence as digital's own effect, crediting digital for lift the event actually caused.</p>
+<p><code>_channel_contributions()</code> in <code>run_analysis.py</code> converts posterior-mean parameters into an actual weekly NRx contribution per channel (coefficient times mean Hill response over the observed spend series), then compare them directly to NRx channel share ground truth.</p>
+<p><strong>Listing 13.3</strong>: Naive contribution vs. ground truth</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">run_analysis</span><span class="w"> </span><span class="kn">import</span> <span class="n">_channel_contributions</span>
+
+<span class="n">naive_contrib</span> <span class="o">=</span> <span class="n">_channel_contributions</span><span class="p">(</span><span class="n">weekly</span><span class="p">,</span> <span class="n">naive_draws</span><span class="p">)</span>
+<span class="n">truth</span> <span class="o">=</span> <span class="n">true_channel_share</span><span class="p">(</span><span class="n">weekly</span><span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;channel&quot;</span><span class="p">)[</span><span class="s2">&quot;true_mean_weekly_contribution&quot;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;field&quot;</span><span class="p">,</span> <span class="s2">&quot;email&quot;</span><span class="p">,</span> <span class="s2">&quot;digital&quot;</span><span class="p">,</span> <span class="s2">&quot;paid_media&quot;</span><span class="p">):</span>
+    <span class="n">err</span> <span class="o">=</span> <span class="p">(</span><span class="n">naive_contrib</span><span class="p">[</span><span class="n">ch</span><span class="p">]</span> <span class="o">-</span> <span class="n">truth</span><span class="p">[</span><span class="n">ch</span><span class="p">])</span> <span class="o">/</span> <span class="n">truth</span><span class="p">[</span><span class="n">ch</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ch</span><span class="si">:</span><span class="s2">12s</span><span class="si">}</span><span class="s2">  true=</span><span class="si">{</span><span class="n">truth</span><span class="p">[</span><span class="n">ch</span><span class="p">]</span><span class="si">:</span><span class="s2">6.2f</span><span class="si">}</span><span class="s2">  naive=</span><span class="si">{</span><span class="n">naive_contrib</span><span class="p">[</span><span class="n">ch</span><span class="p">]</span><span class="si">:</span><span class="s2">6.2f</span><span class="si">}</span><span class="s2">  error=</span><span class="si">{</span><span class="n">err</span><span class="si">:</span><span class="s2">+.1f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>field         true=104.74  naive= 21.23  error=-79.7%
+email         true= 13.26  naive= 13.78  error=+3.9%
+digital       true= 28.99  naive= 49.62  error=+71.2%
+paid_media    true= 66.08  naive= 61.21  error=-7.4%
+</code></pre></div>
+<p>Digital is overcredited by 71.2%, field is undercredited by 79.7%. A brand director reading this fit would conclude digital is the growth engine and field is weak, exactly backward from the truth. That happens because the regression sees only one number each week, total NRx, and has to divide it across the baseline and four channel terms with no term set aside for the formulary event. Any lift the event actually caused has nowhere to go but into whichever channel's spend timing lines up with it, and that channel is digital.</p>
+<h2 id="133-test-whether-the-fit-can-be-trusted">13.3 Test Whether the Fit Can Be Trusted</h2>
+<p>Roventra now has a first MMM fit, but the last section already showed it credits the wrong channel: digital for lift the formulary event caused, not digital's own promotion. That comparison only worked because this synthetic case has a true answer. A real analyst is never able to check a fit against the truth that way. Without the ground truth, this section has to check the fit indirectly: does each channel move enough on its own to be told apart from the other patterns in the data, does adding the known event and seasonality controls reduce the channel's correlation with those confounds, and does an outside measurement rescue it when controls alone are not enough. None of these checks looks at the true channel split; they read the fit's own internal consistency.</p>
+<h3 id="1331-channel-variation-and-confounding">13.3.1 Channel Variation and Confounding</h3>
+<p>Before trying to fix the naive fit with controls, we check whether each channel moves enough on its own to identify its contribution. A channel that barely moves, or that moves in lockstep with a baseline control, cannot be cleanly separated from that control no matter how the sampler is tuned.</p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>What it measures</th>
+<th>How to read it</th>
+<th>Direction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>near0</code></td>
+<td>Weeks with near-zero spend or activity</td>
+<td>More near-zero weeks give the model on/off contrast. Zero near-zero weeks means the channel is always present.</td>
+<td>Larger is usually better</td>
+</tr>
+<tr>
+<td><code>cv</code></td>
+<td>Coefficient of variation of the channel's own native exposure</td>
+<td>Higher <code>cv</code> means the channel moves enough for the model to learn from it.</td>
+<td>Larger is better</td>
+</tr>
+<tr>
+<td><code>event_corr</code></td>
+<td>Correlation between the channel and the causual event (formulary access in our case)</td>
+<td>A large absolute value means the model may confuse channel lift with the event.</td>
+<td>Smaller absolute value is better</td>
+</tr>
+<tr>
+<td><code>seasonality_corr</code></td>
+<td>Larger of the two absolute correlations with the 52-week sine and cosine seasonal controls</td>
+<td>A large value means the model may confuse channel lift with the seasonality baseline pattern.</td>
+<td>Smaller is better</td>
+</tr>
+<tr>
+<td><code>ci90_width</code></td>
+<td>Controlled posterior 90% interval width for the channel coefficient, as a percent of the coefficient mean</td>
+<td>A large value means the fitted channel effect is unstable even after controls are added.</td>
+<td>Smaller is better</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Listing 13.4</strong>: Channel-variation diagnostic</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">run_analysis</span><span class="w"> </span><span class="kn">import</span> <span class="n">channel_identifiability_diagnostics</span>
+
+<span class="n">diagnostics</span> <span class="o">=</span> <span class="n">channel_identifiability_diagnostics</span><span class="p">(</span><span class="n">weekly</span><span class="p">,</span> <span class="n">controlled_draws</span><span class="p">)</span>
+<span class="n">diag</span> <span class="o">=</span> <span class="n">diagnostics</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span>
+    <span class="s2">&quot;weeks_near_zero&quot;</span><span class="p">:</span> <span class="s2">&quot;near0&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;spend_cv&quot;</span><span class="p">:</span> <span class="s2">&quot;cv&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;corr_with_event&quot;</span><span class="p">:</span> <span class="s2">&quot;event_corr&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;seasonality_corr&quot;</span><span class="p">:</span> <span class="s2">&quot;seasonality_corr&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;posterior_interval_width_pct&quot;</span><span class="p">:</span> <span class="s2">&quot;ci90_width&quot;</span><span class="p">,</span>
+<span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39;channel&#39;</span><span class="si">:</span><span class="s2">12s</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">&#39;near0&#39;</span><span class="si">:</span><span class="s2">&gt;6s</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">&#39;cv&#39;</span><span class="si">:</span><span class="s2">&gt;7s</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">&#39;event_corr&#39;</span><span class="si">:</span><span class="s2">&gt;10s</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">&#39;seasonality_corr&#39;</span><span class="si">:</span><span class="s2">&gt;17s</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">&#39;ci90_width&#39;</span><span class="si">:</span><span class="s2">&gt;10s</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">diag</span><span class="o">.</span><span class="n">itertuples</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">row</span><span class="o">.</span><span class="n">channel</span><span class="si">:</span><span class="s2">12s</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">row</span><span class="o">.</span><span class="n">near0</span><span class="si">:</span><span class="s2">6.0f</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">row</span><span class="o">.</span><span class="n">cv</span><span class="si">:</span><span class="s2">7.3f</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">row</span><span class="o">.</span><span class="n">event_corr</span><span class="si">:</span><span class="s2">10.3f</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">row</span><span class="o">.</span><span class="n">seasonality_corr</span><span class="si">:</span><span class="s2">17.3f</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">row</span><span class="o">.</span><span class="n">ci90_width</span><span class="si">:</span><span class="s2">10.1f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>channel       near0      cv event_corr  seasonality_corr ci90_width
+field             0   0.082     -0.125             0.016      115.5
+email             0   0.919      0.069             0.075       92.9
+digital           0   0.357      0.902             0.333      101.3
+paid_media        5   0.362     -0.085             0.502       35.2
+</code></pre></div>
+<p>The diagnostic gives a clear read before the controlled fit runs. Email moves enough on its own: its coefficient of variation is 0.92, and its largest correlation with a baseline control is only 0.075. Paid media has usable movement too, with five near-zero weeks and a coefficient of variation of 0.36, though its 0.50 correlation with seasonality means the model may still mix some paid-media credit with the yearly baseline pattern. Digital is not cleanly identified because its 0.90 correlation with the access event is too high. Adding the event control should reduce digital's bias, but the channel still carries event-linked movement. Field is the weakest time-series signal: its coefficient of variation is only 0.08, and its controlled 90% interval is wide at 115.5% of the coefficient mean. The conclusion: email and paid media have enough independent movement for the model to learn from, digital needs the event control, and field needs outside evidence from the geo-holdout.</p>
+<h3 id="1332-add-baseline-controls">13.3.2 Add Baseline Controls</h3>
+<p>The controlled model adds baseline movement that should not be credited to a channel. <code>fit_bayesian_mmm(use_controls=True)</code> adds a linear trend, a 52-week sine and cosine pair for seasonality, and a step term at <code>KNOWN_EVENT_WEEK</code>, the week the formulary access win begins, extending the baseline term in the 13.2.4 regression:</p>
+<div class="arithmatex">\[
+\beta_0 \rightarrow \beta_0 + \tau t + \gamma_1 \sin\!\left(\frac{2\pi t}{52}\right) + \gamma_2 \cos\!\left(\frac{2\pi t}{52}\right) + \eta \, \mathbb{1}[t \geq t_0]
+\]</div>
+<p><span class="arithmatex">\(\tau\)</span> (<code>trend</code>) is the linear trend, <span class="arithmatex">\(\gamma_1\)</span> and <span class="arithmatex">\(\gamma_2\)</span> (<code>seasonal_sin</code>, <code>seasonal_cos</code>) are the sine and cosine seasonal coefficients, <span class="arithmatex">\(t_0\)</span> is <code>KNOWN_EVENT_WEEK</code>, and <span class="arithmatex">\(\eta\)</span> (<code>event_size</code>) is the step change in baseline NRx once <span class="arithmatex">\(t \geq t_0\)</span>. The brand team knows when payer access changed, making event week is valid input. The fitting code uses only that timing for fitting, not the event's true size.</p>
+<p><strong>Listing 13.5</strong>: Fit with controls and recheck the contribution scorecard</p>
+<div class="highlight"><pre><span></span><code><span class="n">controlled_draws</span> <span class="o">=</span> <span class="n">fit_bayesian_mmm</span><span class="p">(</span><span class="n">weekly</span><span class="p">,</span> <span class="n">use_controls</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">controlled_contrib</span> <span class="o">=</span> <span class="n">_channel_contributions</span><span class="p">(</span><span class="n">weekly</span><span class="p">,</span> <span class="n">controlled_draws</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;field&quot;</span><span class="p">,</span> <span class="s2">&quot;email&quot;</span><span class="p">,</span> <span class="s2">&quot;digital&quot;</span><span class="p">,</span> <span class="s2">&quot;paid_media&quot;</span><span class="p">):</span>
+    <span class="n">err</span> <span class="o">=</span> <span class="p">(</span><span class="n">controlled_contrib</span><span class="p">[</span><span class="n">ch</span><span class="p">]</span> <span class="o">-</span> <span class="n">truth</span><span class="p">[</span><span class="n">ch</span><span class="p">])</span> <span class="o">/</span> <span class="n">truth</span><span class="p">[</span><span class="n">ch</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ch</span><span class="si">:</span><span class="s2">12s</span><span class="si">}</span><span class="s2">  true=</span><span class="si">{</span><span class="n">truth</span><span class="p">[</span><span class="n">ch</span><span class="p">]</span><span class="si">:</span><span class="s2">6.2f</span><span class="si">}</span><span class="s2">  controlled=</span><span class="si">{</span><span class="n">controlled_contrib</span><span class="p">[</span><span class="n">ch</span><span class="p">]</span><span class="si">:</span><span class="s2">6.2f</span><span class="si">}</span><span class="s2">  error=</span><span class="si">{</span><span class="n">err</span><span class="si">:</span><span class="s2">+.1f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>field         true=104.74  controlled= 25.20  error=-75.9%
+email         true= 13.26  controlled= 13.63  error=+2.8%
+digital       true= 28.99  controlled= 35.33  error=+21.9%
+paid_media    true= 66.08  controlled= 61.17  error=-7.4%
+</code></pre></div>
+<p>Digital's error drops from +71.2% to +21.9% once the model is told about the event, the biggest single improvement so far. Field improves too, from -79.7% to -75.9%, a small move that reflects how little independent time-series variation field carries even after the event is controlled for. Paid media stays near -7.4% because its dark interval and off-season pulse give the model variation that does not line up with the yearly seasonal pattern. Total absolute contribution error across all four channels drops from 109.5 to 91.2, an improvement, but the controlled fit is still nowhere close to usable: field is still 75.9% below truth.</p>
+<p><em>Table 13.4. Posterior recovery, naive vs. controlled fit, key parameters.</em></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th style="text-align: right;">True</th>
+<th style="text-align: right;">Naive mean</th>
+<th>Naive 90% CI</th>
+<th style="text-align: right;">Controlled mean</th>
+<th>Controlled 90% CI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>field_decay</td>
+<td style="text-align: right;">0.40</td>
+<td style="text-align: right;">0.287</td>
+<td>[0.13, 0.45]</td>
+<td style="text-align: right;">0.328</td>
+<td>[0.12, 0.52]</td>
+</tr>
+<tr>
+<td>email_decay</td>
+<td style="text-align: right;">0.20</td>
+<td style="text-align: right;">0.091</td>
+<td>[0.01, 0.19]</td>
+<td style="text-align: right;">0.087</td>
+<td>[0.01, 0.18]</td>
+</tr>
+<tr>
+<td>digital_decay</td>
+<td style="text-align: right;">0.10</td>
+<td style="text-align: right;">0.304</td>
+<td>[0.19, 0.43]</td>
+<td style="text-align: right;">0.241</td>
+<td>[0.09, 0.40]</td>
+</tr>
+<tr>
+<td>paid_media_decay</td>
+<td style="text-align: right;">0.50</td>
+<td style="text-align: right;">0.479</td>
+<td>[0.41, 0.55]</td>
+<td style="text-align: right;">0.455</td>
+<td>[0.37, 0.53]</td>
+</tr>
+</tbody>
+</table>
+<p>The four rows show how the event control changes the recovered carryover pattern. Field's true decay is 0.40. The controlled mean, 0.328, moves closer than the naive mean, 0.287, but the interval remains wide because field has weak independent variation. Email's true decay is 0.20, but both fits estimate a shorter memory, about 0.09. The email bursts give the model enough variation to estimate contribution, but they do not pin down how long email's effect carries forward. Digital's true decay is only 0.10. The naive fit reads digital as much longer lasting, 0.304, because the spend ramp lines up with the access event. Adding the event control pulls it down to 0.241, still too high but closer. Paid media is the cleanest decay read: both fits stay close to the true 0.50 because its dark interval and off-season pulse give the model better variation to learn from.</p>
+<h3 id="1333-calibrate-field-with-a-geo-holdout">13.3.3 Calibrate Field with a Geo-Holdout</h3>
+<p>Field is still weak after the time-series controls because field calls do not move enough on their own. The calibration step adds one outside measurement: a field-only geo-holdout. <code>generate_field_geo_holdout()</code> in <code>data.py</code> creates 18 under-called geographies that start at 2.0 calls per rep per week. The brand raises call frequency by 2.5 calls and measures the incremental NRx response after both test and control geographies reach steady state.</p>
+<p>The geo-holdout measures a segment of field's response curve: how much NRx should increase when calls move from a lower level to a higher level. Calibration adds a penalty term to the log-posterior that compares the adstock-and-Hill response, evaluated at the geo-holdout's two tested call levels, against the measured increment:</p>
+<div class="arithmatex">\[
+\Delta_c(\theta) = \beta_c \left[ \frac{1}{1+(z_{\text{hi}}/k_c)^{-s_c}} - \frac{1}{1+(z_{\text{lo}}/k_c)^{-s_c}} \right]
+\]</div>
+<div class="arithmatex">\[
+\log p_{\text{geo}}(\theta) = -\frac{1}{2}\left(\frac{\Delta_c(\theta) - \overline{\Delta}_{\text{geo}}}{\sigma_{\text{geo}}}\right)^2
+\]</div>
+<p>Here, <span class="arithmatex">\(c\)</span> is field, <span class="arithmatex">\(z_{\text{lo}}\)</span> and <span class="arithmatex">\(z_{\text{hi}}\)</span> are its adstocked call level at the geo-holdout's starting rate and its stepped-up rate, and <span class="arithmatex">\(\overline{\Delta}_{\text{geo}}\)</span> (<code>mean_incremental_nrx</code>) and <span class="arithmatex">\(\sigma_{\text{geo}}\)</span> (<code>sd_incremental_nrx</code>) are the geo-holdout's measured incremental NRx and its uncertainty. This penalty adds to the log-posterior alongside the likelihood and the ordinary priors, and it touches only field's own coefficient, decay, EC50, and slope; every other channel's term in the regression is untouched. <code>_geo_prior_penalty()</code> in <code>model.py</code> implements it through <code>input_level</code>, <code>delta_input</code>, <code>mean_incremental_nrx</code>, and <code>sd_incremental_nrx</code>.</p>
+<p>A test from 2.0 calls per rep per week is below the national average, so it teaches the model about the lower part of the field response curve.</p>
+<p><strong>Listing 13.6</strong>: Build the geo-holdout prior and refit</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">data</span><span class="w"> </span><span class="kn">import</span> <span class="n">generate_field_geo_holdout</span>
+
+<span class="n">geo_holdout</span> <span class="o">=</span> <span class="n">generate_field_geo_holdout</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;input level=</span><span class="si">{</span><span class="n">geo_holdout</span><span class="p">[</span><span class="s1">&#39;input_level&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> calls  delta=</span><span class="si">{</span><span class="n">geo_holdout</span><span class="p">[</span><span class="s1">&#39;delta_input&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> calls  n_geos=</span><span class="si">{</span><span class="n">geo_holdout</span><span class="p">[</span><span class="s1">&#39;n_geos&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;geo-holdout read: mean incremental NRx=</span><span class="si">{</span><span class="n">geo_holdout</span><span class="p">[</span><span class="s1">&#39;mean_incremental_nrx&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">  sd=</span><span class="si">{</span><span class="n">geo_holdout</span><span class="p">[</span><span class="s1">&#39;sd_incremental_nrx&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">calibrated_draws</span> <span class="o">=</span> <span class="n">fit_bayesian_mmm</span><span class="p">(</span><span class="n">weekly</span><span class="p">,</span> <span class="n">use_controls</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">geo_prior</span><span class="o">=</span><span class="n">geo_holdout</span><span class="p">)</span>
+<span class="n">calibrated_contrib</span> <span class="o">=</span> <span class="n">_channel_contributions</span><span class="p">(</span><span class="n">weekly</span><span class="p">,</span> <span class="n">calibrated_draws</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;field&quot;</span><span class="p">,</span> <span class="s2">&quot;email&quot;</span><span class="p">,</span> <span class="s2">&quot;digital&quot;</span><span class="p">,</span> <span class="s2">&quot;paid_media&quot;</span><span class="p">):</span>
+    <span class="n">err</span> <span class="o">=</span> <span class="p">(</span><span class="n">calibrated_contrib</span><span class="p">[</span><span class="n">ch</span><span class="p">]</span> <span class="o">-</span> <span class="n">truth</span><span class="p">[</span><span class="n">ch</span><span class="p">])</span> <span class="o">/</span> <span class="n">truth</span><span class="p">[</span><span class="n">ch</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ch</span><span class="si">:</span><span class="s2">12s</span><span class="si">}</span><span class="s2">  true=</span><span class="si">{</span><span class="n">truth</span><span class="p">[</span><span class="n">ch</span><span class="p">]</span><span class="si">:</span><span class="s2">6.2f</span><span class="si">}</span><span class="s2">  calibrated=</span><span class="si">{</span><span class="n">calibrated_contrib</span><span class="p">[</span><span class="n">ch</span><span class="p">]</span><span class="si">:</span><span class="s2">6.2f</span><span class="si">}</span><span class="s2">  error=</span><span class="si">{</span><span class="n">err</span><span class="si">:</span><span class="s2">+.1f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>input level=2.0 calls  delta=2.5 calls  n_geos=18
+geo-holdout read: mean incremental NRx=69.28  sd=3.99
+
+field         true=104.74  calibrated= 87.43  error=-16.5%
+email         true= 13.26  calibrated= 10.51  error=-20.7%
+digital       true= 28.99  calibrated= 21.29  error=-26.6%
+paid_media    true= 66.08  calibrated= 58.60  error=-11.3%
+</code></pre></div>
+<p>Field improves sharply, from -75.9% to -16.5%, the single largest move so far, and total absolute contribution error across all four channels drops from 91.2 to 35.2. Before calibration, the controlled fit's own posterior implies an incremental response of only 16.05 NRx over the same 2.0-to-4.5-call segment the geo-holdout tested, versus the geo-holdout's measured 69.28; after calibration, the model-implied increment moves to 65.78, within noise of the measurement. Digital and paid media both move too, digital from +21.9% to -26.6% and paid media from -7.4% to -11.3%, because tightening field's scale changes what is left over for the rest of the joint decomposition to explain; email moves from +2.8% to -20.7% for the same reason. That is what a single-channel calibration produces: it disciplines the channel it targets precisely, and it reshuffles the rest of the decomposition as a side effect, for better or worse. To fix these, we need additional tests on these channels as well.</p>
+<p>Calibration is not the only thing that can move a coefficient; a wider or narrower prior can too. Exercise 4 pushes on that directly, refitting each channel under a shifted channel-coefficient prior to check how much of its fitted contribution comes from the geo-holdout evidence versus from the prior's own starting guess.</p>
+<p><img alt="Figure 13.5. Contribution error ladder across naive, controlled, and calibrated fits. Synthetic data." src="../assets/figures/figure_13_5_naive_vs_truth.svg" /></p>
+<p><em>Figure 13.5. Contribution error ladder across naive, controlled, and calibrated fits. Synthetic data.</em></p>
+<h3 id="1334-setting-each-channels-decision-status">13.3.4 Setting Each Channel's Decision Status</h3>
+<p>The next question after the calibrated fit is whether each channel estimate is strong enough to use in a budget decision.</p>
+<p>Three checks per channel are combined to make that decision: <span class="arithmatex">\(\hat{R}\)</span>, whether the sampler mixed well enough to trust the posterior summary; the channel-variation diagnostic, whether the channel moved enough on its own to be told apart from other patterns; and its correlation with a baseline control, whether it is confounded with the event or seasonality. The thresholds are illustrative, author-set judgment calls, not tuned to this dataset's known answer.</p>
+<p><em>Table 13.5. Model-health gate thresholds.</em></p>
+<table>
+<thead>
+<tr>
+<th>Check</th>
+<th>Decision-ready</th>
+<th>Directional</th>
+<th>Not-usable</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\hat{R}\)</span>, worst of the channel's 4 parameters</td>
+<td>&lt; 1.20</td>
+<td>1.20 to 1.50</td>
+<td>&gt; 1.50</td>
+</tr>
+<tr>
+<td>Correlation with a baseline control</td>
+<td>&lt; 0.60</td>
+<td>0.60 to 0.95</td>
+<td>&gt; 0.95</td>
+</tr>
+<tr>
+<td>Coefficient of variation, own-series</td>
+<td>&gt; 0.15</td>
+<td>0.05 to 0.15</td>
+<td>&lt; 0.05</td>
+</tr>
+</tbody>
+</table>
+<p>A channel clears the gate as decision-ready only if it clears all 3 decision-ready thresholds; it is classified not usable if it crosses either not-usable threshold; everything in between is directional.</p>
+<p><code>measurement_decision_record()</code> in <code>run_analysis.py</code> runs the 3 checks above and returns one status per channel, with the specific reason behind it.</p>
+<p><em>Table 13.6. Measurement decision status by channel.</em></p>
+<table>
+<thead>
+<tr>
+<th>Channel</th>
+<th>Decision status</th>
+<th>Calibration-dependent</th>
+<th>Reasons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>field</td>
+<td>directional</td>
+<td>Yes</td>
+<td>own-series coefficient of variation 0.08 (directional: 0.05-0.15)</td>
+</tr>
+<tr>
+<td>email</td>
+<td>decision-ready</td>
+<td>No</td>
+<td>clears <span class="arithmatex">\(\hat{R}\)</span>, correlation, and variation thresholds</td>
+</tr>
+<tr>
+<td>digital</td>
+<td>directional</td>
+<td>No</td>
+<td>worst channel <span class="arithmatex">\(\hat{R}\)</span> 1.201 (directional: 1.20-1.50); correlation with a baseline control 0.90 (directional: 0.60-0.95)</td>
+</tr>
+<tr>
+<td>paid_media</td>
+<td>directional</td>
+<td>No</td>
+<td>worst channel <span class="arithmatex">\(\hat{R}\)</span> 1.237 (directional: 1.20-1.50)</td>
+</tr>
+</tbody>
+</table>
+<p>Only email clears every threshold outright, the smallest channel by spend and the one with independent variation. Field is flagged calibration dependent: its calibrated estimate is accurate, but its own-series coefficient of variation, 0.08, is too low to trust without the geo-holdout behind it. Field's decision-ready status depends on the external measurement remaining valid. Digital fails on 2 counts at once, most importantly its 0.90 correlation with the event indicator, the residual trace of the confound the naive fit demonstrated. Paid media clears every check except <span class="arithmatex">\(\hat{R}\)</span>. None of the four is classified not usable outright, but only one is unconditionally decision-ready, and the budget optimization below uses that channel status in its bounds.</p>
+<h3 id="1335-similar-fit-different-decomposition">13.3.5 Similar Fit, Different Decomposition</h3>
+<p>A good prediction score does not guarantee a correct decomposition. The calibrated fit contains thousands of parameter draws that survived the same likelihood, priors, and geo-holdout penalty. Two draws can fit observed weekly NRx almost identically and still split credit across channels differently. Field's own share barely moves across those draws now, because the geo-holdout penalty anchors it; digital carries the disagreement instead, since nothing outside the model yet constrains it and it still correlates 0.90 with the formulary event.</p>
+<p><strong>Listing 13.9</strong>: Score every calibrated-fit draw on fit and decomposition</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">run_analysis</span><span class="w"> </span><span class="kn">import</span> <span class="n">build_pareto_front</span>
+
+<span class="n">pareto</span> <span class="o">=</span> <span class="n">build_pareto_front</span><span class="p">(</span><span class="n">weekly</span><span class="p">,</span> <span class="n">truth</span><span class="p">,</span> <span class="n">calibrated_draws</span><span class="p">)</span>
+<span class="n">top8</span> <span class="o">=</span> <span class="n">pareto</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;nrmse&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span>
+    <span class="s2">&quot;decomp_rssd&quot;</span><span class="p">:</span> <span class="s2">&quot;rssd&quot;</span><span class="p">,</span> <span class="s2">&quot;digital_contribution&quot;</span><span class="p">:</span> <span class="s2">&quot;digital_contrib&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;digital_pct_error&quot;</span><span class="p">:</span> <span class="s2">&quot;digital_err_pct&quot;</span><span class="p">,</span> <span class="s2">&quot;pareto_efficient&quot;</span><span class="p">:</span> <span class="s2">&quot;pareto_eff&quot;</span><span class="p">,</span>
+<span class="p">})</span>
+<span class="n">top8</span><span class="p">[</span><span class="s2">&quot;nrmse&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">top8</span><span class="p">[</span><span class="s2">&quot;nrmse&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">top8</span><span class="p">[</span><span class="s2">&quot;rssd&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">top8</span><span class="p">[</span><span class="s2">&quot;rssd&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">top8</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;draws: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">pareto</span><span class="p">)</span><span class="si">}</span><span class="s2">  nrmse range: </span><span class="si">{</span><span class="n">pareto</span><span class="p">[</span><span class="s1">&#39;nrmse&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">pareto</span><span class="p">[</span><span class="s1">&#39;nrmse&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">  &quot;</span>
+      <span class="sa">f</span><span class="s2">&quot;pareto-efficient: </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">pareto</span><span class="p">[</span><span class="s1">&#39;pareto_efficient&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code> draw  nrmse   rssd  digital_contrib  digital_err_pct  pareto_eff
+  117 0.0261  0.232            38.17             31.7        True
+ 2388 0.0261  0.232            38.17             31.7       False
+ 1252 0.0263  0.234            35.71             23.2       False
+ 1087 0.0263  0.203            28.19             -2.8        True
+  672 0.0264  0.201            23.26            -19.8        True
+ 2315 0.0264  0.176            27.55             -5.0        True
+  146 0.0264  0.190            29.21              0.8       False
+  685 0.0264  0.231            33.84             16.7       False
+draws: 2400  nrmse range: 0.0261-0.0316  pareto-efficient: 18
+</code></pre></div>
+<p><code>nrmse</code> is in-sample fit error. <code>decomp_rssd</code> is a second, independent objective borrowed from Robyn, Meta's open-source MMM package. Robyn calls each candidate parameter combination it tries a <em>model</em>, and its key innovation was to stop picking the single best-fitting model and instead score every candidate model on two objectives at once, fit and decomposition plausibility. <code>decomp_rssd</code> is Robyn's name for that second objective here: the root-sum-square distance between each channel's dollar-spend share and its NRx-effect share in that draw, a number computable with no ground truth. The two trade off: a draw can fit the observed weekly NRx closely while still assigning channel credit implausibly, or give up a sliver of fit accuracy for a more plausible split. A draw is Pareto efficient if no other draw beats it on both <code>nrmse</code> and <code>decomp_rssd</code> at once; the Pareto front is that set of non-dominated draws. Across all 2,400 draws, nrmse ranges only from 0.0261 to 0.0316. Narrow the set to the best-fitting fifth, nrmse at or below 0.0274, and decomp_rssd still ranges from 0.135 to 0.283. Digital's contribution error against ground truth ranges from -93.8% to +64.1% among draws the likelihood alone cannot separate, wide enough to swing from over-crediting digital to under-crediting it. 18 of the 2,400 draws sit on the Pareto front, marked in Figure 13.6.</p>
+<p><img alt="Figure 13.6. In-sample NRMSE against decomp.RSSD for 2,400 calibrated-fit posterior draws. Two draws with essentially the same fit score disagree by more than 50 points on digital's true contribution. Synthetic data." src="../assets/figures/figure_13_6_pareto_front.svg" /></p>
+<p><em>Figure 13.6. In-sample NRMSE against decomp.RSSD for 2,400 calibrated-fit posterior draws. Two draws with essentially the same fit score disagree by more than 50 points on digital's true contribution. Synthetic data.</em></p>
+<p>A tuning loop that selects the single best-fitting parameter set can land in that flat left-hand band and report whichever decomposition that draw produced. Robyn exposes this problem through a Pareto front. The hand-built posterior exposes it through draw-level diagnostics. In both cases, calibration and business plausibility break ties after model-health checks. Fit score alone cannot clear a channel for budget movement.</p>
+<blockquote>
+<p><strong>Note: where did the tuning step go?</strong> A reader coming from a classical regression MMM might expect a hyperparameter search over adstock decay, a ridge penalty, and saturation shapes. In this Bayesian MMM, those quantities are sampled inside the posterior. The prior width does the regularization work, and predictive fit is checked against identifiability, known controls, experiment calibration, and the fit-decomposition Pareto front.</p>
+</blockquote>
+<h3 id="1336-production-mmm-choice">13.3.6 Production MMM Choice</h3>
+<p>The MMM built above uses hand-written Python code as the teaching layer. A pharmaceutical commercial analytics team may also choose to build in house code, or choose a production open-source MMM stack for larger data sets, stronger samplers, and production diagnostics.</p>
+<p><em>Table 13.7. Hand-built model vs. production MMM stacks.</em></p>
+<table>
+<thead>
+<tr>
+<th>Stack</th>
+<th>Framework</th>
+<th>Best-fit data structure</th>
+<th>Inference method</th>
+<th>Calibration mechanism</th>
+<th>When to reach for it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hand-built (used above)</td>
+<td>NumPy, custom Metropolis-Hastings</td>
+<td>National weekly time series</td>
+<td>Custom MCMC, 4 chains</td>
+<td>Geo-holdout prior injected directly into the log-posterior</td>
+<td>Teaching, auditing every assumption, or a small team without a geo/DMA panel</td>
+</tr>
+<tr>
+<td>Meridian (Google)</td>
+<td>TensorFlow Probability</td>
+<td>Geo- or DMA-level panel</td>
+<td>Hamiltonian Monte Carlo</td>
+<td>Built-in ROI priors, calibrated from experiment history</td>
+<td>A brand with a real geo panel and existing experiment or geo-test history</td>
+</tr>
+<tr>
+<td>Robyn (Meta)</td>
+<td>R, Prophet + ridge regression</td>
+<td>National or regional time series</td>
+<td>Ridge regression scored across a Pareto front (Nevergrad evolutionary search)</td>
+<td>Calibration inputs feed the Pareto-front selection, not the fit itself</td>
+<td>A team with an existing R-based MMM workflow already built around Pareto-front selection</td>
+</tr>
+<tr>
+<td>PyMC-Marketing</td>
+<td>PyMC (Python)</td>
+<td>National or regional time series</td>
+<td>Bayesian MCMC (NUTS)</td>
+<td>Custom priors sized to the team's own NRx and spend scale</td>
+<td>A Python-native team that wants Bayesian flexibility without hand-writing the sampler</td>
+</tr>
+</tbody>
+</table>
+<p>Google's Meridian is usually the better fit once a brand has a real geo or DMA panel. Meta's Robyn is useful when an R-based MMM workflow and Pareto-front selection already exist. PyMC-Marketing is closest in spirit to the hand-built model above: the team sizes priors and controls to its own NRx and spend scale while the package supplies the sampler.</p>
+<h2 id="134-build-the-unified-measurement-evidence">13.4 Build The Unified Measurement Evidence</h2>
+<p>The MMM has now classified each channel estimate and placed those estimates beside attribution, experiment, geo-holdout, and natural-experiment reads at the channel level.</p>
+<p>The omnichannel attribution read tracks 10 recorded touchpoint types because path attribution needs to preserve the customer journey. The MMM workflow models four budget levers: field, email, digital, and paid media. Digital is the clearest case: authenticated web paths are useful as a digital scope check. The full digital spend lever used by MMM also includes other digital activity.</p>
+<p>Every measurement records the metric, population, window, intervention, and allowed use. Table 13.8 shows the rows that most relevant for the field and digital decision.</p>
+<p><em>Table 13.8. Measurement reads compared before use.</em></p>
+<table>
+<thead>
+<tr>
+<th>Channel</th>
+<th>Method family</th>
+<th>Comparable to MMM</th>
+<th>Allowed use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>field</td>
+<td>Attribution</td>
+<td>Partial</td>
+<td>Sanity check only</td>
+</tr>
+<tr>
+<td>field</td>
+<td>Randomized experiment</td>
+<td>Partial</td>
+<td>Fallback calibration or scope check</td>
+</tr>
+<tr>
+<td>field</td>
+<td>Geo-holdout</td>
+<td>Yes</td>
+<td>Calibrate prior</td>
+</tr>
+<tr>
+<td>field</td>
+<td>MMM</td>
+<td>Yes</td>
+<td>Portfolio allocation</td>
+</tr>
+<tr>
+<td>digital</td>
+<td>Attribution</td>
+<td>Partial</td>
+<td>Proxy sanity check only</td>
+</tr>
+<tr>
+<td>digital</td>
+<td>MMM</td>
+<td>Yes</td>
+<td>Portfolio allocation</td>
+</tr>
+<tr>
+<td>portfolio_baseline</td>
+<td>Natural experiment</td>
+<td>No</td>
+<td>Baseline control only</td>
+</tr>
+</tbody>
+</table>
+<p>The field geo-holdout is comparable to MMM because both are expressed as incremental weekly NRx against a field response-curve segment. Field attribution and the randomized experiment are useful cross-checks, but their metrics and populations differ from the national MMM series. Digital attribution is narrower still: it reads authenticated web paths, while the MMM digital lever includes the full digital spend stream. The natural-experiment access event controls baseline movement. It is not a channel-spend measurement.</p>
+<h3 id="1341-one-channel-four-measurements">13.4.1 One Channel, Four Measurements</h3>
+<p>Field calls have four measurement reads in this workflow: 17.3% of conversion credit from omnichannel Markov removal-effect attribution, a 27.2% relative lift from the account-cycle randomized experiment, 69.28 incremental weekly NRx from the field geo-holdout, and 49.2% of decomposed NRx contribution in the calibrated MMM (87.43 of a 177.83 total across the four modeled budget channels). Each read answers a specific planning question.</p>
+<p><em>Table 13.9. Field-call measurement reads, compared before use.</em></p>
+<table>
+<thead>
+<tr>
+<th>Measurement method</th>
+<th>Field-calls read</th>
+<th>Metric and population</th>
+<th>Window and intervention</th>
+<th>Suitable use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Path attribution (Markov removal effect, Chapter 8)</td>
+<td>17.3% of conversion credit</td>
+<td>Conversion credit share among recorded converting paths across all 10 omnichannel touchpoint types</td>
+<td>Jan 2024 to Mar 2025 path history; observed field touches</td>
+<td>Sanity check for whether field appears on converting paths</td>
+</tr>
+<tr>
+<td>Randomized experiment (account-cycle ITT, Chapter 10)</td>
+<td>+27.2% incremental patient starts vs. control</td>
+<td>Incremental patient starts among treated and control accounts</td>
+<td>One account-cycle experiment; coordinated field and digital action</td>
+<td>Scope check or fallback anchor for the tested action bundle</td>
+</tr>
+<tr>
+<td>Geo-holdout calibration</td>
+<td>69.28 incremental weekly NRx across 18 geos</td>
+<td>Incremental weekly NRx in the synthetic field geo-holdout</td>
+<td>Tested field call segment from 2.00 calls plus 2.50 incremental calls</td>
+<td>Calibrate the field response curve segment</td>
+</tr>
+<tr>
+<td>Marketing mix model (calibrated posterior)</td>
+<td>49.2% of decomposed weekly NRx</td>
+<td>Average weekly NRx contribution in the national portfolio time series</td>
+<td>104-week planning series; all observed field spend over the full period</td>
+<td>Portfolio allocation, subject to the model-health gate</td>
+</tr>
+</tbody>
+</table>
+<p>The 10-channel attribution number is a journey read. It says field appears on a share of recorded converting paths. The experiment and geo-holdout are action reads. They measure what changed when a defined field-related intervention was assigned. The MMM number is a planning read across the four budget levers. It estimates field's average contribution inside the portfolio response curve.</p>
+<h3 id="1342-the-full-channel-measurement-evidence">13.4.2 The Full Channel Measurement Evidence</h3>
+<p>Field calls are one worked example. Table 13.10 extends the same comparability rules to every channel, without yet turning that evidence into a spend number: that conversion from evidence tier to budget bound happens next, once every channel's tier is on the table.</p>
+<p><em>Table 13.10. Channel evidence record and evidence tier.</em></p>
+<table>
+<thead>
+<tr>
+<th>Channel</th>
+<th>Non-MMM support available</th>
+<th>MMM contribution and status</th>
+<th>Evidence tier</th>
+<th>Recommended next test</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>field</td>
+<td>Attribution, account-cycle experiment, and geo-holdout calibration</td>
+<td>87.43; directional</td>
+<td>causal-anchored</td>
+<td>Refresh the calibration periodically; monitor for drift</td>
+</tr>
+<tr>
+<td>email</td>
+<td>Attribution only</td>
+<td>10.51; decision-ready</td>
+<td>mmm-only decision-ready</td>
+<td>Add a low-cost incrementality or holdout test to anchor this channel before scaling meaningfully beyond current spend</td>
+</tr>
+<tr>
+<td>digital</td>
+<td>Authenticated web attribution proxy only</td>
+<td>21.29; directional</td>
+<td>mmm-only directional</td>
+<td>Run a targeted holdout or geo experiment to sharpen decomposition before requesting a wider bound</td>
+</tr>
+<tr>
+<td>paid_media</td>
+<td>Attribution only</td>
+<td>58.60; directional</td>
+<td>mmm-only directional</td>
+<td>Run a targeted holdout or geo experiment to sharpen decomposition before requesting a wider bound</td>
+</tr>
+</tbody>
+</table>
+<p>Table 13.10 shows the evidence tier for each channel: field is causal-anchored (attribution, an experiment, and a geo-holdout all back it), email is mmm-only decision-ready (the MMM fit clears its own health checks, but nothing outside the model confirms it), and digital and paid media are mmm-only directional (neither a causal anchor nor a clean model-health read). Email and paid media have direct attribution reads from the omnichannel work. Digital has a partial proxy from authenticated web paths, useful as a scope check and too narrow to calibrate MMM or widen the budget guardrail on its own. The natural-experiment formulary-event read informs the MMM baseline control.</p>
+<p>Field gets a bounded move because its causal anchor exists but its national MMM signal remains directional. Email gets an increase cap because its MMM read is clean but unanchored. Digital and paid media stay in the tightest band because they have no causal anchor and their MMM reads are directional. The next section turns these guardrails into the actual spend recommendation.</p>
+<h2 id="135-set-the-budget-recommendation">13.5 Set the Budget Recommendation</h2>
+<p>Roventra now has to decide how far each channel can move in the next budget cycle. The measurement evidence needs to separate the channels the brand can scale with more confidence from the channels that still need a tighter range or another test. This section turns that evidence into response curves, budget limits, and one recommendation for finance, commercial leadership, and the next measurement plan.</p>
+<h3 id="1351-response-curves-marginal-roi-and-saturation">13.5.1 Response Curves, Marginal ROI, and Saturation</h3>
+<p>With the calibrated posterior in hand, each channel's response curve sweeps its budget from $0 to the larger of twice the observed mean spend and 1.25 times the observed maximum spend, then reports the expected contribution with a 10th-to-90th percentile credible band across posterior draws. For the field channel, the curve is fit in calls and then shown on the dollar scale for budget comparison.</p>
+<p><img alt="Figure 13.7. Calibrated response curves by channel, with 10th-90th percentile posterior bands and observed weekly spend ranges. Synthetic data." src="../assets/figures/figure_13_7_response_curves.svg" /></p>
+<p><em>Figure 13.7. Calibrated response curves by channel, with 10th-90th percentile posterior bands and observed weekly spend ranges. Synthetic data.</em></p>
+<p>The observed spend overlay shows where the brand actually operated each week on each channel's own curve. The diamond marks the current weekly mean spend, and the X marks the saturation point, the spend level where the posterior-median response reaches 80% of its channel maximum. The thick highlighted part of the curve marks the 10th-to-90th percentile weekly spend range, and the faint extension marks the full min-to-max range.</p>
+<p><strong>Listing 13.12</strong>: Marginal ROI and saturation at current spend</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">response_curves</span><span class="w"> </span><span class="kn">import</span> <span class="n">compute_marginal_roi</span><span class="p">,</span> <span class="n">find_saturation_points</span>
+
+<span class="n">mroi</span> <span class="o">=</span> <span class="n">compute_marginal_roi</span><span class="p">(</span><span class="n">weekly</span><span class="p">,</span> <span class="n">calibrated_draws</span><span class="p">)</span>
+<span class="n">sat</span> <span class="o">=</span> <span class="n">find_saturation_points</span><span class="p">(</span><span class="n">weekly</span><span class="p">,</span> <span class="n">calibrated_draws</span><span class="p">)</span>
+<span class="n">combined</span> <span class="o">=</span> <span class="n">mroi</span><span class="p">[[</span><span class="s2">&quot;channel&quot;</span><span class="p">,</span> <span class="s2">&quot;marginal_roi_mean&quot;</span><span class="p">,</span> <span class="s2">&quot;marginal_roi_p10&quot;</span><span class="p">,</span> <span class="s2">&quot;marginal_roi_p90&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span>
+    <span class="n">sat</span><span class="p">[[</span><span class="s2">&quot;channel&quot;</span><span class="p">,</span> <span class="s2">&quot;saturation_spend_median&quot;</span><span class="p">,</span> <span class="s2">&quot;current_weekly_spend&quot;</span><span class="p">,</span> <span class="s2">&quot;at_or_above_saturation&quot;</span><span class="p">]],</span>
+    <span class="n">on</span><span class="o">=</span><span class="s2">&quot;channel&quot;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span>
+<span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span>
+    <span class="s2">&quot;marginal_roi_mean&quot;</span><span class="p">:</span> <span class="s2">&quot;mroi&quot;</span><span class="p">,</span> <span class="s2">&quot;marginal_roi_p10&quot;</span><span class="p">:</span> <span class="s2">&quot;p10&quot;</span><span class="p">,</span> <span class="s2">&quot;marginal_roi_p90&quot;</span><span class="p">:</span> <span class="s2">&quot;p90&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;saturation_spend_median&quot;</span><span class="p">:</span> <span class="s2">&quot;sat_spend&quot;</span><span class="p">,</span> <span class="s2">&quot;current_weekly_spend&quot;</span><span class="p">:</span> <span class="s2">&quot;current_spend&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;at_or_above_saturation&quot;</span><span class="p">:</span> <span class="s2">&quot;at_or_above_sat&quot;</span><span class="p">,</span>
+<span class="p">})</span>
+<span class="n">combined</span><span class="p">[[</span><span class="s2">&quot;mroi&quot;</span><span class="p">,</span> <span class="s2">&quot;p10&quot;</span><span class="p">,</span> <span class="s2">&quot;p90&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">combined</span><span class="p">[[</span><span class="s2">&quot;mroi&quot;</span><span class="p">,</span> <span class="s2">&quot;p10&quot;</span><span class="p">,</span> <span class="s2">&quot;p90&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">combined</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>   channel  mroi  p10  p90  sat_spend  current_spend  at_or_above_sat
+     email  0.70 0.57 0.84       64.1           19.5            False
+paid_media  0.30 0.25 0.37      134.8          113.2            False
+   digital  0.24 0.12 0.35      193.6           87.8            False
+     field  0.10 0.07 0.13      342.6          366.7             True
+</code></pre></div>
+<p>Marginal ROI is the local slope of the curve at the current spend level, expressed as expected NRx per additional dollar. Email has the highest marginal ROI by a wide margin, 0.70 NRx per additional dollar, followed by paid media and digital. Field is lowest at 0.10 NRx per additional budget dollar, and its 80% saturation point sits below current spend at 4.31 weekly calls ($366.7), field has already passed the point where its curve bends over, so its low marginal ROI reflects a channel running past its efficient range. Email, by contrast, is running well below the point where its own curve starts to bend. The combination of headroom and marginal ROI that makes it the strongest candidate for incremental spend.</p>
+<h3 id="1352-budget-optimization-and-the-unified-recommendation">13.5.2 Budget Optimization and the Unified Recommendation</h3>
+<p>Table 13.10 sorted each channel into an evidence tier. This section turns that tier into an actual spend bound, then searches for the reallocation that maximizes expected NRx inside those bounds.</p>
+<p>A channel only earns an unconstrained move, anywhere from $0 to the full budget, if it clears both tests at once: a causal anchor exists <em>and</em> the MMM's own diagnostics are decision-ready. None of Roventra's four channels currently clear both, so all four land in a narrower band, sized by which single test the channel passes and by which kind of mistake that test rules out:</p>
+<ul>
+<li><strong>Digital and paid media</strong> get the tightest band, ±10%, because they clear neither test: no causal anchor, and the MMM's own diagnostics for these two channels are still directional, meaning the fitted response curve itself, not just its absolute level, is not well identified on the national time series alone. A band this tight is saying "do not move far from the status quo", the outside range is not tested and can't be exptropolated.</li>
+<li><strong>Field</strong> gets a wider band, ±20%, because a causal anchor exists (an experiment and a geo-holdout both back it) even though field's own MMM diagnostics also remain directional. The outside evidence confirms roughly how much lift a <em>tested</em> change in call volume produced; it does not confirm the full shape of field's curve at every spend level, so the model's uncertainty still caps how far that evidence is trusted to move budget.</li>
+<li><strong>Email</strong> gets the widest band on the upside, +30%, and no floor at all. Its MMM fit is decision-ready on its own, clean <span class="arithmatex">\(\hat{R}\)</span>, real variation, no confound, so the curve's <em>shape</em> is trusted more than field's or digital's. What is still missing is external confirmation of the curve's <em>level</em>: no experiment or geo test exists for email, so a hidden confound the health gate cannot see could still be inflating the estimate. That risk is asymmetric. Cutting spend based on an overstated number costs little, at most some foregone NRx, an error a later test can correct. Scaling spend up based on the same overstated number spends real money chasing a benefit that may not be there. The guardrail is priced to match: decreases are unrestricted because the loss from being wrong is small and reversible, increases are capped well below the model's own confidence because the loss from being wrong is real cash.</li>
+</ul>
+<p>Every channel's guardrail band defines a range of dollars it is allowed to occupy. The optimizer's job is to pick one spend value inside each channel's range so that the four values sum to the current total budget and expected weekly NRx, summed across each channel's response curve from earlier in this section, is as large as possible. Mechanically, it keeps moving a dollar from whichever channel has the <em>lowest</em> marginal ROI, the flattest part of its response curve, to whichever channel has the <em>highest</em>, until either every channel's marginal ROI is equal or a guardrail bound stops the move. Table 13.11 below is that outcome: digital and paid media get pushed to their ceiling because even at the top of their allowed range their marginal ROI still beats field's, and field gets cut because its marginal ROI, 0.10 NRx per dollar against email's 0.70, is the lowest in the portfolio. The guardrails are what stop the optimizer from pushing further in every one of those directions.</p>
+<p>The response curves come from a posterior distribution over channel coefficients, decay rates, and saturation points. So this search runs separately for 80 posterior draws, each with its own set of curves, producing 80 different optimal allocations rather than one. The "optimized" spend in Listing 13.13 is the median of those 80 per-draw solutions; the 10th-to-90th percentile range across the same 80 draws is the actual uncertainty behind that median, a distribution, not a single deterministic answer.</p>
+<p><strong>Listing 13.13</strong>: Reallocate at the current budget, gated by evidence-aware guardrails</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">optimization</span><span class="w"> </span><span class="kn">import</span> <span class="n">optimal_allocation_by_draw</span><span class="p">,</span> <span class="n">evaluate_reallocation</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">channels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;field&quot;</span><span class="p">,</span> <span class="s2">&quot;email&quot;</span><span class="p">,</span> <span class="s2">&quot;digital&quot;</span><span class="p">,</span> <span class="s2">&quot;paid_media&quot;</span><span class="p">]</span>
+<span class="n">decision_status</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">decision_record</span><span class="p">[</span><span class="s2">&quot;channel&quot;</span><span class="p">],</span> <span class="n">decision_record</span><span class="p">[</span><span class="s2">&quot;decision_status&quot;</span><span class="p">]))</span>
+<span class="n">guardrails</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;assets/generated_outputs/measurement_guardrails.csv&quot;</span><span class="p">)</span>
+<span class="n">guardrail_map</span> <span class="o">=</span> <span class="n">guardrails</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;channel&quot;</span><span class="p">)</span>
+<span class="n">current_spends</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">weekly</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;spend_</span><span class="si">{</span><span class="n">ch</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">channels</span><span class="p">])</span>
+<span class="n">current_budget</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">current_spends</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+<span class="n">allocation_summary</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">optimal_allocation_by_draw</span><span class="p">(</span>
+    <span class="n">current_spends</span><span class="p">,</span> <span class="n">current_budget</span><span class="p">,</span> <span class="n">calibrated_draws</span><span class="p">,</span> <span class="n">channels</span><span class="p">,</span>
+    <span class="n">decision_status</span><span class="o">=</span><span class="n">decision_status</span><span class="p">,</span> <span class="n">guardrails</span><span class="o">=</span><span class="n">guardrails</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">opt_spends</span> <span class="o">=</span> <span class="n">allocation_summary</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;channel&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">channels</span><span class="p">,</span> <span class="s2">&quot;optimized_weekly_spend_median&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+
+<span class="n">alloc</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;channel&quot;</span><span class="p">:</span> <span class="n">channels</span><span class="p">,</span> <span class="s2">&quot;current&quot;</span><span class="p">:</span> <span class="n">current_spends</span><span class="p">,</span> <span class="s2">&quot;optimized&quot;</span><span class="p">:</span> <span class="n">opt_spends</span><span class="p">})</span>
+<span class="n">alloc</span><span class="p">[</span><span class="s2">&quot;change_pct&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">alloc</span><span class="p">[</span><span class="s2">&quot;optimized&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">alloc</span><span class="p">[</span><span class="s2">&quot;current&quot;</span><span class="p">])</span> <span class="o">/</span> <span class="n">alloc</span><span class="p">[</span><span class="s2">&quot;current&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">alloc</span><span class="p">[</span><span class="s2">&quot;current&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">alloc</span><span class="p">[</span><span class="s2">&quot;current&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">alloc</span><span class="p">[</span><span class="s2">&quot;optimized&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">alloc</span><span class="p">[</span><span class="s2">&quot;optimized&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">alloc</span><span class="p">[</span><span class="s2">&quot;move&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">guardrail_map</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">ch</span><span class="p">,</span> <span class="s2">&quot;move_permission&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">channels</span><span class="p">]</span>
+<span class="n">alloc</span><span class="p">[</span><span class="s2">&quot;max_pct&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">guardrail_map</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">ch</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;max_move_pct&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.0%</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="n">channels</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">alloc</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+
+<span class="n">decision</span> <span class="o">=</span> <span class="n">evaluate_reallocation</span><span class="p">(</span><span class="n">current_spends</span><span class="p">,</span> <span class="n">opt_spends</span><span class="p">,</span> <span class="n">calibrated_draws</span><span class="p">,</span> <span class="n">channels</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;mean_nrx: current=</span><span class="si">{</span><span class="n">decision</span><span class="p">[</span><span class="s1">&#39;mean_nrx_current&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">  candidate=</span><span class="si">{</span><span class="n">decision</span><span class="p">[</span><span class="s1">&#39;mean_nrx_candidate&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">  gain=</span><span class="si">{</span><span class="n">decision</span><span class="p">[</span><span class="s1">&#39;mean_nrx_gain&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;gain band: p10=</span><span class="si">{</span><span class="n">decision</span><span class="p">[</span><span class="s1">&#39;p10_nrx_gain&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">  p90=</span><span class="si">{</span><span class="n">decision</span><span class="p">[</span><span class="s1">&#39;p90_nrx_gain&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">  win_rate=</span><span class="si">{</span><span class="n">decision</span><span class="p">[</span><span class="s1">&#39;win_rate&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>   channel  current  optimized  change_pct            move max_pct
+     field    366.6      340.7        -7.1         bounded     20%
+     email     19.5       25.3        29.9 increase-capped     30%
+   digital     87.8       96.5        10.0         bounded     10%
+paid_media    113.2      124.5        10.0         bounded     10%
+
+mean_nrx: current=263.79  candidate=269.75  gain=5.96
+gain band: p10=4.38  p90=7.61  win_rate=1.000
+</code></pre></div>
+<p>The evidence-aware reallocation gains 5.96 NRx a week in expectation, with a 10th-to-90th percentile gain band of 4.38 to 7.61. That gain is intentionally smaller than an unconstrained, evidence-blind reallocation would produce: the guardrails trade away some of that raw gain to stay inside what the current evidence actually supports. Email moves to the top of its +30% band; digital and paid media move to the top of their tighter ±10% band; field is cut, inside its own ±20% band.</p>
+<p>Table 13.11 hands this allocation to the resource-allocation chapter: the spend itself, the evidence that justifies it, and what to do next.</p>
+<p><em>Table 13.11. Unified budget recommendation: optimized spend, the evidence behind it, and the next measurement action.</em></p>
+<table>
+<thead>
+<tr>
+<th>Channel</th>
+<th style="text-align: right;">Current spend</th>
+<th style="text-align: right;">Optimized spend</th>
+<th style="text-align: right;">Change</th>
+<th style="text-align: right;">Marginal ROI</th>
+<th>Headroom</th>
+<th>Evidence tier</th>
+<th>Allowed budget move</th>
+<th>Next measurement action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>field</td>
+<td style="text-align: right;">$366.6</td>
+<td style="text-align: right;">$340.7</td>
+<td style="text-align: right;">-7.1%</td>
+<td style="text-align: right;">0.10</td>
+<td><strong>above</strong> saturation</td>
+<td>causal anchored</td>
+<td>±20% of current spend</td>
+<td>Refresh the causal anchor</td>
+</tr>
+<tr>
+<td>email</td>
+<td style="text-align: right;">$19.5</td>
+<td style="text-align: right;">$25.3</td>
+<td style="text-align: right;">+29.9%</td>
+<td style="text-align: right;">0.70</td>
+<td>below saturation</td>
+<td>mmm only decision ready</td>
+<td>±30% of current spend</td>
+<td>Add a causal anchor</td>
+</tr>
+<tr>
+<td>digital</td>
+<td style="text-align: right;">$87.8</td>
+<td style="text-align: right;">$96.5</td>
+<td style="text-align: right;">+10.0%</td>
+<td style="text-align: right;">0.24</td>
+<td>below saturation</td>
+<td>mmm only directional</td>
+<td>±10% of current spend</td>
+<td>Add a causal anchor</td>
+</tr>
+<tr>
+<td>paid media</td>
+<td style="text-align: right;">$113.2</td>
+<td style="text-align: right;">$124.5</td>
+<td style="text-align: right;">+10.0%</td>
+<td style="text-align: right;">0.30</td>
+<td>below saturation</td>
+<td>mmm only directional</td>
+<td>±10% of current spend</td>
+<td>Add a causal anchor</td>
+</tr>
+</tbody>
+</table>
+<p>Figure 13.8 is actual budget permission each channel carries into planning: the rail is each channel's guardrail band, and the dot is where the optimizer landed inside it. Email and digital's dots sit at the very edge of their band, and paid media's does too; only field has visible room left inside its own.</p>
+<p><img alt="Figure 13.8. Channel Permission." src="../assets/figures/figure_13_8_channel_permission.svg" /></p>
+<p><em>Figure 13.8. Channel Permission.</em></p>
+<h2 id="136-operate-the-measurement-loop">13.6 Operate The Measurement Loop</h2>
+<p>Table 13.11 said 3 channels still need better evidence: digital, paid media, and field. The next measurement agenda put those 3 in order, digital first, paid media second, field third, and this section answers: when does each of those tests actually happen over the coming year, and what does the team do once it reads out?</p>
+<p>Start with why digital goes first. The model-health check earlier in the chapter found digital's own MMM estimate carries a 0.90 correlation with the formulary access event, the highest residual confound of any channel, meaning the model still cannot fully tell digital's own effect apart from the event's. That is the single largest source of doubt left in the whole evidence record, so it gets tested first. Paid media, whose main problem is a weaker <span class="arithmatex">\(\hat{R}\)</span> rather than a confound, goes second. Field goes last because existing evidence ages. A geo-holdout run 2 years ago says less about today's response curve than one run last quarter, so field's slot on the calendar is a scheduled refresh.</p>
+<p>Each readout has to change a budget permission, or the test did not answer the planning question.</p>
+<table>
+<thead>
+<tr>
+<th>Measurement readout</th>
+<th>Budget permission it can change</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Digital geo test</td>
+<td>A clean incremental read anchors digital and widens its band from ±10% to ±20%; a null read leaves it at ±10%</td>
+</tr>
+<tr>
+<td>Paid-media holdout</td>
+<td>Anchors paid media the same way, from ±10% to ±20%; a null read leaves it at ±10%</td>
+</tr>
+<tr>
+<td>Field calibration refresh</td>
+<td>Keeps field's causal anchor current at ±20%; skip it and the anchor goes stale, tightening the band</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Figure 13.9. Planned tests, readouts, MMM refreshes, and budget locks across a planning year." src="../assets/figures/figure_13_9_measurement_loop_calendar.svg" /></p>
+<p><em>Figure 13.9. Planned tests, readouts, MMM refreshes, and budget locks across a planning year.</em></p>
+<p>Figure 13.9 lays out one planning year with those 3 tests placed on a calendar.</p>
+<p>Follow the digital row first. The green bar is the test window, running for several weeks in the first quarter. The open circle just after it is the readout, the week the test's incremental-NRx result actually becomes available. The gold diamond on the MMM refresh row, at that same point, is the next quarterly refit, the one that gets to use digital's new result. And the star on the planning decision row, 2 weeks after that, is when the team actually sets that quarter's spend using the refreshed evidence. Test, readout, refit, decision, in that order.</p>
+<p>The blue bar and the pink bar repeat the same 4-step chain for paid media and field, later in the year. The thin blue ticks running across the very top row are attribution, reading every single week without a pause, the fastest signal on this whole calendar. But attribution was never enough to move budget on its own. It is on this calendar as a constant background check, not as a 4th test.</p>
+<p>The dashed line marks the budget lock, the point after which next year's spend is fixed. Every one of the 3 chains has to finish, test, readout, refit, decision, before that line.</p>
+<h2 id="137-summary">13.7 Summary</h2>
+<p>If you remember one thing, make it this: a marketing mix model's output is a hypothesis about what caused NRx to move, not proof of it. How far a channel's budget is allowed to move should scale with how much outside evidence backs that specific number, not with how good the model's fit looks. A model can predict weekly NRx well and still misattribute credit between channels, predictive fit and decomposition trust are different questions.</p>
+<p>A few supporting ideas carry beyond Roventra's specific numbers:</p>
+<ul>
+<li><strong>Model health is necessary, not sufficient.</strong> Clean diagnostics say a channel's own estimate is stable enough to read. They say nothing about whether an unmeasured confound is still biasing that estimate. Only outside evidence, an experiment, a geo-holdout, a natural experiment, closes that second gap.</li>
+<li><strong>Evidence tiers, not model output, should set how far a budget moves.</strong> A channel backed by a causal anchor and a channel backed by only a clean model fit are not equally trustworthy, and a guardrail should say so explicitly rather than leave the difference to a footnote.</li>
+<li><strong>The loop does not close.</strong> An evidence record from one planning cycle is a starting point for the next test, not a permanent verdict on a channel. The calendar of tests and refreshes is what keeps guardrails honest as evidence accumulates.</li>
+<li><strong>Method selection is itself a skill.</strong> Attribution, experiments, geo-holdouts, and MMM each answer a different question at a different speed. Knowing which one a decision actually needs, and which ones cannot answer it alone, matters more than any single method's sophistication.</li>
+</ul>
+<blockquote>
+<p><strong>What you have learned from this chapter:</strong> You can now build a Bayesian MMM, test whether each channel estimate is safe to use, calibrate a weak channel with a geo-holdout, compare MMM with attribution and experiment evidence, and turn the combined record into budget guardrails and a next-measurement agenda.</p>
+</blockquote>
+<h2 id="138-exercises">13.8 Exercises</h2>
+<ol>
+<li>Add a hypothetical paid-media holdout result: copy <code>channel_evidence_record.csv</code>, set paid media's <code>causal_signal</code>, <code>evidence_tier</code>, and <code>comparability_status</code> as if the holdout had just read out with a plausible incremental-NRx result, then rebuild <code>measurement_guardrails.csv</code> and <code>next_measurement_agenda.csv</code> from that updated record. Report how paid media's evidence tier, allowed move, and agenda rank change from before to after. Cite <code>build_channel_evidence_record()</code>, <code>build_measurement_guardrails()</code>, and <code>build_next_measurement_agenda()</code> in <code>run_analysis.py</code>.</li>
+<li>Give digital a stronger attribution number with no experiment added, then explain why the unified record should still leave digital bounded. Use <code>method_comparability_checks.csv</code> and Table 13.1 to show why a proxy or observational cross-check cannot promote a channel to causal-anchored on its own.</li>
+<li>Judgment question: using <code>unified_budget_recommendation.csv</code> and <code>next_measurement_agenda.csv</code>, write two to three sentences on what evidence you would want before widening any channel beyond its current guardrail.</li>
+<li>Prior sensitivity: a channel-coefficient prior's width works like a ridge penalty, and a weakly identified channel leans on it more. <code>PRIOR_COEF</code>, mean 60 and sd 50, is one shared prior on each channel's raw coefficient (<code>{channel}_coef</code>) in <code>_log_prior()</code>, the same starting belief for all four channels before the fit sees any data. Using <code>build_prior_sensitivity()</code> in <code>run_analysis.py</code>, refit the controlled and calibrated models with that prior's mean halved (30) and doubled (120), alongside the <code>default</code> (60) refit, and report each channel's swing in fitted contribution across the 3 runs, before and after calibration. Explain why one channel swings far more than the others, and why calibration changes that.</li>
+</ol>
+<p>The walkthrough and exercise-solutions notebooks (<code>ch13_walkthrough.ipynb</code>, <code>ch13_exercise_solutions.ipynb</code>) run every listing above, and every artifact behind it, against the same seed. The resource allocation chapter turns the unified budget recommendation produced here into a territory-level call plan under rep capacity constraints.</p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.indexes", "navigation.top", "navigation.expand", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../javascripts/disable-nav.js"></script>
+      
+    
+  </body>
+</html>

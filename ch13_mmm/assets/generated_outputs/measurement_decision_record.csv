@@ -1,0 +1,5 @@
+channel,decision_status,calibration_dependent,worst_channel_rhat,calibrated_abs_pct_error,spend_cv,max_abs_confound_corr,reasons,eligible_for_unconstrained_optimization
+field,directional,True,1.183,16.5,0.082,0.125,own-series coefficient of variation 0.08 (directional: 0.05-0.15),False
+email,decision-ready,False,1.183,20.7,0.919,0.075,"clears R-hat, correlation, and variation thresholds",True
+digital,directional,False,1.201,26.6,0.357,0.902,worst channel R-hat 1.201 (directional: 1.20-1.50); correlation with a baseline control 0.90 (directional: 0.60-0.95),False
+paid_media,directional,False,1.237,11.3,0.362,0.502,worst channel R-hat 1.237 (directional: 1.20-1.50),False

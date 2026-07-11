@@ -1,0 +1,5 @@
+model,holdout_weeks,rmse,mae,nrmse_vs_holdout_mean
+controlled_mmm,12,13.98,10.45,0.0481
+calibrated_mmm,12,18.4,11.72,0.0632
+naive_mmm,12,18.84,13.08,0.0648
+seasonal_naive,12,84.16,76.35,0.2893

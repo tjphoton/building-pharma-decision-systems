@@ -1,0 +1,5 @@
+channel,true_weekly_contribution,naive_weekly_contribution,naive_pct_error,controlled_weekly_contribution,controlled_pct_error,calibrated_weekly_contribution,calibrated_pct_error
+field,104.74,21.23,-79.7,25.2,-75.9,87.43,-16.5
+email,13.26,13.78,3.9,13.63,2.8,10.51,-20.7
+digital,28.99,49.62,71.2,35.33,21.9,21.29,-26.6
+paid_media,66.08,61.21,-7.4,61.17,-7.4,58.6,-11.3

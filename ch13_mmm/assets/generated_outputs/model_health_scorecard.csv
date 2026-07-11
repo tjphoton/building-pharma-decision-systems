@@ -1,0 +1,4 @@
+fit_name,max_rhat,worst_rhat_parameter,min_ess_decision_params,holdout_mae,holdout_nrmse,total_abs_contribution_error,worst_channel,worst_channel_pct_error,decision_status
+naive,1.11,paid_media_coef,658.0,13.08,0.0648,109.53,field,-79.7,"teaching only: no baseline controls, not a decision input"
+controlled,1.348,field_coef,656.0,10.45,0.0481,91.16,field,-75.9,"teaching only: controls added, still uncalibrated and unconstrained"
+calibrated,1.295,trend,654.0,11.72,0.0632,35.24,digital,-26.6,channel-gated: see measurement_decision_record.csv for which channels clear the gate

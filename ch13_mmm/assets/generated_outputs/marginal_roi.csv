@@ -1,0 +1,5 @@
+channel,current_weekly_spend,current_input_value,input_unit,marginal_roi_mean,marginal_roi_p10,marginal_roi_p90
+email,19.5,19.47,dollars,0.698,0.5695,0.8426
+paid_media,113.2,113.22,dollars,0.3048,0.2479,0.3688
+digital,87.8,87.75,dollars,0.2383,0.1238,0.3503
+field,366.7,4.31,calls,0.1,0.0696,0.131
