@@ -635,11 +635,11 @@ Table 13.11 hands this allocation to the resource-allocation chapter: the spend 
 | digital | $87.8 | $96.5 | +10.0% | 0.24 | below saturation | mmm only directional | ±10% of current spend | Add a causal anchor |
 | paid media | $113.2 | $124.5 | +10.0% | 0.30 | below saturation | mmm only directional | ±10% of current spend | Add a causal anchor |
 
-Figure 13.8 is actual budget permission each channel carries into planning: the rail is each channel's guardrail band, and the dot is where the optimizer landed inside it. Email and digital's dots sit at the very edge of their band, and paid media's does too; only field has visible room left inside its own.
+Figure 13.8 turns the table into the actual budget permission each channel carries into planning: the rail is each channel's guardrail band, and the dot is where the optimizer landed inside it. Email and digital's dots sit at the very edge of their band, and paid media's does too; only field has visible room left inside its own.
 
-![Figure 13.8. Channel Permission.](assets/figures/figure_13_8_channel_permission.svg)
+![Figure 13.8. Channel Permission: each rail is the evidence-approved guardrail band, the vertical tick marks current spend, and the dot marks the optimizer's recommended move.](assets/figures/figure_13_8_channel_permission.svg)
 
-*Figure 13.8. Channel Permission.*
+*Figure 13.8. Channel Permission: each rail is the evidence-approved guardrail band, the vertical tick marks current spend, and the dot marks the optimizer's recommended move.*
 
 ## 13.6 Operate The Measurement Loop
 

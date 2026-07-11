@@ -590,9 +590,9 @@ print(unified_recommendation[[
 
 Figure 13.8 turns the table into the actual budget permission each channel carries into planning: the rail is each channel's guardrail band, and the dot is where the optimizer landed inside it.
 
-![Figure 13.8. Channel Permission.](assets/figures/figure_13_8_channel_permission.svg)
+![Figure 13.8. Channel Permission: each rail is the evidence-approved guardrail band, the vertical tick marks current spend, and the dot marks the optimizer's recommended move.](assets/figures/figure_13_8_channel_permission.svg)
 
-*Figure 13.8. Channel Permission.*
+*Figure 13.8. Channel Permission: each rail is the evidence-approved guardrail band, the vertical tick marks current spend, and the dot marks the optimizer's recommended move.*
 
 
 ## 13.6 Operate The Measurement Loop
