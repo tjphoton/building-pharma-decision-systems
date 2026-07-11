@@ -1,0 +1,4 @@
+measurement_family,source,field_estimate,what_it_answers
+Path attribution (Markov removal effect),ch08_omnichannel: markov_attribution() in sequences.py,17.3% of conversion credit,"Share of recorded converting paths that pass through field, relative to all ten channels"
+Randomized experiment (account-cycle ITT),ch10_experiments: adjusted_itt.csv from analysis.py,+27.2% incremental patient starts vs. control,Causal lift from one incremental coordinated field/digital action on the accounts that received it
+Marketing mix model (calibrated posterior),"ch13_mmm: fit_bayesian_mmm() in model.py, geo_prior applied",49.2% of decomposed weekly NRx,"Average share of weekly NRx decomposed to field across the full 104-week series, net of trend/seasonality/the formulary event"

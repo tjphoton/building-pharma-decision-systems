@@ -1,0 +1,5 @@
+channel,true_weekly_contribution,controlled_coef_halved_contribution,calibrated_coef_halved_contribution,controlled_default_contribution,calibrated_default_contribution,controlled_coef_doubled_contribution,calibrated_coef_doubled_contribution,controlled_swing_pct_of_default,calibrated_swing_pct_of_default
+field,104.74,22.37,88.18,25.2,87.43,30.5,89.93,32.3,2.9
+email,13.26,12.74,9.65,13.63,10.51,13.77,10.84,7.5,11.3
+digital,28.99,31.61,20.69,35.33,21.29,35.53,23.65,11.1,13.9
+paid_media,66.08,61.23,57.58,61.17,58.6,61.03,58.2,0.3,1.7

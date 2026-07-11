@@ -1,0 +1,4 @@
+tool,fit_seconds,sampler
+"Hand-built random-walk MH (4 chains x 28,000 iters)",10.4,Random-walk Metropolis-Hastings
+"Meridian (4 chains x 1,300 iters)",49.4,NUTS (TensorFlow Probability)
+"PyMC-Marketing (4 chains x 1,000 iters)",85.6,NUTS (PyMC)

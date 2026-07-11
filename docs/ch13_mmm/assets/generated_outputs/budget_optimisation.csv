@@ -1,0 +1,6 @@
+scenario,total_budget,spend_field,spend_email,spend_digital,spend_paid_media,expected_weekly_nrx,nrx_vs_current
+Current allocation,587.0,367.0,19.0,88.0,113.0,263.8,0.0
+Optimised (budget=440),440.0,293.0,0.0,79.0,102.0,232.9,-30.9
+Optimised (budget=528),528.0,293.0,25.0,85.0,125.0,260.2,-3.6
+Optimised (budget=646),646.0,399.0,25.0,97.0,125.0,276.0,12.1
+Optimised (budget=734),734.0,440.0,25.0,97.0,125.0,279.1,15.2

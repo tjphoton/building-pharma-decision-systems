@@ -1,0 +1,4 @@
+fit_name,field_true_contribution,field_estimated_contribution,field_pct_error,email_true_contribution,email_estimated_contribution,email_pct_error,digital_true_contribution,digital_estimated_contribution,digital_pct_error,paid_media_true_contribution,paid_media_estimated_contribution,paid_media_pct_error,total_abs_nrx_error,largest_error_channel,decision_consequence
+1. Naive (no controls),104.74,21.23,-79.7,13.26,13.78,3.9,28.99,49.62,71.2,66.08,61.21,-7.4,109.53,field,Used only as a teaching diagnostic; field carries the largest error.
+2. Controlled (trend/seasonality/event),104.74,25.2,-75.9,13.26,13.63,2.8,28.99,35.33,21.9,66.08,61.17,-7.4,91.16,field,Used only as a teaching diagnostic; field carries the largest error.
+3. Calibrated (geo-holdout on field),104.74,87.43,-16.5,13.26,10.51,-20.7,28.99,21.29,-26.6,66.08,58.6,-11.3,35.24,digital,field: directional; email: decision-ready; digital: directional; paid_media: directional

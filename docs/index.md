@@ -165,7 +165,7 @@ The book moves from foundations to execution. It starts with the launch context 
 <div style="margin-left: 1.5em;">Chapter 10. Randomized Experiments and Incrementality</div>
 <div style="margin-left: 1.5em;">Chapter 11. Natural Experiments and Quasi-Experimental Designs</div>
 <div style="margin-left: 1.5em;">Chapter 12. Observational Causal Inference and Real-World Evidence</div>
-<div style="margin-left: 1.5em;">Chapter 13. MMM and Unified Measurement</div>
+<div><a href="ch13_mmm/ch13_mmm_unified_measurement/">Chapter 13. MMM and Unified Measurement</a></div>
 
 ### Part 5: Decision Engines
 

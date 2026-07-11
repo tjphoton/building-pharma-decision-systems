@@ -1,0 +1,2 @@
+measurement_source,n_geos,input_level_calls,delta_input_calls,experiment_mean_incremental_nrx,experiment_sd_incremental_nrx,model_implied_increment_before_calibration,model_implied_increment_after_calibration
+synthetic field geo-holdout (generate_field_geo_holdout),18,2.0,2.5,69.2814,3.9947,16.05,65.78

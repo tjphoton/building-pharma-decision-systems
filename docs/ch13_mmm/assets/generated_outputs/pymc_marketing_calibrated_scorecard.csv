@@ -1,0 +1,5 @@
+channel,true_weekly_contribution,calibrated_weekly_contribution,pct_error,fit_seconds
+field,104.74,214.24,104.5,93.0
+email,13.26,70.87,434.4,93.0
+digital,28.99,157.83,444.4,93.0
+paid_media,66.08,60.44,-8.5,93.0

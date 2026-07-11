@@ -48,14 +48,14 @@ nav:
   - Chapter 3 - A Synthetic Lab for Real Pharma Questions: ch03_data/ch03_data.md
   - Chapter 4 - Market Sizing and Patient Populations: ch04_market/ch04_market_sizing.md
   - "Chapter 5 - Building the Patient Journey: Treatment Patterns, Lines of Therapy, and Persistence": ch05_journey/ch05_patient_journey.md
-  - "Chapter 6 - HCP Targeting: From Opportunity to Field Action": ch06_hcp/ch06_hcp_targeting.md
+  - "Chapter 6 - HCP Targeting": ch06_hcp/ch06_hcp_targeting.md
   - "Chapter 7 - Competitive Intelligence and Market Access": ch07_competitive/ch07_competitive_intelligence_market_access.md
-  - "Chapter 8 - Omnichannel Analytics: Planning and Attribution": ch08_omnichannel/ch08_omnichannel_analytics.md
-  - "Chapter 9 - Next Best Action: Precision in the Patient Moment": ch09_nba/ch09_next_best_action.md
+  - "Chapter 8 - Omnichannel Analytics": ch08_omnichannel/ch08_omnichannel_analytics.md
+  - "Chapter 9 - Next Best Action": ch09_nba/ch09_next_best_action.md
   - "Chapter 10 - Randomized Experiments and Incrementality (coming soon)": coming_soon/ch10.md
   - "Chapter 11 - Natural Experiments and Quasi-Experimental Designs (coming soon)": coming_soon/ch11.md
   - "Chapter 12 - Observational Causal Inference and Real-World Evidence (coming soon)": coming_soon/ch12.md
-  - "Chapter 13 - Unified Measurement: Attribution, Experiments, and MMM (coming soon)": coming_soon/ch13.md
+  - "Chapter 13 - Unified Measurement: Attribution, Experiments, and MMM": ch13_mmm/ch13_mmm_unified_measurement.md
   - "Chapter 14 - Forecasting from Launch to Loss of Exclusivity": ch14_forecasting/ch14_forecasting.md
   - "Chapter 15. Resource Allocation and Optimization (coming soon)": coming_soon/ch15.md
   - "Chapter 16. AI Decision Intelligence (coming soon)": coming_soon/ch16.md

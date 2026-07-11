@@ -25,3 +25,4 @@ ENV/
 .vscode/
 .idea/
 *.swp
+.gstack/

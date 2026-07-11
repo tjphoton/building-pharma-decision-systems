@@ -1,0 +1,5 @@
+channel,saturation_threshold_pct,saturation_spend_median,saturation_spend_p10,saturation_spend_p90,saturation_input_median,current_weekly_spend,current_input_value,input_unit,at_or_above_saturation
+field,80,342.6,285.1,430.2,4.03,366.7,4.31,calls,True
+email,80,64.1,40.3,132.5,64.09,19.5,19.47,dollars,False
+digital,80,193.6,118.2,334.7,193.64,87.8,87.75,dollars,False
+paid_media,80,134.8,114.1,185.5,134.81,113.2,113.22,dollars,False

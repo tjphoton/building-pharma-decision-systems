@@ -1,0 +1,5 @@
+channel,current_weekly_spend,optimized_weekly_spend_at_current_budget,optimized_weekly_spend_p10,optimized_weekly_spend_p90,posterior_mean_optimum_weekly_spend,current_input_value,optimized_input_value_median,input_unit,pct_change,marginal_roi_mean,headroom_flag,decision_status,optimizer_constraint
+field,366.6,340.7,340.7,344.9,340.7,4.31,4.01,calls,-7.07,0.1,above_saturation,directional,bounded to +/-20% of current spend
+email,19.5,25.3,25.3,25.3,25.3,19.47,25.3,dollars,29.94,0.698,below_saturation,decision-ready,increase capped at +30%; optimizer may still cut to zero
+digital,87.8,96.5,92.3,96.5,96.5,87.75,96.5,dollars,9.97,0.2383,below_saturation,directional,bounded to +/-10% of current spend
+paid_media,113.2,124.5,124.5,124.5,124.5,113.22,124.5,dollars,9.96,0.3048,below_saturation,directional,bounded to +/-10% of current spend

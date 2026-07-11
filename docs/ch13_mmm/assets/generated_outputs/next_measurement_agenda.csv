@@ -1,0 +1,5 @@
+channel,evidence_tier,gap_severity,recommended_next_test,target_metric,spend_share_pct,confound_score,error_score,decision_unlock_score,priority_score,priority_rank
+digital,mmm-only directional,70.0,run a targeted holdout or geo experiment to sharpen decomposition before requesting a wider bound,incremental weekly NRx,14.9,18.0,6.7,20.0,123.7,1
+paid_media,mmm-only directional,70.0,run a targeted holdout or geo experiment to sharpen decomposition before requesting a wider bound,incremental weekly NRx,19.3,10.0,2.8,20.0,114.4,2
+email,mmm-only decision-ready,40.0,add a low-cost incrementality or holdout test to anchor this channel before scaling meaningfully beyond current spend,incremental weekly NRx,3.3,1.5,5.2,25.0,73.7,3
+field,causal-anchored,10.0,refresh the calibration periodically (repeat the geo-holdout or experiment); monitor for drift,incremental weekly NRx,62.4,2.5,4.1,5.0,59.1,4

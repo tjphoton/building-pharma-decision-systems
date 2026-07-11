@@ -1,0 +1,5 @@
+channel,decision_status,evidence_tier,move_permission,max_move_pct,spend_floor,spend_ceiling,allowed_budget_move,new_anchor_required,refresh_required,next_measurement_action_type,anchor_staleness_status,guardrail_reason
+field,directional,causal-anchored,bounded,0.2,293.3,439.9,bounded to +/-20%; causal anchor exists but MMM diagnostics still limit movement,False,True,refresh_anchor,current,"causal anchor exists, but MMM diagnostics remain directional"
+email,decision-ready,mmm-only decision-ready,increase-capped,0.3,0.0,25.3,increase capped at +30%; causal anchor required before sustained scaling,True,False,new_anchor,not anchored,"MMM diagnostics clear, but no causal anchor yet"
+digital,directional,mmm-only directional,bounded,0.1,79.0,96.5,bounded to +/-10%; no causal anchor and MMM remains directional,True,False,new_anchor,not anchored,MMM remains directional and no causal anchor is available
+paid_media,directional,mmm-only directional,bounded,0.1,101.9,124.5,bounded to +/-10%; no causal anchor and MMM remains directional,True,False,new_anchor,not anchored,MMM remains directional and no causal anchor is available

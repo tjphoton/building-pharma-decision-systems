@@ -1,0 +1,5 @@
+channel,weeks_near_zero,spend_cv,corr_with_event,corr_with_seasonal_sin,corr_with_seasonal_cos,posterior_interval_width_pct,seasonality_corr,max_abs_confound_corr
+field,0,0.0821,-0.1248,0.0159,-0.0076,115.5,0.0159,0.1248
+email,0,0.9187,0.0688,-0.0749,-0.075,92.9,0.075,0.075
+digital,0,0.3572,0.9016,-0.0945,-0.3329,101.3,0.3329,0.9016
+paid_media,5,0.3616,-0.0854,0.5021,-0.0028,35.2,0.5021,0.5021
