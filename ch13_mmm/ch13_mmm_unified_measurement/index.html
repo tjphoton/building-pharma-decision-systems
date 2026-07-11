@@ -2281,9 +2281,9 @@ gain band: p10=4.38  p90=7.61  win_rate=1.000
 </tr>
 </tbody>
 </table>
-<p>Figure 13.8 is actual budget permission each channel carries into planning: the rail is each channel's guardrail band, and the dot is where the optimizer landed inside it. Email and digital's dots sit at the very edge of their band, and paid media's does too; only field has visible room left inside its own.</p>
-<p><img alt="Figure 13.8. Channel Permission." src="../assets/figures/figure_13_8_channel_permission.svg" /></p>
-<p><em>Figure 13.8. Channel Permission.</em></p>
+<p>Figure 13.8 turns the table into the actual budget permission each channel carries into planning: the rail is each channel's guardrail band, and the dot is where the optimizer landed inside it. Email and digital's dots sit at the very edge of their band, and paid media's does too; only field has visible room left inside its own.</p>
+<p><img alt="Figure 13.8. Channel Permission: each rail is the evidence-approved guardrail band, the vertical tick marks current spend, and the dot marks the optimizer's recommended move." src="../assets/figures/figure_13_8_channel_permission.svg" /></p>
+<p><em>Figure 13.8. Channel Permission: each rail is the evidence-approved guardrail band, the vertical tick marks current spend, and the dot marks the optimizer's recommended move.</em></p>
 <h2 id="136-operate-the-measurement-loop">13.6 Operate The Measurement Loop</h2>
 <p>Table 13.11 said 3 channels still need better evidence: digital, paid media, and field. The next measurement agenda put those 3 in order, digital first, paid media second, field third, and this section answers: when does each of those tests actually happen over the coming year, and what does the team do once it reads out?</p>
 <p>Start with why digital goes first. The model-health check earlier in the chapter found digital's own MMM estimate carries a 0.90 correlation with the formulary access event, the highest residual confound of any channel, meaning the model still cannot fully tell digital's own effect apart from the event's. That is the single largest source of doubt left in the whole evidence record, so it gets tested first. Paid media, whose main problem is a weaker <span class="arithmatex">\(\hat{R}\)</span> rather than a confound, goes second. Field goes last because existing evidence ages. A geo-holdout run 2 years ago says less about today's response curve than one run last quarter, so field's slot on the calendar is a scheduled refresh.</p>

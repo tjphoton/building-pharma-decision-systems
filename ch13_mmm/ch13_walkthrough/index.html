@@ -1509,8 +1509,8 @@ paid_media                                     124.5    mmm-only directional    
 </code></pre></div>
 <p><code>unified_budget_recommendation.csv</code> is now the downstream handoff. It carries the spend recommendation the optimizer was allowed to make, plus the evidence tier, allowed move, and whether the channel needs a new anchor or a refresh. Field is the only row that needs a refresh rather than a new anchor, because it already has a causal anchor and that anchor ages out over time.</p>
 <p>Figure 13.8 turns the table into the actual budget permission each channel carries into planning: the rail is each channel's guardrail band, and the dot is where the optimizer landed inside it.</p>
-<p><img alt="Figure 13.8. Channel Permission." src="../assets/figures/figure_13_8_channel_permission.svg" /></p>
-<p><em>Figure 13.8. Channel Permission.</em></p>
+<p><img alt="Figure 13.8. Channel Permission: each rail is the evidence-approved guardrail band, the vertical tick marks current spend, and the dot marks the optimizer's recommended move." src="../assets/figures/figure_13_8_channel_permission.svg" /></p>
+<p><em>Figure 13.8. Channel Permission: each rail is the evidence-approved guardrail band, the vertical tick marks current spend, and the dot marks the optimizer's recommended move.</em></p>
 <h2 id="136-operate-the-measurement-loop">13.6 Operate The Measurement Loop</h2>
 <p>Table 13.10 said 3 channels still need better evidence: digital, paid media, and field, in that priority order. Digital goes first because its 0.90 correlation with the formulary access event is the strongest residual confound in the evidence record. Paid media's main problem is a weaker <span class="arithmatex">\(\hat{R}\)</span> rather than a confound. Field goes last, not because it is behind, but because its existing causal anchor ages and needs a scheduled refresh rather than a first test.</p>
 <p><img alt="Figure 13.9. Planned tests, readouts, MMM refreshes, and budget locks across a planning year." src="../assets/figures/figure_13_9_measurement_loop_calendar.svg" /></p>
