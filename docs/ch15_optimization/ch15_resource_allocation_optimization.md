@@ -1057,7 +1057,7 @@ The workflow now supports the full allocation decision: calculate the gain from 
 
 ## 15.9 Exercises
 
-The walkthrough notebook `ch15_walkthrough.ipynb` runs the full workflow. The exercise notebook `ch15_exercise_solutions.ipynb` contains worked solutions.
+The walkthrough notebook [ch15_walkthrough.ipynb](ch15_walkthrough.ipynb) runs the full workflow. The exercise notebook [ch15_exercise_solutions.ipynb](ch15_exercise_solutions.ipynb) contains worked solutions.
 
 **Exercise 1.** Raise the account-call change limit from 20% to 35%. Report expected NRx recovered, account changes, calls added, and calls removed. State the implementation burden created by the wider limit.
 
