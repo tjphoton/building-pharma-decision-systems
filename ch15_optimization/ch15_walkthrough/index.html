@@ -1,0 +1,2947 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://tjphoton.github.io/building-pharma-decision-systems/ch15_optimization/ch15_walkthrough/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Chapter 15: Resource Optimization Under Uncertainty - Building Pharmaceutical Decision Systems</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-75R972HVF8"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-75R972HVF8",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-75R972HVF8",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chapter-15-resource-optimization-under-uncertainty" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Building Pharmaceutical Decision Systems" class="md-header__button md-logo" aria-label="Building Pharmaceutical Decision Systems" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Building Pharmaceutical Decision Systems
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Chapter 15: Resource Optimization Under Uncertainty
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/tjphoton/building-pharma-decision-systems" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Building Pharmaceutical Decision Systems" class="md-nav__button md-logo" aria-label="Building Pharmaceutical Decision Systems" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Building Pharmaceutical Decision Systems
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/tjphoton/building-pharma-decision-systems" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch01_intro/ch01_introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 1 - A Medicine, a Market, and the Decisions Between Them
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch02_ecosystem/ch02_ecosystem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 2 - The Commercialization Operating System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch03_data/ch03_data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 3 - A Synthetic Lab for Real Pharma Questions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch04_market/ch04_market_sizing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 4 - Market Sizing and Patient Populations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch05_journey/ch05_patient_journey/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 5 - Building the Patient Journey: Treatment Patterns, Lines of Therapy, and Persistence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch06_hcp/ch06_hcp_targeting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 6 - HCP Targeting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch07_competitive/ch07_competitive_intelligence_market_access/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 7 - Competitive Intelligence and Market Access
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch08_omnichannel/ch08_omnichannel_analytics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 8 - Omnichannel Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch09_nba/ch09_next_best_action/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 9 - Next Best Action
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../coming_soon/ch10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 10 - Randomized Experiments and Incrementality (coming soon)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../coming_soon/ch11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 11 - Natural Experiments and Quasi-Experimental Designs (coming soon)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../coming_soon/ch12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 12 - Observational Causal Inference and Real-World Evidence (coming soon)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch13_mmm/ch13_mmm_unified_measurement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 13 - Unified Measurement: Attribution, Experiments, and MMM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ch14_forecasting/ch14_forecasting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 14 - Forecasting from Launch to Loss of Exclusivity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ch15_resource_allocation_optimization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 15. Resource Allocation and Optimization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../coming_soon/ch16/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 16. AI Decision Intelligence (coming soon)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../coming_soon/ch17/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter 17. Capstone Case Studies (coming soon)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#151-the-q3-resource-decision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.1 The Q3 Resource Decision
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#152-marginal-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.2 Marginal Value
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="15.2 Marginal Value">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1521-field-calls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.2.1 Field Calls
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1522-channel-spending" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.2.2 Channel Spending
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#153-executable-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.3 Executable Plan
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="15.3 Executable Plan">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1531-field-calls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.3.1 Field Calls
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="15.3.1 Field Calls">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#slsqp-smooth-response-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SLSQP: Smooth Response Reference
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#call-step-linearization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Call-Step Linearization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lp-fractional-diagnostic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LP: Fractional Diagnostic
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#milp-whole-call-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MILP: Whole-Call Release
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1532-headcount" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.3.2 Headcount
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#154-response-uncertainty-and-plan-selection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.4 Response Uncertainty and Plan Selection
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="15.4 Response Uncertainty and Plan Selection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1541-observed-account-period-rows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.4.1 Observed Account-Period Rows
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1542-segment-response-fit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.4.2 Segment Response Fit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1543-draw-plausible-curves" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.4.3 Draw Plausible Curves
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1544-expected-value-across-curves" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.4.4 Expected Value Across Curves
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1545-weak-quarter-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.4.5 Weak-Quarter Value
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1546-promise-calibration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.4.6 Promise Calibration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1547-selection-on-noise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.4.7 Selection on Noise
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#155-constraint-prices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.5 Constraint Prices
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#156-near-optimal-frontier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.6 Near-Optimal Frontier
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="15.6 Near-Optimal Frontier">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1561-measure-plan-change" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.6.1 Measure Plan Change
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1562-remove-inferior-plans" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.6.2 Remove Inferior Plans
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1563-generate-the-roventra-frontier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.6.3 Generate the Roventra Frontier
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1564-read-the-curve" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.6.4 Read the Curve
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1565-select-stable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.6.5 Select Stable
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#157-commit-reserve-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.7 Commit, Reserve, Learn
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#158-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.8 Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#159-exercises" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.9 Exercises
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#appendix-optimization-method-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Appendix: Optimization Method Guide
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="chapter-15-resource-optimization-under-uncertainty">Chapter 15: Resource Optimization Under Uncertainty</h1>
+<p>Roventra's Q3 commercial plan has one job: produce more incremental NRx from resources approved for the year. The team must assign the next 13 weeks of channel spend and account calls. It may also request added representative for the quarter, hold some call capacity until an October response update, or fund a study that could change the later plan.</p>
+<p>The finished resource allocation plan must answer four questions:</p>
+<ol>
+<li><strong>How much?</strong> Set the Q3 budget and field capacity inside the approved annual plan.</li>
+<li><strong>Where?</strong> Allocate dollars across channels and call capacity across territories and eligible accounts.</li>
+<li><strong>When?</strong> Decide which resources to commit now and whether any capacity should wait for a later read.</li>
+<li><strong>What should we learn?</strong> Fund a study only when its result can change the later allocation by more than the study costs.</li>
+</ol>
+<p>You will calculate the value of one more dollar or call, add the rules that make the plan executable, estimate response uncertainty from observed field history, and compare feasible plans under expected and weaker response.</p>
+<h2 id="151-the-q3-resource-decision">15.1 The Q3 Resource Decision</h2>
+<p>Moving budget from field to email stays inside approved spend. Adding a field representative increases the resource and requires a separate funding. Holding calls reduces the Q3 capacity and keeps that available for the October update. Each resource has a different planning decision:</p>
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Already fixed</th>
+<th>Can change in the Q3 plan</th>
+<th>Commercial value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Channel budget</td>
+<td>Total weekly spend</td>
+<td>Dollars assigned to paid media, digital, email, and field</td>
+<td>Move money from a saturated channel to one with stronger incremental response</td>
+</tr>
+<tr>
+<td>Field calls</td>
+<td>Current representatives and territory capacity</td>
+<td>Calls assigned to eligible accounts within each territory</td>
+<td>Use scarce calls where the next call adds more incremental NRx</td>
+</tr>
+<tr>
+<td>Headcount capacity</td>
+<td>Current representatives</td>
+<td>One added representative in a territory</td>
+<td>Add capacity only where its incremental contribution clears its cost</td>
+</tr>
+<tr>
+<td>Flexible reserve</td>
+<td>Total call capacity</td>
+<td>Calls released now and calls held until October</td>
+<td>Keep calls movable only when a later response read can improve their placement</td>
+</tr>
+<tr>
+<td>Measurement</td>
+<td>Study budget, target accounts, and response window</td>
+<td>Run or defer one focused study</td>
+<td>Buy information only when the expected allocation improvement exceeds the study cost</td>
+</tr>
+</tbody>
+</table>
+<p><em>Table 15.1. What is fixed and what can move in the Q3 plan.</em></p>
+<p>channel, field call, representative are the illustrative resource examples used in this chapters. Speaker programs, samples, conferences, patient-support spending, and territory alignment can follow the same methodology.</p>
+<blockquote>
+<p><strong>Note:</strong> Roventra, its accounts, territories, field history, and response truth are synthetic. Costs and the value per incremental NRx are planning assumptions for this case.</p>
+</blockquote>
+<p><code>run_analysis()</code> in <code>run_analysis.py</code> builds the channel, field, headcount, reserve, and measurement decisions, then audits the frozen call plans. Run every block in order from the repository root.</p>
+<p><strong>Listing 15.1</strong>: Load the Q3 resource case.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&quot;display.width&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;ch15_optimization/scripts&quot;</span><span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">run_analysis</span><span class="w"> </span><span class="kn">import</span> <span class="n">run_analysis</span>
+
+<span class="n">results</span> <span class="o">=</span> <span class="n">run_analysis</span><span class="p">()</span>
+<span class="n">planning</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;planning&quot;</span><span class="p">]</span>
+<span class="n">territories</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;territories&quot;</span><span class="p">]</span>
+<span class="n">channel</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;channel_budget_move&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;channel budget: $</span><span class="si">{</span><span class="n">channel</span><span class="o">.</span><span class="n">current_weekly_spend</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> per week for 13 weeks&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;field team: </span><span class="si">{</span><span class="n">territories</span><span class="o">.</span><span class="n">n_reps</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">}</span><span class="s2"> representatives in </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">territories</span><span class="p">)</span><span class="si">}</span><span class="s2"> territories&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;current field plan: </span><span class="si">{</span><span class="n">planning</span><span class="o">.</span><span class="n">current_calls</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">}</span><span class="s2"> calls across </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">planning</span><span class="p">)</span><span class="si">}</span><span class="s2"> accounts&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;eligible accounts: </span><span class="si">{</span><span class="n">planning</span><span class="o">.</span><span class="n">eligible_flag</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;protected or Closed accounts: </span><span class="si">{</span><span class="p">(</span><span class="o">~</span><span class="n">planning</span><span class="o">.</span><span class="n">eligible_flag</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;incremental NRx value: $1,300 to $2,100; base $1,700&quot;</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>channel budget: $587.1 per week for 13 weeks
+field team: 39 representatives in 12 territories
+current field plan: 2670 calls across 300 accounts
+eligible accounts: 254
+protected or Closed accounts: 46
+incremental NRx value: $1,300 to $2,100; base $1,700
+</code></pre></div>
+<p>The approved channel budget is $587.10 per week. The current field plan contains 2,670 calls for 300 accounts. Of those accounts, 254 can receive promotional calls this quarter.</p>
+<h2 id="152-marginal-value">15.2 Marginal Value</h2>
+<h3 id="1521-field-calls">15.2.1 Field Calls</h3>
+<p>Roventra's field team can make a fixed number of calls in Q3. The allocation decision compares what the next available call would add at each eligible account. Total account response includes the effect of calls already assigned. A marginal call gain is the extra NRx expected from 1 more call at the account's current frequency.</p>
+<p>Suppose one district has 12 calls for 2 accounts. Account A responds quickly, but its later calls add less as the account approaches saturation. Account B responds more slowly and still has useful capacity later in the sequence. We assign the first call to the account with the larger first-call gain, update its call count, and compare the next available gains again. The same comparison continues until all 12 calls are placed.</p>
+<p>The same Hill saturation function used for channel spend also works for calls. For account <span class="arithmatex">\(i\)</span>, call count <span class="arithmatex">\(c\)</span>, half-response point <span class="arithmatex">\(m_i\)</span>, and slope <span class="arithmatex">\(s_i\)</span>, the saturation fraction is</p>
+<div class="arithmatex">\[
+Hill(c; m_i, s_i)=\frac{1}{1+\left(\frac{c}{m_i}\right)^{-s_i}}.
+\]</div>
+<p>The half-response point is the call count where the account reaches half of its fitted ceiling. If <span class="arithmatex">\(A_i\)</span> is the account's response ceiling, the fitted response is</p>
+<div class="arithmatex">\[
+R_i(c)=A_i \times Hill(c; m_i, s_i).
+\]</div>
+<p>The gain from call step <span class="arithmatex">\(k\)</span> is the increase in fitted response after that call:</p>
+<div class="arithmatex">\[
+g_{ik}=R_i(k)-R_i(k-1).
+\]</div>
+<p>Account A uses <span class="arithmatex">\(A_A=34\)</span>, <span class="arithmatex">\(m_A=2\)</span>, and <span class="arithmatex">\(s_A=1.15\)</span>. Its first call adds 10.56 NRx. Later calls contribute less as the response curve flattens. Account B begins at 1.35 NRx per call and overtakes A after A has received 5 calls.</p>
+<p><img alt="Figure 15.1. Account response on the left and the NRx added by each of the 12 allocated calls on the right." src="../assets/figures/figure_15_1_marginal_value.svg" /></p>
+<p><em>Figure 15.1. The first 5 calls go to Account A. Calls 6 through 10 go to Account B. Call 11 switches back to A after B's next gain falls below A's.</em></p>
+<p>A greedy algorithm makes the best available local choice, commits that choice, and repeats with the capacity that remains. Here, the local choice is the account with the largest next-call gain after the calls already assigned. Listing 15.2 shows the loop: calculate the next gain for each account, assign 1 call to the larger gain, update that account's call count, and repeat until the 12 calls are gone.</p>
+<p><strong>Listing 15.2</strong>: Allocate 12 calls by largest next gain.</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">hill</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">midpoint</span><span class="p">,</span> <span class="n">slope</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">c</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mf">0.0</span>
+    <span class="k">return</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="n">c</span> <span class="o">/</span> <span class="n">midpoint</span><span class="p">)</span> <span class="o">**</span> <span class="p">(</span><span class="o">-</span><span class="n">slope</span><span class="p">))</span>
+
+<span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">34</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.15</span><span class="p">),</span> <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mf">7.0</span><span class="p">,</span> <span class="mf">1.35</span><span class="p">)}</span>
+<span class="n">calls</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;step  A_gain  B_gain  choose  split&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">):</span>
+    <span class="n">gains</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="n">acct</span><span class="p">:</span> <span class="n">ceiling</span> <span class="o">*</span> <span class="p">(</span>
+            <span class="n">hill</span><span class="p">(</span><span class="n">calls</span><span class="p">[</span><span class="n">acct</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">midpoint</span><span class="p">,</span> <span class="n">slope</span><span class="p">)</span> <span class="o">-</span> <span class="n">hill</span><span class="p">(</span><span class="n">calls</span><span class="p">[</span><span class="n">acct</span><span class="p">],</span> <span class="n">midpoint</span><span class="p">,</span> <span class="n">slope</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="k">for</span> <span class="n">acct</span><span class="p">,</span> <span class="p">(</span><span class="n">ceiling</span><span class="p">,</span> <span class="n">midpoint</span><span class="p">,</span> <span class="n">slope</span><span class="p">)</span> <span class="ow">in</span> <span class="n">params</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+    <span class="p">}</span>
+    <span class="n">chosen</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">gains</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">gains</span><span class="o">.</span><span class="n">get</span><span class="p">)</span>
+    <span class="n">calls</span><span class="p">[</span><span class="n">chosen</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">step</span><span class="si">:</span><span class="s2">&gt;4</span><span class="si">}</span><span class="s2">  </span><span class="si">{</span><span class="n">gains</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">&gt;6.2f</span><span class="si">}</span><span class="s2">  </span><span class="si">{</span><span class="n">gains</span><span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">&gt;6.2f</span><span class="si">}</span><span class="s2">  &quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">chosen</span><span class="si">:</span><span class="s2">^6</span><span class="si">}</span><span class="s2">  A=</span><span class="si">{</span><span class="n">calls</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">, B=</span><span class="si">{</span><span class="n">calls</span><span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;final split: A=</span><span class="si">{</span><span class="n">calls</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">, B=</span><span class="si">{</span><span class="n">calls</span><span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>step  A_gain  B_gain  choose  split
+   1   10.56    1.35    A     A=1, B=0
+   2    6.44    1.35    A     A=2, B=0
+   3    3.89    1.35    A     A=3, B=0
+   4    2.55    1.35    A     A=4, B=0
+   5    1.77    1.35    A     A=5, B=0
+   6    1.30    1.35    B     A=5, B=1
+   7    1.30    1.76    B     A=5, B=2
+   8    1.30    1.72    B     A=5, B=3
+   9    1.30    1.56    B     A=5, B=4
+  10    1.30    1.37    B     A=5, B=5
+  11    1.30    1.20    A     A=6, B=5
+  12    0.98    1.20    B     A=6, B=6
+final split: A=6, B=6
+</code></pre></div>
+<p>The final split gives 6 calls to each account and produces 35.47 incremental NRx. At call 6, A's next gain has fallen to 1.30 NRx while B offers 1.35. By call 11, B's next gain has fallen to 1.20 while A still offers 1.30, so the next call switches back to A. Greedy allocation keeps asking the same question after every placement.</p>
+<p>This one-unit-at-a-time procedure is greedy allocation. It gives the exact answer when every call uses one unit of capacity, incremental gains decline.</p>
+<h3 id="1522-channel-spending">15.2.2 Channel Spending</h3>
+<p>Channel money uses the same comparison. The fitted marketing-mix curves estimate the incremental NRx from adding $1 at the current spend in email, field, digital, or paid media. Money moves toward the strongest next-dollar return until a channel reaches its approved movement bound or another channel catches up. <code>channel_response_summary()</code> and <code>channel_budget_move()</code> in <code>allocation.py</code> calculate those returns and apply the measurement permissions.</p>
+<table>
+<thead>
+<tr>
+<th>Channel</th>
+<th style="text-align: right;">Weekly spend change</th>
+<th style="text-align: right;">Q3 incremental NRx change</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>paid_media</td>
+<td style="text-align: right;">+$11.30</td>
+<td style="text-align: right;">+40.8</td>
+</tr>
+<tr>
+<td>digital</td>
+<td style="text-align: right;">+$8.70</td>
+<td style="text-align: right;">+25.9</td>
+</tr>
+<tr>
+<td>email</td>
+<td style="text-align: right;">+$5.80</td>
+<td style="text-align: right;">+48.6</td>
+</tr>
+<tr>
+<td>field</td>
+<td style="text-align: right;">-$25.80</td>
+<td style="text-align: right;">-36.6</td>
+</tr>
+</tbody>
+</table>
+<p><em>Table 15.2. The bounded channel move keeps the weekly budget at $587.10.</em></p>
+<p>The Q3 move takes $25.80 per week from field and splits it across paid media, digital, and email. The 13-week effect is 78.7 incremental NRx. Email has the highest next-dollar return, but the measurement record caps its increase at 30%. The weekly total remains $587.10.</p>
+<h2 id="153-executable-plan">15.3 Executable Plan</h2>
+<h3 id="1531-field-calls">15.3.1 Field Calls</h3>
+<p>Roventra's 300 accounts are divided among 12 territory account lists. A call assigned in MI-T1 uses MI-T1 capacity and cannot fill unused time in another territory. Protected and Closed-access accounts receive zero promotional calls. Every other eligible account receives at least 1 call. The business rule also limits total account-call changes to 20% of the 2,670 calls in the current plan.</p>
+<p>These rules turn a ranked list of call incremental NRx gains into a connected allocation problem. Adding a call to one account can require removing a call elsewhere in the same territory. Meeting minimum coverage consumes capacity. If the plan transfers a call from account A to account B, the national limit counts two account-call changes: one removal and one addition.</p>
+<p>The next few pages define the four optimization solver methods in detail. For now, use the toy case to build some intuition. The methods separate two questions: whether the response curve is read as a smooth curve or as a stack of call steps, and how many business rules the solver must respect at the same time. Greedy makes whole-call local choices. SLSQP uses the smooth curve and allows fractional calls. LP uses the step model and keeps the connected rules, but allows a fractional package at the boundary. MILP uses the same step model and rules as LP, then requires every released choice to be whole.</p>
+<p>A small toy example shows why the methods can disagree. The district has capacity for 2 calls. Account A can receive 1 stand-alone call worth 10 NRx. Account C can receive 1 stand-alone call worth 8 NRx. Account B has a minimum effective frequency rule: the plan can either release the full 2-call B package or release nothing to B. The B package is worth 19 NRx and consumes both calls.</p>
+<table>
+<thead>
+<tr>
+<th>Choice</th>
+<th style="text-align: right;">Incremental gain</th>
+<th style="text-align: right;">Capacity used</th>
+<th>Release rule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A1</td>
+<td style="text-align: right;">10.0</td>
+<td style="text-align: right;">1 call</td>
+<td>Can stand alone</td>
+</tr>
+<tr>
+<td>B package</td>
+<td style="text-align: right;">19.0</td>
+<td style="text-align: right;">2 calls</td>
+<td>Must be taken as a full package</td>
+</tr>
+<tr>
+<td>C1</td>
+<td style="text-align: right;">8.0</td>
+<td style="text-align: right;">1 call</td>
+<td>Can stand alone</td>
+</tr>
+</tbody>
+</table>
+<p>Greedy takes the best stand-alone step first, A1, then uses the remaining capacity on C1 for 18 NRx. MILP evaluates the B package as a whole and chooses it for 19 NRx. LP relaxation keeps the package capacity but allows fractional package decisions, so it chooses A1 plus half of the B package for 19.5 NRx. The LP answer is a diagnostic boundary, not a field plan.</p>
+<p>Here is the same toy case through the 4 method lenses:</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Toy case question</th>
+<th>Toy answer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Greedy</td>
+<td>Which available whole call step has the largest next gain?</td>
+<td>Pick A1 and C1 for 18 NRx</td>
+</tr>
+<tr>
+<td>SLSQP</td>
+<td>If calls were divisible, where would the smooth curves put 2 calls?</td>
+<td>Use a continuous reference, not the release rule</td>
+</tr>
+<tr>
+<td>Call-step linearization</td>
+<td>How do we turn smooth curves and rules into solver-ready choices?</td>
+<td>Build A1, B package, and C1 with gains and capacity use</td>
+</tr>
+<tr>
+<td>LP relaxation</td>
+<td>What if the package rule is kept, but package decisions can be fractional?</td>
+<td>Pick A1 and 0.5x B package for 19.5 NRx</td>
+</tr>
+<tr>
+<td>MILP</td>
+<td>What whole-call plan satisfies the package rule?</td>
+<td>Pick the B package for 19 NRx</td>
+</tr>
+</tbody>
+</table>
+<p>Listing 15.3 compares greedy, LP relaxation, and MILP on the toy choices. SLSQP appears in the next subsection because it needs a smooth response curve, not only step gains. The B package row consumes 2 calls when selected.</p>
+<p><strong>Listing 15.3</strong>: Compare greedy, LP relaxation, and MILP on call steps.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.optimize</span><span class="w"> </span><span class="kn">import</span> <span class="n">Bounds</span><span class="p">,</span> <span class="n">LinearConstraint</span><span class="p">,</span> <span class="n">milp</span>
+
+<span class="n">gains</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">19.0</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">])</span>
+<span class="n">capacity_use</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s2">&quot;A1&quot;</span><span class="p">,</span> <span class="s2">&quot;Bpkg&quot;</span><span class="p">,</span> <span class="s2">&quot;C1&quot;</span><span class="p">])</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">solve</span><span class="p">(</span><span class="n">capacity</span><span class="p">,</span> <span class="n">integer</span><span class="p">):</span>
+    <span class="n">constraints</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">LinearConstraint</span><span class="p">(</span><span class="n">capacity_use</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="p">[</span><span class="n">capacity</span><span class="p">]),</span>
+    <span class="p">]</span>
+    <span class="n">integrality</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="k">if</span> <span class="n">integer</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">milp</span><span class="p">(</span><span class="n">c</span><span class="o">=-</span><span class="n">gains</span><span class="p">,</span> <span class="n">integrality</span><span class="o">=</span><span class="n">integrality</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="n">Bounds</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+               <span class="n">constraints</span><span class="o">=</span><span class="n">constraints</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">x</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-9</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">res</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">plans</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Greedy&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">),</span>
+    <span class="s2">&quot;LP relaxation&quot;</span><span class="p">:</span> <span class="n">solve</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">integer</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+    <span class="s2">&quot;MILP&quot;</span><span class="p">:</span> <span class="n">solve</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">integer</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+<span class="p">}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;method          chosen steps              value&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">method</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">plans</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">chosen</span> <span class="o">=</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+        <span class="n">label</span> <span class="k">if</span> <span class="n">value</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">value</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">x </span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">for</span> <span class="n">label</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="k">if</span> <span class="n">value</span> <span class="o">&gt;</span> <span class="mf">1e-6</span>
+    <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">method</span><span class="si">:</span><span class="s2">&lt;15</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">chosen</span><span class="si">:</span><span class="s2">&lt;24</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">gains</span><span class="w"> </span><span class="o">@</span><span class="w"> </span><span class="n">y</span><span class="si">:</span><span class="s2">&gt;5.1f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>method          chosen steps              value
+Greedy          A1, C1                    18.0
+LP relaxation   A1, 0.5x Bpkg             19.5
+MILP            Bpkg                      19.0
+</code></pre></div>
+<p><img alt="Figure 15.2. Four solver classes arranged by the decision structure they can represent, from independent marginal gains to indivisible actions under coupled rules." src="../assets/figures/figure_15_2_solver_progression.svg" /></p>
+<p><em>Figure 15.2. Choose the earliest method that represents every binding business rule. Greedy is enough for independent declining gains; MILP is required when the released actions are indivisible and coupled.</em></p>
+<p>The notation stays fixed across the four methods:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+i &amp;\in \mathcal I_t
+&amp;&amp; \text{account assigned to territory }t,\\
+k &amp;= 1,\ldots,u_i
+&amp;&amp; \text{possible resource step for account }i,\\
+y_{ik}
+&amp;&amp;&amp; \text{decision to choose call step }k\text{ for account }i,\\
+c_i^0
+&amp;&amp;&amp; \text{current calls for account }i,\\
+d_i
+&amp;&amp;&amp; \text{absolute number of calls changed for account }i,\\
+l_i,\;u_i
+&amp;&amp;&amp; \text{minimum and maximum calls for account }i,\\
+R_i(c)
+&amp;&amp;&amp; \text{fitted incremental response at }c\text{ calls},\\
+C_t
+&amp;&amp;&amp; \text{quarterly call capacity in territory }t,\\
+M &amp;= 534
+&amp;&amp; \text{national limit on account-call changes}.
+\end{aligned}
+\]</div>
+<h4 id="slsqp-smooth-response-reference">SLSQP: Smooth Response Reference</h4>
+<p>First allow account calls to be continuous. For each territory, solve</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\max_x \quad &amp; \sum_{i\in I_t} R_i(x_i) \\
+\text{subject to}\quad
+&amp; \sum_{i\in I_t} x_i \le C_t,\\
+&amp; l_i \le x_i \le u_i \qquad \forall i\in I_t,\\
+&amp; x_i\in\mathbb{R}.
+\end{aligned}
+\]</div>
+<p>Sequential least squares programming (SLSQP) uses the response gradients to build and solve a sequence of local quadratic approximations. It works directly with the smooth Hill curves and handles capacity plus lower and upper bounds. The solution estimates the response available within each territory when calls are divisible and the national plan-change rule is absent. Hill curves can be S-shaped, so this result is a smooth local reference.</p>
+<h4 id="call-step-linearization">Call-Step Linearization</h4>
+<p>Call-step linearization turns a smooth response curve into a stack of whole-call choices. It creates the <span class="arithmatex">\(g_{ik}\)</span> coefficients that the LP relaxation and MILP can optimize.</p>
+<p>For each account, replace the smooth curve with step gains <span class="arithmatex">\(g_{ik}=R_i(k)-R_i(k-1)\)</span>. Variable <span class="arithmatex">\(y_{ik}\)</span> records whether call step <span class="arithmatex">\(k\)</span> is assigned to account <span class="arithmatex">\(i\)</span>, and the account call count is</p>
+<div class="arithmatex">\[
+c_i=\sum_{k=1}^{u_i}y_{ik}.
+\]</div>
+<p>The objective becomes linear:</p>
+<div class="arithmatex">\[
+\max_y \sum_i\sum_{k=1}^{u_i} g_{ik}y_{ik}.
+\]</div>
+<p>The trade is practical. SLSQP can use the curve directly, but it works with continuous call counts such as 4.6 calls. LP and MILP use a linear objective built from call steps, which makes it easier to add ordering, minimum coverage, protected-account exclusions, territory capacity, and the national plan-change rule in one model.</p>
+<p>Call ordering requires</p>
+<div class="arithmatex">\[
+y_{i,k}\le y_{i,k-1}\qquad k=2,\ldots,u_i.
+\]</div>
+<p>The model can choose call 3 only after calls 1 and 2. Minimum coverage fixes <span class="arithmatex">\(y_{ik}=1\)</span> for <span class="arithmatex">\(k\le l_i\)</span>. A protected or Closed-access account has <span class="arithmatex">\(u_i=0\)</span>. Territory capacity is</p>
+<div class="arithmatex">\[
+\sum_{i\in I_t}\sum_{k=1}^{u_i}y_{ik}\le C_t.
+\]</div>
+<p>For movement, <span class="arithmatex">\(d_i\)</span> represents the absolute change from the current plan:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+d_i &amp;\ge c_i-c_i^0,\\
+d_i &amp;\ge c_i^0-c_i,\\
+\sum_i d_i &amp;\le M.
+\end{aligned}
+\]</div>
+<p>These inequalities make <span class="arithmatex">\(d_i\ge |c_i-c_i^0|\)</span>. The objective has no reason to inflate <span class="arithmatex">\(d_i\)</span>, and the national sum limits total call additions and removals.</p>
+<h4 id="lp-fractional-diagnostic">LP: Fractional Diagnostic</h4>
+<p><span class="arithmatex">\(y_{ik}\)</span> is the decision for one call step. In the release plan, <span class="arithmatex">\(y_{ik}=1\)</span> means choose the step and <span class="arithmatex">\(y_{ik}=0\)</span> means skip it. The LP diagnostic allows any value between 0 and 1:</p>
+<div class="arithmatex">\[
+0\le y_{ik}\le1.
+\]</div>
+<p><span class="arithmatex">\(d_i\)</span> is the change counter for account <span class="arithmatex">\(i\)</span>. It records how many calls the new plan adds to or removes from that account compared with the current plan. The LP diagnostic allows it to be any nonnegative number:</p>
+<div class="arithmatex">\[
+d_i\ge0.
+\]</div>
+<p>Every objective term and constraint is linear. LP keeps the connected release rules from the MILP: call ordering, minimum coverage, protected-account exclusions, territory capacity, and account-call changes. It relaxes the final yes-or-no requirement on each call step.</p>
+<p>That relaxation creates a useful diagnostic. If one step has <span class="arithmatex">\(y_{ik}=0.5\)</span>, the LP is saying that the business rules want half of that last call step at the boundary. Field cannot release half a planned call, but the fractional step shows exactly where the integer model must round. LPs solve quickly and provide an upper bound on the corresponding integer model when both use the same limits. The diagnostic below uses <span class="arithmatex">\(M=534.5\)</span> to make that boundary visible: 1 call step returns fractional.</p>
+<h4 id="milp-whole-call-release">MILP: Whole-Call Release</h4>
+<p>The mixed-integer linear program (MILP) changes the step domain to</p>
+<div class="arithmatex">\[
+y_{ik}\in\{0,1\}.
+\]</div>
+<p>The objective, ordering, capacity, coverage, access, and movement equations stay the same. The solver uses branch-and-bound and cutting planes to compare feasible combinations of whole call steps. MILP fits account calls, representative counts, minimum frequencies, and all-or-nothing tactics because those decisions are indivisible. The released model uses <span class="arithmatex">\(M=534\)</span> and reports a global optimality gap for the binary formulation.</p>
+<p><code>greedy_call_plan()</code>, <code>slsqp_call_plan()</code>, <code>lp_relaxation_call_plan()</code>, and <code>milp_call_plan()</code> in <code>allocation.py</code> produce the 4 Q3 checkpoints in Table 15.3.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Mathematical model</th>
+<th>Business rules represented</th>
+<th style="text-align: right;">Q3 result</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Greedy</td>
+<td>Repeatedly choose the largest available <span class="arithmatex">\(g_{ik}\)</span></td>
+<td>Whole units, account bounds, and territory capacity; choices remain independent</td>
+<td style="text-align: right;">1,164.9 NRx</td>
+<td>Fast marginal benchmark</td>
+</tr>
+<tr>
+<td>SLSQP</td>
+<td><span class="arithmatex">\(\max \sum_i R_i(x_i)\)</span>, <span class="arithmatex">\(x_i\in\mathbb{R}\)</span></td>
+<td>Smooth response, account bounds, and territory capacity</td>
+<td style="text-align: right;">1,165.0 NRx</td>
+<td>Continuous response reference</td>
+</tr>
+<tr>
+<td>LP relaxation</td>
+<td><span class="arithmatex">\(\max \sum_{i,k}g_{ik}y_{ik}\)</span>, <span class="arithmatex">\(0\le y_{ik}\le1\)</span></td>
+<td>Ordering, coverage, access, capacity, and plan change</td>
+<td style="text-align: right;">1,151.8 NRx</td>
+<td>Feasibility diagnostic with one fractional step</td>
+</tr>
+<tr>
+<td>MILP</td>
+<td><span class="arithmatex">\(\max \sum_{i,k}g_{ik}y_{ik}\)</span>, <span class="arithmatex">\(y_{ik}\in\{0,1\}\)</span></td>
+<td>The same coupled rules with whole released units</td>
+<td style="text-align: right;">1,151.8 NRx</td>
+<td>Point-estimate release candidate</td>
+</tr>
+</tbody>
+</table>
+<p><em>Table 15.3. The solver progression for the Q3 allocation problem.</em></p>
+<p>Greedy and SLSQP reach about 1,165 modeled NRx, but both exceed the plan-change limit. The LP uses the 534.5-change teaching limit and splits its last unit, leaving 1 fractional step. The Q3 rule allows 534 whole account-call changes. The MILP returns an integer plan at 1,151.8 modeled NRx and passes every release rule. The values are close because the Q3 case has many accounts, smooth response curves, and only a small number of binding integer decisions. That is common in large allocation problems.</p>
+<h3 id="1532-headcount">15.3.2 Headcount</h3>
+<p>A representative is a whole, fixed-cost resource, so the headcount case reuses the point-estimate MILP. The baseline solve produces value <span class="arithmatex">\(V(\mathbf C)\)</span> under territory capacities <span class="arithmatex">\(\mathbf C=(C_1,\ldots,C_T)\)</span>. One representative-quarter adds <span class="arithmatex">\(\Delta C=91\)</span> calls to a single territory, based on the median 7 calls per representative per week across 13 weeks.</p>
+<p>For territory <span class="arithmatex">\(t\)</span>, solve the complete MILP again and calculate</p>
+<div class="arithmatex">\[
+\Delta V_t
+=V(C_1,\ldots,C_t+\Delta C,\ldots,C_T)-V(\mathbf C).
+\]</div>
+<p>The quarterly business case is</p>
+<div class="arithmatex">\[
+\text{Net value}_t
+=\$1{,}700\times\Delta V_t-\$45{,}000.
+\]</div>
+<p>The $1,700 figure is the planning contribution per incremental NRx. It represents net contribution from the new prescription plus expected downstream refills in this synthetic case. The $45,000 figure is the loaded cost of one representative per quarter. At those assumptions, an added representative needs 26.47 incremental NRx to break even.</p>
+<p>Every re-solve keeps the response estimates, account rules, and other territory capacities fixed. The base account-call change allowance stays in place, and the added representative's 91 calls are added on top. <code>headcount_business_case()</code> in <code>allocation.py</code> runs this MILP re-solve for all 12 territories.</p>
+<table>
+<thead>
+<tr>
+<th>Territory</th>
+<th style="text-align: right;">Incremental NRx</th>
+<th style="text-align: right;">Value at $1,700/NRx</th>
+<th style="text-align: right;">Net value</th>
+<th>Recommendation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NO-T1</td>
+<td style="text-align: right;">+15.68</td>
+<td style="text-align: right;">$26,664</td>
+<td style="text-align: right;">-$18,336</td>
+<td>Hold</td>
+</tr>
+<tr>
+<td>WE-T1</td>
+<td style="text-align: right;">+12.37</td>
+<td style="text-align: right;">$21,037</td>
+<td style="text-align: right;">-$23,963</td>
+<td>Hold</td>
+</tr>
+<tr>
+<td>NO-T3</td>
+<td style="text-align: right;">+10.64</td>
+<td style="text-align: right;">$18,082</td>
+<td style="text-align: right;">-$26,918</td>
+<td>Hold</td>
+</tr>
+<tr>
+<td>MI-T2</td>
+<td style="text-align: right;">+9.00</td>
+<td style="text-align: right;">$15,297</td>
+<td style="text-align: right;">-$29,703</td>
+<td>Hold</td>
+</tr>
+<tr>
+<td>SO-T3</td>
+<td style="text-align: right;">+6.71</td>
+<td style="text-align: right;">$11,415</td>
+<td style="text-align: right;">-$33,585</td>
+<td>Hold</td>
+</tr>
+<tr>
+<td>WE-T2</td>
+<td style="text-align: right;">+6.21</td>
+<td style="text-align: right;">$10,550</td>
+<td style="text-align: right;">-$34,450</td>
+<td>Hold</td>
+</tr>
+</tbody>
+</table>
+<p><em>Table 15.4. The best 6 territory headcount re-solves still fail the cost test.</em></p>
+<p>NO-T1 is the best place for added capacity. It produces 15.68 more NRx, worth $26,664 under the base value assumption. That leaves an $18,336 loss after the representative cost. Every territory returns Hold. The Q3 value comes from changing call placement with the current field team.</p>
+<p>The recommendation changes if the product's value per incremental NRx is higher. The cost is fixed, so the breakeven line moves only through the value assumption:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Value per incremental NRx</th>
+<th>Territories clearing breakeven</th>
+<th style="text-align: right;">Best NO-T1 net value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">$1,700</td>
+<td>None</td>
+<td style="text-align: right;">-$18,336</td>
+</tr>
+<tr>
+<td style="text-align: right;">$3,000</td>
+<td>NO-T1</td>
+<td style="text-align: right;">+$2,040</td>
+</tr>
+<tr>
+<td style="text-align: right;">$3,700</td>
+<td>NO-T1, WE-T1</td>
+<td style="text-align: right;">+$13,016</td>
+</tr>
+<tr>
+<td style="text-align: right;">$4,300</td>
+<td>NO-T1, WE-T1, NO-T3</td>
+<td style="text-align: right;">+$22,424</td>
+</tr>
+</tbody>
+</table>
+<p><em>Headcount sensitivity to the value-per-NRx planning assumption.</em></p>
+<h2 id="154-response-uncertainty-and-plan-selection">15.4 Response Uncertainty and Plan Selection</h2>
+<p>The call plan depends on estimated incremental NRx gains. The next call goes where the fitted curve is steepest at the current call count. The planning input needs both an NRx gain estimate and a credible range for every possible call.</p>
+<h3 id="1541-observed-account-period-rows">15.4.1 Observed Account-Period Rows</h3>
+<p>The synthetic data contains 6 quarterly history rows for each account. Each row mixes measured history with planning estimates. <code>calls</code> and <code>observed_nrx</code> are measured. <code>segment</code>, <code>baseline_nrx</code>, <code>opportunity_nrx</code>, and <code>access_state</code> are planning fields prepared before the response fit. In a real brand plan, those fields would come from targeting rules, account-potential models, payer access records, pre-period baselines, or a forecast.</p>
+<p>The response fit uses <code>segment</code>, <code>calls</code>, <code>observed_nrx</code>, <code>baseline_nrx</code>, <code>opportunity_nrx</code>, and <code>access_state</code> in each account-period row.</p>
+<p>The segment assignment is part of the synthetic planning table. Accounts are ranked by opportunity NRx with random jitter. Higher-opportunity accounts skew toward the slower Anchor and Maintain segments. Lower-opportunity accounts skew toward the faster Growth and Adopter segments. In a real setting, this field might come from targeting rules, an account-priority model, an adoption-stage model, or account clustering.</p>
+<p>Opportunity NRx is drawn for each account from a opportunity distribution.</p>
+<p>After the account receives a segment label, the generator draws one baseline share from that segment's range and multiplies it by the account's opportunity to get its baseline NRx. For A0001, the account is in Growth, so its baseline share is drawn from the Growth range of 25% to 45%, applied to its 23.519 NRx opportunity to get its exact baseline 6.619 NRx. In a real setting, baseline NRx would usually come from a pre-period average, a forecast, or a baseline model.</p>
+<p><code>run_generation()</code> in <code>generate_allocation_data.py</code> produces <code>observed_field_history</code>. Listing 15.4 prints three rows with the fields used by the response fit, then the fields kept for data inspection.</p>
+<p><strong>Listing 15.4</strong>: Inspect observed account-period rows.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s2">&quot;ch15_optimization/scripts&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()))</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">generate_allocation_data</span><span class="w"> </span><span class="kn">import</span> <span class="n">run_generation</span>
+
+<span class="n">generated</span> <span class="o">=</span> <span class="n">run_generation</span><span class="p">()</span>
+<span class="n">history</span> <span class="o">=</span> <span class="n">generated</span><span class="p">[</span><span class="s2">&quot;observed_history&quot;</span><span class="p">]</span>
+
+<span class="n">fit_cols</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;account_id&quot;</span><span class="p">,</span> <span class="s2">&quot;segment&quot;</span><span class="p">,</span> <span class="s2">&quot;access_state&quot;</span><span class="p">,</span> <span class="s2">&quot;calls&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;baseline_nrx&quot;</span><span class="p">,</span> <span class="s2">&quot;observed_nrx&quot;</span><span class="p">,</span> <span class="s2">&quot;opportunity_nrx&quot;</span>
+<span class="p">]</span>
+<span class="n">inspect_cols</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;account_id&quot;</span><span class="p">,</span> <span class="s2">&quot;period_id&quot;</span><span class="p">,</span> <span class="s2">&quot;channel_exposure&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;measurement_source&quot;</span><span class="p">,</span> <span class="s2">&quot;measurement_window&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fields used by the response fit&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">history</span><span class="o">.</span><span class="n">loc</span><span class="p">[:</span><span class="mi">2</span><span class="p">,</span> <span class="n">fit_cols</span><span class="p">]</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fields kept for source inspection&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">history</span><span class="o">.</span><span class="n">loc</span><span class="p">[:</span><span class="mi">2</span><span class="p">,</span> <span class="n">inspect_cols</span><span class="p">]</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Fields used by the response fit
+account_id  segment access_state  calls  baseline_nrx  observed_nrx  opportunity_nrx
+     A0001   Growth   Restricted      8         6.619         8.681           23.519
+     A0002 Maintain       Closed      1        14.795        14.912           21.173
+     A0003  Adopter   Restricted     14         2.569         5.802           15.234
+
+Fields kept for source inspection
+account_id  period_id  channel_exposure measurement_source measurement_window
+     A0001          1                 5 prescription_panel             2024Q1
+     A0002          1                 4 prescription_panel             2024Q1
+     A0003          1                 7 prescription_panel             2024Q1
+</code></pre></div>
+<h3 id="1542-segment-response-fit">15.4.2 Segment Response Fit</h3>
+<p>A response curve has 3 fitted parameters, and 6 noisy rows cannot identify a reliable curve for one account. The fit combines accounts within 4 response segments, while each account keeps its own opportunity and access multiplier. Each segment still contains observations from 0 through 16 calls.</p>
+<p>The fitted curve uses the same Hill saturation form used earlier. For account <span class="arithmatex">\(i\)</span> in segment <span class="arithmatex">\(s\)</span>, call count <span class="arithmatex">\(c\)</span>, opportunity <span class="arithmatex">\(O_i\)</span>, access multiplier <span class="arithmatex">\(a_i\)</span>, segment scale <span class="arithmatex">\(\alpha_s\)</span>, half-response point <span class="arithmatex">\(m_s\)</span>, and slope <span class="arithmatex">\(h_s\)</span>, the fitted incremental response is</p>
+<div class="arithmatex">\[
+\widehat R_i(c)=O_i a_i \alpha_s
+\frac{1}{1+\left(\frac{c}{m_s}\right)^{-h_s}}.
+\]</div>
+<p>The 3 fitted parameters are <span class="arithmatex">\(\alpha_s\)</span>, <span class="arithmatex">\(m_s\)</span>, and <span class="arithmatex">\(h_s\)</span>. Scale <span class="arithmatex">\(\alpha_s\)</span> is the share of opportunity the account can convert when calls saturate. Half-response point <span class="arithmatex">\(m_s\)</span> is the call count where the segment reaches half of that fitted ceiling. Slope <span class="arithmatex">\(h_s\)</span> controls how sharply response rises around the half-response point.</p>
+<p>The fitting target is observed incremental NRx:</p>
+<div class="arithmatex">\[
+\max(\text{observed NRx}_{it}-\text{baseline NRx}_i,0).
+\]</div>
+<p><code>fit_segment_response()</code> in <code>response_uncertainty.py</code> fits the 4 segment curves with bounded nonlinear least squares. The function normalizes each row by <span class="arithmatex">\(O_i a_i\)</span>, fits the Hill curve in log-parameter space, and weights rows by the square root of <span class="arithmatex">\(O_i a_i\)</span> so large accounts matter without taking over the curve. <code>_observed_history_summary()</code> in <code>run_analysis.py</code> reports the call variation and sample size used by each fit.</p>
+<table>
+<thead>
+<tr>
+<th>Segment</th>
+<th style="text-align: right;">Accounts</th>
+<th style="text-align: right;">Account-period rows</th>
+<th style="text-align: right;">Call range</th>
+<th style="text-align: right;">Mean observed NRx</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Adopter</td>
+<td style="text-align: right;">67</td>
+<td style="text-align: right;">402</td>
+<td style="text-align: right;">0 to 16</td>
+<td style="text-align: right;">5.40</td>
+</tr>
+<tr>
+<td>Anchor</td>
+<td style="text-align: right;">95</td>
+<td style="text-align: right;">570</td>
+<td style="text-align: right;">0 to 16</td>
+<td style="text-align: right;">37.66</td>
+</tr>
+<tr>
+<td>Growth</td>
+<td style="text-align: right;">62</td>
+<td style="text-align: right;">372</td>
+<td style="text-align: right;">0 to 16</td>
+<td style="text-align: right;">10.42</td>
+</tr>
+<tr>
+<td>Maintain</td>
+<td style="text-align: right;">76</td>
+<td style="text-align: right;">456</td>
+<td style="text-align: right;">0 to 16</td>
+<td style="text-align: right;">17.50</td>
+</tr>
+</tbody>
+</table>
+<p><em>Table 15.5. Each segment fit has observed call variation across the full 0 to 16 range.</em></p>
+<table>
+<thead>
+<tr>
+<th>Segment</th>
+<th style="text-align: right;">Scale</th>
+<th style="text-align: right;">Half-response point</th>
+<th style="text-align: right;">Slope</th>
+<th style="text-align: right;">RMSE</th>
+<th style="text-align: right;"><span class="arithmatex">\(R^2\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Anchor</td>
+<td style="text-align: right;">0.1637</td>
+<td style="text-align: right;">8.945</td>
+<td style="text-align: right;">1.016</td>
+<td style="text-align: right;">1.085</td>
+<td style="text-align: right;">0.696</td>
+</tr>
+<tr>
+<td>Maintain</td>
+<td style="text-align: right;">0.3500</td>
+<td style="text-align: right;">8.173</td>
+<td style="text-align: right;">1.153</td>
+<td style="text-align: right;">1.299</td>
+<td style="text-align: right;">0.716</td>
+</tr>
+<tr>
+<td>Growth</td>
+<td style="text-align: right;">0.3388</td>
+<td style="text-align: right;">3.322</td>
+<td style="text-align: right;">1.838</td>
+<td style="text-align: right;">1.620</td>
+<td style="text-align: right;">0.657</td>
+</tr>
+<tr>
+<td>Adopter</td>
+<td style="text-align: right;">0.5198</td>
+<td style="text-align: right;">3.633</td>
+<td style="text-align: right;">1.730</td>
+<td style="text-align: right;">1.483</td>
+<td style="text-align: right;">0.680</td>
+</tr>
+</tbody>
+</table>
+<p><em>Table 15.6. Segment-level Hill curves fitted from observed field history.</em></p>
+<p><img alt="Figure 15.3. Fitted Hill response curves for the four account segments, normalized to account opportunity and access." src="../assets/figures/figure_15_3_segment_response_curves.svg" /></p>
+<p><em>Figure 15.3. Growth and Adopter climb earlier, while Anchor responds more slowly and reaches a lower response share.</em></p>
+<h3 id="1543-draw-plausible-curves">15.4.3 Draw Plausible Curves</h3>
+<p>The point fit supplies one gain for each possible call. Q3 planning also needs to know how those gains would change if the observed territory mix had been different. The 12 territories provide natural resampling groups because accounts in one territory share local field conditions.</p>
+<p><code>block_bootstrap_response_draws()</code> in <code>response_uncertainty.py</code> resamples whole territories, refits all 4 segments, and repeats the process 200 times. Each repeat produces one complete set of segment curves. <code>response_draws_to_step_gains()</code> then converts that set into one value for every possible account call. The 200 gain matrices preserve which parameters and segments moved together in each refit.</p>
+<table>
+<thead>
+<tr>
+<th>Segment</th>
+<th style="text-align: right;">Scale p10</th>
+<th style="text-align: right;">Scale p90</th>
+<th style="text-align: right;">Half-response p10</th>
+<th style="text-align: right;">Half-response p90</th>
+<th style="text-align: right;">Slope p10</th>
+<th style="text-align: right;">Slope p90</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Anchor</td>
+<td style="text-align: right;">0.1345</td>
+<td style="text-align: right;">0.2505</td>
+<td style="text-align: right;">6.52</td>
+<td style="text-align: right;">22.00</td>
+<td style="text-align: right;">0.842</td>
+<td style="text-align: right;">1.164</td>
+</tr>
+<tr>
+<td>Maintain</td>
+<td style="text-align: right;">0.2944</td>
+<td style="text-align: right;">0.4834</td>
+<td style="text-align: right;">5.32</td>
+<td style="text-align: right;">16.58</td>
+<td style="text-align: right;">0.954</td>
+<td style="text-align: right;">1.400</td>
+</tr>
+<tr>
+<td>Growth</td>
+<td style="text-align: right;">0.3081</td>
+<td style="text-align: right;">0.3975</td>
+<td style="text-align: right;">2.92</td>
+<td style="text-align: right;">4.31</td>
+<td style="text-align: right;">1.455</td>
+<td style="text-align: right;">2.200</td>
+</tr>
+<tr>
+<td>Adopter</td>
+<td style="text-align: right;">0.4614</td>
+<td style="text-align: right;">0.6056</td>
+<td style="text-align: right;">3.21</td>
+<td style="text-align: right;">4.68</td>
+<td style="text-align: right;">1.360</td>
+<td style="text-align: right;">2.163</td>
+</tr>
+</tbody>
+</table>
+<p><em>Table 15.7. Territory-bootstrap draws preserve joint movement in the segment curves.</em></p>
+<p><img alt="Figure 15.4. Observed Growth-segment response, the fitted curve, and a territory-bootstrap interval." src="../assets/figures/figure_15_4_uncertainty_fit.svg" /></p>
+<p><em>Figure 15.4. Response uncertainty built from observed account-period data.</em></p>
+<h3 id="1544-expected-value-across-curves">15.4.4 Expected Value Across Curves</h3>
+<p>The Q3 plan is selected under response-curve uncertainty. In territory NO-T1, 2 Adopter accounts compete for scarce call capacity. A0095 currently has 4 calls. A0099 currently has 2 calls. The question is which next call has the better expected payoff across the response curves supported by the observed history.</p>
+<p>There are two ways to calculate the next-call value. (1) The quick shortcut averages the 3 fitted curve parameters first, then calculates one Hill-curve gain from those average parameters. (2) The bootstrap method keeps the 200 fitted curves, scores the next call under each curve, and averages the 200 NRx gains. That NRx gain average becomes the coefficient the optimizer uses for the call decision.</p>
+<p>The shortcut is cheaper because it works with one average curve. The bootstrap method costs more because the response curves have to be refit or sampled first. The extra work catches ranking errors from the nonlinear Hill curve. For A0095 and A0099, the shortcut prefers A0095 by 0.036 NRx. Averaging the 200 bootstrap outcomes prefers A0099 by 0.007 NRx. The gap is small for this pair, but the release plan compares thousands of possible calls near the capacity boundary.</p>
+<p>This is sample-average approximation (SAA). The uncertain expected-value problem is replaced with a finite sample of plausible response curves. Here the sample has 200 bootstrap draws. For each possible account call, the code calculates the gain under all 200 curves and uses the average gain as the value coefficient in the field-call MILP. The solver still chooses whole planned calls under territory capacity, eligibility, frequency, and the plan-change rule. SAA is practical when simulation draws represent the uncertainty well.</p>
+<p><strong>Listing 15.5</strong>: Build sample-average next-call coefficients.</p>
+<div class="highlight"><pre><span></span><code><span class="n">gain_draws</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;_gain_draws&quot;</span><span class="p">]</span>
+<span class="n">mean_step_gains</span> <span class="o">=</span> <span class="n">gain_draws</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;gain draws: </span><span class="si">{</span><span class="n">gain_draws</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> draws, </span><span class="si">{</span><span class="n">gain_draws</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2"> accounts, &quot;</span>
+      <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">gain_draws</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="si">}</span><span class="s2"> possible calls per account&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">account</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;A0095&quot;</span><span class="p">,</span> <span class="s2">&quot;A0099&quot;</span><span class="p">]:</span>
+    <span class="n">idx</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">planning</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">planning</span><span class="o">.</span><span class="n">account_id</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="n">account</span><span class="p">)][</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">next_step</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">planning</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="s2">&quot;current_calls&quot;</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">account</span><span class="si">}</span><span class="s2"> next-call coefficient: </span><span class="si">{</span><span class="n">mean_step_gains</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="w"> </span><span class="n">next_step</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> NRx&quot;</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>gain draws: 200 draws, 300 accounts, 16 possible calls per account
+A0095 next-call coefficient: 0.627 NRx
+A0099 next-call coefficient: 0.634 NRx
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Account</th>
+<th>Territory</th>
+<th>Segment</th>
+<th style="text-align: right;">Current calls</th>
+<th style="text-align: right;">Next gain from mean parameters</th>
+<th style="text-align: right;">Mean next gain across outcomes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A0095</td>
+<td>NO-T1</td>
+<td>Adopter</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.663</td>
+<td style="text-align: right;">0.627</td>
+</tr>
+<tr>
+<td>A0099</td>
+<td>NO-T1</td>
+<td>Adopter</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.627</td>
+<td style="text-align: right;">0.634</td>
+</tr>
+</tbody>
+</table>
+<p><em>Table 15.10. Averaging outcomes reverses the next-call ranking.</em></p>
+<h3 id="1545-weak-quarter-value">15.4.5 Weak-Quarter Value</h3>
+<p>The Q3 package needs one number for the expected quarter and one number for a weak quarter. The expected-value plan earns 1,147.2 incremental NRx on average across the fitted curves. Finance also needs a downside number: how much value remains if the quarter lands in the weaker part of the fitted response distribution.</p>
+<p>CVaR turns that downside question into a release rule. It is a risk-management instrument from finance, often called expected shortfall. It adds a second test beside expected return: how the plan performs inside the bad tail. A higher CVaR plan is designed to hold up better when response curves disappoint. The cost is usually lower expected NRx, less aggressive movement toward high-upside accounts, or a tighter plan that leaves fewer bets on uncertain response.</p>
+<p>The calculation uses the same frozen call plan for every fitted curve. Score that plan 200 times, once under each response draw. Then sort the 200 scores from weakest to strongest and read the lower tail.</p>
+<p>Suppose one frozen plan scores 96, 101, 103, 110, and 130 NRx across 5 fitted curves. The average is 108 NRx. A weak-case rule that reads the weakest 20% reports 96 NRx. With 200 draws and a weakest 10% rule, the weak-quarter score averages the lowest 20 scores. That lower-tail average is conditional value at risk, or CVaR.</p>
+<p>For each response draw, score only the planned calls in the frozen plan and add their NRx gains. Repeating that calculation across all 200 draws gives 200 plan scores. The CVaR score averages the weakest scores for the same fixed plan.</p>
+<p>The CVaR MILP uses that weak-quarter score during optimization. The committee sets a minimum lower-tail value, and the optimizer can choose only plans that clear it. Raising the floor makes the plan more conservative: it shifts capacity toward calls that perform more consistently across fitted curves, even when another plan has a slightly higher average.</p>
+<p>Table 15.11 uses three plan labels. Point-estimate MILP fits one curve from the full observed history and optimizes against that curve. It differs from the average-parameter shortcut above, where the bootstrap curve parameters are averaged first and one curve is built from those averages; it is a diagnostic, not a release plan. Expected-value MILP keeps all bootstrap curves, averages the gain for each possible call across curves, and optimizes those average gains.</p>
+<p><strong>Listing 15.6</strong>: Score a fixed plan across response draws and calculate CVaR.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">allocation</span><span class="w"> </span><span class="kn">import</span> <span class="n">cvar_of_values</span><span class="p">,</span> <span class="n">scenario_plan_values</span><span class="p">,</span> <span class="n">series_to_plan</span>
+
+<span class="n">expected_series</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;expected_value_milp_plan&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;account_id&quot;</span><span class="p">)[</span><span class="s2">&quot;expected_calls&quot;</span><span class="p">]</span>
+<span class="n">expected_calls</span> <span class="o">=</span> <span class="n">series_to_plan</span><span class="p">(</span><span class="n">planning</span><span class="p">,</span> <span class="n">expected_series</span><span class="p">)</span>
+<span class="n">draw_values</span> <span class="o">=</span> <span class="n">scenario_plan_values</span><span class="p">(</span><span class="n">gain_draws</span><span class="p">,</span> <span class="n">expected_calls</span><span class="p">)</span>
+<span class="n">tail_count</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="mf">0.10</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">draw_values</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;draw scores: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">draw_values</span><span class="p">)</span><span class="si">}</span><span class="s2">, tail count: </span><span class="si">{</span><span class="n">tail_count</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;expected=</span><span class="si">{</span><span class="n">draw_values</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">, p10=</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">draw_values</span><span class="p">,</span><span class="w"> </span><span class="mf">0.10</span><span class="p">)</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">, &quot;</span>
+      <span class="sa">f</span><span class="s2">&quot;cvar=</span><span class="si">{</span><span class="n">cvar_of_values</span><span class="p">(</span><span class="n">draw_values</span><span class="p">)</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>draw scores: 200, tail count: 20
+expected=1147.2, p10=1075.5, cvar=1049.7
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Plan</th>
+<th style="text-align: right;">Expected NRx</th>
+<th style="text-align: right;">P10 NRx</th>
+<th style="text-align: right;">CVaR NRx</th>
+<th style="text-align: right;">Account-call changes</th>
+<th style="text-align: right;">Accounts changed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Point-estimate MILP</td>
+<td style="text-align: right;">1,147.1</td>
+<td style="text-align: right;">1,075.9</td>
+<td style="text-align: right;">1,049.9</td>
+<td style="text-align: right;">534</td>
+<td style="text-align: right;">147</td>
+</tr>
+<tr>
+<td>Expected-value MILP</td>
+<td style="text-align: right;">1,147.2</td>
+<td style="text-align: right;">1,075.5</td>
+<td style="text-align: right;">1,049.7</td>
+<td style="text-align: right;">534</td>
+<td style="text-align: right;">149</td>
+</tr>
+<tr>
+<td>CVaR MILP</td>
+<td style="text-align: right;">1,146.9</td>
+<td style="text-align: right;">1,076.0</td>
+<td style="text-align: right;">1,050.0</td>
+<td style="text-align: right;">534</td>
+<td style="text-align: right;">144</td>
+</tr>
+</tbody>
+</table>
+<p><em>Table 15.11. The downside-protected plan trades a small amount of expected NRx for a slightly stronger weak-response tail.</em></p>
+<p>The expected-value plan produces 1,147.2 NRx on average and 1,049.7 in the weak-response tail. The CVaR plan moves 5 fewer accounts, gives up 0.3 expected NRx, and raises the tail result by 0.3. The trade-off is small here because much of the uncertainty moves an entire segment together. The optimizer has limited room to diversify away that shared segment risk inside the 20% movement limit.</p>
+<p>An aggressive committee choice would approve more account-call changes or a lower tail floor. A conservative choice would require a higher tail floor and accept some loss in expected NRx. SLSQP, LP, and MILP do not have an aggressive switch. The risk and plan-change rules create that choice.</p>
+<h3 id="1546-promise-calibration">15.4.6 Promise Calibration</h3>
+<p>The release package reports expected value and weak-quarter value. Calibration asks whether the promised incremental NRx is believable. In the synthetic case, the hidden response truth scores each frozen plan. In a real brand plan, the same audit requires a measurement read: a randomized holdout, matched control, geo holdout, causal post-period analysis, or repeated forecast-versus-actual tracking with controls for market shocks.</p>
+<p>The Roventra audit uses the 300 accounts in the planning table. The plan is selected with fitted curves. Then the hidden response truth scores delivery. Table 15.12 reports two incremental NRx columns. Promise gap is promised incremental NRx minus hidden-truth delivered incremental NRx. A negative value means delivered NRx was higher than promised NRx. Delivered versus current is the plan's hidden-truth delivered NRx minus the incumbent plan's hidden-truth delivered NRx.</p>
+<table>
+<thead>
+<tr>
+<th>Plan</th>
+<th style="text-align: right;">Promise gap</th>
+<th style="text-align: right;">Delivered versus current</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Current plan (incumbent)</td>
+<td style="text-align: right;">-12.1</td>
+<td style="text-align: right;">0.0</td>
+</tr>
+<tr>
+<td>Point-estimate MILP</td>
+<td style="text-align: right;">-29.4</td>
+<td style="text-align: right;">121.7</td>
+</tr>
+<tr>
+<td>Expected-value MILP</td>
+<td style="text-align: right;">-31.1</td>
+<td style="text-align: right;">123.4</td>
+</tr>
+<tr>
+<td>CVaR MILP</td>
+<td style="text-align: right;">-28.7</td>
+<td style="text-align: right;">120.7</td>
+</tr>
+<tr>
+<td>Selected Stable reference</td>
+<td style="text-align: right;">-30.7</td>
+<td style="text-align: right;">123.0</td>
+</tr>
+<tr>
+<td>Committed before reserve read</td>
+<td style="text-align: right;">-29.9</td>
+<td style="text-align: right;">117.7</td>
+</tr>
+</tbody>
+</table>
+<p><em>Table 15.12. Frozen-plan audit against the hidden response truth.</em></p>
+<p>The expected-value plan has a -31.1 NRx promise gap. It promised 31.1 fewer incremental NRx than the hidden response truth delivered. That is a calibration result for one generated dataset. It says the fitted curves were conservative in this realization.</p>
+<h3 id="1547-selection-on-noise">15.4.7 Selection on Noise</h3>
+<p>The optimizer searches across thousands of possible calls and selects the largest estimated gains. Some winners are truly high-value calls. Others only look high-value because random estimation error pushed their estimated gains above their true gains.</p>
+<p>Use a toy capacity rule with 40 possible calls and unbiased estimates. The average error across all 40 estimates is near zero. Capacity allows only 8 calls, and the optimizer chooses the 8 largest estimates. Those 8 selected calls tend to carry positive error because noisy high estimates are more likely to win.</p>
+<p><code>repeated_lab_selection_bias()</code> in <code>allocation.py</code> repeats that top-8-of-40 toy choice across 500 simulated laboratories. Listing 15.7 shows the selection block inside each simulated laboratory.</p>
+<p><strong>Listing 15.7</strong>: Select the highest noisy estimates in the toy laboratory.</p>
+<div class="highlight"><pre><span></span><code><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">700</span><span class="p">)</span>
+<span class="n">latent_gain</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">lognormal</span><span class="p">(</span><span class="n">mean</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mf">0.35</span><span class="p">),</span> <span class="n">sigma</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
+<span class="n">observed</span> <span class="o">=</span> <span class="n">latent_gain</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">+</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.24</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">estimated_gain</span> <span class="o">=</span> <span class="n">observed</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">selected</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">estimated_gain</span><span class="p">)[</span><span class="o">-</span><span class="mi">8</span><span class="p">:]</span>
+
+<span class="n">all_error</span> <span class="o">=</span> <span class="n">estimated_gain</span> <span class="o">-</span> <span class="n">latent_gain</span>
+<span class="n">selected_error</span> <span class="o">=</span> <span class="n">all_error</span><span class="p">[</span><span class="n">selected</span><span class="p">]</span>
+<span class="n">selection_effect</span> <span class="o">=</span> <span class="n">selected_error</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">-</span> <span class="n">all_error</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</code></pre></div>
+<p><img alt="Figure 15.5. Selection-on-noise effect across 500 repeated toy laboratories." src="../assets/figures/figure_15_5_selection_on_noise.svg" /></p>
+<p><em>Figure 15.5. The repeated laboratory isolates selection on noise from broad model calibration.</em></p>
+<p>Across the 500 simulated laboratories, the average estimation error across all 40 possible calls is 0.000 NRx. The 8 selected calls carry +0.123 NRx of average error. The selection effect is the difference between those two error averages. That gap is the optimizer's curse described by <a href="https://pubsonline.informs.org/doi/10.1287/mnsc.1050.0451">Smith and Winkler</a>.</p>
+<p>The synthetic Roventra case can run the same comparison after the expected-value MILP plan is frozen. This audit uses hidden truth that the optimizer never sees. Table 15.13 compares the fitted gain error across all feasible calls with the fitted gain error on the calls selected by the plan.</p>
+<table>
+<thead>
+<tr>
+<th>Call set</th>
+<th style="text-align: right;">Calls</th>
+<th style="text-align: right;">Mean error</th>
+<th style="text-align: right;">Promised NRx</th>
+<th style="text-align: right;">Hidden-truth NRx</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>All feasible calls</td>
+<td style="text-align: right;">4,064</td>
+<td style="text-align: right;">-0.016</td>
+<td style="text-align: right;">1,224.4</td>
+<td style="text-align: right;">1,289.1</td>
+</tr>
+<tr>
+<td>Selected planned calls</td>
+<td style="text-align: right;">3,192</td>
+<td style="text-align: right;">-0.010</td>
+<td style="text-align: right;">1,147.2</td>
+<td style="text-align: right;">1,178.3</td>
+</tr>
+</tbody>
+</table>
+<p><em>Table 15.13. Roventra selection-on-noise audit after the expected-value MILP plan is frozen.</em></p>
+<p>The Roventra estimates are conservative overall: both mean errors are negative. The selected planned calls are less conservative than the full feasible pool by +0.006 NRx per call. That is the Roventra selection-on-noise effect in this synthetic run.</p>
+<h2 id="155-constraint-prices">15.5 Constraint Prices</h2>
+<p>The planning committee now has to decide which constraint deserves an exception. A district can ask for one more representative-quarter. Field leadership can ask to move more calls than the 20% limit allows. The channel team can ask for wider budget bounds when the MMM evidence says a channel still has room. Each request needs three numbers: expected NRx gained, dollar value gained, and extra implementation burden.</p>
+<p><code>continuous_constraint_prices()</code> and <code>discrete_constraint_tradeoffs()</code> in <code>allocation.py</code> calculate the local and rule-change prices. <code>channel_movement_cap_tradeoff()</code> re-solves the channel mix with each evidence bound widened by 5 percentage points.</p>
+<p>Table 15.14 gives the local prices. These come from the smooth SLSQP solve. They answer small "one more unit" questions near the current optimum, such as one more call of capacity or a small budget increase in the best local channel.</p>
+<table>
+<thead>
+<tr>
+<th>Local constraint</th>
+<th style="text-align: right;">Marginal value in NRx</th>
+<th style="text-align: right;">Marginal dollar value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>One call of quarterly capacity</td>
+<td style="text-align: right;">0.118</td>
+<td style="text-align: right;">$200</td>
+</tr>
+<tr>
+<td>One $1K/week budget increase in email</td>
+<td style="text-align: right;">9.074</td>
+<td style="text-align: right;">$15,426</td>
+</tr>
+</tbody>
+</table>
+<p><em>Table 15.14. Continuous prices read the local value of a small capacity or budget increase.</em></p>
+<p>Email is the best local channel in the fitted MMM curve. Adding $1K per week to email for 13 weeks is priced at 9.074 incremental NRx, worth $15,426 at $1,700 per NRx. This is a marginal price around the fitted optimum. It is a short local calculation, not a claim that every extra $1K/week in email will keep producing the same return.</p>
+<p>Table 15.15 gives the rule-change prices. These are larger changes. One representative-quarter, a wider plan-change cap, or a removed coverage rule can alter many account call counts. The calculation changes one rule, runs the optimizer again, and subtracts Stable's expected NRx and account-call changes from the new result.</p>
+<table>
+<thead>
+<tr>
+<th>Rule or resource</th>
+<th>Current rule</th>
+<th>Tested change</th>
+<th style="text-align: right;">Expected NRx</th>
+<th style="text-align: right;">Weak-quarter NRx</th>
+<th style="text-align: right;">Extra account-call changes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Territory capacity</td>
+<td>Approved representative capacity by territory</td>
+<td>+1 representative-quarter in NO-T1</td>
+<td style="text-align: right;">+7.9</td>
+<td style="text-align: right;">+7.8</td>
+<td style="text-align: right;">0 calls</td>
+</tr>
+<tr>
+<td>Account-call change cap</td>
+<td>20% of current national calls</td>
+<td>+5 percentage points</td>
+<td style="text-align: right;">+8.0</td>
+<td style="text-align: right;">+7.5</td>
+<td style="text-align: right;">+133 changes</td>
+</tr>
+<tr>
+<td>Minimum coverage</td>
+<td>1 call per eligible account</td>
+<td>Remove one-call floor</td>
+<td style="text-align: right;">+0.0</td>
+<td style="text-align: right;">+0.0</td>
+<td style="text-align: right;">0 calls</td>
+</tr>
+<tr>
+<td>Channel movement cap</td>
+<td>Channel-specific evidence bounds</td>
+<td>Add 5 percentage points</td>
+<td style="text-align: right;">+19.8</td>
+<td style="text-align: right;">Not estimated</td>
+<td style="text-align: right;">Not applicable</td>
+</tr>
+<tr>
+<td>Flexible reserve</td>
+<td>Commit all flexible calls now</td>
+<td>Hold 39 calls and learn</td>
+<td style="text-align: right;">-0.8</td>
+<td style="text-align: right;">Not estimated</td>
+<td style="text-align: right;">Not applicable</td>
+</tr>
+</tbody>
+</table>
+<p><em>Table 15.15. Rule-change prices from re-running the optimizer after one constraint changes.</em></p>
+<p>The territory row prices a discrete staffing request. Under the $1,700 per incremental NRx assumption, the added representative per quarter in NO-T1 produces about $13,430 of expected value. The added capacity does not cover the staffing cost, $45,000 for one representative per quarter.</p>
+<p>The plan-change row prices implementation stability. Moving from 20% to 25% lets the optimizer make 133 more account-call changes and recover 8.0 expected NRx. The committee can now decide whether those extra changes are worth about $13,600.</p>
+<p>The minimum-coverage row protects service coverage for eligible accounts. Removing the one-call floor adds no modeled value in this run, which means the service rule is cheap to keep.</p>
+<p>The channel movement row prices the evidence bounds around the MMM recommendation. Widening those bounds by 5 percentage points recovers 19.8 expected NRx. That is the largest modeled value in the table.</p>
+<p>The reserve row prices flexibility. Holding 39 calls and running the proposed study loses 0.82 expected NRx after study cost and delayed calls are counted. The Q3 package commits those calls.</p>
+<p>Use Table 15.14 for small local prices. Use Table 15.15 for larger business-rule changes that can move the plan to a new set of accounts or a new channel mix.</p>
+<h2 id="156-near-optimal-frontier">15.6 Near-Optimal Frontier</h2>
+<p>The Q3 call plan can use more of the approved field capacity. Every changed account needs a new call target, manager review, and execution by a representative. The highest-value plan may demand a large operating change for a small final gain. The near-optimal frontier shows the feasible plans worth discussing and the modeled value attached to each additional block of change.</p>
+<h3 id="1561-measure-plan-change">15.6.1 Measure Plan Change</h3>
+<p>Let <span class="arithmatex">\(c_i^0\)</span> be the current Q3 calls for account <span class="arithmatex">\(i\)</span> and <span class="arithmatex">\(y_i\)</span> be the proposed calls. Increasing an account from 2 calls to 4 adds 2 calls. Reducing another account from 3 calls to 2 removes 1 call. Both changes require a new account target.</p>
+<p>The number of calls added is</p>
+<div class="arithmatex">\[
+A(y)=\sum_i\max(y_i-c_i^0,0),
+\]</div>
+<p>and the number removed is</p>
+<div class="arithmatex">\[
+C(y)=\sum_i\max(c_i^0-y_i,0).
+\]</div>
+<p>Total account-call changes are</p>
+<div class="arithmatex">\[
+M(y)=A(y)+C(y)=\sum_i|y_i-c_i^0|.
+\]</div>
+<p>When the national total stays fixed, one reassignment creates one removal and one addition. The number reassigned is <span class="arithmatex">\(\min(A(y),C(y))\)</span>. Net added calls are <span class="arithmatex">\(A(y)-C(y)\)</span>.</p>
+<p>Roventra's current plan contains 2,670 calls. Stable uses 3,192 calls and fills capacity that was already available in the approved field plan. <code>plan_change_summary()</code> in <code>allocation.py</code> separates that growth from account-to-account reassignment.</p>
+<table>
+<thead>
+<tr>
+<th>Plan-change component</th>
+<th style="text-align: right;">Stable result</th>
+<th>Interpretation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Calls added</td>
+<td style="text-align: right;">528</td>
+<td>Higher call counts on selected accounts</td>
+</tr>
+<tr>
+<td>Calls removed</td>
+<td style="text-align: right;">6</td>
+<td>Lower call counts on selected accounts</td>
+</tr>
+<tr>
+<td>Calls reassigned</td>
+<td style="text-align: right;">6</td>
+<td>Removal and addition paired across accounts</td>
+</tr>
+<tr>
+<td>Net calls added</td>
+<td style="text-align: right;">522</td>
+<td>Previously unused capacity released into the plan</td>
+</tr>
+<tr>
+<td>Total account-call changes</td>
+<td style="text-align: right;">534</td>
+<td>All additions and removals requiring execution</td>
+</tr>
+<tr>
+<td>Accounts changed</td>
+<td style="text-align: right;">149</td>
+<td>Account targets updated in the Q3 release</td>
+</tr>
+</tbody>
+</table>
+<p><em>Table 15.16. Stable mainly fills available capacity; only 6 calls are reassigned.</em></p>
+<h3 id="1562-remove-inferior-plans">15.6.2 Remove Inferior Plans</h3>
+<p>Consider eight feasible district plans. Each one respects capacity, access, coverage, and whole-call rules. Expected NRx rewards average performance. Weak-quarter NRx uses the CVaR calculation developed earlier. Account-call changes measure the work required to release the plan.</p>
+<p><code>filter_nondominated_plans()</code> in <code>allocation.py</code> compares the three outcomes. Listing 15.8 applies it to the toy plans.</p>
+<p><strong>Listing 15.8</strong>: Remove a plan that is worse on value, downside, and change.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">allocation</span><span class="w"> </span><span class="kn">import</span> <span class="n">filter_nondominated_plans</span>
+
+<span class="n">toy</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="p">(</span><span class="s2">&quot;Current&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="mi">112</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="mi">116</span><span class="p">,</span> <span class="mi">103</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="mi">115</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="mi">119</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">30</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="mi">118</span><span class="p">,</span> <span class="mi">108</span><span class="p">,</span> <span class="mi">30</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;F&quot;</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">106</span><span class="p">,</span> <span class="mi">40</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;G&quot;</span><span class="p">,</span> <span class="mi">117</span><span class="p">,</span> <span class="mi">102</span><span class="p">,</span> <span class="mi">35</span><span class="p">),</span>
+    <span class="p">],</span>
+    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;plan_id&quot;</span><span class="p">,</span> <span class="s2">&quot;expected_nrx&quot;</span><span class="p">,</span> <span class="s2">&quot;cvar_nrx&quot;</span><span class="p">,</span> <span class="s2">&quot;plan_change_calls&quot;</span><span class="p">],</span>
+<span class="p">)</span>
+<span class="n">toy</span> <span class="o">=</span> <span class="n">filter_nondominated_plans</span><span class="p">(</span><span class="n">toy</span><span class="p">)</span>
+<span class="n">toy</span><span class="p">[</span><span class="s2">&quot;decision&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">toy</span><span class="p">[</span><span class="s2">&quot;nondominated&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">({</span><span class="kc">True</span><span class="p">:</span> <span class="s2">&quot;Keep&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">:</span> <span class="s2">&quot;Remove&quot;</span><span class="p">})</span>
+<span class="n">toy</span><span class="p">[[</span><span class="s2">&quot;plan_id&quot;</span><span class="p">,</span> <span class="s2">&quot;expected_nrx&quot;</span><span class="p">,</span> <span class="s2">&quot;cvar_nrx&quot;</span><span class="p">,</span> <span class="s2">&quot;plan_change_calls&quot;</span><span class="p">,</span> <span class="s2">&quot;decision&quot;</span><span class="p">]]</span>
+</code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>plan_id</th>
+      <th>expected_nrx</th>
+      <th>cvar_nrx</th>
+      <th>plan_change_calls</th>
+      <th>decision</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Current</td>
+      <td>100</td>
+      <td>90</td>
+      <td>0</td>
+      <td>Keep</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>A</td>
+      <td>112</td>
+      <td>100</td>
+      <td>10</td>
+      <td>Keep</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>B</td>
+      <td>116</td>
+      <td>103</td>
+      <td>20</td>
+      <td>Keep</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>C</td>
+      <td>115</td>
+      <td>101</td>
+      <td>25</td>
+      <td>Remove</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>D</td>
+      <td>119</td>
+      <td>100</td>
+      <td>30</td>
+      <td>Keep</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>E</td>
+      <td>118</td>
+      <td>108</td>
+      <td>30</td>
+      <td>Keep</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>F</td>
+      <td>120</td>
+      <td>106</td>
+      <td>40</td>
+      <td>Keep</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>G</td>
+      <td>117</td>
+      <td>102</td>
+      <td>35</td>
+      <td>Remove</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<table>
+<thead>
+<tr>
+<th>Plan</th>
+<th style="text-align: right;">Expected NRx</th>
+<th style="text-align: right;">Weak-quarter NRx</th>
+<th style="text-align: right;">Account-call changes</th>
+<th>Decision</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Current</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">90</td>
+<td style="text-align: right;">0</td>
+<td>Keep</td>
+</tr>
+<tr>
+<td>A</td>
+<td style="text-align: right;">112</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">10</td>
+<td>Keep</td>
+</tr>
+<tr>
+<td>B</td>
+<td style="text-align: right;">116</td>
+<td style="text-align: right;">103</td>
+<td style="text-align: right;">20</td>
+<td>Keep</td>
+</tr>
+<tr>
+<td>C</td>
+<td style="text-align: right;">115</td>
+<td style="text-align: right;">101</td>
+<td style="text-align: right;">25</td>
+<td>Remove</td>
+</tr>
+<tr>
+<td>D</td>
+<td style="text-align: right;">119</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">30</td>
+<td>Keep</td>
+</tr>
+<tr>
+<td>E</td>
+<td style="text-align: right;">118</td>
+<td style="text-align: right;">108</td>
+<td style="text-align: right;">30</td>
+<td>Keep</td>
+</tr>
+<tr>
+<td>F</td>
+<td style="text-align: right;">120</td>
+<td style="text-align: right;">106</td>
+<td style="text-align: right;">40</td>
+<td>Keep</td>
+</tr>
+<tr>
+<td>G</td>
+<td style="text-align: right;">117</td>
+<td style="text-align: right;">102</td>
+<td style="text-align: right;">35</td>
+<td>Remove</td>
+</tr>
+</tbody>
+</table>
+<p><em>Table 15.17. Plans C and G have stronger alternatives on every outcome.</em></p>
+<p>Plan B dominates Plan C. It has higher expected NRx, higher weak-quarter NRx, and 5 fewer changes. Plan E similarly dominates Plan G. Plans D and E both remain. D has higher expected NRx, while E has the stronger weak-quarter result at the same level of change.</p>
+<p>For two feasible plans <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(b\)</span>, plan <span class="arithmatex">\(a\)</span> dominates plan <span class="arithmatex">\(b\)</span> when</p>
+<div class="arithmatex">\[
+\mathbb{E}[V(a)]\ge\mathbb{E}[V(b)],\qquad
+\operatorname{CVaR}_{0.90}(V(a))\ge\operatorname{CVaR}_{0.90}(V(b)),\qquad
+M(a)\le M(b),
+\]</div>
+<p>and at least one comparison is strict. The plans that survive this test form the frontier.</p>
+<h3 id="1563-generate-the-roventra-frontier">15.6.3 Generate the Roventra Frontier</h3>
+<p>The toy table starts with completed plans. Roventra needs the optimizer to create them. Set a maximum number of account-call changes, set a minimum weak-quarter result, and solve the MILP. Repeating the solve across approved limits produces the candidate set.</p>
+<p>For change limit <span class="arithmatex">\(m\)</span> and weak-quarter floor <span class="arithmatex">\(r\)</span>, each solve uses</p>
+<div class="arithmatex">\[
+\max_y\;\mathbb{E}[V(y)]
+\]</div>
+<p>subject to</p>
+<div class="arithmatex">\[
+M(y)\le m
+\qquad\text{and}\qquad
+\operatorname{CVaR}_{0.90}(V(y))\ge r.
+\]</div>
+<p>Territory capacity, access, minimum coverage, and whole-call rules remain in every solve. The two changing limits are called epsilon constraints. <code>epsilon_frontier()</code> in <code>allocation.py</code> crosses four account-call change limits with three weak-quarter settings: the expected-value solve, at least 1,000 NRx, and at least 1,050 NRx.</p>
+<p><strong>Listing 15.9</strong>: Generate feasible plans under shared change and risk limits.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">allocation</span><span class="w"> </span><span class="kn">import</span> <span class="n">epsilon_frontier</span><span class="p">,</span> <span class="n">filter_nondominated_plans</span>
+
+<span class="n">candidates</span><span class="p">,</span> <span class="n">plans</span> <span class="o">=</span> <span class="n">epsilon_frontier</span><span class="p">(</span>
+    <span class="n">planning</span><span class="p">,</span>
+    <span class="n">results</span><span class="p">[</span><span class="s2">&quot;_gain_draws&quot;</span><span class="p">],</span>
+    <span class="n">territories</span><span class="p">,</span>
+    <span class="n">plan_change_caps</span><span class="o">=</span><span class="p">[</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.10</span><span class="p">,</span> <span class="mf">0.20</span><span class="p">,</span> <span class="mf">0.35</span><span class="p">],</span>
+    <span class="n">cvar_floor_nrx</span><span class="o">=</span><span class="p">[</span><span class="mi">1_000</span><span class="p">,</span> <span class="mi">1_050</span><span class="p">],</span>
+<span class="p">)</span>
+<span class="n">candidates</span> <span class="o">=</span> <span class="n">filter_nondominated_plans</span><span class="p">(</span><span class="n">candidates</span><span class="p">)</span>
+<span class="n">frontier</span> <span class="o">=</span> <span class="n">candidates</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">candidates</span><span class="o">.</span><span class="n">nondominated</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;plan_change_calls&quot;</span><span class="p">)</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Plan</th>
+<th style="text-align: right;">Expected gain over Current</th>
+<th style="text-align: right;">Weak-quarter gain over Current</th>
+<th style="text-align: right;">Calls added / removed</th>
+<th style="text-align: right;">Total changes</th>
+<th style="text-align: right;">Accounts changed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Current</td>
+<td style="text-align: right;">0.0 NRx</td>
+<td style="text-align: right;">0.0 NRx</td>
+<td style="text-align: right;">0 / 0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td>5% change limit</td>
+<td style="text-align: right;">48.6 NRx</td>
+<td style="text-align: right;">45.5 NRx</td>
+<td style="text-align: right;">133 / 0</td>
+<td style="text-align: right;">133</td>
+<td style="text-align: right;">61</td>
+</tr>
+<tr>
+<td>10% change limit</td>
+<td style="text-align: right;">74.5 NRx</td>
+<td style="text-align: right;">72.1 NRx</td>
+<td style="text-align: right;">267 / 0</td>
+<td style="text-align: right;">267</td>
+<td style="text-align: right;">101</td>
+</tr>
+<tr>
+<td>Stable</td>
+<td style="text-align: right;">104.4 NRx</td>
+<td style="text-align: right;">103.2 NRx</td>
+<td style="text-align: right;">528 / 6</td>
+<td style="text-align: right;">534</td>
+<td style="text-align: right;">149</td>
+</tr>
+<tr>
+<td>Maximum value</td>
+<td style="text-align: right;">118.2 NRx</td>
+<td style="text-align: right;">117.3 NRx</td>
+<td style="text-align: right;">799 / 90</td>
+<td style="text-align: right;">889</td>
+<td style="text-align: right;">196</td>
+</tr>
+</tbody>
+</table>
+<p><em>Table 15.18. Expected and weak-quarter value rise together across the five Roventra plans.</em></p>
+<p>The 12 constraint combinations produce nine feasible results and three infeasible results. Several feasible combinations return the same call plan. The nine feasible results collapse to four optimized plans; Current supplies the fifth point in Table 15.18. The 1,000 NRx weak-quarter floor requires at least the 10% change limit. The 1,050 NRx floor requires the 20% limit.</p>
+<p>Expected value and weak-quarter value give the same ordering in this case. The risk threshold screens out plans with too little change capacity. The release decision comes from the value gained and the operating change required.</p>
+<h3 id="1564-read-the-curve">15.6.4 Read the Curve</h3>
+<p>The first 133 account-call changes add 48.6 expected NRx. That is 0.37 NRx, or about $621 of modeled value, per change. Moving from 534 to 889 changes adds 13.8 NRx. That final block averages 0.039 NRx, or about $66, per change.</p>
+<p><img alt="Figure 15.6. Roventra near-optimal frontier." src="../assets/figures/figure_15_6_frontier.svg" /></p>
+<p><em>Figure 15.6. Stable stays close to the maximum expected value with 355 fewer account-call changes.</em></p>
+<p>The curve becomes flatter as the optimizer reaches weaker additions and begins removing calls from some current accounts. The final block changes 47 more accounts for $23,393 of expected quarterly value.</p>
+<h3 id="1565-select-stable">15.6.5 Select Stable</h3>
+<p>The frontier gives the committee a concrete trade. Maximum value requires 355 more account-call changes than Stable and changes 47 more accounts. Field operations uses a planning assumption of $70 for the review, replanning, and release work attached to each additional account-call change. The estimated implementation burden is</p>
+<div class="arithmatex">\[
+355\times\$70=\$24{,}850.
+\]</div>
+<p>Finance rounds that estimate to $25,000. A simpler plan qualifies when its modeled value loss stays within that amount. At $1,700 per incremental NRx, the value-loss limit is</p>
+<div class="arithmatex">\[
+\Delta_{\mathrm{NRx}}=\frac{\$25{,}000}{\$1{,}700}=14.71\text{ NRx}.
+\]</div>
+<p>The highest expected-value plan supplies the value benchmark <span class="arithmatex">\(V^*\)</span>. It shows the opportunity cost of choosing a simpler plan. The account-call change count is the quantity minimized after the value and weak-quarter requirements are met. The eligible near-optimal set is</p>
+<div class="arithmatex">\[
+\mathcal{N}_{\text{\$25K}}=\{y:V^*-V(y)\le14.71\}.
+\]</div>
+<p><code>near_optimal_plan_set()</code> and <code>select_stable_plan()</code> in <code>allocation.py</code> require full territory coverage, at least 1,045 weak-quarter NRx, and the approved value-loss limit. The qualifying plan with the fewest account-call changes becomes Stable.</p>
+<p>When field leadership sets a hard maximum number of changes, the optimizer maximizes value inside that cap. When the implementation burden has a dollar value, the near-optimal rule finds the simplest plan inside the acceptable value range.</p>
+<table>
+<thead>
+<tr>
+<th>Modeled value-loss limit</th>
+<th style="text-align: right;">NRx allowance</th>
+<th>Lowest-change plan inside value limit</th>
+<th style="text-align: right;">Account-call changes</th>
+<th>Clears 1,045 NRx risk floor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$10,000</td>
+<td style="text-align: right;">5.9</td>
+<td>Maximum value</td>
+<td style="text-align: right;">889</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>$25,000</td>
+<td style="text-align: right;">14.7</td>
+<td>Stable</td>
+<td style="text-align: right;">534</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>$75,000</td>
+<td style="text-align: right;">44.1</td>
+<td>10% change limit</td>
+<td style="text-align: right;">267</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<p><em>Table 15.19. The value limit creates the near-optimal set; the weak-quarter floor still governs release.</em></p>
+<p>The $75,000 limit admits the 10% change plan on expected value, but its weak-quarter result is 1,018.6 NRx. Stable gives up 13.8 expected NRx, worth $23,393 under the base value assumption. It captures 88.4% of the optimization gain available over Current, clears the 1,045 NRx weak-quarter floor at 1,049.7 NRx, and preserves full eligible-account coverage. The maximum-value plan changes 355 more account-call assignments and 47 more accounts.</p>
+<h2 id="157-commit-reserve-learn">15.7 Commit, Reserve, Learn</h2>
+<p>Stable uses all 3,192 Q3 calls. A second feasible placement sends more calls to Adopter accounts when their fitted response is strong. Both plans keep the same territory totals and comply with the access, coverage, account-cap, and 20% account-call change rules. They disagree on the placement of 38 calls. Q3 must either release Stable now or keep those 38 calls movable while an Adopter response study is run.</p>
+<p>Compare the two complete plans account by account. Their shared placements contain 3,154 calls. Those calls receive the same account assignment under either response view and can be committed. The remaining 38 calls go to different accounts across the two plans.</p>
+<p>Here, reserve describes placement flexibility. Each complete plan still places all 3,192 calls.</p>
+<table>
+<thead>
+<tr>
+<th>Planning quantity</th>
+<th style="text-align: right;">Q3 result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Total calls in either complete plan</td>
+<td style="text-align: right;">3,192</td>
+</tr>
+<tr>
+<td>Calls with the same account placement</td>
+<td style="text-align: right;">3,154</td>
+</tr>
+<tr>
+<td>Calls with a disputed placement</td>
+<td style="text-align: right;">38</td>
+</tr>
+<tr>
+<td>Accounts receiving the 38 calls under Stable</td>
+<td style="text-align: right;">35</td>
+</tr>
+<tr>
+<td>Accounts receiving the 38 calls under the Adopter-favorable plan</td>
+<td style="text-align: right;">34</td>
+</tr>
+</tbody>
+</table>
+<p><em>Table 15.20. A study can change the placement of 38 calls; the other 3,154 calls are already settled.</em></p>
+<p>Stable's current placement of the 38 disputed calls produces 4.624 expected NRx. If the team knew which fitted response curve would describe Q3, it could choose the better of the Stable and Adopter-favorable placements for each curve. That perfect-information policy produces 5.032 NRx.</p>
+<p>Let <span class="arithmatex">\(V_S(s)\)</span> be the value of the Stable placement under fitted response draw <span class="arithmatex">\(s\)</span>, and let <span class="arithmatex">\(V_A(s)\)</span> be the value of the Adopter-favorable placement. The expected value of perfect information is</p>
+<div class="arithmatex">\[
+\operatorname{EVPI}
+=\mathbb{E}_s\!\left[\max\{V_S(s),V_A(s)\}\right]
+-\max\left\{\mathbb{E}_s[V_S(s)],\mathbb{E}_s[V_A(s)]\right\}.
+\]</div>
+<p>For Roventra,</p>
+<div class="arithmatex">\[
+\operatorname{EVPI}=5.032-4.624=0.408\text{ NRx}.
+\]</div>
+<p>At $1,700 per incremental NRx, perfect information is worth about $694. This is the highest benefit any Adopter study could deliver on these 38 calls. The proposed study costs $1,500, equal to 0.882 NRx, and waiting for the result gives up another 0.300 NRx. The study fee alone exceeds the perfect-information ceiling.</p>
+<p><code>two_stage_reserve_policy()</code> in <code>allocation.py</code> evaluates the noisy study across 600 trials. <code>value_of_sample_information()</code> converts the result into the Q3 Run study or Commit now decision. Each trial uses the same simulated Q3 response draw for every policy. This common-random-number design keeps simulation noise out of the policy comparison.</p>
+<p>In each trial, the study observes a noisy signal of the difference between the two call placements. The signal reweights the 200 fitted response draws. A positive posterior difference selects the Adopter-favorable placement; the Stable placement is used otherwise. The 38 calls are then scored under the simulated Q3 response, with 0.300 NRx deducted for delay and 0.882 NRx for the study fee.</p>
+<p>Let <span class="arithmatex">\(Z\)</span> be the study signal, <span class="arithmatex">\(a(Z)\)</span> the placement selected after observing it, <span class="arithmatex">\(a_0\)</span> the best placement available now, and <span class="arithmatex">\(V(a,s)\)</span> the value of placement <span class="arithmatex">\(a\)</span> under response draw <span class="arithmatex">\(s\)</span>. Net value of sample information is</p>
+<div class="arithmatex">\[
+\operatorname{Net\ VOSI}
+=\mathbb{E}_{s,Z}[V(a(Z),s)]
+-\mathbb{E}_s[V(a_0,s)]
+-C_{\text{study}}-C_{\text{delay}}.
+\]</div>
+<p><code>two_stage_reserve_policy()</code> also records the realized Stable payoff, realized Adopter-favorable payoff, and selected placement for every trial. Listing 15.10 calculates the four policy values from those trial records. The calculation starts from the fixed placement with the higher average payoff. A 0.300 NRx delay produces Wait. Study follows the signal-selected placement and pays the delay and fee. The rowwise maximum across the two realized payoffs gives Perfect information.</p>
+<p><strong>Listing 15.10</strong>: Calculate the four policies from the simulated trials.</p>
+<div class="highlight"><pre><span></span><code><span class="n">trials</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;study_result_distribution&quot;</span><span class="p">]</span>
+<span class="n">design</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s2">&quot;study_design_assumptions&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">target</span> <span class="o">=</span> <span class="n">trials</span><span class="p">[</span><span class="s2">&quot;realized_target_nrx&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+<span class="n">stable</span> <span class="o">=</span> <span class="n">trials</span><span class="p">[</span><span class="s2">&quot;realized_stable_nrx&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+<span class="n">use_target</span> <span class="o">=</span> <span class="n">trials</span><span class="p">[</span><span class="s2">&quot;selected_recourse&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">design</span><span class="o">.</span><span class="n">target_segment</span><span class="p">)</span>
+<span class="n">chosen</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">use_target</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">stable</span><span class="p">)</span>
+<span class="n">best_now</span> <span class="o">=</span> <span class="n">target</span> <span class="k">if</span> <span class="n">target</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="n">stable</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="k">else</span> <span class="n">stable</span>
+
+<span class="n">delay</span> <span class="o">=</span> <span class="n">design</span><span class="o">.</span><span class="n">foregone_nrx</span>
+<span class="n">fee</span> <span class="o">=</span> <span class="n">design</span><span class="o">.</span><span class="n">study_cost_dollars</span> <span class="o">/</span> <span class="mi">1_700</span>
+<span class="n">policy_values</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">&quot;policy&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Commit now&quot;</span><span class="p">,</span> <span class="s2">&quot;Wait, no study&quot;</span><span class="p">,</span> <span class="s2">&quot;Study, then place&quot;</span><span class="p">,</span> <span class="s2">&quot;Perfect information&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;expected_nrx&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">best_now</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">best_now</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">-</span> <span class="n">delay</span><span class="p">,</span>
+                     <span class="n">chosen</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">-</span> <span class="n">delay</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">stable</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()],</span>
+    <span class="s2">&quot;study_cost_nrx&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">fee</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="p">})</span>
+<span class="n">policy_values</span><span class="p">[</span><span class="s2">&quot;net_nrx&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">policy_values</span><span class="o">.</span><span class="n">expected_nrx</span> <span class="o">-</span> <span class="n">policy_values</span><span class="o">.</span><span class="n">study_cost_nrx</span>
+<span class="n">policy_values</span> <span class="o">=</span> <span class="n">policy_values</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">policy_values</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>             policy  expected_nrx  study_cost_nrx  net_nrx
+         Commit now         4.624           0.000    4.624
+     Wait, no study         4.324           0.000    4.324
+  Study, then place         4.719           0.882    3.837
+Perfect information         5.032           0.000    5.032
+</code></pre></div>
+<p>The <code>expected_nrx</code> column contains the delay-adjusted payoff. The $1,500 fee equals 0.882 <code>study_cost_nrx</code>; subtracting it produces <code>net_nrx</code>.</p>
+<p>Listing 15.11 compares each net result with Commit now.</p>
+<p><strong>Listing 15.11</strong>: Put the four policy values on the Commit-now scale.</p>
+<div class="highlight"><pre><span></span><code><span class="n">commit_nrx</span> <span class="o">=</span> <span class="n">policy_values</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;net_nrx&quot;</span><span class="p">]</span>
+<span class="n">policy_values</span><span class="p">[</span><span class="s2">&quot;vs_commit_nrx&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">policy_values</span><span class="p">[</span><span class="s2">&quot;net_nrx&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">commit_nrx</span>
+
+<span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;policy&quot;</span><span class="p">,</span> <span class="s2">&quot;net_nrx&quot;</span><span class="p">,</span> <span class="s2">&quot;vs_commit_nrx&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">policy_values</span><span class="p">[</span><span class="n">columns</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>             policy  net_nrx  vs_commit_nrx
+         Commit now    4.624          0.000
+     Wait, no study    4.324         -0.300
+  Study, then place    3.837         -0.787
+Perfect information    5.032          0.408
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Question</th>
+<th>Calculation from Listings 15.10 and 15.11</th>
+<th style="text-align: right;">Result (NRx)</th>
+<th>Business reading</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>What does waiting cost?</td>
+<td><span class="arithmatex">\(4.324-4.624\)</span></td>
+<td style="text-align: right;">-0.300</td>
+<td>Waiting without new information loses the delay value.</td>
+</tr>
+<tr>
+<td>What remains after the study fee?</td>
+<td><span class="arithmatex">\(4.719-0.882\)</span></td>
+<td style="text-align: right;">3.837</td>
+<td>The noisy signal improves placement, then the fee is deducted.</td>
+</tr>
+<tr>
+<td>Does the study beat Commit now?</td>
+<td><span class="arithmatex">\(3.837-4.624\)</span></td>
+<td style="text-align: right;">-0.787</td>
+<td>The study loses $1,338 relative to immediate commitment.</td>
+</tr>
+<tr>
+<td>What is the information ceiling?</td>
+<td><span class="arithmatex">\(5.032-4.624\)</span></td>
+<td style="text-align: right;">+0.408</td>
+<td>Even perfect information can add only about $694.</td>
+</tr>
+</tbody>
+</table>
+<p><em>Table 15.21. Each comparison uses values printed in Listings 15.10 and 15.11.</em></p>
+<p>The simulated signal selects the Adopter-favorable placement in 28.8% of trials and Stable in 71.2%. Its call choice produces 5.019 NRx before the delay and fee, a 0.395 NRx gain over Commit now. Delay reduces that gain to 0.095 NRx. The 0.882 NRx study fee produces the final -0.787 NRx result, equal to -$1,338.</p>
+<p><img alt="Figure 15.7. Net value of the disputed call placements under commit, wait, study, and perfect information." src="../assets/figures/figure_15_7_commit_learn.svg" /></p>
+<p><em>Figure 15.7. The study must beat the Commit-now benchmark, but its delay and fee exceed even the perfect-information ceiling.</em></p>
+<p>Q3 commits all 38 disputed calls using Stable's placement and releases zero reserve calls. The 300-row account file sets both recourse columns equal to the committed count. Routine engagement outcomes continue through the October 1 refresh, when the fitted response can be updated without delaying the current call plan.</p>
+<h2 id="158-summary">15.8 Summary</h2>
+<p>Q3 planning ends with two release files: a 4-row decision package and one committed call count for each of the 300 accounts. <code>quarterly_resource_package()</code> and <code>account_release_package()</code> in <code>allocation.py</code> build them.</p>
+<table>
+<thead>
+<tr>
+<th>Decision</th>
+<th>Recommended action</th>
+<th>Commitment</th>
+<th>Reserve</th>
+<th style="text-align: right;">Value</th>
+<th>Release status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Channel budget</td>
+<td>Increase paid_media, digital, email; trim field</td>
+<td>$587 per week</td>
+<td>$0</td>
+<td style="text-align: right;">$133,790</td>
+<td>Release bounded move</td>
+</tr>
+<tr>
+<td>Field call plan</td>
+<td>Release Stable: 149 account changes</td>
+<td>3,192 calls</td>
+<td>0 calls</td>
+<td style="text-align: right;">$177,543</td>
+<td>Release full call plan</td>
+</tr>
+<tr>
+<td>Headcount</td>
+<td>Hold in NO-T1</td>
+<td>39 representatives</td>
+<td>0 representative-quarters</td>
+<td style="text-align: right;">$0</td>
+<td>Hold headcount</td>
+</tr>
+<tr>
+<td>Learning action</td>
+<td>Defer Adopter study</td>
+<td>No study</td>
+<td>0 calls</td>
+<td style="text-align: right;">-$1,338</td>
+<td>Defer study</td>
+</tr>
+</tbody>
+</table>
+<p><em>Table 15.22. The Q3 resource package records one release decision for each resource.</em></p>
+<p>Keep the four dollar values separate. The channel and field estimates can reflect overlapping commercial activity. The headcount and study rows price decisions around the same released plan. Adding the rows would double count value.</p>
+<table>
+<thead>
+<tr>
+<th>Account release check</th>
+<th style="text-align: right;">Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Account rows</td>
+<td style="text-align: right;">300</td>
+</tr>
+<tr>
+<td>Committed calls</td>
+<td style="text-align: right;">3,192</td>
+</tr>
+<tr>
+<td>Accounts with a changed call count</td>
+<td style="text-align: right;">149</td>
+</tr>
+<tr>
+<td>Released reserve calls</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td>Minimum eligible-account coverage by territory</td>
+<td style="text-align: right;">100%</td>
+</tr>
+<tr>
+<td>Protected and Closed-access calls</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td>Measurement field</td>
+<td style="text-align: right;"><code>engagement_outcome_log</code></td>
+</tr>
+<tr>
+<td>Refresh date</td>
+<td style="text-align: right;">2026-10-01</td>
+</tr>
+</tbody>
+</table>
+<p><em>Table 15.23. The account file is ready for territory release with no pending call branch.</em></p>
+<p>The two files are ready for Q3 release. Every account has one committed call count, an outcome field, and an October 1 refresh date. The resource package carries the modeled value, downside measure, constraint cost, and release status. All call capacity is committed, and the Adopter study is deferred at a decision value of -$1,338.</p>
+<p>The workflow now supports the full allocation decision: calculate the gain from the next resource unit, enforce the operating rules, average outcomes across fitted response curves, protect weak-quarter value, price implementation change, and fund measurement only when its result can improve a later allocation by more than its cost.</p>
+<h2 id="159-exercises">15.9 Exercises</h2>
+<p>The walkthrough notebook <code>ch15_walkthrough.ipynb</code> runs the full workflow. The exercise notebook <code>ch15_exercise_solutions.ipynb</code> contains worked solutions.</p>
+<p><strong>Exercise 1.</strong> Raise the account-call change limit from 20% to 35%. Report expected NRx recovered, account changes, calls added, and calls removed. State the implementation burden created by the wider limit.</p>
+<p><strong>Exercise 2.</strong> Tighten the modeled value-loss limit from $25,000 to $10,000. Report the selected plan and the added account-call changes required by the tighter condition.</p>
+<p><strong>Exercise 3.</strong> Reduce the candidate study cost to $50 and recompute net value of sample information. Report whether the release decision changes and identify the study-cost threshold implied by the original comparison.</p>
+<h2 id="appendix-optimization-method-guide">Appendix: Optimization Method Guide</h2>
+<p>The resource unit determines the optimization model. Dollars support a smooth continuous solve. Calls and representatives require whole-number decisions. Response uncertainty adds expected-value, weak-quarter, frontier, and learning calculations.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Use it when</th>
+<th>Depth here</th>
+<th>Main boundary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Marginal analysis</td>
+<td>Resource gains can be calculated one unit at a time</td>
+<td>Full</td>
+<td>Requires incremental response estimates</td>
+</tr>
+<tr>
+<td>Greedy</td>
+<td>Gains decline and capacity is the only connected rule</td>
+<td>Full</td>
+<td>Threshold and pairing rules can break the ranking</td>
+</tr>
+<tr>
+<td>SLSQP</td>
+<td>Response is smooth and the resource is divisible</td>
+<td>Full</td>
+<td>Can stop locally and return fractional units</td>
+</tr>
+<tr>
+<td>LP</td>
+<td>Step gains are linear and fractional units are acceptable for diagnosis</td>
+<td>Full</td>
+<td>A fractional call is not executable</td>
+</tr>
+<tr>
+<td>MILP</td>
+<td>Calls, representatives, or program choices must be whole</td>
+<td>Full</td>
+<td>Discrete rule prices require a new solve</td>
+</tr>
+<tr>
+<td>SAA</td>
+<td>One plan must perform across many fitted response draws</td>
+<td>Full</td>
+<td>Results still depend on the fitted draw sample</td>
+</tr>
+<tr>
+<td>CVaR</td>
+<td>The release needs an approved weak-quarter floor</td>
+<td>Full</td>
+<td>The tail probability and floor require business approval</td>
+</tr>
+<tr>
+<td>Epsilon constraint</td>
+<td>Leaders need a menu across value, risk, and implementation change</td>
+<td>Full</td>
+<td>Limits must use decision units such as NRx and call changes</td>
+</tr>
+<tr>
+<td>Two-stage model</td>
+<td>Some capacity can move after a study result</td>
+<td>Full</td>
+<td>The study must update a real later choice</td>
+</tr>
+<tr>
+<td>Minimax regret</td>
+<td>The largest scenario-specific decision loss is the approved risk measure</td>
+<td>Extension</td>
+<td>Can favor an overly cautious plan</td>
+</tr>
+<tr>
+<td>Robust optimization</td>
+<td>Every value inside an approved uncertainty set needs protection</td>
+<td>Extension</td>
+<td>The uncertainty-set width controls conservatism</td>
+</tr>
+<tr>
+<td>Genetic or local search</td>
+<td>Territory geometry adds contiguity and routing rules</td>
+<td>Exercise</td>
+<td>Does not provide a global optimality certificate</td>
+</tr>
+<tr>
+<td>Reinforcement learning</td>
+<td>Outcomes repeatedly update the next action</td>
+<td>Outside scope</td>
+<td>Requires online policy evaluation</td>
+</tr>
+</tbody>
+</table>
+<p><em>Table 15.24. Match the method to the resource unit, business rules, and timing of information.</em></p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.indexes", "navigation.top", "navigation.expand", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../javascripts/disable-nav.js"></script>
+      
+    
+  </body>
+</html>
