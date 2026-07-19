@@ -170,7 +170,7 @@ The book moves from foundations to execution. It starts with the launch context 
 ### Part 5: Decision Engines
 
 <div><a href="ch14_forecasting/ch14_forecasting/">Chapter 14. Forecasting from Launch to Loss of Exclusivity</a></div>
-<div style="margin-left: 1.5em;">Chapter 15. Resource Allocation and Optimization</div>
+<div><a href="ch15_optimization/ch15_resource_allocation_optimization/">Chapter 15. Resource Allocation and Optimization</a></div>
 <div style="margin-left: 1.5em;">Chapter 16. AI Decision Intelligence</div>
 <div style="margin-left: 1.5em;">Chapter 17. Capstone Case Studies</div>
 

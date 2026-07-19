@@ -57,7 +57,7 @@ nav:
   - "Chapter 12 - Observational Causal Inference and Real-World Evidence (coming soon)": coming_soon/ch12.md
   - "Chapter 13 - Unified Measurement: Attribution, Experiments, and MMM": ch13_mmm/ch13_mmm_unified_measurement.md
   - "Chapter 14 - Forecasting from Launch to Loss of Exclusivity": ch14_forecasting/ch14_forecasting.md
-  - "Chapter 15. Resource Allocation and Optimization (coming soon)": coming_soon/ch15.md
+  - "Chapter 15. Resource Allocation and Optimization": ch15_optimization/ch15_resource_allocation_optimization.md
   - "Chapter 16. AI Decision Intelligence (coming soon)": coming_soon/ch16.md
   - "Chapter 17. Capstone Case Studies (coming soon)": coming_soon/ch17.md
 
