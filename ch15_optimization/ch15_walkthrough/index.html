@@ -1062,13 +1062,63 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#157-commit-reserve-learn" class="md-nav__link">
+  <a href="#157-what-is-a-forecast-worth" class="md-nav__link">
     <span class="md-ellipsis">
       
-        15.7 Commit, Reserve, Learn
+        15.7 What Is a Forecast Worth?
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="15.7 What Is a Forecast Worth?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1571-a-price-ceiling-for-any-forecast" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.7.1 A Price Ceiling for Any Forecast
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1572-the-38-disputed-calls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.7.2 The 38 Disputed Calls
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1573-the-information-ceiling-for-roventra" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.7.3 The Information Ceiling for Roventra
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1574-a-real-study-falls-below-the-ceiling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        15.7.4 A Real Study Falls Below the Ceiling
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2543,7 +2593,50 @@ M(y)\le m
 </table>
 <p><em>Table 15.19. The value limit creates the near-optimal set; the weak-quarter floor still governs release.</em></p>
 <p>The $75,000 limit admits the 10% change plan on expected value, but its weak-quarter result is 1,018.6 NRx. Stable gives up 13.8 expected NRx, worth $23,393 under the base value assumption. It captures 88.4% of the optimization gain available over Current, clears the 1,045 NRx weak-quarter floor at 1,049.7 NRx, and preserves full eligible-account coverage. The maximum-value plan changes 355 more account-call assignments and 47 more accounts.</p>
-<h2 id="157-commit-reserve-learn">15.7 Commit, Reserve, Learn</h2>
+<h2 id="157-what-is-a-forecast-worth">15.7 What Is a Forecast Worth?</h2>
+<p>Stable is the chosen plan, yet 38 of its calls rest on a contested placement, and an Adopter response study could still move them. The study charges a fee and forces a delay. Whether it earns its keep depends on a prior question: what is a forecast of the Adopter response worth at all? A forecast pays off only when it changes a decision, and none can be worth more than one that reports the outcome with certainty. That perfect-information value is the ceiling every real study is measured against. Price it on a clean decision first, then return to the 38 calls.</p>
+<h3 id="1571-a-price-ceiling-for-any-forecast">15.7.1 A Price Ceiling for Any Forecast</h3>
+<p>Set the Roventra numbers aside and price a single, clean decision. A manufacturer commits to one production run at the start of every month. Demand for the month is either high or low with equal probability, and the outcome is independent from one month to the next. A large run earns $100,000 when demand is high and breaks even at $0 when demand is low. A small run earns $40,000 under either outcome.</p>
+<table>
+<thead>
+<tr>
+<th>Production run</th>
+<th style="text-align: right;">High demand</th>
+<th style="text-align: right;">Low demand</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Large</td>
+<td style="text-align: right;">$100,000</td>
+<td style="text-align: right;">$0</td>
+</tr>
+<tr>
+<td>Small</td>
+<td style="text-align: right;">$40,000</td>
+<td style="text-align: right;">$40,000</td>
+</tr>
+</tbody>
+</table>
+<p><em>Table 15.20. Monthly profit for each production run under each demand outcome; high and low demand are equally likely.</em></p>
+<p><strong>Commit at the start of each month.</strong> The manufacturer knows the odds but not the coming month's demand. The large run has an expected profit of <code>0.5 × $100,000 + 0.5 × $0 = $50,000</code>; the small run returns $40,000 for certain. The large run wins, so the manufacturer commits to it every month. Across 12 months the plan is worth</p>
+<p><code>12 × $50,000 = $600,000.</code></p>
+<p><strong>Learn each month's demand first.</strong> Now suppose a perfect forecast arrives before each production decision. The manufacturer runs large in every high-demand month and small in every low-demand month. An expected year holds six high-demand months and six low-demand months:</p>
+<p><code>6 × $100,000 + 6 × $40,000 = $840,000.</code></p>
+<p>A particular year may split differently. Perfect information simply selects the right run for whichever demand occurs, and $840,000 is the expected result across many such years.</p>
+<p><strong>Price one year of perfect information.</strong> The gap between the two plans is the most a perfect forecast could ever be worth:</p>
+<p><code>$840,000 − $600,000 = $240,000.</code></p>
+<p>Read where that value comes from. In the high-demand months the forecast changes nothing, because the manufacturer would have chosen the large run anyway. Every dollar of the gain lands in the low-demand months, where the forecast swaps a $0 large run for a $40,000 small run. An expected year holds six such months:</p>
+<p><code>6 × $40,000 = $240,000.</code></p>
+<p><img alt="Figure 15.7. Expected annual profit under commit-now versus perfect information, and the low-demand months that create the gap." src="../assets/figures/figure_15_7_evpi_ceiling.svg" /></p>
+<p><em>Figure 15.7. A perfect forecast is worth $240,000 a year, and all of it comes from the six low-demand months where it changes the production run.</em></p>
+<p>That gap is the expected value of perfect information, or EVPI: the expected profit a decision-maker recovers by learning each outcome before committing. It is a hard ceiling. A real forecast is never perfect, so it captures only part of the $240,000; its fee and any decision delay then eat into whatever it captures. The reusable form is</p>
+<div class="arithmatex">\[
+\operatorname{EVPI}
+=\big(\text{expected value with perfect information}\big)
+-\big(\text{best expected value today}\big).
+\]</div>
+<h3 id="1572-the-38-disputed-calls">15.7.2 The 38 Disputed Calls</h3>
 <p>Stable uses all 3,192 Q3 calls. A second feasible placement sends more calls to Adopter accounts when their fitted response is strong. Both plans keep the same territory totals and comply with the access, coverage, account-cap, and 20% account-call change rules. They disagree on the placement of 38 calls. Q3 must either release Stable now or keep those 38 calls movable while an Adopter response study is run.</p>
 <p>Compare the two complete plans account by account. Their shared placements contain 3,154 calls. Those calls receive the same account assignment under either response view and can be committed. The remaining 38 calls go to different accounts across the two plans.</p>
 <p>Here, reserve describes placement flexibility. Each complete plan still places all 3,192 calls.</p>
@@ -2577,8 +2670,9 @@ M(y)\le m
 </tr>
 </tbody>
 </table>
-<p><em>Table 15.20. A study can change the placement of 38 calls; the other 3,154 calls are already settled.</em></p>
-<p>Stable's current placement of the 38 disputed calls produces 4.624 expected NRx. If the team knew which fitted response curve would describe Q3, it could choose the better of the Stable and Adopter-favorable placements for each curve. That perfect-information policy produces 5.032 NRx.</p>
+<p><em>Table 15.21. A study can change the placement of 38 calls; the other 3,154 calls are already settled.</em></p>
+<h3 id="1573-the-information-ceiling-for-roventra">15.7.3 The Information Ceiling for Roventra</h3>
+<p>Apply the toy example's ceiling calculation to these two plans. Stable's current placement of the 38 disputed calls produces 4.624 expected NRx. If the team knew which fitted response curve would describe Q3, it could choose the better of the Stable and Adopter-favorable placements for each curve. That perfect-information policy produces 5.032 NRx.</p>
 <p>Let <span class="arithmatex">\(V_S(s)\)</span> be the value of the Stable placement under fitted response draw <span class="arithmatex">\(s\)</span>, and let <span class="arithmatex">\(V_A(s)\)</span> be the value of the Adopter-favorable placement. The expected value of perfect information is</p>
 <div class="arithmatex">\[
 \operatorname{EVPI}
@@ -2590,6 +2684,7 @@ M(y)\le m
 \operatorname{EVPI}=5.032-4.624=0.408\text{ NRx}.
 \]</div>
 <p>At $1,700 per incremental NRx, perfect information is worth about $694. This is the highest benefit any Adopter study could deliver on these 38 calls. The proposed study costs $1,500, equal to 0.882 NRx, and waiting for the result gives up another 0.300 NRx. The study fee alone exceeds the perfect-information ceiling.</p>
+<h3 id="1574-a-real-study-falls-below-the-ceiling">15.7.4 A Real Study Falls Below the Ceiling</h3>
 <p><code>two_stage_reserve_policy()</code> in <code>allocation.py</code> evaluates the noisy study across 600 trials. <code>value_of_sample_information()</code> converts the result into the Q3 Run study or Commit now decision. Each trial uses the same simulated Q3 response draw for every policy. This common-random-number design keeps simulation noise out of the policy comparison.</p>
 <p>In each trial, the study observes a noisy signal of the difference between the two call placements. The signal reweights the 200 fitted response draws. A positive posterior difference selects the Adopter-favorable placement; the Stable placement is used otherwise. The 38 calls are then scored under the simulated Q3 response, with 0.300 NRx deducted for delay and 0.882 NRx for the study fee.</p>
 <p>Let <span class="arithmatex">\(Z\)</span> be the study signal, <span class="arithmatex">\(a(Z)\)</span> the placement selected after observing it, <span class="arithmatex">\(a_0\)</span> the best placement available now, and <span class="arithmatex">\(V(a,s)\)</span> the value of placement <span class="arithmatex">\(a\)</span> under response draw <span class="arithmatex">\(s\)</span>. Net value of sample information is</p>
@@ -2678,10 +2773,10 @@ Perfect information    5.032          0.408
 </tr>
 </tbody>
 </table>
-<p><em>Table 15.21. Each comparison uses values printed in Listings 15.10 and 15.11.</em></p>
+<p><em>Table 15.22. Each comparison uses values printed in Listings 15.10 and 15.11.</em></p>
 <p>The simulated signal selects the Adopter-favorable placement in 28.8% of trials and Stable in 71.2%. Its call choice produces 5.019 NRx before the delay and fee, a 0.395 NRx gain over Commit now. Delay reduces that gain to 0.095 NRx. The 0.882 NRx study fee produces the final -0.787 NRx result, equal to -$1,338.</p>
-<p><img alt="Figure 15.7. Net value of the disputed call placements under commit, wait, study, and perfect information." src="../assets/figures/figure_15_7_commit_learn.svg" /></p>
-<p><em>Figure 15.7. The study must beat the Commit-now benchmark, but its delay and fee exceed even the perfect-information ceiling.</em></p>
+<p><img alt="Figure 15.8. Net value of the disputed call placements under commit, wait, study, and perfect information." src="../assets/figures/figure_15_8_commit_learn.svg" /></p>
+<p><em>Figure 15.8. The study must beat the Commit-now benchmark, but its delay and fee exceed even the perfect-information ceiling.</em></p>
 <p>Q3 commits all 38 disputed calls using Stable's placement and releases zero reserve calls. The 300-row account file sets both recourse columns equal to the committed count. Routine engagement outcomes continue through the October 1 refresh, when the fitted response can be updated without delaying the current call plan.</p>
 <h2 id="158-summary">15.8 Summary</h2>
 <p>Q3 planning ends with two release files: a 4-row decision package and one committed call count for each of the 300 accounts. <code>quarterly_resource_package()</code> and <code>account_release_package()</code> in <code>allocation.py</code> build them.</p>
@@ -2731,7 +2826,7 @@ Perfect information    5.032          0.408
 </tr>
 </tbody>
 </table>
-<p><em>Table 15.22. The Q3 resource package records one release decision for each resource.</em></p>
+<p><em>Table 15.23. The Q3 resource package records one release decision for each resource.</em></p>
 <p>Keep the four dollar values separate. The channel and field estimates can reflect overlapping commercial activity. The headcount and study rows price decisions around the same released plan. Adding the rows would double count value.</p>
 <table>
 <thead>
@@ -2775,7 +2870,7 @@ Perfect information    5.032          0.408
 </tr>
 </tbody>
 </table>
-<p><em>Table 15.23. The account file is ready for territory release with no pending call branch.</em></p>
+<p><em>Table 15.24. The account file is ready for territory release with no pending call branch.</em></p>
 <p>The two files are ready for Q3 release. Every account has one committed call count, an outcome field, and an October 1 refresh date. The resource package carries the modeled value, downside measure, constraint cost, and release status. All call capacity is committed, and the Adopter study is deferred at a decision value of -$1,338.</p>
 <p>The workflow now supports the full allocation decision: calculate the gain from the next resource unit, enforce the operating rules, average outcomes across fitted response curves, protect weak-quarter value, price implementation change, and fund measurement only when its result can improve a later allocation by more than its cost.</p>
 <h2 id="159-exercises">15.9 Exercises</h2>
@@ -2875,7 +2970,7 @@ Perfect information    5.032          0.408
 </tr>
 </tbody>
 </table>
-<p><em>Table 15.24. Match the method to the resource unit, business rules, and timing of information.</em></p>
+<p><em>Table 15.25. Match the method to the resource unit, business rules, and timing of information.</em></p>
 
 
 
