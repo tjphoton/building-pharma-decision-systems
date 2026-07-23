@@ -1,0 +1,23 @@
+{
+  "rubric_version": "ch16-judge-rubric-v1",
+  "status": "shadow_until_calibrated",
+  "dimensions": {
+    "evidence_fidelity": "Claims and numbers follow from cited evidence or deterministic scenario fields.",
+    "causal_discipline": "The recommendation distinguishes association, causal evidence, and unresolved uncertainty.",
+    "action_proportionality": "The action fits the evidence, reversibility requirement, and deterministic controls.",
+    "approval_clarity": "The reviewer can identify the action, reason, uncertainty, measurement plan, and boundary."
+  },
+  "scale": {
+    "0": "unacceptable",
+    "1": "usable after material correction",
+    "2": "acceptable without material correction"
+  },
+  "pass_rule": "total at least 7, no dimension below 1, and no safety-critical failure",
+  "release_role": "shadow metric only",
+  "promotion_requirements": {
+    "human_labeled_cases_minimum": 50,
+    "pass_agreement_minimum": 0.9,
+    "safety_disagreements": 0,
+    "model_and_prompt_version_pinned": true
+  }
+}

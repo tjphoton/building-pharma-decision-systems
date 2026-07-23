@@ -8,13 +8,9 @@
       
       
       
-        <link rel="canonical" href="https://tjphoton.github.io/building-pharma-decision-systems/coming_soon/ch16/">
+        <link rel="canonical" href="https://tjphoton.github.io/building-pharma-decision-systems/ch16_decision/deploy/">
       
       
-        <link rel="prev" href="../../ch15_optimization/ch15_resource_allocation_optimization/">
-      
-      
-        <link rel="next" href="../ch17/">
       
       
         
@@ -25,7 +21,7 @@
     
     
       
-        <title>Chapter 16. AI Decision Intelligence (coming soon) - Building Pharmaceutical Decision Systems</title>
+        <title>Chapter 16 online demonstration - Building Pharmaceutical Decision Systems</title>
       
     
     
@@ -86,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#coming-soon" class="md-skip">
+        <a href="#chapter-16-online-demonstration" class="md-skip">
           Skip to content
         </a>
       
@@ -122,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Chapter 16. AI Decision Intelligence (coming soon)
+              Chapter 16 online demonstration
             
           </span>
         </div>
@@ -514,7 +510,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ch10/" class="md-nav__link">
+      <a href="../../coming_soon/ch10/" class="md-nav__link">
         
   
   
@@ -541,7 +537,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ch11/" class="md-nav__link">
+      <a href="../../coming_soon/ch11/" class="md-nav__link">
         
   
   
@@ -568,7 +564,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ch12/" class="md-nav__link">
+      <a href="../../coming_soon/ch12/" class="md-nav__link">
         
   
   
@@ -673,26 +669,17 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../ch16_ai_agents/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Chapter 16. AI Decision Intelligence (coming soon)
+    Chapter 16. Building an Always-on Commercial Decision System with AI Agents
   
 
     
@@ -701,7 +688,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -713,7 +699,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ch17/" class="md-nav__link">
+      <a href="../../coming_soon/ch17/" class="md-nav__link">
         
   
   
@@ -771,8 +757,24 @@
   
 
 
-<h1 id="coming-soon">Coming Soon</h1>
-<p>This chapter is still being written and isn't published yet.</p>
+<h1 id="chapter-16-online-demonstration">Chapter 16 online demonstration</h1>
+<p>The repository-level <code>render.yaml</code> deploys the saved workbench on Render's free web-service
+plan. The saved mode needs no model key. The blueprint sets <code>CH16_ALLOW_LIVE=false</code> because the
+teaching workbench has no public-user authentication. Keep that setting for a public demo. A
+private deployment may set <code>CH16_ALLOW_LIVE=true</code> and add <code>ANTHROPIC_API_KEY</code> as a secret after
+authentication, rate limits, and spending alerts are configured.</p>
+<p>The free service is a teaching demonstration. Its local SQLite case store and LangGraph
+checkpoint files are ephemeral. A restart, redeploy, or idle spin-down removes runs created in
+the browser. Keep the committed saved traces for the no-key demonstration. Use a durable
+database and task worker for retained cases.</p>
+<p>After deployment, verify these endpoints:</p>
+<div class="highlight"><pre><span></span><code>GET /
+GET /health
+GET /api/saved/first
+GET /api/saved/later
+</code></pre></div>
+<p>The health response must report the analytics database and both saved traces. Do not place an
+API key in the repository, image, build log, or browser code.</p>
 
 
 

@@ -1,0 +1,409 @@
+{
+  "request": {
+    "question": "How far should we scale HCP digital now that the test has read out?",
+    "requesting_role": "Brand lead",
+    "outcome": "incremental NRx",
+    "audience": "Community and academic endocrinologists",
+    "geography": "US DMAs",
+    "budget_source": "DTC paid media",
+    "budget_destination": "HCP digital",
+    "proposed_move": "Scale HCP digital where the matched-market test proved an effect",
+    "decision_date": "2026-10-06 (later date, mature evidence)",
+    "deadline": "10 business days",
+    "risk_tolerance": "moderate",
+    "reversibility_required": true,
+    "approvers": [
+      "Brand lead",
+      "Commercial finance"
+    ]
+  },
+  "date_phase": "later",
+  "framing": {
+    "decision_summary": "The brand lead seeks to scale HCP digital investment from a matched-market test that demonstrated incremental NRx effect, redirecting budget from DTC paid media. The decision requires evidence of: (1) whether the test effect is real and durable across segments; (2) whether scaling preserves or dilutes ROI; (3) whether the financial return justifies the DTC reallocation and carries acceptable downside risk; and (4) whether reversibility constraints are met if performance weakens post-scale.",
+    "hypotheses": [
+      {
+        "id": "H1_responsive_segment",
+        "statement": "Community endocrinologists in stable-access DMAs showed stronger engagement and NRx lift from HCP digital because they have lower baseline digital touch and higher responsiveness to email/click campaigns; scaling will maintain this effect at similar efficiency.",
+        "status": "open"
+      },
+      {
+        "id": "H2_novelty_decay",
+        "statement": "The test period captured elevated response due to novelty or limited competitor activity in HCP digital; scaling to all matched-market DMAs will face saturation, declining opens/clicks, and lower incremental NRx per message.",
+        "status": "open"
+      },
+      {
+        "id": "H3_dtc_crowding",
+        "statement": "The observed NRx lift in test DMAs is partly attributable to concurrent high DTC reach; reallocating DTC spend away from scale DMAs will reduce the halo effect and lower net incremental NRx despite HCP digital growth.",
+        "status": "open"
+      },
+      {
+        "id": "H4_academic_underperformance",
+        "statement": "Academic endocrinologists engage less with email and show weaker NRx response to HCP digital; scaling to academic-heavy DMAs will dilute overall ROI and require segment-specific budget allocation.",
+        "status": "open"
+      }
+    ],
+    "requested_tools": [
+      "get_experiment_evidence",
+      "get_hcp_digital_performance",
+      "get_mmm_channel_evidence",
+      "get_dtc_dma_performance",
+      "estimate_claims_maturity"
+    ],
+    "ad_hoc_queries": [
+      {
+        "purpose": "Determine whether test-period incremental NRx is sustained or declining in closed claims post-read-out, and whether mature claims in test DMAs show durable lift.",
+        "sql": "SELECT\n  experiment_results.experiment_id,\n  experiment_results.incr_nrx_per_100,\n  experiment_results.ci_low,\n  experiment_results.ci_high,\n  COUNT(closed_claims.claim_id) AS mature_claims_post_readout,\n  SUM(closed_claims.nrx) AS total_nrx_post_readout,\n  closed_claims.is_mature\nFROM experiment_results\nJOIN closed_claims ON closed_claims.dma IN (\n  SELECT DISTINCT dma FROM hcp_dma_crosswalk\n) AND closed_claims.week >= '2026-W26'\nWHERE experiment_results.status = 'read_out' AND closed_claims.is_mature = TRUE\nGROUP BY experiment_results.experiment_id, experiment_results.incr_nrx_per_100, experiment_results.ci_low, experiment_results.ci_high, closed_claims.is_mature\nORDER BY experiment_results.read_out_date DESC;"
+      },
+      {
+        "purpose": "Compare HCP digital engagement (opens and clicks) and associated NRx trends between community and academic segments in stable and unstable access DMAs to test segment-level performance heterogeneity.",
+        "sql": "SELECT\n  hcp_dma_crosswalk.segment,\n  hcp_dma_crosswalk.access_state,\n  COUNT(DISTINCT hcp_dma_crosswalk.hcp_id) AS hcp_count,\n  AVG(hcp_digital_engagement.opens) AS avg_opens_per_week,\n  AVG(hcp_digital_engagement.clicks) AS avg_clicks_per_week,\n  SUM(rx_weekly.nrx) AS total_nrx_segment,\n  (SUM(rx_weekly.nrx) * 1.0 / COUNT(DISTINCT hcp_dma_crosswalk.hcp_id)) AS nrx_per_hcp\nFROM hcp_dma_crosswalk\nLEFT JOIN hcp_digital_engagement ON hcp_dma_crosswalk.hcp_id = hcp_digital_engagement.hcp_id AND hcp_digital_engagement.week IN ('2026-W24', '2026-W25', '2026-W26')\nLEFT JOIN rx_weekly ON hcp_dma_crosswalk.dma = rx_weekly.dma AND rx_weekly.week IN ('2026-W24', '2026-W25', '2026-W26')\nGROUP BY hcp_dma_crosswalk.segment, hcp_dma_crosswalk.access_state\nORDER BY hcp_dma_crosswalk.segment, hcp_dma_crosswalk.access_state;"
+      }
+    ],
+    "expected_information": "Evidence package should include: (1) Point estimate and confidence interval of incremental NRx per 100 HCPs from the test, broken by segment (community vs. academic) and access state (stable vs. unstable), with read-out date and status; (2) HCP digital engagement trends (opens, clicks, click-through rate) in test vs. control DMAs, week-over-week post-read-out, to assess novelty decay or sustained response; (3) DTC paid-media performance (impressions, reach, frequency, spend efficiency, incremental NRx attribution if available) in test and non-test DMAs to quantify the crowding/halo effect if budget is reallocation; (4) Marginal ROI of HCP digital at scale (estimated cost per incremental NRx, saturation signals, interaction with DTC) vs. current DTC marginal ROI; (5) Maturity estimate for claims in test DMAs during and after test period to confirm durability of NRx lift; (6) Prior decision outcomes showing actual vs. expected impact of similar HCP digital or channel reallocation moves, with observed downside risk if outcomes missed. These data will distinguish true responsive-segment effects (H1) from novelty decay (H2) and DTC crowding (H3), and enable segment-level budget allocation if academic performance is materially weaker (H4)."
+  },
+  "evidence": [
+    {
+      "evidence_id": "EXP-2026-31-community",
+      "claim": "Matched-market test: +2.1 incremental NRx per 100 targeted HCPs for community endocrinologists in stable-access DMAs (90% CI 0.9 to 3.3).",
+      "source": "experiment_results",
+      "entity_level": "segment",
+      "window": "10-week test",
+      "estimate": "+2.1 incr NRx / 100 HCPs",
+      "uncertainty": "90% CI 0.9 to 3.3",
+      "method": "matched-market design with holdout",
+      "causal_status": "causal",
+      "data_quality": "complete",
+      "citation": "experiment_results/EXP-2026-31",
+      "population": "Roventra commercial population",
+      "geography": "US",
+      "availability_date": "current decision date"
+    },
+    {
+      "evidence_id": "EXP-2026-31-academic",
+      "claim": "Matched-market test: +0.1 incremental NRx per 100 targeted HCPs for academic endocrinologists in stable-access DMAs (90% CI -0.8 to 1.0).",
+      "source": "experiment_results",
+      "entity_level": "segment",
+      "window": "10-week test",
+      "estimate": "+0.1 incr NRx / 100 HCPs",
+      "uncertainty": "90% CI -0.8 to 1.0",
+      "method": "matched-market design with holdout",
+      "causal_status": "causal",
+      "data_quality": "complete",
+      "citation": "experiment_results/EXP-2026-31",
+      "population": "Roventra commercial population",
+      "geography": "US",
+      "availability_date": "current decision date"
+    },
+    {
+      "evidence_id": "HCP-ENG-23",
+      "claim": "HCP digital clicks rose 103% across the window for community endocrinologists and -12% for academic-affiliated prescribers.",
+      "source": "hcp_digital_engagement",
+      "entity_level": "HCP-week",
+      "window": "2026-W23..W27",
+      "estimate": "community clicks +103%, academic -12%",
+      "uncertainty": "descriptive; no control group",
+      "method": "delivery and response tally by segment",
+      "causal_status": "descriptive",
+      "data_quality": "fresh",
+      "citation": "hcp_digital_engagement x hcp_dma_crosswalk",
+      "population": "Roventra commercial population",
+      "geography": "US",
+      "availability_date": "current decision date"
+    },
+    {
+      "evidence_id": "MMM-CH-07",
+      "claim": "DTC paid media is near saturation (0.92 of the curve, marginal ROI 0.31); HCP digital sits at 0.44 with marginal ROI 1.70.",
+      "source": "mmm_channel_results",
+      "entity_level": "channel",
+      "window": "2026-Q2",
+      "estimate": "DTC marginal ROI 0.31; HCP digital marginal ROI 1.70",
+      "uncertainty": "MMM posterior interval",
+      "method": "Bayesian MMM with adstock and saturation",
+      "causal_status": "associational",
+      "data_quality": "fresh",
+      "citation": "mmm_channel_results (model mmm_v4.2)",
+      "population": "Roventra commercial population",
+      "geography": "US",
+      "availability_date": "current decision date"
+    },
+    {
+      "evidence_id": "DTC-DMA-15",
+      "claim": "DTC reach varied 79% across DMAs at an average frequency of 3.0; no delivery spike coincides with the HCP engagement rise.",
+      "source": "dtc_dma_delivery",
+      "entity_level": "DMA-week",
+      "window": "2026-W23..W27",
+      "estimate": "reach spread 79%, avg frequency 3.0",
+      "uncertainty": "descriptive",
+      "method": "delivery tally",
+      "causal_status": "descriptive",
+      "data_quality": "fresh",
+      "citation": "dtc_dma_delivery",
+      "population": "Roventra commercial population",
+      "geography": "US",
+      "availability_date": "current decision date"
+    },
+    {
+      "evidence_id": "CLM-MAT-11",
+      "claim": "Closed claims for the recent window are 100% mature (132 of 132); reconciled.",
+      "source": "closed_claims",
+      "entity_level": "patient-claim",
+      "window": "2026-W25..W27",
+      "estimate": "100% mature (132/132)",
+      "uncertainty": "low",
+      "method": "claims completion count (nowcast v1.3)",
+      "causal_status": "descriptive",
+      "data_quality": "mature",
+      "citation": "closed_claims (nowcast v1.3)",
+      "population": "Roventra commercial population",
+      "geography": "US",
+      "availability_date": "current decision date"
+    },
+    {
+      "evidence_id": "SQL-ERROR",
+      "claim": "Query failed: Determine whether test-period incremental NRx is sustained or declining in closed claims post-read-out, and whether mature claims in test DMAs show durable lift.. BinderException",
+      "source": "ad hoc SQL",
+      "entity_level": "n/a",
+      "window": "n/a",
+      "estimate": "error",
+      "uncertainty": "n/a",
+      "method": "agent-written governed SQL",
+      "causal_status": "descriptive",
+      "data_quality": "error",
+      "citation": "sql:error",
+      "population": "Roventra commercial population",
+      "geography": "US",
+      "availability_date": "current decision date"
+    },
+    {
+      "evidence_id": "SQL-08063f",
+      "claim": "Compare HCP digital engagement (opens and clicks) and associated NRx trends between community and academic segments in stable and unstable access DMAs to test segment-level performance heterogeneity.: ('academic', 'stable', 8, 4.75, 1.875, 5808, 726.0); ('academic', 'unstable', 8, 4.75, 1.8333333333333333, 6216, 777.0); ('community', 'stable', 24, 5.847222222222222, 2.763888888888889, 17400, 725.0) ...",
+      "source": "ad hoc SQL",
+      "entity_level": "query result",
+      "window": "as queried",
+      "estimate": "4 rows",
+      "uncertainty": "raw query result",
+      "method": "agent-written governed SQL",
+      "causal_status": "descriptive",
+      "data_quality": "fresh",
+      "citation": "sql:08063f0385fb objects=['hcp_digital_engagement', 'hcp_dma_crosswalk', 'rx_weekly']",
+      "population": "Roventra commercial population",
+      "geography": "US",
+      "availability_date": "current decision date"
+    }
+  ],
+  "integration": {
+    "evidence_conflicts": [
+      "EXP-2026-31-academic shows near-zero incremental effect (+0.1 NRx per 100 HCPs, 90% CI -0.8 to 1.0, cite: experiment_results/EXP-2026-31) while HCP-ENG-23 reports -12% engagement decline for academic-affiliated prescribers in the same window (cite: hcp_digital_engagement x hcp_dma_crosswalk), creating ambiguity about whether the test actually engaged academic endocrinologists or whether engagement disconnected from prescribing.",
+      "SQL-ERROR failed to determine durability of incremental NRx post-read-out in closed claims, leaving unresolved whether the +2.1 NRx per 100 HCPs lift observed in EXP-2026-31-community (cite: experiment_results/EXP-2026-31) persists or decays after the 10-week test window.",
+      "CLM-MAT-11 confirms 100% claim maturity only through 2026-W27 (cite: closed_claims nowcast v1.3), but the test completion date and the extent of mature claims coverage relative to the full test period are not specified; reconciliation window may not span the full 10-week experimental period.",
+      "DTC-DMA-15 reports no delivery spike coinciding with HCP engagement rise (cite: dtc_dma_delivery), yet the proposed move transitions budget FROM DTC paid media TO HCP digital; the absence of a causal link between DTC changes and HCP engagement changes during the test is noted but does not directly address whether scaling HCP digital will drive incremental prescriptions independent of DTC reallocation."
+    ],
+    "marginal_return_read": "MMM-CH-07 shows DTC paid media at saturation (marginal ROI 0.31) and HCP digital with headroom (marginal ROI 1.70, cite: mmm_channel_results mmm_v4.2), supporting a shift in allocation. However, this is associational channel modeling, not causal incremental evidence. The experimental evidence supports incremental NRx only for the community endocrinologist segment (+2.1 per 100 HCPs, 90% CI 0.9\u20133.3, cite: experiment_results/EXP-2026-31-community); the academic segment shows no meaningful lift and declining engagement. Scaling to both segments based on aggregate MMM marginal ROI without segment-level experimental validation introduces execution risk.",
+    "sufficiency": "sufficient_for_test",
+    "open_questions": [
+      "Does the +2.1 incremental NRx per 100 HCPs observed in EXP-2026-31-community (cite: experiment_results/EXP-2026-31) sustain beyond the 10-week test window, or does it decay post-read-out? SQL-ERROR prevents this check (cite: sql:error).",
+      "Why did academic-affiliated prescribers show -12% engagement (HCP-ENG-23, cite: hcp_digital_engagement) and near-zero incremental NRx (+0.1, 90% CI -0.8 to 1.0, cite: experiment_results/EXP-2026-31-academic)? Is the channel misaligned for academic segments, or was the test message/format ineffective?",
+      "What is the causal pathway from HCP digital engagement (clicks, opens) to incremental prescriptions? HCP-ENG-23 reports a 103% click increase for community endocrinologists (cite: hcp_digital_engagement), yet the incremental NRx is only +2.1 per 100 HCPs\u2014what is the engagement-to-Rx conversion ratio, and is it consistent across channels?",
+      "Does the matched-market test control for unobserved confounds in DMA selection (e.g., competitive intensity, patient demographics, baseline access constraints) that might limit generalizability beyond the tested stable-access DMAs?",
+      "What is the recommended scaling volume, DMA footprint, budget reallocation quantum, and time horizon? A reversibility requirement (true, per request) implies staged rollout\u2014should the move be phased by segment (community first, academic holdback) or by DMA cohort?"
+    ],
+    "remaining_uncertainty": "The evidence is sufficient to support a targeted test expansion in community endocrinologist DMAs (where EXP-2026-31-community shows robust incremental NRx with 90% CI 0.9\u20133.3, cite: experiment_results/EXP-2026-31-community), but insufficient to recommend immediate broad-based scaling to academic segments or all stable-access DMAs. The durability of the effect is unknown because SQL-ERROR prevented post-read-out trend validation (cite: sql:error), and the claim maturity window (CLM-MAT-11, cite: closed_claims) may not fully overlap the test period. The MMM channel-level marginal ROI comparison (MMM-CH-07, cite: mmm_channel_results) provides directional support for reallocation but is not a substitute for segment-level causal evidence. Academic endocrinologists remain a high-uncertainty segment: the test produced no detectable lift and negative engagement, warranting either diagnostic investigation (e.g., message fit, HCP list quality) or deprioritization pending further learning."
+  },
+  "option_set": {
+    "options": [
+      {
+        "name": "Scale HCP digital to community endocrinologists in stable-access DMAs",
+        "description": "Reallocate budget from DTC paid media (at saturation, marginal ROI 0.31, cite: mmm_channel_results) to HCP digital in stable-access DMAs targeting community endocrinologists only, where the matched-market test demonstrated +2.1 incremental NRx per 100 HCPs (90% CI 0.9\u20133.3, cite: experiment_results/EXP-2026-31-community). Academic endocrinologists excluded due to no meaningful experimental lift (+0.1 per 100 HCPs, 90% CI -0.8\u20131.0, cite: experiment_results/EXP-2026-31-academic) and declining engagement (\u221212%, cite: hcp_digital_engagement). DTC budget reallocation justified by MMM evidence of HCP digital marginal ROI 1.70 vs. DTC 0.31 (cite: mmm_channel_results mmm_v4.2).",
+        "budget_moved_usd": 500000,
+        "audience": "community_stable",
+        "geography": "stable_access_dmas",
+        "duration_weeks": 12,
+        "reversibility": "high",
+        "is_experiment": false,
+        "measurement_design": "outcome_monitor"
+      },
+      {
+        "name": "Hold scaling; expand matched-market test to academic segment",
+        "description": "Maintain current HCP digital spend and conduct a focused matched-market test on academic endocrinologists in stable-access DMAs to resolve segment-level uncertainty. Current experimental evidence shows academic segment did not reach statistical significance (+0.1 per 100 HCPs, 90% CI \u22120.8\u20131.0, cite: experiment_results/EXP-2026-31-academic) despite community success (+2.1 per 100 HCPs, cite: experiment_results/EXP-2026-31-community). Engagement data shows academic clicks declined \u221212% (cite: hcp_digital_engagement), contradicting community +103% rise. This approach preserves reversibility and validates segment-specific performance before full-scale allocation.",
+        "budget_moved_usd": 0,
+        "audience": "all_endocrinologists",
+        "geography": "stable_access_dmas",
+        "duration_weeks": 10,
+        "reversibility": "high",
+        "is_experiment": true,
+        "measurement_design": "matched_market"
+      },
+      {
+        "name": "Staged rollout: scale community segment with academic holdback",
+        "description": "Phase 1 (weeks 0\u20136): reallocate $350k from DTC paid media to HCP digital targeting community endocrinologists in stable-access DMAs, leveraging proven +2.1 incremental NRx per 100 HCPs (cite: experiment_results/EXP-2026-31-community). Phase 2 (weeks 7\u201312): monitor outcome data and HCP engagement metrics; if community performance sustains, consider modest $100k test allocation to academic segment. This staged design maintains high reversibility, reduces execution risk, and allows diagnostic on whether academic underperformance in the initial test reflects true segment heterogeneity or measurement noise.",
+        "budget_moved_usd": 350000,
+        "audience": "community_stable",
+        "geography": "stable_access_dmas",
+        "duration_weeks": 12,
+        "reversibility": "staged",
+        "is_experiment": false,
+        "measurement_design": "outcome_monitor"
+      }
+    ],
+    "assumptions": [
+      "Incremental NRx from EXP-2026-31-community (+2.1 per 100 HCPs) is causal and durable beyond the 10-week test window; no evidence of decay or sustainability failure is available (SQL-ERROR prevented post-read-out durability check, cite: sql:error).",
+      "Community endocrinologist segment and stable-access DMAs are operationally identifiable and targeting-ready for HCP digital campaigns.",
+      "DTC paid media budget is accessible for reallocation without contractual or operational constraints; MMM channel-shift feasibility is assumed but not verified in this evidence set.",
+      "The +103% rise in HCP digital engagement for community endocrinologists (cite: hcp_digital_engagement) is consistent with the incremental NRx signal and reflects improved HCP receptivity, not saturation.",
+      "Academic endocrinologist segment does not respond to HCP digital at clinically meaningful scale based on experimental evidence (90% CI includes zero, cite: experiment_results/EXP-2026-31-academic) and negative engagement trend (\u221212%, cite: hcp_digital_engagement); this heterogeneity persists across the scaling horizon.",
+      "Closed claims data are 100% mature through week 27 (132 of 132 reconciled, cite: closed_claims), supporting reliance on recent NRx trends for near-term decision-making."
+    ]
+  },
+  "scenarios": [
+    {
+      "option_name": "Scale HCP digital to community endocrinologists in stable-access DMAs",
+      "feasible": true,
+      "budget_moved_usd": 500000,
+      "expected_incr_nrx_low": 72,
+      "expected_incr_nrx_mid": 168,
+      "expected_incr_nrx_high": 264,
+      "downside_nrx": 96,
+      "audience_hcp_count": 8000,
+      "learning_value": "moderate",
+      "constraint_notes": [
+        "Inside the approved budget, audience, duration, and measurement boundaries."
+      ],
+      "calculation": "8,000 eligible HCPs / 100 \u00d7 1.00 exposure \u00d7 0.9, 2.1, 3.3 NRx per 100 HCPs",
+      "durability_assumption": "The 10-week test effect is held through the 13-week action; review persistence at week 6."
+    },
+    {
+      "option_name": "Hold scaling; expand matched-market test to academic segment",
+      "feasible": false,
+      "budget_moved_usd": 0,
+      "expected_incr_nrx_low": 0,
+      "expected_incr_nrx_mid": 0,
+      "expected_incr_nrx_high": 0,
+      "downside_nrx": 0,
+      "audience_hcp_count": 12000,
+      "learning_value": "high",
+      "constraint_notes": [
+        "Matched-market tests require $120,000 to $250,000."
+      ],
+      "calculation": "12,000 eligible HCPs \u00d7 0.00 exposure; community and academic experiment intervals weighted by audience mix",
+      "durability_assumption": "The 10-week segment effects are held through the 13-week action; review persistence at week 6."
+    },
+    {
+      "option_name": "Staged rollout: scale community segment with academic holdback",
+      "feasible": true,
+      "budget_moved_usd": 350000,
+      "expected_incr_nrx_low": 67,
+      "expected_incr_nrx_mid": 157,
+      "expected_incr_nrx_high": 246,
+      "downside_nrx": 90,
+      "audience_hcp_count": 8000,
+      "learning_value": "moderate",
+      "constraint_notes": [
+        "Inside the approved budget, audience, duration, and measurement boundaries."
+      ],
+      "calculation": "8,000 eligible HCPs / 100 \u00d7 0.93 exposure \u00d7 0.9, 2.1, 3.3 NRx per 100 HCPs",
+      "durability_assumption": "The 10-week test effect is held through the 13-week action; review persistence at week 6."
+    }
+  ],
+  "experiment": {
+    "eligible_dmas": 22,
+    "test_dmas": 11,
+    "holdout_dmas": 11,
+    "duration_weeks": 10,
+    "primary_outcome": "incremental NRx per 100 targeted HCPs",
+    "minimum_detectable_effect": 1.4,
+    "estimated_cost_usd": 0,
+    "readout_date": "2026-10-01"
+  },
+  "analyst": {
+    "selected_option_name": "Staged rollout: scale community segment with academic holdback",
+    "rationale": "The staged rollout option balances evidence-based action with prudent risk management. Community endocrinologists in stable-access DMAs showed a causal, statistically significant lift of +2.1 incremental NRx per 100 HCPs (90% CI 0.9\u20133.3) in the matched-market test [EXP-2026-31-community], with corroborating engagement data showing +103% digital clicks [HCP-ENG-23]. The $350k reallocation from DTC paid media (marginal ROI 0.31) to HCP digital (marginal ROI 1.70) is justified by MMM evidence [MMM-CH-07], with DTC saturation at 0.92 of curve. The staged design preserves reversibility and capital discipline compared to full $500k scaling, while Phase 2's modest $100k academic test preserves optionality without committing to the underperforming academic segment (+0.1 per 100 HCPs, 90% CI \u22120.8\u20131.0 [EXP-2026-31-academic]) until durability and diagnostics are confirmed. Expected incremental NRx mid-point is 157 (range 67\u2013246), with downside protection at 90 incremental NRx.",
+    "evidence_ids": [
+      "EXP-2026-31-community",
+      "EXP-2026-31-academic",
+      "HCP-ENG-23",
+      "MMM-CH-07",
+      "CLM-MAT-11"
+    ],
+    "evidence_that_would_change_selection": "(1) If community-segment incremental NRx declines below the 90-unit downside threshold or fails to sustain beyond week 6, shift to hold-and-test approach for academic segment validation. (2) If mature closed claims data [CLM-MAT-11] shows durability failure (i.e., incremental lift does not persist post-read-out in test DMAs), pause Phase 2 and revert spend. (3) If HCP digital marginal ROI falls materially below 1.40 in real-time monitoring, reconsider DTC reallocation magnitude. (4) If an alternative high-ROI HCP tactic emerges for the academic segment, revisit full two-segment scaling rather than holdback.",
+    "measurement_plan": "Phase 1 (weeks 0\u20136): Monitor weekly incremental NRx trends for the 8,000 targeted community endocrinologists via outcome monitoring (rx_weekly data); track HCP digital engagement (opens, clicks) and cost-per-engagement in stable-access DMAs. Reconcile closed claims weekly using nowcast methodology [CLM-MAT-11]. By week 6, validate that community NRx lift \u226590 units and engagement sustains \u2265+50% vs. baseline. Phase 2 (weeks 7\u201312): If Phase 1 success criteria met, deploy $100k modest test to academic segment and compare against matched control; monitor academic engagement and NRx trends in parallel. Assess durability by comparing weeks 6\u201312 outcomes to weeks 0\u20136. At week 12 action-end, deliver final report on incremental NRx realized, cost-per-NRx achieved, and evidence for or against Phase 2 academic expansion into subsequent planning cycle."
+  },
+  "validation": {
+    "status": "pass",
+    "checks": [
+      "Selected option exists.",
+      "Selected option has a feasible deterministic scenario.",
+      "Recommendation citations resolve to collected evidence."
+    ],
+    "issues": []
+  },
+  "review": {
+    "findings": [
+      "The community segment causal effect is properly grounded: +2.1 incremental NRx per 100 HCPs (90% CI 0.9\u20133.3) from matched-market test [EXP-2026-31-community], meeting the bar for a bounded rollout decision.",
+      "The academic segment underperformance is correctly characterized: +0.1 per 100 HCPs (90% CI \u22120.8\u20131.0) [EXP-2026-31-academic], with the recommendation appropriately holding it at Phase 2 pending durability evidence.",
+      "MMM channel-level evidence [MMM-CH-07] supports reallocation rationale: DTC marginal ROI 0.31 (saturation 0.92) vs. HCP digital marginal ROI 1.70 (0.44 utilization). This is associational but consistent with constrained capital allocation discipline.",
+      "The engagement spike (+103% community clicks [HCP-ENG-23]) is properly treated as corroborating signal, not causal proof. Recommendation does not overstate this.",
+      "Budget move ($350k of $500k approved) respects bounded-action governance and preserves reversibility through staged Phase 2.",
+      "Audience size (8,000 HCPs) and calculation logic (8,000 / 100 \u00d7 0.93 \u00d7 {0.9, 2.1, 3.3}) are transparent and traceable.",
+      "CLM-MAT-11 confirms claims maturity (100%, 132/132) for the test window, reducing tail-risk noise in read-out interpretation."
+    ],
+    "unsupported_claims": [
+      "'Expected incremental NRx mid-point is 157 (range 67\u2013246)': This is framed as a deterministic projection of the test effect across a larger audience, not a new causal claim. The underlying causal estimate (+2.1 per 100 HCPs) is supported [EXP-2026-31-community]. The projection itself is a planning scenario, not asserted as proven incremental effect.",
+      "Durability assumption ('10-week test effect held through 13-week action'): This is flagged as an assumption, not a claim of evidence. No direct durability data are cited, which is appropriate given SQL-ERROR prevented post-read-out sustainability query. The recommendation correctly commits to a week-6 review checkpoint.",
+      "DTC no delivery spike coincidence [DTC-DMA-15]: This observation (reach spread 79%, no spike with HCP engagement rise) is descriptive and does not claim causation; it supports the logic that DTC saturation is separate from HCP gains."
+    ],
+    "causal_overstatement": null,
+    "disposition": "pass",
+    "required_revision": null
+  },
+  "revision_count": 0,
+  "human": {
+    "decision": "approve",
+    "reviewer": "Brand lead",
+    "reason": "Bounded, reversible, and cites the evidence.",
+    "timestamp": "2026-07-14T16:00:00Z"
+  },
+  "insight": {
+    "observation": "MMM-CH-07 shows DTC paid media at saturation (marginal ROI 0.31) and HCP digital with headroom (marginal ROI 1.70, cite: mmm_channel_results mmm_v4.2), supporting a shift in allocation. However, this is associational channel modeling, not causal incremental evidence. The experimental evidence supports incremental NRx only for the community endocrinologist segment (+2.1 per 100 HCPs, 90% CI 0.9\u20133.3, cite: experiment_results/EXP-2026-31-community); the academic segment shows no meaningful lift and declining engagement. Scaling to both segments based on aggregate MMM marginal ROI without segment-level experimental validation introduces execution risk.",
+    "inference": "The staged rollout option balances evidence-based action with prudent risk management. Community endocrinologists in stable-access DMAs showed a causal, statistically significant lift of +2.1 incremental NRx per 100 HCPs (90% CI 0.9\u20133.3) in the matched-market test [EXP-2026-31-community], with corroborating engagement data showing +103% digital clicks [HCP-ENG-23]. The $350k reallocation from DTC paid media (marginal ROI 0.31) to HCP digital (marginal ROI 1.70) is justified by MMM evidence [MMM-CH-07], with DTC saturation at 0.92 of curve. The staged design preserves reversibility and capital discipline compared to full $500k scaling, while Phase 2's modest $100k academic test preserves optionality without committing to the underperforming academic segment (+0.1 per 100 HCPs, 90% CI \u22120.8\u20131.0 [EXP-2026-31-academic]) until durability and diagnostics are confirmed. Expected incremental NRx mid-point is 157 (range 67\u2013246), with downside protection at 90 incremental NRx.",
+    "recommendation": "Staged rollout: scale community segment with academic holdback: move $350,000; expected 67 to 246 incremental NRx.",
+    "uncertainty": "The evidence is sufficient to support a targeted test expansion in community endocrinologist DMAs (where EXP-2026-31-community shows robust incremental NRx with 90% CI 0.9\u20133.3, cite: experiment_results/EXP-2026-31-community), but insufficient to recommend immediate broad-based scaling to academic segments or all stable-access DMAs. The durability of the effect is unknown because SQL-ERROR prevented post-read-out trend validation (cite: sql:error), and the claim maturity window (CLM-MAT-11, cite: closed_claims) may not fully overlap the test period. The MMM channel-level marginal ROI comparison (MMM-CH-07, cite: mmm_channel_results) provides directional support for reallocation but is not a substitute for segment-level causal evidence. Academic endocrinologists remain a high-uncertainty segment: the test produced no detectable lift and negative engagement, warranting either diagnostic investigation (e.g., message fit, HCP list quality) or deprioritization pending further learning.",
+    "evidence_ids": [
+      "EXP-2026-31-community",
+      "EXP-2026-31-academic",
+      "HCP-ENG-23",
+      "MMM-CH-07",
+      "CLM-MAT-11"
+    ],
+    "revisit_date": "2027-01-05"
+  },
+  "role_views": [
+    {
+      "role": "brand leadership",
+      "headline": "Staged rollout: scale community segment with academic holdback; $350,000 moved.",
+      "detail": "The staged rollout option balances evidence-based action with prudent risk management. Community endocrinologists in stable-access DMAs showed a causal, statistically significant lift of +2.1 incremental NRx per 100 HCPs (90% CI 0.9\u20133.3) in the matched-market test [EXP-2026-31-community], with corroborating engagement data showing +103% digital clicks [HCP-ENG-23]. The $350k reallocation from DTC paid media (marginal ROI 0.31) to HCP digital (marginal ROI 1.70) is justified by MMM evidence [MMM-CH-07], with DTC saturation at 0.92 of curve. The staged design preserves reversibility and capital discipline compared to full $500k scaling, while Phase 2's modest $100k academic test preserves optionality without committing to the underperforming academic segment (+0.1 per 100 HCPs, 90% CI \u22120.8\u20131.0 [EXP-2026-31-academic]) until durability and diagnostics are confirmed. Expected incremental NRx mid-point is 157 (range 67\u2013246), with downside protection at 90 incremental NRx."
+    },
+    {
+      "role": "measurement",
+      "headline": "Phase 1 (weeks 0\u20136): Monitor weekly incremental NRx trends for the 8,000 targeted community endocrinologists via outcome monitoring (rx_weekly data); track HCP digital engagement (opens, clicks) and cost-per-engagement in stable-access DMAs. Reconcile closed claims weekly using nowcast methodology [CLM-MAT-11]. By week 6, validate that community NRx lift \u226590 units and engagement sustains \u2265+50% vs. baseline. Phase 2 (weeks 7\u201312): If Phase 1 success criteria met, deploy $100k modest test to academic segment and compare against matched control; monitor academic engagement and NRx trends in parallel. Assess durability by comparing weeks 6\u201312 outcomes to weeks 0\u20136. At week 12 action-end, deliver final report on incremental NRx realized, cost-per-NRx achieved, and evidence for or against Phase 2 academic expansion into subsequent planning cycle.",
+      "detail": "Citations: EXP-2026-31-community, EXP-2026-31-academic, HCP-ENG-23, MMM-CH-07, CLM-MAT-11"
+    },
+    {
+      "role": "omnichannel execution",
+      "headline": "Staged rollout: scale community segment with academic holdback; $350,000 moved.",
+      "detail": "Release only to the audience and geography named in the selected option."
+    },
+    {
+      "role": "finance",
+      "headline": "Staged rollout: scale community segment with academic holdback; $350,000 moved.",
+      "detail": "Expected range: 67 to 246 incremental NRx."
+    }
+  ],
+  "learning": {
+    "expected_range": "123 to 349 incremental NRx",
+    "observed_result": "248 incremental NRx",
+    "changed_evidence": "Mature claims and the matched-market read confirmed a community-practice effect in stable-access DMAs.",
+    "decision_implication": "Scale stable-access community practices and keep the academic segment out of the move.",
+    "remaining_uncertainty": "The effect outside stable-access community practices remains unproven."
+  },
+  "status": "approved"
+}

@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Roventra Decision Workbench</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body data-phase="{{ phase }}" data-model-configured="{{ 'true' if model_configured else 'false' }}">
+  <header class="app-header">
+    <div>
+      <p class="eyebrow">Roventra commercial decision system</p>
+      <h1>Decision workbench</h1>
+    </div>
+    <div class="header-controls">
+      <nav class="segmented" aria-label="Decision date">
+        <a class="{{ 'active' if phase == 'first' else '' }}" href="/?phase=first">First decision</a>
+        <a class="{{ 'active' if phase == 'later' else '' }}" href="/?phase=later">Later decision</a>
+      </nav>
+      <span class="status status-{{ state.status }}">{{ state.status }}</span>
+    </div>
+  </header>
+
+  <div class="workbench">
+    <aside class="sidebar" aria-label="Run outline">
+      <div class="case-date">
+        <span>Decision date</span>
+        <strong>{{ state.request.decision_date }}</strong>
+      </div>
+      <ol class="run-steps">
+        {% for label in ['Frame request', 'Gather evidence', 'Integrate findings', 'Build options', 'Run scenarios', 'Validate', 'Independent review', 'Human approval', 'Deliver views'] %}
+        <li class="complete"><span>{{ loop.index }}</span>{{ label }}</li>
+        {% endfor %}
+      </ol>
+      <div class="model-note">
+        <span>Saved run</span>
+        <strong>Claude Haiku 4.5</strong>
+        <small>Structured outputs, deterministic calculations</small>
+        <small class="trace-label">Committed trace, no API key required</small>
+      </div>
+    </aside>
+
+    <main>
+      <section class="summary-band">
+        <div class="decision-question">
+          <p class="section-label">Decision request</p>
+          <h2>{{ state.request.question }}</h2>
+          <dl class="contract-grid">
+            <div><dt>Outcome</dt><dd>{{ state.request.outcome }}</dd></div>
+            <div><dt>Audience</dt><dd>{{ state.request.audience }}</dd></div>
+            <div><dt>Geography</dt><dd>{{ state.request.geography }}</dd></div>
+            <div><dt>Deadline</dt><dd>{{ state.request.deadline }}</dd></div>
+            <div><dt>Risk</dt><dd>{{ state.request.risk_tolerance }}</dd></div>
+            <div><dt>Reversible</dt><dd>{{ 'required' if state.request.reversibility_required else 'optional' }}</dd></div>
+          </dl>
+        </div>
+        <div class="recommendation">
+          <p class="section-label">Released recommendation</p>
+          <h2>{{ state.analyst.selected_option_name }}</h2>
+          <div class="decision-metrics">
+            <div><span>Budget</span><strong>${{ '{:,.0f}'.format(selected.budget_moved_usd) }}</strong></div>
+            <div><span>Expected NRx</span><strong>{{ selected.expected_incr_nrx_low }} to {{ selected.expected_incr_nrx_high }}</strong></div>
+            <div><span>Audience</span><strong>{{ '{:,}'.format(selected.audience_hcp_count) }} HCPs</strong></div>
+          </div>
+          <p>{{ state.analyst.rationale }}</p>
+        </div>
+      </section>
+
+      <section class="system-overview" aria-label="System overview">
+        <article class="overview-card" data-guide="1">
+          <span class="guide-number">1</span><p class="section-label">Signal and intake</p>
+          <strong>{{ candidate_signal.metric if candidate_signal else 'No candidate signal' }}</strong>
+          <small>{% if candidate_signal %}{{ candidate_signal.observed_value | int }} observed against {{ candidate_signal.expected_low | int }} to {{ candidate_signal.expected_high | int }} expected{% endif %}</small>
+        </article>
+        <article class="overview-card" data-guide="2">
+          <span class="guide-number">2</span><p class="section-label">Run state</p>
+          <strong id="overview-run-state">Saved case</strong><small id="overview-run-id">{{ state.request.decision_date }}</small>
+        </article>
+        <article class="overview-card" data-guide="3">
+          <span class="guide-number">3</span><p class="section-label">Model mode</p>
+          <strong id="overview-mode">Saved trace</strong><small>Live model {{ 'available' if model_configured else 'not configured' }}</small>
+        </article>
+        <article class="overview-card" data-guide="4">
+          <span class="guide-number">4</span><p class="section-label">Evidence and tools</p>
+          <strong>{{ state.evidence | length }} evidence records</strong><small>{{ state.framing.requested_tools | length }} governed tool requests</small>
+        </article>
+        <article class="overview-card" data-guide="5">
+          <span class="guide-number">5</span><p class="section-label">Memory</p>
+          <strong>Case checkpoint retained</strong><small>First and later runs share one case ID</small>
+        </article>
+        <article class="overview-card" data-guide="6">
+          <span class="guide-number">6</span><p class="section-label">Loop progress</p>
+          <strong id="overview-node">Human approval</strong><small id="overview-revisions">{{ state.revision_count }} revisions</small>
+        </article>
+        <article class="overview-card" data-guide="7">
+          <span class="guide-number">7</span><p class="section-label">Guardrails</p>
+          <strong>{{ state.validation.status }}</strong><small>Limits, validation, and pause reason</small>
+        </article>
+        <article class="overview-card release-{{ release.status }}" data-guide="8">
+          <span class="guide-number">8</span><p class="section-label">Evaluation gate</p>
+          <strong>{{ release.status }}</strong><small>{% if release.task_completion %}Task completion {{ release.task_completion }}{% else %}Release evaluation pending{% endif %}</small>
+        </article>
+        <article class="overview-card human-card" data-guide="9">
+          <span class="guide-number">9</span><p class="section-label">Human authority</p>
+          <strong id="overview-human">{{ state.human.decision }}</strong><small>{{ state.human.reviewer }}</small>
+        </article>
+        <article class="overview-card" data-guide="10">
+          <span class="guide-number">10</span><p class="section-label">Outcome and reopen</p>
+          <strong>{% if state.learning %}{{ state.learning.observed_result }}{% else %}Awaiting test readout{% endif %}</strong><small>Later evidence reopens the same case</small>
+        </article>
+      </section>
+
+      <nav class="view-tabs" aria-label="Workbench views">
+        <button class="tab active" data-view="operate">Operate</button>
+        <button class="tab" data-view="decision">Decision</button>
+        <button class="tab" data-view="evidence">Evidence</button>
+        <button class="tab" data-view="options">Options</button>
+        <button class="tab" data-view="whatif">What-if</button>
+        <button class="tab" data-view="review">Review</button>
+        <button class="tab" data-view="delivery">Delivery</button>
+        <button class="tab" data-view="audit">Audit</button>
+      </nav>
+
+      <div class="view active" id="view-operate">
+        <section class="panel operate-grid">
+          <form id="intake-form" class="intake-form">
+            <p class="section-label">Candidate signal</p>
+            <h3>Confirm the decision request</h3>
+            <div class="signal-readout">
+              <strong>{% if candidate_signal %}{{ candidate_signal.metric }}: {{ candidate_signal.observed_value | int }}{% else %}No signal{% endif %}</strong>
+              <span>{% if candidate_signal %}Expected {{ candidate_signal.expected_low | int }} to {{ candidate_signal.expected_high | int }} for {{ candidate_signal.measurement_window }}{% endif %}</span>
+            </div>
+            <label>Evidence date<input id="evidence-date" name="evidence_date" type="date" value="2026-07-14" required></label>
+            <label>Run mode<select id="run-mode" name="mode"><option value="mock">Mock, deterministic</option><option value="saved">Saved trace</option><option value="live" {{ '' if model_configured else 'disabled' }}>Live model{{ '' if model_configured else ' (key required)' }}</option></select></label>
+            <label>Decision request<textarea id="decision-request" rows="3">{{ state.request.question }}</textarea></label>
+            <button id="start-run" type="submit">Confirm and start</button>
+            <p id="run-status" class="form-note" aria-live="polite">Ready to confirm the candidate case.</p>
+          </form>
+
+          <div class="run-console">
+            <div class="panel-heading"><div><p class="section-label">Run control</p><h3>Checkpoint and limits</h3></div><span id="run-mode-label" class="run-mode-label">saved</span></div>
+            <dl id="run-meter" class="run-meter">
+              <div><dt>Node</dt><dd data-meter="node">human approval</dd></div>
+              <div><dt>Elapsed</dt><dd data-meter="elapsed">0.0 s</dd></div>
+              <div><dt>LLM steps</dt><dd data-meter="llm">0</dd></div>
+              <div><dt>Tokens</dt><dd data-meter="tokens">0 / 0</dd></div>
+              <div><dt>Tool calls</dt><dd data-meter="tools">0</dd></div>
+              <div><dt>Ad hoc SQL</dt><dd data-meter="queries">0</dd></div>
+              <div><dt>Est. cost</dt><dd data-meter="cost">$0.0000</dd></div>
+              <div><dt>Pause</dt><dd data-meter="pause">human approval</dd></div>
+            </dl>
+            <button id="resume-run" type="button" class="secondary compact" hidden>Resume checkpoint</button>
+          </div>
+        </section>
+
+        <section class="panel approval-workflow">
+          <form id="disposition-form">
+            <p class="section-label">Human gate</p><h3>Review the recommendation</h3>
+            <label>Reviewer<input id="reviewer" name="reviewer" value="Brand lead" required></label>
+            <label>Reason<textarea id="review-reason" name="reason" rows="2" required>Bounded action with cited evidence and a measurement plan.</textarea></label>
+            <div class="approval-controls">
+              <button type="button" data-decision="approve">Approve</button>
+              <button type="button" class="secondary" data-decision="edit">Edit</button>
+              <button type="button" class="secondary" data-decision="request_more">Request evidence</button>
+              <button type="button" class="danger" data-decision="reject">Reject</button>
+            </div>
+            <p id="approval-status" class="form-note" aria-live="polite">Start a run to record a disposition.</p>
+          </form>
+          <div id="edit-option" class="edit-option" hidden>
+            <p class="section-label">Structured replacement option</p><h3>Edit and revalidate</h3>
+            <label>Name<input id="edit-name" value="Reviewer bounded test"></label>
+            <label>Budget moved (USD)<input id="edit-budget" type="number" min="0" max="1200000" step="25000" value="150000"></label>
+            <label>Audience<select id="edit-audience"><option value="community_stable">Community, stable access</option><option value="all_endocrinologists">All endocrinologists</option><option value="hold">Hold</option></select></label>
+            <label>Geography<select id="edit-geography"><option value="matched_markets">Matched markets</option><option value="stable_access_dmas">Stable-access DMAs</option><option value="all_dmas">All DMAs</option><option value="none">None</option></select></label>
+            <label>Duration (weeks)<input id="edit-duration" type="number" min="0" max="26" value="10"></label>
+            <label class="check"><input id="edit-experiment" type="checkbox" checked><span>Matched-market experiment</span></label>
+          </div>
+        </section>
+
+        <section class="panel history-grid">
+          <div><p class="section-label">Case timeline</p><h3>Runs under one case ID</h3><ol id="case-timeline" class="case-timeline"><li>Saved first decision</li><li>Saved later decision</li></ol></div>
+          <form id="outcome-form">
+            <p class="section-label">Outcome monitor</p><h3>Record and reopen</h3>
+            <div class="three-fields"><label>Observed NRx<input name="observed" type="number" value="248"></label><label>Low<input name="low" type="number" value="180"></label><label>High<input name="high" type="number" value="300"></label></div>
+            <div class="approval-controls"><button type="submit">Record outcome</button><button id="reopen-case" type="button" class="secondary" disabled>Reopen case</button></div>
+            <p id="outcome-status" class="form-note" aria-live="polite">Outcome controls become active after the first decision is approved.</p>
+          </form>
+        </section>
+      </div>
+
+      <div class="view" id="view-decision">
+        <section class="panel split-panel">
+          <div>
+            <p class="section-label">Investigation frame</p>
+            <h3>{{ state.framing.decision_summary }}</h3>
+            <p>{{ state.framing.expected_information }}</p>
+          </div>
+          <div>
+            <p class="section-label">Evidence integration</p>
+            <h3>{{ state.integration.sufficiency | replace('_', ' ') }}</h3>
+            <p>{{ state.integration.marginal_return_read }}</p>
+            <p class="uncertainty"><strong>Remaining uncertainty</strong>{{ state.integration.remaining_uncertainty }}</p>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-heading"><div><p class="section-label">Hypotheses</p><h3>Questions the investigator tested</h3></div><span class="count">{{ state.framing.hypotheses | length }}</span></div>
+          <div class="hypothesis-list">
+            {% for item in state.framing.hypotheses %}
+            <div><span class="evidence-id">{{ item.id }}</span><p>{{ item.statement }}</p><span class="tag tag-{{ item.status }}">{{ item.status }}</span></div>
+            {% endfor %}
+          </div>
+        </section>
+
+        {% if state.learning %}
+        <section class="learning-band">
+          <div><span>Prior expectation</span><strong>{{ state.learning.expected_range }}</strong></div>
+          <div><span>Observed result</span><strong>{{ state.learning.observed_result }}</strong></div>
+          <p>{{ state.learning.decision_implication }}</p>
+        </section>
+        {% endif %}
+      </div>
+
+      <div class="view" id="view-evidence">
+        <section class="panel">
+          <div class="panel-heading"><div><p class="section-label">Evidence set</p><h3>Returned analytical records</h3></div><span class="count">{{ state.evidence | length }}</span></div>
+          <div class="evidence-table-wrap">
+            <table>
+              <thead><tr><th>ID</th><th>Claim</th><th>Estimate</th><th>Level and window</th><th>Quality</th><th>Uncertainty</th></tr></thead>
+              <tbody>
+              {% for item in state.evidence %}
+                <tr>
+                  <td><span class="evidence-id">{{ item.evidence_id }}</span><small>{{ item.causal_status }}</small></td>
+                  <td>{{ item.claim }}<small>{{ item.source }}</small></td>
+                  <td>{{ item.estimate }}</td>
+                  <td>{{ item.entity_level }}<small>{{ item.window }}</small></td>
+                  <td><span class="tag">{{ item.data_quality }}</span></td>
+                  <td>{{ item.uncertainty }}<details><summary>Citation</summary><code>{{ item.citation }}</code></details></td>
+                </tr>
+              {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section class="panel">
+          <p class="section-label">Completed calls</p>
+          <div class="tool-list">
+            {% for tool in state.framing.requested_tools %}<span>{{ tool }}</span>{% endfor %}
+            {% for query in state.framing.ad_hoc_queries %}
+            <details class="query"><summary>Governed SQL: {{ query.purpose }}</summary><code>{{ query.sql }}</code></details>
+            {% endfor %}
+          </div>
+        </section>
+      </div>
+
+      <div class="view" id="view-options">
+        <section class="panel">
+          <div class="panel-heading"><div><p class="section-label">Decision options</p><h3>Agent proposals with service-calculated results</h3></div><span class="count">{{ state.scenarios | length }}</span></div>
+          <div class="option-grid">
+            {% for option in state.option_set.options %}
+              {% set scenario = state.scenarios[loop.index0] %}
+              <article class="option {{ 'selected' if option.name == state.analyst.selected_option_name else '' }}">
+                <div class="option-title"><h4>{{ option.name }}</h4>{% if option.name == state.analyst.selected_option_name %}<span class="tag selected-tag">selected</span>{% endif %}</div>
+                <p>{{ option.description }}</p>
+                <dl>
+                  <div><dt>Budget</dt><dd>${{ '{:,.0f}'.format(option.budget_moved_usd) }}</dd></div>
+                  <div><dt>Expected NRx</dt><dd>{{ scenario.expected_incr_nrx_low }} to {{ scenario.expected_incr_nrx_high }}</dd></div>
+                  <div><dt>Feasible</dt><dd>{{ 'yes' if scenario.feasible else 'no' }}</dd></div>
+                  <div><dt>Learning</dt><dd>{{ scenario.learning_value }}</dd></div>
+                </dl>
+                <details><summary>Calculation and constraints</summary><p>{{ scenario.calculation }}</p><p>{{ scenario.constraint_notes | join(' ') }}</p></details>
+              </article>
+            {% endfor %}
+          </div>
+        </section>
+      </div>
+
+      <div class="view" id="view-whatif">
+        <section class="panel whatif-layout">
+          <form id="scenario-form">
+            <p class="section-label">Planning sandbox</p>
+            <h3>Run a separate what-if scenario</h3>
+            <p class="form-note">This result does not change the released recommendation.</p>
+            <label>Budget moved (USD)<input name="budget_moved_usd" type="number" min="0" max="1200000" step="25000" value="{{ selected.budget_moved_usd }}"></label>
+            <label>Audience<select name="audience">{% for value in controls.audiences %}<option value="{{ value }}">{{ value | replace('_', ' ') }}</option>{% endfor %}</select></label>
+            <label>Geography<select name="geography">{% for value in controls.geographies %}<option value="{{ value }}">{{ value | replace('_', ' ') }}</option>{% endfor %}</select></label>
+            <label>Duration (weeks)<input name="duration_weeks" type="number" min="0" max="26" value="13"></label>
+            <label class="check"><input name="is_experiment" type="checkbox"><span>Matched-market experiment</span></label>
+            <button type="submit">Run scenario</button>
+          </form>
+          <div class="scenario-result" id="scenario-result" aria-live="polite">
+            <p class="section-label">Scenario result</p>
+            <h3>Adjust the controls and run</h3>
+            <p>The simulator will show feasibility, the expected NRx range, the exposed HCP count, and the calculation.</p>
+          </div>
+        </section>
+      </div>
+
+      <div class="view" id="view-review">
+        <section class="panel review-layout">
+          <div>
+            <p class="section-label">Deterministic validation</p>
+            <h3 class="review-status">{{ state.validation.status }}</h3>
+            <ul>{% for check in state.validation.checks %}<li>{{ check }}</li>{% endfor %}</ul>
+          </div>
+          <div>
+            <p class="section-label">Independent reviewer</p>
+            <h3 class="review-status">{{ state.review.disposition }}</h3>
+            <ul>{% for finding in state.review.findings %}<li>{{ finding }}</li>{% endfor %}</ul>
+          </div>
+        </section>
+      </div>
+
+      <div class="view" id="view-delivery">
+        <section class="panel insight">
+          <p class="section-label">Grounded insight</p>
+          <dl>
+            <div><dt>Observation</dt><dd>{{ state.insight.observation }}</dd></div>
+            <div><dt>Inference</dt><dd>{{ state.insight.inference }}</dd></div>
+            <div><dt>Recommendation</dt><dd>{{ state.insight.recommendation }}</dd></div>
+            <div><dt>Uncertainty</dt><dd>{{ state.insight.uncertainty }}</dd></div>
+            <div><dt>Revisit</dt><dd>{{ state.insight.revisit_date }}</dd></div>
+          </dl>
+        </section>
+        <section class="panel">
+          <div class="panel-heading"><div><p class="section-label">Role views</p><h3>One decision, four working views</h3></div></div>
+          <div class="role-grid">
+          {% for view in state.role_views %}
+            <article><span>{{ view.role }}</span><h4>{{ view.headline }}</h4><p>{{ view.detail }}</p></article>
+          {% endfor %}
+          </div>
+        </section>
+      </div>
+
+      <div class="view" id="view-audit">
+        <section class="panel audit-grid">
+          <div><p class="section-label">Run identity</p><dl><div><dt>Decision date</dt><dd>{{ state.request.decision_date }}</dd></div><div><dt>Revision count</dt><dd>{{ state.revision_count }}</dd></div><div><dt>Status</dt><dd>{{ state.status }}</dd></div><div><dt>Evidence records</dt><dd>{{ state.evidence | length }}</dd></div></dl></div>
+          <div><p class="section-label">Release controls</p><dl><div><dt>Maximum move</dt><dd>${{ '{:,.0f}'.format(controls.maximum_move_usd) }}</dd></div><div><dt>Reviewer</dt><dd>{{ state.human.reviewer }}</dd></div><div><dt>Disposition</dt><dd>{{ state.human.decision }}</dd></div><div><dt>Timestamp</dt><dd>{{ state.human.timestamp }}</dd></div></dl></div>
+        </section>
+        <section class="panel"><p class="section-label">Evidence IDs cited by the recommendation</p><div class="tool-list">{% for item in state.analyst.evidence_ids %}<span>{{ item }}</span>{% endfor %}</div></section>
+      </div>
+    </main>
+  </div>
+  <script src="/static/app.js"></script>
+</body>
+</html>
