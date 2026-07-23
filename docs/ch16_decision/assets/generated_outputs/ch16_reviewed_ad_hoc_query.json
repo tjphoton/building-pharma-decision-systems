@@ -1,0 +1,7 @@
+{
+  "query_id": "AQ-2026-0714-REVIEWED-01",
+  "source_trace": "assets/traces/roventra_first_live_claude_haiku_4_5.json",
+  "review_status": "approved_after_sql_review",
+  "purpose": "Summarize observed HCP digital engagement and mature closed NRx by segment and access state without multiplying weekly rows.",
+  "sql": "SELECT e.segment,\n       e.access_state,\n       COUNT(DISTINCT e.hcp_id) AS engaged_hcp_count,\n       SUM(e.engagement_events) AS engagement_events,\n       SUM(COALESCE(c.mature_nrx, 0)) AS mature_nrx\nFROM (\n  SELECT h.hcp_id,\n         h.segment,\n         h.access_state,\n         SUM(d.opens + d.clicks) AS engagement_events\n  FROM hcp_dma_crosswalk AS h\n  JOIN hcp_digital_engagement AS d\n    ON h.hcp_id = d.hcp_id\n  WHERE d.week IN (\n    '2026-W23', '2026-W24', '2026-W25',\n    '2026-W26', '2026-W27'\n  )\n  GROUP BY h.hcp_id, h.segment, h.access_state\n) AS e\nLEFT JOIN (\n  SELECT h.hcp_id,\n         h.segment,\n         h.access_state,\n         SUM(c.nrx) AS mature_nrx\n  FROM hcp_dma_crosswalk AS h\n  JOIN closed_claims AS c\n    ON h.hcp_id = c.hcp_id\n   AND h.dma = c.dma\n  WHERE c.week IN (\n    '2026-W23', '2026-W24', '2026-W25',\n    '2026-W26', '2026-W27'\n  )\n    AND c.is_mature = true\n  GROUP BY h.hcp_id, h.segment, h.access_state\n) AS c\n  ON e.hcp_id = c.hcp_id\n AND e.segment = c.segment\n AND e.access_state = c.access_state\nGROUP BY e.segment, e.access_state\nORDER BY e.segment, e.access_state"
+}

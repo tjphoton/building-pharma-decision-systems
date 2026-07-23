@@ -1,0 +1,26 @@
+# Render Blueprint for the Chapter 16 decision workbench.
+#
+# The saved (no-key) mode renders the committed live traces, so the public
+# demonstration needs no model key. CH16_ALLOW_LIVE stays false because the
+# teaching workbench has no public-user authentication. See
+# docs/ch16_decision/deploy/README.md before changing that setting.
+#
+# Never add ANTHROPIC_API_KEY here. Set it as a Render secret, and only on a
+# private deployment with authentication, rate limits, and spending alerts.
+
+services:
+  - type: web
+    name: roventra-decision-workbench
+    runtime: python
+    plan: free
+    buildCommand: pip install -r ch16_decision/deploy/requirements.txt
+    startCommand: uvicorn ch16_decision.app.app:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    autoDeployTrigger: commit
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.11
+      - key: CH16_MODEL
+        value: claude-haiku-4-5
+      - key: CH16_ALLOW_LIVE
+        value: "false"

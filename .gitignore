@@ -15,6 +15,14 @@ pip-delete-this-directory.txt
 venv/
 ENV/
 
+# Secrets — never commit API keys (Chapter 16 reads ANTHROPIC_API_KEY from here)
+.env
+.env.*
+!.env.example
+
+# Chapter 16 workbench runtime state (case store and LangGraph checkpoints)
+docs/ch16_decision/assets/runtime/
+
 # macOS
 .DS_Store
 *.swp

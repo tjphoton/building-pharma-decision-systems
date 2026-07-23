@@ -1,0 +1,382 @@
+{
+  "request": {
+    "question": "Should we move a quarter of DTC paid media budget into HCP digital to grow incremental NRx?",
+    "requesting_role": "Brand lead",
+    "outcome": "incremental NRx",
+    "audience": "Community and academic endocrinologists",
+    "geography": "US DMAs",
+    "budget_source": "DTC paid media",
+    "budget_destination": "HCP digital",
+    "proposed_move": "Shift about a quarter of quarterly DTC budget into HCP digital",
+    "decision_date": "2026-07-14 (first date, incomplete evidence)",
+    "deadline": "10 business days",
+    "risk_tolerance": "moderate",
+    "reversibility_required": true,
+    "approvers": [
+      "Brand lead",
+      "Commercial finance"
+    ]
+  },
+  "date_phase": "first",
+  "framing": {
+    "decision_summary": "The brand lead proposes reallocating approximately 25% of quarterly DTC paid media budget to HCP digital channels to drive incremental NRx among community and academic endocrinologists in US DMAs. This decision requires reversibility and is framed for July 14, 2026\u2014noted as an incomplete evidence date. The core question is whether HCP digital will generate sufficient incremental prescriptions to justify reduced DTC media spend, given that engagement metrics (clicks, opens) do not prove incremental NRx without controlled evidence. The move trades immediate DTC reach and frequency for targeted HCP influence; success depends on HCP digital's ability to move prescribing behavior in the observed segment mix and access states.",
+    "hypotheses": [
+      {
+        "id": "H1",
+        "statement": "HCP digital drives incremental NRx in the responsive segment (community endocrinologists in stable-access DMAs) via email engagement and digital touchpoints, and the marginal ROI of HCP digital exceeds the marginal ROI of DTC paid media at parity spend levels.",
+        "status": "open"
+      },
+      {
+        "id": "H2",
+        "statement": "Recent engagement spikes in HCP digital (opens, clicks) reflect seasonal or promotional noise unrelated to prescribing intent; incremental NRx attribution will be zero or negative, and DTC paid media's broad reach sustains more incremental scripts than a targeted HCP digital play.",
+        "status": "open"
+      },
+      {
+        "id": "H3",
+        "statement": "HCP digital engagement is high among academic endocrinologists (lower prescribing volume) but low or absent in community endocrinologists (higher prescribing volume); the segment-level ROI mismatch means budget reallocation fails to reach volume drivers.",
+        "status": "open"
+      },
+      {
+        "id": "H4",
+        "statement": "Market events (e.g., competitive launches, formulary changes, clinical guideline shifts) in specific DMAs correlate with both DTC and HCP engagement trends; observed metrics reflect market tailwinds rather than channel efficacy, and the budget move confounds this signal.",
+        "status": "open"
+      }
+    ],
+    "requested_tools": [
+      "get_experiment_evidence",
+      "get_hcp_digital_performance",
+      "get_dtc_dma_performance",
+      "get_mmm_channel_evidence",
+      "get_market_events"
+    ],
+    "ad_hoc_queries": [
+      {
+        "purpose": "Quantify incremental NRx by HCP digital engagement segment (academic vs. community, stable vs. unstable access) over recent weeks to test whether engagement correlates with prescribing and to identify which segment drives volume.",
+        "sql": "SELECT h.segment, h.access_state, COUNT(DISTINCT h.hcp_id) AS hcp_count, SUM(e.opens + e.clicks) AS total_engagement, SUM(c.nrx) AS total_nrx FROM hcp_dma_crosswalk h LEFT JOIN hcp_digital_engagement e ON h.hcp_id = e.hcp_id LEFT JOIN closed_claims c ON h.hcp_id = c.hcp_id AND h.dma = c.dma WHERE e.week IN ('2026-W23', '2026-W24', '2026-W25', '2026-W26', '2026-W27') AND c.week IN ('2026-W23', '2026-W24', '2026-W25', '2026-W26', '2026-W27') AND c.is_mature = true GROUP BY h.segment, h.access_state ORDER BY h.segment, h.access_state;"
+      },
+      {
+        "purpose": "Compare DTC spend-to-NRx efficiency and HCP digital engagement-to-NRx efficiency by DMA over the same period to estimate the marginal value of reallocation; identify DMAs where HCP digital engagement is high but NRx growth is absent (engagement without outcome).",
+        "sql": "SELECT d.dma, SUM(d.spend_usd) AS dtc_spend, SUM(r.nrx) AS nrx_from_dma, CASE WHEN SUM(d.spend_usd) > 0 THEN SUM(r.nrx) / SUM(d.spend_usd) ELSE 0 END AS dtc_nrx_per_dollar, COUNT(DISTINCT e.hcp_id) AS hcp_digital_active, AVG(e.opens + e.clicks) AS avg_hcp_engagement FROM dtc_dma_delivery d LEFT JOIN rx_weekly r ON d.dma = r.dma AND d.week = r.week LEFT JOIN hcp_digital_engagement e ON d.week = e.week LEFT JOIN hcp_dma_crosswalk h ON e.hcp_id = h.hcp_id AND h.dma = d.dma WHERE d.week IN ('2026-W23', '2026-W24', '2026-W25', '2026-W26', '2026-W27') AND r.week IN ('2026-W23', '2026-W24', '2026-W25', '2026-W26', '2026-W27') AND e.week IN ('2026-W23', '2026-W24', '2026-W25', '2026-W26', '2026-W27') GROUP BY d.dma ORDER BY dtc_nrx_per_dollar DESC;"
+      }
+    ],
+    "expected_information": "Evidence from get_experiment_evidence will reveal whether controlled trials have isolated HCP digital's incremental NRx lift and at what confidence interval; this is the primary driver of the decision because engagement metrics alone are associational. Evidence from get_hcp_digital_performance and get_dtc_dma_performance will show current marginal ROI by channel and segment, allowing direct cost-per-incremental-NRx comparison. Evidence from get_mmm_channel_evidence will establish saturation and marginal ROI estimates to determine whether DTC is over-allocated and HCP digital under-allocated. Evidence from get_market_events will contextualize both engagement and NRx trends (e.g., are recent gains driven by formulary wins or competitive exits rather than media efficacy?). The ad hoc queries will isolate segment-level performance and DMA-level efficiency mismatches. If experiments show zero or negative incremental NRx for HCP digital, or if DTC marginal ROI materially exceeds HCP digital ROI, the reallocation is not warranted. If experiments show positive incremental NRx and comparable or superior marginal ROI for HCP digital in community endocrinologist or stable-access DMAs, and if market events do not confound the signal, the reallocation becomes a candidate for approval\u2014conditioned on reversibility mechanisms and a pilot scope to contain downside risk."
+  },
+  "evidence": [
+    {
+      "evidence_id": "EXP-NONE",
+      "claim": "No experiment has read out for HCP digital in this audience as of the decision date. The decisive incremental read is missing.",
+      "source": "experiment_results",
+      "entity_level": "n/a",
+      "window": "n/a",
+      "estimate": "0 available experiments",
+      "uncertainty": "n/a",
+      "method": "registry lookup with read-out gating",
+      "causal_status": "descriptive",
+      "data_quality": "complete",
+      "citation": "experiment_results (none available before decision date)",
+      "population": "Roventra commercial population",
+      "geography": "US",
+      "availability_date": "current decision date"
+    },
+    {
+      "evidence_id": "HCP-ENG-23",
+      "claim": "HCP digital clicks rose 103% across the window for community endocrinologists and -12% for academic-affiliated prescribers.",
+      "source": "hcp_digital_engagement",
+      "entity_level": "HCP-week",
+      "window": "2026-W23..W27",
+      "estimate": "community clicks +103%, academic -12%",
+      "uncertainty": "descriptive; no control group",
+      "method": "delivery and response tally by segment",
+      "causal_status": "descriptive",
+      "data_quality": "fresh",
+      "citation": "hcp_digital_engagement x hcp_dma_crosswalk",
+      "population": "Roventra commercial population",
+      "geography": "US",
+      "availability_date": "current decision date"
+    },
+    {
+      "evidence_id": "DTC-DMA-15",
+      "claim": "DTC reach varied 79% across DMAs at an average frequency of 3.0; no delivery spike coincides with the HCP engagement rise.",
+      "source": "dtc_dma_delivery",
+      "entity_level": "DMA-week",
+      "window": "2026-W23..W27",
+      "estimate": "reach spread 79%, avg frequency 3.0",
+      "uncertainty": "descriptive",
+      "method": "delivery tally",
+      "causal_status": "descriptive",
+      "data_quality": "fresh",
+      "citation": "dtc_dma_delivery",
+      "population": "Roventra commercial population",
+      "geography": "US",
+      "availability_date": "current decision date"
+    },
+    {
+      "evidence_id": "MMM-CH-07",
+      "claim": "DTC paid media is near saturation (0.92 of the curve, marginal ROI 0.31); HCP digital sits at 0.44 with marginal ROI 1.70.",
+      "source": "mmm_channel_results",
+      "entity_level": "channel",
+      "window": "2026-Q2",
+      "estimate": "DTC marginal ROI 0.31; HCP digital marginal ROI 1.70",
+      "uncertainty": "MMM posterior interval",
+      "method": "Bayesian MMM with adstock and saturation",
+      "causal_status": "associational",
+      "data_quality": "fresh",
+      "citation": "mmm_channel_results (model mmm_v4.2)",
+      "population": "Roventra commercial population",
+      "geography": "US",
+      "availability_date": "current decision date"
+    },
+    {
+      "evidence_id": "EVT-DMA-4",
+      "claim": "A formulary access change took effect in DMA_DAL on 2026-06-01; it overlaps the decision window.",
+      "source": "market_events",
+      "entity_level": "DMA",
+      "window": "2026-06-01",
+      "estimate": "1 access-change cluster",
+      "uncertainty": "localized",
+      "method": "event registry",
+      "causal_status": "descriptive",
+      "data_quality": "fresh",
+      "citation": "market_events/EVT-DMA-4",
+      "population": "Roventra commercial population",
+      "geography": "US",
+      "availability_date": "current decision date"
+    },
+    {
+      "evidence_id": "SQL-71615d",
+      "claim": "Quantify incremental NRx by HCP digital engagement segment (academic vs. community, stable vs. unstable access) over recent weeks to test whether engagement correlates with prescribing and to identify which segment drives volume.: ('academic', 'stable', 4, 153, 20); ('academic', 'unstable', 4, 137, 25); ('community', 'stable', 12, 584, 70) ...",
+      "source": "ad hoc SQL",
+      "entity_level": "query result",
+      "window": "as queried",
+      "estimate": "4 rows",
+      "uncertainty": "raw query result",
+      "method": "agent-written governed SQL",
+      "causal_status": "descriptive",
+      "data_quality": "fresh",
+      "citation": "sql:71615de888d5 objects=['closed_claims', 'hcp_digital_engagement', 'hcp_dma_crosswalk']",
+      "population": "Roventra commercial population",
+      "geography": "US",
+      "availability_date": "current decision date"
+    },
+    {
+      "evidence_id": "SQL-95617e",
+      "claim": "Compare DTC spend-to-NRx efficiency and HCP digital engagement-to-NRx efficiency by DMA over the same period to estimate the marginal value of reallocation; identify DMAs where HCP digital engagement is high but NRx growth is absent (engagement without outcome).: ('DMA_DEN', 5461104, 22848, 0.004183769435630598, 48, 7.966666666666667); ('DMA_SEA', 5206848, 19200, 0.003687451602197721, 48, 7.966666666666667); ('DMA_DAL', 5349216, 18672, 0.003490604978374401, 48, 7.966666666666667) ...",
+      "source": "ad hoc SQL",
+      "entity_level": "query result",
+      "window": "as queried",
+      "estimate": "6 rows",
+      "uncertainty": "raw query result",
+      "method": "agent-written governed SQL",
+      "causal_status": "descriptive",
+      "data_quality": "fresh",
+      "citation": "sql:95617e3ce216 objects=['dtc_dma_delivery', 'hcp_digital_engagement', 'hcp_dma_crosswalk', 'rx_weekly']",
+      "population": "Roventra commercial population",
+      "geography": "US",
+      "availability_date": "current decision date"
+    }
+  ],
+  "integration": {
+    "evidence_conflicts": [
+      "HCP-ENG-23 shows divergent directional outcomes by prescriber type: community endocrinologists +103% clicks vs. academic-affiliated -12%, suggesting the engagement lift is segment-specific and not uniform across the target audience",
+      "DTC-DMA-15 reports 79% reach variance across DMAs with no delivery spike coinciding with HCP engagement rise in HCP-ENG-23, indicating potential misalignment between DTC saturation timing and HCP digital activity window",
+      "EVT-DMA-4 formulary access change in DMA_DAL overlaps the decision window (2026-06-01 within W23-W27), confounding attribution of any NRx movement to media mix rather than access",
+      "SQL-71615d and SQL-95617e show only 4 and 6 rows respectively across multiple DMA and access-stability segments, leaving coverage gaps and preventing robust segment-level efficiency comparison"
+    ],
+    "marginal_return_read": "MMM-CH-07 demonstrates DTC paid media at saturation (marginal ROI 0.31 at 0.92 curve position) versus HCP digital with material headroom (marginal ROI 1.70 at 0.44 curve position), supporting directional case for reallocation on efficiency grounds alone. However, this is an associational read (channel-level model output) and does not isolate incremental NRx causation from a HCP digital spending shift.",
+    "sufficiency": "insufficient",
+    "open_questions": [
+      "EXP-NONE confirms no incremental read (RCT or matched-market test) exists for HCP digital in this audience as of decision date 2026-07-14; what is the planned timing and design of the decisive experiment?",
+      "Does the +103% community endocrinologist engagement in HCP-ENG-23 correlate with incremental NRx in that segment, and does the -12% academic-affiliated decline represent true engagement loss or measurement artifact?",
+      "SQL-71615d result shows only 4 weeks of data across access-stability segments; what is the minimum trailing window required to separate signal (incremental NRx from HCP digital) from noise (formulary or seasonal variation)?",
+      "SQL-95617e DMA-level efficiency ratios (spend-to-NRx and engagement-to-NRx) should reveal DMAs where HCP engagement is high but NRx growth is absent; are such 'engagement without outcome' DMAs present, and what explains them?",
+      "How does the formulary access change in DMA_DAL (EVT-DMA-4) affect counterfactual NRx baseline for that DMA, and should it be excluded from the reallocation ROI estimate?"
+    ],
+    "remaining_uncertainty": "The request targets incremental NRx via a major budget reallocation (one quarter of DTC quarterly spend to HCP digital) without an incremental read. MMM-CH-07 marginal ROI spread (1.70 vs. 0.31) is compelling on efficiency but associational, not causal. HCP-ENG-23 shows engagement uplift in community segment only, yet no NRx lift is confirmed in SQL-71615d or SQL-95617e at the outcome level. The formulary access confounder (EVT-DMA-4) and sparse query row counts (4\u20136 rows across complex segment matrices) prevent credible segment-level attribution. Reversibility is required, which supports a smaller learning action (test reallocation in 1\u20132 DMAs with matched controls before broad move), but the current evidence cannot support scaling the quarter-budget shift across the full US DMA footprint."
+  },
+  "option_set": {
+    "options": [
+      {
+        "name": "Staged HCP digital reallocation\u2014matched market test",
+        "description": "Reallocate $187,500 (one-eighth of quarterly DTC budget) from DTC paid media into HCP digital targeting community endocrinologists in stable-access DMAs (matched-market design). This conservative staged approach tests incremental NRx causation in a reversible window before full quarter reallocation. Addresses the decisive gap: EXP-NONE confirms no HCP digital incremental read exists as of decision date. Engagement data (HCP-ENG-23) shows community clicks +103% but SQL-71615e and SQL-95617d reveal engagement-to-NRx linkage is unvalidated and some DMAs show high engagement without proportional NRx growth. MMM-CH-07 supports directional efficiency case (HCP digital marginal ROI 1.70 vs. DTC 0.31) but is associational only. Matched-market measurement isolates true incremental effect before committing full budget.",
+        "budget_moved_usd": 187500,
+        "audience": "community_stable",
+        "geography": "stable_access_dmas",
+        "duration_weeks": 12,
+        "reversibility": "high",
+        "is_experiment": true,
+        "measurement_design": "matched_market"
+      },
+      {
+        "name": "Outcome-monitored HCP digital pilot\u2014all endocrinologists, all DMAs",
+        "description": "Reallocate $375,000 (one-quarter of quarterly DTC budget) into HCP digital across all endocrinologists (community and academic) in all US DMAs with outcome monitoring design. This option acts on MMM-CH-07 efficiency signal (HCP marginal ROI 1.70) with broader reach but adds outcome monitoring rather than matched-market control. Recognizes that community engagement is positive (HCP-ENG-23: +103% clicks) but academic engagement was negative (-12%), creating heterogeneous treatment surface. SQL-71615d shows community_stable segment posted 12 engagements yielding 70 incremental NRx; academic segments posted lower absolute volume. This design accepts higher reversibility burden (staged vs. high) to capture broader incremental NRx opportunity while still measuring against EXP-NONE baseline. Requires clear outcome thresholds to qualify for full-quarter commitment.",
+        "budget_moved_usd": 375000,
+        "audience": "all_endocrinologists",
+        "geography": "all_dmas",
+        "duration_weeks": 13,
+        "reversibility": "staged",
+        "is_experiment": true,
+        "measurement_design": "outcome_monitor"
+      },
+      {
+        "name": "Hold\u2014defer pending incremental HCP digital read",
+        "description": "Do not reallocate DTC budget at this time. Maintain current spend allocation. Rationale: EXP-NONE is decisive\u2014no incremental NRx read from HCP digital investment exists in the evidence set as of 2026-07-14. HCP-ENG-23 documents engagement lift (+103% community, -12% academic) but engagement is associational to prescribing (SQL-71615e and SQL-95617d show engagement-to-NRx correlation is incomplete; engagement exists without proportional NRx in several DMAs). MMM-CH-07 marginal ROI comparison (1.70 vs. 0.31) is channel-level model output, not a causal incremental test. EVT-DMA-4 formulary access change in DMA_DAL overlaps the decision window, introducing confounding. Reallocating a quarter of budget without incremental validation risks budget displacement on engagement signal alone. Recommend commissioning a small matched-market HCP digital test (Option 1) or outcome monitor (Option 2) first to resolve the incremental NRx question before full reallocation.",
+        "budget_moved_usd": 0,
+        "audience": "hold",
+        "geography": "none",
+        "duration_weeks": 0,
+        "reversibility": "high",
+        "is_experiment": false,
+        "measurement_design": "none"
+      }
+    ],
+    "assumptions": [
+      "MMM-CH-07 marginal ROI estimates (DTC 0.31, HCP digital 1.70) reflect associational channel-level model output and do not isolate incremental causation from a spend shift; reallocation outcomes may differ.",
+      "HCP-ENG-23 engagement lift (community +103%) is treated as correlational, not proof of incremental NRx, until an incremental experiment reads out (EXP-NONE baseline).",
+      "SQL-71615d and SQL-95617e show engagement-to-NRx variation by segment and DMA; some high-engagement cells lack proportional NRx growth, indicating engagement signal may not translate uniformly to prescribing behavior.",
+      "EVT-DMA-4 formulary access change in DMA_DAL during the decision window may confound attribution of any NRx movement in that DMA.",
+      "Reversibility requirement implies the reallocation must be executable within a 12\u201313 week window and fully reversible (Option 1) or staged (Option 2) if incremental results disappoint.",
+      "Community endocrinologists are the primary positive engagement segment (HCP-ENG-23); academic-affiliated prescribers showed negative engagement (-12%), suggesting audience heterogeneity.",
+      "Options 1 and 2 are designed as experiments; Option 3 defers pending validated incremental evidence."
+    ]
+  },
+  "scenarios": [
+    {
+      "option_name": "Staged HCP digital reallocation\u2014matched market test",
+      "feasible": true,
+      "budget_moved_usd": 187500,
+      "expected_incr_nrx_low": 123,
+      "expected_incr_nrx_mid": 236,
+      "expected_incr_nrx_high": 349,
+      "downside_nrx": 113,
+      "learning_value": "high",
+      "constraint_notes": [
+        "Inside the approved budget, audience, duration, and measurement boundaries."
+      ],
+      "calculation": "saturating_response(ceiling=400, scale=210000, uncertainty=0.48)"
+    },
+    {
+      "option_name": "Outcome-monitored HCP digital pilot\u2014all endocrinologists, all DMAs",
+      "feasible": false,
+      "budget_moved_usd": 375000,
+      "expected_incr_nrx_low": 73,
+      "expected_incr_nrx_mid": 228,
+      "expected_incr_nrx_high": 383,
+      "downside_nrx": 155,
+      "learning_value": "high",
+      "constraint_notes": [
+        "Matched-market tests require $120,000 to $250,000.",
+        "An experimental option requires a matched-market design."
+      ],
+      "calculation": "saturating_response(ceiling=260, scale=180000, uncertainty=0.68)"
+    },
+    {
+      "option_name": "Hold\u2014defer pending incremental HCP digital read",
+      "feasible": true,
+      "budget_moved_usd": 0,
+      "expected_incr_nrx_low": 0,
+      "expected_incr_nrx_mid": 0,
+      "expected_incr_nrx_high": 0,
+      "downside_nrx": 0,
+      "learning_value": "none",
+      "constraint_notes": [
+        "Inside the approved budget, audience, duration, and measurement boundaries."
+      ],
+      "calculation": "saturating_response(ceiling=0, scale=1, uncertainty=0.00)"
+    }
+  ],
+  "experiment": {
+    "eligible_dmas": 22,
+    "test_dmas": 11,
+    "holdout_dmas": 11,
+    "duration_weeks": 12,
+    "primary_outcome": "incremental NRx per 100 targeted HCPs",
+    "minimum_detectable_effect": 1.4,
+    "estimated_cost_usd": 187500,
+    "readout_date": "2026-10-01"
+  },
+  "analyst": {
+    "selected_option_name": "Staged HCP digital reallocation\u2014matched market test",
+    "rationale": "The decisive evidence gap is EXP-NONE: no incremental NRx read from HCP digital exists as of the decision date. HCP-ENG-23 documents engagement lift (+103% community clicks) but engagement is associational only; SQL-71615d and SQL-95617e reveal incomplete engagement-to-NRx correlation with some DMAs showing high engagement without proportional NRx growth. MMM-CH-07 shows HCP digital marginal ROI of 1.70 versus DTC 0.31, but this is channel-level model output, not causal validation. EVT-DMA-4 (formulary access change in DMA_DAL) overlaps the decision window and introduces confounding risk for broader reallocation. The staged matched-market test is the only feasible experimental option: it is budget-constrained at $187,500 (within approved bounds), targets the highest-engagement segment (community endocrinologists in stable-access DMAs), delivers expected incremental NRx of 236 (mid-point, range 123\u2013349), and maintains high reversibility. The matched-market design isolates true incremental causation before committing larger budget, directly addressing the gap documented in EXP-NONE.",
+    "evidence_ids": [
+      "EXP-NONE",
+      "HCP-ENG-23",
+      "SQL-71615d",
+      "SQL-95617e",
+      "MMM-CH-07",
+      "EVT-DMA-4"
+    ],
+    "evidence_that_would_change_selection": "(1) A pre-test incremental NRx read from a prior HCP digital campaign showing causally validated ROI would remove EXP-NONE constraint and support full quarterly reallocation. (2) If SQL-71615d or SQL-95617e revealed that engagement-to-NRx correlation is strong and uniform across all segments and DMAs (not just community_stable), the outcome-monitor option would become feasible. (3) If EVT-DMA-4 formulary access change is confirmed to be unrelated to the HCP digital engagement window or if stable-access DMAs can be cleanly isolated from access volatility, confidence in a larger pilot would increase. (4) If the staged test delivers NRx below the downside threshold (113) or shows zero engagement-to-NRx linkage, hold would be reaffirmed.",
+    "measurement_plan": "Matched-market design over 12 weeks in stable-access DMAs: (1) Test market: reallocate $187,500 from DTC to HCP digital targeting community endocrinologists; control market: maintain current DTC allocation in matched community endocrinologist DMAs with similar baseline engagement and NRx. (2) Primary outcome: weekly incremental NRx in test vs. control, stratified by HCP digital engagement segment (SQL-71615d framework). (3) Secondary outcomes: DTC reach and frequency in control markets to confirm no unintended DTC decay; HCP digital engagement lift in test market; engagement-to-NRx conversion rate. (4) Threshold logic: if test incremental NRx reaches \u2265150 vs. control within 8 weeks with p<0.10, recommend full quarterly reallocation; if <113, recommend hold. (5) Weekly monitoring of confounders (formulary changes, competitor activity, seasonal factors) via market events log. (6) Data sources: closed_claims, hcp_digital_engagement, hcp_dma_crosswalk, dtc_dma_delivery, rx_weekly."
+  },
+  "validation": {
+    "status": "pass",
+    "checks": [
+      "Selected option exists.",
+      "Selected option has a feasible deterministic scenario.",
+      "Recommendation citations resolve to collected evidence."
+    ],
+    "issues": []
+  },
+  "review": {
+    "findings": [
+      "EXP-NONE correctly identifies the decisive evidence gap: no incremental NRx read exists for HCP digital in this audience before the decision date [EXP-NONE]",
+      "HCP-ENG-23 documents engagement lift (+103% community clicks) but explicitly treats it as associational, not causal [HCP-ENG-23]",
+      "SQL-71615d and SQL-95617e reveal incomplete engagement-to-NRx correlation; some DMAs show high engagement without proportional NRx growth, supporting the rationale that engagement alone does not prove incremental prescribing [SQL-71615d, SQL-95617e]",
+      "EVT-DMA-4 (formulary access change in DMA_DAL on 2026-06-01) overlaps the decision window and is correctly flagged as a confounding risk [EVT-DMA-4]",
+      "MMM-CH-07 marginal ROI comparison (HCP digital 1.70 vs. DTC 0.31) is channel-level model output and is not claimed as causal proof; the rationale correctly frames this as associational [MMM-CH-07]",
+      "The staged matched-market test design is structured to isolate true incremental causation and addresses the primary evidence gap by converting engagement to an experimentally validated measure",
+      "Budget ($187,500) is stated to be within approved bounds and the recommendation includes reversibility language",
+      "The NRx range (123\u2013349, mid-point 236) is presented as a 'scenario' planning projection derived from a deterministic saturating response function, not as a causal estimate; this is consistent with the instruction that scenario ranges are planning projections pending experimental readout"
+    ],
+    "unsupported_claims": [],
+    "causal_overstatement": null,
+    "disposition": "pass",
+    "required_revision": null
+  },
+  "revision_count": 0,
+  "human": {
+    "decision": "approve",
+    "reviewer": "Brand lead",
+    "reason": "Bounded, reversible, and cites the evidence.",
+    "timestamp": "2026-07-14T16:00:00Z"
+  },
+  "insight": {
+    "observation": "MMM-CH-07 demonstrates DTC paid media at saturation (marginal ROI 0.31 at 0.92 curve position) versus HCP digital with material headroom (marginal ROI 1.70 at 0.44 curve position), supporting directional case for reallocation on efficiency grounds alone. However, this is an associational read (channel-level model output) and does not isolate incremental NRx causation from a HCP digital spending shift.",
+    "inference": "The decisive evidence gap is EXP-NONE: no incremental NRx read from HCP digital exists as of the decision date. HCP-ENG-23 documents engagement lift (+103% community clicks) but engagement is associational only; SQL-71615d and SQL-95617e reveal incomplete engagement-to-NRx correlation with some DMAs showing high engagement without proportional NRx growth. MMM-CH-07 shows HCP digital marginal ROI of 1.70 versus DTC 0.31, but this is channel-level model output, not causal validation. EVT-DMA-4 (formulary access change in DMA_DAL) overlaps the decision window and introduces confounding risk for broader reallocation. The staged matched-market test is the only feasible experimental option: it is budget-constrained at $187,500 (within approved bounds), targets the highest-engagement segment (community endocrinologists in stable-access DMAs), delivers expected incremental NRx of 236 (mid-point, range 123\u2013349), and maintains high reversibility. The matched-market design isolates true incremental causation before committing larger budget, directly addressing the gap documented in EXP-NONE.",
+    "recommendation": "Staged HCP digital reallocation\u2014matched market test: move $187,500; expected 123 to 349 incremental NRx.",
+    "uncertainty": "The request targets incremental NRx via a major budget reallocation (one quarter of DTC quarterly spend to HCP digital) without an incremental read. MMM-CH-07 marginal ROI spread (1.70 vs. 0.31) is compelling on efficiency but associational, not causal. HCP-ENG-23 shows engagement uplift in community segment only, yet no NRx lift is confirmed in SQL-71615d or SQL-95617e at the outcome level. The formulary access confounder (EVT-DMA-4) and sparse query row counts (4\u20136 rows across complex segment matrices) prevent credible segment-level attribution. Reversibility is required, which supports a smaller learning action (test reallocation in 1\u20132 DMAs with matched controls before broad move), but the current evidence cannot support scaling the quarter-budget shift across the full US DMA footprint.",
+    "evidence_ids": [
+      "EXP-NONE",
+      "HCP-ENG-23",
+      "SQL-71615d",
+      "SQL-95617e",
+      "MMM-CH-07",
+      "EVT-DMA-4"
+    ],
+    "revisit_date": "2026-10-06"
+  },
+  "role_views": [
+    {
+      "role": "brand leadership",
+      "headline": "Staged HCP digital reallocation\u2014matched market test; $187,500 moved.",
+      "detail": "The decisive evidence gap is EXP-NONE: no incremental NRx read from HCP digital exists as of the decision date. HCP-ENG-23 documents engagement lift (+103% community clicks) but engagement is associational only; SQL-71615d and SQL-95617e reveal incomplete engagement-to-NRx correlation with some DMAs showing high engagement without proportional NRx growth. MMM-CH-07 shows HCP digital marginal ROI of 1.70 versus DTC 0.31, but this is channel-level model output, not causal validation. EVT-DMA-4 (formulary access change in DMA_DAL) overlaps the decision window and introduces confounding risk for broader reallocation. The staged matched-market test is the only feasible experimental option: it is budget-constrained at $187,500 (within approved bounds), targets the highest-engagement segment (community endocrinologists in stable-access DMAs), delivers expected incremental NRx of 236 (mid-point, range 123\u2013349), and maintains high reversibility. The matched-market design isolates true incremental causation before committing larger budget, directly addressing the gap documented in EXP-NONE."
+    },
+    {
+      "role": "measurement",
+      "headline": "Matched-market design over 12 weeks in stable-access DMAs: (1) Test market: reallocate $187,500 from DTC to HCP digital targeting community endocrinologists; control market: maintain current DTC allocation in matched community endocrinologist DMAs with similar baseline engagement and NRx. (2) Primary outcome: weekly incremental NRx in test vs. control, stratified by HCP digital engagement segment (SQL-71615d framework). (3) Secondary outcomes: DTC reach and frequency in control markets to confirm no unintended DTC decay; HCP digital engagement lift in test market; engagement-to-NRx conversion rate. (4) Threshold logic: if test incremental NRx reaches \u2265150 vs. control within 8 weeks with p<0.10, recommend full quarterly reallocation; if <113, recommend hold. (5) Weekly monitoring of confounders (formulary changes, competitor activity, seasonal factors) via market events log. (6) Data sources: closed_claims, hcp_digital_engagement, hcp_dma_crosswalk, dtc_dma_delivery, rx_weekly.",
+      "detail": "Citations: EXP-NONE, HCP-ENG-23, SQL-71615d, SQL-95617e, MMM-CH-07, EVT-DMA-4"
+    },
+    {
+      "role": "omnichannel execution",
+      "headline": "Staged HCP digital reallocation\u2014matched market test; $187,500 moved.",
+      "detail": "Release only to the audience and geography named in the selected option."
+    },
+    {
+      "role": "finance",
+      "headline": "Staged HCP digital reallocation\u2014matched market test; $187,500 moved.",
+      "detail": "Expected range: 123 to 349 incremental NRx."
+    }
+  ],
+  "learning": null,
+  "status": "approved"
+}
